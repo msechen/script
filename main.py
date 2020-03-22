@@ -3,25 +3,28 @@ from wxpy import *
 from time import sleep
 import random
 from jobs import *
-from service import user_service
+# from service import user_service
 from common import web_spider
 from auto_reply import reminder
 
-# 初始化机器人，扫码登陆
-bot = Bot(cache_path=True, qr_path="./qrcode.jpg", login_callback="login_succ", logout_callback="logout_succ")
-# bot = Bot(cache_path=True, console_qr=2, login_callback="login_succ", logout_callback="logout_succ")
-# 启用 puid 属性，并指定 puid 所需的映射数据保存/载入路径
-bot.enable_puid('wxpy_puid.pkl')
-
-user_kolly = ensure_one(bot.friends().search('kolly'))
-
 
 def login_succ():
+    print("login succ")
     user_kolly.send("login succ！")
 
 
 def logout_succ():
+    print("logout succ")
     user_kolly.send("logout succ！")
+
+
+# 初始化机器人，扫码登陆
+# bot = Bot(cache_path=True, qr_path="./qrcode.jpg", login_callback="login_succ", logout_callback="logout_succ")
+bot = Bot(cache_path=True, console_qr=2, login_callback="login_succ", logout_callback="logout_succ")
+# 启用 puid 属性，并指定 puid 所需的映射数据保存/载入路径
+bot.enable_puid('wxpy_puid.pkl')
+
+user_kolly = ensure_one(bot.friends().search('kolly'))
 
 
 # 注册好友请求类消息
@@ -39,8 +42,8 @@ def auto_accept_friends(msg):
                     '你可以输入「help」查看小糖的使用指南噢~')
     user_kolly.send("小糖增加一位新的好友：" + new_friend.nick_name)
     # 数据库增加新用户
-    user_service.addNewUser(new_friend.puid, new_friend.nick_name, new_friend.get_avatar(),
-                            new_friend.sex, new_friend.city)
+    # user_service.addNewUser(new_friend.puid, new_friend.nick_name, new_friend.get_avatar(),
+    #                         new_friend.sex, new_friend.city)
 
 
 # 打印所有收到的消息
@@ -68,6 +71,8 @@ def auto_reply(msg):
     sleep(random.randint(1, 3))
     if '天气' == msg.text:
         return web_spider.get_weather_today()
+    if '股票' == msg.text:
+        return web_spider.get_szzs_today()
     if '篮球' == msg.text:
         return "https://sports.qq.com/kbsweb/kbsshare/gamelist.htm#nav-nba"
     if '热榜' == msg.text:
@@ -104,8 +109,8 @@ user_kolly.send("自动回复已启动！")
 init_scheduler(bot)
 
 # 进入 Python 命令行、让程序保持运行
-embed()
-# bot.join()
+# embed()
+bot.join()
 
 ############################################################################################
 # bot.friends()

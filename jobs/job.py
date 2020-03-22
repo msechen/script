@@ -21,11 +21,14 @@ def init_scheduler(bot_var):
     # 后台非阻塞定时任务
     scheduler = BackgroundScheduler()
     # 调试
-    # scheduler.add_job(debug, 'interval', seconds=30) #立刻执行
+    # scheduler.add_job(debug, 'interval', seconds=30)  # 间隔执行
     # 早上发送天气预报
-    scheduler.add_job(send_weather_info, 'cron', day_of_week='mon-sun', hour=6, minute=0)  # corn表达式
-    scheduler.add_job(send_chicken_soup, 'cron', day_of_week='mon-sun', hour=6, minute=1)  # corn表达式
-    scheduler.add_job(send_goodnight, 'cron', day_of_week='mon-sun', hour=22, minute=30)  # corn表达式
+    scheduler.add_job(send_chicken_soup, 'cron', day_of_week='mon-sun', hour=7, minute=0)  # corn表达式
+    scheduler.add_job(send_weather_info, 'cron', day_of_week='mon-sun', hour=8, minute=0)  # corn表达式
+    scheduler.add_job(send_stock_info, 'cron', day_of_week='mon-sun', hour=9, minute=0)  # corn表达式
+    scheduler.add_job(send_stock_info, 'cron', day_of_week='mon-sun', hour=13, minute=0)  # corn表达式
+    scheduler.add_job(send_stock_info, 'cron', day_of_week='mon-sun', hour=19, minute=0)  # corn表达式
+    scheduler.add_job(send_goodnight, 'cron', day_of_week='mon-sun', hour=22, minute=0)  # corn表达式
     scheduler.start()
 
 
@@ -33,6 +36,11 @@ def init_scheduler(bot_var):
 def send_weather_info():
     info = '美好的一天又开始了，小糖温馨提醒你：\n' + spider.get_weather_today()
     user_kolly.send(info)
+
+
+# 发送天气信息
+def send_stock_info():
+    user_kolly.send(spider.get_szzs_today())
 
 
 # 发送鸡汤
