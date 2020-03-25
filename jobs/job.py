@@ -32,7 +32,7 @@ def init_scheduler(bot_var):
     # 晚安，每天 22 点
     scheduler.add_job(send_goodnight, 'cron', day_of_week='mon-sun', hour=22, minute=0)
     # 阮一峰开发手册，每天 9 点
-    scheduler.add_job(send_ryf_blob(), 'cron', day_of_week='mon-sun', hour=9, minute=0)
+    scheduler.add_job(send_ryf_blob, 'cron', day_of_week='mon-sun', hour=9, minute=0)
     # 阮一峰周刊，每周末 14 点
     scheduler.add_job(send_ryf_weekly, 'cron', day_of_week='sat-sun', hour=14, minute=0)
     scheduler.start()
