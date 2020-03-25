@@ -1,7 +1,8 @@
 # 导入模块
-from bs4 import BeautifulSoup
-import requests
 import json
+
+import requests
+from bs4 import BeautifulSoup
 
 
 # 查询深圳今天的天气
@@ -26,6 +27,10 @@ def get_weather_today():
 # 查询今天上证指数
 def get_szzs_today():
     response = requests.get('http://stockpage.10jqka.com.cn/1A0001/quote/header/')
+    if response.text == '':
+        print("request http://stockpage.10jqka.com.cn/1A0001/quote/header response empty")
+        return "request http://stockpage.10jqka.com.cn/1A0001/quote/header response empty"
+
     json_data = json.loads(response.text)
     code = json_data.get("errorcode")
     msg = json_data.get("errormsg")
@@ -34,7 +39,7 @@ def get_szzs_today():
         return "request http://stockpage.10jqka.com.cn/1A0001/quote/header error,msg:" + msg
     else:
         yesterday = json_data.get("data").get("1A0001").get("6")
-        print("昨收："+yesterday)
+        print("昨收：" + yesterday)
         today = json_data.get("data").get("1A0001").get("7")
         print("今开："+today)
         current = json_data.get("data").get("1A0001").get("10")
@@ -56,6 +61,6 @@ def get_ryf_weekly():
 
 
 if __name__ == "__main__":
-    # get_weather_today()
-    # get_szzs_today()
+    get_weather_today()
+    get_szzs_today()
     get_ryf_weekly()

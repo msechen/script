@@ -1,11 +1,13 @@
 # 导入模块
-from wxpy import *
-from time import sleep
 import random
-from jobs import *
+from time import sleep
+
+from wxpy import *
+
+from auto_reply import reminder
 # from service import user_service
 from common import web_spider
-from auto_reply import reminder
+from jobs import *
 
 
 def login_succ():
@@ -46,12 +48,6 @@ def auto_accept_friends(msg):
     #                         new_friend.sex, new_friend.city)
 
 
-# 打印所有收到的消息
-@bot.register()
-def print_messages(msg):
-    print('收到消息：' + msg)
-
-
 # 转发所有收到的好友消息或者群聊@消息给kolly
 @bot.register(chats=[User, Group])
 def forward_to_kolly(msg):
@@ -67,6 +63,7 @@ def forward_to_kolly(msg):
 # 自动回复
 @bot.register(chats=User)
 def auto_reply(msg):
+    print('收到消息：' + msg)
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 3))
     if '天气' == msg.text:
