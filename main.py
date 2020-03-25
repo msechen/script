@@ -48,6 +48,12 @@ def auto_accept_friends(msg):
     #                         new_friend.sex, new_friend.city)
 
 
+# 打印所有收到的消息
+@bot.register()
+def print_messages(msg):
+    print('收到消息：' + msg.text)
+
+
 # 转发所有收到的好友消息或者群聊@消息给kolly
 @bot.register(chats=[User, Group])
 def forward_to_kolly(msg):
@@ -57,13 +63,14 @@ def forward_to_kolly(msg):
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
     else:
-        msg.forward(user_kolly, prefix=msg.sender.name + '发送内容:')
+        print('收到群聊消息：' + msg.text)
+        msg.forward(user_kolly, prefix='「' + msg.sender.name + '」发送内容:')
 
 
 # 自动回复
 @bot.register(chats=User)
 def auto_reply(msg):
-    print('收到消息：' + msg)
+    print('收到好友消息：' + msg.text)
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 3))
     if '天气' == msg.text:
