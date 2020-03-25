@@ -23,7 +23,7 @@ def init_scheduler(bot_var):
     # 调试
     # scheduler.add_job(debug, 'interval', seconds=30)  # 间隔执行
     # 鸡汤，每天 8 点
-    scheduler.add_job(send_chicken_soup, 'cron', day_of_week='mon-sun', hour=8, minute=0)
+    scheduler.add_job(send_chicken_soup, 'cron', day_of_week='mon-sun', hour=7, minute=0)
     # 天气预报，每天 8 点
     scheduler.add_job(send_weather_info, 'cron', day_of_week='mon-sun', hour=8, minute=0)
     # 股票信息，每天 12 点和 20 点
@@ -31,6 +31,8 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_stock_info, 'cron', day_of_week='mon-sun', hour=20, minute=0)
     # 晚安，每天 22 点
     scheduler.add_job(send_goodnight, 'cron', day_of_week='mon-sun', hour=22, minute=0)
+    # 阮一峰开发手册，每天 9 点
+    scheduler.add_job(send_ryf_blob(), 'cron', day_of_week='mon-sun', hour=9, minute=0)
     # 阮一峰周刊，每周末 14 点
     scheduler.add_job(send_ryf_weekly, 'cron', day_of_week='sat-sun', hour=14, minute=0)
     scheduler.start()
@@ -50,6 +52,11 @@ def send_stock_info():
 # 发送阮一峰周刊
 def send_ryf_weekly():
     user_kolly.send(spider.get_ryf_weekly())
+
+
+# 发送阮一峰博客
+def send_ryf_blob():
+    user_kolly.send("阮一峰开发手册 http://www.ruanyifeng.com/blog/developer/, 每天看一篇，提升自己")
 
 
 # 发送鸡汤
