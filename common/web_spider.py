@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
+
 # 查询深圳今天的天气
 def get_weather_today():
     html = requests.get('http://tianqi.eastday.com/shenzhen/59493.html').content
@@ -17,7 +18,7 @@ def get_weather_today():
     one_went = today.find(id="one_went").get_text()
     one_ziwaixian = today.find(id="one_ziwaixian").get_text()
 
-    print(one_date, one_week, one_nongli, one_tianqi, one_daynight + '℃', one_went, "紫外线:" + one_ziwaixian)
+    print(one_date, one_week, one_tianqi, one_daynight + '℃', one_went, "紫外线:" + one_ziwaixian)
     return '今天是' + one_date + '(' + one_week + ')' + '\n今天的天气是：' + one_tianqi + '(' + \
            one_daynight + '℃) ' + one_went + ' 紫外线:' + one_ziwaixian
 
@@ -42,6 +43,19 @@ def get_szzs_today():
         return '昨收：' + yesterday + '\n今开：' + today + '\n当前：'+str(current)+' 涨跌：'+str(round(float(change),2))+'%'
 
 
+# 阮一峰周刊
+def get_ryf_weekly():
+    html = requests.get('http://www.ruanyifeng.com/blog/weekly/').content
+    soup = BeautifulSoup(html, 'lxml', from_encoding='utf-8')
+    item = soup.find('div', class_='module-content').find('li', class_='module-list-item').find('a')
+    text = item.get_text()
+    href = item.get('href')
+    # print(item)
+    print(text,href)
+    return '阮一峰'+text+' '+href
+
+
 if __name__ == "__main__":
-    get_szzs_today()
     # get_weather_today()
+    # get_szzs_today()
+    get_ryf_weekly()

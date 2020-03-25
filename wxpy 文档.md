@@ -39,3 +39,5 @@ print(my_friend.puid)
 
 # 聊天对象 
 
+# BeautifulSoup 使用
+https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0

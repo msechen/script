@@ -73,6 +73,8 @@ def auto_reply(msg):
         return web_spider.get_weather_today()
     if '股票' == msg.text:
         return web_spider.get_szzs_today()
+    if '周刊' == msg.text:
+        return web_spider.get_ryf_weekly()
     if '篮球' == msg.text:
         return "https://sports.qq.com/kbsweb/kbsshare/gamelist.htm#nav-nba"
     if '热榜' == msg.text:
