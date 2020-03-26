@@ -38,6 +38,10 @@ print(my_friend.puid)
 ```
 
 # 聊天对象 
+通过机器人对象 Bot 的 chats(), friends()，groups(), mps() 方法， 可分别获取到当前机器人的 所有聊天对象、好友、群聊，以及公众号列表。
+
+# 注册消息
+优先匹配 后注册 的函数，且仅匹配 一个 注册函数。
 
 # BeautifulSoup 使用
 https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0

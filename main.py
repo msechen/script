@@ -5,9 +5,9 @@ from time import sleep
 from wxpy import *
 
 from auto_reply import reminder
-# from service import user_service
 from common import web_spider
 from jobs import *
+from service import user_service
 
 
 def login_succ():
@@ -29,6 +29,12 @@ bot.enable_puid('wxpy_puid.pkl')
 user_kolly = ensure_one(bot.friends().search('kolly'))
 
 
+# 打印所有收到的消息
+@bot.register()
+def print_messages(msg):
+    print('收到消息：' + msg.text)
+
+
 # 注册好友请求类消息
 @bot.register(msg_types=FRIENDS)
 def auto_accept_friends(msg):
@@ -37,21 +43,20 @@ def auto_accept_friends(msg):
     # if 'wxpy' in msg.text.lower():
     # 接受好友 (msg.card 为该请求的用户对象)
     new_friend = msg.card.accept()
-    print('收到好友请求：' + new_friend.nick_name)
+
+    # 数据库增加新用户
+    user_id = user_service.add_new_user(new_friend.puid, new_friend.nick_name, '', new_friend.sex, new_friend.city)
+
+    print('收到好友请求:' + new_friend.puid, new_friend.nick_name)
+
+    # 设置好友备注
+    new_friend.set_remark_name(new_friend.nick_name + '-' + user_id)
 
     # 向新的好友发送消息
     new_friend.send('哈喽~我是你的专属机器人助理小糖 😘\n'
                     '你可以输入「help」查看小糖的使用指南噢~')
+
     user_kolly.send("小糖增加一位新的好友：" + new_friend.nick_name)
-    # 数据库增加新用户
-    # user_service.addNewUser(new_friend.puid, new_friend.nick_name, new_friend.get_avatar(),
-    #                         new_friend.sex, new_friend.city)
-
-
-# 打印所有收到的消息
-@bot.register()
-def print_messages(msg):
-    print('收到消息：' + msg.text)
 
 
 # 转发所有收到的好友消息或者群聊@消息给kolly
@@ -64,7 +69,7 @@ def forward_to_kolly(msg):
         return
     else:
         print('收到群聊消息：' + msg.text)
-        msg.forward(user_kolly, prefix='「' + msg.sender.name + '」发送内容:')
+        msg.forward(user_kolly, prefix='群聊「' + msg.sender.name + '」发送内容:')
 
 
 # 自动回复

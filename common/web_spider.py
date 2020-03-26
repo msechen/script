@@ -20,7 +20,7 @@ def get_weather_today():
     one_ziwaixian = today.find(id="one_ziwaixian").get_text()
 
     print(one_date, one_week, one_tianqi, one_daynight + '℃', one_went, "紫外线:" + one_ziwaixian)
-    return '今天是' + one_date + '(' + one_week + ')' + '\n今天的天气是：' + one_tianqi + '(' + \
+    return '今天是' + one_date + '，' + one_week + '\n今天的天气：' + one_tianqi + '(' + \
            one_daynight + '℃) ' + one_went + ' 紫外线:' + one_ziwaixian
 
 
@@ -41,11 +41,12 @@ def get_szzs_today():
         yesterday = json_data.get("data").get("1A0001").get("6")
         print("昨收：" + yesterday)
         today = json_data.get("data").get("1A0001").get("7")
-        print("今开："+today)
+        print("今开：" + today)
         current = json_data.get("data").get("1A0001").get("10")
         change = json_data.get("data").get("1A0001").get("199112")
-        print("当前："+str(current)+" 涨跌："+str(round(float(change),2),)+'%')
-        return '昨收：' + yesterday + '\n今开：' + today + '\n当前：'+str(current)+' 涨跌：'+str(round(float(change),2))+'%'
+        print("上证指数（1A0001）当前：" + str(current) + " 涨跌：" + str(round(float(change), 2), ) + '%')
+        return 'A股上证指数（1A0001）\n昨收：' + yesterday + '\n今开：' + today + '\n当前：' + str(current) + ' 涨跌：' + str(
+            round(float(change), 2)) + '%'
 
 
 # 阮一峰周刊

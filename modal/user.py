@@ -26,5 +26,6 @@ class User(Base):
         self.sex = sex
         self.city = city
 
+
 def foo():
     return

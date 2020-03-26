@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 # 初始化数据库连接:
-engine = create_engine('mysql+mysqlconnector://root:root1234@localhost:3306/wxpy')
+engine = create_engine('mysql+mysqlconnector://kolly:Kolly@123456@120.24.109.181:3306/wx-robot')
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)
 
