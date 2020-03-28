@@ -9,20 +9,31 @@ from common import web_spider
 from jobs import *
 from service import user_service
 
+logger = logging.getLogger('wx')
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh = logging.FileHandler('wx-robot.log')  # 输出日志到文件
+fh.setLevel(logging.DEBUG)
+fh.setFormatter(formatter)
+logger.addHandler(fh)
+sh = logging.StreamHandler()  # 输出日志到终端
+sh.setLevel(logging.DEBUG)
+sh.setFormatter(formatter)
+logger.addHandler(sh)
 
-def login_succ():
-    print("login succ")
-    user_kolly.send("login succ！")
+
+def login_callback():
+    logger.info("robot login!")
 
 
-def logout_succ():
-    print("logout succ")
-    user_kolly.send("logout succ！")
+def logout_callback():
+    logger.info("robot logout!")
+    user_kolly.send("robot logout!")
 
 
 # 初始化机器人，扫码登陆
-# bot = Bot(cache_path=True, qr_path="./qrcode.jpg", login_callback="login_succ", logout_callback="logout_succ")
-bot = Bot(cache_path=True, console_qr=2, login_callback="login_succ", logout_callback="logout_succ")
+# bot = Bot(cache_path=True, qr_path="./qrcode.jpg", login_callback="login_callback", logout_callback="logout_callback")
+bot = Bot(cache_path=True, console_qr=2, login_callback="login_callback", logout_callback="logout_callback")
 # 启用 puid 属性，并指定 puid 所需的映射数据保存/载入路径
 bot.enable_puid('wxpy_puid.pkl')
 
@@ -32,7 +43,7 @@ user_kolly = ensure_one(bot.friends().search('kolly'))
 # 打印所有收到的消息
 @bot.register()
 def print_messages(msg):
-    print('收到消息：' + msg.text)
+    logger.info('收到消息：' + msg.text)
 
 
 # 注册好友请求类消息
@@ -46,17 +57,19 @@ def auto_accept_friends(msg):
 
     # 数据库增加新用户
     user_id = user_service.add_new_user(new_friend.puid, new_friend.nick_name, '', new_friend.sex, new_friend.city)
-
-    print('收到好友请求:' + new_friend.puid, new_friend.nick_name)
+    logger.info('数据库成功增加新用户：{} {} {} {}'.format(user_id, new_friend.puid, new_friend.nick_name, new_friend.sex,
+                                                new_friend.city))
 
     # 设置好友备注
-    new_friend.set_remark_name(new_friend.nick_name + '-' + user_id)
+    remark = new_friend.nick_name + '-' + str(user_id)
+    new_friend.set_remark_name(remark)
+    logger.info('成功设置好友备注：{}'.format(remark))
 
     # 向新的好友发送消息
     new_friend.send('哈喽~我是你的专属机器人助理小糖 😘\n'
-                    '你可以回复「help」查看小糖的使用指南噢~')
+                    '你可以回复 help 查看小糖的使用指南噢~')
 
-    user_kolly.send("小糖增加一位新的好友：" + new_friend.nick_name)
+    user_kolly.send("小糖增加一位新的好友：{}".format(new_friend.nick_name))
 
 
 # 转发所有收到的好友消息或者群聊@消息给kolly
@@ -64,20 +77,22 @@ def auto_accept_friends(msg):
 def forward_to_kolly(msg):
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 3))
-    # 如果是群聊，但没有被 @，则不回复
+    # 如果是群聊，但没有被@，则不回复
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
     else:
-        print('收到群聊消息：' + msg.text)
-        msg.forward(user_kolly, prefix='群聊「' + msg.sender.name + '」发送内容:')
+        logger.info('收到群聊「{}」{}的消息：'.format(msg.sender.name, msg.member.name, msg.text))
+        msg.forward(user_kolly, prefix='群聊「' + msg.sender.name + '」' + msg.member.name + '发送内容:')
 
 
 # 自动回复
 @bot.register(chats=User)
 def auto_reply(msg):
-    print('收到好友消息：' + msg.text)
+    logger.info('收到好友「{}」消息：{}'.format(msg.sender.name, msg.text))
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 3))
+    if '我通过了你的朋友验证请求' in msg.text:
+        return
     if '天气' == msg.text:
         return web_spider.get_weather_today()
     if '股票' == msg.text:
@@ -93,6 +108,7 @@ def auto_reply(msg):
     if 'test' == msg.text:
         content = '/Users/kolly/workspace-demo/python-work/wx-robot/image/test.png'
         msg.reply_image(content)
+        # msg.sender.set_remark_name('test remark')
         return
     if '我要定制' == msg.text:
         return "请联系作者添加你想要的定制功能吧"
@@ -110,14 +126,21 @@ def auto_reply(msg):
                "输入「我的打卡」即可查看打卡列表\n" \
                "输入「作者」即可联系作者\n" \
                "输入「赞赏」即可为小糖充电唷"
-    return "小糖无法识别这个指定喔😯"
+    return "小糖无法识别这个指定喔，回复 help 了解详情~"
 
 
 # 通知 kolly 程序已启动
 user_kolly.send("自动回复已启动！")
 
+logger.info('====== Server Start ======')
+
 # 启动定时任务
 init_scheduler(bot)
+
+# 打印信息
+logger.info(bot)
+logger.info(bot.friends())
+logger.info(bot.registered)
 
 # 进入 Python 命令行、让程序保持运行
 # embed()

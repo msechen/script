@@ -1,5 +1,9 @@
+import logging
+
 import component.mysql_api as mysqlApi
 import modal.user as User
+
+logger = logging.getLogger('wx')
 
 
 def add_user(new_user):
@@ -12,6 +16,7 @@ def add_user(new_user):
     user_id = new_user.id
     # 关闭session:
     session.close()
+    logger.info("add user id: {}".format(user_id))
     return user_id
 
 
