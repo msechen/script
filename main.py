@@ -90,37 +90,42 @@ def forward_to_kolly(msg):
 def auto_reply(msg):
     logger.info('收到好友「{}」消息：{}'.format(msg.sender.name, msg.text))
     # 随机等几秒，避免被风控
-    sleep(random.randint(1, 3))
-    if '我通过了你的朋友验证请求' in msg.text:
+    sleep(random.randint(1, 2))
+    if '你已添加了' in msg.text and '现在可以开始聊天了' in msg.text:
         return
-    if '天气' == msg.text:
-        return web_spider.get_weather_today()
-    if '股票' == msg.text:
-        return web_spider.get_szzs_today()
-    if '周刊' == msg.text:
-        return web_spider.get_ryf_weekly()
-    if '篮球' == msg.text:
-        return "https://sports.qq.com/kbsweb/kbsshare/gamelist.htm#nav-nba"
-    if '热榜' == msg.text:
-        return "https://tophub.today/"
-    if '提醒' in msg.text:
-        return reminder.invoke_remind()
-    if 'test' == msg.text:
-        content = '/Users/kolly/workspace-demo/python-work/wx-robot/image/test.png'
-        msg.reply_image(content)
-        # msg.sender.set_remark_name('test remark')
-        return
-    if '我要定制' == msg.text:
-        return "请联系作者添加你想要的定制功能吧"
     if 'help' == msg.text.lower():
         return "输入「天气」即可查询设置天气\n" \
                "输入「提醒」即可查询未来的提醒\n" \
-               "输入「无聊」即可打发时间\n" \
                "输入「热榜」即可查询今日热榜消息\n" \
                "输入「股票」即可查询你关注的股票涨跌\n" \
                "输入「篮球」即可查询 NBA 今日赛事\n" \
+               "输入「定制」即可定制你的专属功能\n" \
                "输入「赞赏」即可为小糖充电唷"
-    return "小糖无法识别这个指定喔，回复 help 了解详情~"
+    if '天气' == msg.text:
+        return web_spider.get_weather_today()
+    elif '股票' == msg.text:
+        return web_spider.get_szzs_today()
+    elif '周刊' == msg.text:
+        return web_spider.get_ryf_weekly()
+    elif '篮球' == msg.text:
+        return "https://sports.qq.com/kbsweb/kbsshare/gamelist.htm#nav-nba"
+    elif '热榜' == msg.text:
+        return "https://tophub.today/"
+    elif '提醒' in msg.text:
+        return reminder.invoke_remind()
+    elif '赞赏' == msg.text:
+        image = './image/donate.png'
+        msg.reply_image(image)
+        return
+    elif '定制' == msg.text:
+        image = './image/author.jpg'
+        msg.reply_image(image)
+        return "请联系作者添加你想要的定制功能吧"
+    elif 'test' == msg.text:
+        # msg.sender.set_remark_name('test remark')
+        return
+    else:
+        return "小糖无法识别这个指定喔，回复 help 了解详情~"
 
 
 # 通知 kolly 程序已启动
@@ -139,10 +144,3 @@ logger.info(bot.registered)
 # 进入 Python 命令行、让程序保持运行
 # embed()
 bot.join()
-
-############################################################################################
-# bot.friends()
-# [<Friend: 小糖>, <Friend: kolly>, <Friend: Yocan>, <Friend: 彭喜糖>]
-# 查看当前的注册配置情况
-# bot.registered
-############################################################################################

@@ -6,10 +6,9 @@ import modal.user as User
 logger = logging.getLogger('wx')
 
 
-# 新增用户
 def add_user(new_user):
     # 创建session对象:
-    session = mysql_api.get_session()
+    session = mysqlApi.get_session()
     # 添加到session:
     session.add(new_user)
     # 提交即保存到数据库:
@@ -21,12 +20,11 @@ def add_user(new_user):
     return user_id
 
 
-# 根据用户 ID 查询
-def query_user_by_id(user_id):
+def query_user_by_puid(puid):
     # 创建Session对象:
     session = mysql_api.get_session()
     # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
-    user = session.query(User).filter(User.id == id).one()
+    user = session.query(User).filter(User.puid == puid).one()
     # 关闭Session:
     session.close()
     return user

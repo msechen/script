@@ -1,4 +1,3 @@
-# 导入:
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 

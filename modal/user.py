@@ -25,7 +25,3 @@ class User(Base):
         self.avatar = avatar
         self.sex = sex
         self.city = city
-
-
-def foo():
-    return

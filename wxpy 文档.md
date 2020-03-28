@@ -87,3 +87,6 @@ Bot.mps(update=False)
 
 # BeautifulSoup 使用
 https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0
+
+# sqlalchemy 使用
+

@@ -12,7 +12,7 @@ def reply(msg):
     if '提醒' in msg.text:
         return invoke_remind()
     if 'test' == msg.text:
-        content = '/Users/kolly/workspace-demo/python-work/wx-robot/image/test.png'
+        content = '/Users/kolly/workspace-demo/python-work/wx-robot/image/donate.png'
         msg.reply_image(content)
         return
     if '我要定制' == msg.text:
