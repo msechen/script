@@ -116,7 +116,7 @@ def auto_reply(msg):
     elif '赞赏' == msg.text:
         image = './image/donate.png'
         msg.reply_image(image)
-        return
+        return "如果帮到你，请帮小糖充下电吧"
     elif '定制' == msg.text:
         image = './image/author.jpg'
         msg.reply_image(image)
@@ -129,7 +129,7 @@ def auto_reply(msg):
 
 
 # 通知 kolly 程序已启动
-user_kolly.send("自动回复已启动！")
+user_kolly.send("小糖已启动！")
 
 logger.info('====== Server Start ======')
 

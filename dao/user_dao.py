@@ -1,7 +1,7 @@
 import logging
 
 import component.mysql_api as mysql_api
-import modal.user as User
+import modal.user as user
 
 logger = logging.getLogger('wx')
 
@@ -26,7 +26,11 @@ def query_user_by_id(user_id):
     # 创建Session对象:
     session = mysql_api.get_session()
     # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
-    user = session.query(User).filter(User.id == id).one()
+    u = session.query(user.User).filter_by(id=user_id).one()
     # 关闭Session:
     session.close()
-    return user
+    return u
+
+
+if __name__ == "__main__":
+    print(query_user_by_id(1).nickname)
