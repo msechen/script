@@ -110,11 +110,12 @@ def check():
 
 
 def send_service_info(service_id, info):
+    service = service_dao.query_service_by_id(service_id)
     for sub in subscribe_dao.query_subscribe_by_service_id(service_id):
-        logger.info("用户{}订阅「health check」".format(sub.user_id))
+        logger.info("用户{}订阅「{}」".format(service.name, sub.user_id))
         user = user_dao.query_user_by_id(sub.user_id)
         logger.info("用户{}昵称：{}".format(user.id, user.nickname))
-        chat = ensure_one(bot.friends().search(user.nickname + '-' + str(user.id)))
+        chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
         logger.info("chat info：{}".format(chat))
         chat.send(info)
         sleep(1)
