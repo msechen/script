@@ -145,7 +145,7 @@ logger.info(bot.registered)
 # embed()
 bot.join()
 
-logger.info("程序意外中断！")
-user_kolly.send("小糖掉线了！")
+logger.info("小糖已退出登录！")
+user_kolly.send("小糖已退出登录！")
 
 sys.exit()
