@@ -146,4 +146,6 @@ logger.info(bot.registered)
 bot.join()
 
 logger.info("程序意外中断！")
+user_kolly.send("小糖掉线了！")
+
 sys.exit()
