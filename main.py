@@ -144,3 +144,6 @@ logger.info(bot.registered)
 # 进入 Python 命令行、让程序保持运行
 # embed()
 bot.join()
+
+logger.info("程序意外中断！")
+sys.exit()

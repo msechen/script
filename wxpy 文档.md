@@ -1,5 +1,22 @@
 [TOC]
 
+
+# 如何调试程序
+只需将 embed() 放在代码中的任何位置。运行后，就可以从那儿开始探索和调试。
+
+例如，初始化一个机器人，然后看看它能做些什么:
+```
+from wxpy import *
+bot = Bot()
+embed() # 进入 Python 命令行
+
+# 输入对象名称并回车
+>>> bot
+# Out[1]: <Bot: 游否>
+>>> bot.friends()
+# Out[2]: [<Friend: 路人甲>, <Friend: 路人乙>, <Friend: 路人丙>]
+```
+
 # 机器人对象
 
 机器人 [`Bot`](https://wxpy.readthedocs.io/zh/latest/bot.html#wxpy.Bot) 对象可被理解为一个 Web 微信客户端。
@@ -90,7 +107,14 @@ https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0
 
 # sqlalchemy 使用
 
+https://www.osgeo.cn/sqlalchemy/orm/index.html
+
+# apscheduler 使用
 
 
-## apscheduler 使用
 
+## 参考资料
+
+- python学习：https://funhacks.gitbooks.io/explore-python/
+- 开源项目：https://github.com/youfou/wxpy
+- https://docs.python.org/zh-cn/3/howto/logging.html

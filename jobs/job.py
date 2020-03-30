@@ -61,6 +61,11 @@ def init_scheduler(bot_var):
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # 信用卡还款
+    service = service_dao.query_service_by_id(8)
+    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
+                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     scheduler.start()
 
 
@@ -87,9 +92,8 @@ def send_chicken_soup():
 
 # 发送睡前提醒
 def send_goodnight():
-    info = '请完成今天的总结\n' \
-           '请写下明天的计划\n' \
-           '早起、阅读、锻炼~不虚度光阴'
+    info = '请完成今天的总结、写下明天的计划\n' \
+           '早起、阅读、冥想、锻炼'
     send_service_info(4, info)
 
 
@@ -107,6 +111,11 @@ def send_ryf_weekly():
 # health check
 def check():
     send_service_info(7, 'robot still alive')
+
+
+# 信用卡还款
+def credit_card_repay():
+    send_service_info(8, '招行、广银信用卡还款')
 
 
 def send_service_info(service_id, info):
