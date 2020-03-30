@@ -5,6 +5,7 @@ from time import sleep
 from wxpy import *
 
 from auto_reply import reminder
+from common import corp_we_chat
 from common import web_spider
 from jobs import *
 from service import user_service
@@ -146,6 +147,6 @@ logger.info(bot.registered)
 bot.join()
 
 logger.info("小糖已退出登录！")
-# user_kolly.send("小糖已退出登录！")
+corp_we_chat.WeChat().send_message('小糖已退出登录！')
 
 sys.exit()

@@ -9,11 +9,11 @@ logger = logging.getLogger('wx')
 
 
 class WeChat(object):
-    def __init__(self, corpid, secret, agentid):
+    def __init__(self):
         self.url = "https://qyapi.weixin.qq.com"
-        self.corpid = corpid
-        self.secret = secret
-        self.agentid = agentid
+        self.corpid = 'ww8c8a0901d4d06901'
+        self.secret = 'QB5hNIsKF51GBQ3TGFgew6xYEzbFDVrdjv9QSlhKVuU'
+        self.agentid = '1000002'
 
     # 获取企业微信的 access_token
     def access_token(self):
@@ -55,7 +55,6 @@ class WeChat(object):
 
 
 # 下面是身份信息
-wechat = WeChat('ww8c8a0901d4d06901', 'QB5hNIsKF51GBQ3TGFgew6xYEzbFDVrdjv9QSlhKVuU', '1000002')
 
 if __name__ == "__main__":
-    wechat.send_message('ooo')
+    WeChat().send_message('ooo')
