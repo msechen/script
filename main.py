@@ -146,6 +146,6 @@ logger.info(bot.registered)
 bot.join()
 
 logger.info("小糖已退出登录！")
-user_kolly.send("小糖已退出登录！")
+# user_kolly.send("小糖已退出登录！")
 
 sys.exit()
