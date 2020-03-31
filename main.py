@@ -96,12 +96,13 @@ def auto_reply(msg):
         return
     if 'help' == msg.text.lower():
         return "输入「天气」即可查询设置天气\n" \
-               "输入「提醒」即可查询未来的提醒\n" \
                "输入「热榜」即可查询今日热榜消息\n" \
                "输入「股票」即可查询你关注的股票涨跌\n" \
                "输入「篮球」即可查询 NBA 今日赛事\n" \
                "输入「定制」即可定制你的专属功能\n" \
-               "输入「赞赏」即可为小糖充电唷"
+               "更多有趣的功能敬请期待唷~"
+        # "输入「提醒」即可查询未来的提醒\n" \
+        # "输入「赞赏」即可为小糖充电唷"
     if '天气' == msg.text:
         return web_spider.get_weather_today()
     elif '股票' == msg.text:
@@ -129,8 +130,8 @@ def auto_reply(msg):
         return "小糖无法识别这个指定喔，回复 help 了解详情~"
 
 
-# 通知 kolly 程序已启动
-user_kolly.send("小糖已启动！")
+# 程序启动时，发送企业微信消息
+corp_we_chat.WeChat().send_message('小糖已启动！')
 
 logger.info('====== Server Start ======')
 
@@ -146,6 +147,7 @@ logger.info(bot.registered)
 # embed()
 bot.join()
 
+# 程序退出时，发送企业微信消息
 logger.info("小糖已退出登录！")
 corp_we_chat.WeChat().send_message('小糖已退出登录！')
 

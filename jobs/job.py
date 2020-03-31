@@ -1,4 +1,5 @@
 # 导入模块
+import random
 from time import sleep
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -127,4 +128,4 @@ def send_service_info(service_id, info):
         chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
         logger.info("chat info：{}".format(chat))
         chat.send(info)
-        sleep(1)
+        sleep(random.randint(3, 5))
