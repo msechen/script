@@ -67,6 +67,6 @@ def get_ryf_weekly():
 
 
 if __name__ == "__main__":
-    # print(get_weather_today())
-    print(get_szzs_today())
+    print(get_weather_today())
+    # print(get_szzs_today())
     # print(get_ryf_weekly())

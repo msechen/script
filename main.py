@@ -1,5 +1,6 @@
 # 导入模块
 import random
+import threading
 from time import sleep
 
 from wxpy import *
@@ -73,8 +74,8 @@ def auto_accept_friends(msg):
     user_kolly.send("小糖增加一位新的好友：{}".format(new_friend.nick_name))
 
 
-# 转发所有收到的好友消息或者群聊@消息给kolly
-@bot.register(chats=[User, Group])
+# 转发所有群聊@消息给kolly
+@bot.register(chats=Group)
 def forward_to_kolly(msg):
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 3))
@@ -90,6 +91,9 @@ def forward_to_kolly(msg):
 @bot.register(chats=User)
 def auto_reply(msg):
     logger.info('收到好友「{}」消息：{}'.format(msg.sender.name, msg.text))
+    t = threading.Thread(target=send_corp_wechat, args=('收到好友「{}」消息：{}'.format(msg.sender.name, msg.text),))
+    t.start()
+
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 2))
     if '你已添加了' in msg.text and '现在可以开始聊天了' in msg.text:
@@ -130,8 +134,12 @@ def auto_reply(msg):
         return "小糖无法识别这个指定喔，回复 help 了解详情~"
 
 
+def send_corp_wechat(msg):
+    corp_we_chat.WeChat().send_message(msg)
+
+
 # 程序启动时，发送企业微信消息
-corp_we_chat.WeChat().send_message('小糖已启动！')
+send_corp_wechat('小糖已启动！')
 
 logger.info('====== Server Start ======')
 
@@ -149,6 +157,6 @@ bot.join()
 
 # 程序退出时，发送企业微信消息
 logger.info("小糖已退出登录！")
-corp_we_chat.WeChat().send_message('小糖已退出登录！')
+send_corp_wechat('小糖已退出登录！')
 
 sys.exit()

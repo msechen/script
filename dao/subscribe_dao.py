@@ -18,4 +18,4 @@ def query_subscribe_by_service_id(service_id):
 
 if __name__ == "__main__":
     for item in query_subscribe_by_service_id(1):
-        print(item.user_id)
+        print(item.user_id, item.param)
