@@ -93,8 +93,7 @@ def send_chicken_soup():
 
 # 发送睡前提醒
 def send_goodnight():
-    info = '请完成今天的总结、写下明天的计划\n' \
-           '早起、阅读、冥想、锻炼'
+    info = '请检查记账是否完整哦\n请完成今天的总结、写下明天的计划\n早起、阅读、冥想、锻炼'
     send_service_info(4, info)
 
 

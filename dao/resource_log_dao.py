@@ -6,31 +6,31 @@ from modal import *
 logger = logging.getLogger('wx')
 
 
-# 新增用户
-def add_user(new_user):
+# 新增记录
+def add_resource_log(user_id, resource_id, resource_type):
+    res_log = ResourceLog(user_id, resource_id, resource_type)
+
     # 创建session对象:
     session = mysql_api.get_session()
     # 添加到session:
-    session.add(new_user)
+    session.add(res_log)
     # 提交即保存到数据库:
     session.commit()
-    user_id = new_user.id
     # 关闭session:
     session.close()
-    logger.info("add user id: {}".format(user_id))
-    return user_id
 
 
-# 根据用户 ID 查询
-def query_user_by_id(user_id):
+def query_res_log_by_type(user_id, res_type):
     # 创建Session对象:
     session = mysql_api.get_session()
     # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
-    u = session.query(User).filter(User.id == user_id).one()
+    rows = session.query(ResourceLog).filter(ResourceLog.user_id == user_id).filter(
+        ResourceLog.resource_type == res_type).all()
     # 关闭Session:
     session.close()
-    return u
+    return rows
 
 
 if __name__ == "__main__":
-    print(query_user_by_id(1).nickname)
+    for item in query_res_log_by_type(1, 1):
+        print(item.resource_id)

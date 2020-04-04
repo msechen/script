@@ -8,7 +8,10 @@ from wxpy import *
 from auto_reply import reminder
 from common import corp_we_chat
 from common import web_spider
+from dao import resource_dao
+from dao import resource_log_dao
 from jobs import *
+from service import resource_service
 from service import user_service
 
 logger = logging.getLogger('wx')
@@ -96,7 +99,23 @@ def auto_reply(msg):
 
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 2))
-    if '你已添加了' in msg.text and '现在可以开始聊天了' in msg.text:
+
+    if msg.sender.name == 'kolly🤔-1':
+        if '资源类型' == msg.text:
+            return '资源类型 1-搞笑段子 2-经典语录'
+        elif msg.text.startswith('上传资源'):
+            type = msg.text[4:5]
+            content = msg.text[6:]
+            resource_dao.add_resource(type, content)
+            return content
+        elif '段子' == msg.text:
+            res = resource_service.get_new_resource(1, 1)  # user_id 暂时写死
+            resource_log_dao.add_resource_log(1, res.id, res.type)  # user_id 暂时写死
+            return res.content
+        else:
+            pass
+
+    if msg.text.startswith('你已添加了') and '现在可以开始聊天了' in msg.text:
         return
     if 'help' == msg.text.lower():
         return "输入「天气」即可查询设置天气\n" \
