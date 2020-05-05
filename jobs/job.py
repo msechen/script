@@ -82,18 +82,15 @@ def send_stock_info():
     send_service_info(2, stock_info)
 
 
-# 发送鸡汤
+# 早起
 def send_chicken_soup():
-    info = '不要让十年后的自己悔不当初~\n' \
-           '找到自己的目标，创造自己的价值\n' \
-           '精进专业技能、阅读、写作、运动\n' \
-           '少即是多、慢即是快'
+    info = '1.打扫房间、清理垃圾\n2.跑步、下蹲\n3.规划待办事项\n4.阅读半小时'
     send_service_info(3, info)
 
 
-# 发送睡前提醒
+# 睡觉
 def send_goodnight():
-    info = '请检查记账是否完整哦\n请完成今天的总结、写下明天的计划\n早起、阅读、冥想、锻炼'
+    info = '1.检查记账\n2.清理相册\n3.十个俯卧撑和下蹲\n4.清空各个inbox\n5.反思、总结、冥想'
     send_service_info(4, info)
 
 
