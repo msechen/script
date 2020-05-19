@@ -37,8 +37,8 @@ def logout_callback():
 
 
 # 初始化机器人，扫码登陆
-# bot = Bot(cache_path=True, qr_path="./qrcode.jpg", login_callback="login_callback", logout_callback="logout_callback")
-bot = Bot(cache_path=True, console_qr=2, login_callback="login_callback", logout_callback="logout_callback")
+# bot = Bot(cache_path=True, qr_path="./qrcode.jpg")
+bot = Bot(cache_path=True, console_qr=2)
 # 启用 puid 属性，并指定 puid 所需的映射数据保存/载入路径
 bot.enable_puid('wxpy_puid.pkl')
 
