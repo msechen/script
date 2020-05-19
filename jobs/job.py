@@ -9,6 +9,7 @@ import common.web_spider as spider
 from dao import service_dao
 from dao import subscribe_dao
 from dao import user_dao
+from dao import holiday_dao
 
 bot = None
 logger = logging.getLogger('wx')
@@ -67,6 +68,12 @@ def init_scheduler(bot_var):
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+
+    # 节日祝福
+    service = service_dao.query_service_by_id(11)
+    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    scheduler.add_job(send_holiday_blessing, 'cron', year=service.year, month=service.month, day=service.day,
+                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     scheduler.start()
 
 
@@ -113,6 +120,13 @@ def check():
 # 信用卡还款
 def credit_card_repay():
     send_service_info(8, '招行、广银信用卡还款')
+
+
+# 节日祝福
+def send_holiday_blessing():
+    blessing_info = holiday_dao.query_today_holiday()
+    if blessing_info != '':
+        send_service_info(11, blessing_info)
 
 
 def send_service_info(service_id, info):
