@@ -9,7 +9,7 @@ def test():
     interval2 = (d2 - d0).days + 1
     if interval1 > 0 and interval1 % 10 == 0:
         print('距离中级考试还有 ' + str(interval1) + ' 天，彭熙雅冲鸭 🦆')
-    if interval2 > 0 and interval2 % 10 == 0:
+    if interval2 > 0 and interval2 % 10 == 1:
         print('距离 CPA 考试还有 ' + str(interval2) + ' 天，彭熙雅冲鸭 🦆')
     print('距离中级考试还有 ' + str(interval1) + ' 天，距离 CPA 考试还有 ' + str(interval2) + ' 天，彭熙雅冲鸭 🦆')
 
