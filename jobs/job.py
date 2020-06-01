@@ -1,5 +1,6 @@
 # 导入模块
 import random
+import datetime
 from time import sleep
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -83,6 +84,11 @@ def init_scheduler(bot_var):
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(send_holiday_blessing, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # 考试倒计时
+    service = service_dao.query_service_by_id(12)
+    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
+                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     scheduler.start()
 
 
@@ -148,13 +154,30 @@ def send_holiday_blessing():
         send_service_info(11, blessing_info)
 
 
-def send_service_info(service_id, info):
+# 考试倒计时
+def send_exam_countdown():
+    d0 = datetime.datetime.now()
+    d1 = datetime.datetime(2020, 9, 5)
+    d2 = datetime.datetime(2020, 10, 11)
+    interval1 = (d1 - d0).days + 1
+    interval2 = (d2 - d0).days + 1
+    if interval1 > 0 and interval1 % 10 == 0:
+        info = '距离中级考试还有 ' + str(interval1) + ' 天，熙雅冲鸭 🦆'
+        send_service_info(12, info, '../image/fight.jpeg')
+    if interval2 > 0 and interval2 % 10 == 1:
+        info = '距离 CPA 考试还有 ' + str(interval2) + ' 天，熙雅冲鸭 🦆'
+        send_service_info(12, info, '../image/fight.jpeg')
+
+
+def send_service_info(service_id, info, *images):
     service = service_dao.query_service_by_id(service_id)
     for sub in subscribe_dao.query_subscribe_by_service_id(service_id):
-        logger.info("用户{}订阅「{}」".format(sub.user_id, service.name))
+        logger.info('用户{}订阅「{}」'.format(sub.user_id, service.name))
         user = user_dao.query_user_by_id(sub.user_id)
-        logger.info("用户{}昵称：{}".format(user.id, user.nickname))
+        logger.info('用户{}昵称：{}'.format(user.id, user.nickname))
         chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
-        logger.info("chat info：{}".format(chat))
+        logger.info('chat info：{}'.format(chat))
         chat.send(info)
+        for img in images:
+            chat.send_image(img)
         sleep(random.randint(3, 5))
