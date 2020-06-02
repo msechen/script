@@ -164,7 +164,7 @@ def send_exam_countdown():
     if interval1 > 0 and interval1 % 10 == 0:
         info = '距离中级考试还有 ' + str(interval1) + ' 天，熙雅冲鸭 🦆'
         send_service_info(12, info, './fight.jpeg')
-    if interval2 > 0 and interval2 % 10 == 1:
+    if interval2 > 0 and interval2 % 10 == 0:
         info = '距离 CPA 考试还有 ' + str(interval2) + ' 天，熙雅冲鸭 🦆'
         send_service_info(12, info, './fight.jpeg')
 
