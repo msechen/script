@@ -178,7 +178,7 @@ def send_service_info(service_id, info, *images):
         chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
         logger.info('chat info：{}'.format(chat))
         chat.send(info)
-        for img in images:
-            logger.info(img)
-            chat.send_image(img)
+        # for img in images:
+        #     logger.info(img)
+        #     chat.send_image(img)
         sleep(random.randint(3, 5))
