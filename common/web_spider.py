@@ -55,6 +55,30 @@ def get_szzs_today():
             round(float(change), 2)) + '%'
 
 
+# 查询基金涨跌
+def get_jj():
+    response = requests.get('https://api.doctorxiong.club/v1/fund/detail?code=501301', headers=headers)
+    if response.text == '':
+        logger.info("request https://api.doctorxiong.club/v1/fund/detail response empty")
+        return "request https://api.doctorxiong.club/v1/fund/detail response empty"
+
+    json_data = json.loads(response.text)
+    code = json_data.get("code")
+    msg = json_data.get("message")
+    if code != 200:
+        logger.info("request error, msg:{}".format(msg))
+        return "request https://api.doctorxiong.club/v1/fund/detail error, msg:" + msg
+    else:
+        name = json_data.get("data").get("name")
+        code = json_data.get("data").get("code")
+        yesterday = json_data.get("data").get("netWorth")
+        today = json_data.get("data").get("expectWorth")
+        current = json_data.get("data").get("expectWorth")
+        change = json_data.get("data").get("expectGrowth")
+        logger.info("{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)))
+        return "{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change))
+
+
 # 阮一峰周刊
 def get_ryf_weekly():
     html = requests.get('http://www.ruanyifeng.com/blog/weekly/', headers=headers).content
@@ -67,6 +91,7 @@ def get_ryf_weekly():
 
 
 if __name__ == "__main__":
-    print(get_weather_today())
+    # print(get_weather_today())
     # print(get_szzs_today())
     # print(get_ryf_weekly())
+    print(get_jj())
