@@ -1,16 +1,16 @@
 # 导入模块
-import random
 import datetime
+import random
 from time import sleep
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from wxpy import *
 
 import common.web_spider as spider
+from dao import holiday_dao
 from dao import service_dao
 from dao import subscribe_dao
 from dao import user_dao
-from dao import holiday_dao
 
 bot = None
 logger = logging.getLogger('wx')
@@ -100,8 +100,8 @@ def send_weather_info():
 
 # 发送股票信息
 def send_stock_info():
-    stock_info = spider.get_szzs_today()
-    send_service_info(2, stock_info)
+    zs_info = spider.get_zs_today()
+    send_service_info(2, zs_info)
 
 
 # 早起
@@ -177,6 +177,9 @@ def send_service_info(service_id, info, *images):
         logger.info('用户{}昵称：{}'.format(user.id, user.nickname))
         chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
         logger.info('chat info：{}'.format(chat))
+        if service_id == 2:
+            jj_info = spider.get_jj_today(sub.param)  # 基金代码
+            info = info + jj_info
         chat.send(info)
         # for img in images:
         #     logger.info(img)

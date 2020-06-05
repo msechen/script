@@ -31,33 +31,34 @@ def get_weather_today():
            one_daynight + '℃) ' + one_went + ' 紫外线:' + one_ziwaixian
 
 
-# 查询今天上证指数
-def get_szzs_today():
-    # response = requests.get('http://d.10jqka.com.cn/v2/realhead/16_1A0001/last.js')
-    response = requests.get('http://stockpage.10jqka.com.cn/1A0001/quote/header/', headers=headers)
+# 查询今日大盘指数
+def get_zs_today():
+    response = requests.get('https://api.doctorxiong.club/v1/stock/board', headers=headers)
     if response.text == '':
-        logger.info("request http://stockpage.10jqka.com.cn/1A0001/quote/header response empty")
-        return "request http://stockpage.10jqka.com.cn/1A0001/quote/header response empty"
+        logger.info("request https://api.doctorxiong.club/v1/stock/board response empty")
+        return "request https://api.doctorxiong.club/v1/stock/board response empty"
 
     json_data = json.loads(response.text)
-    code = json_data.get("errorcode")
-    msg = json_data.get("errormsg")
-    if code != 0:
+    code = json_data.get("code")
+    msg = json_data.get("message")
+    if code != 200:
         logger.info("request error, msg:{}".format(msg))
-        return "request http://stockpage.10jqka.com.cn/1A0001/quote/header error,msg:" + msg
+        return "request https://api.doctorxiong.club/v1/stock/board error,msg:" + msg
     else:
-        yesterday = json_data.get("data").get("1A0001").get("6")
-        today = json_data.get("data").get("1A0001").get("7")
-        current = json_data.get("data").get("1A0001").get("10")
-        change = json_data.get("data").get("1A0001").get("199112")
-        logger.info("上证指数（1A0001）当前：{} 涨跌：{}%".format(str(current), str(round(float(change), 2))))
-        return 'A股上证指数（1A0001）\n昨收：' + yesterday + '\n今开：' + today + '\n当前：' + str(current) + ' 涨跌：' + str(
-            round(float(change), 2)) + '%'
+        result = ''
+        data = json_data.get("data")[:3]
+        for i in data:
+            name = i.get("name")
+            current = i.get("price")
+            change = i.get("changePercent")
+            logger.info("{} 当前：{} 涨跌：{}%".format(str(name), str(current), str(change)))
+            result = result + "{} 当前：{} 涨跌：{}%".format(str(name), str(current), str(change)) + '\n'
+        return result
 
 
-# 查询基金涨跌
-def get_jj():
-    response = requests.get('https://api.doctorxiong.club/v1/fund/detail?code=501301', headers=headers)
+# 查询今日基金涨跌
+def get_jj_today(code):
+    response = requests.get('https://api.doctorxiong.club/v1/fund?code=' + code, headers=headers)
     if response.text == '':
         logger.info("request https://api.doctorxiong.club/v1/fund/detail response empty")
         return "request https://api.doctorxiong.club/v1/fund/detail response empty"
@@ -69,14 +70,16 @@ def get_jj():
         logger.info("request error, msg:{}".format(msg))
         return "request https://api.doctorxiong.club/v1/fund/detail error, msg:" + msg
     else:
-        name = json_data.get("data").get("name")
-        code = json_data.get("data").get("code")
-        yesterday = json_data.get("data").get("netWorth")
-        today = json_data.get("data").get("expectWorth")
-        current = json_data.get("data").get("expectWorth")
-        change = json_data.get("data").get("expectGrowth")
-        logger.info("{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)))
-        return "{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change))
+        result = ''
+        data = json_data.get("data")
+        for i in data:
+            name = i.get("name")
+            code = i.get("code")
+            current = i.get("expectWorth")
+            change = i.get("expectGrowth")
+            logger.info("{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)))
+            result = result + "{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)) + '\n'
+        return result
 
 
 # 阮一峰周刊
@@ -92,6 +95,6 @@ def get_ryf_weekly():
 
 if __name__ == "__main__":
     # print(get_weather_today())
-    # print(get_szzs_today())
+    print(get_zs_today())
     # print(get_ryf_weekly())
-    print(get_jj())
+    print(get_jj_today('501301,161721,007028,110003,090010'))
