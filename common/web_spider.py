@@ -46,13 +46,13 @@ def get_zs_today():
         return "request https://api.doctorxiong.club/v1/stock/board error,msg:" + msg
     else:
         result = ''
-        data = json_data.get("data")[:3]
+        data = json_data.get("data")[:1]
         for i in data:
             name = i.get("name")
             current = i.get("price")
             change = i.get("changePercent")
-            logger.info("{} 当前：{} 涨跌：{}%".format(str(name), str(current), str(change)))
-            result = result + "{} 当前：{} 涨跌：{}%".format(str(name), str(current), str(change)) + '\n'
+            logger.info("{} 当前：{} 涨跌：{}%".format(str(name), str(int(current)), str(change)))
+            result = result + "{} \n当前：{} 涨跌：{}%".format(str(name), str(int(current)), str(change)) + '\n'
         return result
 
 
@@ -78,7 +78,7 @@ def get_jj_today(code):
             current = i.get("expectWorth")
             change = i.get("expectGrowth")
             logger.info("{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)))
-            result = result + "{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)) + '\n'
+            result = result + "{}（{}）\n涨跌：{}%".format(str(name), str(code), str(change)) + '\n'
         return result
 
 

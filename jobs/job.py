@@ -179,7 +179,7 @@ def send_service_info(service_id, info, *images):
         logger.info('chat info：{}'.format(chat))
         if service_id == 2:
             jj_info = spider.get_jj_today(sub.param)  # 基金代码
-            info = info + jj_info
+            info = info + '\n' + jj_info
         chat.send(info)
         # for img in images:
         #     logger.info(img)
