@@ -13,22 +13,33 @@ headers = {
 
 
 # 查询深圳今天的天气
-def get_weather_today():
-    html = requests.get('http://tianqi.eastday.com/shenzhen/59493.html', headers=headers).content
-    soup = BeautifulSoup(html, 'lxml', from_encoding='utf-8')
-    today = soup.find('div', id='weatherBox')
+def get_weather_today(city):
+    response = requests.get('https://free-api.heweather.net/s6/weather/forecast?location='
+                        + city + '&key=1054f5a588184acfb68f7b635f7d74dc', headers=headers)
+    if response.text == '':
+        logger.info("request https://free-api.heweather.net response empty")
+        return "request https://free-api.heweather.net response empty"
 
-    one_date = soup.find(id="one_date").get_text()
-    one_week = soup.find(id="one_week").get_text()
-    one_nongli = soup.find(id="one_nongli").get_text()
-    one_tianqi = today.find(id="one_tianqi").get_text()
-    one_daynight = today.find(id="one_daynight").get_text()
-    one_went = today.find(id="one_went").get_text()
-    one_ziwaixian = today.find(id="one_ziwaixian").get_text()
-
-    logger.info("{} {} {} {} {} {}".format(one_date, one_week, one_tianqi, one_daynight, one_went, one_ziwaixian))
-    return '今天是' + one_date + '，' + one_week + '\n今天的天气：' + one_tianqi + '(' + \
-           one_daynight + '℃) ' + one_went + ' 紫外线:' + one_ziwaixian
+    json_data = json.loads(response.text)
+    data = json_data.get("HeWeather6")[0]
+    status = data.get("status")
+    if status != 'ok':
+        logger.info("request error, status:{}".format(status))
+        return "request https://api.doctorxiong.club/v1/stock/board error,status:" + status
+    else:
+        result = '美好的一天从小糖早报开始 😝\n\n'
+        daily_forecast = data.get("daily_forecast")[:1]
+        for i in daily_forecast:
+            date = i.get("date")
+            tmp_min = i.get("tmp_min")
+            tmp_max = i.get("tmp_max")
+            uv_index = i.get("uv_index")
+            cond_txt_d = i.get("cond_txt_d")
+            cond_txt_n = i.get("cond_txt_n")
+            # logger.info("{} 当前：{} 涨跌：{}%".format(str(name), str(int(current)), str(change)))
+            result = result + '今天是:{} 白天:{} 晚上:{} 温度:{}-{}℃ 紫外线等级:{}'.format(
+                date, cond_txt_d, cond_txt_n, tmp_min, tmp_max, uv_index) + '\n'
+        return result
 
 
 # 查询今日大盘指数涨跌
@@ -96,8 +107,8 @@ def get_ryf_weekly():
 
 
 if __name__ == "__main__":
-    # print(get_weather_today('shenzhen'))
-    print(get_zs_today())
+    print(get_weather_today('shenzhen'))
+    # print(get_zs_today())
     # print(get_ryf_weekly())
     # print(get_jj_today(''))
     # print(get_jj_today('501301,161721,007028,110003,090010'))

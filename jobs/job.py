@@ -94,7 +94,7 @@ def init_scheduler(bot_var):
 
 # 发送天气信息
 def send_weather_info():
-    weather_info = '美好的一天又开始了，小糖温馨提醒你：\n' + spider.get_weather_today()
+    weather_info = '美好的一天从小糖早报开始 😝\n\n' + spider.get_weather_today()
     send_service_info(1, weather_info)
 
 
