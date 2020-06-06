@@ -31,7 +31,7 @@ def get_weather_today():
            one_daynight + '℃) ' + one_went + ' 紫外线:' + one_ziwaixian
 
 
-# 查询今日大盘指数
+# 查询今日大盘指数涨跌
 def get_zs_today():
     response = requests.get('https://api.doctorxiong.club/v1/stock/board', headers=headers)
     if response.text == '':
@@ -58,6 +58,8 @@ def get_zs_today():
 
 # 查询今日基金涨跌
 def get_jj_today(code):
+    if code == '':
+        return ''
     response = requests.get('https://api.doctorxiong.club/v1/fund?code=' + code, headers=headers)
     if response.text == '':
         logger.info("request https://api.doctorxiong.club/v1/fund/detail response empty")
@@ -94,7 +96,8 @@ def get_ryf_weekly():
 
 
 if __name__ == "__main__":
-    # print(get_weather_today())
+    # print(get_weather_today('shenzhen'))
     print(get_zs_today())
     # print(get_ryf_weekly())
-    print(get_jj_today('501301,161721,007028,110003,090010'))
+    # print(get_jj_today(''))
+    # print(get_jj_today('501301,161721,007028,110003,090010'))

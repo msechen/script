@@ -21,5 +21,3 @@ def test1(a, *b):
 
 if __name__ == '__main__':
     test()
-    test1(1)
-    test1(1, 2, 3)

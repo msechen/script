@@ -67,7 +67,7 @@ def init_scheduler(bot_var):
     # 信用卡还款
     service = service_dao.query_service_by_id(8)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
+    scheduler.add_job(credit_card_repay, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     # 月初提醒
     service = service_dao.query_service_by_id(9)
