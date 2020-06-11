@@ -27,7 +27,7 @@ def get_weather_today(city):
         logger.info("request error, status:{}".format(status))
         return "request https://api.doctorxiong.club/v1/stock/board error,status:" + status
     else:
-        result = '美好的一天从小糖早报开始 😝\n\n'
+        result = ''
         daily_forecast = data.get("daily_forecast")[:1]
         for i in daily_forecast:
             date = i.get("date")

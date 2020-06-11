@@ -127,7 +127,7 @@ def auto_reply(msg):
         # "输入「提醒」即可查询未来的提醒\n" \
         # "输入「赞赏」即可为小糖充电唷"
     if '天气' == msg.text:
-        return web_spider.get_weather_today()
+        return web_spider.get_weather_today("shenzhen")
     elif '股票' == msg.text:
         return web_spider.get_szzs_today()
     elif '周刊' == msg.text:

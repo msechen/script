@@ -94,8 +94,8 @@ def init_scheduler(bot_var):
 
 # 发送天气信息
 def send_weather_info():
-    weather_info = '美好的一天从小糖早报开始 😝\n\n' + spider.get_weather_today()
-    send_service_info(1, weather_info)
+    info = '美好的一天从小糖早报开始 😝\n'
+    send_service_info(1, info)
 
 
 # 发送股票信息
@@ -177,6 +177,9 @@ def send_service_info(service_id, info, *images):
         logger.info('用户{}昵称：{}'.format(user.id, user.nickname))
         chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
         logger.info('chat info：{}'.format(chat))
+        if service_id == 1:
+            weather_info = spider.get_weather_today(sub.param)  # 天气预报
+            info = info + '\n' + weather_info
         if service_id == 2:
             jj_info = spider.get_jj_today(sub.param)  # 基金代码
             info = info + '\n' + jj_info
