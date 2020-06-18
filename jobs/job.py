@@ -101,18 +101,19 @@ def send_weather_info():
 # 发送股票信息
 def send_stock_info():
     zs_info = spider.get_zs_today()
-    send_service_info(2, zs_info)
+    if zs_info != '':
+        send_service_info(2, zs_info)
 
 
 # 早起
 def send_chicken_soup():
-    info = '1.打扫房间、清理垃圾\n2.跑步、下蹲\n3.规划待办事项\n4.阅读半小时'
+    info = '小糖晨间提醒:\n\n1.打扫房间、清理垃圾\n2.跑步\n3.规划今日待办\n4.阅读半小时'
     send_service_info(3, info)
 
 
 # 睡觉
 def send_goodnight():
-    info = '1.检查记账\n2.清理相册\n3.十个俯卧撑和下蹲\n4.清空各个inbox\n5.反思、总结、冥想'
+    info = '小糖睡前提醒:\n\n1.检查记账\n2.清理相册\n3.俯卧撑、下蹲\n4.清空所有inbox\n5.反思、总结、冥想'
     send_service_info(4, info)
 
 
@@ -124,7 +125,8 @@ def send_ryf_blob():
 # 发送阮一峰周刊
 def send_ryf_weekly():
     ryf_weekly_info = spider.get_ryf_weekly()
-    send_service_info(6, ryf_weekly_info)
+    if ryf_weekly_info != '':
+        send_service_info(6, ryf_weekly_info)
 
 
 # health check
@@ -134,17 +136,17 @@ def check():
 
 # 信用卡还款
 def credit_card_repay():
-    send_service_info(8, '招行、广银信用卡还款')
+    send_service_info(8, '小糖温馨提示：今天是招行、广银信用卡还款日唷 🤪')
 
 
 # 月初提醒
 def new_month():
-    send_service_info(9, '新的一个月开始啦')
+    send_service_info(9, '小糖温馨提示：新的一个月开始啦，冲鸭 😊')
 
 
 # 年初提醒
 def new_year():
-    send_service_info(10, '新的一年开始啦')
+    send_service_info(10, '小糖温馨提示：新的一年开始啦，冲鸭 😊')
 
 
 # 节日祝福
@@ -162,10 +164,10 @@ def send_exam_countdown():
     interval1 = (d1 - d0).days + 1
     interval2 = (d2 - d0).days + 1
     if interval1 > 0 and interval1 % 10 == 0:
-        info = '距离中级考试还有 ' + str(interval1) + ' 天，熙雅冲鸭 🦆'
+        info = '小糖温馨提示：距离中级考试还有 ' + str(interval1) + ' 天，熙雅冲鸭 🦆'
         send_service_info(12, info, './fight.jpeg')
     if interval2 > 0 and interval2 % 10 == 0:
-        info = '距离 CPA 考试还有 ' + str(interval2) + ' 天，熙雅冲鸭 🦆'
+        info = '小糖温馨提示：距离 CPA 考试还有 ' + str(interval2) + ' 天，熙雅冲鸭 🦆'
         send_service_info(12, info, './fight.jpeg')
 
 
@@ -178,7 +180,7 @@ def send_service_info(service_id, info, *images):
         chat = ensure_one(bot.friends(update=True).search(user.nickname + '-' + str(user.id)))
         logger.info('chat info：{}'.format(chat))
         if service_id == 1:
-            weather_info = spider.get_weather_today(sub.param)  # 天气预报
+            weather_info = spider.get_weather_today(sub.param)
             info = info + '\n' + weather_info
         if service_id == 2:
             jj_info = spider.get_jj_today(sub.param)  # 基金代码

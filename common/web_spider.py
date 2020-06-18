@@ -8,12 +8,15 @@ from bs4 import BeautifulSoup
 logger = logging.getLogger('wx')
 
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/67.0.3396.87 Safari/537.36"
 }
 
 
 # 查询深圳今天的天气
 def get_weather_today(city):
+    if city == '':
+        return ''
     response = requests.get('https://free-api.heweather.net/s6/weather/forecast?location='
                         + city + '&key=1054f5a588184acfb68f7b635f7d74dc', headers=headers)
     if response.text == '':
