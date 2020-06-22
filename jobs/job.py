@@ -9,7 +9,7 @@ from wxpy import *
 import common.web_spider as spider
 from dao import holiday_dao
 from dao import service_dao
-from dao import subscribe_dao
+from dao import service_subscribe_dao
 from dao import user_dao
 
 bot = None
@@ -173,7 +173,7 @@ def send_exam_countdown():
 
 def send_service_info(service_id, info, *images):
     service = service_dao.query_service_by_id(service_id)
-    for sub in subscribe_dao.query_subscribe_by_service_id(service_id):
+    for sub in service_subscribe_dao.query_service_subscribe_by_service_id(service_id):
         logger.info('用户{}订阅「{}」'.format(sub.user_id, service.name))
         user = user_dao.query_user_by_id(sub.user_id)
         logger.info('用户{}昵称：{}'.format(user.id, user.nickname))

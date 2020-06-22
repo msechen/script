@@ -129,7 +129,7 @@ def auto_reply(msg):
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
     elif '股票' == msg.text:
-        return web_spider.get_szzs_today()
+        return web_spider.get_zs_today()
     elif '周刊' == msg.text:
         return web_spider.get_ryf_weekly()
     elif '篮球' == msg.text:

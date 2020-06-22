@@ -9,7 +9,7 @@ Base = declarative_base()
 # 定义User对象:
 class User(Base):
     # 表的名字:
-    __tablename__ = 'user'
+    __tablename__ = 't_user'
 
     # 表的结构:
     id = Column(Integer, primary_key=True, autoincrement=True)

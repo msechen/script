@@ -76,8 +76,8 @@ def get_jj_today(code):
         return ''
     response = requests.get('https://api.doctorxiong.club/v1/fund?code=' + code, headers=headers)
     if response.text == '':
-        logger.info("request https://api.doctorxiong.club/v1/fund/detail response empty")
-        return "request https://api.doctorxiong.club/v1/fund/detail response empty"
+        logger.info("request https://api.doctorxiong.club/v1/fund response empty")
+        return "request https://api.doctorxiong.club/v1/fund response empty"
 
     json_data = json.loads(response.text)
     code = json_data.get("code")
@@ -93,6 +93,34 @@ def get_jj_today(code):
             code = i.get("code")
             current = i.get("expectWorth")
             change = i.get("expectGrowth")
+            logger.info("{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)))
+            result = result + "{}（{}）\n涨跌：{}%".format(str(name), str(code), str(change)) + '\n'
+        return result
+
+
+# 查询今日股票涨跌
+def get_stock_today(code):
+    if code == '':
+        return ''
+    response = requests.get('https://api.doctorxiong.club/v1/stock?code=' + code, headers=headers)
+    if response.text == '':
+        logger.info("request https://api.doctorxiong.club/v1/stock response empty")
+        return "request https://api.doctorxiong.club/v1/stock response empty"
+
+    json_data = json.loads(response.text)
+    code = json_data.get("code")
+    msg = json_data.get("message")
+    if code != 200:
+        logger.info("request error, msg:{}".format(msg))
+        return "request https://api.doctorxiong.club/v1/stock error, msg:" + msg
+    else:
+        result = ''
+        data = json_data.get("data")
+        for i in data:
+            name = i.get("name")
+            code = i.get("code")
+            current = i.get("price")
+            change = i.get("changePercent")
             logger.info("{}（{}）当前：{} 涨跌：{}%".format(str(name), str(code), str(current), str(change)))
             result = result + "{}（{}）\n涨跌：{}%".format(str(name), str(code), str(change)) + '\n'
         return result
@@ -114,4 +142,5 @@ if __name__ == "__main__":
     # print(get_zs_today())
     # print(get_ryf_weekly())
     # print(get_jj_today(''))
-    # print(get_jj_today('501301,161721,007028,110003,090010'))
+    print(get_jj_today('501301,090010'))
+    print(get_stock_today('000651,601318'))

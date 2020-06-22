@@ -9,7 +9,7 @@ Base = declarative_base()
 # 定义 ResourceLog 对象:
 class ResourceLog(Base):
     # 表的名字:
-    __tablename__ = 'resource_log'
+    __tablename__ = 't_resource_log'
 
     # 表的结构:
     id = Column(Integer, primary_key=True, autoincrement=True)

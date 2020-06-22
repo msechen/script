@@ -8,7 +8,7 @@ Base = declarative_base()
 # 定义 Service 对象:
 class Service(Base):
     # 表的名字:
-    __tablename__ = 'service'
+    __tablename__ = 't_service'
 
     # 表的结构:
     id = Column(Integer, primary_key=True, autoincrement=True)

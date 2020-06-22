@@ -6,16 +6,17 @@ from modal import *
 logger = logging.getLogger('wx')
 
 
-def query_subscribe_by_service_id(service_id):
+def query_service_subscribe_by_service_id(service_id):
     # 创建Session对象:
     session = mysql_api.get_session()
     # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
-    rows = session.query(Subscribe).filter(Subscribe.service_id == service_id).all()
+    rows = session.query(ServiceSubscribe).filter(ServiceSubscribe.service_id == service_id).filter(
+        ServiceSubscribe.flag == 0).all()
     # 关闭Session:
     session.close()
     return rows
 
 
 if __name__ == "__main__":
-    for item in query_subscribe_by_service_id(1):
+    for item in query_service_subscribe_by_service_id(1):
         print(item.user_id, item.param)

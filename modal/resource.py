@@ -9,7 +9,7 @@ Base = declarative_base()
 # 定义 Resource 对象:
 class Resource(Base):
     # 表的名字:
-    __tablename__ = 'resource'
+    __tablename__ = 't_resource'
 
     # 表的结构:
     id = Column(Integer, primary_key=True, autoincrement=True)
