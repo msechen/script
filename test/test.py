@@ -18,6 +18,14 @@ def test1(a, *b):
     print(a)
     print(b)
 
+def test2():
+    text = 'abcedfdf表情包'
+    if text.endswith('表情包'):
+        return text[0:-3]
+    else:
+        return 'haha'
+
 
 if __name__ == '__main__':
-    test()
+    # test()
+    print(test2())

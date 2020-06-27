@@ -1,4 +1,5 @@
 # 导入模块
+import glob
 import random
 import threading
 from time import sleep
@@ -138,6 +139,12 @@ def auto_reply(msg):
         return "https://tophub.today/"
     elif '提醒' in msg.text:
         return reminder.invoke_remind()
+    elif msg.text.endswith('表情包'):
+        images = []
+        for name in glob.glob('/Users/kolly/Downloads/emoji/*' + msg.text[0:-3] + '*.jpg'):
+            images.append(name)
+        for img in images[:6]:
+            msg.reply_image(img)
     elif '赞赏' == msg.text:
         image = './image/donate.png'
         msg.reply_image(image)
