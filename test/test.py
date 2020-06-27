@@ -1,4 +1,6 @@
 import datetime
+import glob
+import random
 
 
 def test():
@@ -18,14 +20,23 @@ def test1(a, *b):
     print(a)
     print(b)
 
+
 def test2():
-    text = 'abcedfdf表情包'
-    if text.endswith('表情包'):
-        return text[0:-3]
-    else:
-        return 'haha'
+    path = '/Users/kolly/Downloads/emoji'
+
+    path_file_number = glob.glob(path + '/*.*')  # 指定文件下文件个数
+
+    return len(path_file_number)
+
+
+def test3():
+    list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    slice = random.sample(list, 5)  # 从list中随机获取5个元素，作为一个片断返回
+    print(slice)
+    print(list)
 
 
 if __name__ == '__main__':
     # test()
     print(test2())
+    # test3()

@@ -123,6 +123,7 @@ def auto_reply(msg):
                "输入「热榜」即可查询今日热榜消息\n" \
                "输入「股票」即可查询你关注的股票涨跌\n" \
                "输入「篮球」即可查询 NBA 今日赛事\n" \
+               "输入「关键字 + 表情包」，例如：熊猫头表情包，即可搜索对应表情包噢\n" \
                "输入「定制」即可定制你的专属功能\n" \
                "更多有趣的功能敬请期待唷~"
         # "输入「提醒」即可查询未来的提醒\n" \
@@ -140,11 +141,33 @@ def auto_reply(msg):
     elif '提醒' in msg.text:
         return reminder.invoke_remind()
     elif msg.text.endswith('表情包'):
+        limit = 3
         images = []
-        for name in glob.glob('/Users/kolly/Downloads/emoji/*' + msg.text[0:-3] + '*.jpg'):
+        path = '/Users/kolly/Downloads/emoji'
+
+        if msg.text == '表情包':
+            for image in random.sample(glob.glob(path + '/*.*'), limit):
+                msg.reply_image(image)
+                sleep(1)
+            return '表情库共有' + str(len(glob.glob(path + '/*.*'))) + '个表情包，随机返回' \
+                   + str(limit) + '个，如果需要搜索指定表情包可以输入「关键字 + 表情包」噢，比如熊猫头表情包'
+
+        for name in glob.glob(path + '/*' + msg.text[0:-3] + '*.*'):
             images.append(name)
-        for img in images[:6]:
-            msg.reply_image(img)
+
+        if len(images) == 0:
+            return '没有找个你想要的表情包噢，可以试着换一个关键词查询'
+        elif len(images) <= limit:
+            for img in images:
+                msg.reply_image(img)
+                sleep(1)
+            return '一共找到' + str(len(images)) + '个符合的表情包'
+        else:
+            slice = random.sample(images, limit)  # 从 images 随机获取 limit 个元素，作为一个片断返回
+            for img in slice:
+                msg.reply_image(img)
+                sleep(1)
+            return '一共找到' + str(len(images)) + '个符合的表情包，随机返回' + str(limit) + '个，再次查询可以随机返回其他表情'
     elif '赞赏' == msg.text:
         image = './image/donate.png'
         msg.reply_image(image)
