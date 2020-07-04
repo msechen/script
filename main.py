@@ -133,7 +133,7 @@ def auto_reply(msg):
     elif '大盘' == msg.text:
         return web_spider.get_zs_today()
     elif '我的基金' == msg.text:
-        return web_spider.get_zs_today() + web_spider.get_jj_today("501301,161721,007028,110003,090010")
+        return web_spider.get_zs_today() + '\n' + web_spider.get_jj_today("501301,161721,007028,110003,090010")
     elif '周刊' == msg.text:
         return web_spider.get_ryf_weekly()
     elif '篮球' == msg.text:
