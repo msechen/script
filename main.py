@@ -121,7 +121,7 @@ def auto_reply(msg):
     if 'help' == msg.text.lower():
         return "输入「天气」即可查询设置天气\n" \
                "输入「热榜」即可查询今日热榜消息\n" \
-               "输入「股票」即可查询你关注的股票涨跌\n" \
+               "输入「大盘」即可查询上证指数涨跌\n" \
                "输入「篮球」即可查询 NBA 今日赛事\n" \
                "输入「关键字 + 表情包」，例如：熊猫头表情包，即可搜索对应表情包噢\n" \
                "输入「定制」即可定制你的专属功能\n" \
@@ -130,8 +130,10 @@ def auto_reply(msg):
         # "输入「赞赏」即可为小糖充电唷"
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
-    elif '股票' == msg.text:
+    elif '大盘' == msg.text:
         return web_spider.get_zs_today()
+    elif '我的基金' == msg.text:
+        return web_spider.get_zs_today() + web_spider.get_jj_today("501301,161721,007028,110003,090010")
     elif '周刊' == msg.text:
         return web_spider.get_ryf_weekly()
     elif '篮球' == msg.text:

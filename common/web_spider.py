@@ -138,9 +138,9 @@ def get_ryf_weekly():
 
 
 if __name__ == "__main__":
-    print(get_weather_today('shenzhen'))
-    # print(get_zs_today())
+    # print(get_weather_today('shenzhen'))
+    print(get_zs_today())
     # print(get_ryf_weekly())
     # print(get_jj_today(''))
     print(get_jj_today('501301,090010'))
-    print(get_stock_today('000651,601318'))
+    # print(get_stock_today('000651,601318'))
