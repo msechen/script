@@ -1,3 +1,5 @@
+import time
+
 from notion.client import NotionClient
 
 from common import zhihu_spider
@@ -8,19 +10,11 @@ client = NotionClient(
              "c5878162742253f9929f19f49713b71626da01f84a22c525b1ad17d4a2537d8653e09b2")
 
 
-# 更新知乎回答的排名和点赞数
-def update_zhihu_answer_rank():
+def test():
     cv = client.get_collection_view(
         "https://www.notion.so/0743b15fa95044ac896a5ed3a9b69df3?v=bc78b82e32254959a846b01e8b9de49f")
 
-    for row in cv.collection.get_rows():
-        # print(row.name, row.stat, row.qurl, row.aurl, row.tag, row.rank, row.like, row.qid, row.aid)
-        if row.stat:
-            # 爬取知乎问题的答案排名
-            rank, like = zhihu_spider.get_rank_and_like(row.qid, row.aid)
-            row.rank = str(rank)
-            row.like = str(like)
-            # print(rank, like)
+    print(cv.parent.title)
 
 
 # 更新知乎问题的阅读量
@@ -45,7 +39,27 @@ def update_zhihu_question_view():
             else:
                 row.answer_add = answer - row.answer
 
+    cv.parent.title = "问题管理 " + time.strftime("%Y-%m-%d %H:%M", time.localtime())
+
+
+# 更新知乎回答的排名和点赞数
+def update_zhihu_answer_rank():
+    cv = client.get_collection_view(
+        "https://www.notion.so/0743b15fa95044ac896a5ed3a9b69df3?v=bc78b82e32254959a846b01e8b9de49f")
+
+    for row in cv.collection.get_rows():
+        # print(row.name, row.stat, row.qurl, row.aurl, row.tag, row.rank, row.like, row.qid, row.aid)
+        if row.stat:
+            # 爬取知乎问题的答案排名
+            rank, like = zhihu_spider.get_rank_and_like(row.qid, row.aid)
+            row.rank = str(rank)
+            row.like = str(like)
+            # print(rank, like)
+
+    cv.parent.title = "回答管理 " + time.strftime("%Y-%m-%d %H:%M", time.localtime())
+
 
 if __name__ == "__main__":
-    # update_zhihu_answer_rank()
     update_zhihu_question_view()
+    # update_zhihu_answer_rank()
+    # test()
