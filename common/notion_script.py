@@ -23,5 +23,29 @@ def update_zhihu_answer_rank():
             # print(rank, like)
 
 
+# 更新知乎问题的阅读量
+def update_zhihu_question_view():
+    cv = client.get_collection_view(
+        "https://www.notion.so/495fff7199b64e4eb9dbc9bc8ac14d77?v=73d1f75fdcf44d62be0f3c2c14716cd0")
+
+    for row in cv.collection.get_rows():
+        # print(row.name, row.stat, row.qurl, row.tag, row.view, row.answer, row.qid)
+        if row.stat:
+            # 爬取知乎问题的答案排名
+            name, view, answer = zhihu_spider.get_view_and_answer_num(row.qid)
+            row.name = str(name)
+            if row.view is None:
+                row.view = view
+                row.view_add = 0
+            else:
+                row.view_add = view - row.view
+            if row.answer is None:
+                row.answer = answer
+                row.answer_add = 0
+            else:
+                row.answer_add = answer - row.answer
+
+
 if __name__ == "__main__":
-    update_zhihu_answer_rank()
+    # update_zhihu_answer_rank()
+    update_zhihu_question_view()

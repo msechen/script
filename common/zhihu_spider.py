@@ -7,6 +7,23 @@ headers = {
 }
 
 
+def get_question(qid):
+    # 利用知乎 API 请求 json 数据
+    # qid: 知乎问题号
+    # offset: 第几页
+    # 知乎 API
+    url = "https://www.zhihu.com/api/v4/questions/{}?include=visit_count,answer_count".format(qid)
+    res = requests.get(url, headers=headers)
+    res.encoding = 'utf-8'
+    return res.json()
+
+
+# 查询文章的浏览量和回答数
+def get_view_and_answer_num(qid):
+    data = get_question(qid)
+    return data['title'], data['visit_count'], data['answer_count']
+
+
 def get_answer(qid, offset):
     # 利用知乎 API 请求 json 数据
     # qid: 知乎问题号
@@ -19,7 +36,7 @@ def get_answer(qid, offset):
     return res.json()
 
 
-# 获取所有书籍和回答数据
+# 获取自己的回答在问题中的排名和赞数
 def get_rank_and_like(qid, aid):
     offset = 0
     rank = 0
@@ -47,4 +64,5 @@ def get_rank_and_like(qid, aid):
 
 
 if __name__ == "__main__":
-    print(get_rank_and_like('287500965', '1332349585'))
+    # print(get_rank_and_like('287500965', '1332349585'))
+    print(get_view_and_answer_num('287500965'))

@@ -93,7 +93,7 @@ def init_scheduler(bot_var):
 
     # notion 定时脚本
     scheduler.add_job(notion_sync, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='0/30', second='30')
+                      hour='*', minute='0/15', second='30')
 
     scheduler.start()
 
@@ -101,6 +101,7 @@ def init_scheduler(bot_var):
 # notion 定时脚本
 def notion_sync():
     nos.update_zhihu_answer_rank()
+    nos.update_zhihu_question_view()
 
 
 # 发送天气信息
