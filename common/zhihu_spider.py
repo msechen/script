@@ -42,7 +42,7 @@ def get_rank_and_like(qid, aid):
     rank = 0
     while True:
         qid = qid
-        print('Offset =', offset)
+        # print('Offset =', offset)
         # 知乎 api 请求
         data = get_answer(qid, offset)
         # print(data)
