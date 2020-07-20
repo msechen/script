@@ -65,8 +65,8 @@ def get_zs_today():
             name = i.get("name")
             current = i.get("price")
             change = i.get("changePercent")
-            logger.info("{} 当前：{} 涨跌：{}%".format(str(name), str(int(current)), str(change)))
-            result = result + "{} \n当前：{} 涨跌：{}%".format(str(name), str(int(current)), str(change)) + '\n'
+            logger.info("{} 当前：{} 涨跌：{}%".format(str(name), str(current), str(change)))
+            result = result + "{} \n当前：{} 涨跌：{}%".format(str(name), str(current), str(change)) + '\n'
         return result
 
 

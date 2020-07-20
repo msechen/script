@@ -61,5 +61,5 @@ def update_zhihu_answer_rank():
 
 if __name__ == "__main__":
     update_zhihu_question_view()
-    # update_zhihu_answer_rank()
+    update_zhihu_answer_rank()
     # test()
