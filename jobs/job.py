@@ -93,7 +93,7 @@ def init_scheduler(bot_var):
 
     # notion 定时脚本
     scheduler.add_job(notion_sync, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='0/10', second='30')
+                      hour='7-20', minute='0/30', second='30')
 
     scheduler.start()
 
