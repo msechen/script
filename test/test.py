@@ -1,6 +1,7 @@
 import datetime
 import glob
 import random
+import time
 
 
 def test():
@@ -36,7 +37,20 @@ def test3():
     print(list)
 
 
+def ttt():
+    t = "2020-07-25 15:35:16"
+    now = time.strftime("%Y-%m-%d", time.localtime())
+    print(t)
+    print(now)
+    if t.startswith(now):
+        print(111)
+
+    a = ''
+    print(int(a))
+
+
 if __name__ == '__main__':
     # test()
-    print(test2())
+    # print(test2())
     # test3()
+    ttt()

@@ -6,7 +6,7 @@ from time import sleep
 from apscheduler.schedulers.background import BackgroundScheduler
 from wxpy import *
 
-import common.notion_script as nos
+import common.google_sheet as gs
 import common.web_spider as spider
 from dao import holiday_dao
 from dao import service_dao
@@ -91,17 +91,16 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # notion 定时脚本
-    scheduler.add_job(notion_sync, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='7-20', minute='0/30', second='30')
+    # 知乎数据定时更新
+    scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='6-20', minute='0/30', second='30')
 
     scheduler.start()
 
 
-# notion 定时脚本
-def notion_sync():
-    nos.update_zhihu_answer_rank()
-    nos.update_zhihu_question_view()
+# 知乎数据更新
+def update_zhihu_data():
+    gs.update_zhihu_data()
 
 
 # 发送天气信息

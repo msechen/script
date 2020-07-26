@@ -21,6 +21,7 @@ def get_question(qid):
 # 查询文章的浏览量和回答数
 def get_view_and_answer_num(qid):
     data = get_question(qid)
+    time.sleep(1)  # 防止被风控
     return data['title'], data['visit_count'], data['answer_count']
 
 
