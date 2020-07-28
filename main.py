@@ -8,6 +8,7 @@ from wxpy import *
 
 from auto_reply import reminder
 from common import corp_we_chat
+from common import google_sheet
 from common import web_spider
 from dao import resource_dao
 from dao import resource_log_dao
@@ -142,6 +143,8 @@ def auto_reply(msg):
         return "https://tophub.today/"
     elif '提醒' in msg.text:
         return reminder.invoke_remind()
+    elif '知乎监控' == msg.text:
+        return google_sheet.update_zhihu_data()
     elif msg.text.endswith('表情包'):
         limit = 3
         images = []
