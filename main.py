@@ -144,7 +144,9 @@ def auto_reply(msg):
     elif '提醒' in msg.text:
         return reminder.invoke_remind()
     elif '知乎监控' == msg.text:
-        return google_sheet.update_zhihu_data()
+        msg.reply("监控数据开始更新……")
+        google_sheet.update_zhihu_data()
+        return "监控数据更新完成！"
     elif msg.text.endswith('表情包'):
         limit = 3
         images = []
