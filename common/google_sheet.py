@@ -56,12 +56,20 @@ def update_zhihu_data():
     get_sheet()
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range='监控管理!A2:Z').execute()
     values = result.get('values', [])
+    today_date = time.strftime("%Y-%m-%d", time.localtime())  # 当前日期
+    is_new_day = False  # 现在是不是新的一天（对比当前日期和上次更新时间）
+
     if not values:
         print('No data found.')
     else:
         for idx, row in enumerate(values):
-            # if len(row) < 1:
+            # if idx > 0:
             #     continue
+
+            # 判断现在是不是新的一天
+            if idx == 0:
+                last_update_time = str(row[20])
+                is_new_day = not last_update_time.startswith(today_date)
 
             # 修改最后更新时间
             values = [[time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]]
@@ -76,7 +84,6 @@ def update_zhihu_data():
     if not values:
         print('No data found.')
     else:
-
         for idx, row in enumerate(values):
             # if idx > 0:
             #     continue
@@ -101,23 +108,13 @@ def update_zhihu_data():
                 body=body).execute()
             print('qid:{1} {0} cells updated.'.format(result.get('updatedCells'), qid))
 
-            q_view = 28000
+            # q_view = 28000
 
             # 更新新增浏览数据
-            last_update_time = str(row[20])
-            today_date = time.strftime("%Y-%m-%d", time.localtime())
             yesterday_all_view, today_view, day3_view, day7_view = row[12], row[13], row[14], row[15]
             day1, day2, day3, day4, day5, day6 = row[6], row[7], row[8], row[9], row[10], row[11]
-            if last_update_time.startswith(today_date):  # 没有到新的一天
-                if yesterday_all_view != '':
-                    today_view = int(q_view) - int(yesterday_all_view)  # 更新今日阅读数
-                if day1 != '' and day2 != '':
-                    day3_view = today_view + utils.str_to_int(day1, 0) + utils.str_to_int(day2, 0)  # 更新三日阅读数
-                if day1 != '' and day2 != '' and day3 != '' and day4 != '' and day5 != '' and day6 != '':
-                    day7_view = today_view + utils.str_to_int(day1, 0) + utils.str_to_int(day2, 0) \
-                                + utils.str_to_int(day3, 0) + utils.str_to_int(day4, 0) \
-                                + utils.str_to_int(day5, 0) + utils.str_to_int(day6, 0)  # 更新七日阅读数
-            else:  # 到了新的一天
+
+            if is_new_day:  # 到了新的一天
                 if yesterday_all_view == '':
                     yesterday_all_view = q_view
                 else:
@@ -132,6 +129,15 @@ def update_zhihu_data():
                         day7_view = today_view + utils.str_to_int(day1, 0) + utils.str_to_int(day2, 0) \
                                     + utils.str_to_int(day3, 0) + utils.str_to_int(day4, 0) \
                                     + utils.str_to_int(day5, 0) + utils.str_to_int(day6, 0)  # 更新七日阅读数
+            else:  # 没有到新的一天
+                if yesterday_all_view != '':
+                    today_view = int(q_view) - int(yesterday_all_view)  # 更新今日阅读数
+                if day1 != '' and day2 != '':
+                    day3_view = today_view + utils.str_to_int(day1, 0) + utils.str_to_int(day2, 0)  # 更新三日阅读数
+                if day1 != '' and day2 != '' and day3 != '' and day4 != '' and day5 != '' and day6 != '':
+                    day7_view = today_view + utils.str_to_int(day1, 0) + utils.str_to_int(day2, 0) \
+                                + utils.str_to_int(day3, 0) + utils.str_to_int(day4, 0) \
+                                + utils.str_to_int(day5, 0) + utils.str_to_int(day6, 0)  # 更新七日阅读数
 
             values = [[day1, day2, day3, day4, day5, day6, yesterday_all_view, today_view, day3_view, day7_view]]
             body = {'values': values}
