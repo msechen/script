@@ -101,8 +101,6 @@ def update_zhihu_data():
                 body=body).execute()
             print('qid:{1} {0} cells updated.'.format(result.get('updatedCells'), qid))
 
-            q_view = 28000
-
             # 更新新增浏览数据
             last_update_time = str(row[20])
             today_date = time.strftime("%Y-%m-%d", time.localtime())
