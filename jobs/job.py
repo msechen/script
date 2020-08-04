@@ -93,7 +93,7 @@ def init_scheduler(bot_var):
 
     # 知乎数据定时更新
     scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='6-20', minute='0/30', second='30')
+                      hour='0-23', minute='5', second='30')
 
     scheduler.start()
 
