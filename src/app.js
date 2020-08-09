@@ -11,6 +11,7 @@ const fruitSchedule = require('./jd/fruitSchedule');
 const pet = require('./jd/pet');
 const cash = require('./jd/cash');
 const bean = require('./jd/bean');
+const invitation = require('./jd/invitation');
 
 const getCookieData = (name, shareCode) => {
   const getShareCodes = (name, targetIndex) => {
@@ -45,6 +46,7 @@ async function main() {
         await pet();
         await runScript(cash, 'cash');
         await runScript(bean, 'bean');
+        await runScript(invitation, 0);
       },
     },
     {
