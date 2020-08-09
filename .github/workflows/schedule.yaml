@@ -1,0 +1,41 @@
+name: Lazy Script(Schedule)
+
+on:
+  schedule:
+    - cron: '02 0/4 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Run app
+        run: npm install
+      - run: node src/app.js
+        env:
+          NODE_ENV: 'production'
+          NOT_RUN: ${{ secrets.NOT_RUN }}
+
+          SEVER_CHAN_KEY: ${{ secrets.SEVER_CHAN_KEY }}
+
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DUAL_COOKIE: ${{ secrets.JD_DUAL_COOKIE }}
+
+          JD_FRUIT_SHARE_CODE: ${{ secrets.JD_FRUIT_SHARE_CODE }}
+          JD_FRUIT_DUAL_SHARE_CODE: ${{ secrets.JD_FRUIT_DUAL_SHARE_CODE }}
+          JD_FRUIT_SHARE_CODE_2: ${{ secrets.JD_FRUIT_SHARE_CODE_2 }}
+
+          JD_CASH_SHARE_CODE: ${{ secrets.JD_CASH_SHARE_CODE }}
+          JD_CASH_SHARE_CODE_1: ${{ secrets.JD_CASH_SHARE_CODE_1 }}
+
+          JD_BEAN_SHARE_CODE: ${{ secrets.JD_BEAN_SHARE_CODE }}
+          JD_BEAN_SHARE_CODE_1: ${{ secrets.JD_BEAN_SHARE_CODE_1 }}
+          JD_BEAN_SHARE_CODE_2: ${{ secrets.JD_BEAN_SHARE_CODE_2 }}
+
+          JD_WMT_SHARE_CODE: ${{ secrets.JD_WMT_SHARE_CODE }}
+          JD_WMT_SHARE_CODE_1: ${{ secrets.JD_WMT_SHARE_CODE_1 }}
