@@ -18,7 +18,12 @@ const getCookieData = (name, shareCode) => {
     if (!name) return [];
     name = name.toUpperCase();
     const key = `JD_${name}_SHARE_CODE`;
-    return _.filter(new Array(5).map((v, i) => i !== targetIndex && (i === 0 ? process.env[key] : process.env[`${key}_${i}`])));
+    const shareCodes = [];
+    for (let i = 0; i < 5; i++) {
+      const shareCode = i === 0 ? process.env[key] : process.env[`${key}_${i}`];
+      shareCode && i !== targetIndex && shareCodes.push(shareCode);
+    }
+    return shareCodes;
   };
   const cookies = _.filter([process.env.JD_COOKIE, process.env.JD_DUAL_COOKIE]);
 
