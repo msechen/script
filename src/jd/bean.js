@@ -255,7 +255,7 @@ async function main(cookie, shareCodes = []) {
 async function start(data) {
   for (let i = 0; i < 2; i++) {
     for (const {cookie, shareCodes} of data) {
-      await main(cookie, i === 0 && shareCodes);
+      await main(cookie, i === 0 ? shareCodes : void 0);
     }
     await sleep(2);
   }

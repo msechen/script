@@ -53,7 +53,7 @@ function amountLog({code, amount}) {
 async function start(data) {
   for (let i = 0; i < 1; i++) {
     for (const {cookie, shareCodes} of data) {
-      await main(cookie, i === 0 && shareCodes);
+      await main(cookie, i === 0 ? shareCodes : void 0);
     }
     await sleep(2);
   }
