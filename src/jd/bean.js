@@ -13,6 +13,7 @@ async function main(cookie, shareCodes = []) {
       'User-Agent': 'jdapp',
     },
   });
+  const nowHours = getNowMoment().hours();
 
   // 助力好友
   for (const shareCode of shareCodes) {
@@ -30,7 +31,7 @@ async function main(cookie, shareCodes = []) {
       await sleep();
 
       const prevRound = data.roundList[0];
-      if (!prevRound.awardBeans) {
+      if (!prevRound.awardBeans && nowHours >= 10) {
         await receivedBean(prevRound.roundId);
         await sleep(2);
       }
@@ -120,7 +121,7 @@ async function main(cookie, shareCodes = []) {
 
       const {roundId, bubbleInfos = []} = data.roundList[1];
 
-      if (getNowMoment().hours() !== 0) {
+      if (nowHours !== 0) {
         await sleep();
         await plantFriendList().then(async friendInfoList => {
           if (_.isEmpty(friendInfoList)) return;
