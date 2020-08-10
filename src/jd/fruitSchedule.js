@@ -7,8 +7,6 @@ const scriptName = '免费农场';
 const _printLog = printLog.bind(0, scriptName, void 0);
 
 async function main(cookie, shareCodes = []) {
-  let failTask = [];
-
   const api = new Request(cookie, {}, {
     headers: {
       'User-Agent': 'jdapp',
@@ -17,6 +15,9 @@ async function main(cookie, shareCodes = []) {
       appid: 'wh5',
     },
   });
+
+  const waterTimes = process.env.JD_FRUIT_WATER_TIMES;
+  waterTimes && await waterGoodForFarm(waterTimes);
 
   // 助力
   for (const shareCode of shareCodes) {
@@ -43,6 +44,15 @@ async function main(cookie, shareCodes = []) {
     await api.doFormBody('clockInForFarm', {type: 2}).then(data => {
       amountLog(data._data);
     });
+  }
+
+  async function waterGoodForFarm(times) {
+    for (let i = 0; i < times; i++) {
+      await sleep(2);
+      await api.doFormBody('waterGoodForFarm').then(data => {
+        data._data.code === '0' && _printLog('浇水成功一次');
+      });
+    }
   }
 }
 

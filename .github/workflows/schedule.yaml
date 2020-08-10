@@ -26,6 +26,7 @@ jobs:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DUAL_COOKIE: ${{ secrets.JD_DUAL_COOKIE }}
 
+          JD_FRUIT_WATER_TIMES: ${{ secrets.JD_FRUIT_WATER_TIMES }}
           JD_FRUIT_SHARE_CODE: ${{ secrets.JD_FRUIT_SHARE_CODE }}
           JD_FRUIT_DUAL_SHARE_CODE: ${{ secrets.JD_FRUIT_DUAL_SHARE_CODE }}
           JD_FRUIT_SHARE_CODE_2: ${{ secrets.JD_FRUIT_SHARE_CODE_2 }}
