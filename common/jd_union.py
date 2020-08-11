@@ -23,7 +23,7 @@ appsecret = '7f69d2fcca5c443386017f9a97d14c83'
 # 查询深圳今天的天气
 def get_order():
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
-    # print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+    print(last_min)
     # timestamp = '2020-08-12 01:58:02'
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
     # order_time = '202008120019'
@@ -54,7 +54,7 @@ def get_order():
     data = json.loads(result)
     order_list = data.get('data')
     if order_list is None:
-        print("GG")
+        # print("GG")
         return 0
     else:
         goods_num = 0
