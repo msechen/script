@@ -8,12 +8,14 @@ from wxpy import *
 
 import common.google_sheet as gs
 import common.web_spider as spider
+import common.jd_union as jd
 from dao import holiday_dao
 from dao import service_dao
 from dao import service_subscribe_dao
 from dao import user_dao
 
 bot = None
+user_kolly = None
 logger = logging.getLogger('wx')
 
 
@@ -23,8 +25,9 @@ def debug():
 
 # 定时任务初始化
 def init_scheduler(bot_var):
-    global bot
+    global bot, user_kolly
     bot = bot_var
+    user_kolly = ensure_one(bot.friends().search('kolly'))
 
     # 后台非阻塞定时任务
     scheduler = BackgroundScheduler()
@@ -95,12 +98,27 @@ def init_scheduler(bot_var):
     scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='0-23', minute='5', second='30')
 
+    # jd 订单轮训
+    scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='*', second='30')
+
     scheduler.start()
 
 
 # 知乎数据更新
 def update_zhihu_data():
     gs.update_zhihu_data()
+
+
+# 知乎数据更新
+def get_order():
+    goods_num = jd.get_order()
+    if goods_num > 0:
+        # print("恭喜来订单了")
+        user_kolly.send("恭喜, 新增订单数量：", goods_num)
+    # else:
+        # print("没有订单")
+        # user_kolly.send("可惜，没有订单")
 
 
 # 发送天气信息

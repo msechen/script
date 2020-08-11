@@ -53,4 +53,11 @@ if __name__ == '__main__':
     # test()
     # print(test2())
     # test3()
-    ttt()
+    # ttt()
+    print(time.time())
+    order_time = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
+    print(order_time)
+    print(datetime.datetime.now())
+    print((datetime.datetime.now() - datetime.timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M:%S"))
+
+
