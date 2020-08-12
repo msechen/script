@@ -1,13 +1,10 @@
 # 导入模块
+import datetime
+import hashlib
 import json
 import logging
-import hashlib
-import time
-import datetime
-
 
 import requests
-from bs4 import BeautifulSoup
 
 logger = logging.getLogger('wx')
 
@@ -19,8 +16,11 @@ headers = {
 appkey = '1a449d84b554735f7fe3a9037099bddc'
 appsecret = '7f69d2fcca5c443386017f9a97d14c83'
 
+order_api = 'jd.union.open.order.query'
+sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 
-# 查询深圳今天的天气
+
+# 查询京东联盟的订单
 def get_order(order_time):
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
     # print(last_min)
@@ -29,7 +29,7 @@ def get_order(order_time):
     if order_time is None:
         order_time = last_min.strftime('%Y%m%d%H%M')
 
-    strToSign = appsecret + 'app_key' + appkey +'formatjsonmethodjd.union.open.order.queryparam_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
+    strToSign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_api + 'param_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # print(strToSign)
 
     hl = hashlib.md5()
@@ -37,14 +37,13 @@ def get_order(order_time):
     sign = hl.hexdigest().upper()
     # print(sign)
 
-    url = 'https://router.jd.com/api?v=1.0&method=jd.union.open.order.query&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}'
-
+    url = 'https://router.jd.com/api?v=1.0&method=' + order_api + '&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}'
     # print(url)
 
     response = requests.get(url, headers=headers)
     if response.text == '':
-        logger.info("request https://free-api.heweather.net response empty")
-        return "request https://free-api.heweather.net response empty"
+        logger.info(order_api + " response empty")
+        return order_api + " response empty"
 
     json_data = json.loads(response.text)
     # print(json_data)
@@ -65,6 +64,52 @@ def get_order(order_time):
     return goods_num
 
 
+# 根据 sku 查询商品佣金
+def get_sku_info(sku_ids):
+    last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
+    timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
+
+    strToSign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
+    # print(strToSign)
+
+    hl = hashlib.md5()
+    hl.update(strToSign.encode(encoding='utf-8'))
+    sign = hl.hexdigest().upper()
+    # print(sign)
+
+    url = 'https://router.jd.com/api?v=1.0&method=' + sku_info_api + '&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"skuIds":"' + sku_ids + '"}'
+    # print(url)
+
+    response = requests.get(url, headers=headers)
+    if response.text == '':
+        logger.info(sku_info_api + " response empty")
+        return sku_info_api + " response empty"
+
+    json_data = json.loads(response.text)
+    # print(json_data)
+    # print(json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response'))
+    result = json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response').get('result')
+    # print(result)
+    data = json.loads(result)
+    sku_list = data.get('data')
+    if sku_list is None:
+        print("没有此 sku 数据")
+        return "没有此 sku 数据"
+    else:
+        info = '[查询结果]'
+        for sku in sku_list:
+            goodsName = sku.get('goodsName')
+            unitPrice = sku.get('unitPrice')
+            commisionRatioPc = sku.get('commisionRatioPc')
+            commision = float(unitPrice) * float(commisionRatioPc) / 100
+            isJdSale = sku.get('isJdSale')
+            materialUrl = sku.get('materialUrl')
+            info += "\n\n商品名称：" + goodsName + "\n商品价格：" + str(unitPrice) + "\n佣金比例：" + str(
+                commisionRatioPc) + "\n佣金：" + str(commision) + "\n是否自营：" + str(isJdSale) + "\n商品地址：" + materialUrl
+    return info
+
+
 if __name__ == "__main__":
     # get_order(None)
-    get_order('202008120713')
+    # get_order('202008120713')
+    print(get_sku_info('65379713262,65386799109'))

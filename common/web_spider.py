@@ -143,5 +143,5 @@ if __name__ == "__main__":
     # print(get_ryf_weekly())
     # print(get_jj_today(''))
     print(get_jj_today('501301,161721,007028,110003,004070,090010,519671'))
-    print(get_jj_today('004746,007465,005224'))
+    # print(get_jj_today('004746,007465,005224'))
     # print(get_stock_today('000651,601318'))

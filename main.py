@@ -9,6 +9,7 @@ from wxpy import *
 from auto_reply import reminder
 from common import corp_we_chat
 from common import google_sheet
+from common import jd_union
 from common import web_spider
 from dao import resource_dao
 from dao import resource_log_dao
@@ -64,8 +65,8 @@ def auto_accept_friends(msg):
 
     # 数据库增加新用户
     user_id = user_service.add_new_user(new_friend.puid, new_friend.nick_name, '', new_friend.sex, new_friend.city)
-    logger.info('数据库成功增加新用户：{} {} {} {}'.format(user_id, new_friend.puid, new_friend.nick_name, new_friend.sex,
-                                                new_friend.city))
+    logger.info('数据库成功增加新用户：{} {} {} {} {}'.format(user_id, new_friend.puid, new_friend.nick_name, new_friend.sex,
+                                                   new_friend.city))
 
     # 设置好友备注
     remark = new_friend.nick_name + '-' + str(user_id)
@@ -88,7 +89,7 @@ def forward_to_kolly(msg):
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
     else:
-        logger.info('收到群聊「{}」「{}」的消息：'.format(msg.sender.name, msg.member.name, msg.text))
+        logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
         msg.forward(user_kolly, prefix='群聊「' + msg.sender.name + '」的「' + msg.member.name + '」发送内容:')
 
 
@@ -147,6 +148,10 @@ def auto_reply(msg):
         msg.reply("监控数据开始更新……")
         google_sheet.update_zhihu_data()
         return "监控数据更新完成！"
+    elif msg.text.startswith('sku '):
+        sku_ids = msg.text[4:]
+        if len(sku_ids) > 0:
+            return jd_union.get_sku_info(sku_ids)
     elif msg.text.endswith('表情包'):
         limit = 3
         images = []

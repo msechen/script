@@ -60,4 +60,7 @@ if __name__ == '__main__':
     print(datetime.datetime.now())
     print((datetime.datetime.now() - datetime.timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M:%S"))
 
-
+    # sku_ids = 'sku 1111 1111'[4:]
+    sku_ids = 'sku '[4:]
+    print(sku_ids)
+    print(len(sku_ids))
