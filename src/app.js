@@ -14,6 +14,7 @@ const bean = require('./jd/bean');
 const invitation = require('./jd/invitation');
 
 const getCookieData = (name, shareCode) => {
+  shareCode && (shareCode = [].concat(shareCode));
   const getShareCodes = (name, targetIndex) => {
     if (!name) return [];
     name = name.toUpperCase();
