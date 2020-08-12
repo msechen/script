@@ -45,6 +45,12 @@ async function main(cookie, shareCodes = []) {
         await receiveNutrientsTask(`${taskType}`);
       }
 
+      if (nowHours === 0) {
+        // 金融双签接口没返回, 需要hack code一下
+        await sleep();
+        await receiveNutrientsTask(`7`);
+      }
+
       const requestConfig = [
         {
           taskType: 3, // 浏览店铺
