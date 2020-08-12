@@ -29,11 +29,11 @@ def get_order(order_time):
     if order_time is None:
         order_time = last_min.strftime('%Y%m%d%H%M')
 
-    strToSign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_api + 'param_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
+    str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_api + 'param_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # print(strToSign)
 
     hl = hashlib.md5()
-    hl.update(strToSign.encode(encoding='utf-8'))
+    hl.update(str_to_sign.encode(encoding='utf-8'))
     sign = hl.hexdigest().upper()
     # print(sign)
 
@@ -93,20 +93,19 @@ def get_sku_info(sku_ids):
     data = json.loads(result)
     sku_list = data.get('data')
     if sku_list is None:
-        print("没有此 sku 数据")
         return "没有此 sku 数据"
     else:
         info = '[查询结果]'
         for sku in sku_list:
-            goodsName = sku.get('goodsName')
-            unitPrice = sku.get('unitPrice')
-            commisionRatioPc = sku.get('commisionRatioPc')
-            commision = float(unitPrice) * float(commisionRatioPc) / 100
-            isJdSale = sku.get('isJdSale')
-            materialUrl = sku.get('materialUrl')
-            info += "\n\n商品名称：" + goodsName + "\n商品价格：" + str(unitPrice) + "\n佣金比例：" + str(
-                commisionRatioPc) + "\n佣金：" + str(commision) + "\n是否自营：" + str(isJdSale) + "\n商品地址：" + materialUrl
-    return info
+            goods_name = sku.get('goodsName')
+            unit_price = sku.get('unitPrice')
+            commision_ratio_pc = sku.get('commisionRatioPc')
+            commision = float(unit_price) * float(commision_ratio_pc) / 100
+            is_jd_sale = sku.get('isJdSale')
+            material_url = sku.get('materialUrl')
+            info += "\n\n商品名称：" + goods_name + "\n商品价格：" + str(unit_price) + "\n佣金比例：" + str(
+                commision_ratio_pc) + "\n佣金：" + str(commision) + "\n是否自营：" + str(is_jd_sale) + "\n商品地址：" + material_url
+        return info
 
 
 if __name__ == "__main__":
