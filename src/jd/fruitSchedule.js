@@ -22,7 +22,9 @@ async function main(cookie, shareCodes = []) {
   // 助力
   for (const shareCode of shareCodes) {
     await sleep();
-    await api.doFormBody('initForFarm', {shareCode});
+    await api.doFormBody('initForFarm', {shareCode}).then(data => {
+      amountLog(data._data.helpResult || {});
+    });
   }
   const nowMoment = getNowMoment();
 
@@ -56,8 +58,8 @@ async function main(cookie, shareCodes = []) {
   }
 }
 
-function amountLog({code, amount}) {
-  (code === '0') && _printLog(`获取的水滴数: ${amount}`);
+function amountLog({code, amount, addEnergy}) {
+  (code === '0') && _printLog(`获取的水滴数: ${amount || addEnergy}`);
 }
 
 async function start(data) {
