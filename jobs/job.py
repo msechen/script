@@ -112,10 +112,10 @@ def update_zhihu_data():
 
 # 知乎数据更新
 def get_order():
-    goods_num = jd.get_order()
+    goods_num = jd.get_order(None)
     if goods_num > 0:
         # print("恭喜来订单了")
-        user_kolly.send("恭喜, 新增订单数量：", goods_num)
+        user_kolly.send("恭喜, 新增订单数量：" + str(goods_num))
     # else:
         # print("没有订单")
         # user_kolly.send("可惜，没有订单")

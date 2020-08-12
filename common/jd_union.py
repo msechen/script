@@ -21,13 +21,13 @@ appsecret = '7f69d2fcca5c443386017f9a97d14c83'
 
 
 # 查询深圳今天的天气
-def get_order():
+def get_order(order_time):
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
     # print(last_min)
     # timestamp = '2020-08-12 01:58:02'
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
-    # order_time = '202008120019'
-    order_time = last_min.strftime('%Y%m%d%H%M')
+    if order_time is None:
+        order_time = last_min.strftime('%Y%m%d%H%M')
 
     strToSign = appsecret + 'app_key' + appkey +'formatjsonmethodjd.union.open.order.queryparam_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # print(strToSign)
@@ -66,4 +66,5 @@ def get_order():
 
 
 if __name__ == "__main__":
-    get_order()
+    # get_order(None)
+    get_order('202008120713')
