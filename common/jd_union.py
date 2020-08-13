@@ -17,6 +17,7 @@ appkey = '1a449d84b554735f7fe3a9037099bddc'
 appsecret = '7f69d2fcca5c443386017f9a97d14c83'
 
 order_api = 'jd.union.open.order.query'
+order_row_api = 'jd.union.open.order.row.query'
 sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 
 
@@ -54,14 +55,25 @@ def get_order(order_time):
     order_list = data.get('data')
     if order_list is None:
         # print("GG")
-        return 0
+        return ''
     else:
         goods_num = 0
+        sku_desc = ''
         for order in order_list:
+            # print(order)
             if order.get('validCode') >= 16:
                 goods_num += len(order.get('skuList'))
-        print("新增订单：", goods_num)
-    return goods_num
+                skuList = order.get('skuList')
+                for sku in skuList:
+                    estimateCosPrice = sku.get('estimateCosPrice')
+                    estimateFee = sku.get('estimateFee')
+                    skuName = sku.get('skuName')
+                    # print(skuName)
+                    # print(estimateCosPrice, estimateFee)
+                    sku_desc += '\n\n' + skuName + '\n订单价格：' + str(estimateCosPrice) + '\n预计佣金：' + str(estimateFee)
+        # print("新增订单：", goods_num)
+        # print(sku_desc)
+    return '恭喜, 新增订单数量：' + str(goods_num) + sku_desc
 
 
 # 根据 sku 查询商品佣金
@@ -110,5 +122,5 @@ def get_sku_info(sku_ids):
 
 if __name__ == "__main__":
     # get_order(None)
-    # get_order('202008120713')
-    print(get_sku_info('65379713262,65386799109'))
+    print(get_order('202008131702'))
+    # print(get_sku_info('65379713262,65386799109'))
