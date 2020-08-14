@@ -73,7 +73,10 @@ def get_order(order_time):
                     sku_desc += '\n\n' + skuName + '\n订单价格：' + str(estimateCosPrice) + '\n预计佣金：' + str(estimateFee)
         # print("新增订单：", goods_num)
         # print(sku_desc)
-    return '恭喜, 新增订单数量：' + str(goods_num) + sku_desc
+        if goods_num > 0:
+            return '恭喜, 新增订单数量：' + str(goods_num) + sku_desc
+        else:
+            return ''
 
 
 # 根据 sku 查询商品佣金
