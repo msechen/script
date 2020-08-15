@@ -79,8 +79,7 @@ def get_order(order_time):
             return ''
 
 
-# 根据 sku 查询商品佣金
-def get_sku_info(sku_ids):
+def get_sku_list(sku_ids):
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -106,7 +105,12 @@ def get_sku_info(sku_ids):
     result = json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response').get('result')
     # print(result)
     data = json.loads(result)
-    sku_list = data.get('data')
+    return data.get('data')
+
+
+# 根据 sku 查询商品佣金
+def get_sku_info(sku_ids):
+    sku_list = get_sku_list(sku_ids)
     if sku_list is None:
         return "没有此 sku 数据"
     else:
@@ -123,7 +127,33 @@ def get_sku_info(sku_ids):
         return info
 
 
+# 根据 sku 查询商品佣金
+def get_sku_info_single(sku_id):
+    sku_list = get_sku_list(sku_id)
+    if sku_list is None:
+        return None, None, None, None, None, None, None, None, None, None, None, None
+    else:
+        for sku in sku_list:
+            cid = sku.get('cid')
+            cid_name = sku.get('cidName')
+            cid2 = sku.get('cid2')
+            cid2_name = sku.get('cid2Name')
+            cid3 = sku.get('cid3')
+            cid3_name = sku.get('cid3Name')
+            goods_name = sku.get('goodsName')
+            unit_price = int(sku.get('unitPrice'))
+            commision_ratio_pc = sku.get('commisionRatioPc')
+            commision = int(unit_price * float(commision_ratio_pc) / 100)
+            is_jd_sale = bool(int(sku.get('isJdSale')))
+            in_order_count = sku.get('inOrderCount')
+        return goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name
+
+
 if __name__ == "__main__":
     # get_order(None)
-    print(get_order('202008131702'))
+    # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
+    # print(get_sku_info_single('100006686879'))
+    goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
+        '100006686879')
+    print(goods_name)

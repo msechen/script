@@ -7,8 +7,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from wxpy import *
 
 import common.google_sheet as gs
-import common.web_spider as spider
 import common.jd_union as jd
+import common.web_spider as spider
 from dao import holiday_dao
 from dao import service_dao
 from dao import service_subscribe_dao
@@ -96,7 +96,11 @@ def init_scheduler(bot_var):
 
     # 知乎数据定时更新
     scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='0-23', minute='5', second='30')
+                      hour='6-23', minute='5', second='30')
+
+    # 商品佣金数据定时更新
+    scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='6-23', minute='35', second='30')
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -108,6 +112,11 @@ def init_scheduler(bot_var):
 # 知乎数据更新
 def update_zhihu_data():
     gs.update_zhihu_data()
+
+
+# 知乎数据更新
+def update_goods():
+    gs.update_goods()
 
 
 # 知乎数据更新

@@ -8,12 +8,12 @@ from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
+from common import jd_union
 from common import utils
 from common import zhihu_spider
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-# SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = '1Pu6JC4yMSXkBYQSzZ2BRT1h1eHiaFzVZqPQ64GVuaUM'
@@ -48,6 +48,62 @@ def get_sheet():
 
     # Call the Sheets API
     sheet = service.spreadsheets()
+
+
+# 更新商品
+def update_goods():
+    get_sheet()
+    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!A2:R').execute()
+    values = result.get('values', [])
+
+    if not values:
+        print('No data found.')
+    else:
+        for idx, row in enumerate(values):
+            # if idx > 0:
+            #     continue
+
+            # 修改最后更新时间
+            values = [[time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]]
+            body = {'values': values}
+            sheet.values().update(
+                spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!R{}'.format(idx + 2), valueInputOption="RAW",
+                body=body).execute()
+
+    get_sheet()
+    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!A2:Z').execute()
+    values = result.get('values', [])
+    if not values:
+        print('No data found.')
+    else:
+        for idx, row in enumerate(values):
+            # if idx > 0:
+            #     continue
+
+            if len(row) < 1:
+                continue
+
+            sku_id = row[0]
+
+            if sku_id is None or sku_id == '':
+                continue
+
+            # 查询商品信息
+            goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(
+                sku_id)
+            if goods_name is None:
+                continue
+
+            time.sleep(0.5)
+
+            values = [
+                [goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2,
+                 cid2_name, cid3, cid3_name]]
+            body = {'values': values}
+            result = sheet.values().update(
+                spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!F{0}:Q{0}'.format(idx + 2), valueInputOption="RAW",
+                body=body).execute()
+            print('sku_id:{1} view data {0} cells updated.'.format(result.get('updatedCells'), sku_id))
 
 
 # 更新知乎问题的阅读量
@@ -99,6 +155,7 @@ def update_zhihu_data():
 
             # 更新问题的数据（浏览量、点赞数、新增浏览数）
             q_name, q_view, q_answer = zhihu_spider.get_view_and_answer_num(qid)
+            time.sleep(0.5)
 
             # 更新浏览量、点赞数
             values = [[q_name, q_view, q_answer]]
@@ -154,6 +211,7 @@ def update_zhihu_data():
 
             # 爬取知乎问题的答案排名
             rank, like = zhihu_spider.get_rank_and_like(qid, aid)
+            time.sleep(0.5)
 
             # 更新排名、点赞数
             values = [[rank, like]]
@@ -197,4 +255,5 @@ def write_test():
 if __name__ == '__main__':
     # read_test()
     # write_test()
-    update_zhihu_data()
+    # update_zhihu_data()
+    update_goods()
