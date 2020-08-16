@@ -51,6 +51,7 @@ async function main() {
         await sign();
         await fruit();
         await pet();
+        await runScript(cash, 'cash');
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
         await runScript(blindBox, 0);

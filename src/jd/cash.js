@@ -13,6 +13,10 @@ async function main(cookie, inviteCode) {
 
   const api = new Request(cookie);
   let taskForm = [].concat(cash.cash_doTask);
+
+  await sleep();
+  await cash_sign(inviteCode);
+  await sleep();
   await cash_homePage();
 
   async function cash_homePage() {
@@ -20,17 +24,6 @@ async function main(cookie, inviteCode) {
 
     const loop = await api.doForm(cash_homePage.name, cash.cash_homePage[0]).then(async result => {
       const data = result.result;
-      if (data.signedStatus === 2) {
-        // 可以替换成自己想要的邀请码, 但是不保证可以签到成功
-        inviteCode = inviteCode || 'cEhkP7C3Yw';
-        // 签到
-        let signForm = cash.cash_sign.find(form => JSON.parse(form.body).inviteCode === inviteCode);
-        if (!signForm) {
-          signForm = cash.cash_sign[0];
-        }
-        await cash_sign(signForm);
-        return true;
-      }
       const taskInfos = data.taskInfos.filter(task => task.finishFlag !== 1);
       let taskBody = taskInfos.map(task => ({type: task.type, taskInfo: task.desc || task.doTaskDesc}));
       const specialTask = data.specialTaskInfos.find(o => o.type === 9) || {finishFlag: 1};
@@ -71,7 +64,14 @@ async function main(cookie, inviteCode) {
   }
 
   // 签到
-  async function cash_sign(form) {
+  async function cash_sign(inviteCode) {
+    // 可以替换成自己想要的邀请码, 但是不保证可以签到成功
+    inviteCode = inviteCode || 'cEhkP7C3Yw';
+    // 签到
+    let form = cash.cash_sign.find(form => JSON.parse(form.body).inviteCode === inviteCode);
+    if (!form) {
+      form = cash.cash_sign[0];
+    }
     return api.doForm(cash_sign.name, form).then(data => {
       if (data.bizCode === 0) {
         _printLog('签到成功');
