@@ -153,7 +153,7 @@ if __name__ == "__main__":
     # get_order(None)
     # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
-    # print(get_sku_info_single('100006686879'))
-    goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
-        '100006686879')
-    print(goods_name)
+    print(get_sku_info_single('67716911235'))
+    # goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
+    #     '100006686879')
+    # print(goods_name)
