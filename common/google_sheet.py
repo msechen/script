@@ -94,7 +94,7 @@ def update_goods():
             if goods_name is None:
                 continue
 
-            time.sleep(0.5)
+            time.sleep(3)
 
             values = [
                 [goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2,
