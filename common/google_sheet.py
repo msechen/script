@@ -255,5 +255,5 @@ def write_test():
 if __name__ == '__main__':
     # read_test()
     # write_test()
-    # update_zhihu_data()
-    update_goods()
+    update_zhihu_data()
+    # update_goods()
