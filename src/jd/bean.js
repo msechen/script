@@ -39,8 +39,8 @@ async function main(cookie, shareCodes = []) {
       const taskList = data.taskList.filter(task => task.isFinished !== 1 && !ignoreTaskTypes.includes(task.taskType));
 
       for (const task of taskList) {
-        const {taskType} = task;
-        if (![4, 7, 19, 22].includes(taskType)) continue;
+        const {taskType, taskName} = task;
+        if (![4, 7, 19, 22].includes(taskType) && !['开学鲜行', '小米领豆'].includes(taskName)) continue;
         await sleep();
         await receiveNutrientsTask(`${taskType}`);
       }
