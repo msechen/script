@@ -12,7 +12,6 @@ const pet = require('./jd/pet');
 const cash = require('./jd/cash');
 const bean = require('./jd/bean');
 const invitation = require('./jd/invitation');
-const blindBox = require('./jd/blindBox');
 const superMarket = require('./jd/superMarket');
 
 const getCookieData = (name, shareCode) => {
@@ -55,7 +54,6 @@ async function main() {
         await runScript(cash, 'cash');
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
-        await runScript(blindBox, 0);
         await runScript(superMarket, 0);
       },
     },
