@@ -34,12 +34,15 @@ async function main(cookie) {
       }
     });
   };
-  await smtg_receiveCoin();
-  if (nowMoment.hours() === 0) {
+  const isFirst = nowMoment.hours() === 0;
+  if (isFirst) {
+    await smtg_receiveCoin();
     await doSign();
     await manageProduct();
     await manageShelf();
     await doTaskList(true);
+  } else {
+    await smtg_receiveCoin([0]);
   }
   await doTaskList();
   await doExchange();
@@ -196,16 +199,21 @@ async function main(cookie) {
     }
   }
 
-  async function smtg_receiveCoin() {
-    for (const type of [0, 2]) {
+  async function smtg_receiveCoin(types = [0, 1, 2]) {
+    const nextTypes = [];
+    for (const type of [].concat(types)) {
       await sleep();
       await api.doFormBody(smtg_receiveCoin.name, {type}).then(async data => {
         if (!data.result) return;
         data.result.blueCoin = _.property('result.receivedBlue')(data);
         data.result.goldCoin = _.property('result.receivedGold')(data);
         successLog(data);
-        if (type === 2 && isSuccess(data)) await smtg_receiveCoin();
+        if (type === 2 && isSuccess(data)) nextTypes.push(type);
       });
+    }
+    if (!_.isEmpty(nextTypes)) {
+      await sleep(2);
+      await smtg_receiveCoin(nextTypes);
     }
   }
 
