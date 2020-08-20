@@ -146,7 +146,7 @@ def get_sku_info_single(sku_id):
             commision = int(unit_price * float(commision_ratio_pc) / 100)
             is_jd_sale = bool(int(sku.get('isJdSale')))
             in_order_count = sku.get('inOrderCount')
-        return goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name
+            return goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name
 
 
 if __name__ == "__main__":
