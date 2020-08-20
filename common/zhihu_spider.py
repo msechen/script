@@ -49,8 +49,8 @@ def get_rank_and_like(qid, aid):
         # print(data)
         if len(data['data']) == 0:
             return offset, "-1"
-        if offset > 40:
-            return "40+", "-1"
+        if offset > 60:
+            return "60+", "-1"
 
         ## 找对应答案的排名
         for item in data["data"]:
