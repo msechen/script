@@ -1,10 +1,9 @@
 # 导入模块
-import datetime
-import hashlib
 import json
 import logging
 
 import requests
+from utils import *
 
 logger = logging.getLogger('wx')
 
@@ -23,9 +22,8 @@ sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 
 # 查询京东联盟的订单
 def get_order(order_time):
-    last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
-    # print(last_min)
     # timestamp = '2020-08-12 01:58:02'
+    last_min = get_last_min_ts()
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
     if order_time is None:
         order_time = last_min.strftime('%Y%m%d%H%M')
@@ -33,9 +31,7 @@ def get_order(order_time):
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_api + 'param_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # print(strToSign)
 
-    hl = hashlib.md5()
-    hl.update(str_to_sign.encode(encoding='utf-8'))
-    sign = hl.hexdigest().upper()
+    sign = md5(str_to_sign)
     # print(sign)
 
     url = 'https://router.jd.com/api?v=1.0&method=' + order_api + '&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}'
@@ -63,14 +59,14 @@ def get_order(order_time):
             # print(order)
             if order.get('validCode') >= 16:
                 goods_num += len(order.get('skuList'))
-                skuList = order.get('skuList')
-                for sku in skuList:
-                    estimateCosPrice = sku.get('estimateCosPrice')
-                    estimateFee = sku.get('estimateFee')
-                    skuName = sku.get('skuName')
+                sku_list = order.get('skuList')
+                for sku in sku_list:
+                    estimate_cos_price = sku.get('estimateCosPrice')
+                    estimate_fee = sku.get('estimateFee')
+                    sku_name = sku.get('skuName')
                     # print(skuName)
                     # print(estimateCosPrice, estimateFee)
-                    sku_desc += '\n\n' + skuName + '\n订单价格：' + str(estimateCosPrice) + '\n预计佣金：' + str(estimateFee)
+                    sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n预计佣金：' + str(estimate_fee)
         # print("新增订单：", goods_num)
         # print(sku_desc)
         if goods_num > 0:
@@ -83,12 +79,10 @@ def get_sku_list(sku_ids):
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
-    strToSign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
-    # print(strToSign)
+    str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
+    # print(str_to_sign)
 
-    hl = hashlib.md5()
-    hl.update(strToSign.encode(encoding='utf-8'))
-    sign = hl.hexdigest().upper()
+    sign = md5(str_to_sign)
     # print(sign)
 
     url = 'https://router.jd.com/api?v=1.0&method=' + sku_info_api + '&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"skuIds":"' + sku_ids + '"}'
@@ -130,7 +124,7 @@ def get_sku_info(sku_ids):
 # 根据 sku 查询商品佣金
 def get_sku_info_single(sku_id):
     sku_list = get_sku_list(sku_id)
-    if sku_list is None:
+    if sku_list is None or len(sku_list) == 0:
         return None, None, None, None, None, None, None, None, None, None, None, None
     else:
         for sku in sku_list:
@@ -153,7 +147,7 @@ if __name__ == "__main__":
     # get_order(None)
     # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
-    print(get_sku_info_single('67716911235'))
+    print(get_sku_info_single('67239583445'))
     # goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
     #     '100006686879')
     # print(goods_name)

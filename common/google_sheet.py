@@ -92,18 +92,24 @@ def update_goods():
             goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(
                 sku_id)
             if goods_name is None:
-                continue
+                values = [
+                    ["无效商品"]]
+                body = {'values': values}
+                result = sheet.values().update(
+                    spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!E{}'.format(idx + 2), valueInputOption="RAW",
+                    body=body).execute()
+                print('sku_id:{1} view data {0} cells updated.'.format(result.get('updatedCells'), sku_id))
+            else:
+                values = [
+                    [goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2,
+                     cid2_name, cid3, cid3_name]]
+                body = {'values': values}
+                result = sheet.values().update(
+                    spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!F{0}:Q{0}'.format(idx + 2), valueInputOption="RAW",
+                    body=body).execute()
+                print('sku_id:{1} view data {0} cells updated.'.format(result.get('updatedCells'), sku_id))
 
             time.sleep(3)
-
-            values = [
-                [goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2,
-                 cid2_name, cid3, cid3_name]]
-            body = {'values': values}
-            result = sheet.values().update(
-                spreadsheetId=SAMPLE_SPREADSHEET_ID, range='商品管理!F{0}:Q{0}'.format(idx + 2), valueInputOption="RAW",
-                body=body).execute()
-            print('sku_id:{1} view data {0} cells updated.'.format(result.get('updatedCells'), sku_id))
 
 
 # 更新知乎问题的阅读量
@@ -255,5 +261,5 @@ def write_test():
 if __name__ == '__main__':
     # read_test()
     # write_test()
-    update_zhihu_data()
-    # update_goods()
+    # update_zhihu_data()
+    update_goods()

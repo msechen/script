@@ -9,6 +9,7 @@ from wxpy import *
 import common.google_sheet as gs
 import common.jd_union as jd
 import common.web_spider as spider
+import zhihu.sync_data as sync_data
 from dao import holiday_dao
 from dao import service_dao
 from dao import service_subscribe_dao
@@ -102,6 +103,10 @@ def init_scheduler(bot_var):
     scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='35', second='30')
 
+    # 知乎数据定时更新 V2
+    scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='15', second='30')
+
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='*', second='30')
@@ -117,6 +122,12 @@ def update_zhihu_data():
 # 知乎数据更新
 def update_goods():
     gs.update_goods()
+
+
+# 知乎数据更新
+def update_zhihu_data_v2():
+    sync_data.update_zhihu_question()
+    sync_data.update_zhihu_answer()
 
 
 # 知乎数据更新
