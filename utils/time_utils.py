@@ -5,8 +5,13 @@ def get_current_datetime():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
-def get_current_date():
+def get_today_date():
     return datetime.datetime.now().strftime('%Y-%m-%d')
+
+
+def get_yestoday_date():
+    yestoday = datetime.datetime.now() - datetime.timedelta(days=1)
+    return yestoday.strftime('%Y-%m-%d')
 
 
 def get_current_hour():
@@ -19,6 +24,7 @@ def get_last_min_ts():
 
 if __name__ == '__main__':
     print(get_current_datetime())
-    print(get_current_date())
+    print(get_today_date())
+    print(get_yestoday_date())
     print(get_current_hour())
 
