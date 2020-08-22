@@ -64,11 +64,13 @@ def get_order(order_time):
                 sku_list = order.get('skuList')
                 for sku in sku_list:
                     estimate_cos_price = sku.get('estimateCosPrice')
+                    commission_rate = sku.get('commissionRate')
                     estimate_fee = sku.get('estimateFee')
                     sku_name = sku.get('skuName')
                     # print(skuName)
                     # print(estimateCosPrice, estimateFee)
-                    sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n预计佣金：' + str(estimate_fee)
+                    sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(
+                        commission_rate) + '\n预计佣金：' + str(estimate_fee)
         # print("新增订单：", goods_num)
         # print(sku_desc)
         if goods_num > 0:
@@ -78,7 +80,7 @@ def get_order(order_time):
 
 
 def get_sku_list(sku_ids):
-    last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
+    last_min = get_last_min_ts()
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
@@ -149,10 +151,11 @@ def get_sku_info_single(sku_id):
 
 
 if __name__ == "__main__":
+    print(get_last_min_ts())
     # get_order(None)
     # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
-    print(get_sku_info_single('67239583445'))
+    # print(get_sku_info_single('67239583445'))
     # goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
     #     '100006686879')
     # print(goods_name)
