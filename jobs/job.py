@@ -40,7 +40,8 @@ def init_scheduler(bot_var):
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     # 股票信息
     service = service_dao.query_service_by_id(2)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    logger.info('服务:{} 定时启动时间 day_of_week:{} hour:{} min:{}'.format(service.day_of_week, service.name, service.hour,
+                                                                    service.minute))
     scheduler.add_job(send_stock_info, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     # 鸡汤
