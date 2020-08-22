@@ -1,8 +1,10 @@
 # 导入模块
 import json
 import logging
+import time
 
 import requests
+
 from utils import *
 
 logger = logging.getLogger('wx')
@@ -99,6 +101,9 @@ def get_sku_list(sku_ids):
     result = json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response').get('result')
     # print(result)
     data = json.loads(result)
+
+    time.sleep(1)  # 防止被风控
+
     return data.get('data')
 
 

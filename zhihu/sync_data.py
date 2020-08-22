@@ -1,6 +1,8 @@
+from common import jd_union
 from common import zhihu_spider
-from dao import zh_question_dao
 from dao import zh_answer_dao
+from dao import zh_goods_dao
+from dao import zh_question_dao
 from utils import *
 
 new_day_hour = "00"
@@ -44,6 +46,20 @@ def update_zhihu_answer():
         zh_answer_dao.update_answer(answer.aid, like, rank)
 
 
+# 更新 JD 商品数据
+def update_jd_goods():
+    goods_list = zh_goods_dao.query_goods_list()
+    for goods in goods_list:
+        goods_name, price, fee_rate, fee, jd_sale, order_num, cid1, cid1_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(
+            goods.sku_id)
+        if goods_name is None:
+            zh_goods_dao.update_goods(goods.sku_id, '无效商品', 0, 0, 0, 0, 0, 0, '', 0, '', 0, '')
+        else:
+            zh_goods_dao.update_goods(goods.sku_id, goods_name, price, fee_rate, fee, jd_sale, order_num, cid1,
+                                      cid1_name, cid2, cid2_name, cid3, cid3_name)
+
+
 if __name__ == '__main__':
-    update_zhihu_question()
-    update_zhihu_answer()
+    # update_zhihu_question()
+    # update_zhihu_answer()
+    update_jd_goods()

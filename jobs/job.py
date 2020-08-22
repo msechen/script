@@ -97,15 +97,15 @@ def init_scheduler(bot_var):
 
     # 知乎数据定时更新
     scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='25', second='30')
+
+    # 知乎数据定时更新 V2
+    scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='5', second='30')
 
     # 商品佣金数据定时更新
     scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='35', second='30')
-
-    # 知乎数据定时更新 V2
-    scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='25', second='30')
+                      hour='*', minute='45', second='30')
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -121,7 +121,7 @@ def update_zhihu_data():
 
 # 知乎数据更新
 def update_goods():
-    gs.update_goods()
+    sync_data.update_jd_goods()
 
 
 # 知乎数据更新
