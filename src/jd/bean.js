@@ -40,7 +40,7 @@ async function main(cookie, shareCodes = []) {
 
       for (const task of taskList) {
         const {taskType, taskName} = task;
-        if (![4, 7, 19, 22].includes(taskType) && !['开学鲜行', '小米领豆'].includes(taskName)) continue;
+        if (![4, 7, 19, 22].includes(taskType) && !['开学鲜行', '小米领豆', '七夕活动', '超级品牌日'].includes(taskName)) continue;
         await sleep();
         await receiveNutrientsTask(`${taskType}`);
       }
