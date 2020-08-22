@@ -27,3 +27,4 @@ class ZhGoods(Base):
     cid3 = Column(Integer)
     cid3_name = Column(String(256))
     flag = Column(Integer)
+    update_time = Column(String(256))

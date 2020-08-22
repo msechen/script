@@ -2,6 +2,7 @@ import logging
 
 import component.mysql_api as mysql_api
 from modal import *
+from utils import *
 
 logger = logging.getLogger('wx')
 
@@ -26,7 +27,8 @@ def update_goods(sku_id, sku_name, price, fee_rate, fee, jd_sale, order_num, cid
         .update({"sku_name": sku_name, "price": price, "fee_rate": fee_rate, "fee": fee, "jd_sale": jd_sale,
                  "order_num": order_num,
                  "cid1": cid1, "cid1_name": cid1_name, "cid2": cid2, "cid2_name": cid2_name, "cid3": cid3,
-                 "cid3_name": cid3_name})
+                 "cid3_name": cid3_name,
+                 "update_time": get_current_datetime()})
     session.commit()
     session.close()
 
