@@ -21,7 +21,7 @@ def get_question(qid):
     res = requests.get(url, headers=headers1)
     res.encoding = 'utf-8'
 
-    time.sleep(2)  # 防止被风控
+    time.sleep(1)  # 防止被风控
 
     return res.json()
 
@@ -37,7 +37,7 @@ def get_answer(qid, offset):
     res = requests.get(url, headers=headers2)
     res.encoding = 'utf-8'
 
-    time.sleep(2)  # 防止被风控
+    time.sleep(1)  # 防止被风控
 
     return res.json()
 
