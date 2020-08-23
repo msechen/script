@@ -4,7 +4,7 @@ import time
 
 
 def test(value):
-    print('start test')
+    print('start test\n')
     time.sleep(3)  # 休息3秒
     print('input %s' % value)
 
