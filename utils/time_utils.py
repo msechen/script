@@ -22,6 +22,10 @@ def get_last_min_ts():
     return datetime.datetime.now() - datetime.timedelta(minutes=1)
 
 
+def get_last_five_min_ts():
+    return datetime.datetime.now() - datetime.timedelta(minutes=5)
+
+
 if __name__ == '__main__':
     print(get_current_datetime())
     print(get_today_date())

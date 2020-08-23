@@ -17,38 +17,31 @@ headers = {
 appkey = '1a449d84b554735f7fe3a9037099bddc'
 appsecret = '7f69d2fcca5c443386017f9a97d14c83'
 
-order_api = 'jd.union.open.order.query'
 order_row_api = 'jd.union.open.order.row.query'
 sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 
 
 # 查询京东联盟的订单
-def get_order(order_time):
+def get_order():
     # timestamp = '2020-08-12 01:58:02'
     last_min = get_last_min_ts()
+    last_five_min = get_last_five_min_ts()
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
-    if order_time is None:
-        order_time = last_min.strftime('%Y%m%d%H%M')
+    start_time = last_five_min.strftime('%Y-%m-%d %H:%M:00')
+    end_time = last_min.strftime('%Y-%m-%d %H:%M:00')
 
-    str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_api + 'param_json{"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
-    # print(strToSign)
-
+    str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     sign = md5(str_to_sign)
-    # print(sign)
 
-    url = 'https://router.jd.com/api?v=1.0&method=' + order_api + '&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"time":"' + order_time + '","pageNo":1,"pageSize":20,"type":1}}'
-    # print(url)
+    url = 'https://router.jd.com/api?v=1.0&method=' + order_row_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":1}}'
 
     response = requests.get(url, headers=headers)
     if response.text == '':
-        logger.info(order_api + " response empty")
-        return order_api + " response empty"
+        logger.info(order_row_api + " response empty")
+        return order_row_api + " response empty"
 
     json_data = json.loads(response.text)
-    # print(json_data)
-    # print(json_data.get('jd_union_open_order_query_response'))
-    result = json_data.get('jd_union_open_order_query_response').get('result')
-    # print(result)
+    result = json_data.get('jd_union_open_order_row_query_response').get('result')
     data = json.loads(result)
     order_list = data.get('data')
     if order_list is None:
@@ -58,21 +51,14 @@ def get_order(order_time):
         goods_num = 0
         sku_desc = ''
         for order in order_list:
-            # print(order)
             if order.get('validCode') >= 16:
-                goods_num += len(order.get('skuList'))
-                sku_list = order.get('skuList')
-                for sku in sku_list:
-                    estimate_cos_price = sku.get('estimateCosPrice')
-                    commission_rate = sku.get('commissionRate')
-                    estimate_fee = sku.get('estimateFee')
-                    sku_name = sku.get('skuName')
-                    # print(skuName)
-                    # print(estimateCosPrice, estimateFee)
-                    sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(
-                        commission_rate) + '\n预计佣金：' + str(estimate_fee)
-        # print("新增订单：", goods_num)
-        # print(sku_desc)
+                goods_num += 1
+                estimate_cos_price = order.get('estimateCosPrice')
+                commission_rate = order.get('commissionRate')
+                estimate_fee = order.get('estimateFee')
+                sku_name = order.get('skuName')
+                sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(
+                    commission_rate) + '\n预计佣金：' + str(estimate_fee)
         if goods_num > 0:
             return '恭喜, 新增订单数量：' + str(goods_num) + sku_desc
         else:
@@ -84,13 +70,9 @@ def get_sku_list(sku_ids):
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
-    # print(str_to_sign)
-
     sign = md5(str_to_sign)
-    # print(sign)
 
-    url = 'https://router.jd.com/api?v=1.0&method=' + sku_info_api + '&access_token=&app_key=1a449d84b554735f7fe3a9037099bddc&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"skuIds":"' + sku_ids + '"}'
-    # print(url)
+    url = 'https://router.jd.com/api?v=1.0&method=' + sku_info_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"skuIds":"' + sku_ids + '"}'
 
     response = requests.get(url, headers=headers)
     if response.text == '':
@@ -98,10 +80,7 @@ def get_sku_list(sku_ids):
         return sku_info_api + " response empty"
 
     json_data = json.loads(response.text)
-    # print(json_data)
-    # print(json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response'))
     result = json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response').get('result')
-    # print(result)
     data = json.loads(result)
 
     time.sleep(1)  # 防止被风控
@@ -151,8 +130,8 @@ def get_sku_info_single(sku_id):
 
 
 if __name__ == "__main__":
-    print(get_last_min_ts())
-    # get_order(None)
+    # print(get_last_min_ts())
+    print(get_order())
     # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
     # print(get_sku_info_single('67239583445'))
