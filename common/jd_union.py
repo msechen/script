@@ -66,7 +66,7 @@ def get_order():
                     goods_num += 1
                     fee_total += estimate_fee
         if goods_num > 0:
-            return '恭喜, 新增佣金 ' + str(fee_total) + ', 新增订单 ' + str(goods_num) + sku_desc
+            return '恭喜, 新增佣金 ' + str(int(fee_total)) + ', 新增订单 ' + str(goods_num) + sku_desc
         else:
             return ''
 
