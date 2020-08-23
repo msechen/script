@@ -139,6 +139,7 @@ async function main(cookie) {
         return;
       }
       const goldProduct = _.maxBy(productList, 'priceGold');
+      if (!goldProduct) return;
       if (goldProduct.groundStatus > 1) return;
       await smtg_ground(shelfId, goldProduct.productId);
     });
