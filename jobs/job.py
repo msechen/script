@@ -136,7 +136,7 @@ def update_zhihu_data_v2():
 
 # 知乎数据更新
 def get_order():
-    result = jd.get_order(None)
+    result = jd.get_order()
     if len(result) > 0:
         user_kolly.send(result)
 
