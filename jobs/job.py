@@ -6,7 +6,6 @@ from time import sleep
 from apscheduler.schedulers.background import BackgroundScheduler
 from wxpy import *
 
-import common.google_sheet as gs
 import common.jd_union as jd
 import common.web_spider as spider
 import zhihu.sync_data as sync_data
@@ -41,7 +40,8 @@ def init_scheduler(bot_var):
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     # 股票信息
     service = service_dao.query_service_by_id(2)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    logger.info('服务:{} 定时启动时间 day_of_week:{} hour:{} min:{}'.format(service.name, service.day_of_week, service.hour,
+                                                                    service.minute))
     scheduler.add_job(send_stock_info, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
     # 鸡汤
@@ -96,16 +96,16 @@ def init_scheduler(bot_var):
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 知乎数据定时更新
-    scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='5', second='30')
-
-    # 商品佣金数据定时更新
-    scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='35', second='30')
+    # scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*', minute='25', second='30')
 
     # 知乎数据定时更新 V2
     scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='25', second='30')
+                      hour='*/2', minute='5', second='30')
+
+    # 商品佣金数据定时更新
+    scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*/2', minute='35', second='30')
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -115,19 +115,23 @@ def init_scheduler(bot_var):
 
 
 # 知乎数据更新
-def update_zhihu_data():
-    gs.update_zhihu_data()
+# def update_zhihu_data():
+#     gs.update_zhihu_data()
 
 
 # 知乎数据更新
 def update_goods():
-    gs.update_goods()
+    logger.info('更新知乎好物商品数据 start')
+    sync_data.update_jd_goods()
+    logger.info('更新知乎好物商品数据 end')
 
 
 # 知乎数据更新
 def update_zhihu_data_v2():
+    logger.info('更新知乎好物问答数据 start')
     sync_data.update_zhihu_question()
     sync_data.update_zhihu_answer()
+    logger.info('更新知乎好物问答数据 end')
 
 
 # 知乎数据更新
