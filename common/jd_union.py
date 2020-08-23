@@ -24,14 +24,19 @@ sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 # 查询京东联盟的订单
 def get_order():
     # timestamp = '2020-08-12 01:58:02'
-    last_min = get_last_min_ts()
-    last_five_min = get_last_five_min_ts()
+    last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
+    last_five_min = datetime.datetime.now() - datetime.timedelta(minutes=10)
+    # last_min = get_last_min_ts()
+    # last_five_min = get_last_five_min_ts()
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
     start_time = last_five_min.strftime('%Y-%m-%d %H:%M:00')
     end_time = last_min.strftime('%Y-%m-%d %H:%M:00')
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
-    sign = md5(str_to_sign)
+    # sign = md5(str_to_sign)
+    hl = hashlib.md5()
+    hl.update(str_to_sign.encode(encoding='utf-8'))
+    sign = hl.hexdigest().upper()
 
     url = 'https://router.jd.com/api?v=1.0&method=' + order_row_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":1}}'
 
@@ -45,22 +50,23 @@ def get_order():
     data = json.loads(result)
     order_list = data.get('data')
     if order_list is None:
-        # print("GG")
         return ''
     else:
         goods_num = 0
+        fee_total = 0
         sku_desc = ''
         for order in order_list:
             if order.get('validCode') >= 16:
-                goods_num += 1
-                estimate_cos_price = order.get('estimateCosPrice')
-                commission_rate = order.get('commissionRate')
-                estimate_fee = order.get('estimateFee')
-                sku_name = order.get('skuName')
-                sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(
-                    commission_rate) + '\n预计佣金：' + str(estimate_fee)
+                estimate_fee = order.get('estimateFee')  # 预计佣金
+                if estimate_fee > 0:
+                    estimate_cos_price = order.get('estimateCosPrice')  # 订单价格
+                    commission_rate = order.get('commissionRate')  # 佣金比例
+                    sku_name = order.get('skuName')
+                    sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
+                    goods_num += 1
+                    fee_total += estimate_fee
         if goods_num > 0:
-            return '恭喜, 新增订单数量：' + str(goods_num) + sku_desc
+            return '恭喜, 新增佣金 ' + str(fee_total) + ', 新增订单 ' + str(goods_num) + sku_desc
         else:
             return ''
 
