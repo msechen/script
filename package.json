@@ -8,7 +8,8 @@
     "lodash": "^4.17.19",
     "moment-timezone": "^0.5.31",
     "request": "^2.88.2",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "tail": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
