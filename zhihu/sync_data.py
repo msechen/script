@@ -46,6 +46,20 @@ def update_zhihu_answer():
         zh_answer_dao.update_answer(answer.aid, like, rank)
 
 
+def update_qa(qid, aid):
+    # 更新问题的数据（浏览量、点赞数、新增浏览数）
+    title, view_num, answer_num = zhihu_spider.get_view_and_answer_num(qid)
+
+    # 更新浏览量、点赞数
+    zh_question_dao.update_question(qid, title, view_num, answer_num)
+
+    # 爬取知乎问题的答案排名
+    rank, like = zhihu_spider.get_rank_and_like(qid, aid)
+
+    # 更新点赞数、排名
+    zh_answer_dao.update_answer(aid, like, rank)
+
+
 # 更新 JD 商品数据
 def update_jd_goods(sku_ids):
     if sku_ids is not None:

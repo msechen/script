@@ -155,9 +155,15 @@ def auto_reply(msg):
     elif msg.text.startswith('sku'):
         sku_ids = msg.text[3:]
         if len(sku_ids) > 0:
-            msg.reply(sku_ids + " 数据开始更新……")
+            msg.reply(sku_ids + " 商品数据开始更新……")
             sync_data.update_jd_goods(sku_ids)
-            msg.reply(sku_ids + " 数据更新完成！")
+            msg.reply(sku_ids + " 商品数据更新完成！")
+    elif msg.text.startswith('qa'):
+        qid = msg.text[2:]
+        if len(qid) > 0:
+            msg.reply(qid + " 问答数据开始更新……")
+            sync_data.update_qa(qid, '')
+            msg.reply(qid + " 问答数据更新完成！")
     elif msg.text.endswith('表情包'):
         limit = 3
         images = []
