@@ -51,7 +51,6 @@ async function main() {
         await sign();
         await fruit();
         await pet();
-        await runScript(cash, 'cash');
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
         await runScript(superMarket, 0);
@@ -73,6 +72,7 @@ async function main() {
     {
       valid: 12,
       run: async () => {
+        await runScript(cash, 'cash');
         await runScript(fruitSchedule, 0);
         await runScript(bean, 0);
         await runScript(superMarket, 0);
