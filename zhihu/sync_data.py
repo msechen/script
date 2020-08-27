@@ -47,7 +47,17 @@ def update_zhihu_answer():
 
 
 # 更新 JD 商品数据
-def update_jd_goods():
+def update_jd_goods(sku_ids):
+    if sku_ids is not None:
+        goods_name, price, fee_rate, fee, jd_sale, order_num, cid1, cid1_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(
+            sku_ids)
+        if goods_name is not None:
+            zh_goods_dao.update_goods(sku_ids, '无效商品', 0, 0, 0, 0, 0, 0, '', 0, '', 0, '')
+        else:
+            zh_goods_dao.update_goods(sku_ids, goods_name, price, fee_rate, fee, jd_sale, order_num, cid1,
+                                      cid1_name, cid2, cid2_name, cid3, cid3_name)
+        return
+
     goods_list = zh_goods_dao.query_goods_list()
     for goods in goods_list:
         goods_name, price, fee_rate, fee, jd_sale, order_num, cid1, cid1_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(
@@ -62,4 +72,4 @@ def update_jd_goods():
 if __name__ == '__main__':
     # update_zhihu_question()
     # update_zhihu_answer()
-    update_jd_goods()
+    update_jd_goods(None)

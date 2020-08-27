@@ -122,7 +122,7 @@ def init_scheduler(bot_var):
 # 知乎数据更新
 def update_goods():
     logger.info('更新知乎好物商品数据 start')
-    sync_data.update_jd_goods()
+    sync_data.update_jd_goods(None)
     logger.info('更新知乎好物商品数据 end')
 
 
