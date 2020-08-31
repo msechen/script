@@ -19,4 +19,6 @@ package-lock.json
 
 dist/
 
+# store
 charles/chlsj/*
+src/json/
