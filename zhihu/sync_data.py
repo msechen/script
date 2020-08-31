@@ -85,5 +85,5 @@ def update_jd_goods(sku_ids):
 
 if __name__ == '__main__':
     # update_zhihu_question()
-    # update_zhihu_answer()
-    update_jd_goods(None)
+    update_zhihu_answer()
+    # update_jd_goods(None)

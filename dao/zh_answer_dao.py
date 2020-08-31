@@ -1,3 +1,4 @@
+import datetime
 import logging
 
 import component.mysql_api as mysql_api
@@ -22,7 +23,7 @@ def update_answer(aid, like_num, rank):
     session = mysql_api.get_session()
     session.query(ZhAnswer) \
         .filter(ZhAnswer.aid == aid) \
-        .update({"like_num": like_num, "rank": rank})
+        .update({"like_num": like_num, "rank": rank, "update_time": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
     session.commit()
     session.close()
 

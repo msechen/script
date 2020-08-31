@@ -1,3 +1,4 @@
+import datetime
 import logging
 
 import component.mysql_api as mysql_api
@@ -22,7 +23,7 @@ def update_question(qid, title, view_num, answer_num):
     session = mysql_api.get_session()
     session.query(ZhQuestion)\
         .filter(ZhQuestion.qid == qid) \
-        .update({"title": title, "view_total": view_num, "answer_total": answer_num})
+        .update({"title": title, "view_total": view_num, "answer_total": answer_num,  "update_time": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
     session.commit()
     session.close()
 
