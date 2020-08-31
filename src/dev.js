@@ -4,6 +4,7 @@
 
 const exec = require('child_process').execSync;
 const {getNowDate, getLogFile} = require('./lib/common');
+const tail = require('./lib/tail');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
@@ -26,19 +27,19 @@ const getEnv = () => {
 
 
 async function start() {
-  const logFile = getLogFile('app');
-  exec(`touch ${logFile}`);
-  const tail = new Tail(logFile, {
-    logger: console,
+  ['request', 'app'].forEach(name => {
+    const logFile = getLogFile(name);
+    exec(`touch ${logFile}`);
+    exec(`ln -snf ${logFile} ${logFile.replace(`.${getNowDate()}`, '')}`);
+
+    (name === 'app') && tail(logFile);
   });
-  console.log('\n');
-  tail.on('line', console.log);
 
   // 输出
   return exec(`node src/app.js`, {env: getEnv() || {}}).toString();
 }
 
 start().then(result => {
-  console.log('app.js 运行结果:');
+  console.log('\napp.js 运行结果:');
   console.log(result);
 });
