@@ -16,9 +16,13 @@ async function main(cookie) {
 
   // 签到
   await sleep();
-  await api.doFormBody('fpSign').then(data => {
-    moneyLog(data._data);
-  });
+  await api.doFormBody('fpSignList').then(async data => {
+    if (data._data.todaySign) return;
+    await sleep();
+    await api.doFormBody('fpSign').then(data => {
+      moneyLog(data._data);
+    });
+  })
 
   await sleep();
   await api.doFormBody('firstPurchaseHome', {
