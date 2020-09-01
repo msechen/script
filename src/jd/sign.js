@@ -26,7 +26,7 @@ async function downFile() {
 
 async function changeFile() {
   let content = await fs.readFileSync(scriptFilePath, 'utf8');
-  content = content.replace(/var Key = ''/, `var Key = '${KEY}'`);
+  content = content.replace(/var Key = ''/, `var Key = '${KEY}'`).replace('disable("JDGetCash")', 'true');
   DualKey && (content = content.replace(/var DualKey = ''/, `var DualKey = '${DualKey}'`));
   await fs.writeFileSync(scriptFilePath, content, 'utf8');
 }
