@@ -78,7 +78,7 @@ async function main(cookie) {
     });
   }
 
-  async function manageShelf() {
+  async function manageShelf(updateNumber = 1) {
     await sleep();
 
     let needLoop = false;
@@ -93,13 +93,17 @@ async function main(cookie) {
           }
         });
       }
-      for (const {upgradeCostGold, shelfId} of unlocks) {
-        const {totalGold} = await smtg_home();
-        if (upgradeCostGold < totalGold) {
+      for (const {upgradeCostGold, shelfId, level} of unlocks) {
+        for (let i = level; i < level + updateNumber; i++) {
+          const {totalGold} = await smtg_home();
+          if (upgradeCostGold > totalGold) {
+            break;
+          }
           await smtg_upgradeShelf(shelfId);
-          break;
         }
       }
+
+      if (updateNumber > 1) return;
 
       if (needLoop) {
         await manageShelf();
