@@ -47,6 +47,10 @@ async function main(cookie) {
   await doTaskList();
   await doExchange();
 
+  if (nowMoment.hours() === 20) {
+    await getPkCoin();
+  }
+
   async function manageProduct() {
     await sleep();
     let needLoop = false;
@@ -180,7 +184,7 @@ async function main(cookie) {
     let needLoop = false;
     await api.doFormBody(getFunctionId('smtg_queryShopTask')).then(async data => {
       await sleep();
-      const {taskList} = data.result;
+      const {taskList = []} = _.property('result')(data) || {};
       for (const {type, taskId, taskStatus, prizeStatus, content, finishNum, targetNum} of taskList) {
         await sleep();
         if (taskStatus === 1) {
@@ -257,6 +261,21 @@ async function main(cookie) {
     return api.doFormBody(smtg_obtainPrize.name, {prizeId});
   }
 
+  // 获取pk的蓝币
+  async function getPkCoin() {
+    await sleep();
+
+    return api.doFormBody('smtg_businessCircleIndex').then(async data => {
+      if (data.result.pkPrizeStatus === 2) {
+        await sleep();
+        await api.doFormBody('smtg_getPkPrize').then(data => {
+          const getBlueCoin = p => _.property(p)(data);
+          data.result.blueCoin = getBlueCoin('result.pkPersonPrizeInfoVO.blueCoin') + getBlueCoin('result.pkTeamPrizeInfoVO.blueCoin');
+          successLog(data);
+        });
+      }
+    });
+  }
 
   function successLog({bizCode = 0, result}) {
     if (bizCode === 0) {
