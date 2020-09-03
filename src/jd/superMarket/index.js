@@ -230,14 +230,14 @@ async function main(cookie) {
     await sleep();
     const {totalBlue} = await smtg_home();
     const {prizeList} = await smtg_queryPrize();
-    const beanPrize = prizeList.find(({beanType, blueCost}) => beanType === 'Bean' && blueCost === 500);
-    if (beanPrize) {
-      const {blueCost, targetNum, finishNum, prizeId} = beanPrize;
+    const beanPrizes = prizeList.filter(({beanType, inStock}) => ['Bean', 'BeanPackage'].includes(beanType) && inStock === 0);
+    for (const beanPrize of beanPrizes) {
+      const {blueCost, targetNum, finishNum, prizeId, beanNum} = beanPrize;
       const minTimes = Math.min(Math.floor(totalBlue / blueCost), targetNum - finishNum);
       for (let i = 0; i < minTimes; i++) {
         await smtg_obtainPrize(prizeId);
       }
-      minTimes && _printLog(`成功兑换${minTimes}个京豆`);
+      minTimes && _printLog(`成功兑换${minTimes * beanNum}个京豆`);
     }
   }
 
