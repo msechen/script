@@ -129,9 +129,12 @@ def update_goods():
 # 知乎数据更新
 def update_zhihu_data_v2():
     logger.info('更新知乎好物问答数据 start')
-    sync_data.update_zhihu_question()
+    history_num = sync_data.update_zhihu_question()
     sync_data.update_zhihu_answer()
     logger.info('更新知乎好物问答数据 end')
+
+    if history_num > 0:
+        user_kolly.send('知乎问题历史数据更新，更新问题数：{}'.format(history_num))
 
 
 # 知乎数据更新

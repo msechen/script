@@ -13,6 +13,8 @@ def update_zhihu_question():
     yestoday_date = get_yestoday_date()  # 昨天的日期
     is_new_day = get_current_hour() == new_day_hour  # 判断今天是不是全新的一天
 
+    history_num = 0
+
     question_list = zh_question_dao.query_question_list()
     for question in question_list:
         # 更新问题的数据（浏览量、点赞数、新增浏览数）
@@ -22,9 +24,12 @@ def update_zhihu_question():
         if is_new_day:
             zh_question_dao.add_question_history(question.qid, yestoday_date, view_num, answer_num)
             zh_question_dao.update_question_yestoday(question.qid, view_num, answer_num)
+            history_num += 1
 
         # 更新浏览量、点赞数
         zh_question_dao.update_question(question.qid, title, view_num, answer_num)
+
+    return history_num
 
 
 # 更新知乎回答的排名和点赞数
@@ -84,6 +89,6 @@ def update_jd_goods(sku_ids):
 
 
 if __name__ == '__main__':
-    # update_zhihu_question()
+    update_zhihu_question()
     update_zhihu_answer()
     # update_jd_goods(None)

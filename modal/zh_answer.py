@@ -18,6 +18,7 @@ class ZhAnswer(Base):
     rank = Column(String(256))
     like_num_yestoday = Column(Integer)
     rank_yestoday = Column(String(256))
+    update_time = Column(String(256))
     flag = Column(Integer)
 
 

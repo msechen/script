@@ -20,6 +20,7 @@ class ZhQuestion(Base):
     answer_total = Column(Integer)
     view_before_today = Column(Integer)
     answer_before_today = Column(Integer)
+    update_time = Column(String(256))
     flag = Column(Integer)
 
 
