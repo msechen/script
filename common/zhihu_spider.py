@@ -27,13 +27,16 @@ def get_question(qid):
 
 
 # 调知乎 api 查询文章的回答内容
-def get_answer(qid, offset):
+def get_answer(qid, offset, with_content):
     # 利用知乎 API 请求 json 数据
     # qid: 知乎问题号
     # offset: 第几页
     # 知乎 API
-    url = "https://www.zhihu.com/api/v4/questions/{}/answers?include=voteup_count&limit=20&offset={}&platform=desktop&sort_by=default".format(
-        qid, offset)
+    url = "https://www.zhihu.com/api/v4/questions/{}/answers?include=voteup_count&limit=20&offset={}&platform=desktop&sort_by=default".format(qid, offset)
+
+    if with_content:
+        url = "https://www.zhihu.com/api/v4/questions/{}/answers?include=content,voteup_count&limit=20&offset={}&platform=desktop&sort_by=default".format(qid, offset)
+
     res = requests.get(url, headers=headers2)
     res.encoding = 'utf-8'
 
@@ -56,7 +59,7 @@ def get_rank_and_like(qid, aid):
     while True:
         qid = qid
         # 查询文章的回答内容
-        data = get_answer(qid, offset)
+        data = get_answer(qid, offset, False)
         # print(data)
         if len(data['data']) == 0:
             return offset, "-1"
@@ -74,6 +77,18 @@ def get_rank_and_like(qid, aid):
         offset += 20
 
 
+def get_question_answer_goods(qid):
+    # 查询文章的回答内容
+    data = get_answer(qid, 0, True)
+    # 找对应答案的排名
+    for item in data["data"]:
+        qname = item["question"]["title"]
+        qurl = item["question"]["url"]
+        aurl = "https://www.zhihu.com/question/{}/answer/{}".format(qid, item["id"])
+        print(item)
+
+
 if __name__ == "__main__":
     # print(get_rank_and_like('287500965', '1332349585'))
-    print(get_view_and_answer_num('287500965'))
+    # print(get_view_and_answer_num('287500965'))
+    get_question_answer_goods(35327890)

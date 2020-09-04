@@ -2,6 +2,8 @@
 import json
 import logging
 import time
+import datetime
+import hashlib
 
 import requests
 
@@ -24,21 +26,21 @@ sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 # 查询京东联盟的订单
 def get_order():
     # timestamp = '2020-08-12 01:58:02'
-    # last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
-    # last_five_min = datetime.datetime.now() - datetime.timedelta(minutes=10)
-    last_min = get_last_min_ts()
-    last_x_min = get_last_x_min_ts(10)
+    # last_min = get_last_min_ts()
+    last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
+    # last_x_min = get_last_x_min_ts(10)
+    last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=5)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
     start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
     end_time = last_min.strftime('%Y-%m-%d %H:%M:00')
 
-    str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":1}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
-    sign = md5(str_to_sign)
-    # hl = hashlib.md5()
-    # hl.update(str_to_sign.encode(encoding='utf-8'))
-    # sign = hl.hexdigest().upper()
+    str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":3}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
+    # sign = md5(str_to_sign)
+    hl = hashlib.md5()
+    hl.update(str_to_sign.encode(encoding='utf-8'))
+    sign = hl.hexdigest().upper()
 
-    url = 'https://router.jd.com/api?v=1.0&method=' + order_row_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":1}}'
+    url = 'https://router.jd.com/api?v=1.0&method=' + order_row_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":3}}'
 
     response = requests.get(url, headers=headers)
     if response.text == '':
