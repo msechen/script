@@ -28,8 +28,8 @@ def get_order():
     # timestamp = '2020-08-12 01:58:02'
     # last_min = get_last_min_ts()
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
-    # last_x_min = get_last_x_min_ts(10)
-    last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=5)
+    # last_x_min = get_last_x_min_ts(2)
+    last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=2)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
     start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
     end_time = last_min.strftime('%Y-%m-%d %H:%M:00')
