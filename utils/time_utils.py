@@ -22,8 +22,8 @@ def get_last_min_ts():
     return datetime.datetime.now() - datetime.timedelta(minutes=1)
 
 
-def get_last_five_min_ts():
-    return datetime.datetime.now() - datetime.timedelta(minutes=5)
+def get_last_x_min_ts(x):
+    return datetime.datetime.now() - datetime.timedelta(minutes=x)
 
 
 if __name__ == '__main__':

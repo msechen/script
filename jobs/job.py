@@ -109,7 +109,7 @@ def init_scheduler(bot_var):
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='*/5', second='30')
+                      hour='*', minute='*/10', second='30')
 
     scheduler.start()
 
