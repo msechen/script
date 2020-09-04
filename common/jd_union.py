@@ -31,8 +31,8 @@ def get_order():
     # last_x_min = get_last_x_min_ts(2)
     last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=2)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
-    start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
-    end_time = last_min.strftime('%Y-%m-%d %H:%M:00')
+    start_time = last_x_min.strftime('%Y-%m-%d %H:%M:%S')
+    end_time = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":3}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # sign = md5(str_to_sign)
