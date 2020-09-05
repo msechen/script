@@ -29,10 +29,12 @@ def get_order():
     # last_min = get_last_min_ts()
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
     # last_x_min = get_last_x_min_ts(2)
-    last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=2)
+    last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=5)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
-    start_time = last_x_min.strftime('%Y-%m-%d %H:%M:%S')
-    end_time = last_min.strftime('%Y-%m-%d %H:%M:%S')
+    start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
+    end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
+
+    print(start_time, end_time)
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":3}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # sign = md5(str_to_sign)
@@ -58,7 +60,7 @@ def get_order():
         fee_total = 0
         sku_desc = ''
         for order in order_list:
-            if order.get('validCode') >= 16:
+            if order.get('validCode') == 16:
                 estimate_fee = order.get('estimateFee')  # 预计佣金
                 if estimate_fee > 0:
                     estimate_cos_price = order.get('estimateCosPrice')  # 订单价格

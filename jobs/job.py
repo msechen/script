@@ -109,10 +109,9 @@ def init_scheduler(bot_var):
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='*/2', second='30')
+                      hour='*', minute='0/5', second='30')
 
     scheduler.start()
-
 
 # 知乎数据更新
 # def update_zhihu_data():
