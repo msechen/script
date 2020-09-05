@@ -34,7 +34,7 @@ def get_order():
     start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
     end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
 
-    print(start_time, end_time)
+    # print(start_time, end_time)
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + order_row_api + 'param_json{"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":3}}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
     # sign = md5(str_to_sign)
