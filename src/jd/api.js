@@ -1,6 +1,6 @@
 const rp = require('request-promise');
 const _ = require('lodash');
-const {printLog} = require('../lib/common');
+const {printLog, sleep} = require('../lib/common');
 
 const requestURI = 'https://api.m.jd.com/client.action';
 const DEFAULT_OPTION = {
@@ -32,8 +32,9 @@ class Request {
     this.formatData = formatData;
   }
 
-  do(options) {
+  async do(options) {
     options = _.merge({}, this.options, options);
+    await sleep();
     return _request(this.cookie, options).then(data => {
       data = data || {};
       if (this.formatData) {
