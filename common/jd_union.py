@@ -2,8 +2,6 @@
 import json
 import logging
 import time
-import datetime
-import hashlib
 
 import requests
 
@@ -69,7 +67,7 @@ def get_order():
                     sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
                     goods_num += 1
                     fee_total += estimate_fee
-        if goods_num > 0:
+        if goods_num > 0 and fee_total > 1:
             return '恭喜, 新增佣金 ' + str(int(fee_total)) + ', 新增订单 ' + str(goods_num) + sku_desc
         else:
             return ''
