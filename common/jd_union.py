@@ -5,6 +5,7 @@ import time
 
 import requests
 
+from dao import zh_order_dao
 from utils import *
 
 logger = logging.getLogger('wx')
@@ -29,8 +30,10 @@ def get_order():
     # last_x_min = get_last_x_min_ts(2)
     last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=5)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
-    start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
-    end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
+    # start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
+    start_time = '2020-09-13 07:20:02'
+    # end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
+    end_time = '2020-09-13 07:35:02'
 
     # print(start_time, end_time)
 
@@ -61,12 +64,18 @@ def get_order():
             if order.get('validCode') == 16:
                 estimate_fee = order.get('estimateFee')  # 预计佣金
                 if estimate_fee > 0:
+                    sku_id = order.get('skuId')
+                    sku_name = order.get('skuName')
                     estimate_cos_price = order.get('estimateCosPrice')  # 订单价格
                     commission_rate = order.get('commissionRate')  # 佣金比例
-                    sku_name = order.get('skuName')
+                    order_no = order.get('id')  # 订单编号
+                    order_time = order.get('orderTime')  # 下单时间
+                    union_tag = order.get('unionTag')  # 下单时间
                     sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
                     goods_num += 1
                     fee_total += estimate_fee
+                    # 数据库插入订单
+                    zh_order_dao.add_order(order_no, sku_id, sku_name, estimate_cos_price, estimate_fee, commission_rate, order_time, union_tag)
         if goods_num > 0 and fee_total > 1:
             return '恭喜, 新增佣金 ' + str(int(fee_total)) + ', 新增订单 ' + str(goods_num) + sku_desc
         else:
