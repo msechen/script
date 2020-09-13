@@ -70,7 +70,7 @@ def get_order():
                     sku_name = order.get('skuName')
                     estimate_cos_price = order.get('estimateCosPrice')  # 订单价格
                     commission_rate = order.get('commissionRate')  # 佣金比例
-                    order_no = order.get('id')  # 订单编号
+                    order_no = order.get('orderId')  # 订单编号
                     order_time = order.get('orderTime')  # 下单时间
                     union_tag = order.get('unionTag')  # 下单时间
                     sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
