@@ -30,10 +30,10 @@ def get_order():
     # last_x_min = get_last_x_min_ts(2)
     last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=5)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
-    # start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
-    start_time = '2020-09-13 07:20:02'
-    # end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
-    end_time = '2020-09-13 07:35:02'
+    start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
+    # start_time = '2020-09-13 07:20:02'
+    end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
+    # end_time = '2020-09-13 07:35:02'
 
     # print(start_time, end_time)
 
