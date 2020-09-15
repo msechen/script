@@ -23,7 +23,11 @@ async function main(cookie, shareCodes = []) {
   for (const shareCode of shareCodes) {
     await sleep();
     await api.doFormBody('initForFarm', {shareCode}).then(data => {
-      amountLog(data._data.helpResult || {});
+      const helpResult = data._data.helpResult || {};
+      if (helpResult.code === '0') {
+        _printLog(`给 ${helpResult.nickName} 助力成功`);
+      }
+      amountLog(helpResult);
     });
   }
   const nowMoment = getNowMoment();

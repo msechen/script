@@ -54,6 +54,7 @@ async function main() {
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
         await runScript(superMarket, 0);
+        await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[0]));
       },
     },
     {
