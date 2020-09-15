@@ -55,8 +55,8 @@ class Base {
 
   static async start(data) {
     for (let i = 0; i < this.times; i++) {
-      for (const {cookie, shareCodes} of data) {
-        await this.init(cookie, i === 0 ? shareCodes : void 0);
+      for (const {cookie, shareCodes} of _.concat(data)) {
+        await this.init(cookie, i === 0 ? _.filter(_.concat(shareCodes)) : void 0);
       }
       await sleep(2);
     }
