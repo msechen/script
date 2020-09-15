@@ -13,6 +13,7 @@ const cash = require('./jd/cash');
 const bean = require('./jd/bean');
 const invitation = require('./jd/invitation');
 const superMarket = require('./jd/superMarket');
+const Pet = require('./jd/newPet');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -55,6 +56,7 @@ async function main() {
         await runScript(invitation, 0);
         await runScript(superMarket, 0);
         await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[0]));
+        await Pet.start(getCookieData(void 0, [process.env.JD_PET_SHARE_CODE_1, process.env.JD_PET_SHARE_CODE_2]));
       },
     },
     {
