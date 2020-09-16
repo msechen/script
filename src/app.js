@@ -52,11 +52,11 @@ async function main() {
         await sign();
         await fruit();
         await pet();
+        await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[0]));
+        await Pet.start(getCookieData(void 0, [process.env.JD_PET_SHARE_CODE_1, process.env.JD_PET_SHARE_CODE_2]));
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
         await runScript(superMarket, 0);
-        await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[0]));
-        await Pet.start(getCookieData(void 0, [process.env.JD_PET_SHARE_CODE_1, process.env.JD_PET_SHARE_CODE_2]));
       },
     },
     {

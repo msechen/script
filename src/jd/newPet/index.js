@@ -23,7 +23,12 @@ class Pet extends Base {
   static async doMain(api, shareCodes) {
     for (const shareCode of shareCodes) {
       await api.slaveHelp({shareCode}).then(data => {
-        this.log(data.message);
+        const {resultCode, result} = data;
+        if (resultCode === '0') {
+          this.log(`给 ${result.masterNickName || 'unknown'} 助力成功`)
+        } else {
+          this.log(data.message);
+        }
       });
     }
   }
