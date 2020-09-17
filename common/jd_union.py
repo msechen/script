@@ -33,9 +33,9 @@ def get_order():
     last_x_min = datetime.datetime.now() - datetime.timedelta(minutes=5)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
     start_time = last_x_min.strftime('%Y-%m-%d %H:%M:00')
-    # start_time = '2020-09-13 07:20:02'
+    # start_time = '2020-09-15 06:04:02'
     end_time = last_min.strftime('%Y-%m-%d %H:%M:59')
-    # end_time = '2020-09-13 07:35:02'
+    # end_time = '2020-09-15 06:10:02'
 
     # print(start_time, end_time)
 
@@ -68,7 +68,8 @@ def get_order():
         out_fee_total = 0
         out_sku_desc = ''
         for order in order_list:
-            if order.get('validCode') == 16:
+            today_date = datetime.datetime.now().strftime('%Y-%m-%d')
+            if order.get('validCode') == 16 and order.get('orderTime').startswith(today_date):
                 estimate_fee = order.get('estimateFee')  # 预计佣金
                 if estimate_fee > 0:
                     sku_id = order.get('skuId')
