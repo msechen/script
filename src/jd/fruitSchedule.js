@@ -25,7 +25,7 @@ async function main(cookie, shareCodes = []) {
     await api.doFormBody('initForFarm', {shareCode}).then(data => {
       const helpResult = data._data.helpResult || {};
       if (helpResult.code === '0') {
-        _printLog(`给 ${helpResult.nickName} 助力成功`);
+        _printLog(`给 ${_.property('masterUserInfo.nickName')(helpResult) || 'unknown'} 助力成功`);
       }
       amountLog(helpResult);
     });
