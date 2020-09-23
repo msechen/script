@@ -4,6 +4,7 @@ from dao import zh_answer_dao
 from dao import zh_goods_dao
 from dao import zh_question_dao
 from dao import zh_search_dao
+from dao import zh_log_dao
 from utils import *
 
 new_day_hour = "00"
@@ -14,29 +15,34 @@ def update_zhihu_question():
     yestoday_date = get_yestoday_date()  # 昨天的日期
     is_new_day = get_current_hour() == new_day_hour  # 判断今天是不是全新的一天
 
-    history_num = 0
+    success_num = 0
 
     question_list = zh_question_dao.query_question_list()
     for question in question_list:
         # 更新问题的数据（浏览量、点赞数、新增浏览数）
         title, view_num, answer_num = zhihu_spider.get_view_and_answer_num(question.qid)
+        if title is None:
+            continue
 
         # 如果是新的一天，更新问题数据到历史记录，更新问题的截止昨日阅读数和回答数
         if is_new_day:
             zh_question_dao.add_question_history(question.qid, yestoday_date, view_num, answer_num)
             zh_question_dao.update_question_yestoday(question.qid, view_num, answer_num)
-            history_num += 1
 
         # 更新浏览量、点赞数
         zh_question_dao.update_question(question.qid, title, view_num, answer_num)
 
-    return history_num
+        success_num += 1
+
+        zh_log_dao.add_log(1, "sync_question", "success_question_num:{}".format(success_num))
 
 
 # 更新知乎回答的排名和点赞数
 def update_zhihu_answer():
     yestoday_date = get_yestoday_date()  # 昨天的日期
     is_new_day = get_current_hour() == new_day_hour  # 判断今天是不是全新的一天
+
+    success_num = 0
 
     answer_list = zh_answer_dao.query_answer_list()
     for answer in answer_list:
@@ -50,6 +56,10 @@ def update_zhihu_answer():
 
         # 更新点赞数、排名
         zh_answer_dao.update_answer(answer.aid, like, rank)
+
+        success_num += 1
+
+        zh_log_dao.add_log(1, "sync_answer", "success_answer_num:{}".format(success_num))
 
 
 def update_qa(qid, aid):
@@ -78,23 +88,35 @@ def update_jd_goods(sku_ids):
                                       cid1_name, cid2, cid2_name, cid3, cid3_name)
         return
 
+    success_num = 0
+
     goods_list = zh_goods_dao.query_goods_list()
     for goods in goods_list:
-        goods_name, price, fee_rate, fee, jd_sale, order_num, cid1, cid1_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(
-            goods.sku_id)
+        goods_name, price, fee_rate, fee, jd_sale, order_num, cid1, cid1_name, cid2, cid2_name, cid3, cid3_name = jd_union.get_sku_info_single(goods.sku_id)
+
         if goods_name is None:
             zh_goods_dao.update_goods(goods.sku_id, '无效商品', 0, 0, 0, 0, 0, 0, '', 0, '', 0, '')
         else:
             zh_goods_dao.update_goods(goods.sku_id, goods_name, price, fee_rate, fee, jd_sale, order_num, cid1,
                                       cid1_name, cid2, cid2_name, cid3, cid3_name)
 
+        success_num += 1
+
+    zh_log_dao.add_log(1, "sync_goods", "success_goods_num:{}".format(success_num))
+
 
 # 更新知乎文章排名
 def update_article_rank():
+    success_num = 0
+
     article_list = zh_search_dao.query_search_list()
     for article in article_list:
         rank = zhihu_spider.get_article_rank(article.keyword, article.x_zse_86, article.cookie, article.article_id)
-        zh_search_dao.update_search(article.article_id, rank)
+        if rank is not None:
+            zh_search_dao.update_search(article.article_id, rank)
+            success_num += 1
+
+    zh_log_dao.add_log(1, "sync_article_rank", "success_article_num:{}".format(success_num))
 
 
 if __name__ == '__main__':

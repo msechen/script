@@ -9,3 +9,4 @@ from .zh_goods import *
 from .zh_order import *
 from .zh_question import *
 from .zh_search import *
+from .zh_log import *

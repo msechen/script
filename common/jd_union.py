@@ -8,6 +8,7 @@ import hashlib
 import requests
 
 from dao import zh_order_dao
+from dao import zh_log_dao
 from utils import *
 
 logger = logging.getLogger('wx')
@@ -52,7 +53,14 @@ def get_order():
         logger.info(order_row_api + " response empty")
         return order_row_api + " response empty"
 
-    json_data = json.loads(response.text)
+    try:
+        json_data = json.loads(response.text)
+        # json_data = json.loads('{111111}')
+    except json.decoder.JSONDecodeError as e:
+        msg = 'json.loads(response.text) error. msg:{} response.text:{}'.format(e, response.text)
+        zh_log_dao.add_log(2, 'spider_jd_order_error', msg)
+        return msg
+
     result = json_data.get('jd_union_open_order_row_query_response').get('result')
     data = json.loads(result)
     order_list = data.get('data')
@@ -115,11 +123,15 @@ def get_order():
 
 
 def get_sku_list(sku_ids):
-    last_min = get_last_min_ts()
+    # last_min = get_last_min_ts()
+    last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
-    sign = md5(str_to_sign)
+    # sign = md5(str_to_sign)
+    hl = hashlib.md5()
+    hl.update(str_to_sign.encode(encoding='utf-8'))
+    sign = hl.hexdigest().upper()
 
     url = 'https://router.jd.com/api?v=1.0&method=' + sku_info_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"skuIds":"' + sku_ids + '"}'
 
@@ -128,18 +140,25 @@ def get_sku_list(sku_ids):
         logger.info(sku_info_api + " response empty")
         return sku_info_api + " response empty"
 
-    json_data = json.loads(response.text)
+    try:
+        json_data = json.loads(response.text)
+        # json_data = json.loads('{111111}')
+    except json.decoder.JSONDecodeError as e:
+        msg = 'json.loads(response.text) error. msg:{} response.text:{}'.format(e, response.text)
+        zh_log_dao.add_log(2, 'spider_jd_sku_error', msg)
+        return None, msg
+
     result = json_data.get('jd_union_open_goods_promotiongoodsinfo_query_response').get('result')
     data = json.loads(result)
 
     time.sleep(1)  # 防止被风控
 
-    return data.get('data')
+    return data.get('data'), None
 
 
 # 根据 sku 查询商品佣金
 def get_sku_info(sku_ids):
-    sku_list = get_sku_list(sku_ids)
+    sku_list, error_info = get_sku_list(sku_ids)
     if sku_list is None:
         return "没有此 sku 数据"
     else:
@@ -158,7 +177,8 @@ def get_sku_info(sku_ids):
 
 # 根据 sku 查询商品佣金
 def get_sku_info_single(sku_id):
-    sku_list = get_sku_list(sku_id)
+    sku_list, error_info = get_sku_list(sku_id)
+
     if sku_list is None or len(sku_list) == 0:
         return None, None, None, None, None, None, None, None, None, None, None, None
     else:
@@ -180,10 +200,10 @@ def get_sku_info_single(sku_id):
 
 if __name__ == "__main__":
     # print(get_last_min_ts())
-    print(get_order())
+    # print(get_order())
     # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
-    # print(get_sku_info_single('67239583445'))
+    print(get_sku_info_single('60101892005'))
     # goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
     #     '100006686879')
     # print(goods_name)
