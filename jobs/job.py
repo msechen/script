@@ -108,7 +108,7 @@ def init_scheduler(bot_var):
                       hour='*/2', minute='35', second='30')
 
     # 文章排名定时更新
-    scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
+    scheduler.add_job(update_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*/2', minute='15', second='30')
 
     # jd 订单轮训
