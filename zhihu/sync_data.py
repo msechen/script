@@ -34,7 +34,7 @@ def update_zhihu_question():
 
         success_num += 1
 
-        zh_log_dao.add_log(1, "sync_question", "success_question_num:{}".format(success_num))
+    zh_log_dao.add_log(1, "sync_question", "success_question_num:{}".format(success_num))
 
 
 # 更新知乎回答的排名和点赞数
@@ -59,7 +59,7 @@ def update_zhihu_answer():
 
         success_num += 1
 
-        zh_log_dao.add_log(1, "sync_answer", "success_answer_num:{}".format(success_num))
+    zh_log_dao.add_log(1, "sync_answer", "success_answer_num:{}".format(success_num))
 
 
 def update_qa(qid, aid):
