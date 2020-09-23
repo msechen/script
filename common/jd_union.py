@@ -59,9 +59,14 @@ def get_order():
     if order_list is None:
         return ''
     else:
-        goods_num = 0
-        fee_total = 0
-        sku_desc = ''
+        in_result = ''
+        in_goods_num = 0
+        in_fee_total = 0
+        in_sku_desc = ''
+        out_result = ''
+        out_goods_num = 0
+        out_fee_total = 0
+        out_sku_desc = ''
         for order in order_list:
             today_date = datetime.datetime.now().strftime('%Y-%m-%d')
             if order.get('validCode') == 16 and order.get('orderTime').startswith(today_date):
@@ -74,13 +79,37 @@ def get_order():
                     order_no = order.get('orderId')  # 订单编号
                     order_time = order.get('orderTime')  # 下单时间
                     union_tag = order.get('unionTag')  # 下单时间
-                    sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
-                    goods_num += 1
-                    fee_total += estimate_fee
+                    in_sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
+                    in_goods_num += 1
+                    in_fee_total += estimate_fee
                     # 数据库插入订单
                     zh_order_dao.add_order(order_no, sku_id, sku_name, estimate_cos_price, estimate_fee, commission_rate, order_time, union_tag)
-        if goods_num > 0 and fee_total > 1:
-            return '恭喜, 新增佣金 ' + str(int(fee_total)) + ', 新增订单 ' + str(goods_num) + sku_desc
+
+            if order.get('validCode') == 3:
+                estimate_fee = order.get('estimateFee')  # 预计佣金
+                if estimate_fee > 0:
+                    sku_id = order.get('skuId')
+                    sku_name = order.get('skuName')
+                    estimate_cos_price = order.get('estimateCosPrice')  # 订单价格
+                    commission_rate = order.get('commissionRate')  # 佣金比例
+                    order_no = order.get('orderId')  # 订单编号
+                    order_time = order.get('orderTime')  # 下单时间
+                    union_tag = order.get('unionTag')  # 下单时间
+                    out_sku_desc += '\n\n' + sku_name + '\n订单价格：' + str(estimate_cos_price) + '\n佣金比例：' + str(commission_rate) + '\n预计佣金：' + str(estimate_fee)
+                    out_goods_num += 1
+                    out_fee_total += estimate_fee
+                    # 修改订单状态
+                    # zh_order_dao.add_order(order_no, sku_id, sku_name, estimate_cos_price, estimate_fee, commission_rate, order_time, union_tag)
+                    out_result = '难受, 退货佣金 ' + str(int(out_fee_total)) + ', 新增订单 ' + str(out_goods_num) + out_sku_desc
+
+        if in_goods_num > 0 and in_fee_total > 1:
+            in_result += '恭喜, 新增佣金 ' + str(int(in_fee_total)) + ', 新增订单 ' + str(in_goods_num) + in_sku_desc
+
+        if out_goods_num > 0 and out_fee_total > 10:
+            out_result += '难受, 退货佣金 ' + str(int(out_fee_total)) + ', 退货订单 ' + str(out_goods_num) + out_sku_desc
+
+        if in_result != '' or out_result != '':
+            return in_result + '\n' + out_result
         else:
             return ''
 
