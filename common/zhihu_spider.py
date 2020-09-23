@@ -19,8 +19,12 @@ def get_question(qid):
     # offset: 第几页
     # 知乎 API
     url = "https://www.zhihu.com/api/v4/questions/{}?include=visit_count,answer_count".format(qid)
-    res = requests.get(url, headers=headers1)
-    res.encoding = 'utf-8'
+    try:
+        res = requests.get(url, headers=headers1)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        zh_log_dao.add_log(2, 'spider_zh_question_error', '[{}] {}'.format(url, e))
+        return None, e
 
     time.sleep(1)  # 防止被风控
 
@@ -46,8 +50,12 @@ def get_answer(qid, offset, with_content):
     if with_content:
         url = "https://www.zhihu.com/api/v4/questions/{}/answers?include=content,voteup_count&limit=20&offset={}&platform=desktop&sort_by=default".format(qid, offset)
 
-    res = requests.get(url, headers=headers2)
-    res.encoding = 'utf-8'
+    try:
+        res = requests.get(url, headers=headers2)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        zh_log_dao.add_log(2, 'spider_zh_answer_error', '[{}] {}'.format(url, e))
+        return None, e
 
     time.sleep(1)  # 防止被风控
 
@@ -76,8 +84,12 @@ def get_search_result(keyword, x_zse_86, cookie):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
     }
 
-    res = requests.get(url, headers=header)
-    res.encoding = 'utf-8'
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        zh_log_dao.add_log(2, 'spider_zh_search_error', '[{}] {}'.format(url, e))
+        return None, e
 
     time.sleep(1)  # 防止被风控
 
@@ -149,7 +161,7 @@ def get_article_rank(keyword, x_zse_86, cookie, article_id):
 
 
 if __name__ == "__main__":
-    print(get_question(1))
+    # print(get_question(1))
     print(get_question(37963557))
     # print(get_rank_and_like('287500965', '1332349585'))
     # print(get_view_and_answer_num('287500965'))

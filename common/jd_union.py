@@ -48,7 +48,12 @@ def get_order():
 
     url = 'https://router.jd.com/api?v=1.0&method=' + order_row_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"orderReq":{"startTime":"' + start_time + '","endTime":"' + end_time + '","pageIndex":1,"pageSize":20,"type":3}}'
 
-    response = requests.get(url, headers=headers)
+    try:
+        response = requests.get(url, headers=headers)
+    except BaseException as e:
+        zh_log_dao.add_log(2, 'spider_jd_order_error', '[{}] {}'.format(url, e))
+        return None, e
+
     if response.text == '':
         logger.info(order_row_api + " response empty")
         return order_row_api + " response empty"
@@ -135,7 +140,12 @@ def get_sku_list(sku_ids):
 
     url = 'https://router.jd.com/api?v=1.0&method=' + sku_info_api + '&access_token=&app_key=' + appkey + '&sign_method=md5&format=json&timestamp=' + timestamp + '&sign=' + sign + '&param_json={"skuIds":"' + sku_ids + '"}'
 
-    response = requests.get(url, headers=headers)
+    try:
+        response = requests.get(url, headers=headers)
+    except BaseException as e:
+        zh_log_dao.add_log(2, 'spider_jd_sku_error', '[{}] {}'.format(url, e))
+        return None, e
+
     if response.text == '':
         logger.info(sku_info_api + " response empty")
         return sku_info_api + " response empty"
