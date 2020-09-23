@@ -1,5 +1,5 @@
-import datetime
 import logging
+from utils import *
 
 import component.mysql_api as mysql_api
 from modal import *
@@ -23,7 +23,9 @@ def update_answer(aid, like_num, rank):
     session = mysql_api.get_session()
     session.query(ZhAnswer) \
         .filter(ZhAnswer.aid == aid) \
-        .update({"like_num": like_num, "rank": rank, "update_time": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
+        .update({"like_num": like_num,
+                 "rank": rank,
+                 "update_time": get_current_datetime()})
     session.commit()
     session.close()
 

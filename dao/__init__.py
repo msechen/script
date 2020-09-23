@@ -5,3 +5,4 @@ from .service_subscribe_dao import *
 from .user_dao import *
 from .zh_goods_dao import *
 from .zh_question_dao import *
+from .zh_search_dao import *

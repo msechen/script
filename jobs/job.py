@@ -107,6 +107,10 @@ def init_scheduler(bot_var):
     scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*/2', minute='35', second='30')
 
+    # 文章排名定时更新
+    scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*/2', minute='15', second='30')
+
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='0/5', second='30')
@@ -123,6 +127,11 @@ def update_goods():
     logger.info('更新知乎好物商品数据 start')
     sync_data.update_jd_goods(None)
     logger.info('更新知乎好物商品数据 end')
+
+
+# 知乎文章排名更新
+def update_article_rank():
+    sync_data.update_article_rank()
 
 
 # 知乎数据更新

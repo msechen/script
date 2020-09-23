@@ -3,6 +3,7 @@ from common import zhihu_spider
 from dao import zh_answer_dao
 from dao import zh_goods_dao
 from dao import zh_question_dao
+from dao import zh_search_dao
 from utils import *
 
 new_day_hour = "00"
@@ -88,7 +89,16 @@ def update_jd_goods(sku_ids):
                                       cid1_name, cid2, cid2_name, cid3, cid3_name)
 
 
+# 更新知乎文章排名
+def update_article_rank():
+    article_list = zh_search_dao.query_search_list()
+    for article in article_list:
+        rank = zhihu_spider.get_article_rank(article.keyword, article.x_zse_86, article.cookie, article.article_id)
+        zh_search_dao.update_search(article.article_id, rank)
+
+
 if __name__ == '__main__':
-    update_zhihu_question()
-    update_zhihu_answer()
+    # update_zhihu_question()
+    # update_zhihu_answer()
     # update_jd_goods(None)
+    update_article_rank()
