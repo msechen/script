@@ -18,6 +18,9 @@ class Demo extends Base {
   };
 
   static async doMain(api, shareCodes) {
+    const self = this;
+    const _ = self._;
+
     this.log('1');
     await sleep(2);
     this.log('2');

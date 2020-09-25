@@ -25,6 +25,9 @@ const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
   [].concat(output).forEach(_log);
 };
 
+// 将json写入文件中
+const writeFileJSON = (data, fileName, dirname) => require('fs').writeFileSync(require('path').resolve(dirname, fileName), JSON.stringify(data), {encoding : 'utf-8'});
+
 module.exports = {
   sleep,
 
@@ -34,4 +37,6 @@ module.exports = {
   getNowMoment,
   getNowDate,
   getNowTime,
+
+  writeFileJSON,
 };
