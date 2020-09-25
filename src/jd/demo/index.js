@@ -1,4 +1,4 @@
-const Base = require('./index');
+const Base = require('../base');
 
 const {sleep} = require('../../lib/common');
 

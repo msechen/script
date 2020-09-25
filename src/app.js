@@ -14,6 +14,7 @@ const bean = require('./jd/bean');
 const invitation = require('./jd/invitation');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
+const BlessingBag = require('./jd/blessingBag');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -57,6 +58,7 @@ async function main() {
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
         await runScript(superMarket, 0);
+        await BlessingBag.start(getCookieData());
       },
     },
     {
