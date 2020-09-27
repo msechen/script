@@ -65,8 +65,11 @@ class Base {
 
   static async init(cookie, shareCodes, isCron = false) {
     const api = this.initApi(cookie);
-    await this.doMain(api, shareCodes);
-    isCron && await this.doCron(api, shareCodes);
+    if (isCron) {
+      await this.doCron(api, shareCodes);
+    } else {
+      await this.doMain(api, shareCodes);
+    }
   }
 
   static async start(data) {
@@ -83,6 +86,7 @@ class Base {
     for (const {cookie, shareCodes} of _.concat(data)) {
       await this.init(cookie, shareCodes, true);
     }
+    await sleep(2);
   }
 }
 
