@@ -49,7 +49,8 @@ class jdFactory extends Base {
       for (let {status, taskId, maxTimes, times, simpleRecordInfoVo, productInfoVos, followShopVo, shoppingActivityVos, threeMealInfoVos, assistTaskDetailVo = {}} of _.property('data.result.taskVos')(data) || []) {
         if (status === 2 || [7/*开会员*/].includes(taskId)) continue;
         let taskList = simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || threeMealInfoVos;
-        if (taskId === 2/*邀请助力*/) {
+        const isShareTask = taskId === 2; /*邀请助力*/
+        if (isShareTask) {
           if (self.isFirstLoop()) {
             shareCodeCaches.push(assistTaskDetailVo);
             continue;
@@ -64,6 +65,9 @@ class jdFactory extends Base {
           await collectScore(taskToken, taskId, itemId).then(data => {
             const score = _.property('data.result.score')(data);
             score && (allScore += +score);
+            if (isShareTask) {
+              isSuccess(data) && self.log(`助力结果: ${data.data.bizMsg}`);
+            }
           });
         }
       }

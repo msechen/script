@@ -57,6 +57,7 @@ async function main() {
         await pet();
         await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[0]));
         await Pet.start(getCookieData(void 0, [process.env.JD_PET_SHARE_CODE_1, process.env.JD_PET_SHARE_CODE_2]));
+        await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
         await runScript(invitation, 0);
         await runScript(superMarket, 0);
@@ -80,7 +81,7 @@ async function main() {
     {
       valid: 10,
       run: async () => {
-        await jdFactory.start(getCookieData(jdFactory.scriptName));
+        await jdFactory.start(getCookieData());
       },
     },
     {
