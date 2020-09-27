@@ -2,7 +2,7 @@ name: Lazy Script(Schedule)
 
 on:
   schedule:
-    - cron: '02 0/4 * * *'
+    - cron: '02 0/1 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -6,6 +6,8 @@ const {printLog} = require('../../lib/common');
 
 class Base {
   static _ = _;
+  // 当前循环次数, 不可更改
+  static currentTimes = 0;
   // 脚本名称
   static scriptName = 'scriptName';
   // 循环次数
@@ -25,6 +27,9 @@ class Base {
   };
 
   static async doMain(api, shareCodes) {
+  }
+
+  static async doCron(api, shareCodes) {
   }
 
   // helpers
@@ -48,17 +53,25 @@ class Base {
     return api;
   }
 
-  static async init(cookie, shareCodes) {
+  static async init(cookie, shareCodes, isCron = false) {
     const api = this.initApi(cookie);
     await this.doMain(api, shareCodes);
+    isCron && await this.doCron(api, shareCodes);
   }
 
   static async start(data) {
-    for (let i = 0; i < this.times; i++) {
+    for (this.currentTimes = 0; this.currentTimes < this.times; this.currentTimes++) {
       for (const {cookie, shareCodes} of _.concat(data)) {
-        await this.init(cookie, i === 0 ? _.filter(_.concat(shareCodes)) : void 0);
+        await this.init(cookie, this.currentTimes === 0 ? _.filter(_.concat(shareCodes)) : void 0);
       }
       await sleep(2);
+    }
+  }
+
+  // 定时任务
+  static async cron(data) {
+    for (const {cookie, shareCodes} of _.concat(data)) {
+      await this.init(cookie, shareCodes, true);
     }
   }
 }
