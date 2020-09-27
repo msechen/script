@@ -4,7 +4,7 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
 let allScore = 0;
-const shareCodeCaches = [];
+let shareCodeCaches = [];
 
 class jdFactory extends Base {
   static scriptName = 'jdFactory';
@@ -32,6 +32,8 @@ class jdFactory extends Base {
     const self = this;
     const _ = this._;
 
+    shareCodes && (shareCodeCaches = shareCodeCaches.concat(shareCodes.map(taskToken => ({taskToken}))));
+
     const isSuccess = data => _.property('data.bizCode')(data) === 0;
 
     const collectScore = async (taskToken, taskId, itemId) => {
@@ -48,7 +50,7 @@ class jdFactory extends Base {
         if (status === 2 || [7/*开会员*/].includes(taskId)) continue;
         let taskList = simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || threeMealInfoVos;
         if (taskId === 2/*邀请助力*/) {
-          if (shareCodeCaches.every(o => o.taskToken !== assistTaskDetailVo.taskToken)) {
+          if (self.isFirstLoop()) {
             shareCodeCaches.push(assistTaskDetailVo);
             continue;
           }
@@ -69,7 +71,7 @@ class jdFactory extends Base {
 
     if (activityNotStart) return;
 
-    if (self.currentTimes === self.times) {
+    if (self.isLastLoop()) {
       allScore && self.log(`获取到的电量为 ${allScore}`);
 
       // 输出用户信息

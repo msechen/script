@@ -7,7 +7,7 @@ const {printLog} = require('../../lib/common');
 class Base {
   static _ = _;
   // 当前循环次数, 不可更改
-  static currentTimes = 0;
+  static currentTimes = 1;
   // 脚本名称
   static scriptName = 'scriptName';
   // 循环次数
@@ -37,6 +37,16 @@ class Base {
     printLog(this.scriptName, void 0, output);
   }
 
+  // 第一次循环
+  static isFirstLoop() {
+    return this.currentTimes === 1;
+  }
+
+  // 最后一次循环
+  static isLastLoop() {
+    return this.currentTimes === this.times;
+  }
+
   static getNowHour() {
     return getNowMoment().hours();
   }
@@ -60,9 +70,9 @@ class Base {
   }
 
   static async start(data) {
-    for (this.currentTimes = 0; this.currentTimes < this.times; this.currentTimes++) {
+    for (this.currentTimes = 1; this.currentTimes <= this.times; this.currentTimes++) {
       for (const {cookie, shareCodes} of _.concat(data)) {
-        await this.init(cookie, this.currentTimes === 0 ? _.filter(_.concat(shareCodes)) : void 0);
+        await this.init(cookie, this.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0);
       }
       await sleep(2);
     }

@@ -80,7 +80,7 @@ async function main() {
     {
       valid: 10,
       run: async () => {
-        await jdFactory.start(getCookieData());
+        await jdFactory.start(getCookieData(jdFactory.scriptName));
       },
     },
     {

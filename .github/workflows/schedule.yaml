@@ -46,3 +46,6 @@ jobs:
 
           JD_WMT_SHARE_CODE: ${{ secrets.JD_WMT_SHARE_CODE }}
           JD_WMT_SHARE_CODE_1: ${{ secrets.JD_WMT_SHARE_CODE_1 }}
+
+          JD_JDFACTORY_SHARE_CODE_2: ${{ secrets.JD_JDFACTORY_SHARE_CODE_2 }}
+          JD_JDFACTORY_SHARE_CODE_3: ${{ secrets.JD_JDFACTORY_SHARE_CODE_3 }}
