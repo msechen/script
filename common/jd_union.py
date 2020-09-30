@@ -18,8 +18,10 @@ headers = {
                   "Chrome/67.0.3396.87 Safari/537.36"
 }
 
-appkey = '1a449d84b554735f7fe3a9037099bddc'
-appsecret = '7f69d2fcca5c443386017f9a97d14c83'
+# appkey = '1a449d84b554735f7fe3a9037099bddc'
+# appsecret = '7f69d2fcca5c443386017f9a97d14c83'
+appkey = '2d2ea015479ddc93f30a2c7366ba4c84'
+appsecret = 'ae911e53de6c4853a5c89a815347c90f'
 
 order_row_api = 'jd.union.open.order.row.query'
 sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
@@ -133,6 +135,7 @@ def get_sku_list(sku_ids):
     timestamp = last_min.strftime('%Y-%m-%d %H:%M:%S')
 
     str_to_sign = appsecret + 'app_key' + appkey + 'formatjsonmethod' + sku_info_api + 'param_json{"skuIds":"' + sku_ids + '"}sign_methodmd5timestamp' + timestamp + 'v1.0' + appsecret
+    print(str_to_sign)
     # sign = md5(str_to_sign)
     hl = hashlib.md5()
     hl.update(str_to_sign.encode(encoding='utf-8'))
@@ -213,7 +216,7 @@ if __name__ == "__main__":
     # print(get_order())
     # print(get_order('202008131702'))
     # print(get_sku_info('65379713262,65386799109'))
-    print(get_sku_info_single('60101892005'))
+    print(get_sku_info_single('67716911235'))
     # goods_name, unit_price, commision_ratio_pc, commision, is_jd_sale, in_order_count, cid, cid_name, cid2, cid2_name, cid3, cid3_name = get_sku_info_single(
     #     '100006686879')
     # print(goods_name)
