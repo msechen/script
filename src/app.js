@@ -71,8 +71,8 @@ async function main() {
     {
       valid: 8,
       run: async () => {
-        await fruit();
         await fruitSchedule(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_2));
+        await fruit();
         await runScript(superMarket, 0);
       },
     },
