@@ -36,6 +36,8 @@ jobs:
           JD_PET_DUAL_SHARE_CODE: ${{ secrets.JD_PET_DUAL_SHARE_CODE }}
           JD_PET_SHARE_CODE_1: ${{ secrets.JD_PET_SHARE_CODE_1 }}
           JD_PET_SHARE_CODE_2: ${{ secrets.JD_PET_SHARE_CODE_2 }}
+          JD_PET_SHARE_CODE_3: ${{ secrets.JD_PET_SHARE_CODE_3 }}
+          JD_PET_SHARE_CODE_4: ${{ secrets.JD_PET_SHARE_CODE_4 }}
 
           JD_CASH_SHARE_CODE: ${{ secrets.JD_CASH_SHARE_CODE }}
           JD_CASH_SHARE_CODE_1: ${{ secrets.JD_CASH_SHARE_CODE_1 }}
