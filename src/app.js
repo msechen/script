@@ -105,6 +105,12 @@ async function main() {
       },
     },
     {
+      valid: 22,
+      run: async () => {
+        await jdFactory.start(getCookieData());
+      },
+    },
+    {
       valid: 23,
       run: async () => {
         await runScript(bean, 0);
