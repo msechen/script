@@ -24,7 +24,7 @@ const getCookieData = (name, shareCode) => {
     name = name.toUpperCase();
     const key = `JD_${name}_SHARE_CODE`;
     const shareCodes = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
       const shareCode = i === 0 ? process.env[key] : process.env[`${key}_${i}`];
       shareCode && i !== targetIndex && shareCodes.push(shareCode);
     }
@@ -54,7 +54,8 @@ async function main() {
         await sign();
         await fruit();
         await pet();
-        await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[0]));
+        await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[1]));
+        await fruitSchedule(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_2));
         await Pet.start(getCookieData('pet'));
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
@@ -71,7 +72,7 @@ async function main() {
     {
       valid: 8,
       run: async () => {
-        await fruitSchedule(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_2));
+        await fruitSchedule(getCookieData());
         await fruit();
         await runScript(superMarket, 0);
       },

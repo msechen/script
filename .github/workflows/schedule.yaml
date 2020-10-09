@@ -38,6 +38,8 @@ jobs:
           JD_PET_SHARE_CODE_2: ${{ secrets.JD_PET_SHARE_CODE_2 }}
           JD_PET_SHARE_CODE_3: ${{ secrets.JD_PET_SHARE_CODE_3 }}
           JD_PET_SHARE_CODE_4: ${{ secrets.JD_PET_SHARE_CODE_4 }}
+          JD_PET_SHARE_CODE_5: ${{ secrets.JD_PET_SHARE_CODE_5 }}
+          JD_PET_SHARE_CODE_6: ${{ secrets.JD_PET_SHARE_CODE_6 }}
 
           JD_CASH_SHARE_CODE: ${{ secrets.JD_CASH_SHARE_CODE }}
           JD_CASH_SHARE_CODE_1: ${{ secrets.JD_CASH_SHARE_CODE_1 }}
@@ -45,9 +47,12 @@ jobs:
           JD_BEAN_SHARE_CODE: ${{ secrets.JD_BEAN_SHARE_CODE }}
           JD_BEAN_SHARE_CODE_1: ${{ secrets.JD_BEAN_SHARE_CODE_1 }}
           JD_BEAN_SHARE_CODE_2: ${{ secrets.JD_BEAN_SHARE_CODE_2 }}
+          JD_BEAN_SHARE_CODE_3: ${{ secrets.JD_BEAN_SHARE_CODE_3 }}
 
           JD_WMT_SHARE_CODE: ${{ secrets.JD_WMT_SHARE_CODE }}
           JD_WMT_SHARE_CODE_1: ${{ secrets.JD_WMT_SHARE_CODE_1 }}
 
+          JD_JDFACTORY_SHARE_CODE: ${{ secrets.JD_JDFACTORY_SHARE_CODE }}
+          JD_JDFACTORY_SHARE_CODE_1: ${{ secrets.JD_JDFACTORY_SHARE_CODE_1 }}
           JD_JDFACTORY_SHARE_CODE_2: ${{ secrets.JD_JDFACTORY_SHARE_CODE_2 }}
           JD_JDFACTORY_SHARE_CODE_3: ${{ secrets.JD_JDFACTORY_SHARE_CODE_3 }}
