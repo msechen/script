@@ -45,9 +45,12 @@ async function start(needSend) {
     console.log('请填写 key 后在继续');
     return;
   }
-  // 下载最新代码
-  await downFile();
-  console.log('下载代码完毕');
+
+  if (!fs.existsSync(getDistFile())) {
+    // 下载最新代码
+    await downFile();
+    console.log('下载代码完毕');
+  }
   // 替换变量
   await changeFile();
   console.log('文件内容替换成功');
