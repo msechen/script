@@ -29,7 +29,7 @@ class Wfh extends Base {
   static async doMain(api, shareCodes) {
     const self = this;
     const _ = this._;
-    const appId = '1EFRRwA';
+    const appId = '1EFRQwg';
 
     const isSuccess = data => _.property('data.bizCode')(data) === 0;
 
