@@ -78,6 +78,13 @@ class jdFactory extends Base {
     if (self.isLastLoop()) {
       allScore && self.log(`获取到的电量为 ${allScore}`);
 
+      let userScore = 0;
+
+      await api.jdfactory_getTaskDetail({}).then(async data => {
+        userScore = +data.data.result.userScore;
+        self.log(`当前电量为: ${userScore}`);
+      });
+
       // 输出用户信息
       await api.jdfactory_getHomeData().then(data => {
         if (!isSuccess(data)) {
@@ -85,7 +92,15 @@ class jdFactory extends Base {
           return;
         }
         const {couponCount, name, remainScore, useScore, totalScore} = _.property('data.result.factoryInfo')(data) || {};
-        this.log(`${name}现在还剩${couponCount}件, 电量还差 ${+totalScore - (+remainScore + +useScore)}`);
+        name && self.log(`${name}现在还剩${couponCount}件, 电量还差 ${+totalScore - (+remainScore + +useScore)}`);
+
+        (_.property('data.result.skuIdList')(data) || []).forEach(({couponCount, name, fullScore}) => {
+          if (couponCount > 0) {
+            let msg = `${name}还剩${couponCount}件, 需要电量${fullScore}`;
+            userScore >= +fullScore && (msg += ', 可以打造成功, 快进行充电!');
+            self.log(msg);
+          }
+        });
       });
     }
 
