@@ -38,19 +38,6 @@ async function main(cookie, shareCodes = []) {
 
       const taskList = data.taskList.filter(task => task.isFinished !== 1 && !ignoreTaskTypes.includes(task.taskType));
 
-      for (const task of taskList) {
-        const {taskType, taskName} = task;
-        if (![4, 7, 19, 22].includes(taskType) && !['开学鲜行', '小米领豆', '七夕活动', '超级品牌日', '领取现金'].includes(taskName)) continue;
-        await sleep();
-        await receiveNutrientsTask(`${taskType}`);
-      }
-
-      if (nowHours === 0) {
-        // 金融双签接口没返回, 需要hack code一下
-        await sleep();
-        await receiveNutrientsTask(`7`);
-      }
-
       const requestConfig = [
         {
           taskType: 3, // 浏览店铺
@@ -115,6 +102,18 @@ async function main(cookie, shareCodes = []) {
         },
       ];
 
+      for (const task of taskList) {
+        const {taskType, taskName} = task;
+        if (['好友助力', '评价商品'].includes(taskName) || requestConfig.map(o => o.taskType).includes(taskType)) continue;
+        await sleep();
+        await receiveNutrientsTask(`${taskType}`);
+      }
+
+      if (nowHours === 0) {
+        // 金融双签接口没返回, 需要hack code一下
+        await sleep();
+        await receiveNutrientsTask(`7`);
+      }
 
       for (const task of taskList) {
         let remainingTimes = +task.totalNum - +task.gainedNum;
