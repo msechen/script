@@ -4,11 +4,9 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
 let allScore = 0;
-let shareCodeCaches = [];
 
 class jdFactory extends Base {
   static scriptName = 'jdFactory';
-  static times = 2;
   static apiOptions = {
     options: {
       headers: {
@@ -32,8 +30,6 @@ class jdFactory extends Base {
     const self = this;
     const _ = this._;
 
-    shareCodes && (shareCodeCaches = shareCodeCaches.concat(shareCodes.map(taskToken => ({taskToken}))));
-
     const isSuccess = data => _.property('data.bizCode')(data) === 0;
 
     const collectScore = async (taskToken, taskId, itemId) => {
@@ -46,29 +42,29 @@ class jdFactory extends Base {
       // 不在活动期间
       if (!isSuccess(data)) return true;
 
-      for (let {status, taskId, maxTimes, times, simpleRecordInfoVo, productInfoVos, followShopVo, shoppingActivityVos, threeMealInfoVos, assistTaskDetailVo = {}} of _.property('data.result.taskVos')(data) || []) {
+      for (let {status, taskId, maxTimes, times, waitDuration = 0, simpleRecordInfoVo, productInfoVos, followShopVo, shoppingActivityVos, threeMealInfoVos, assistTaskDetailVo = {}} of _.property('data.result.taskVos')(data) || []) {
+        const isShareTask = taskId === 2; /*邀请助力*/
+        if (isShareTask && shareCodes) {
+          await _doTask(shareCodes.map(taskToken => ({taskToken})), {taskId, maxTimes: 5});
+          continue;
+        }
         if (status === 2 || [7/*开会员*/].includes(taskId)) continue;
         let taskList = simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || threeMealInfoVos;
-        const isShareTask = taskId === 2; /*邀请助力*/
-        if (isShareTask) {
-          if (self.isFirstLoop()) {
-            shareCodeCaches.push(assistTaskDetailVo);
-            continue;
+        await _doTask(taskList, {taskId, maxTimes, times, waitDuration});
+
+        async function _doTask(taskList, {taskId, maxTimes = 1, times = 0, waitDuration = 0}) {
+          for (const {status, taskToken, itemId} of _.filter([].concat(taskList))) {
+            if (status === 2 || maxTimes === times) continue;
+            await sleep(2);
+            times++;
+            await collectScore(taskToken, taskId, itemId).then(data => {
+              const score = _.property('data.result.score')(data);
+              score && (allScore += +score);
+              if (isShareTask) {
+                isSuccess(data) && self.log(`助力结果: ${data.data.bizMsg}`);
+              }
+            });
           }
-          // 不需要助力自己
-          taskList = shareCodeCaches.filter(o => o.taskToken !== assistTaskDetailVo.taskToken);
-        }
-        for (const {status, taskToken, itemId} of _.filter([].concat(taskList))) {
-          if (status === 2 || maxTimes === times) continue;
-          await sleep(2);
-          times++;
-          await collectScore(taskToken, taskId, itemId).then(data => {
-            const score = _.property('data.result.score')(data);
-            score && (allScore += +score);
-            if (isShareTask) {
-              isSuccess(data) && self.log(`助力结果: ${data.data.bizMsg}`);
-            }
-          });
         }
       }
     });
