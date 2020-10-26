@@ -6,6 +6,8 @@ const {printLog} = require('../../lib/common');
 
 class Base {
   static _ = _;
+  // 当前循环的cookie下表
+  static currentCookieTimes = 0;
   // 当前循环次数, 不可更改
   static currentTimes = 1;
   // 脚本名称
@@ -51,6 +53,10 @@ class Base {
     return getNowMoment().hours();
   }
 
+  static getCurrentEnv(key) {
+    return process.env[`${key}${this.currentCookieTimes ? ('_' + this.currentCookieTimes) : ''}`];
+  }
+
   static initApi(cookie) {
     const {signData, options, formatDataFn} = this.apiOptions;
     const {requestFnName, apiNames} = this.apiExtends;
@@ -74,8 +80,10 @@ class Base {
 
   static async start(data) {
     for (this.currentTimes = 1; this.currentTimes <= this.times; this.currentTimes++) {
+      this.currentCookieTimes = 0;
       for (const {cookie, shareCodes} of _.concat(data)) {
         await this.init(cookie, this.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0);
+        this.currentCookieTimes++;
       }
       await sleep(2);
     }
@@ -85,6 +93,7 @@ class Base {
   static async cron(data) {
     for (const {cookie, shareCodes} of _.concat(data)) {
       await this.init(cookie, shareCodes, true);
+      this.currentCookieTimes++;
     }
     await sleep(2);
   }

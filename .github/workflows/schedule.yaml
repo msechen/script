@@ -56,3 +56,17 @@ jobs:
           JD_JDFACTORY_SHARE_CODE_1: ${{ secrets.JD_JDFACTORY_SHARE_CODE_1 }}
           JD_JDFACTORY_SHARE_CODE_2: ${{ secrets.JD_JDFACTORY_SHARE_CODE_2 }}
           JD_JDFACTORY_SHARE_CODE_3: ${{ secrets.JD_JDFACTORY_SHARE_CODE_3 }}
+
+          JD_STALL_SHARE_CODE: ${{ secrets.JD_STALL_SHARE_CODE }}
+          JD_STALL_SHARE_CODE_1: ${{ secrets.JD_STALL_SHARE_CODE_1 }}
+          JD_STALL_SHARE_CODE_2: ${{ secrets.JD_STALL_SHARE_CODE_2 }}
+          JD_STALL_SHARE_CODE_3: ${{ secrets.JD_STALL_SHARE_CODE_3 }}
+          JD_STALL_SHARE_CODE_4: ${{ secrets.JD_STALL_SHARE_CODE_4 }}
+          JD_STALL_SHARE_CODE_5: ${{ secrets.JD_STALL_SHARE_CODE_5 }}
+
+          JD_STALL_SS: ${{ secrets.JD_STALL_SS }}
+          JD_STALL_SS_1: ${{ secrets.JD_STALL_SS_1 }}
+          JD_STALL_SS_2: ${{ secrets.JD_STALL_SS_2 }}
+          JD_STALL_SS_3: ${{ secrets.JD_STALL_SS_3 }}
+          JD_STALL_SS_4: ${{ secrets.JD_STALL_SS_4 }}
+          JD_STALL_SS_5: ${{ secrets.JD_STALL_SS_5 }}
