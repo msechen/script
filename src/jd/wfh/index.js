@@ -29,7 +29,7 @@ class Wfh extends Base {
   static async doMain(api, shareCodes) {
     const self = this;
     const _ = this._;
-    const appId = '1EFRQwg';
+    const appId = '1EFRQxw';
 
     const isSuccess = data => _.property('data.bizCode')(data) === 0;
 
@@ -61,9 +61,9 @@ class Wfh extends Base {
       }
 
       let allScore = 0;
-      for (let {status, taskId, maxTimes, times, simpleRecordInfoVo, productInfoVos, followShopVo, assistTaskDetailVo = {}} of _.property('data.result.taskVos')(data) || []) {
+      for (let {status, taskId, maxTimes, times, simpleRecordInfoVo, productInfoVos, followShopVo, shoppingActivityVos, assistTaskDetailVo = {}} of _.property('data.result.taskVos')(data) || []) {
         if (status === 2 || [7/*下单购买*/].includes(taskId)) continue;
-        let taskList = simpleRecordInfoVo || productInfoVos || followShopVo;
+        let taskList = simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos;
         if (taskId === 6/*邀请助力*/) {
           if (shareCodeCaches.every(o => o.taskToken !== assistTaskDetailVo.taskToken)) {
             shareCodeCaches.push(assistTaskDetailVo);
