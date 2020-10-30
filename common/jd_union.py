@@ -18,10 +18,10 @@ headers = {
                   "Chrome/67.0.3396.87 Safari/537.36"
 }
 
-# appkey = '1a449d84b554735f7fe3a9037099bddc'
-# appsecret = '7f69d2fcca5c443386017f9a97d14c83'
-appkey = '2d2ea015479ddc93f30a2c7366ba4c84'
-appsecret = 'ae911e53de6c4853a5c89a815347c90f'
+appkey = '1a449d84b554735f7fe3a9037099bddc'
+appsecret = '7f69d2fcca5c443386017f9a97d14c83'
+# appkey = '2d2ea015479ddc93f30a2c7366ba4c84'
+# appsecret = 'ae911e53de6c4853a5c89a815347c90f'
 
 order_row_api = 'jd.union.open.order.row.query'
 sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
