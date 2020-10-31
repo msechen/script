@@ -70,3 +70,10 @@ jobs:
           JD_STALL_SS_3: ${{ secrets.JD_STALL_SS_3 }}
           JD_STALL_SS_4: ${{ secrets.JD_STALL_SS_4 }}
           JD_STALL_SS_5: ${{ secrets.JD_STALL_SS_5 }}
+
+          JD_STALL_CRON_SS: ${{ secrets.JD_STALL_CRON_SS }}
+          JD_STALL_CRON_SS_1: ${{ secrets.JD_STALL_CRON_SS_1 }}
+          JD_STALL_CRON_SS_2: ${{ secrets.JD_STALL_CRON_SS_2 }}
+          JD_STALL_CRON_SS_3: ${{ secrets.JD_STALL_CRON_SS_3 }}
+          JD_STALL_CRON_SS_4: ${{ secrets.JD_STALL_CRON_SS_4 }}
+          JD_STALL_CRON_SS_5: ${{ secrets.JD_STALL_CRON_SS_5 }}
