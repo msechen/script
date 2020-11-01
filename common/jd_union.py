@@ -18,17 +18,17 @@ headers = {
                   "Chrome/67.0.3396.87 Safari/537.36"
 }
 
-appkey = '1a449d84b554735f7fe3a9037099bddc'
-appsecret = '7f69d2fcca5c443386017f9a97d14c83'
-# appkey = '2d2ea015479ddc93f30a2c7366ba4c84'
-# appsecret = 'ae911e53de6c4853a5c89a815347c90f'
-
 order_row_api = 'jd.union.open.order.row.query'
 sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 
+appkey = '1a449d84b554735f7fe3a9037099bddc' # 大号
+appsecret = '7f69d2fcca5c443386017f9a97d14c83'
+# appkey = '2d2ea015479ddc93f30a2c7366ba4c84' # 小号
+# appsecret = 'ae911e53de6c4853a5c89a815347c90f'
+
 
 # 查询京东联盟的订单
-def get_order():
+def get_order(appkey, appsecret):
     # timestamp = '2020-08-12 01:58:02'
     # last_min = get_last_min_ts()
     last_min = datetime.datetime.now() - datetime.timedelta(minutes=1)

@@ -144,9 +144,18 @@ def update_zhihu_data_v2():
 
 # 知乎数据更新
 def get_order():
-    result = jd.get_order()
+    appkey1 = '1a449d84b554735f7fe3a9037099bddc' # 大号
+    appsecret1 = '7f69d2fcca5c443386017f9a97d14c83'
+    appkey2 = '2d2ea015479ddc93f30a2c7366ba4c84' # 小号
+    appsecret2 = 'ae911e53de6c4853a5c89a815347c90f'
+
+    result = jd.get_order(appkey1, appsecret1)
     if len(result) > 0:
-        user_kolly.send(result)
+        user_kolly.send('[大号]\n' + result)
+
+    result = jd.get_order(appkey2, appsecret2)
+    if len(result) > 0:
+        user_kolly.send('[小号]\n' + result)
 
 
 # 发送天气信息
