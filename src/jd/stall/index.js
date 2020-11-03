@@ -95,7 +95,7 @@ class stall extends Base {
               if (status === 2 || maxTimes === times) continue;
               times++;
               await collectScore(taskToken, taskId, itemId, shopSign).then(async data => {
-                if (waitDuration === 0) return;
+                if (waitDuration === 0 || !isSuccess(data)) return;
                 await sleep(waitDuration + 2);
                 // 需要浏览的任务需要再调这个接口
                 await api.doFormBody('qryViewkitCallbackResult', {
