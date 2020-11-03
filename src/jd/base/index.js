@@ -6,7 +6,7 @@ const {printLog} = require('../../lib/common');
 
 class Base {
   static _ = _;
-  // 当前循环的cookie下表
+  // 当前循环的cookie下标
   static currentCookieTimes = 0;
   // 当前循环次数, 不可更改
   static currentTimes = 1;
@@ -57,27 +57,23 @@ class Base {
     return process.env[`${key}${this.currentCookieTimes ? ('_' + this.currentCookieTimes) : ''}`];
   }
 
-  static async loopCall(list = [], {
-    firstFn = _.noop, afterWaitFn = _.noop,
-    isFinishFn = _.noop,
-    maxTimes = 1,
-    times = 0,
-    waitDuration = 0,
-  }) {
-    if (list.length < maxTimes) {
-      for (let i = 0; i < maxTimes; i++) {
-        list.push({});
-      }
-    }
-    for (const item of _.filter([].concat(list))) {
-      const {status} = item;
-      if (status === 2 || maxTimes === times || isFinishFn(item)) continue;
-      times++;
-      await firstFn(item).then(async data => {
-        if (waitDuration === 0) return;
-        await sleep(waitDuration + 2);
-        await afterWaitFn(data);
-      });
+  static async loopCall(list = [], option) {
+    let {
+      firstFn = _.noop, afterWaitFn = _.noop,
+      isFinishFn = o => _.property('status')(o) === 2,
+      getListFn = () => list,
+      maxTimes = 1,
+      times = 0,
+      waitDuration = 0,
+    } = option || {};
+    list = await getListFn();
+    list = [].concat(list).filter(item => !isFinishFn(item));
+    for (let i = 0; i < maxTimes - times; i++) {
+      const item = list[i] || {};
+      const data = await firstFn(item);
+      if (waitDuration === 0) continue;
+      await sleep(waitDuration + 2);
+      await afterWaitFn(data);
     }
   }
 

@@ -26,6 +26,10 @@ const cash = {
   cash_sign: [],
   cash_doTask: [],
 };
+const stall = {
+  functionIds: ['stall_collectScore'],
+  stall_collectScore: [],
+};
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
   const originDir = `${JD_CHLSJ_PATH}/${key}`;
@@ -54,7 +58,7 @@ const formatForm = (key, object) => {
 };
 
 function init() {
-  [cash].forEach(o => {
+  [cash, stall].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
     });
@@ -65,4 +69,5 @@ init();
 
 module.exports = {
   cash,
+  stall,
 };
