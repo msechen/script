@@ -17,6 +17,7 @@ const Pet = require('./jd/newPet');
 const Wfh = require('./jd/wfh');
 const jdFactory = require('./jd/jdFactory');
 const stall = require('./jd/stall');
+const starMall = require('./jd/starMall');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -69,6 +70,12 @@ async function main() {
       valid: 1,
       run: async () => {
         await stall.start(getCookieData(stall.scriptName));
+      },
+    },
+    {
+      valid: 2,
+      run: async () => {
+        await starMall.start(getCookieData());
       },
     },
     {
@@ -127,15 +134,19 @@ async function main() {
     },
   ];
 
+  // 每小时都要执行
+  await cronOneHour();
+
   for (const {valid, run} of scheduleOptions) {
     if (nowHours === valid) {
       await run();
     }
   }
 
-  // 每个小时都要执行
-  await jdFactory.cron(getCookieData());
-  await stall.cron(getCookieData());
+  async function cronOneHour() {
+    await jdFactory.cron(getCookieData());
+    await stall.cron(getCookieData());
+  }
 }
 
 main().then(function () {

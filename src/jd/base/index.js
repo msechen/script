@@ -57,6 +57,25 @@ class Base {
     return process.env[`${key}${this.currentCookieTimes ? ('_' + this.currentCookieTimes) : ''}`];
   }
 
+  static async loopCall(list = [], {
+    firstFn = _.noop, afterWaitFn = _.noop,
+    isFinishFn = _.noop,
+    maxTimes = 1,
+    times = 0,
+    waitDuration = 0,
+  }) {
+    for (const item of _.filter([].concat(list))) {
+      const {status} = item;
+      if (status === 2 || maxTimes === times || isFinishFn(item)) continue;
+      times++;
+      await firstFn(item).then(async data => {
+        if (waitDuration === 0) return;
+        await sleep(waitDuration + 2);
+        await afterWaitFn(data);
+      });
+    }
+  }
+
   static initApi(cookie) {
     const {signData, options, formatDataFn} = this.apiOptions;
     const {requestFnName, apiNames} = this.apiExtends;
