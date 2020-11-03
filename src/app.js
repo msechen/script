@@ -71,12 +71,6 @@ async function main() {
     {
       valid: 1,
       run: async () => {
-        await stall.start(getCookieData(stall.scriptName));
-      },
-    },
-    {
-      valid: 2,
-      run: async () => {
         await starMall.start(getCookieData());
         await Bc.start(getCookieData());
         await Harmony.start(getCookieData());
@@ -133,7 +127,6 @@ async function main() {
       valid: 23,
       run: async () => {
         await runScript(bean, 0);
-        await stall.start(getCookieData());
       },
     },
   ];
