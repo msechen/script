@@ -15,9 +15,11 @@ const invitation = require('./jd/invitation');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
 const Wfh = require('./jd/wfh');
+const Harmony = require('./jd/wfh/harmony');
 const jdFactory = require('./jd/jdFactory');
 const stall = require('./jd/stall');
 const starMall = require('./jd/starMall');
+const Bc = require('./jd/superBrand/bc');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -76,6 +78,8 @@ async function main() {
       valid: 2,
       run: async () => {
         await starMall.start(getCookieData());
+        await Bc.start(getCookieData());
+        await Harmony.start(getCookieData());
       },
     },
     {

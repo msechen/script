@@ -77,3 +77,6 @@ jobs:
           JD_STALL_CRON_SS_3: ${{ secrets.JD_STALL_CRON_SS_3 }}
           JD_STALL_CRON_SS_4: ${{ secrets.JD_STALL_CRON_SS_4 }}
           JD_STALL_CRON_SS_5: ${{ secrets.JD_STALL_CRON_SS_5 }}
+
+          JD_BC_POSITION_LAT: ${{ secrets.JD_BC_POSITION_LAT }}
+          JD_BC_POSITION_LNG: ${{ secrets.JD_BC_POSITION_LNG }}

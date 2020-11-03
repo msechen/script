@@ -64,6 +64,11 @@ class Base {
     times = 0,
     waitDuration = 0,
   }) {
+    if (list.length < maxTimes) {
+      for (let i = 0; i < maxTimes; i++) {
+        list.push({});
+      }
+    }
     for (const item of _.filter([].concat(list))) {
       const {status} = item;
       if (status === 2 || maxTimes === times || isFinishFn(item)) continue;
