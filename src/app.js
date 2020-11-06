@@ -11,7 +11,6 @@ const fruitSchedule = require('./jd/fruitSchedule');
 const pet = require('./jd/pet');
 const cash = require('./jd/cash');
 const bean = require('./jd/bean');
-const invitation = require('./jd/invitation');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
 const Wfh = require('./jd/wfh');
@@ -63,7 +62,6 @@ async function main() {
         await Pet.start(getCookieData('pet'));
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
-        await runScript(invitation, 0);
         await runScript(superMarket, 0);
         await Wfh.start(getCookieData());
       },
