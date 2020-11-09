@@ -18,7 +18,6 @@ const Harmony = require('./jd/wfh/harmony');
 const jdFactory = require('./jd/jdFactory');
 const stall = require('./jd/stall');
 const starMall = require('./jd/starMall');
-const Bc = require('./jd/superBrand/bc');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -70,7 +69,6 @@ async function main() {
       valid: 1,
       run: async () => {
         await starMall.start(getCookieData());
-        await Bc.start(getCookieData());
         await Harmony.start(getCookieData());
       },
     },
