@@ -16,7 +16,6 @@ const Pet = require('./jd/newPet');
 const Wfh = require('./jd/wfh');
 const Harmony = require('./jd/wfh/harmony');
 const jdFactory = require('./jd/jdFactory');
-const stall = require('./jd/stall');
 const starMall = require('./jd/starMall');
 
 const getCookieData = (name, shareCode) => {
@@ -138,7 +137,6 @@ async function main() {
 
   async function cronOneHour() {
     await jdFactory.cron(getCookieData());
-    await stall.cron(getCookieData());
   }
 }
 
