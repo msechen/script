@@ -16,7 +16,6 @@ const Pet = require('./jd/newPet');
 const Wfh = require('./jd/wfh');
 const Harmony = require('./jd/wfh/harmony');
 const jdFactory = require('./jd/jdFactory');
-const starMall = require('./jd/starMall');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -67,7 +66,6 @@ async function main() {
     {
       valid: 1,
       run: async () => {
-        await starMall.start(getCookieData());
         await Harmony.start(getCookieData());
       },
     },
