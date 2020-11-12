@@ -20,7 +20,7 @@ class Base {
     options: {},
     formatDataFn: void 0,
   };
-  // aoi 参数
+  // api 参数
   static apiExtends = {
     // 具体请求 functionName
     requestFnName: 'doFormBody',
