@@ -15,6 +15,8 @@ class Base {
   // 循环次数
   static times = 1;
   // request 参数
+  static isWh5 = false; // 添加signData
+  static needInApp = true; // 添加 userAgent
   static apiOptions = {
     signData: {},
     options: {},
@@ -26,6 +28,23 @@ class Base {
     requestFnName: 'doFormBody',
     // 接口名称
     apiNames: [],
+  };
+
+  // apiNames的补充
+  static apiNamesFn() {
+    return {
+      _test: {
+        name: 'doTest',
+        paramFn: _.noop,
+        successFn: _.noop,
+        errorFn: _.noop,
+      },
+    };
+  }
+
+  // 判断请求是否成功
+  static isSuccess(data) {
+    return _.property('data.bizCode')(data) === 0;
   };
 
   static async doMain(api, shareCodes) {
@@ -77,13 +96,39 @@ class Base {
     }
   }
 
+  // 请求 apiNamesFn
+  static async doApi(api, name, data) {
+    const target = api[name];
+    if (!target) return Promise.resolve();
+    const {paramFn = _.noop, successFn = _.noop, errorFn = _.noop, repeat = false} = this.apiNamesFn()[name];
+
+    const _do = () => target(paramFn(data)).then(successFn);
+
+    const repeatFn = () => _do().then(needRepeat => {
+      if (needRepeat === false) return;
+      return repeatFn();
+    });
+
+    if (repeat) {
+      return repeatFn();
+    }
+
+    return _do().catch(errorFn);
+  }
+
   static initApi(cookie) {
-    const {signData, options, formatDataFn} = this.apiOptions;
-    const {requestFnName, apiNames} = this.apiExtends;
+    const {signData = {}, options = {}, formatDataFn} = this.apiOptions;
+    const {requestFnName, apiNames = []} = this.apiExtends;
+
+    this.isWh5 && _.assign(signData, {client: 'wh5', clientVersion: '1.0.0'});
+    this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
+
     const api = new Request(cookie, signData, options, formatDataFn);
     if (requestFnName) {
-      for (const apiName of apiNames) {
-        api[apiName] = api[requestFnName].bind(api, apiName);
+      let apiObject = _.isArray(apiNames) ? _.zipObject(apiNames, apiNames) : apiNames;
+      _.assign(apiObject, _.zipObject(_.keys(this.apiNamesFn()), _.map(_.values(this.apiNamesFn()), 'name')));
+      for (const [key, functionId] of Object.entries(apiObject)) {
+        api[key] = api[requestFnName].bind(api, functionId);
       }
     }
     return api;
