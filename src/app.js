@@ -14,8 +14,10 @@ const bean = require('./jd/bean');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
 const Wfh = require('./jd/wfh');
-const Harmony = require('./jd/wfh/harmony');
 const jdFactory = require('./jd/jdFactory');
+const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
+const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
+const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 
 const getCookieData = (name, shareCode) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -38,6 +40,10 @@ const getCookieData = (name, shareCode) => {
 async function runScript(fn, name = fn.name) {
   // TODO name 默认值需要调整从 fn 中获取
   return fn(getCookieData(name));
+}
+
+async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
+  return target[method](cookieData);
 }
 
 async function main() {
@@ -66,7 +72,9 @@ async function main() {
     {
       valid: 1,
       run: async () => {
-        await Harmony.start(getCookieData());
+        await doRun(HarmonyGoldenEgg);
+        await doRun(HarmonyBlindBox);
+        await doRun(HarmonyNewShop);
       },
     },
     {
