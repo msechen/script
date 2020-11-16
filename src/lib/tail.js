@@ -12,15 +12,18 @@ const tail = (filePath, options = {}) => {
   }, options));
 
   let timer = null;
-  const _unwatch = () => {
+  const _unwatch = (seconds = unwatchSeconds) => {
+    if (!seconds) return;
     timer && clearTimeout(timer);
-    timer = setTimeout(t.unwatch.bind(t), unwatchSeconds * 1000);
+    timer = setTimeout(t.unwatch.bind(t), seconds * 1000);
   };
 
   t.on('line', data => {
     lineCallback(data);
-    unwatchSeconds && _unwatch();
+    _unwatch();
   });
+
+  _unwatch(unwatchSeconds * 2);
 
   return t;
 };
