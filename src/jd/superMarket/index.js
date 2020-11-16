@@ -40,7 +40,7 @@ async function main(cookie) {
     await doSign();
     await manageProduct();
     await manageShelf();
-    await doTaskList(true);
+    // await doTaskList(true);
   } else {
     await smtg_receiveCoin([0]);
   }
@@ -194,7 +194,7 @@ async function main(cookie) {
             await api.doFormBody(getFunctionId('smtg_obtainShopTaskPrize'), {taskId}).then(successLog);
           }
         } else {
-          if ((isPk ? [1, 6, 3] : [1, 2, 8]).includes(type)) {
+          if ((isPk ? [1, 6, 3] : [1, 2, 8, 10, 11]).includes(type)) {
             needLoop = true;
             const {itemId} = Object.values(content || {})[0] || {};
             await api.doFormBody(getFunctionId('smtg_doShopTask'), {taskId, itemId});
