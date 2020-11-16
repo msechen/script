@@ -49,6 +49,18 @@ class jdFactory extends Base {
           continue;
         }
         if (status === 2 || [7/*开会员*/].includes(taskId)) continue;
+
+        if (taskId === 3/* 去京东首页点击“数码电器” */) {
+          await api.doFormBody('queryVkComponent', {
+            'componentId': '4f953e59a3af4b63b4d7c24f172db3c3',
+            'taskParam': '{"actId":"8tHNdJLcqwqhkLNA8hqwNRaNu5f"}',
+            'cpUid': '8tHNdJLcqwqhkLNA8hqwNRaNu5f',
+            'taskSDKVersion': '1.0.3',
+            'businessId': 'babel',
+          });
+          await sleep(2);
+        }
+
         let taskList = simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || threeMealInfoVos;
         await _doTask(taskList, {taskId, maxTimes, times, waitDuration});
 
