@@ -46,6 +46,10 @@ async function doRun(target, cookieData = getCookieData(target.scriptName), meth
   return target[method](cookieData);
 }
 
+async function doCron(target, cookieData = getCookieData()) {
+  return doRun(target, cookieData, 'cron');
+}
+
 async function main() {
   if (process.env.NOT_RUN) {
     console.log('不执行脚本');
@@ -88,6 +92,7 @@ async function main() {
         await fruitSchedule(getCookieData());
         await fruit();
         await runScript(superMarket, 0);
+        await doCron(Pet);
       },
     },
     {
@@ -103,6 +108,7 @@ async function main() {
         await runScript(fruitSchedule, 0);
         await runScript(bean, 0);
         await runScript(superMarket, 0);
+        await doCron(Pet);
       },
     },
     {
@@ -116,6 +122,7 @@ async function main() {
         await runScript(fruitSchedule, 0);
         await runScript(bean, 0);
         await runScript(superMarket, 0);
+        await doCron(Pet);
       },
     },
     {
