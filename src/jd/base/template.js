@@ -7,6 +7,7 @@ const shareCodeCaches = [];
 
 class Template extends Base {
   static scriptName = 'Template';
+  static shareCodeTaskList = [];
   static apiOptions = {
     formatDataFn: data => data,
   };
@@ -41,10 +42,21 @@ class Template extends Base {
     };
   }
 
+  static initShareCodeTaskList(shareCodes) {
+    if (shareCodes) {
+      // do something to shareCodeTaskList
+    }
+  }
+
+  // doMain一般不会被重载
   static async doMain(api, shareCodes) {
     const self = this;
     const _ = this._;
 
+    // 这个会不断被赋值, TODO 在 base 里赋值可能会好点
+    self._api = api;
+
+    self.initShareCodeTaskList(shareCodes);
     const taskList = await self.doApi(api, 'getTaskList') || [];
 
     for (const {list, option = {}} of taskList) {
