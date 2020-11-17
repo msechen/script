@@ -7,20 +7,21 @@ const serverChan = require('./lib/serverChan');
 
 const sign = require('./jd/sign');
 const fruit = require('./jd/fruit');
-const fruitSchedule = require('./jd/fruitSchedule');
 const pet = require('./jd/pet');
 const cash = require('./jd/cash');
 const bean = require('./jd/bean');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
+const Fruit = require('./jd/newFruit');
 const Wfh = require('./jd/wfh');
 const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
 const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 
-const getCookieData = (name, shareCode) => {
+const getCookieData = (name, shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
+  getShareCodeFn = getShareCodeFn || (() => shareCode);
   const getShareCodes = (name, targetIndex) => {
     if (!name) return [];
     name = name.toUpperCase();
@@ -34,7 +35,11 @@ const getCookieData = (name, shareCode) => {
   };
   const cookies = _.filter([process.env.JD_COOKIE, process.env.JD_DUAL_COOKIE]);
 
-  return cookies.map((cookie, index) => ({cookie, shareCodes: shareCode || getShareCodes(name, index)}));
+  return cookies.map((cookie, index) => {
+    const allShareCodes = getShareCodes(name, index);
+    const shareCodes = getShareCodeFn(index, allShareCodes) || allShareCodes;
+    return {cookie, shareCodes};
+  });
 };
 
 async function runScript(fn, name = fn.name) {
@@ -62,11 +67,14 @@ async function main() {
       valid: 0,
       run: async () => {
         await sign();
-        await fruit();
-        await pet();
-        await fruitSchedule([].concat(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_3)[1]));
-        await fruitSchedule(getCookieData(void 0, process.env.JD_FRUIT_SHARE_CODE_2));
-        await Pet.start(getCookieData('pet'));
+        await doRun(Fruit, getCookieData(Fruit.scriptName, void 0, (index, allShareCodes) => {
+          const shareCodes = [].concat(allShareCodes);
+          if (index === 0) {
+            shareCodes.pop();
+          }
+          return shareCodes;
+        }));
+        await doRun(Pet);
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
         await runScript(superMarket, 0);
@@ -87,12 +95,23 @@ async function main() {
       },
     },
     {
+      valid: 6,
+      run: async () => {
+        await fruit();
+        await pet();
+      },
+    },
+    {
+      valid: 7,
+      run: async () => {
+        await doCron(Fruit);
+        await doCron(Pet);
+      },
+    },
+    {
       valid: 8,
       run: async () => {
-        await fruitSchedule(getCookieData());
-        await fruit();
         await runScript(superMarket, 0);
-        await doCron(Pet);
       },
     },
     {
@@ -105,9 +124,9 @@ async function main() {
       valid: 12,
       run: async () => {
         await runScript(cash, 'cash');
-        await runScript(fruitSchedule, 0);
         await runScript(bean, 0);
         await runScript(superMarket, 0);
+        await doCron(Fruit);
         await doCron(Pet);
       },
     },
@@ -119,9 +138,9 @@ async function main() {
     {
       valid: 20,
       run: async () => {
-        await runScript(fruitSchedule, 0);
         await runScript(bean, 0);
         await runScript(superMarket, 0);
+        await doCron(Fruit);
         await doCron(Pet);
       },
     },

@@ -9,8 +9,6 @@ const serverChan = require('../lib/serverChan');
 // 公共变量
 const KEY = process.env.JD_COOKIE;
 const DUAL_KEY = process.env.JD_DUAL_COOKIE;
-const SHARE_CODE = process.env.JD_FRUIT_SHARE_CODE || '';
-const DUAL_SHARE_CODE = process.env.JD_FRUIT_DUAL_SHARE_CODE || '';
 
 const distPath = '../../dist';
 
@@ -29,11 +27,10 @@ async function downFile() {
 async function changeFile(isDual) {
   const bowerFetchPatch = await fs.readFileSync(path.resolve(__dirname, '../../dist/bowerFetchPatch.js'), 'utf8');
   let content = await fs.readFileSync(scriptFilePath, 'utf8');
+  content = content.replace('121ada81cdfd4085b07d1ce871ded341', '');
   if (isDual) {
-    content = content.replace(DUAL_SHARE_CODE, SHARE_CODE);
     content = content.replace('JD_COOKIE', 'JD_DUAL_COOKIE');
   } else {
-    content = content.replace('121ada81cdfd4085b07d1ce871ded341', DUAL_SHARE_CODE);
     content = bowerFetchPatch + content;
   }
 
