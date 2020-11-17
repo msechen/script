@@ -5,6 +5,7 @@ const moment = require('moment-timezone');
 
 class HarmonyNewShop extends HarmonyTemplate {
   static scriptName = '新店福利';
+  static shareCodeTaskList = [];
   static commonParamFn = () => ({appId: '1EFRQxA'});
 }
 

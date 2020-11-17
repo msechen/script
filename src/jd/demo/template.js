@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 
 class DemoTemplate extends Template {
   static scriptName = 'DemoTemplate';
-  static times = 2;
+  static shareCodeTaskList = [];
   static commonParamFn = () => ({});
 
   static apiNamesFn() {
@@ -18,6 +18,7 @@ class DemoTemplate extends Template {
         name: 'getTaskList',
         paramFn: self.commonParamFn,
         successFn: async (data) => {
+          // writeFileJSON(data, 'getTaskList.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
 

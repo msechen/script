@@ -13,6 +13,7 @@ const bean = require('./jd/bean');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
 const Fruit = require('./jd/newFruit');
+const TurnTableFarm = require('./jd/newFruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
 const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
@@ -74,11 +75,11 @@ async function main() {
           }
           return shareCodes;
         }));
+        await doRun(TurnTableFarm);
         await doRun(Pet);
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
         await runScript(superMarket, 0);
-        await Wfh.start(getCookieData());
       },
     },
     {
@@ -87,6 +88,7 @@ async function main() {
         await doRun(HarmonyGoldenEgg);
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
+        await Wfh.start(getCookieData());
       },
     },
     {

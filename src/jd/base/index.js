@@ -92,7 +92,7 @@ class Base {
       const data = await firstFn(item);
       if (waitDuration === 0) continue;
       await sleep(waitDuration + 2);
-      await afterWaitFn(data);
+      await afterWaitFn(data, item);
     }
   }
 

@@ -7,7 +7,22 @@ const shareCodeCaches = [];
 
 class Template extends Base {
   static scriptName = 'Template';
+  static times = 2;
   static shareCodeTaskList = [];
+
+  // 获取 shareCode
+  static getShareCodeFn() {
+    const self = this;
+    return self.shareCodeTaskList.filter((o, index) => {
+      if (self.isFirstLoop()) {
+        return index < self.currentCookieTimes;
+      }
+      if (self.isLastLoop()) {
+        return index > self.currentCookieTimes;
+      }
+    });
+  }
+
   static apiOptions = {
     formatDataFn: data => data,
   };
@@ -61,7 +76,9 @@ class Template extends Base {
 
     for (const {list, option = {}} of taskList) {
       option.firstFn = option.firstFn || (item => self.doApi(api, 'doTask', item));
-      option.afterWaitFn = option.afterWaitFn || (item => self.doApi(api, 'doWaitTask', item));
+      option.afterWaitFn = option.afterWaitFn || ((data, item) => {
+        return self.doApi(api, 'doWaitTask', item);
+      });
       await self.loopCall(list, option);
     }
 

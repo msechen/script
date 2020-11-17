@@ -43,13 +43,11 @@ class HarmonyTemplate extends Template {
 
             // 邀请助力
             if (taskId === 6) {
-              // 助力任务首次不执行
               const shareCodeTaskList = self.shareCodeTaskList;
               if (!_.map(shareCodeTaskList, 'taskToken').includes(assistTaskDetailVo.taskToken)) {
                 shareCodeTaskList.push(assistTaskDetailVo);
-                continue;
               }
-              list = shareCodeTaskList.filter(o => o.taskToken !== assistTaskDetailVo.taskToken);
+              list = self.getShareCodeFn();
               maxTimes = list.length;
             }
 
