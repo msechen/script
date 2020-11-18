@@ -18,6 +18,7 @@ const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
 const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
+const Discover = require('./jd/discover');
 
 const getCookieData = (name, shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -93,6 +94,12 @@ async function main() {
     {
       valid: 4,
       run: async () => {
+      },
+    },
+    {
+      valid: 5,
+      run: async () => {
+        await doRun(Discover);
       },
     },
     {

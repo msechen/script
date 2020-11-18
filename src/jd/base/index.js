@@ -102,7 +102,8 @@ class Base {
     if (!target) return Promise.resolve();
     const {paramFn = _.noop, successFn = _.noop, errorFn = _.noop, repeat = false} = this.apiNamesFn()[name];
 
-    const _do = () => target(paramFn(data)).then(successFn);
+    const params = [].concat(paramFn(data));
+    const _do = () => target(...params).then(successFn);
 
     const repeatFn = () => _do().then(needRepeat => {
       if (needRepeat === false) return;

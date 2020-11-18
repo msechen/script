@@ -30,6 +30,13 @@ const stall = {
   functionIds: ['stall_collectScore'],
   stall_collectScore: [],
 };
+const discover = {
+  functionIds: ['discTaskList', 'discAcceptTask', 'discDoTask', 'discReceiveTaskAward'],
+  discTaskList: [],
+  discAcceptTask: [],
+  discDoTask: [],
+  discReceiveTaskAward: [],
+};
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
   const originDir = `${JD_CHLSJ_PATH}/${key}`;
@@ -58,7 +65,7 @@ const formatForm = (key, object) => {
 };
 
 function init() {
-  [cash, stall].forEach(o => {
+  [cash, stall, discover].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
     });
@@ -70,4 +77,5 @@ init();
 module.exports = {
   cash,
   stall,
+  discover,
 };
