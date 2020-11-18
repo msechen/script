@@ -8,7 +8,6 @@ const serverChan = require('./lib/serverChan');
 const sign = require('./jd/sign');
 const fruit = require('./jd/fruit');
 const pet = require('./jd/pet');
-const cash = require('./jd/cash');
 const bean = require('./jd/bean');
 const superMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
@@ -125,7 +124,6 @@ async function main() {
     {
       valid: 12,
       run: async () => {
-        await runScript(cash, 'cash');
         await runScript(bean, 0);
         await runScript(superMarket, 0);
         await doCron(Fruit);
