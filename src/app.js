@@ -117,7 +117,6 @@ async function main() {
       valid: 6,
       run: async () => {
         await fruit();
-        await pet();
       },
     },
     {
@@ -166,6 +165,7 @@ async function main() {
       valid: 22,
       run: async () => {
         await jdFactory.start(getCookieData());
+        await pet();
       },
     },
     {
