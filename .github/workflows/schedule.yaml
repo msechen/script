@@ -24,7 +24,19 @@ jobs:
           SEVER_CHAN_KEY: ${{ secrets.SEVER_CHAN_KEY }}
 
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DUAL_COOKIE: ${{ secrets.JD_DUAL_COOKIE }}
+          # TODO 兼容旧数据, 后续需要进行调整
+          JD_DUAL_COOKIE: ${{ secrets.JD_COOKIE_1 }}
+          JD_COOKIE_1: ${{ secrets.JD_COOKIE_1 }}
+          JD_COOKIE_2: ${{ secrets.JD_COOKIE_2 }}
+          JD_COOKIE_3: ${{ secrets.JD_COOKIE_3 }}
+          JD_COOKIE_4: ${{ secrets.JD_COOKIE_4 }}
+          JD_COOKIE_5: ${{ secrets.JD_COOKIE_5 }}
+
+          JD_EARN_COOKIE: ${{ secrets.JD_EARN_COOKIE }}
+          JD_EARN_COOKIE_1: ${{ secrets.JD_EARN_COOKIE_1 }}
+          JD_EARN_COOKIE_2: ${{ secrets.JD_EARN_COOKIE_2 }}
+          JD_EARN_COOKIE_3: ${{ secrets.JD_EARN_COOKIE_3 }}
+          JD_EARN_COOKIE_4: ${{ secrets.JD_EARN_COOKIE_4 }}
 
           JD_FRUIT_WATER_TIMES: ${{ secrets.JD_FRUIT_WATER_TIMES }}
           JD_FRUIT_SHARE_CODE: ${{ secrets.JD_FRUIT_SHARE_CODE }}

@@ -19,8 +19,9 @@ const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
 const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 const Discover = require('./jd/discover');
+const Earn = require('./jd/earn');
 
-const getCookieData = (name, shareCode, getShareCodeFn) => {
+const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
   getShareCodeFn = getShareCodeFn || (() => shareCode);
   const getShareCodes = (name, targetIndex) => {
@@ -34,13 +35,22 @@ const getCookieData = (name, shareCode, getShareCodeFn) => {
     }
     return shareCodes;
   };
-  const cookies = _.filter([process.env.JD_COOKIE, process.env.JD_DUAL_COOKIE]);
+  const cookies = getEnvByName(envCookieName);
 
   return cookies.map((cookie, index) => {
     const allShareCodes = getShareCodes(name, index);
     const shareCodes = getShareCodeFn(index, allShareCodes) || allShareCodes;
     return {cookie, shareCodes};
   });
+
+  function getEnvByName(name) {
+    let result = [];
+    for (let i = 0; i < 5; i++) {
+      const envVal = (i === 0 ? process.env[name] : process.env[`${name}_${i}`]);
+      envVal && result.push(envVal);
+    }
+    return result;
+  }
 };
 
 async function runScript(fn, name = fn.name) {
@@ -80,6 +90,7 @@ async function main() {
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
         await runScript(superMarket, 0);
+        await doRun(Earn, getCookieData(void 0, void 0, void 0, 'JD_EARN_COOKIE'));
       },
     },
     {
