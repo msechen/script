@@ -38,6 +38,10 @@ jobs:
           JD_EARN_COOKIE_3: ${{ secrets.JD_EARN_COOKIE_3 }}
           JD_EARN_COOKIE_4: ${{ secrets.JD_EARN_COOKIE_4 }}
 
+          JD_EARN_SHARE_CODE: ${{ secrets.JD_EARN_SHARE_CODE }}
+          JD_EARN_SHARE_CODE_1: ${{ secrets.JD_EARN_SHARE_CODE_1 }}
+          JD_EARN_SHARE_CODE_2: ${{ secrets.JD_EARN_SHARE_CODE_2 }}
+
           JD_FRUIT_WATER_TIMES: ${{ secrets.JD_FRUIT_WATER_TIMES }}
           JD_FRUIT_SHARE_CODE: ${{ secrets.JD_FRUIT_SHARE_CODE }}
           JD_FRUIT_SHARE_CODE_1: ${{ secrets.JD_FRUIT_SHARE_CODE_1 }}

@@ -38,6 +38,11 @@ class Earn extends Template {
 
           const result = [];
 
+          // 助力
+          for (const itemId of self.shareCodeTaskList) {
+            await self._api.doFormBody('interactIndex', {itemId, taskId: 3});
+          }
+
           const taskList = _.property('data.taskDetailResList')(data) || [];
           for (let {
             status,
@@ -72,7 +77,9 @@ class Earn extends Template {
   };
 
   static initShareCodeTaskList(shareCodes) {
-    // 处理
+    if (shareCodes) {
+      this.shareCodeTaskList = shareCodes;
+    }
   }
 }
 

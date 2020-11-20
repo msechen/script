@@ -91,7 +91,7 @@ async function main() {
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
         await runScript(superMarket, 0);
-        await doRun(Earn, getCookieData(void 0, void 0, void 0, 'JD_EARN_COOKIE'));
+        await doRun(Earn, getCookieData(Earn.scriptName, void 0, void 0, 'JD_EARN_COOKIE'));
         await doRun(Cash);
       },
     },
