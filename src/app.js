@@ -20,6 +20,7 @@ const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 const Discover = require('./jd/discover');
 const Earn = require('./jd/earn');
+const Cash = require('./jd/cash');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -91,6 +92,7 @@ async function main() {
         await runScript(bean, 'bean');
         await runScript(superMarket, 0);
         await doRun(Earn, getCookieData(void 0, void 0, void 0, 'JD_EARN_COOKIE'));
+        await doRun(Cash);
       },
     },
     {

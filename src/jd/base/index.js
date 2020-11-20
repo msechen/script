@@ -77,6 +77,7 @@ class Base {
   }
 
   static async loopCall(list = [], option) {
+    let isDone = false;
     let {
       firstFn = _.noop, afterWaitFn = _.noop,
       isFinishFn = o => _.property('status')(o) === 2,
@@ -88,12 +89,15 @@ class Base {
     list = await getListFn();
     list = [].concat(list).filter(item => !isFinishFn(item));
     for (let i = 0; i < maxTimes - times; i++) {
+      isDone = true;
       const item = list[i] || {};
       const data = await firstFn(item);
       if (waitDuration === 0) continue;
       await sleep(waitDuration + 2);
       await afterWaitFn(data, item);
     }
+
+    return isDone;
   }
 
   // 请求 apiNamesFn

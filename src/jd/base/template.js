@@ -8,6 +8,7 @@ const shareCodeCaches = [];
 class Template extends Base {
   static scriptName = 'Template';
   static times = 2;
+  static repeatDoTask = false;
   static shareCodeTaskList = [];
 
   // 获取 shareCode
@@ -72,14 +73,27 @@ class Template extends Base {
     self._api = api;
 
     self.initShareCodeTaskList(shareCodes);
-    const taskList = await self.doApi(api, 'getTaskList') || [];
 
-    for (const {list, option = {}} of taskList) {
-      option.firstFn = option.firstFn || (item => self.doApi(api, 'doTask', item));
-      option.afterWaitFn = option.afterWaitFn || ((data, item) => {
-        return self.doApi(api, 'doWaitTask', item);
-      });
-      await self.loopCall(list, option);
+    await _doTask();
+
+    async function _doTask() {
+      const taskList = await self.doApi(api, 'getTaskList') || [];
+
+      let taskDone = 0;
+
+      for (const {list, option = {}} of taskList) {
+        option.firstFn = option.firstFn || (item => self.doApi(api, 'doTask', item));
+        option.afterWaitFn = option.afterWaitFn || ((data, item) => {
+          return self.doApi(api, 'doWaitTask', item);
+        });
+        const isDone = await self.loopCall(list, option);
+        isDone && taskDone++;
+      }
+
+      if (self.repeatDoTask && taskDone) {
+        await sleep(2);
+        await _doTask();
+      }
     }
 
     if (self.isLastLoop()) {
