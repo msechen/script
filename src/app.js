@@ -21,6 +21,7 @@ const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 const Discover = require('./jd/discover');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
+const CashShare = require('./jd/cash/share');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -168,6 +169,7 @@ async function main() {
       run: async () => {
         await jdFactory.start(getCookieData());
         await pet();
+        await doRun(CashShare);
       },
     },
     {
