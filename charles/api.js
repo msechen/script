@@ -37,6 +37,10 @@ const discover = {
   discDoTask: [],
   discReceiveTaskAward: [],
 };
+const wish = {
+  functionIds: ['wishContent'],
+  wishContent: [],
+};
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
   const originDir = `${JD_CHLSJ_PATH}/${key}`;
@@ -65,7 +69,12 @@ const formatForm = (key, object) => {
 };
 
 function init() {
-  [cash, stall, discover].forEach(o => {
+  [
+    cash,
+    stall,
+    discover,
+    wish,
+  ].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
     });
@@ -78,4 +87,5 @@ module.exports = {
   cash,
   stall,
   discover,
+  wish,
 };

@@ -17,6 +17,7 @@ class Base {
   // request 参数
   static isWh5 = false; // 添加signData
   static needInApp = true; // 添加 userAgent
+  static needOriginH5 = false; // 添加 headers.origin
   static apiOptions = {
     signData: {},
     options: {},
@@ -127,6 +128,7 @@ class Base {
 
     this.isWh5 && _.assign(signData, {client: 'wh5', clientVersion: '1.0.0'});
     this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
+    this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
 
     const api = new Request(cookie, signData, options, formatDataFn);
     if (requestFnName) {

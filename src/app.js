@@ -22,6 +22,7 @@ const Discover = require('./jd/discover');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
+const Wish = require('./jd/wish');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -94,6 +95,7 @@ async function main() {
         await runScript(superMarket, 0);
         await doRun(Earn, getCookieData(Earn.scriptName, void 0, void 0, 'JD_EARN_COOKIE'));
         await doRun(Cash);
+        await doRun(Wish);
       },
     },
     {
@@ -148,6 +150,12 @@ async function main() {
         await runScript(superMarket, 0);
         await doCron(Fruit);
         await doCron(Pet);
+      },
+    },
+    {
+      valid: 14,
+      run: async () => {
+        await doRun(Wish);
       },
     },
     {
