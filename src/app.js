@@ -104,7 +104,7 @@ async function main() {
         await doRun(HarmonyGoldenEgg);
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
-        await Wfh.start(getCookieData());
+        await doRun(Wfh);
       },
     },
     {

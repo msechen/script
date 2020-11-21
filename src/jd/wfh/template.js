@@ -3,12 +3,24 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
+const defaultApiNames = {
+  getTaskList: 'interact_template_getHomeData',
+  doTask: 'harmony_collectScore',
+  doRedeem: 'interact_template_getLotteryResult',
+};
+
 class HarmonyTemplate extends Template {
   static scriptName = 'HarmonyTemplate';
   static times = 2;
   static isWh5 = true;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({appId: 'appId'});
+
+  static apiNames = {};
+
+  static getApiNames() {
+    return this._.assign({}, defaultApiNames, this.apiNames);
+  };
 
   static apiNamesFn() {
     const self = this;
@@ -17,7 +29,7 @@ class HarmonyTemplate extends Template {
     return {
       // 获取任务列表
       getTaskList: {
-        name: 'interact_template_getHomeData',
+        name: self.getApiNames().getTaskList,
         paramFn: self.commonParamFn,
         successFn: async (data) => {
 
@@ -63,11 +75,11 @@ class HarmonyTemplate extends Template {
         },
       },
       doTask: {
-        name: 'harmony_collectScore',
+        name: self.getApiNames().doTask,
         paramFn: o => o,
       },
       doRedeem: {
-        name: 'interact_template_getLotteryResult',
+        name: self.getApiNames().doRedeem,
         paramFn: self.commonParamFn,
         successFn: data => {
           if (!self.isSuccess(data)) return false;
