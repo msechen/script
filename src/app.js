@@ -23,6 +23,7 @@ const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
 const Wish = require('./jd/wish');
+const StatisticsBean = require('./jd/statistics/bean');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -80,6 +81,7 @@ async function main() {
     {
       valid: 0,
       run: async () => {
+        await doRun(StatisticsBean);
         await sign();
         await doRun(Fruit, getCookieData(Fruit.scriptName, void 0, (index, allShareCodes) => {
           const shareCodes = [].concat(allShareCodes);
