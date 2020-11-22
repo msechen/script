@@ -28,6 +28,7 @@ def init_scheduler(bot_var):
     global bot, user_kolly
     bot = bot_var
     user_kolly = ensure_one(bot.friends().search('kolly'))
+    user_xy = ensure_one(bot.friends().search('一颗萌图'))
 
     # 后台非阻塞定时任务
     scheduler = BackgroundScheduler()
@@ -100,16 +101,16 @@ def init_scheduler(bot_var):
     #                   hour='*', minute='25', second='30')
 
     # 知乎数据定时更新 V2
-    scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*/2', minute='5', second='30')
+    # scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*/2', minute='5', second='30')
 
     # 商品佣金数据定时更新
-    scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*/2', minute='35', second='30')
+    # scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*/2', minute='35', second='30')
 
     # 文章排名定时更新
-    scheduler.add_job(update_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*/2', minute='15', second='30')
+    # scheduler.add_job(update_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*/2', minute='15', second='30')
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -148,6 +149,8 @@ def get_order():
     appsecret1 = '7f69d2fcca5c443386017f9a97d14c83'
     appkey2 = '2d2ea015479ddc93f30a2c7366ba4c84' # 小号
     appsecret2 = 'ae911e53de6c4853a5c89a815347c90f'
+    appkey3 = '1ab5eda3a89081fdcc445fc05bc963fe' # 小号
+    appsecret3 = 'f94167788ce842a9b2bbbee5d1b569e9'
 
     result = jd.get_order(appkey1, appsecret1)
     if len(result) > 0:
@@ -156,6 +159,10 @@ def get_order():
     result = jd.get_order(appkey2, appsecret2)
     if len(result) > 0:
         user_kolly.send('[小号]\n' + result)
+
+    result = jd.get_order(appkey3, appsecret3)
+    if len(result) > 0:
+        user_kolly.send('[图图]\n' + result)
 
 
 # 发送天气信息
