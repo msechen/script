@@ -35,16 +35,17 @@ async function main(cookie) {
     });
   };
   const isFirst = nowMoment.hours() === 0;
+  await doExchange();
   if (isFirst) {
     await smtg_receiveCoin();
     await doSign();
-    await manageProduct();
-    await manageShelf();
+    // await manageProduct();
+    // await manageShelf();
     // await doTaskList(true);
   } else {
     await smtg_receiveCoin([0]);
   }
-  await doTaskList();
+  // await doTaskList();
   await doExchange();
 
   if (nowMoment.hours() === 20) {
