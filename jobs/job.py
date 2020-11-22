@@ -25,10 +25,10 @@ def debug():
 
 # 定时任务初始化
 def init_scheduler(bot_var):
-    global bot, user_kolly
+    global bot, user_kolly, user_xy
     bot = bot_var
     user_kolly = ensure_one(bot.friends().search('kolly'))
-    user_xy = ensure_one(bot.friends().search('一颗萌图'))
+    user_xy = ensure_one(bot.friends().search('一颗萌图-2'))
 
     # 后台非阻塞定时任务
     scheduler = BackgroundScheduler()
@@ -162,7 +162,7 @@ def get_order():
 
     result = jd.get_order(appkey3, appsecret3)
     if len(result) > 0:
-        user_kolly.send('[图图]\n' + result)
+        user_xy.send('[图图]\n' + result)
 
 
 # 发送天气信息
