@@ -76,6 +76,13 @@ class Earn extends Template {
         name: 'doInteractTask',
         paramFn: o => o,
       },
+      doRedeem: {
+        name: 'interactTaskIndex',
+        successFn: async data => {
+          const helpMainResListLength = (_.property('data.helpMainResList')(data) || []).length;
+          helpMainResListLength && self.log(`已助力人数为: ${helpMainResListLength}`);
+        },
+      },
     };
   };
 
