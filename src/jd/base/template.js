@@ -97,6 +97,7 @@ class Template extends Base {
     }
 
     if (self.isLastLoop()) {
+      await self.doApi(api, 'afterGetTaskList');
       await self.doApi(api, 'doRedeem');
     }
   }

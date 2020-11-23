@@ -9,7 +9,7 @@ const sign = require('./jd/sign');
 const fruit = require('./jd/fruit');
 const pet = require('./jd/pet');
 const bean = require('./jd/bean');
-const superMarket = require('./jd/superMarket');
+const SuperMarket = require('./jd/superMarket');
 const Pet = require('./jd/newPet');
 const Fruit = require('./jd/newFruit');
 const TurnTableFarm = require('./jd/newFruit/turnTableFarm');
@@ -82,6 +82,7 @@ async function main() {
     {
       valid: 0,
       run: async () => {
+        await doCron(SuperMarket);
         await doRun(StatisticsBean);
         await sign();
         await doRun(Fruit);
@@ -89,7 +90,6 @@ async function main() {
         await doRun(Pet);
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
-        await runScript(superMarket, 0);
         await doRun(Earn, getCookieData(Earn.scriptName, void 0, void 0, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
@@ -114,6 +114,7 @@ async function main() {
       valid: 5,
       run: async () => {
         await doRun(Discover);
+        await doCron(SuperMarket);
       },
     },
     {
@@ -132,7 +133,8 @@ async function main() {
     {
       valid: 8,
       run: async () => {
-        await runScript(superMarket, 0);
+        await doCron(SuperMarket);
+        await doRun(SuperMarket);
       },
     },
     {
@@ -145,7 +147,7 @@ async function main() {
       valid: 12,
       run: async () => {
         await runScript(bean, 0);
-        await runScript(superMarket, 0);
+        await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
       },
@@ -165,7 +167,7 @@ async function main() {
       valid: 20,
       run: async () => {
         await runScript(bean, 0);
-        await runScript(superMarket, 0);
+        await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
       },
