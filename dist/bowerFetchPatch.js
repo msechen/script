@@ -4,7 +4,7 @@
 
 // 屏蔽Object等数据输出
 console.log = function () {
-  console.info(...Array.from(arguments).map(v => v.toString ? v.toString() : v));
+  console.info(...Array.from(arguments).map(v => v && v.toString ? v.toString() : v));
 };
 
 const cookie = process.env.JD_COOKIE;
