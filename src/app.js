@@ -201,18 +201,18 @@ async function main() {
 }
 
 main().then(function () {
-  // TODO 替换成 app.log
   const resultPath = path.resolve(__dirname, '../dist/result.txt');
   if (!fs.existsSync(resultPath)) return;
-  const content = fs.readFileSync(resultPath);
-  serverChan.send(`lazy_script-${getNowDate()}`, content).then(() => {
-    console.log('发送成功');
-  });
-}).then(() => {
+  return fs.readFileSync(resultPath);
+}).then((resultContent = '') => {
   const logFile = getLogFile('app');
-  if (!fs.existsSync(logFile)) return;
-  const content = fs.readFileSync(logFile);
-  serverChan.send(`lazy_script-${getNowDate()}`, content).then(() => {
+  let content = '';
+  if (fs.existsSync(logFile)) {
+    content = fs.readFileSync(logFile);
+  }
+  content += resultContent;
+  if (!content) return;
+  serverChan.send(`lazy_script_${getNowDate()}`, content).then(() => {
     console.log('发送成功');
   });
 });
