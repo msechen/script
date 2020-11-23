@@ -31,7 +31,10 @@ class CashShare extends Base {
     await api.cash_share_home().then(async data => {
       // writeFileJSON(data, 'cash_share_home.json', __dirname);
 
-      const toTakeRewardList = _.property('data.result.shareFloor.toTakeRewardList')(data);
+      const {assistedRecord, toTakeRewardList, shareNodeTips} = _.property('data.result.shareFloor')(data) || {};
+      const currentNodeTimes = shareNodeTips.split('/').map(v => +v.match(/\d/g, '')[0]).reverse().reduce((accumulator, currentValue) => accumulator - currentValue);
+      self.log(`当前还差: ${currentNodeTimes}, 当前已助力次数为: ${assistedRecord.length}`);
+
       if (!_.isEmpty(toTakeRewardList)) {
         await api.cash_mob_reward({source: _.last(toTakeRewardList)}).then(data => {
           if (!self.isSuccess(data)) return;
