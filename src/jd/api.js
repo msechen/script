@@ -46,6 +46,14 @@ class Request {
     });
   }
 
+  doUrl(url, options = {}) {
+    const _url = new URL(url);
+    return this.do(_.merge({
+      uri: _url.origin,
+      form: _.fromPairs(Array.from(_url.searchParams.entries())),
+    }, options));
+  }
+
   doFunctionId(functionId, options) {
     return this.do(_.assign({
       qs: {functionId},
@@ -69,7 +77,7 @@ class Request {
     return this.do({
       uri: `${this.options.uri}/${functionId}`,
       form,
-    })
+    });
   }
 }
 

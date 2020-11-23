@@ -24,6 +24,7 @@ const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
 const Wish = require('./jd/wish');
 const StatisticsBean = require('./jd/statistics/bean');
+const Sign = require('./jd/newSign');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -92,6 +93,7 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, void 0, void 0, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
+        await doRun(Sign);
       },
     },
     {
