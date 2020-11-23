@@ -49,7 +49,7 @@ class Request {
   doUrl(url, options = {}) {
     const _url = new URL(url);
     return this.do(_.merge({
-      uri: _url.origin,
+      uri: `${_url.origin}${_url.pathname ? _url.pathname : ''}`,
       form: _.fromPairs(Array.from(_url.searchParams.entries())),
     }, options));
   }
