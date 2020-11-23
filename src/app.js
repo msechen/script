@@ -83,13 +83,7 @@ async function main() {
       run: async () => {
         await doRun(StatisticsBean);
         await sign();
-        await doRun(Fruit, getCookieData(Fruit.scriptName, void 0, (index, allShareCodes) => {
-          const shareCodes = [].concat(allShareCodes);
-          if (index === 0) {
-            shareCodes.pop();
-          }
-          return shareCodes;
-        }));
+        await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
         await jdFactory.start(getCookieData(jdFactory.scriptName));
