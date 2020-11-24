@@ -19,8 +19,9 @@ class CashShare extends Base {
   static apiExtends = {
     requestFnName: 'doFormBody',
     apiNames: [
-      'cash_share_home',
-      'cash_mob_reward',
+      'cash_share_home', // 任务列表
+      'cash_mob_reward', // 获取奖励
+      'cash_doTask', // 隐藏任务
     ],
   };
 
@@ -28,21 +29,34 @@ class CashShare extends Base {
     const self = this;
     const _ = self._;
 
-    await api.cash_share_home().then(async data => {
-      // writeFileJSON(data, 'cash_share_home.json', __dirname);
+    await getHome();
 
-      const {assistedRecord, toTakeRewardList, shareNodeTips} = _.property('data.result.shareFloor')(data) || {};
-      const currentNodeTimes = shareNodeTips.split('/').map(v => +v.match(/\d/g, '')[0]).reverse().reduce((accumulator, currentValue) => accumulator - currentValue);
-      self.log(`当前还差: ${currentNodeTimes}, 当前已助力次数为: ${assistedRecord.length}`);
+    async function getHome() {
+      await api.cash_share_home().then(async data => {
+        // writeFileJSON(data, 'cash_share_home.json', __dirname);
 
-      if (!_.isEmpty(toTakeRewardList)) {
-        await api.cash_mob_reward({source: _.last(toTakeRewardList)}).then(data => {
-          if (!self.isSuccess(data)) return;
-          const {shareRewardAmount, shareRewardTip} = data.data.result;
-          self.log(`${shareRewardTip}: ${shareRewardAmount}`);
-        });
-      }
-    });
+        const taskInfo = _.property('data.result.taskInfo')(data);
+
+        if (!_.isEmpty(taskInfo) && taskInfo.finishFlag === 2) {
+          await api.cash_doTask({type: taskInfo.type, taskInfo: taskInfo.desc});
+          return getHome();
+        }
+
+        const {assistedRecord, toTakeRewardList, shareNodeTips} = _.property('data.result.shareFloor')(data) || {};
+        if (!_.isEmpty(toTakeRewardList)) {
+          const repeat = await api.cash_mob_reward({source: _.last(toTakeRewardList)}).then(data => {
+            if (!self.isSuccess(data)) return;
+            const {shareRewardAmount, shareRewardTip} = data.data.result;
+            self.log(`${shareRewardTip}: ${shareRewardAmount}`);
+            return true;
+          });
+          if (repeat) return getHome();
+        }
+
+        const currentNodeTimes = shareNodeTips.split('/').map(v => +v.match(/\d/g, '')[0]).reverse().reduce((accumulator, currentValue) => accumulator - currentValue);
+        self.log(`当前还差: ${currentNodeTimes}, 当前已助力次数为: ${assistedRecord.length}`);
+      });
+    }
   }
 }
 
