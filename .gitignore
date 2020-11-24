@@ -22,3 +22,5 @@ dist/
 # store
 charles/chlsj/*
 src/json/
+src/jd/*.json
+src/jd/*/*.json
