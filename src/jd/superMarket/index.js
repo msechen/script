@@ -113,7 +113,9 @@ class SuperMarket extends Template {
     const nowHour = self.getNowHour();
 
     nowHour === 0 && await doExchange();
+    let blueCoin = 0, goldCoin = 0;
     nowHour !== 0 && await receiveCoin(nowHour > 8 ? [0] : void 0);
+    (blueCoin || goldCoin) && self.log(`获取到的蓝币: ${blueCoin}, 获取到的金币: ${goldCoin}`);
 
     async function doExchange() {
       await sleep();
@@ -137,6 +139,10 @@ class SuperMarket extends Template {
       const nextTypes = [];
       for (const type of [].concat(types)) {
         await api.doFormBody('smtg_receiveCoin', {type}).then(async data => {
+          if (!self.isSuccess(data)) return;
+          const {receivedBlue, receivedGold} = _.property('data.result')(data);
+          blueCoin += receivedBlue || 0;
+          goldCoin += receivedGold || 0;
           if (type === 2 && self.isSuccess(data)) nextTypes.push(type);
         });
       }
