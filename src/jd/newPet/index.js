@@ -22,6 +22,10 @@ class Pet extends Base {
       'getSingleShopReward', /* 浏览店铺 */
       'getThreeMealReward', /* 三餐签到 */
       'taskInit', /* 任务列表 */
+      'getHelpAddedBonus', /* 领取助力人数已满奖励 */
+      'initPetTown', /* 萌宠信息 */
+      'feedPets', /* 喂食 */
+      'energyCollect', /* 收集好感度 */
     ],
   };
 
@@ -56,11 +60,35 @@ class Pet extends Base {
     }
   }
 
+  static async doFeed(times, api) {
+    for (let i = 0; i < times; i++) {
+      await sleep(2);
+      await api.feedPets();
+    }
+    await api.energyCollect();
+  }
+
   static async doCron(api) {
     const self = this;
     const _ = this._;
 
     await api.getThreeMealReward().then(self.logReward.bind(self));
+
+    // 喂食
+    // await self.doFeed(10, api);
+
+    await api.getHelpAddedBonus().then(self.logReward.bind(self));
+    await initPetTown();
+
+    async function initPetTown() {
+      await api.initPetTown().then(async data => {
+        const {masterHelpPeoples, medalNum, medalPercent, needCollectEnergy, totalEnergy, foodAmount} = data.result;
+        // 10g狗粮相当于6能量
+        const conversionRatio = 0.6;
+        const needFoodAmount = Math.round(needCollectEnergy / conversionRatio);
+        self.log(`喂养进度: 第${medalNum + 1}个徽章, 进度为${medalPercent}%, 需要收集能量为${needCollectEnergy}, 已收集的能量为${totalEnergy}, 剩余狗粮为${foodAmount}g, 还差狗粮${needFoodAmount}g`);
+      });
+    }
   }
 }
 
