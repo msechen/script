@@ -25,6 +25,7 @@ const CashShare = require('./jd/cash/share');
 const Wish = require('./jd/wish');
 const StatisticsBean = require('./jd/statistics/bean');
 const Sign = require('./jd/newSign');
+const Ssjj = require('./jd/ssjj');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -103,6 +104,7 @@ async function main() {
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
         await doRun(Wfh);
+        await doRun(Ssjj);
       },
     },
     {

@@ -141,6 +141,8 @@ class Base {
     return api;
   }
 
+  static async beforeInit() {}
+
   static async init(cookie, shareCodes, isCron = false) {
     const api = this.initApi(cookie);
     if (isCron) {
@@ -153,22 +155,23 @@ class Base {
   static async start(data) {
     for (this.currentTimes = 1; this.currentTimes <= this.times; this.currentTimes++) {
       this.currentCookieTimes = 0;
-      for (const {cookie, shareCodes} of _.concat(data)) {
-        await this.init(cookie, this.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0);
-        this.currentCookieTimes++;
-      }
-      await sleep(2);
+      await loopInit.call(this, data, false);
     }
   }
 
   // 定时任务
   static async cron(data) {
-    for (const {cookie, shareCodes} of _.concat(data)) {
-      await this.init(cookie, shareCodes, true);
-      this.currentCookieTimes++;
-    }
-    await sleep(2);
+    await loopInit.call(this, data, true);
   }
+}
+
+async function loopInit(data, isCron) {
+  for (const {cookie, shareCodes} of _.concat(data)) {
+    await this.beforeInit();
+    await this.init(cookie, this.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
+    this.currentCookieTimes++;
+  }
+  await sleep(2);
 }
 
 module.exports = Base;

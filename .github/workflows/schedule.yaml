@@ -95,3 +95,9 @@ jobs:
 
           JD_BC_POSITION_LAT: ${{ secrets.JD_BC_POSITION_LAT }}
           JD_BC_POSITION_LNG: ${{ secrets.JD_BC_POSITION_LNG }}
+
+          JD_SSJJ_SHARE_CODE: ${{ secrets.JD_SSJJ_SHARE_CODE }}
+          JD_SSJJ_SHARE_CODE_1: ${{ secrets.JD_SSJJ_SHARE_CODE_1 }}
+
+          JD_SSJJ_USER_NAME: ${{ secrets.JD_SSJJ_USER_NAME }}
+          JD_SSJJ_USER_NAME_1: ${{ secrets.JD_SSJJ_USER_NAME_1 }}

@@ -74,6 +74,8 @@ class Template extends Base {
 
     self.initShareCodeTaskList(shareCodes);
 
+    await self.doApi(api, 'beforeGetTaskList');
+
     await _doTask();
 
     async function _doTask() {

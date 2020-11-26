@@ -9,14 +9,20 @@ const DEFAULT_OPTION = {
   uri: requestURI,
 };
 
-const _request = (Cookie, {form, qs, headers = {}, ...others}) => {
+const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
   const _printLog = (result, type) => {
-    printLog('jdAPI', 'request', [qs, form, result], type);
+    const findNotEmpty = (...array) => array.find(v => !_.isEmpty(v));
+    printLog('jdAPI', 'request', [findNotEmpty(qs, others), findNotEmpty(form, body), result], type);
   };
+  const options = {form, body, qs, ...others};
+  Object.keys(options).forEach(key => {
+    if (_.isEmpty(options[key])) delete options[key];
+  });
+
   return rp(_.assign({
     ...DEFAULT_OPTION,
     headers: {Cookie, ...headers},
-  }, {form, qs, ...others})).then(result => {
+  }, options)).then(result => {
     _printLog(result, 'success');
     return result;
   }).catch(err => {
@@ -73,11 +79,11 @@ class Request {
     return this.doForm(functionId, _.assign({body, ...this.signData}, signData));
   }
 
-  doPath(functionId, form = {}) {
-    return this.do({
+  doPath(functionId, form = {}, options = {}) {
+    return this.do(_.merge({
       uri: `${this.options.uri}/${functionId}`,
       form,
-    });
+    }, options));
   }
 }
 
