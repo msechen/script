@@ -1,0 +1,85 @@
+const yaml = require('js-yaml');
+const fs = require('fs');
+const path = require('path');
+const _ = require('lodash');
+
+const getVarStr = name => '${{ ' + name + ' }}';
+const genSecret = name => [name, getVarStr(`secrets.${name}`)];
+const getNameByIndex = (name, index) => {
+  let result = [name];
+  index > 0 && result.push(index);
+  return result.join('_');
+};
+
+function generateEnv(name, times = 6) {
+  let result = [];
+  for (let i = 0; i < times; i++) {
+    result.push(genSecret(getNameByIndex(name, i)));
+  }
+  return result;
+}
+
+const envSecrets = _.fromPairs(_.flatten([
+  ['NOT_RUN', 1],
+  ['SEVER_CHAN_KEY', 1],
+  ['JD_FRUIT_WATER_TIMES', 1],
+
+  'JD_COOKIE',
+  'JD_EARN_COOKIE',
+  'JD_EARN_SHARE_CODE',
+  'JD_FRUIT_SHARE_CODE',
+  'JD_PET_SHARE_CODE',
+  'JD_CASH_SHARE_CODE',
+  'JD_BEAN_SHARE_CODE',
+  'JD_WMT_SHARE_CODE',
+  'JD_JDFACTORY_SHARE_CODE',
+  'JD_STALL_SHARE_CODE',
+  'JD_STALL_SS',
+  'JD_STALL_CRON_SS',
+  'JD_BC_POSITION_LAT',
+  'JD_BC_POSITION_LNG',
+  'JD_SSJJ_SHARE_CODE',
+  'JD_SSJJ_USER_NAME',
+].map(target => generateEnv(..._.concat(target)))));
+
+const config = {
+  'name': 'Lazy Script(Schedule)',
+  'on': {'schedule': [{'cron': '0 0/1 * * *'}]},
+  'jobs': {
+    'build': {
+      'runs-on': 'ubuntu-latest',
+      'steps': [
+        {'name': 'Checkout codes', 'uses': 'actions/checkout@v2'},
+        {
+          'name': 'Cache node modules',
+          'uses': 'actions/cache@v2',
+          'env': {'cache-name': 'cache-node-modules'},
+          'with': {
+            'path': '~/.npm',
+            'key': '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles(\'**/package-lock.json\') }}',
+            'restore-keys': '${{ runner.os }}-build-${{ env.cache-name }}-\n${{ runner.os }}-build-\n${{ runner.os }}-\n',
+          },
+        },
+        {'name': 'Use Node.js', 'uses': 'actions/setup-node@v1', 'with': {'node-version': '14.x'}},
+        {'name': 'Run app', 'run': 'npm install'},
+        {
+          'run': 'node src/app.js',
+          'env': envSecrets,
+        }],
+    },
+  },
+};
+
+
+try {
+  fs.writeFileSync(
+    path.resolve(__dirname, '../../.github/workflows/schedule.yaml'),
+    yaml.safeDump(config, {
+      noCompatMode: true,
+      lineWidth: 200,
+    }),
+    'utf8',
+  );
+} catch (e) {
+  console.log(e);
+}

@@ -1,117 +1,128 @@
 name: Lazy Script(Schedule)
-
 on:
   schedule:
-    - cron: '02 0/1 * * *'
+    - cron: 0 0/1 * * *
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout codes
         uses: actions/checkout@v2
-
       - name: Cache node modules
         uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles(''**/package-lock.json'') }}'
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: 14.x
       - name: Run app
         run: npm install
       - run: node src/app.js
         env:
-          NODE_ENV: 'production'
-          NOT_RUN: ${{ secrets.NOT_RUN }}
-
-          SEVER_CHAN_KEY: ${{ secrets.SEVER_CHAN_KEY }}
-
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          # TODO 兼容旧数据, 后续需要进行调整
-          JD_DUAL_COOKIE: ${{ secrets.JD_COOKIE_1 }}
-          JD_COOKIE_1: ${{ secrets.JD_COOKIE_1 }}
-          JD_COOKIE_2: ${{ secrets.JD_COOKIE_2 }}
-          JD_COOKIE_3: ${{ secrets.JD_COOKIE_3 }}
-          JD_COOKIE_4: ${{ secrets.JD_COOKIE_4 }}
-          JD_COOKIE_5: ${{ secrets.JD_COOKIE_5 }}
-
-          JD_EARN_COOKIE: ${{ secrets.JD_EARN_COOKIE }}
-          JD_EARN_COOKIE_1: ${{ secrets.JD_EARN_COOKIE_1 }}
-          JD_EARN_COOKIE_2: ${{ secrets.JD_EARN_COOKIE_2 }}
-          JD_EARN_COOKIE_3: ${{ secrets.JD_EARN_COOKIE_3 }}
-          JD_EARN_COOKIE_4: ${{ secrets.JD_EARN_COOKIE_4 }}
-
-          JD_EARN_SHARE_CODE: ${{ secrets.JD_EARN_SHARE_CODE }}
-          JD_EARN_SHARE_CODE_1: ${{ secrets.JD_EARN_SHARE_CODE_1 }}
-          JD_EARN_SHARE_CODE_2: ${{ secrets.JD_EARN_SHARE_CODE_2 }}
-
-          JD_FRUIT_WATER_TIMES: ${{ secrets.JD_FRUIT_WATER_TIMES }}
-          JD_FRUIT_SHARE_CODE: ${{ secrets.JD_FRUIT_SHARE_CODE }}
-          JD_FRUIT_SHARE_CODE_1: ${{ secrets.JD_FRUIT_SHARE_CODE_1 }}
-          JD_FRUIT_SHARE_CODE_2: ${{ secrets.JD_FRUIT_SHARE_CODE_2 }}
-          JD_FRUIT_SHARE_CODE_3: ${{ secrets.JD_FRUIT_SHARE_CODE_3 }}
-
-          JD_PET_SHARE_CODE: ${{ secrets.JD_PET_SHARE_CODE }}
-          JD_PET_SHARE_CODE_1: ${{ secrets.JD_PET_SHARE_CODE_1 }}
-          JD_PET_SHARE_CODE_2: ${{ secrets.JD_PET_SHARE_CODE_2 }}
-          JD_PET_SHARE_CODE_3: ${{ secrets.JD_PET_SHARE_CODE_3 }}
-          JD_PET_SHARE_CODE_4: ${{ secrets.JD_PET_SHARE_CODE_4 }}
-          JD_PET_SHARE_CODE_5: ${{ secrets.JD_PET_SHARE_CODE_5 }}
-          JD_PET_SHARE_CODE_6: ${{ secrets.JD_PET_SHARE_CODE_6 }}
-
-          JD_CASH_SHARE_CODE: ${{ secrets.JD_CASH_SHARE_CODE }}
-          JD_CASH_SHARE_CODE_1: ${{ secrets.JD_CASH_SHARE_CODE_1 }}
-
-          JD_BEAN_SHARE_CODE: ${{ secrets.JD_BEAN_SHARE_CODE }}
-          JD_BEAN_SHARE_CODE_1: ${{ secrets.JD_BEAN_SHARE_CODE_1 }}
-          JD_BEAN_SHARE_CODE_2: ${{ secrets.JD_BEAN_SHARE_CODE_2 }}
-          JD_BEAN_SHARE_CODE_3: ${{ secrets.JD_BEAN_SHARE_CODE_3 }}
-
-          JD_WMT_SHARE_CODE: ${{ secrets.JD_WMT_SHARE_CODE }}
-          JD_WMT_SHARE_CODE_1: ${{ secrets.JD_WMT_SHARE_CODE_1 }}
-
-          JD_JDFACTORY_SHARE_CODE: ${{ secrets.JD_JDFACTORY_SHARE_CODE }}
-          JD_JDFACTORY_SHARE_CODE_1: ${{ secrets.JD_JDFACTORY_SHARE_CODE_1 }}
-          JD_JDFACTORY_SHARE_CODE_2: ${{ secrets.JD_JDFACTORY_SHARE_CODE_2 }}
-          JD_JDFACTORY_SHARE_CODE_3: ${{ secrets.JD_JDFACTORY_SHARE_CODE_3 }}
-
-          JD_STALL_SHARE_CODE: ${{ secrets.JD_STALL_SHARE_CODE }}
-          JD_STALL_SHARE_CODE_1: ${{ secrets.JD_STALL_SHARE_CODE_1 }}
-          JD_STALL_SHARE_CODE_2: ${{ secrets.JD_STALL_SHARE_CODE_2 }}
-          JD_STALL_SHARE_CODE_3: ${{ secrets.JD_STALL_SHARE_CODE_3 }}
-          JD_STALL_SHARE_CODE_4: ${{ secrets.JD_STALL_SHARE_CODE_4 }}
-          JD_STALL_SHARE_CODE_5: ${{ secrets.JD_STALL_SHARE_CODE_5 }}
-
-          JD_STALL_SS: ${{ secrets.JD_STALL_SS }}
-          JD_STALL_SS_1: ${{ secrets.JD_STALL_SS_1 }}
-          JD_STALL_SS_2: ${{ secrets.JD_STALL_SS_2 }}
-          JD_STALL_SS_3: ${{ secrets.JD_STALL_SS_3 }}
-          JD_STALL_SS_4: ${{ secrets.JD_STALL_SS_4 }}
-          JD_STALL_SS_5: ${{ secrets.JD_STALL_SS_5 }}
-
-          JD_STALL_CRON_SS: ${{ secrets.JD_STALL_CRON_SS }}
-          JD_STALL_CRON_SS_1: ${{ secrets.JD_STALL_CRON_SS_1 }}
-          JD_STALL_CRON_SS_2: ${{ secrets.JD_STALL_CRON_SS_2 }}
-          JD_STALL_CRON_SS_3: ${{ secrets.JD_STALL_CRON_SS_3 }}
-          JD_STALL_CRON_SS_4: ${{ secrets.JD_STALL_CRON_SS_4 }}
-          JD_STALL_CRON_SS_5: ${{ secrets.JD_STALL_CRON_SS_5 }}
-
-          JD_BC_POSITION_LAT: ${{ secrets.JD_BC_POSITION_LAT }}
-          JD_BC_POSITION_LNG: ${{ secrets.JD_BC_POSITION_LNG }}
-
-          JD_SSJJ_SHARE_CODE: ${{ secrets.JD_SSJJ_SHARE_CODE }}
-          JD_SSJJ_SHARE_CODE_1: ${{ secrets.JD_SSJJ_SHARE_CODE_1 }}
-
-          JD_SSJJ_USER_NAME: ${{ secrets.JD_SSJJ_USER_NAME }}
-          JD_SSJJ_USER_NAME_1: ${{ secrets.JD_SSJJ_USER_NAME_1 }}
+          NOT_RUN: '${{ secrets.NOT_RUN }}'
+          SEVER_CHAN_KEY: '${{ secrets.SEVER_CHAN_KEY }}'
+          JD_FRUIT_WATER_TIMES: '${{ secrets.JD_FRUIT_WATER_TIMES }}'
+          JD_COOKIE: '${{ secrets.JD_COOKIE }}'
+          JD_COOKIE_1: '${{ secrets.JD_COOKIE_1 }}'
+          JD_COOKIE_2: '${{ secrets.JD_COOKIE_2 }}'
+          JD_COOKIE_3: '${{ secrets.JD_COOKIE_3 }}'
+          JD_COOKIE_4: '${{ secrets.JD_COOKIE_4 }}'
+          JD_COOKIE_5: '${{ secrets.JD_COOKIE_5 }}'
+          JD_EARN_COOKIE: '${{ secrets.JD_EARN_COOKIE }}'
+          JD_EARN_COOKIE_1: '${{ secrets.JD_EARN_COOKIE_1 }}'
+          JD_EARN_COOKIE_2: '${{ secrets.JD_EARN_COOKIE_2 }}'
+          JD_EARN_COOKIE_3: '${{ secrets.JD_EARN_COOKIE_3 }}'
+          JD_EARN_COOKIE_4: '${{ secrets.JD_EARN_COOKIE_4 }}'
+          JD_EARN_COOKIE_5: '${{ secrets.JD_EARN_COOKIE_5 }}'
+          JD_EARN_SHARE_CODE: '${{ secrets.JD_EARN_SHARE_CODE }}'
+          JD_EARN_SHARE_CODE_1: '${{ secrets.JD_EARN_SHARE_CODE_1 }}'
+          JD_EARN_SHARE_CODE_2: '${{ secrets.JD_EARN_SHARE_CODE_2 }}'
+          JD_EARN_SHARE_CODE_3: '${{ secrets.JD_EARN_SHARE_CODE_3 }}'
+          JD_EARN_SHARE_CODE_4: '${{ secrets.JD_EARN_SHARE_CODE_4 }}'
+          JD_EARN_SHARE_CODE_5: '${{ secrets.JD_EARN_SHARE_CODE_5 }}'
+          JD_FRUIT_SHARE_CODE: '${{ secrets.JD_FRUIT_SHARE_CODE }}'
+          JD_FRUIT_SHARE_CODE_1: '${{ secrets.JD_FRUIT_SHARE_CODE_1 }}'
+          JD_FRUIT_SHARE_CODE_2: '${{ secrets.JD_FRUIT_SHARE_CODE_2 }}'
+          JD_FRUIT_SHARE_CODE_3: '${{ secrets.JD_FRUIT_SHARE_CODE_3 }}'
+          JD_FRUIT_SHARE_CODE_4: '${{ secrets.JD_FRUIT_SHARE_CODE_4 }}'
+          JD_FRUIT_SHARE_CODE_5: '${{ secrets.JD_FRUIT_SHARE_CODE_5 }}'
+          JD_PET_SHARE_CODE: '${{ secrets.JD_PET_SHARE_CODE }}'
+          JD_PET_SHARE_CODE_1: '${{ secrets.JD_PET_SHARE_CODE_1 }}'
+          JD_PET_SHARE_CODE_2: '${{ secrets.JD_PET_SHARE_CODE_2 }}'
+          JD_PET_SHARE_CODE_3: '${{ secrets.JD_PET_SHARE_CODE_3 }}'
+          JD_PET_SHARE_CODE_4: '${{ secrets.JD_PET_SHARE_CODE_4 }}'
+          JD_PET_SHARE_CODE_5: '${{ secrets.JD_PET_SHARE_CODE_5 }}'
+          JD_CASH_SHARE_CODE: '${{ secrets.JD_CASH_SHARE_CODE }}'
+          JD_CASH_SHARE_CODE_1: '${{ secrets.JD_CASH_SHARE_CODE_1 }}'
+          JD_CASH_SHARE_CODE_2: '${{ secrets.JD_CASH_SHARE_CODE_2 }}'
+          JD_CASH_SHARE_CODE_3: '${{ secrets.JD_CASH_SHARE_CODE_3 }}'
+          JD_CASH_SHARE_CODE_4: '${{ secrets.JD_CASH_SHARE_CODE_4 }}'
+          JD_CASH_SHARE_CODE_5: '${{ secrets.JD_CASH_SHARE_CODE_5 }}'
+          JD_BEAN_SHARE_CODE: '${{ secrets.JD_BEAN_SHARE_CODE }}'
+          JD_BEAN_SHARE_CODE_1: '${{ secrets.JD_BEAN_SHARE_CODE_1 }}'
+          JD_BEAN_SHARE_CODE_2: '${{ secrets.JD_BEAN_SHARE_CODE_2 }}'
+          JD_BEAN_SHARE_CODE_3: '${{ secrets.JD_BEAN_SHARE_CODE_3 }}'
+          JD_BEAN_SHARE_CODE_4: '${{ secrets.JD_BEAN_SHARE_CODE_4 }}'
+          JD_BEAN_SHARE_CODE_5: '${{ secrets.JD_BEAN_SHARE_CODE_5 }}'
+          JD_WMT_SHARE_CODE: '${{ secrets.JD_WMT_SHARE_CODE }}'
+          JD_WMT_SHARE_CODE_1: '${{ secrets.JD_WMT_SHARE_CODE_1 }}'
+          JD_WMT_SHARE_CODE_2: '${{ secrets.JD_WMT_SHARE_CODE_2 }}'
+          JD_WMT_SHARE_CODE_3: '${{ secrets.JD_WMT_SHARE_CODE_3 }}'
+          JD_WMT_SHARE_CODE_4: '${{ secrets.JD_WMT_SHARE_CODE_4 }}'
+          JD_WMT_SHARE_CODE_5: '${{ secrets.JD_WMT_SHARE_CODE_5 }}'
+          JD_JDFACTORY_SHARE_CODE: '${{ secrets.JD_JDFACTORY_SHARE_CODE }}'
+          JD_JDFACTORY_SHARE_CODE_1: '${{ secrets.JD_JDFACTORY_SHARE_CODE_1 }}'
+          JD_JDFACTORY_SHARE_CODE_2: '${{ secrets.JD_JDFACTORY_SHARE_CODE_2 }}'
+          JD_JDFACTORY_SHARE_CODE_3: '${{ secrets.JD_JDFACTORY_SHARE_CODE_3 }}'
+          JD_JDFACTORY_SHARE_CODE_4: '${{ secrets.JD_JDFACTORY_SHARE_CODE_4 }}'
+          JD_JDFACTORY_SHARE_CODE_5: '${{ secrets.JD_JDFACTORY_SHARE_CODE_5 }}'
+          JD_STALL_SHARE_CODE: '${{ secrets.JD_STALL_SHARE_CODE }}'
+          JD_STALL_SHARE_CODE_1: '${{ secrets.JD_STALL_SHARE_CODE_1 }}'
+          JD_STALL_SHARE_CODE_2: '${{ secrets.JD_STALL_SHARE_CODE_2 }}'
+          JD_STALL_SHARE_CODE_3: '${{ secrets.JD_STALL_SHARE_CODE_3 }}'
+          JD_STALL_SHARE_CODE_4: '${{ secrets.JD_STALL_SHARE_CODE_4 }}'
+          JD_STALL_SHARE_CODE_5: '${{ secrets.JD_STALL_SHARE_CODE_5 }}'
+          JD_STALL_SS: '${{ secrets.JD_STALL_SS }}'
+          JD_STALL_SS_1: '${{ secrets.JD_STALL_SS_1 }}'
+          JD_STALL_SS_2: '${{ secrets.JD_STALL_SS_2 }}'
+          JD_STALL_SS_3: '${{ secrets.JD_STALL_SS_3 }}'
+          JD_STALL_SS_4: '${{ secrets.JD_STALL_SS_4 }}'
+          JD_STALL_SS_5: '${{ secrets.JD_STALL_SS_5 }}'
+          JD_STALL_CRON_SS: '${{ secrets.JD_STALL_CRON_SS }}'
+          JD_STALL_CRON_SS_1: '${{ secrets.JD_STALL_CRON_SS_1 }}'
+          JD_STALL_CRON_SS_2: '${{ secrets.JD_STALL_CRON_SS_2 }}'
+          JD_STALL_CRON_SS_3: '${{ secrets.JD_STALL_CRON_SS_3 }}'
+          JD_STALL_CRON_SS_4: '${{ secrets.JD_STALL_CRON_SS_4 }}'
+          JD_STALL_CRON_SS_5: '${{ secrets.JD_STALL_CRON_SS_5 }}'
+          JD_BC_POSITION_LAT: '${{ secrets.JD_BC_POSITION_LAT }}'
+          JD_BC_POSITION_LAT_1: '${{ secrets.JD_BC_POSITION_LAT_1 }}'
+          JD_BC_POSITION_LAT_2: '${{ secrets.JD_BC_POSITION_LAT_2 }}'
+          JD_BC_POSITION_LAT_3: '${{ secrets.JD_BC_POSITION_LAT_3 }}'
+          JD_BC_POSITION_LAT_4: '${{ secrets.JD_BC_POSITION_LAT_4 }}'
+          JD_BC_POSITION_LAT_5: '${{ secrets.JD_BC_POSITION_LAT_5 }}'
+          JD_BC_POSITION_LNG: '${{ secrets.JD_BC_POSITION_LNG }}'
+          JD_BC_POSITION_LNG_1: '${{ secrets.JD_BC_POSITION_LNG_1 }}'
+          JD_BC_POSITION_LNG_2: '${{ secrets.JD_BC_POSITION_LNG_2 }}'
+          JD_BC_POSITION_LNG_3: '${{ secrets.JD_BC_POSITION_LNG_3 }}'
+          JD_BC_POSITION_LNG_4: '${{ secrets.JD_BC_POSITION_LNG_4 }}'
+          JD_BC_POSITION_LNG_5: '${{ secrets.JD_BC_POSITION_LNG_5 }}'
+          JD_SSJJ_SHARE_CODE: '${{ secrets.JD_SSJJ_SHARE_CODE }}'
+          JD_SSJJ_SHARE_CODE_1: '${{ secrets.JD_SSJJ_SHARE_CODE_1 }}'
+          JD_SSJJ_SHARE_CODE_2: '${{ secrets.JD_SSJJ_SHARE_CODE_2 }}'
+          JD_SSJJ_SHARE_CODE_3: '${{ secrets.JD_SSJJ_SHARE_CODE_3 }}'
+          JD_SSJJ_SHARE_CODE_4: '${{ secrets.JD_SSJJ_SHARE_CODE_4 }}'
+          JD_SSJJ_SHARE_CODE_5: '${{ secrets.JD_SSJJ_SHARE_CODE_5 }}'
+          JD_SSJJ_USER_NAME: '${{ secrets.JD_SSJJ_USER_NAME }}'
+          JD_SSJJ_USER_NAME_1: '${{ secrets.JD_SSJJ_USER_NAME_1 }}'
+          JD_SSJJ_USER_NAME_2: '${{ secrets.JD_SSJJ_USER_NAME_2 }}'
+          JD_SSJJ_USER_NAME_3: '${{ secrets.JD_SSJJ_USER_NAME_3 }}'
+          JD_SSJJ_USER_NAME_4: '${{ secrets.JD_SSJJ_USER_NAME_4 }}'
+          JD_SSJJ_USER_NAME_5: '${{ secrets.JD_SSJJ_USER_NAME_5 }}'

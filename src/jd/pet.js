@@ -8,7 +8,7 @@ const serverChan = require('../lib/serverChan');
 
 // 公共变量
 const KEY = process.env.JD_COOKIE;
-const DUAL_KEY = process.env.JD_DUAL_COOKIE;
+const DUAL_KEY = process.env.JD_COOKIE_1;
 
 const distPath = '../../dist';
 
@@ -29,7 +29,7 @@ async function changeFile(isDual) {
   let content = await fs.readFileSync(scriptFilePath, 'utf8');
   content = content.replace('MTAxODcxOTI2NTAwMDAwMDAwMDc4MDExNw==', '');
   if (isDual) {
-    content = content.replace('JD_COOKIE', 'JD_DUAL_COOKIE');
+    content = content.replace('JD_COOKIE', 'JD_COOKIE_1');
   } else {
     content = bowerFetchPatch + content;
   }

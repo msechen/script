@@ -9,7 +9,7 @@ const serverChan = require('../lib/serverChan');
 
 // 公共变量
 const KEY = process.env.JD_COOKIE;
-const DualKey = process.env.JD_DUAL_COOKIE;
+const DualKey = process.env.JD_COOKIE_1;
 
 const distPath = '../../dist';
 
