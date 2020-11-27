@@ -96,13 +96,22 @@ class SuperMarket extends Template {
       // 签到
       afterGetTaskList: {
         name: 'smtg_sign',
+        successFn: async data => {
+          // 获取京豆
+          await self._api.doFormBody('smtg_sign', {channel: '1'});
+        },
       },
       doRedeem: {
-        name: 'smtg_home',
+        name: 'smtg_drawLottery',
+        paramFn: () => ({'costType': 1, 'channel': '1'}),
         successFn: async data => {
-          const {totalBlue, totalGold} = data.data.result || {};
-          totalBlue && self.log(`蓝币总计为: ${totalBlue}, 金币总计为: ${totalGold}`);
+          if (!self.isSuccess(data)) {
+            const {totalBlue, totalGold} = await self._api.doFormBody('smtg_home').then(data => data.data.result) || {};
+            totalBlue && self.log(`蓝币总计为: ${totalBlue}, 金币总计为: ${totalGold}`);
+            return false;
+          }
         },
+        repeat: true,
       },
     };
   };
