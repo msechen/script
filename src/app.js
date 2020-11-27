@@ -124,6 +124,7 @@ async function main() {
       run: async () => {
         await fruit();
         await pet();
+        await doCron(TurnTableFarm);
       },
     },
     {

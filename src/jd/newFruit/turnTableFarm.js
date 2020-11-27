@@ -104,6 +104,20 @@ class TurntableFarm extends Template {
   static initShareCodeTaskList(shareCodes) {
     // 处理
   }
+
+  static async doCron(api) {
+    const self = this;
+    const _ = this._;
+
+    await api.doFormBody('timingAwardForTurntableFarm');
+    await api.doFormBody('lotteryForTurntableFarm', {type: 1}).then(async data => {
+      const {addWater, remainLotteryTimes} = data;
+      if (!self.isSuccess(data) || remainLotteryTimes === 0) return false;
+      await sleep(5);
+
+      addWater && self.log(`获取的水滴数: ${addWater}`);
+    });
+  }
 }
 
 module.exports = TurntableFarm;
