@@ -13,13 +13,12 @@ class Ssjj extends Template {
   static scriptName = 'Ssjj';
   static shareCodeTaskList = [];
   static commonParamFn = () => [void 0, commonOptions];
-  static times = 1;
+  static times = 2;
 
   static apiOptions = {
     options: {
       uri: 'https://lkyl.dianpusoft.cn/api',
       method: 'GET',
-      ...commonOptions,
     },
   };
   static apiExtends = {
@@ -90,7 +89,7 @@ class Ssjj extends Template {
               type,
             } = ssjjTaskInfo;
             if (maxTimes === times || [
-              1, // 邀请任务
+              // 1, // 邀请任务
             ].includes(type)) continue;
 
             let list = [];
@@ -111,8 +110,11 @@ class Ssjj extends Template {
             const [_type, functionId] = task;
 
             if (type === 1) {
-              list = self.shareCodeTaskList.map(code => ({id: code, taskId: id}));
+              const currentShareCode = await self._doPath('ssjj-task-record/createInviteUser').then(data => data.body.id);
+              !self.shareCodeTaskList.includes(currentShareCode) && self.shareCodeTaskList.push(currentShareCode);
+              list = self.getShareCodeFn().map(code => ({id: code, taskId: id}));
               option.maxTimes = list.length;
+              option.times = 0;
             }
 
             if (type === 6) {
@@ -146,13 +148,6 @@ class Ssjj extends Template {
       },
     };
   };
-
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
-    if (shareCodes) {
-      this.shareCodeTaskList = shareCodes;
-    }
-  }
 }
 
 module.exports = Ssjj;
