@@ -10,8 +10,10 @@ class Base {
   static currentCookieTimes = 0;
   // 当前循环次数, 不可更改
   static currentTimes = 1;
-  // 脚本名称
+  // 脚本名称(用于获取相关属性)
   static scriptName = 'scriptName';
+  // 脚本名称(用于日志输出)
+  static scriptNameDesc = '';
   // 循环次数
   static times = 1;
   // request 参数
@@ -56,7 +58,7 @@ class Base {
 
   // helpers
   static log(output) {
-    printLog(this.scriptName, void 0, output);
+    printLog(this.scriptNameDesc || this.scriptName, void 0, output);
   }
 
   // 第一次循环

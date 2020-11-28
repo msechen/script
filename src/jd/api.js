@@ -61,7 +61,7 @@ class Request {
   }
 
   doFunctionId(functionId, options) {
-    return this.do(_.assign({
+    return this.do(_.merge({
       qs: {functionId},
     }, options));
   }

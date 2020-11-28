@@ -27,6 +27,7 @@ const StatisticsBean = require('./jd/statistics/bean');
 const Sign = require('./jd/newSign');
 const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
+const Smfe = require('./jd/smfe');
 
 const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -107,6 +108,7 @@ async function main() {
         await doRun(Wfh);
         await doRun(Ssjj);
         await doRun(Trump);
+        await doRun(Smfe);
       },
     },
     {
