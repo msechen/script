@@ -37,6 +37,7 @@ class Wish extends Template {
       15, // 时尚服饰
       14, // 生鲜食品
       13, // 超市百货
+      17, // 护肤彩妆
     ];
 
     let taskList = [];
