@@ -106,7 +106,6 @@ async function main() {
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
         await doRun(Wfh);
-        await doRun(Ssjj);
         await doRun(Trump);
         await doRun(Smfe);
       },
@@ -114,6 +113,7 @@ async function main() {
     {
       valid: 4,
       run: async () => {
+        await doRun(Ssjj);
       },
     },
     {
