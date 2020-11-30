@@ -5,14 +5,15 @@ const _ = require('lodash');
 const {getNowMoment, getNowDate, getLogFile} = require('./lib/common');
 const serverChan = require('./lib/serverChan');
 
-const sign = require('./jd/sign');
-const fruit = require('./jd/fruit');
-const pet = require('./jd/pet');
+const Sign = require('./jd/sign');
+const SignRemote = require('./jd/sign/remote');
 const bean = require('./jd/bean');
 const SuperMarket = require('./jd/superMarket');
-const Pet = require('./jd/newPet');
-const Fruit = require('./jd/newFruit');
-const TurnTableFarm = require('./jd/newFruit/turnTableFarm');
+const Pet = require('./jd/pet');
+const PetRemote = require('./jd/pet/remote');
+const Fruit = require('./jd/fruit');
+const FruitRemote = require('./jd/fruit/remote');
+const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
 const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
@@ -24,7 +25,6 @@ const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
 const Wish = require('./jd/wish');
 const StatisticsBean = require('./jd/statistics/bean');
-const Sign = require('./jd/newSign');
 const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
@@ -87,7 +87,7 @@ async function main() {
       run: async () => {
         await doCron(SuperMarket);
         await doRun(StatisticsBean);
-        await sign();
+        await doRun(SignRemote);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
@@ -126,8 +126,8 @@ async function main() {
     {
       valid: 6,
       run: async () => {
-        await fruit();
-        await pet();
+        await doRun(FruitRemote);
+        await doRun(PetRemote);
         await doCron(TurnTableFarm);
       },
     },

@@ -7,7 +7,7 @@ console.log = function () {
   console.info(...Array.from(arguments).map(v => v && v.toString ? v.toString() : v));
 };
 
-const cookie = process.env.JD_COOKIE;
+const cookie = '__COOKIE__';
 const {getFetch} = require('../src/lib/http');
 const fetch = getFetch({
   headers: {
