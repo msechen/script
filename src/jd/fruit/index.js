@@ -59,10 +59,27 @@ class Fruit extends Base {
     await api.waterRainForFarm({type: 1, hongBaoTimes: 100}).then(self.amountLog.bind(self));
 
     // 总签到获取水滴
-    if (getNowMoment().weekday() === 0) {
-      await sleep();
-      await api.clockInForFarm({type: 2}).then(self.amountLog.bind(self));
+    // await api.clockInForFarm({type: 2}).then(self.amountLog.bind(self));
+
+    // 点小鸭子
+    await getFullCollectionReward();
+
+    async function getFullCollectionReward() {
+      return api.doFormBody('getFullCollectionReward', {type: 2, version: 7}).then(data => {
+        if (self.isSuccess(data)) return getFullCollectionReward();
+      });
     }
+
+    // 限时关注得水滴
+    await api.doFormBody('clockInInitForFarm').then(async data => {
+      if (!self.isSuccess(data)) return;
+
+      for (const {id} of data.themes) {
+        await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 1});
+        await sleep(2);
+        await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 2}).then(self.amountLog.bind(self));
+      }
+    });
 
     // 完成给好友浇水的任务
     await api.taskInitForFarm().then(async data => {
