@@ -45,8 +45,8 @@ class Sign extends Template {
 
     const shopSignUrl = [
       ['better', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22905CF71BDAEED1B9193B90C6184F6BCB%22,%22venderId%22:1000281262,%22activityId%22:10168782,%22type%22:56,%22actionType%22:7}'],
-      ['比乐', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22DE0B3D71D67D96A0CE19DE6A12F8A842%22,%22venderId%22:1000095723,%22activityId%22:10163552,%22type%22:56,%22actionType%22:7}'],
-      ['博世', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2253F4272893F3D6EC7E34D734EFF4F80F%22,%22venderId%22:1000002423,%22activityId%22:10173826,%22type%22:56,%22actionType%22:7}'],
+      // ['比乐', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22DE0B3D71D67D96A0CE19DE6A12F8A842%22,%22venderId%22:1000095723,%22activityId%22:10163552,%22type%22:56,%22actionType%22:7}'],
+      // ['博世', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2253F4272893F3D6EC7E34D734EFF4F80F%22,%22venderId%22:1000002423,%22activityId%22:10173826,%22type%22:56,%22actionType%22:7}'],
     ];
     const shopSign = {
       name: '店铺签到',
