@@ -29,7 +29,7 @@ const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
 
-const getCookieData = (name, shareCode, getShareCodeFn, envCookieName = 'JD_COOKIE') => {
+const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
   getShareCodeFn = getShareCodeFn || (() => shareCode);
   const getShareCodes = (name, targetIndex) => {
@@ -93,7 +93,7 @@ async function main() {
         await doRun(Pet);
         await jdFactory.start(getCookieData(jdFactory.scriptName));
         await runScript(bean, 'bean');
-        await doRun(Earn, getCookieData(Earn.scriptName, void 0, void 0, 'JD_EARN_COOKIE'));
+        await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
         await doRun(Sign);
