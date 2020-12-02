@@ -86,6 +86,7 @@ async function main() {
       valid: 0,
       run: async () => {
         await doCron(SuperMarket);
+        await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(SignRemote);
         await doRun(Fruit);
@@ -96,7 +97,6 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
-        await doRun(Sign);
       },
     },
     {

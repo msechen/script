@@ -36,7 +36,7 @@ class Sign extends Template {
           origin: 'https://h5.m.jd.com',
         },
       },
-      isSuccessFn: data => _.property('code.luckyDrawData.checkWinOrNot')(data),
+      isSuccessFn: data => _.property('result.luckyDrawData.checkWinOrNot')(data),
       rewardOutputFn: data => {
         const luckyDrawData = _.property('result.luckyDrawData')(data);
         if (luckyDrawData) return `${luckyDrawData.prizeName}: 可抵扣${luckyDrawData.discountDesc}(${luckyDrawData.quotaDesc})`;
@@ -45,8 +45,14 @@ class Sign extends Template {
 
     const shopSignUrl = [
       ['better', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22905CF71BDAEED1B9193B90C6184F6BCB%22,%22venderId%22:1000281262,%22activityId%22:10168782,%22type%22:56,%22actionType%22:7}'],
+      ['1', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%222435F399E2341025F2A253DE2C8F0ACD%22,%22venderId%22:590464,%22activityId%22:10188380,%22type%22:56,%22actionType%22:7}'],
+      ['2', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%229BC4979E04E7F58499500BA498282050%22,%22venderId%22:10290074,%22activityId%22:10188050,%22type%22:56,%22actionType%22:7}'],
+      ['3', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22493F80D2F93AD3591911610FE675280E%22,%22venderId%22:1000328145,%22activityId%22:10182070,%22type%22:56,%22actionType%22:7}'],
+      ['青岛啤酒', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%225C8E6953811539DBBE5ADBFA91C86B7F%22,%22venderId%22:1000337488,%22activityId%22:10186913,%22type%22:56,%22actionType%22:7}'],
+      ['鑫鼎达', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2285A3D0B675FFC38EB4F668DEB7B7834D%22,%22venderId%22:136277,%22activityId%22:10190083,%22type%22:56,%22actionType%22:7}'],
+      ['健力宝', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%225CFB610B608B023B725D0F113F556FE6%22,%22venderId%22:1000334541,%22activityId%22:10192181,%22type%22:56,%22actionType%22:7}'],
+      ['博世', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%227928F5620C2A9B00201EC47BADBD469A%22,%22venderId%22:1000002423,%22activityId%22:10180133,%22type%22:56,%22actionType%22:7}'],
       // ['比乐', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22DE0B3D71D67D96A0CE19DE6A12F8A842%22,%22venderId%22:1000095723,%22activityId%22:10163552,%22type%22:56,%22actionType%22:7}'],
-      // ['博世', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2253F4272893F3D6EC7E34D734EFF4F80F%22,%22venderId%22:1000002423,%22activityId%22:10173826,%22type%22:56,%22actionType%22:7}'],
     ];
     const shopSign = {
       name: '店铺签到',
@@ -59,7 +65,19 @@ class Sign extends Template {
       isSuccessFn: data => data.code === 200,
     };
 
+    const jrSign = {
+      name: '金融签到',
+      url: 'https://ms.jr.jd.com/gw/generic/hy/h5/m/signIn1',
+      options: {
+        form: {
+          reqData: '{"videoId":"311372930347370496","channelSource":"JRAPP6.0","channelLv":"icon","riskDeviceParam":"{\\"traceIp\\":\\"\\",\\"fp\\":\\"a4db0a1fce8f6a33eb42486a17550c54\\",\\"eid\\":\\"JKP6TAIXZT7VIVQPXRSYSCOFYEP6CTXBHMRKONH6STFNUUD6N44NPWZUPMFJCDQ5E3ITR7S5E6COFPQOEQOQJ27QFQ\\",\\"appId\\":\\"com.jd.jinrong\\",\\"openUUID\\":\\"6d664c1875cbf8d8c804a6f543b1bce5fc973834\\",\\"uuid\\":\\"\\",\\"clientVersion\\":\\"6.0.40\\",\\"startNo\\":155,\\"openid\\":\\"\\",\\"token\\":\\"\\",\\"sid\\":\\"\\",\\"terminalType\\":\\"02\\",\\"longtitude\\":\\"\\",\\"latitude\\":\\"\\",\\"securityData\\":\\"\\",\\"jscContent\\":\\"\\",\\"fnHttpHead\\":\\"\\",\\"receiveRequestTime\\":\\"\\",\\"port\\":\\"\\",\\"appType\\":1,\\"optType\\":\\"\\",\\"idfv\\":\\"\\",\\"wifiSSID\\":\\"\\",\\"wifiMacAddress\\":\\"\\",\\"cellIpAddress\\":\\"\\",\\"wifiIpAddress\\":\\"\\",\\"sdkToken\\":\\"2VPHH4ISILYFBBTK32LYYSEYWYA4PULO7LINWJ7ZAWHOUNLQSSOGPBNXFBPCTOFMS2G7F3PSXEXHS\\"}"}',
+        },
+      },
+      isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
+    };
+
     const taskOptions = [
+      jrSign,
       {
         name: '十元街签到',
         url: 'https://api.m.jd.com/api?functionId=userSignIn&appid=swat_miniprogram&body={"activityId":"8d6845fe2e77425c82d5078d314d33c5"}',

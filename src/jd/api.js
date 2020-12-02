@@ -16,7 +16,7 @@ const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
   };
   const options = {form, body, qs, ...others};
   Object.keys(options).forEach(key => {
-    if (_.isEmpty(options[key])) delete options[key];
+    if (_.isEmpty(options[key]) && !_.isBoolean(options[key])) delete options[key];
   });
 
   return rp(_.assign({
