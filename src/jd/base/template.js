@@ -72,9 +72,6 @@ class Template extends Base {
     const self = this;
     const _ = this._;
 
-    // 这个会不断被赋值, TODO 在 base 里赋值可能会好点
-    self._api = api;
-
     self.initShareCodeTaskList(shareCodes);
 
     await self.beforeRequest();

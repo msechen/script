@@ -7,7 +7,7 @@ const serverChan = require('./lib/serverChan');
 
 const Sign = require('./jd/sign');
 const SignRemote = require('./jd/sign/remote');
-const bean = require('./jd/bean');
+const PlantBean = require('./jd/plantBean');
 const SuperMarket = require('./jd/superMarket');
 const Pet = require('./jd/pet');
 const PetRemote = require('./jd/pet/remote');
@@ -93,8 +93,7 @@ async function main() {
         await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
-        await jdFactory.start(getCookieData(jdFactory.scriptName));
-        await runScript(bean, 'bean');
+        await doRun(jdFactory);
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
@@ -109,6 +108,7 @@ async function main() {
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
+        await doRun(PlantBean);
       },
     },
     {
@@ -161,7 +161,6 @@ async function main() {
     {
       valid: 12,
       run: async () => {
-        await runScript(bean, 0);
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
@@ -181,7 +180,6 @@ async function main() {
     {
       valid: 20,
       run: async () => {
-        await runScript(bean, 0);
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
@@ -198,13 +196,12 @@ async function main() {
     {
       valid: 23,
       run: async () => {
-        await runScript(bean, 0);
+        await doCron(PlantBean);
       },
     },
   ];
 
-  // 每小时都要执行
-  await cronOneHour();
+  await cronLoop();
 
   for (const {valid, run} of scheduleOptions) {
     if (nowHours === valid) {
@@ -212,8 +209,13 @@ async function main() {
     }
   }
 
-  async function cronOneHour() {
-    await jdFactory.cron(getCookieData());
+  // 定时循环
+  async function cronLoop() {
+    await doCron(jdFactory);
+
+    if (nowHours % 2 === 0) {
+      await doCron(PlantBean);
+    }
   }
 }
 

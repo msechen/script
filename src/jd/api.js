@@ -67,16 +67,20 @@ class Request {
   }
 
   doForm(functionId, form) {
+    Object.keys(form).forEach(key => {
+      const value = form[key];
+      if (_.isPlainObject(value)) {
+        form[key] = JSON.stringify(value);
+        // TODO 需要确认一下逻辑
+        form[key] = form[key].replace(/\//g, '\\/');
+      }
+    });
     return this.doFunctionId(functionId, {form});
   }
 
   doFormBody(functionId, body, signData) {
     body = body || {};
-    if (_.isPlainObject(body)) {
-      body = JSON.stringify(body);
-    }
-    body = body.replace(/\//g, '\\/');
-    return this.doForm(functionId, _.assign({body, ...this.signData}, signData));
+    return this.doForm(functionId, _.merge({body}, this.signData, signData));
   }
 
   doPath(functionId, form = {}, options = {}) {

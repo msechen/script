@@ -90,17 +90,27 @@ class Base {
       maxTimes = 1,
       times = 0,
       waitDuration = 0,
+      needRealSuccessful = false, // 需要判断是否成功
     } = option || {};
     list = await getListFn();
     list = [].concat(list).filter(item => !isFinishFn(item));
-    for (let i = 0; i < maxTimes - times; i++) {
-      isDone = true;
-      const item = list[i] || {};
-      const data = await firstFn(item);
-      if (waitDuration === 0) continue;
-      await sleep(waitDuration + 2);
-      await afterWaitFn(data, item);
+    const loopTimes = maxTimes - times;
+    let remainTimes = loopTimes;
+    await doLoop(loopTimes);
+    needRealSuccessful && await doLoop(remainTimes, loopTimes);
+
+    async function doLoop(loopTimes, index = 0) {
+      for (; index < loopTimes; index++) {
+        isDone = true;
+        const item = list[index] || {};
+        const data = await firstFn(item);
+        if (!_.property('isSuccess')(data)) remainTimes++;
+        if (waitDuration === 0) continue;
+        await sleep(waitDuration + 2);
+        await afterWaitFn(data, item);
+      }
     }
+
 
     return isDone;
   }
@@ -111,10 +121,10 @@ class Base {
     if (!target) return Promise.resolve();
     const {paramFn = _.noop, successFn = _.noop, errorFn = _.noop, repeat = false} = this.apiNamesFn()[name];
 
-    const params = [].concat(paramFn(data));
-    const _do = () => target(...params).then(successFn);
+    const _do = () => target(...[].concat(paramFn(data))).then(successFn);
 
     const repeatFn = () => _do().then(needRepeat => {
+      // 显示返回 false 才会停止
       if (needRepeat === false) return;
       return repeatFn();
     });
@@ -145,10 +155,12 @@ class Base {
     return api;
   }
 
-  static async beforeInit() {}
+  static async beforeInit() {
+  }
 
   static async init(cookie, shareCodes, isCron = false) {
     const api = this.initApi(cookie);
+    this.api = this._api = api;
     if (isCron) {
       await this.doCron(api, shareCodes);
     } else {
