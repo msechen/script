@@ -15,6 +15,12 @@ class AppletSign extends Applet {
       // 摩恩
       ['14827480251045beba08358a3ccc792b'],
       ['1de6f941bee64aa6b4d4abde06dd3bd3'],
+      // 倍舒特
+      ['a285a54879284c84b4c3579fd371b234'],
+      // 优赛
+      ['14d3d026650a45668e03a6b820075a8e'],
+      // 铁建
+      ['6fa5660db3d34fc698e7522ae156ef62'],
       // 煦贝乐
       ['76063a4650f54eb79a2bb2737fd7f984', 'sevenDay'],
       // 石头
