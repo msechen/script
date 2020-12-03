@@ -29,7 +29,10 @@ class AppletSign extends Applet {
         const data = await getSimpleActInfoVo(api, activityId);
         pin = data.pin;
       }
-      await api.doPath(`sign/${pathId ? pathId + '/' : ''}wx/signUp`, {actId: activityId, pin});
+      await api.doPath(`sign/${pathId ? pathId + '/' : ''}wx/signUp`, {actId: activityId, pin}).then(data => {
+        const msg = _.property('msg')(data) || _.property('gift.giftName')(data) || '成功';
+        self.log(`activityId: ${activityId}, msg: ${msg}`)
+      });
     }
   }
 }

@@ -28,6 +28,7 @@ const StatisticsBean = require('./jd/statistics/bean');
 const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
+const AppletSign = require('./jd/applet/sign');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -108,6 +109,12 @@ async function main() {
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
+      },
+    },
+    {
+      valid: 2,
+      async run() {
+        await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
     {

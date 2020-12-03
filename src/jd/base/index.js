@@ -58,6 +58,8 @@ class Base {
 
   // helpers
   static log(output) {
+    // 应该输出 Cookie Name TODO 格式化
+    output = `[${this.currentCookieTimes}] ${output}`;
     printLog(this.scriptNameDesc || this.scriptName, void 0, output);
   }
 
