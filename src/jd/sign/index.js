@@ -89,6 +89,13 @@ class Sign extends Template {
         isSuccessFn: data => data.code === 0,
         rewardOutputFn: data => _.property('data.todayPrize.beanAmount')(data),
       },
+      {
+        name: '秒杀红包雨',
+        times: 3,
+        url: 'https://api.m.jd.com/client.action?functionId=noahRedRainLottery&client=wh5&clientVersion=1.0.0&body=%7B%22actId%22%3A%22RRA318jCtaXhZJgiLryM1iydEhc7Jna%22%7D',
+        isSuccessFn: data => data.subCode === '0',
+        rewardOutputFn: data => _.property('lotteryResult.jPeasList[0].quantity')(data),
+      },
       getLuckDraw,
       ...shopSignUrl.map(([name, url]) => _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`})),
     ];
