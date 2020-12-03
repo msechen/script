@@ -52,6 +52,7 @@ class Wish extends Template {
     }
 
     let times = 0;
+    let allPrizeNum = 0;
     // 每天只有10次机会
     const maxTimes = 10;
     let index = 0;
@@ -65,10 +66,12 @@ class Wish extends Template {
         index++;
         if (!self.isSuccess(data)) return true;
         if (data.prizeInfo) {
-          if (times === maxTimes || _.property('prizeInfo.prizeNum')(data) === 0) {
+          const prizeNum = _.property('prizeInfo.prizeNum')(data);
+          if (prizeNum === 0) {
             self.log(data.prizeInfo.msg);
             return true;
           } else {
+            allPrizeNum += prizeNum;
             times++;
           }
         }
@@ -76,7 +79,7 @@ class Wish extends Template {
       if (needStop) break;
     }
 
-    times && self.log(`领取到的京豆为: ${times * 5}`);
+    allPrizeNum && self.log(`领取到的京豆为: ${allPrizeNum}`);
   };
 }
 
