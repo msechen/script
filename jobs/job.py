@@ -149,21 +149,21 @@ def get_order():
     appsecret1 = '7f69d2fcca5c443386017f9a97d14c83'
     appkey2 = '2d2ea015479ddc93f30a2c7366ba4c84' # 小号
     appsecret2 = 'ae911e53de6c4853a5c89a815347c90f'
-    appkey3 = '1ab5eda3a89081fdcc445fc05bc963fe' # 小号
+    appkey3 = '1ab5eda3a89081fdcc445fc05bc963fe' # 熙雅
     appsecret3 = 'f94167788ce842a9b2bbbee5d1b569e9'
 
     result = jd.get_order(appkey1, appsecret1)
     if len(result) > 0:
-        user_kolly.send('[大号]\n' + result)
+        user_kolly.send('[大号]' + result)
 
     result = jd.get_order(appkey2, appsecret2)
     if len(result) > 0:
-        user_kolly.send('[小号]\n' + result)
+        user_kolly.send('[小号]' + result)
 
     result = jd.get_order(appkey3, appsecret3)
     if len(result) > 0:
-        user_kolly.send('[图图]\n' + result)
-        user_xy.send('[图图]\n' + result)
+        user_kolly.send('[图图]' + result)
+        user_xy.send('[图图]' + result)
 
 
 # 发送天气信息
