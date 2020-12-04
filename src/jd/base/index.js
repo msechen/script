@@ -92,8 +92,12 @@ class Base {
       waitDuration = 0,
       needRealSuccessful = false, // 需要判断是否成功
     } = option || {};
-    list = await getListFn();
-    list = [].concat(list).filter(item => !isFinishFn(item));
+    list = _.concat(await getListFn());
+    list = list.filter(item => {
+      const finished = isFinishFn(item);
+      finished && maxTimes--;
+      return !finished;
+    });
     const loopTimes = maxTimes - times;
     let remainTimes = loopTimes;
     await doLoop(loopTimes);

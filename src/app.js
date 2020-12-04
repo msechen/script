@@ -29,6 +29,7 @@ const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
 const AppletSign = require('./jd/applet/sign');
+const Adf = require('./jd/digital/adf');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -109,6 +110,7 @@ async function main() {
         await doRun(Trump);
         await doRun(Smfe);
         await doRun(PlantBean);
+        await doRun(Adf);
       },
     },
     {
