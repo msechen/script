@@ -80,7 +80,11 @@ class Earn extends Template {
         name: 'interactTaskIndex',
         successFn: async data => {
           const helpMainResListLength = (_.property('data.helpMainResList')(data) || []).length;
-          helpMainResListLength && self.log(`已助力人数为: ${helpMainResListLength}`);
+          const msgs = [
+            `已助力人数为: ${helpMainResListLength}`,
+            `cash: ${data.data.cashExpected}`,
+          ];
+          self.log(msgs.join(', '));
         },
       },
     };
