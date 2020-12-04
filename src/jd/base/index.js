@@ -101,7 +101,6 @@ class Base {
     const loopTimes = maxTimes - times;
     let remainTimes = loopTimes;
     await doLoop(loopTimes);
-    needRealSuccessful && await doLoop(remainTimes, loopTimes);
 
     async function doLoop(loopTimes, index = 0) {
       for (; index < loopTimes; index++) {
@@ -112,6 +111,9 @@ class Base {
         if (waitDuration === 0) continue;
         await sleep(waitDuration + 2);
         await afterWaitFn(data, item);
+      }
+      if (needRealSuccessful && (remainTimes > loopTimes)) {
+        await doLoop(remainTimes, loopTimes);
       }
     }
 

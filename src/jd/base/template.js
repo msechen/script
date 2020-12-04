@@ -72,7 +72,7 @@ class Template extends Base {
     const self = this;
     const _ = this._;
 
-    self.initShareCodeTaskList(shareCodes);
+    self.initShareCodeTaskList(shareCodes || []);
 
     await self.beforeRequest();
     await self.doApi(api, 'beforeGetTaskList');

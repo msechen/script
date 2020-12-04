@@ -7,7 +7,7 @@ class PlantBean extends Template {
   static scriptName = 'Bean';
   static scriptNameDesc = '种豆得豆';
   static shareCodeTaskList = [];
-  static times = 1;
+  static times = 2;
 
   static apiOptions = {
     signData: {
@@ -63,11 +63,11 @@ class PlantBean extends Template {
             const itemFinishedFn = o => _.property('taskState')(o) === '2';
             const taskConfig = [
               // 浏览店铺
-              [3, 'shopTaskList', data => _.filter(_.concat(data.goodShopList, data.moreShopList), itemFinishedFn).map(o => _.pick(o, ['shopId', 'shopTaskId'])), 'shopNutrientsTask'],
-              // 浏览店铺
-              [5, 'productTaskList', data => _.filter(data.productInfoList).map(array => array[1], itemFinishedFn).map(o => _.pick(o, ['skuId', 'productTaskId'])), 'productNutrientsTask'],
+              [3, 'shopTaskList', ({data}) => _.filter(_.concat(data.goodShopList, data.moreShopList), itemFinishedFn).map(o => _.pick(o, ['shopId', 'shopTaskId'])), 'shopNutrientsTask'],
+              // 挑选商品
+              [5, 'productTaskList', ({data}) => _.filter(_.filter(data.productInfoList).map(array => array && array[1]), itemFinishedFn).map(o => _.pick(o, ['skuId', 'productTaskId'])), 'productNutrientsTask'],
               // 关注频道
-              [10, 'plantChannelTaskList', data => _.filter(_.concat(data.goodChannelList, data.normalChannelList), itemFinishedFn).map(o => _.pick(o, ['channelId', 'channelTaskId'])), 'plantChannelNutrientsTask'],
+              [10, 'plantChannelTaskList', ({data}) => _.filter(_.concat(data.goodChannelList, data.normalChannelList), itemFinishedFn).map(o => _.pick(o, ['channelId', 'channelTaskId'])), 'plantChannelNutrientsTask'],
             ].find(o => o[0] === taskType);
 
             if (taskConfig) {
@@ -86,7 +86,7 @@ class PlantBean extends Template {
               });
             }
 
-            list.length && result.push({list, option});
+            result.push({list, option});
           }
 
           return result;
@@ -125,7 +125,11 @@ class PlantBean extends Template {
 
     // 收集定时豆液
     if (+_.property('timeNutrientsRes.nutrCount')(data) > 0) {
-      await api.doFormBody('receiveNutrients', {roundId});
+      await api.doFormBody('receiveNutrients', {roundId}).then(data => {
+        if (!self.isSuccess(data)) return;
+        const nutrients = data.data.nutrients;
+        nutrients && self.log(`收集到营养液: ${nutrients}`);
+      });
     }
 
     // 获取豆豆
