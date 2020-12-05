@@ -5,6 +5,8 @@ const moment = require('moment-timezone');
 
 const {discover} = require('../../../charles/api');
 
+const targetTaskId = '2';
+
 class Discover extends Template {
   static scriptName = '发现-看一看';
   static times = 1;
@@ -32,7 +34,10 @@ class Discover extends Template {
           for (const {taskId, times, maxTimes} of _.property('data.discTasks')(data) || []) {
             // TODO signTask
             // taskId === '1' 签到的还未完成
-            if (taskId === '3') {
+            if (taskId === targetTaskId) {
+              const filterForms = o => JSON.parse(o.body).taskId === targetTaskId;
+              discover.discAcceptTask = discover.discAcceptTask.filter(filterForms);
+              discover.discDoTask = discover.discDoTask.filter(filterForms);
               let list = [];
               for (let index = times; index < maxTimes; index++) {
                 list.push({index});
@@ -54,7 +59,7 @@ class Discover extends Template {
       },
       doRedeem: {
         name: 'discReceiveTaskAward',
-        paramFn: () => [{}, discover.discReceiveTaskAward[0]],
+        paramFn: () => [{}, discover.discReceiveTaskAward.find(o => JSON.parse(o.body).taskId === targetTaskId)],
         successFn: data => {
           if (!self.isSuccess(data)) return false;
           self.log(data.message);
