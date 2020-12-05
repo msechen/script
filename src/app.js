@@ -174,6 +174,7 @@ async function main() {
       valid: 14,
       run: async () => {
         await doRun(Wish);
+        await doRun(CrazyJoy);
       },
     },
     {
@@ -209,6 +210,7 @@ async function main() {
       run: async () => {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
+        await doRun(CrazyJoy);
       },
     },
   ];
