@@ -112,6 +112,7 @@ class Base {
         await sleep(waitDuration + 2);
         await afterWaitFn(data, item);
       }
+      // TODO 该逻辑是废弃的
       if (needRealSuccessful && (remainTimes > loopTimes)) {
         await doLoop(remainTimes, loopTimes);
       }

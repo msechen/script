@@ -46,7 +46,7 @@ class PlantBean extends Template {
           const result = [];
 
           const taskList = _.property('data.taskList')(data) || [];
-          taskList.push({taskType: 7, taskName: '金融双签'});
+          self.isFirstLoop() && taskList.push({taskType: 7, taskName: '金融双签', totalNum: 1, gainedNum: 0});
           for (let {
             isFinished: status,
             taskType, taskName,
@@ -75,7 +75,6 @@ class PlantBean extends Template {
               list = await self.api.doFormBody(listFunctionId).then(listFn);
               _.assign(option, {
                 firstFn: async o => self.api.doFormBody(taskFunctionId, o).then(data => ({isSuccess: _.property('data.nutrState')(data) === '1'})),
-                needRealSuccessful: true,
               });
             } else {
               // 其他任务

@@ -110,8 +110,8 @@ async function main() {
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
-        await doRun(PlantBean);
         await doRun(Adf);
+        await doRun(PlantBean);
       },
     },
     {
@@ -179,6 +179,7 @@ async function main() {
     {
       valid: 16,
       run: async () => {
+        await doRun(PlantBean, getCookieData());
       },
     },
     {
