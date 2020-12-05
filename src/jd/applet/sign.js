@@ -26,6 +26,12 @@ class AppletSign extends Applet {
       // 石头
       ['edc7f9ec04b94929b4102b0c4a36ce40', 'sevenDay'],
       ['2e5e4e4c188d437d9ca40d2be2fbd476', 'sevenDay'],
+      // 先锋两季
+      ['6f322ad48fdb4f7983edcc3bc77a6b87', 'sevenDay'],
+      // 蒲地蓝
+      ['175cc516dcbd45eaa65754362535db18', 'sevenDay'],
+      // 悦诗风吟
+      ['d6e3160a0037421096c54cec2a84c855', 'sevenDay'],
     ];
     if (!activityIds.length) return;
     let pin = '';
@@ -37,7 +43,7 @@ class AppletSign extends Applet {
       }
       await api.doPath(`sign/${pathId ? pathId + '/' : ''}wx/signUp`, {actId: activityId, pin}).then(data => {
         const msg = _.property('msg')(data) || _.property('gift.giftName')(data) || '成功';
-        self.log(`activityId: ${activityId}, msg: ${msg}`)
+        self.log(`activityId: ${activityId}, msg: ${msg}`);
       });
     }
   }

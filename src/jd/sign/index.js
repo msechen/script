@@ -52,6 +52,8 @@ class Sign extends Template {
       ['鑫鼎达', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2285A3D0B675FFC38EB4F668DEB7B7834D%22,%22venderId%22:136277,%22activityId%22:10190083,%22type%22:56,%22actionType%22:7}'],
       ['健力宝', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%225CFB610B608B023B725D0F113F556FE6%22,%22venderId%22:1000334541,%22activityId%22:10192181,%22type%22:56,%22actionType%22:7}'],
       ['博世', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%227928F5620C2A9B00201EC47BADBD469A%22,%22venderId%22:1000002423,%22activityId%22:10180133,%22type%22:56,%22actionType%22:7}'],
+      ['10', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22B2EA002F495ABA53E4E7EFD841E4436A%22,%22venderId%22:775364,%22activityId%22:10202561,%22type%22:56,%22actionType%22:7}'],
+      ['5', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2200417C8DFBCC2B97711B288A842B844B%22,%22venderId%22:1000014143,%22activityId%22:10199998,%22type%22:56,%22actionType%22:7}'],
       // ['比乐', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22DE0B3D71D67D96A0CE19DE6A12F8A842%22,%22venderId%22:1000095723,%22activityId%22:10163552,%22type%22:56,%22actionType%22:7}'],
     ];
     const shopSign = {
