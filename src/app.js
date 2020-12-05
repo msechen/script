@@ -30,6 +30,7 @@ const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
 const AppletSign = require('./jd/applet/sign');
 const Adf = require('./jd/digital/adf');
+const CrazyJoy = require('./jd/crazyJoy');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -145,6 +146,7 @@ async function main() {
       run: async () => {
         await doCron(Fruit);
         await doCron(Pet);
+        await doRun(CrazyJoy);
       },
     },
     {
@@ -177,6 +179,12 @@ async function main() {
     {
       valid: 16,
       run: async () => {
+      },
+    },
+    {
+      valid: 17,
+      run: async () => {
+        await doRun(CrazyJoy);
       },
     },
     {
@@ -215,6 +223,7 @@ async function main() {
   // 定时循环
   async function cronLoop() {
     await doCron(jdFactory);
+    await doCron(CrazyJoy);
 
     if (nowHours % 2 === 0) {
       await doCron(PlantBean);
