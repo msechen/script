@@ -138,6 +138,10 @@ class Ssjj extends Template {
         name: 'ssjj-draw-center/queryDraw',
         paramFn: self.commonParamFn,
         successFn: async data => {
+          if (!self.isSuccess(data)) {
+            self.log(data.head.msg);
+            return false;
+          }
           const repeat = await self._doPath(`ssjj-draw-record/draw/${data.body.center.id}`).then(self.isSuccess.bind(self));
           if (!repeat) {
             self.log('完成任务和抽奖');
