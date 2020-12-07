@@ -125,12 +125,14 @@ class CrazyJoy extends Template {
 
       loop = loop || await mergeJoys(joyIds);
       if (loop) await upgradeJoy();
+    }
 
-      async function getMinCostJoy() {
-        const shop = await api.doFormBody('crazyJoy_joy_allowBoughtList', {'paramData': {'entry': 'SHOP'}}).then(data => _.property('data.shop')(data));
-        if (!shop) return;
-        return _.minBy(shop.filter(o => o.status === 1), o => o.coins / Math.pow(2, o.joyId - 1));
-      }
+    async function getMinCostJoy() {
+      let shop = await api.doFormBody('crazyJoy_joy_allowBoughtList', {'paramData': {'entry': 'SHOP'}}).then(data => _.property('data.shop')(data));
+      if (!shop) return;
+      // 只取最近3个
+      shop = shop.filter(o => o.status === 1).filter((o, index) => index > shop.length - 5);
+      return _.minBy(shop, o => o.coins / Math.pow(2, o.joyId - 1));
     }
 
     // 获取用户信息
