@@ -32,6 +32,7 @@ const AppletSign = require('./jd/applet/sign');
 const Adf = require('./jd/digital/adf');
 const CrazyJoy = require('./jd/crazyJoy');
 const SplitHongbao = require('./jd/wfh/splitHongbao');
+const HealthyDay = require('./jd/wfh/healthyDay');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -108,6 +109,7 @@ async function main() {
         await doRun(HarmonyGoldenEgg);
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
+        await doRun(HealthyDay);
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
