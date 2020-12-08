@@ -17,7 +17,7 @@ class Sign extends Template {
 
     async function doTask({name, url, options, isSuccessFn, rewardOutputFn}) {
       await api.doUrl(url, options).then(data => {
-        if (isSuccessFn(data)) {
+        if (isSuccessFn && isSuccessFn(data)) {
           if (!rewardOutputFn) {
             self.log(`${name} 成功`);
             return;
@@ -78,6 +78,26 @@ class Sign extends Template {
       isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
+    const double12Sign = {
+      url: 'https://api.m.jd.com/client.action',
+      options: {
+        headers: {
+          origin: 'https://h5.m.jd.com',
+        },
+        form: {
+          functionId: 'noahHaveFunLottery',
+          appid: 'publicUseApi',
+          body: '{"actId":"RRDWrPqXWYj3CX4HnbQLDHRsmoJ2XU"}',
+          client: 'wh5',
+          clientVersion: '1.0.0',
+        },
+      },
+      isSuccessFn: data => _.property('subCode')(data) === '0',
+      rewardOutputFn: data => {
+        return _.property('lotteryResult.hongBaoList[0].prizeName')(data);
+      },
+    };
+
     const taskOptions = [
       jrSign,
       {
@@ -100,6 +120,7 @@ class Sign extends Template {
       },
       getLuckDraw,
       ...shopSignUrl.map(([name, url]) => _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`})),
+      double12Sign,
     ];
 
     for (const options of taskOptions) {
