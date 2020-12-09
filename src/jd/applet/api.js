@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-async function updateTokenCookies(api) {
+async function updateTokenCookies(api, loopTimes = 0) {
   return api.doUrl('https://lzkj-isv.isvjcloud.com/sign/sevenDay/signActivity', {
     resolveWithFullResponse: true,
     simple: false,
@@ -14,6 +14,12 @@ async function updateTokenCookies(api) {
     //     'LZ_TOKEN_KEY=lztokenpage2a91c8b43fd048fc8b9cbe7745c82804; Max-Age=600; Expires=Wed, 02-Dec-2020 08:51:02 GMT; Path=/',
     //     'LZ_TOKEN_VALUE=B0oH3vDY2bhHWuKbVaJ+XQ==; Max-Age=600; Expires=Wed, 02-Dec-2020 08:51:02 GMT; Path=/'
     //   ],
+    if (!response.headers['set-cookie']) {
+      if (++loopTimes > 3) {
+        return '';
+      }
+      return updateTokenCookies(api, loopTimes);
+    }
     const tokenCookies = response.headers['set-cookie'].map(str => str.split(';')[0]);
     api.cookie = _.concat(api.cookie, tokenCookies).join('; ');
     return tokenCookies;
