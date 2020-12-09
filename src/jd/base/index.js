@@ -32,6 +32,8 @@ class Base {
     // 接口名称
     apiNames: [],
   };
+  // 是否并发请求
+  static concurrent = false;
 
   // apiNames的补充
   static apiNamesFn() {
@@ -128,7 +130,9 @@ class Base {
     if (!target) return Promise.resolve();
     const {paramFn = _.noop, successFn = _.noop, errorFn = _.noop, repeat = false} = this.apiNamesFn()[name];
 
-    const _do = () => target(...[].concat(paramFn(data))).then(successFn);
+    const _do = () => target(...[].concat(paramFn(data))).then(async (data) => {
+      return successFn(data, api);
+    });
 
     const repeatFn = () => _do().then(needRepeat => {
       // 显示返回 false 才会停止
@@ -167,7 +171,8 @@ class Base {
 
   static async init(cookie, shareCodes, isCron = false) {
     const api = this.initApi(cookie);
-    this.api = this._api = api;
+    // TODO 并发的情况下 api 的赋值不可用
+    this.api = api;
     if (isCron) {
       await this.doCron(api, shareCodes);
     } else {
@@ -189,12 +194,30 @@ class Base {
 }
 
 async function loopInit(data, isCron) {
-  for (const {cookie, shareCodes} of _.concat(data)) {
-    await this.beforeInit();
-    await this.init(cookie, this.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
-    this.currentCookieTimes++;
+  data = _.concat(data);
+  const self = this;
+  let allFns = [];
+  for (const [index, {cookie, shareCodes}] of data.entries()) {
+    const startDo = () => _do(cookie, shareCodes);
+    if (self.concurrent) {
+      allFns.push(new Promise(async (resolve, reject) => {
+        // 并发的需等待后再启动
+        await sleep(index * 2);
+        await startDo();
+        resolve();
+      }));
+      continue;
+    }
+    await startDo();
   }
+  !_.isEmpty(allFns) && await Promise.all(allFns);
   await sleep(2);
+
+  async function _do(cookie, shareCodes) {
+    await self.beforeInit();
+    await self.init(cookie, self.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
+    self.currentCookieTimes++;
+  }
 }
 
 module.exports = Base;

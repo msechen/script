@@ -7,6 +7,7 @@ class CrazyJoy extends Template {
   static scriptName = 'CrazyJoy';
   static scriptNameDesc = '疯狂的Joy';
   static times = 1;
+  static concurrent = true;
 
   static apiOptions = {
     signData: {

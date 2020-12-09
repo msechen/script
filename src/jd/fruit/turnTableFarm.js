@@ -29,7 +29,7 @@ class TurntableFarm extends Template {
       getTaskList: {
         name: 'initForTurntableFarm',
         paramFn: self.commonParamFn,
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'initForTurntableFarm.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -58,7 +58,7 @@ class TurntableFarm extends Template {
           }
 
           const {shareCodeAddOn} = data;
-          const currentShareCode = await self._api.doFormBody('initForFarm').then(data => data.farmUserPro.shareCode + shareCodeAddOn);
+          const currentShareCode = await api.doFormBody('initForFarm').then(data => data.farmUserPro.shareCode + shareCodeAddOn);
           !self.shareCodeTaskList.includes(currentShareCode) && self.shareCodeTaskList.push(currentShareCode);
 
           let list = self.getShareCodeFn();
@@ -67,7 +67,7 @@ class TurntableFarm extends Template {
             list,
             option: {
               firstFn: (shareCode) => {
-                self._api.doFormBody('initForFarm', {shareCode});
+                api.doFormBody('initForFarm', {shareCode});
               },
             },
           });

@@ -37,17 +37,17 @@ class Adf extends Template {
       getTaskList: {
         name: 'indexInfo',
         paramFn: () => [void 0, {method: 'GET'}],
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'indexInfo.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
           const taskList = _.property('data')(data) || [];
 
-          const currentShareId = await self.api.doPath('shareInfo').then(data => data.data.shareId);
+          const currentShareId = await api.doPath('shareInfo').then(data => data.data.shareId);
           !self.shareCodeTaskList.includes(currentShareId) && self.shareCodeTaskList.push(currentShareId);
           const shareCodes = self.getShareCodeFn();
           for (const shareId of shareCodes) {
-            await self.api.doPath('doSupport', {shareId}).then(() => {
+            await api.doPath('doSupport', {shareId}).then(() => {
               self.log('助力成功');
             });
           }

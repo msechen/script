@@ -10,6 +10,7 @@ const targetTaskId = '3';
 class Discover extends Template {
   static scriptName = '发现-看一看';
   static times = 1;
+  static concurrent = true;
 
   static isSuccess(data) {
     return this._.property('code')(data) === '0';

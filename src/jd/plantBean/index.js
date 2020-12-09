@@ -8,6 +8,7 @@ class PlantBean extends Template {
   static scriptNameDesc = '种豆得豆';
   static shareCodeTaskList = [];
   static times = 2;
+  static concurrent = true;
 
   static apiOptions = {
     signData: {
@@ -38,7 +39,7 @@ class PlantBean extends Template {
       // 获取任务列表
       getTaskList: {
         name: 'plantBeanIndex',
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'plantBeanIndex.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -72,15 +73,15 @@ class PlantBean extends Template {
 
             if (taskConfig) {
               const [_taskType, listFunctionId, listFn, taskFunctionId] = taskConfig;
-              list = await self.api.doFormBody(listFunctionId).then(listFn);
+              list = await api.doFormBody(listFunctionId).then(listFn);
               _.assign(option, {
-                firstFn: async o => self.api.doFormBody(taskFunctionId, o).then(data => ({isSuccess: _.property('data.nutrState')(data) === '1'})),
+                firstFn: async o => api.doFormBody(taskFunctionId, o).then(data => ({isSuccess: _.property('data.nutrState')(data) === '1'})),
               });
             } else {
               // 其他任务
               _.assign(option, {
                 firstFn: async o => {
-                  await self.api.doFormBody('receiveNutrientsTask', {awardType: `${taskType}`});
+                  await api.doFormBody('receiveNutrientsTask', {awardType: `${taskType}`});
                 },
               });
             }
@@ -93,11 +94,11 @@ class PlantBean extends Template {
       },
       doRedeem: {
         name: 'plantBeanIndex',
-        successFn: async data => {
+        successFn: async (data, api) => {
           if (!self.isSuccess(data)) return false;
           const {roundId, bubbleInfos = [], growth} = data.data.roundList[1];
           for (const {nutrientsType} of bubbleInfos) {
-            await self.api.doFormBody('cultureBean', {roundId, nutrientsType});
+            await api.doFormBody('cultureBean', {roundId, nutrientsType});
           }
           const stop = _.isEmpty(bubbleInfos);
           if (stop) {

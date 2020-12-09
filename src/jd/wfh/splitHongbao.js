@@ -16,14 +16,14 @@ class SplitHongbao extends HarmonyTemplate {
   };
   static commonParamFn = () => ({appId: '1EFRTwA'});
 
-  static async afterDoWaitTask(data) {
+  static async afterDoWaitTask(data, api) {
     const self = this;
     const _ = self._;
 
     const {maxTimes, times, taskId} = _.property('data.result')(data);
     if (!maxTimes) return;
     if (maxTimes === times) {
-      return self.api.doFormBody(self.getApiNames().doRedeem, _.assign({taskId}, self.commonParamFn()))
+      return api.doFormBody(self.getApiNames().doRedeem, _.assign({taskId}, self.commonParamFn()))
       .then(self.logAfterRedeem.bind(self));
     }
   }

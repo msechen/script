@@ -30,7 +30,7 @@ class SuperMarket extends Template {
       // 获取任务列表
       getTaskList: {
         name: 'smtg_queryShopTask',
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'smtg_queryShopTask.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -64,11 +64,11 @@ class SuperMarket extends Template {
             ].includes(type) && !prizeStatus) {
               if (type === 6) {
                 // 升级最少金额的
-                const productList = await self._api.doFormBody('smtg_productList').then(data => data.data.result.productList.filter(o => !o.priceBlue && o.unlockStatus === 2)) || [];
+                const productList = await api.doFormBody('smtg_productList').then(data => data.data.result.productList.filter(o => !o.priceBlue && o.unlockStatus === 2)) || [];
                 if (!productList.length) continue;
                 const {upgradeCostGold, productId} = _.minBy(productList, o => o.upgradeCostGold);
-                const totalGold = await self._api.doFormBody('smtg_home').then(data => data.data.result.totalGold);
-                productId && (upgradeCostGold < totalGold) && await self._api.doFormBody('smtg_upgradeProduct', {productId});
+                const totalGold = await api.doFormBody('smtg_home').then(data => data.data.result.totalGold);
+                productId && (upgradeCostGold < totalGold) && await api.doFormBody('smtg_upgradeProduct', {productId});
               }
               continue;
             }
@@ -80,7 +80,7 @@ class SuperMarket extends Template {
             const option = {maxTimes: 1, times: 0, waitDuration};
             if (prizeStatus) {
               option.firstFn = async o => {
-                await self._api.doFormBody('smtg_obtainShopTaskPrize', {taskId: o.taskId});
+                await api.doFormBody('smtg_obtainShopTaskPrize', {taskId: o.taskId});
               };
             }
             result.push({list, option});
@@ -96,17 +96,17 @@ class SuperMarket extends Template {
       // 签到
       afterGetTaskList: {
         name: 'smtg_sign',
-        successFn: async data => {
+        successFn: async (data, api) => {
           // 获取京豆
-          await self._api.doFormBody('smtg_sign', {channel: '1'});
+          await api.doFormBody('smtg_sign', {channel: '1'});
         },
       },
       doRedeem: {
         name: 'smtg_drawLottery',
         paramFn: () => ({'costType': 1, 'channel': '1'}),
-        successFn: async data => {
+        successFn: async (data, api) => {
           if (!self.isSuccess(data)) {
-            const {totalBlue, totalGold} = await self._api.doFormBody('smtg_home').then(data => data.data.result) || {};
+            const {totalBlue, totalGold} = await api.doFormBody('smtg_home').then(data => data.data.result) || {};
             totalBlue && self.log(`蓝币总计为: ${totalBlue}, 金币总计为: ${totalGold}`);
             return false;
           }

@@ -64,7 +64,7 @@ class Template extends Base {
     }
   }
 
-  static async beforeRequest() {
+  static async beforeRequest(api) {
   }
 
   // doMain一般不会被重载
@@ -74,7 +74,7 @@ class Template extends Base {
 
     self.initShareCodeTaskList(shareCodes || []);
 
-    await self.beforeRequest();
+    await self.beforeRequest(api);
     await self.doApi(api, 'beforeGetTaskList');
 
     await _doTask();

@@ -17,6 +17,7 @@ class Cash extends Template {
   static shareCodeTaskList = [];
   static repeatDoTask = true;
   static times = 2;
+  static needOriginH5 = true;
 
   static apiNamesFn() {
     const self = this;
@@ -27,7 +28,7 @@ class Cash extends Template {
       getTaskList: {
         name: 'cash_homePage',
         paramFn: () => [{}, cash.cash_homePage[0]],
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'cash_homePage.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -37,7 +38,7 @@ class Cash extends Template {
           // 先签到
           if (data.data.result.signedStatus === 2) {
             const signForm = cash.cash_sign.find(form => JSON.parse(form.body).inviteCode === self.shareCodeTaskList[0]) || cash.cash_sign[0];
-            await self._api.doForm('cash_sign', signForm);
+            await api.doForm('cash_sign', signForm);
             return;
           }
 
@@ -52,12 +53,17 @@ class Cash extends Template {
             doTaskDesc,
             type,
           } of taskList) {
-            if (status === 1 || ['京喜双签', '金融双签', '邀好友 领5元'].includes(name)) continue;
+            if (status === 1 || ['京喜双签', '金融双签'].includes(name) || name.match('邀好友')) continue;
 
             let list = [];
 
-            const targetForm = findFormData([{taskInfo: desc || doTaskDesc, type}], [].concat(cash.cash_doTask));
-            targetForm && list.push(targetForm);
+            const body = {taskInfo: desc || doTaskDesc, type};
+            const targetForm = findFormData([body], [].concat(cash.cash_doTask));
+            if (targetForm) {
+              list.push(targetForm);
+            } else {
+              list.push({body, appid: 'CashReward'});
+            }
 
             // 每种类型的任务只做一个
             !_.isEmpty(list) && result.push({list});

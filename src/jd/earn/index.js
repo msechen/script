@@ -31,7 +31,7 @@ class Earn extends Template {
       getTaskList: {
         name: 'interactTaskIndex',
         // paramFn: () => ({'mpVersion': '3.0.6'}),
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'interactTaskIndex.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -40,7 +40,7 @@ class Earn extends Template {
 
           // 助力
           for (const itemId of self.shareCodeTaskList) {
-            await self._api.doFormBody('interactIndex', {itemId, taskId: 3}).then(data => {
+            await api.doFormBody('interactIndex', {itemId, taskId: 3}).then(data => {
               const helpDesc = _.property('data.helpRes.helpResDesc')(data);
               helpDesc && self.log(helpDesc);
             });

@@ -29,7 +29,7 @@ class Smfe extends Template {
       getTaskList: {
         name: 'getNewsInteractionInfo',
         paramFn: self.commonParamFn,
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'getNewsInteractionInfo.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -70,7 +70,7 @@ class Smfe extends Template {
                       taskPoolId,
                     }, _.pick(o, ['skuId', 'shopId', 'taskType']));
                     body.skuId && (body.sku = body.skuId);
-                    await self._api.doFormBody(functionId, body);
+                    await api.doFormBody(functionId, body);
                   },
                   maxTimes: list.length,
                 });

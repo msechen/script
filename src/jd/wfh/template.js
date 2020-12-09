@@ -25,7 +25,7 @@ class HarmonyTemplate extends Template {
     return this._.assign({}, defaultApiNames, this.apiNames);
   };
 
-  static async afterDoWaitTask(data) {
+  static async afterDoWaitTask(data, api) {
   }
 
   static logAfterRedeem(data) {
@@ -99,8 +99,8 @@ class HarmonyTemplate extends Template {
       doWaitTask: {
         name: self.getApiNames().doWaitTask,
         paramFn: o => _.assign(o, {actionType: 0}),
-        successFn(data) {
-          return self.afterDoWaitTask(data);
+        successFn(data, api) {
+          return self.afterDoWaitTask(data, api);
         },
       },
       doRedeem: {
