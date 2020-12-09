@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const {Request} = require('../api');
+const Api = require('../api');
 const {sleep, getNowMoment} = require('../../lib/common');
 const {printLog} = require('../../lib/common');
 
@@ -155,7 +155,7 @@ class Base {
     this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
 
-    const api = new Request(cookie, signData, options, formatDataFn);
+    const api = new Api(cookie, signData, options, formatDataFn);
     if (requestFnName) {
       let apiObject = _.isArray(apiNames) ? _.zipObject(apiNames, apiNames) : apiNames;
       _.assign(apiObject, _.zipObject(_.keys(this.apiNamesFn()), _.map(_.values(this.apiNamesFn()), 'name')));

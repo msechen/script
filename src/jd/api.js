@@ -30,7 +30,7 @@ const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
   });
 };
 
-class Request {
+class Api {
   constructor(cookie, signData, options, formatData) {
     this.cookie = cookie;
     this.signData = signData || {};
@@ -38,10 +38,14 @@ class Request {
     this.formatData = formatData;
   }
 
+  commonDo(options) {
+    return _request(this.cookie, options);
+  }
+
   async do(options) {
     options = _.merge({}, this.options, options);
     await sleep();
-    return _request(this.cookie, options).then(data => {
+    return this.commonDo(options).then(data => {
       data = data || {};
       if (this.formatData) {
         return this.formatData(data);
@@ -91,6 +95,4 @@ class Request {
   }
 }
 
-module.exports = {
-  Request,
-};
+module.exports = Api;

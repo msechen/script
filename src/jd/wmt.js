@@ -9,7 +9,7 @@ const _printLog = printLog.bind(0, scriptName, void 0);
 async function main(cookie, inviteId) {
   let failTask = [];
 
-  const api = new Request(cookie, {client: 'wh5', clientVersion: '1.0.0'}, {
+  const api = new Api(cookie, {client: 'wh5', clientVersion: '1.0.0'}, {
     headers: {
       'User-Agent': 'jdapp',
     },

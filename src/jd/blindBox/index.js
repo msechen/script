@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const {Request} = require('../api');
+const Api = require('../api');
 const {sleep} = require('../../lib/common');
 const {printLog} = require('../../lib/common');
 const scriptName = '热8超级盲盒';
@@ -8,7 +8,7 @@ const _printLog = printLog.bind(0, scriptName, void 0);
 
 async function main(cookie) {
 
-  const api = new Request(cookie, {}, {
+  const api = new Api(cookie, {}, {
     headers: {
       'User-Agent': 'jdapp',
     },
