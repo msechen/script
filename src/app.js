@@ -33,6 +33,7 @@ const Adf = require('./jd/digital/adf');
 const CrazyJoy = require('./jd/crazyJoy');
 const SplitHongbao = require('./jd/wfh/splitHongbao');
 const HealthyDay = require('./jd/wfh/healthyDay');
+const Necklace = require('./jd/necklace');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -120,6 +121,7 @@ async function main() {
     {
       valid: 2,
       async run() {
+        await doRun(Necklace);
         await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
