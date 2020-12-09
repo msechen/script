@@ -116,7 +116,7 @@ class CrazyJoy extends Template {
         const joyId = joyIds[i];
         if (joyId === 0) {
           const stop = await buyJoy(minCostJoyId).then(data => {
-            if (data.data.lackCoin) return true;
+            if (!self.isSuccess(data) || _.property('data.lackCoin')(data)) return true;
             joyIds[data.data.boxId] = minCostJoyId;
             loop = true;
           });
@@ -131,8 +131,8 @@ class CrazyJoy extends Template {
     async function getMinCostJoy() {
       let shop = await api.doFormBody('crazyJoy_joy_allowBoughtList', {'paramData': {'entry': 'SHOP'}}).then(data => _.property('data.shop')(data));
       if (!shop) return;
-      // 只取最近3个
-      shop = shop.filter(o => o.status === 1).filter((o, index) => index > shop.length - 5);
+      // 只取最近5个
+      shop = shop.filter(o => o.status === 1).filter((o, index) => index > shop.length - 7);
       return _.minBy(shop, o => o.coins / Math.pow(2, o.joyId - 1));
     }
 
