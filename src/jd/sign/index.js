@@ -72,13 +72,27 @@ class Sign extends Template {
       url: 'https://ms.jr.jd.com/gw/generic/hy/h5/m/signIn1',
       options: {
         form: {
-          reqData: '{"videoId":"311372930347370496","channelSource":"JRAPP6.0","channelLv":"icon","riskDeviceParam":"{\\"traceIp\\":\\"\\",\\"fp\\":\\"a4db0a1fce8f6a33eb42486a17550c54\\",\\"eid\\":\\"JKP6TAIXZT7VIVQPXRSYSCOFYEP6CTXBHMRKONH6STFNUUD6N44NPWZUPMFJCDQ5E3ITR7S5E6COFPQOEQOQJ27QFQ\\",\\"appId\\":\\"com.jd.jinrong\\",\\"openUUID\\":\\"6d664c1875cbf8d8c804a6f543b1bce5fc973834\\",\\"uuid\\":\\"\\",\\"clientVersion\\":\\"6.0.40\\",\\"startNo\\":155,\\"openid\\":\\"\\",\\"token\\":\\"\\",\\"sid\\":\\"\\",\\"terminalType\\":\\"02\\",\\"longtitude\\":\\"\\",\\"latitude\\":\\"\\",\\"securityData\\":\\"\\",\\"jscContent\\":\\"\\",\\"fnHttpHead\\":\\"\\",\\"receiveRequestTime\\":\\"\\",\\"port\\":\\"\\",\\"appType\\":1,\\"optType\\":\\"\\",\\"idfv\\":\\"\\",\\"wifiSSID\\":\\"\\",\\"wifiMacAddress\\":\\"\\",\\"cellIpAddress\\":\\"\\",\\"wifiIpAddress\\":\\"\\",\\"sdkToken\\":\\"2VPHH4ISILYFBBTK32LYYSEYWYA4PULO7LINWJ7ZAWHOUNLQSSOGPBNXFBPCTOFMS2G7F3PSXEXHS\\"}"}',
+          reqData: JSON.stringify({
+            'channelSource': 'JRAPP6.0',
+            'riskDeviceParam': JSON.stringify({
+              'fp': 'a4db0a1fce8f6a33eb42486a17550c54',
+              // 'eid': 'JKP6TAIXZT7VIVQPXRSYSCOFYEP6CTXBHMRKONH6STFNUUD6N44NPWZUPMFJCDQ5E3ITR7S5E6COFPQOEQOQJ27QFQ',
+              // 'appId': 'com.jd.jinrong',
+              // 'openUUID': '6d664c1875cbf8d8c804a6f543b1bce5fc973834',
+              // 'clientVersion': '6.0.40',
+              // 'startNo': 155,
+              // 'terminalType': '02',
+              // 'appType': 1,
+              // 'sdkToken': '2VPHH4ISILYFBBTK32LYYSEYWYA4PULO7LINWJ7ZAWHOUNLQSSOGPBNXFBPCTOFMS2G7F3PSXEXHS',
+            }),
+          }),
         },
       },
       isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
     const double12Sign = {
+      name: '双十二主会场签到',
       url: 'https://api.m.jd.com/client.action',
       options: {
         headers: {
@@ -96,6 +110,45 @@ class Sign extends Template {
       rewardOutputFn: data => {
         return _.property('lotteryResult.hongBaoList[0].prizeName')(data);
       },
+    };
+
+    const jrSign12 = {
+      name: '金融12月天天打卡',
+      url: 'https://ms.jr.jd.com/gw/generic/hy/h5/m/signIn12',
+      options: {
+        form: {
+          reqData: '{"channelLv":"syfc","site":"JD_JR_APP"}',
+        },
+      },
+      isSuccessFn: data => _.property('resultCode')(data) === 0,
+      rewardOutputFn: data => _.property('resultData.message')(data),
+    };
+
+    // TODO 待确认是否生效
+    const jrBean = {
+      name: '金融豆豆',
+      url: 'https://nu.jr.jd.com/gw/generic/jrm/h5/m/process',
+      options: {
+        form: {
+          reqData: JSON.stringify({
+            'actCode': '1D06AA3B0F',
+            'type': 3,
+            'riskDeviceParam': JSON.stringify({
+              'fp': 'd83856dcb12631cf271cf14d98a0da11',
+              // 'eid': 'JKP6TAIXZT7VIVQPXRSYSCOFYEP6CTXBHMRKONH6STFNUUD6N44NPWZUPMFJCDQ5E3ITR7S5E6COFPQOEQOQJ27QFQ',
+              // 'appId': 'com.jd.jinrong',
+              // 'openUUID': '6d664c1875cbf8d8c804a6f543b1bce5fc973834',
+              // 'clientVersion': '6.0.52',
+              // 'startNo': 155,
+              // 'token': 'LU3Z7HBCUPHJ5UV2UECAW4WYJCES576HJCDWKQUXRC2J6B6V7TB6GXPF3LKK5WR6PP2GMAMHLKUOW',
+              // 'terminalType': '02',
+              // 'appType': 1,
+              // 'sdkToken': 'jdd01NNECYT355RKVDKSOV7W4DZUSGSJBN2OJRZZNM2UAQNCK57FXTZKAA4UJGLQ44HQU7TN4C7TMVAW6CEYNHH57FVTWDPIAM2LLY7THVGA01234567',
+            }),
+          }),
+        },
+      },
+      isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
     const taskOptions = [
@@ -121,6 +174,8 @@ class Sign extends Template {
       getLuckDraw,
       ...shopSignUrl.map(([name, url]) => _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`})),
       double12Sign,
+      jrSign12,
+      jrBean,
     ];
 
     for (const options of taskOptions) {
