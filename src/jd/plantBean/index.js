@@ -8,7 +8,7 @@ class PlantBean extends Template {
   static scriptNameDesc = '种豆得豆';
   static shareCodeTaskList = [];
   static times = 2;
-  static concurrent = true;
+  static concurrent = false;
 
   static apiOptions = {
     signData: {
@@ -28,6 +28,7 @@ class PlantBean extends Template {
     return {
       beforeGetTaskList: {
         name: 'plantBeanIndex',
+        // TODO 并发不支持
         paramFn: () => ({plantUuid: self.shareCodeTaskList.shift()}),
         successFn(data) {
           const msg = _.property('data.helpShareRes.promptText')(data);
