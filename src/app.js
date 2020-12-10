@@ -208,6 +208,7 @@ async function main() {
         await jdFactory.start(getCookieData());
         await doCron(Pet);
         await doRun(CashShare);
+        await doRun(Necklace);
       },
     },
     {

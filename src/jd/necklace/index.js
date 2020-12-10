@@ -61,6 +61,13 @@ class Necklace extends Template {
         name: 'necklace_startTask',
         paramFn: o => o,
       },
+      afterGetTaskList: {
+        name: 'necklace_assistOpenCard',
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return false;
+        },
+        repeat: true
+      },
       doRedeem: {
         name: 'necklace_homePage',
         paramFn: self.commonParamFn,
