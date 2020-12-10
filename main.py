@@ -10,6 +10,7 @@ import zhihu.sync_data as sync_data
 from auto_reply import reminder
 from common import corp_we_chat
 from common import web_spider
+from common import zhihu_article_search
 from dao import resource_dao
 from dao import resource_log_dao
 from jobs import *
@@ -203,6 +204,8 @@ def auto_reply(msg):
     elif 'test' == msg.text:
         # msg.sender.set_remark_name('test remark')
         return
+    elif '知乎排名' == msg.text:
+        return zhihu_article_search.get_rank_result()
     else:
         return "小糖无法识别这个指定喔，回复 help 了解详情~"
 
