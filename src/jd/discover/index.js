@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 
 const {discover} = require('../../../charles/api');
 
-const targetTaskId = '3';
+const targetTaskId = '2';
 
 class Discover extends Template {
   static scriptName = '发现-看一看';
