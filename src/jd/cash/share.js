@@ -53,7 +53,7 @@ class CashShare extends Base {
           if (repeat) return getHome();
         }
 
-        const currentNodeTimes = shareNodeTips.split('/').map(v => +v.match(/\d/g, '')[0]).reverse().reduce((accumulator, currentValue) => accumulator - currentValue);
+        const currentNodeTimes = shareNodeTips.split('/').map(v => +v.replace(/[^\d]/g, '')).reverse().reduce((accumulator, currentValue) => accumulator - currentValue);
         self.log(`当前还差: ${currentNodeTimes}, 当前已助力次数为: ${assistedRecord.length}`);
       });
     }
