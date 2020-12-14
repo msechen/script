@@ -40,7 +40,7 @@ class CrazyJoy extends Template {
 
     // 获取信息列表
     // await api.doFormBody('crazyJoy_user_getMsgList', {"msgType":"USER_ACTIVE","status":"UNREAD","page":1,"pageSize":10});
-    self.getNowHour() < 8 && await doDayTask();
+    self.getNowHour() < 15 && await doDayTask();
 
     await upgradeJoy();
     await doProduce();
@@ -60,6 +60,7 @@ class CrazyJoy extends Template {
       // 签到
       await api.doFormBody('crazyJoy_task_doSign').then(logBean);
       for (const list of data) {
+        if (list.taskTypeId === 102 || list.taskTitle === '邀请好友每天助力') continue;
         const {duration: waitDuration} = list.ext;
         await self.loopCall(list, {
           isFinishFn: o => _.property('status')(o) === 3,
