@@ -95,4 +95,129 @@ class Api {
   }
 }
 
+function initWq() {
+  const wqOptions = {
+    method: 'GET',
+    headers: {
+      referer: 'https://wqs.jd.com/',
+    },
+    qs: {
+      sceneval: 2,
+      callback: 'jsonpCBKJ',
+    },
+  };
+
+  const apiPrototype = Api.prototype;
+
+  async function queryList(uri, pageSize = -1) {
+    return this.commonDo(mergeOptions({
+      uri,
+      qs: {
+        cp: 1,
+        pageSize,
+      },
+    })).then(formatData);
+  }
+
+  function formatData(data) {
+    let result = {};
+    try {
+      result = JSON.parse(data.replace('try{jsonpCBKJ(', '').replace(');}catch(e){}', ''));
+    } catch (e) {
+    }
+    return result;
+  }
+
+  function mergeOptions(options) {
+    return _.merge({}, wqOptions, options);
+  }
+
+  async function delByTimes(times = 1, {getListFn, doItemFn}) {
+    const MAX_PAGE_SIZE = 20;
+    const notLimitFn = t => t === -1;
+
+    await _del(times);
+
+    async function _del(times) {
+      const notLimit = notLimitFn(times);
+      const pageSize = notLimit ? MAX_PAGE_SIZE : _.min([times, MAX_PAGE_SIZE]);
+      const remainTimes = times - pageSize;
+      const list = await getListFn(pageSize);
+      if (_.isEmpty(list)) return;
+      await doItemFn(list);
+      if (notLimit || remainTimes > 0) {
+        await sleep(2);
+        await _del(notLimit ? times : remainTimes);
+      }
+    }
+  }
+
+  _.assign(apiPrototype, {
+    // 获取关注的店铺列表
+    queryShopFavList(pageSize) {
+      return queryList.call(this, 'https://wq.jd.com/fav/shop/QueryShopFavList', pageSize);
+    },
+    // 取消关注店铺
+    async delFavShop(shopIds) {
+      const self = this;
+      await delBatch(shopIds);
+
+      function delBatch(shopIds) {
+        const shopId = _.concat(shopIds).join();
+        return self.commonDo(mergeOptions({
+          uri: 'https://wq.jd.com/fav/shop/batchunfollow',
+          qs: {shopId},
+        }));
+      }
+
+      // TODO 待移除, 暂时没用到
+      function delSingle(shopId) {
+        return self.commonDo(mergeOptions({
+          uri: 'https://wq.jd.com/fav/shop/DelShopFav',
+          qs: {shopId},
+        }));
+      }
+    },
+    // 根据次数取消关注
+    async delShopFavByTimes(times) {
+      const self = this;
+      await delByTimes(times, {
+        getListFn: (pageSize) => {
+          return self.queryShopFavList(pageSize).then(data => _.map(data.data, 'shopId'));
+        },
+        doItemFn: self.delFavShop.bind(self),
+      });
+    },
+    // 获取关注的商品列表
+    queryCommFavList(pageSize) {
+      return queryList.call(this, 'https://wq.jd.com/fav/comm/FavCommQueryFilter', pageSize);
+    },
+    // 取消关注商品
+    async delFavComm(commIds) {
+      const self = this;
+      await delBatch(commIds);
+
+      function delBatch(commIds) {
+        const commId = _.concat(commIds).join();
+        return self.commonDo(mergeOptions({
+          uri: 'https://wq.jd.com/fav/comm/FavCommBatchDel',
+          qs: {commId},
+        }));
+      }
+    },
+    // 根据次数取消关注
+    async delCommFavByTimes(times) {
+      const self = this;
+      await delByTimes(times, {
+        getListFn: (pageSize) => {
+          return self.queryCommFavList(pageSize).then(data => _.map(data.data, 'commId'));
+        },
+        doItemFn: self.delFavComm.bind(self),
+      });
+    },
+  });
+}
+
+initWq();
+
 module.exports = Api;

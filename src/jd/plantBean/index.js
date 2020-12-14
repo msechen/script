@@ -76,7 +76,15 @@ class PlantBean extends Template {
               const [_taskType, listFunctionId, listFn, taskFunctionId] = taskConfig;
               list = await api.doFormBody(listFunctionId).then(listFn);
               _.assign(option, {
-                firstFn: async o => api.doFormBody(taskFunctionId, o).then(data => ({isSuccess: _.property('data.nutrState')(data) === '1'})),
+                firstFn: async o => {
+                  const isSuccess = api.doFormBody(taskFunctionId, o).then(data => ({isSuccess: _.property('data.nutrState')(data) === '1'}));
+                  if (_taskType === 3) {
+                    await api.delShopFavByTimes(1);
+                  } else if (_taskType === 5) {
+                    await api.delShopFavByTimes(1);
+                  }
+                  return isSuccess;
+                },
               });
             } else {
               // 其他任务

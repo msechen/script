@@ -31,7 +31,6 @@ const Smfe = require('./jd/smfe');
 const AppletSign = require('./jd/applet/sign');
 const Adf = require('./jd/digital/adf');
 const CrazyJoy = require('./jd/crazyJoy');
-const SplitHongbao = require('./jd/wfh/splitHongbao');
 const HealthyDay = require('./jd/wfh/healthyDay');
 const Necklace = require('./jd/necklace');
 
