@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 
 class Smfe extends Template {
   static scriptName = 'Smfe';
-  static scriptNameLabel = '小魔方';
+  static scriptNameDesc = '小魔方';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({interactionId: this.interactionId});
   static times = 1;
