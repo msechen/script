@@ -45,7 +45,7 @@ class Necklace extends Template {
             id,
             maxTimes,
             times,
-            waitDuration,
+            requireBrowseSeconds: waitDuration,
           } of taskList) {
             if ([2, 3].includes(status) || [].includes(id)) continue;
 
@@ -61,13 +61,13 @@ class Necklace extends Template {
         name: 'necklace_startTask',
         paramFn: o => o,
       },
-      afterGetTaskList: {
-        name: 'necklace_assistOpenCard',
-        async successFn(data, api) {
-          if (!self.isSuccess(data)) return false;
-        },
-        repeat: true
-      },
+      // afterGetTaskList: {
+      //   name: 'necklace_assistOpenCard',
+      //   async successFn(data, api) {
+      //     if (!self.isSuccess(data)) return false;
+      //   },
+      //   repeat: true
+      // },
       doRedeem: {
         name: 'necklace_homePage',
         paramFn: self.commonParamFn,

@@ -78,6 +78,7 @@ class HarmonyTemplate extends Template {
                 shareCodeTaskList.push(assistTaskDetailVo);
               }
               list = self.getShareCodeFn();
+              times = 0;
               maxTimes = list.length;
             }
 

@@ -3,11 +3,11 @@ const HarmonyTemplate = require('./template');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
-class HealthyDay extends HarmonyTemplate {
+class HarmonyHealthyDay extends HarmonyTemplate {
   static scriptNameDesc = '健康调研';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({appId: '1EFRTwg'});
-  static skipTaskIds = [2/*开会员*/, 5/*西医亚健康评测*/, 8/*完成并分享趣味评测*/];
+  static skipTaskIds = [2/*开会员*/, 4/*中医体质评测*/, 5/*西医亚健康评测*/, 8/*完成并分享趣味评测*/];
   static apiNames = {
     getTaskList: 'healthyDay_getHomeData',
     doTask: 'harmony_collectScore',
@@ -16,4 +16,4 @@ class HealthyDay extends HarmonyTemplate {
   };
 }
 
-module.exports = HealthyDay;
+module.exports = HarmonyHealthyDay;
