@@ -46,6 +46,7 @@ bot = Bot(cache_path=True, console_qr=2)
 bot.enable_puid('wxpy_puid.pkl')
 
 user_kolly = ensure_one(bot.friends().search('kolly'))
+user_dd = ensure_one(bot.friends().search('东东哥'))
 
 
 # 打印所有收到的消息
@@ -74,8 +75,7 @@ def auto_accept_friends(msg):
     logger.info('成功设置好友备注：{}'.format(remark))
 
     # 向新的好友发送消息
-    new_friend.send('哈喽~我是你的专属机器人助理小糖 😘\n'
-                    '你可以回复 help 查看小糖的使用指南噢~')
+    new_friend.send('哈喽~ 我是你的专属机器人助理小糖 😆')
 
     user_kolly.send("小糖增加一位新的好友：{}".format(new_friend.nick_name))
 
@@ -103,36 +103,21 @@ def auto_reply(msg):
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 2))
 
+    if msg.sender.name == '东东哥-10':
+        if msg.text == '客户排名':
+            return sync_data.query_article_rank(100)
+        else :
+            return
+
     if msg.sender.name != 'kolly🤔-1':
         return
 
-    if msg.sender.name == 'kolly🤔-1':
-        if '资源类型' == msg.text:
-            return '资源类型 1-搞笑段子 2-经典语录'
-        elif msg.text.startswith('上传资源'):
-            type = msg.text[4:5]
-            content = msg.text[6:]
-            resource_dao.add_resource(type, content)
-            return content
-        elif '段子' == msg.text:
-            res = resource_service.get_new_resource(1, 1)  # user_id 暂时写死
-            resource_log_dao.add_resource_log(1, res.id, res.type)  # user_id 暂时写死
-            return res.content
-        else:
-            pass
+    if msg.text == '客户排名':
+        return sync_data.query_article_rank(100)
 
-    if msg.text.startswith('你已添加了') and '现在可以开始聊天了' in msg.text:
-        return
-    if 'help' == msg.text.lower():
-        return "输入「天气」即可查询设置天气\n" \
-               "输入「热榜」即可查询今日热榜消息\n" \
-               "输入「大盘」即可查询上证指数涨跌\n" \
-               "输入「篮球」即可查询 NBA 今日赛事\n" \
-               "输入「关键字 + 表情包」，例如：熊猫头表情包，即可搜索对应表情包噢\n" \
-               "输入「定制」即可定制你的专属功能\n" \
-               "更多有趣的功能敬请期待唷~"
-        # "输入「提醒」即可查询未来的提醒\n" \
-        # "输入「赞赏」即可为小糖充电唷"
+    if '我的排名' == msg.text:
+        return sync_data.query_article_rank(11)
+
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
     elif '大盘' == msg.text:
@@ -207,10 +192,19 @@ def auto_reply(msg):
     elif 'test' == msg.text:
         # msg.sender.set_remark_name('test remark')
         return
-    elif '我的排名' == msg.text:
-        return sync_data.query_article_rank()
+    elif '资源类型' == msg.text:
+        return '资源类型 1-搞笑段子 2-经典语录'
+    elif msg.text.startswith('上传资源'):
+        type = msg.text[4:5]
+        content = msg.text[6:]
+        resource_dao.add_resource(type, content)
+        return content
+    elif '段子' == msg.text:
+        res = resource_service.get_new_resource(1, 1)  # user_id 暂时写死
+        resource_log_dao.add_resource_log(1, res.id, res.type)  # user_id 暂时写死
+        return res.content
     else:
-        return "小糖无法识别这个指定喔，回复 help 了解详情~"
+        return ""
 
 
 def send_corp_wechat(msg):

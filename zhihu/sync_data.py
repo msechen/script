@@ -109,7 +109,7 @@ def update_jd_goods(sku_ids):
 def update_article_rank():
     success_num = 0
 
-    article_list = zh_search_dao.query_search_list()
+    article_list = zh_search_dao.query_search_list(0)
     for article in article_list:
         rank = zhihu_spider.get_article_rank(article.keyword, article.x_zse_86, article.cookie, article.article_id)
         if rank is not None:
@@ -120,12 +120,12 @@ def update_article_rank():
 
 
 # 查询知乎文章排名
-def query_article_rank():
+def query_article_rank(user_id):
     top = "【排名统计】"
     mid = ""
     end = ""
 
-    article_list = zh_search_dao.query_search_list()
+    article_list = zh_search_dao.query_search_list(user_id)
     for article in article_list:
         mid = str(article.update_time)
         end = end + "\n[" + str(article.rank) + "] " + article.keyword
@@ -139,4 +139,4 @@ if __name__ == '__main__':
     # update_zhihu_question()
     # update_zhihu_answer()
     # update_jd_goods(None)
-    print(query_article_rank())
+    print(query_article_rank(100))

@@ -7,12 +7,12 @@ from utils import *
 logger = logging.getLogger('wx')
 
 
-def query_search_list():
+def query_search_list(user_id):
     # 创建Session对象:
     session = mysql_api.get_session()
     # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
     rows = session.query(ZhSearch)\
-        .filter(ZhSearch.user_id == 11) \
+        .filter(ZhSearch.user_id == user_id) \
         .order_by(ZhSearch.rank) \
         .all()
     session.close()
@@ -31,6 +31,6 @@ def update_search(article_id, rank):
 
 
 if __name__ == "__main__":
-    for search in query_search_list():
+    for search in query_search_list(11):
         print(search.article_id)
         # update_search(search.article_id, 2)
