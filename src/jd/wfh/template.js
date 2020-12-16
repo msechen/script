@@ -6,6 +6,7 @@ const moment = require('moment-timezone');
 const defaultApiNames = {
   getTaskList: 'interact_template_getHomeData',
   doTask: 'harmony_collectScore',
+  doWaitTask: 'harmony_collectScore',
   doRedeem: 'interact_template_getLotteryResult',
 };
 
