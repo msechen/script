@@ -7,6 +7,7 @@ const serverChan = require('./lib/serverChan');
 
 const Sign = require('./jd/sign');
 const SignRemote = require('./jd/sign/remote');
+const SignBeanGroup = require('./jd/sign/beanGroup');
 const PlantBean = require('./jd/plantBean');
 const SuperMarket = require('./jd/superMarket');
 const Pet = require('./jd/pet');
@@ -102,6 +103,7 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
+        await doRun(SignBeanGroup);
       },
     },
     {
