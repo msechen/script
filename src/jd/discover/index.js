@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 
 const {discover} = require('../../../charles/api');
 
-const targetTaskId = '2';
+let targetTaskId = '3';
 
 class Discover extends Template {
   static scriptName = '发现-看一看';
@@ -25,26 +25,28 @@ class Discover extends Template {
       getTaskList: {
         name: 'discTaskList',
         paramFn: () => [{}, discover.discTaskList[0]],
-        successFn: async (data) => {
+        successFn: async (data, api) => {
           // writeFileJSON(data, 'discTaskList.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
 
           const result = [];
 
-          for (const {taskId, times, maxTimes} of _.property('data.discTasks')(data) || []) {
+          for (const {taskId, times, maxTimes} of (_.property('data.discTasks')(data) || []).filter(o => o.taskId !== '1')) {
             // TODO signTask
             // taskId === '1' 签到的还未完成
-            if (taskId === targetTaskId) {
-              const filterForms = o => JSON.parse(o.body).taskId === targetTaskId;
-              discover.discAcceptTask = discover.discAcceptTask.filter(filterForms);
-              discover.discDoTask = discover.discDoTask.filter(filterForms);
-              let list = [];
-              for (let index = times; index < maxTimes; index++) {
-                list.push({index});
-              }
-              result.push({list, option: {times, maxTimes, waitDuration: 15}});
+
+            targetTaskId = taskId;
+            const filterForms = o => JSON.parse(o.body).taskId === targetTaskId;
+            discover.discAcceptTask = discover.discAcceptTask.filter(filterForms);
+            discover.discDoTask = discover.discDoTask.filter(filterForms);
+            const isSuccess = await api.doFormBody('discAcceptTask', {}, discover.discAcceptTask[0]).then(data => data.data);
+            if (!isSuccess) continue;
+            let list = [];
+            for (let index = times; index < maxTimes; index++) {
+              list.push({index});
             }
+            result.push({list, option: {times, maxTimes, waitDuration: 10}});
           }
 
           return result;
