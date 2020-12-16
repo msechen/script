@@ -121,16 +121,18 @@ def update_article_rank():
 
 # 查询知乎文章排名
 def query_article_rank():
-    result = "【排名统计】"
+    top = "【排名统计】"
+    mid = ""
+    end = ""
 
     article_list = zh_search_dao.query_search_list()
     for article in article_list:
-        result = result + "\n" + article.keyword
-        if article.remark is not None:
-            result = result + "(" + article.remark + ")"
-        result = result + " " + str(article.rank) + " " + str(article.update_time)
+        mid = str(article.update_time)
+        end = end + "\n[" + str(article.rank) + "] " + article.keyword
+        if article.remark is not None and article.remark != "":
+            end = end + "(" + article.remark + ")"
 
-    return result
+    return top + mid + end
 
 
 if __name__ == '__main__':

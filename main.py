@@ -207,7 +207,7 @@ def auto_reply(msg):
     elif 'test' == msg.text:
         # msg.sender.set_remark_name('test remark')
         return
-    elif '排名' == msg.text:
+    elif '我的排名' == msg.text:
         return sync_data.query_article_rank()
     else:
         return "小糖无法识别这个指定喔，回复 help 了解详情~"
