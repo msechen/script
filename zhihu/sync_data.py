@@ -119,8 +119,22 @@ def update_article_rank():
     zh_log_dao.add_log(1, "sync_article_rank", "success_article_num:{}".format(success_num))
 
 
+# 查询知乎文章排名
+def query_article_rank():
+    result = "【排名统计】"
+
+    article_list = zh_search_dao.query_search_list()
+    for article in article_list:
+        result = result + "\n" + article.keyword
+        if article.remark is not None:
+            result = result + "(" + article.remark + ")"
+        result = result + " " + str(article.rank) + " " + str(article.update_time)
+
+    return result
+
+
 if __name__ == '__main__':
     # update_zhihu_question()
     # update_zhihu_answer()
     # update_jd_goods(None)
-    update_article_rank()
+    print(query_article_rank())

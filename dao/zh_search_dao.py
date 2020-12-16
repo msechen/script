@@ -12,7 +12,8 @@ def query_search_list():
     session = mysql_api.get_session()
     # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
     rows = session.query(ZhSearch)\
-        .filter(ZhQuestion.flag == 0)\
+        .filter(ZhSearch.user_id == 11) \
+        .order_by(ZhSearch.rank) \
         .all()
     session.close()
     return rows

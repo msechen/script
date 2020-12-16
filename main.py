@@ -103,6 +103,9 @@ def auto_reply(msg):
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 2))
 
+    if msg.sender.name != 'kolly🤔-1':
+        return
+
     if msg.sender.name == 'kolly🤔-1':
         if '资源类型' == msg.text:
             return '资源类型 1-搞笑段子 2-经典语录'
@@ -204,8 +207,8 @@ def auto_reply(msg):
     elif 'test' == msg.text:
         # msg.sender.set_remark_name('test remark')
         return
-    elif '知乎排名' == msg.text:
-        return zhihu_article_search.get_rank_result()
+    elif '排名' == msg.text:
+        return sync_data.query_article_rank()
     else:
         return "小糖无法识别这个指定喔，回复 help 了解详情~"
 

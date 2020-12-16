@@ -15,8 +15,7 @@ class ZhSearch(Base):
     user_id = Column(Integer)
     article_id = Column(String(256))
     keyword = Column(String(256))
-    x_zse_86 = Column(String(256))
-    cookie = Column(Text)
+    remark = Column(String(256))
     rank = Column(Integer)
     update_time = Column(String(256))
 
