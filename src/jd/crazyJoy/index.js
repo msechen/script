@@ -6,8 +6,7 @@ const moment = require('moment-timezone');
 class CrazyJoy extends Template {
   static scriptName = 'CrazyJoy';
   static scriptNameDesc = '疯狂的Joy';
-  static times = 1;
-  static concurrent = true;
+  static times = 2;
 
   static apiOptions = {
     signData: {
@@ -40,14 +39,16 @@ class CrazyJoy extends Template {
 
     // 获取信息列表
     // await api.doFormBody('crazyJoy_user_getMsgList', {"msgType":"USER_ACTIVE","status":"UNREAD","page":1,"pageSize":10});
-    self.getNowHour() < 15 && await doDayTask();
+    await doDayTask();
 
     await upgradeJoy();
     await doProduce();
     await upgradeJoy();
 
-    await getLevelReward();
-    await log();
+    if (self.isLastLoop()) {
+      await getLevelReward();
+      await log();
+    }
 
     async function log() {
       const joyIds = await getJoyIds();
@@ -58,9 +59,19 @@ class CrazyJoy extends Template {
     async function doDayTask() {
       const {data} = await api.doFormBody('crazyJoy_task_getTaskState', {paramData: {taskType: 'DAY_TASK'}});
       // 签到
-      await api.doFormBody('crazyJoy_task_doSign').then(logBean);
+      self.isFirstLoop() && await api.doFormBody('crazyJoy_task_doSign').then(logBean);
       for (const list of data) {
-        if (list.taskTypeId === 102 || list.taskTitle === '邀请好友每天助力') continue;
+        if (list.taskTypeId === 102 || list.taskTitle === '邀请好友每天助力') {
+          const currentInviter = await getGameState().then(data => data.data.userInviteCode);
+          !self.shareCodeTaskList.includes(currentInviter) && self.shareCodeTaskList.push(currentInviter);
+          const shareList = self.getShareCodeFn();
+          shareList.length && await self.loopCall(shareList, {
+            maxTimes: shareList.length,
+            async firstFn(inviter) {
+              return api.doFormBody('crazyJoy_task_recordAssist', {'paramData': {inviter}});
+            },
+          });
+        }
         const {duration: waitDuration} = list.ext;
         await self.loopCall(list, {
           isFinishFn: o => _.property('status')(o) === 3,
