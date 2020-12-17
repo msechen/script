@@ -40,6 +40,7 @@ class CrazyJoy extends Template {
     // 获取信息列表
     // await api.doFormBody('crazyJoy_user_getMsgList', {"msgType":"USER_ACTIVE","status":"UNREAD","page":1,"pageSize":10});
     await doDayTask();
+    await handleSign();
 
     await upgradeJoy();
     await doProduce();
@@ -55,11 +56,20 @@ class CrazyJoy extends Template {
       self.log(`最高等级为: ${_.max(joyIds)}, 所有等级为: ${joyIds}`);
     }
 
+    // 签到
+    async function handleSign() {
+      if (self.isFirstLoop()) {
+        const signData = await api.doFormBody('crazyJoy_task_getSignState').then(data => data.data);
+        const currentStatus = _.last(signData.filter(o => o.status !== 0));
+        if (currentStatus && currentStatus.status !== 3) {
+          await api.doFormBody('crazyJoy_task_doSign').then(logBean);
+        }
+      }
+    }
+
     // 每日任务
     async function doDayTask() {
       const {data} = await api.doFormBody('crazyJoy_task_getTaskState', {paramData: {taskType: 'DAY_TASK'}});
-      // 签到
-      self.isFirstLoop() && await api.doFormBody('crazyJoy_task_doSign').then(logBean);
       for (const list of data) {
         if (list.taskTypeId === 102 || list.taskTitle === '邀请好友每天助力') {
           const currentInviter = await getGameState().then(data => data.data.userInviteCode);
