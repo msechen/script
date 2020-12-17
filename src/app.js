@@ -35,6 +35,7 @@ const CrazyJoy = require('./jd/crazyJoy');
 const HarmonyApple = require('./jd/wfh/harmonyApple');
 const HarmonyHealthyDay = require('./jd/wfh/harmonyHealthyDay');
 const Necklace = require('./jd/necklace');
+const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -126,6 +127,7 @@ async function main() {
       async run() {
         await doRun(Necklace);
         await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
+        await doRun(SecondKillRedPacket);
       },
     },
     {
