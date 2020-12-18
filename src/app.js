@@ -38,6 +38,7 @@ const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = require('./jd/dreamFactory');
 const RedRain = require('./jd/sign/redRain');
+const JxCfd = require('./jd/jxCfd');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -107,6 +108,7 @@ async function main() {
         await doRun(Cash);
         await doRun(Wish);
         await doRun(SignBeanGroup);
+        await doRun(JxCfd);
       },
     },
     {

@@ -42,6 +42,7 @@ const envSecrets = _.fromPairs(_.flatten([
   'JD_SSJJ_USER_NAME',
   'JD_KOIREDPACKET_SHARE_CODE',
   'JD_DREAMFACTORY_SHARE_CODE',
+  'JD_JXCFD_SHARE_CODE',
 ].map(target => generateEnv(..._.concat(target)))));
 
 const config = {

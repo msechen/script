@@ -19,6 +19,7 @@ class Base {
   // request 参数
   static isWh5 = false; // 添加signData
   static needInApp = true; // 添加 userAgent
+  static needInJxApp = false; // 添加 userAgent
   static needOriginH5 = false; // 添加 headers.origin
   static apiOptions = {
     signData: {},
@@ -152,6 +153,10 @@ class Base {
     const {requestFnName, apiNames = []} = this.apiExtends;
 
     this.isWh5 && _.assign(signData, {client: 'wh5', clientVersion: '1.0.0'});
+    if (this.needInJxApp) {
+      this.needInApp = false;
+      _.merge(options, {headers: {'User-Agent': 'jdpingou'}});
+    }
     this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
 
