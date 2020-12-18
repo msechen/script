@@ -6,9 +6,9 @@ const moment = require('moment-timezone');
 const _sleep = require('util').promisify(setTimeout);
 /**
  *
- * @param minutes {number}
+ * @param seconds {number}
  */
-const sleep = (minutes = 1) => _sleep(minutes * 1000);
+const sleep = (seconds = 1) => _sleep(seconds * 1000);
 
 const getNowMoment = (tz = 'Asia/Shanghai') => moment().tz(tz);
 const getNowDate = (format = 'YYYY-MM-DD') => getNowMoment().format(format);

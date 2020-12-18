@@ -36,6 +36,7 @@ const HarmonyApple = require('./jd/wfh/harmonyApple');
 const HarmonyHealthyDay = require('./jd/wfh/harmonyHealthyDay');
 const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
+const DreamFactory = require('./jd/dreamFactory');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -146,6 +147,7 @@ async function main() {
     {
       valid: 6,
       run: async () => {
+        await doRun(DreamFactory);
         await doRun(FruitRemote);
         await doRun(PetRemote);
         await doCron(TurnTableFarm);
@@ -154,6 +156,7 @@ async function main() {
     {
       valid: 7,
       run: async () => {
+        await doRun(DreamFactory);
         await doCron(Fruit);
         await doCron(Pet);
         await doRun(CrazyJoy);
@@ -162,8 +165,15 @@ async function main() {
     {
       valid: 8,
       run: async () => {
+        await doRun(DreamFactory);
         await doCron(SuperMarket);
         await doRun(SuperMarket);
+      },
+    },
+    {
+      valid: 9,
+      run: async () => {
+        await doRun(DreamFactory);
       },
     },
     {

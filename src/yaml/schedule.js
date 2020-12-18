@@ -40,6 +40,7 @@ const envSecrets = _.fromPairs(_.flatten([
   'JD_BC_POSITION_LNG',
   'JD_SSJJ_SHARE_CODE',
   'JD_SSJJ_USER_NAME',
+  'JD_DREAMFACTORY_SHARE_CODE',
 ].map(target => generateEnv(..._.concat(target)))));
 
 const config = {
