@@ -225,6 +225,7 @@ async function main() {
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
+        await doRun(RedRain);
       },
     },
     {
