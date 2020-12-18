@@ -27,7 +27,7 @@ class SignBeanGroup extends Template {
     const _ = self._;
 
     self.isFirstLoop() && await api.doFormBody('signGroupHit', {activeType: 2});
-    const {groupCode, shareCode} = await api.doFormBody('signBeanGroupStageIndex').then(data => data.data) || {};
+    const {groupCode, shareCode, jklInfo} = await api.doFormBody('signBeanGroupStageIndex').then(data => data.data) || {};
     if (shareCode) {
       !self.shareCodeTaskList.some(o => o.shareCode === shareCode) && self.shareCodeTaskList.push({
         groupCode,
@@ -51,7 +51,7 @@ class SignBeanGroup extends Template {
     }
 
     async function signGroupHelp(groupCode, shareCode, isTask) {
-      return api.doFormBody('signGroupHelp', {activeType: 2, activeId: '84', groupCode, shareCode, isTask});
+      return api.doFormBody('signGroupHelp', {activeType: 2, activeId: jklInfo.keyId, groupCode, shareCode, isTask});
     }
   }
 }
