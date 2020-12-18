@@ -8,6 +8,7 @@ class DreamFactory extends Template {
   static scriptNameDesc = '京喜工厂';
   static shareCodeTaskList = [];
   static times = 1;
+  static needInJxApp = true;
 
   static apiOptions = {
     signData: {},
