@@ -122,12 +122,14 @@ class KoiRedPacket extends Template {
 
     const index = self.currentCookieTimes === 0 ? 1 : 0;
     if (self.isFirstLoop()) {
+      await api.doFormBody('h5launch', {followShop: 0});
       const redPacketId = await api.doFormBody('h5activityIndex').then(data => _.property('data.result.redpacketInfo.id')(data));
       self.shareCodeTaskList[index] = _.assign(self.shareCodeTaskList[index] || {}, {redPacketId});
     }
     const shareCode = self.shareCodeTaskList[self.currentCookieTimes];
     const {userInfo, redPacketId, isDone} = shareCode;
     if (!redPacketId || isDone) return;
+    // TODO 待 userInfo 获取逻辑
     await api.doFunctionId('miniAssist', {
       form: {
         body: JSON.stringify({
