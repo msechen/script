@@ -39,6 +39,7 @@ const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = require('./jd/dreamFactory');
 const RedRain = require('./jd/sign/redRain');
 const JxCfd = require('./jd/jxCfd');
+const GoldenEgg = require('./jd/wfh/goldenEgg');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -118,7 +119,7 @@ async function main() {
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
         await doRun(HarmonyHealthyDay);
-        await doRun(HarmonyApple);
+        await doRun(GoldenEgg);
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);

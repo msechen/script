@@ -45,7 +45,7 @@ class HarmonyTemplate extends Template {
     const self = this;
     const _ = this._;
 
-    return {
+    const result = {
       // 获取任务列表
       getTaskList: {
         name: self.getApiNames().getTaskList,
@@ -105,6 +105,14 @@ class HarmonyTemplate extends Template {
           return self.afterDoWaitTask(data, api);
         },
       },
+      afterGetTaskList: {
+        name: self.getApiNames().afterGetTaskList,
+        paramFn: () => _.assign(self.commonParamFn(), self.redeemWithTaskId ? {taskId: self.shareTaskId} : {}),
+        successFn: data => {
+          if (!self.isSuccess(data)) return false;
+        },
+        repeat: true,
+      },
       doRedeem: {
         name: self.getApiNames().doRedeem,
         paramFn: () => _.assign(self.commonParamFn(), self.redeemWithTaskId ? {taskId: self.shareTaskId} : {}),
@@ -115,6 +123,12 @@ class HarmonyTemplate extends Template {
         repeat: true,
       },
     };
+
+    Object.keys(result).forEach(key => {
+      if (!result[key].name) delete result[key];
+    });
+
+    return result;
   };
 }
 
