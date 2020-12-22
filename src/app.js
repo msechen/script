@@ -5,6 +5,8 @@ const _ = require('lodash');
 const {getNowMoment, getNowDate, getLogFile} = require('./lib/common');
 const serverChan = require('./lib/serverChan');
 
+const Common = require('./jd/base/common');
+
 const Sign = require('./jd/sign');
 const SignRemote = require('./jd/sign/remote');
 const SignBeanGroup = require('./jd/sign/beanGroup');
