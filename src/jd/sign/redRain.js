@@ -33,9 +33,12 @@ class RedRain extends Template {
       const nowMoment = getNowMoment();
       const nowTime = nowMoment.valueOf();
       const startTime = nowMoment.hour(hour).minute(0).second(0).valueOf();
-      await sleep(Math.floor((startTime - nowTime) / 1000));
-      await liveRedRain();
-      await serverChan.sendLog();
+      const seconds = Math.floor((startTime - nowTime) / 1000);
+      if (seconds) {
+        await serverChan.sendLog();
+        await sleep(seconds + 30);
+        await liveRedRain();
+      }
     }
 
     // 直播间红包雨
