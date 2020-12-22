@@ -24,15 +24,19 @@ const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
   };
   [].concat(output).forEach(_log);
 };
+const cleanLog = (fileName) => {
+  fs.writeFileSync(getLogFile(fileName), '');
+};
 
 // 将json写入文件中
-const writeFileJSON = (data, fileName, dirname) => require('fs').writeFileSync(require('path').resolve(dirname, fileName), JSON.stringify(data), {encoding : 'utf-8'});
+const writeFileJSON = (data, fileName, dirname) => require('fs').writeFileSync(require('path').resolve(dirname, fileName), JSON.stringify(data), {encoding: 'utf-8'});
 
 module.exports = {
   sleep,
 
   getLogFile,
   printLog,
+  cleanLog,
 
   getNowMoment,
   getNowDate,

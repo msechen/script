@@ -67,7 +67,9 @@ const config = {
         {'name': 'Run app', 'run': 'npm install'},
         {
           'run': 'node src/app.js',
-          'env': envSecrets,
+          'env': _.assign({
+            NODE_ENV: 'production',
+          }, envSecrets),
         }],
     },
   },

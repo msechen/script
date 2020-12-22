@@ -1,5 +1,8 @@
 const rp = require('request-promise');
 const _key = process.env.SEVER_CHAN_KEY;
+const fs = require('fs');
+
+const {getNowDate, getLogFile, cleanLog} = require('./common');
 
 async function send(title, content) {
   if (!_key) {
@@ -29,7 +32,20 @@ async function send(title, content) {
   return _send(options);
 }
 
+async function sendLog(fileName = 'app', needCleanLog = process.env.NODE_ENV === 'production') {
+  const logFile = getLogFile(fileName);
+  let content;
+  if (fs.existsSync(logFile)) {
+    content = fs.readFileSync(logFile);
+  }
+  if (!content) return;
+  needCleanLog && cleanLog(fileName);
+  return send(`lazy_script_${getNowDate()}`, content).then(() => {
+    console.log('发送消息成功');
+  });
+}
 
 module.exports = {
   send,
+  sendLog,
 };

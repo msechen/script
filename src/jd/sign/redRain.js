@@ -2,6 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
 const moment = require('moment-timezone');
+const serverChan = require('../../lib/serverChan');
 
 class RedRain extends Template {
   static scriptName = 'RedRain';
@@ -25,40 +26,29 @@ class RedRain extends Template {
     const self = this;
     const _ = this._;
 
+    const nowHour = self.getNowHour();
 
-    await liveRedRain();
-
-    // 直播间红包雨
-    async function liveRedRain(times = 0) {
-      if (times === 6) return false;
+    for (const hour of nowHour === 8 ? [9, 11, 13, 15, 17] : [19, 20, 21, 23]) {
+      if (nowHour > hour) continue;
       const nowMoment = getNowMoment();
       const nowTime = nowMoment.valueOf();
+      const startTime = nowMoment.hour(hour).minute(0).second(0).valueOf();
+      await sleep(Math.floor((startTime - nowTime) / 1000));
+      await liveRedRain();
+      await serverChan.sendLog();
+    }
+
+    // 直播间红包雨
+    async function liveRedRain() {
       const actId = await api.doUrl('http://ql4kk90rw.hb-bkt.clouddn.com/jd_live_redRain.json', {
         method: 'GET',
-        qs: {
-          t: nowTime,
+        headers: {
+          Cookie: '',
         },
-      }).then(data => {
-        const startTime = data.startTime;
-        const timeout = startTime - nowTime;
-
-        if (getNowMoment(void 0, startTime).isAfter(nowMoment)) {
-          if (timeout < 3 * 60 * 60 * 1000) {
-            handleDelay(timeout);
-          }
-          return false;
-        }
-
-        return data.activityId;
-      });
+      }).then(async data => data.activityId);
 
       if (actId) {
         await receiveRedRain(actId);
-        handleDelay(30 * 60 * 1000);
-      }
-
-      function handleDelay(delay) {
-        setTimeout(liveRedRain.bind(0, ++times), delay);
       }
     }
 
@@ -70,7 +60,8 @@ class RedRain extends Template {
             if (!o) return;
             self.log(`获取到${o.prizeName}: ${o.quantity}`);
           });
-          return receiveRedRain(actId);
+        } else {
+          self.log(data.msg);
         }
       });
     }
