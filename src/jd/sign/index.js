@@ -151,6 +151,22 @@ class Sign extends Template {
       isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
+    const dsSign = {
+      name: '快递签到',
+      url: 'https://lop-proxy.jd.com/jiFenApi/signInAndGetReward',
+      options: {
+        headers: {
+          origin: 'https://jingcai-h5.jd.com/',
+          referer: 'https://jingcai-h5.jd.com/',
+          'lop-dn': 'jingcai.jd.com',
+          appparams: '{"appid":158,"ticket_type":"m"}',
+        },
+        body: [{'userNo': '$cooMrdGatewayUid$'}],
+      },
+      isSuccessFn: data => _.property('code')(data) === 1,
+      rewardOutputFn: data => _.property('content[0].title')(data),
+    };
+
     const taskOptions = [
       jrSign,
       {
@@ -176,6 +192,7 @@ class Sign extends Template {
       double12Sign,
       jrSign12,
       jrBean,
+      dsSign,
     ];
 
     for (const options of taskOptions) {
