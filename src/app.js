@@ -42,6 +42,7 @@ const DreamFactory = require('./jd/dreamFactory');
 const RedRain = require('./jd/sign/redRain');
 const JxCfd = require('./jd/jxCfd');
 const GoldenEgg = require('./jd/wfh/goldenEgg');
+const Car = require('./jd/car');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -135,6 +136,7 @@ async function main() {
         await doRun(Necklace);
         await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
         await doRun(SecondKillRedPacket);
+        await doRun(Car);
       },
     },
     {
