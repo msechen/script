@@ -72,8 +72,8 @@ class CrazyJoy extends Template {
       const {data} = await api.doFormBody('crazyJoy_task_getTaskState', {paramData: {taskType: 'DAY_TASK'}});
       for (const list of data) {
         if (list.taskTypeId === 102 || list.taskTitle === '邀请好友每天助力') {
-          const currentInviter = await getGameState().then(data => data.data.userInviteCode);
-          !self.shareCodeTaskList.includes(currentInviter) && self.shareCodeTaskList.push(currentInviter);
+          const currentInviter = await getGameState().then(data => _.property('data.userInviteCode')(data));
+          currentInviter && !self.shareCodeTaskList.includes(currentInviter) && self.shareCodeTaskList.push(currentInviter);
           const shareList = self.getShareCodeFn();
           shareList.length && await self.loopCall(shareList, {
             maxTimes: shareList.length,
@@ -81,6 +81,7 @@ class CrazyJoy extends Template {
               return api.doFormBody('crazyJoy_task_recordAssist', {'paramData': {inviter}});
             },
           });
+          continue;
         }
         const {duration: waitDuration} = list.ext;
         await self.loopCall(list, {
