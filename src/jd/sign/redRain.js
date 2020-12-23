@@ -28,7 +28,7 @@ class RedRain extends Template {
 
     const nowHour = self.getNowHour();
 
-    for (const hour of nowHour === 8 ? [9, 11, 13, 15, 17] : [19, 20, 21, 23]) {
+    for (const hour of nowHour === 8 ? [9, 11, 13] : (nowHour === 14 ? [15, 17] : [19, 20, 21, 23])) {
       if (nowHour > hour) continue;
       const nowMoment = getNowMoment();
       const nowTime = nowMoment.valueOf();

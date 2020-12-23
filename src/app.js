@@ -203,6 +203,12 @@ async function main() {
       valid: 14,
       run: async () => {
         await doRun(Wish);
+        await doRun(RedRain);
+      },
+    },
+    {
+      valid: 15,
+      run: async () => {
         await doRun(CrazyJoy);
       },
     },
