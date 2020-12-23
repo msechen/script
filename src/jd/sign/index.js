@@ -151,7 +151,7 @@ class Sign extends Template {
       isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
-    const dsSign = {
+    const expressSign = {
       name: '快递签到',
       url: 'https://lop-proxy.jd.com/jiFenApi/signInAndGetReward',
       options: {
@@ -192,7 +192,7 @@ class Sign extends Template {
       double12Sign,
       jrSign12,
       jrBean,
-      dsSign,
+      expressSign,
     ];
 
     for (const options of taskOptions) {
