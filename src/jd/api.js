@@ -70,7 +70,7 @@ class Api {
     }, options));
   }
 
-  doForm(functionId, form) {
+  doForm(functionId, form, options = {}) {
     Object.keys(form).forEach(key => {
       const value = form[key];
       if (_.isPlainObject(value)) {
@@ -79,12 +79,12 @@ class Api {
         form[key] = form[key].replace(/\//g, '\\/');
       }
     });
-    return this.doFunctionId(functionId, {form});
+    return this.doFunctionId(functionId, _.merge({form}, options));
   }
 
-  doFormBody(functionId, body, signData) {
+  doFormBody(functionId, body, signData, options) {
     body = body || {};
-    return this.doForm(functionId, _.merge({body}, this.signData, signData));
+    return this.doForm(functionId, _.merge({body}, this.signData, signData), options);
   }
 
   doPath(functionId, form = {}, options = {}) {

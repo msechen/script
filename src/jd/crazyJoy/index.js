@@ -17,6 +17,9 @@ class CrazyJoy extends Template {
         origin: 'https://crazy-joy.jd.com',
         referer: 'https://crazy-joy.jd.com',
       },
+      qs: {
+        appid: 'crazy_joy',
+      },
     },
   };
 
@@ -47,7 +50,8 @@ class CrazyJoy extends Template {
     await upgradeJoy();
 
     if (self.isLastLoop()) {
-      await getLevelReward();
+      // await getLevelReward();
+      // await extractBean();
       await log();
     }
 
@@ -104,8 +108,11 @@ class CrazyJoy extends Template {
 
     // 页面的小礼盒
     async function doProduce() {
-      const {luckyBoxRecordId, advertViewTimes} = await api.doFormBody('crazyJoy_joy_produce').then(data => data.data);
-      if (advertViewTimes === 0) return;
+      const {
+        luckyBoxRecordId,
+        advertViewTimes,
+      } = await api.doFormBody('crazyJoy_joy_produce').then(data => _.property('data')(data) || {});
+      if (advertViewTimes === 0 || !luckyBoxRecordId) return;
       await doVideo(luckyBoxRecordId);
       await upgradeJoy();
       await doProduce();
@@ -285,7 +292,11 @@ class CrazyJoy extends Template {
 
     // 提取京豆
     async function extractBean() {
-      let {beanGradation, totalBeans} = await api.doFormBody('crazyJoy_user_getJdBeanInfo').then(data => data.data) || {};
+      let {
+        beanGradation,
+        totalBeans,
+      } = await api.doFormBody('crazyJoy_user_getJdBeanInfo', void 0, void 0, {method: 'GET'}).then(data => data.data) || {};
+      beanGradation = _.sortBy(beanGradation || [], 'count').reverse();
       for (const {count} of beanGradation) {
         if (totalBeans >= count) {
           await api.doFormBody('crazyJoy_user_applyJdBeanPaid', {'paramData': {'bean': count}});
