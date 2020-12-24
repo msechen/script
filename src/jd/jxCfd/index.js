@@ -36,8 +36,22 @@ class JxCfd extends Template {
     const self = this;
     const _ = this._;
 
-    const {SceneList} = await api.doPath('jxcfd/user/QueryUserInfo');
+    const {SceneList, dwIsNewUser} = await api.doPath('jxcfd/user/QueryUserInfo');
     const dwSceneId = Object.keys(SceneList || {})[0] || 1001;
+
+    // 助力寻宝大战
+    const strGroupId = process.env.JD_JXCFD_GROUP_SHARE_CODE;
+    strGroupId && await api.doPath('jxcfd/user/JoinGroup', void 0, {
+      qs: {
+        strGroupId,
+        dwIsNewUser,
+      },
+    }).then(data => {
+      let msg = `助力结果: ${data.sErrMsg}`;
+      data.strNick && (msg += `, 名字是${data.strNick}`);
+      data.dwGetMoney && (msg += `, 获取的钱数为${data.dwGetMoney}`);
+      self.log(msg);
+    });
 
     for (const shareCode of shareCodes) {
       await handleShare(shareCode);

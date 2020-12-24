@@ -145,3 +145,4 @@ jobs:
           JD_JXCFD_SHARE_CODE_3: '${{ secrets.JD_JXCFD_SHARE_CODE_3 }}'
           JD_JXCFD_SHARE_CODE_4: '${{ secrets.JD_JXCFD_SHARE_CODE_4 }}'
           JD_JXCFD_SHARE_CODE_5: '${{ secrets.JD_JXCFD_SHARE_CODE_5 }}'
+          JD_JXCFD_GROUP_SHARE_CODE: '${{ secrets.JD_JXCFD_GROUP_SHARE_CODE }}'
