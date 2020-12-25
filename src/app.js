@@ -44,6 +44,7 @@ const JxCfd = require('./jd/jxCfd');
 const GoldenEgg = require('./jd/wfh/goldenEgg');
 const Car = require('./jd/car');
 const VipClubShare = require('./jd/vipClub/shake');
+const KoiRedPacket = require('./jd/koiRedPacket');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -129,6 +130,7 @@ async function main() {
         await doRun(Smfe);
         await doRun(Adf);
         await doRun(PlantBean);
+        await doRun(KoiRedPacket);
       },
     },
     {
