@@ -22,6 +22,22 @@ class DreamFactory extends Template {
     const self = this;
     const _ = this._;
 
+    const tuanId = process.env.JD_DREAMFACTORY_TUAN_ID;
+    const activeId = process.env.JD_DREAMFACTORY_TUAN_ACTIVE_ID;
+    activeId && tuanId && await api.doUrl('https://m.jingxi.com/dreamfactory/tuan/JoinTuan', {
+      headers: {
+        referer: 'https://st.jingxi.com/pingou/dream_factory/index.html',
+      },
+      form: {
+        // "tuanActiveId":"固定","tuanId":"会变化"
+        activeId, tuanId,
+        sceneval: 2,
+        g_login_type: 1,
+      },
+    }).then(data => {
+      self.log(data.msg);
+    });
+
     const nowHour = self.getNowHour();
     const shareCode = shareCodes[nowHour - 6];
     if (shareCode) return handleAssistFriend(shareCode);

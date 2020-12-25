@@ -146,3 +146,5 @@ jobs:
           JD_JXCFD_SHARE_CODE_4: '${{ secrets.JD_JXCFD_SHARE_CODE_4 }}'
           JD_JXCFD_SHARE_CODE_5: '${{ secrets.JD_JXCFD_SHARE_CODE_5 }}'
           JD_JXCFD_GROUP_SHARE_CODE: '${{ secrets.JD_JXCFD_GROUP_SHARE_CODE }}'
+          JD_DREAMFACTORY_TUAN_ID: '${{ secrets.JD_DREAMFACTORY_TUAN_ID }}'
+          JD_DREAMFACTORY_TUAN_ACTIVE_ID: '${{ secrets.JD_DREAMFACTORY_TUAN_ACTIVE_ID }}'
