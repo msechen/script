@@ -11,7 +11,7 @@ class Wfh extends HarmonyTemplate {
     doTask: 'wfh_collectScore',
     doRedeem: 'wfh_getLotteryResult',
   };
-  static commonParamFn = () => ({appId: '1EFRQyg'});
+  static commonParamFn = () => ({appId: '1EFRSxA'});
 }
 
 module.exports = Wfh;
