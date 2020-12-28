@@ -12,6 +12,7 @@ const SignRemote = require('./jd/sign/remote');
 const SignBeanGroup = require('./jd/sign/beanGroup');
 const PlantBean = require('./jd/plantBean');
 const SuperMarket = require('./jd/superMarket');
+const SuperMarketRedeem = require('./jd/superMarket/redeem');
 const Pet = require('./jd/pet');
 const PetRemote = require('./jd/pet/remote');
 const Fruit = require('./jd/fruit');
@@ -258,6 +259,7 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
+        await doRun(SuperMarketRedeem);
       },
     },
   ];
