@@ -63,6 +63,8 @@ class Wish extends Template {
         form = getForm(taskList[index++]);
       } while (!form);
 
+      if (!form) break;
+
       const needStop = await api.doForm('wishContent', form).then(async data => {
         index++;
         if (!self.isSuccess(data)) return true;
