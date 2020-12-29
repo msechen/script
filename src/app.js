@@ -35,7 +35,7 @@ const Smfe = require('./jd/smfe');
 const AppletSign = require('./jd/applet/sign');
 const Adf = require('./jd/digital/adf');
 const CrazyJoy = require('./jd/crazyJoy');
-const HarmonyHealthyDaySound = require('./jd/wfh/harmonyHealthyDaySound');
+const Harmony1 = require('./jd/wfh/harmony1');
 const HarmonyHealthyDay = require('./jd/wfh/harmonyHealthyDay');
 const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
@@ -125,7 +125,7 @@ async function main() {
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
         await doRun(HarmonyHealthyDay);
-        await doRun(HarmonyHealthyDaySound);
+        await doRun(Harmony1);
         await doRun(GoldenEgg);
         await doRun(Wfh);
         await doRun(Trump);
