@@ -97,21 +97,9 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 知乎数据定时更新
-    # scheduler.add_job(update_zhihu_data, 'cron', year='*', month='*', day='*', day_of_week='*',
-    #                   hour='*', minute='25', second='30')
-
-    # 知乎数据定时更新 V2
-    # scheduler.add_job(update_zhihu_data_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
-    #                   hour='*/2', minute='5', second='30')
-
-    # 商品佣金数据定时更新
-    # scheduler.add_job(update_goods, 'cron', year='*', month='*', day='*', day_of_week='*',
-    #                   hour='*/2', minute='35', second='30')
-
-    # 文章排名定时更新
-    # scheduler.add_job(update_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
-    #                   hour='*/2', minute='15', second='30')
+    # 知乎文章排名
+    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='40', second='30')
 
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -119,32 +107,8 @@ def init_scheduler(bot_var):
 
     scheduler.start()
 
-# 知乎数据更新
-# def update_zhihu_data():
-#     gs.update_zhihu_data()
 
-
-# 知乎数据更新
-def update_goods():
-    logger.info('更新知乎好物商品数据 start')
-    sync_data.update_jd_goods(None)
-    logger.info('更新知乎好物商品数据 end')
-
-
-# 知乎文章排名更新
-def update_article_rank():
-    sync_data.update_article_rank()
-
-
-# 知乎数据更新
-def update_zhihu_data_v2():
-    logger.info('更新知乎好物问答数据 start')
-    sync_data.update_zhihu_question()
-    sync_data.update_zhihu_answer()
-    logger.info('更新知乎好物问答数据 end')
-
-
-# 知乎数据更新
+# 查询京东订单
 def get_order():
     appkey1 = '1a449d84b554735f7fe3a9037099bddc' # 大号
     appsecret1 = '7f69d2fcca5c443386017f9a97d14c83'
@@ -172,6 +136,12 @@ def get_order():
     if len(result) > 0:
         user_kolly.send('[KD]' + result)
         user_dd.send('[KD]' + result)
+
+
+# 查询京东订单
+def get_article_rank():
+    result = sync_data.query_article_rank(11)
+    user_kolly.send(result)
 
 
 # 发送天气信息
