@@ -132,7 +132,7 @@ async function main() {
         await doRun(Smfe);
         await doRun(Adf);
         await doRun(PlantBean);
-        await doRun(KoiRedPacket);
+        // await doRun(KoiRedPacket);
       },
     },
     {
