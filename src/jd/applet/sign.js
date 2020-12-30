@@ -14,24 +14,26 @@ class AppletSign extends Applet {
     const activityIds = [
       // 摩恩
       ['14827480251045beba08358a3ccc792b'],
-      ['1de6f941bee64aa6b4d4abde06dd3bd3'],
+      // ['1de6f941bee64aa6b4d4abde06dd3bd3'],
       // 倍舒特
-      ['a285a54879284c84b4c3579fd371b234'],
+      // ['a285a54879284c84b4c3579fd371b234'],
       // 优赛
-      ['14d3d026650a45668e03a6b820075a8e'],
+      // ['14d3d026650a45668e03a6b820075a8e'],
       // 铁建
-      ['6fa5660db3d34fc698e7522ae156ef62'],
+      // ['6fa5660db3d34fc698e7522ae156ef62'],
       // 煦贝乐
-      ['76063a4650f54eb79a2bb2737fd7f984', 'sevenDay'],
+      // ['76063a4650f54eb79a2bb2737fd7f984', 'sevenDay'],
       // 石头
-      ['edc7f9ec04b94929b4102b0c4a36ce40', 'sevenDay'],
-      ['2e5e4e4c188d437d9ca40d2be2fbd476', 'sevenDay'],
+      // ['edc7f9ec04b94929b4102b0c4a36ce40', 'sevenDay'],
+      // ['2e5e4e4c188d437d9ca40d2be2fbd476', 'sevenDay'],
       // 先锋两季
       ['6f322ad48fdb4f7983edcc3bc77a6b87', 'sevenDay'],
       // 蒲地蓝
-      ['175cc516dcbd45eaa65754362535db18', 'sevenDay'],
+      // ['175cc516dcbd45eaa65754362535db18', 'sevenDay'],
       // 悦诗风吟
-      ['d6e3160a0037421096c54cec2a84c855', 'sevenDay'],
+      // ['d6e3160a0037421096c54cec2a84c855', 'sevenDay'],
+      // 蒙牛
+      ['34aff623e0b94cb2a3c789473c31885d', 'sevenDay'],
     ];
     if (!activityIds.length) return;
     let pin = '';
