@@ -60,7 +60,9 @@ class Wish extends Template {
     for (; ;) {
       let form;
       do {
-        form = getForm(taskList[index++]);
+        const materialId = taskList[index++];
+        if (!materialId) break;
+        form = getForm(materialId);
       } while (!form);
 
       if (!form) break;
