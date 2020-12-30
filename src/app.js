@@ -110,7 +110,7 @@ async function main() {
         await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
-        await doRun(jdFactory);
+        await doRun(jdFactory, getCookieData(jdFactory.scriptName)[0]);
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
@@ -194,7 +194,7 @@ async function main() {
     {
       valid: 10,
       run: async () => {
-        await jdFactory.start(getCookieData());
+        await doRun(jdFactory, getCookieData()[0]);
       },
     },
     {
@@ -247,7 +247,7 @@ async function main() {
     {
       valid: 22,
       run: async () => {
-        await jdFactory.start(getCookieData());
+        await doRun(jdFactory, getCookieData()[0]);
         await doCron(Pet);
         await doRun(CashShare);
         await doRun(Necklace);
@@ -274,7 +274,7 @@ async function main() {
 
   // 定时循环
   async function cronLoop() {
-    await doCron(jdFactory);
+    await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
 
     if (nowHours % 2 === 0) {
