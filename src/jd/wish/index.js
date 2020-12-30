@@ -12,7 +12,7 @@ class Wish extends Template {
   static needOriginH5 = true;
 
   static isSuccess(data) {
-    return this._.property('code')(data) === '0';
+    return this._.property('subCode')(data) === 1;
   }
 
   static async doMain(api) {
@@ -39,6 +39,7 @@ class Wish extends Template {
       13, // 超市百货
       17, // 护肤彩妆
       31, // 手机图书
+      36, // 超市百货
     ];
 
     let taskList = [];
@@ -69,7 +70,10 @@ class Wish extends Template {
 
       const needStop = await api.doForm('wishContent', form).then(async data => {
         index++;
-        if (!self.isSuccess(data)) return true;
+        if (!self.isSuccess(data)) {
+          self.log(data.msg);
+          return true;
+        }
         if (data.prizeInfo) {
           const prizeNum = _.property('prizeInfo.prizeNum')(data);
           if (prizeNum === 0) {
