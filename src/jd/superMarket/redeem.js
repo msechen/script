@@ -14,6 +14,7 @@ class SuperMarketRedeem extends SuperMarket {
     const self = this;
     const _ = self._;
 
+    await handleRedeem();
     if (self.getNowHour() === 23) {
       const nextMoment = getNowMoment();
       nextMoment.add(1, 'hour');
@@ -22,7 +23,7 @@ class SuperMarketRedeem extends SuperMarket {
       await sleep(interval / 1000);
       await handleRedeem();
       // 再执行一次
-      await sleep();
+      await sleep(10);
       await handleRedeem();
     }
 
@@ -31,15 +32,15 @@ class SuperMarketRedeem extends SuperMarket {
       const beanPrizes = prizeList.filter(({
                                              beanType,
                                              inStock,
-                                           }) => ['Bean', 'BeanPackage'].includes(beanType)/* && inStock === 0*/);
+                                           }) => ['Bean', 'BeanPackage'].includes(beanType)/* && inStock === 0*/).reverse();
       for (const {prizeId} of beanPrizes) {
         await obtainPrize(prizeId);
       }
 
       async function obtainPrize(prizeId) {
         await api.doFormBody('smtg_obtainPrize', {prizeId}).then(data => {
+          self.log(JSON.stringify(_.assign({prizeId}, data)));
           if (self.isSuccess(data)) {
-            self.log(data);
             return obtainPrize(prizeId);
           }
         });
