@@ -40,7 +40,6 @@ const HarmonyHealthyDay = require('./jd/wfh/harmonyHealthyDay');
 const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = require('./jd/dreamFactory');
-const RedRain = require('./jd/sign/redRain');
 const JxCfd = require('./jd/jxCfd');
 const GoldenEgg = require('./jd/wfh/goldenEgg');
 const Car = require('./jd/car');
@@ -182,7 +181,6 @@ async function main() {
         await doRun(DreamFactory);
         await doCron(SuperMarket);
         await doRun(SuperMarket);
-        await doRun(RedRain);
       },
     },
     {
@@ -209,7 +207,6 @@ async function main() {
       valid: 14,
       run: async () => {
         await doRun(Wish);
-        await doRun(RedRain);
       },
     },
     {
@@ -233,7 +230,6 @@ async function main() {
     {
       valid: 18,
       run: async () => {
-        await doRun(RedRain);
       },
     },
     {
