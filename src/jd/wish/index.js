@@ -12,7 +12,7 @@ class Wish extends Template {
   static needOriginH5 = true;
 
   static isSuccess(data) {
-    return this._.property('subCode')(data) === 1;
+    return this._.property('code')(data) === '0';
   }
 
   static async doMain(api) {
