@@ -15,9 +15,10 @@ const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
     printLog('jdAPI', 'request', [findNotEmpty(qs, others), findNotEmpty(form, body), result], type);
   };
   const options = {form, body, qs, ...others};
-  Object.keys(options).forEach(key => {
-    if (_.isEmpty(options[key]) && !_.isBoolean(options[key])) delete options[key];
-  });
+
+  if (!_.isNil(body) && _.isEmpty(form)) {
+    delete options.form;
+  }
 
   return rp(_.assign({
     ...DEFAULT_OPTION,

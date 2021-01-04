@@ -46,6 +46,7 @@ const Car = require('./jd/car');
 const VipClubShare = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
 const HrSign = require('./jd/earn/hrSign');
+const Joy = require('./jd/joy');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -165,6 +166,8 @@ async function main() {
         await doRun(FruitRemote);
         await doRun(PetRemote);
         await doCron(TurnTableFarm);
+        await doRun(Joy);
+        await doCron(Joy);
       },
     },
     {
@@ -203,6 +206,7 @@ async function main() {
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
+        await doCron(Joy);
       },
     },
     {
@@ -215,6 +219,7 @@ async function main() {
       valid: 15,
       run: async () => {
         await doRun(CrazyJoy);
+        await doCron(Joy);
       },
     },
     {
@@ -232,6 +237,7 @@ async function main() {
     {
       valid: 18,
       run: async () => {
+        await doCron(Joy);
       },
     },
     {
@@ -257,6 +263,7 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
+        await doCron(Joy);
         await doRun(SuperMarketRedeem);
       },
     },
