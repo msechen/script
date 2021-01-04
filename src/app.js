@@ -45,6 +45,7 @@ const GoldenEgg = require('./jd/wfh/goldenEgg');
 const Car = require('./jd/car');
 const VipClubShare = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
+const HrSign = require('./jd/earn/hrSign');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -181,6 +182,7 @@ async function main() {
         await doRun(DreamFactory);
         await doCron(SuperMarket);
         await doRun(SuperMarket);
+        await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
     {

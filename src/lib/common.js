@@ -31,6 +31,19 @@ const cleanLog = (fileName) => {
 // 将json写入文件中
 const writeFileJSON = (data, fileName, dirname) => require('fs').writeFileSync(require('path').resolve(dirname, fileName), JSON.stringify(data), {encoding: 'utf-8'});
 
+async function waitSpecifyDate(date, next) {
+  const nowMoment = getNowMoment();
+  const targetMoment = getNowMoment(void 0, date);
+  if (nowMoment.isAfter(targetMoment)) return;
+  const seconds = targetMoment.diff(nowMoment, 'second');
+  await sleep(seconds);
+  return next();
+}
+
+async function waitSpecifyHour(hour, next) {
+  return waitSpecifyDate(`${getNowDate()} ${hour}:00:00`, next);
+}
+
 module.exports = {
   sleep,
 
@@ -41,6 +54,9 @@ module.exports = {
   getNowMoment,
   getNowDate,
   getNowTime,
+
+  waitSpecifyDate,
+  waitSpecifyHour,
 
   writeFileJSON,
 };

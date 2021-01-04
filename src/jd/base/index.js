@@ -174,17 +174,6 @@ class Base {
   static async beforeInit() {
   }
 
-  static async init(cookie, shareCodes, isCron = false) {
-    const api = this.initApi(cookie);
-    // TODO 并发的情况下 api 的赋值不可用
-    this.api = api;
-    if (isCron) {
-      await this.doCron(api, shareCodes);
-    } else {
-      await this.doMain(api, shareCodes);
-    }
-  }
-
   static async start(data) {
     for (this.currentTimes = 1; this.currentTimes <= this.times; this.currentTimes++) {
       this.currentCookieTimes = 0;
@@ -199,6 +188,7 @@ class Base {
 }
 
 async function loopInit(data, isCron) {
+  let currentCookieTimes = 0;
   data = _.concat(data);
   const self = this;
   let allFns = [];
@@ -220,8 +210,20 @@ async function loopInit(data, isCron) {
 
   async function _do(cookie, shareCodes) {
     await self.beforeInit();
-    await self.init(cookie, self.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
+    await init(cookie, self.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
     self.currentCookieTimes++;
+  }
+
+  async function init(cookie, shareCodes, isCron = false) {
+    const api = self.initApi(cookie);
+    // TODO 并发的情况下 api 的赋值不可用
+    self.api = api;
+    api.currentCookieTimes = currentCookieTimes++;
+    if (isCron) {
+      await self.doCron(api, shareCodes);
+    } else {
+      await self.doMain(api, shareCodes);
+    }
   }
 }
 

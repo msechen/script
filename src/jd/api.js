@@ -157,6 +157,13 @@ function initWq() {
     queryShopFavList(pageSize) {
       return queryList.call(this, 'https://wq.jd.com/fav/shop/QueryShopFavList', pageSize);
     },
+    async addFavShop(shopId) {
+      const self = this;
+      return self.commonDo(mergeOptions({
+        uri: 'https://wq.jd.com/fav/shop/AddShopFav',
+        qs: {shopId},
+      }));
+    },
     // 取消关注店铺
     async delFavShop(shopIds) {
       const self = this;
