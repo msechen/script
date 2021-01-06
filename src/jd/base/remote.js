@@ -15,7 +15,8 @@ class RemoteScript extends Base {
     return path.basename(this.fileDownloadUrl);
   }
 
-  static async init(cookie) {
+  static async doMain(api) {
+    const cookie = api.cookie;
     const self = this;
 
     const getDistFile = (fileName) => path.resolve(distPath, fileName || '');
