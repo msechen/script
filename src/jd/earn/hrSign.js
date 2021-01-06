@@ -32,6 +32,7 @@ class HrSign extends Template {
     const _ = self._;
 
     const token = api.cookie.replace('wq_auth_token=', '');
+    // return _do();
     api.cookie = self.getCurrentEnv.call(api, 'JD_COOKIE');
     // 要先关注
     await api.addFavShop('1000099941');

@@ -185,7 +185,7 @@ async function main() {
         await doRun(DreamFactory);
         await doCron(SuperMarket);
         await doRun(SuperMarket);
-        await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
+        // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
     {
@@ -264,7 +264,7 @@ async function main() {
         await doCron(PlantBean);
         await doRun(CrazyJoy);
         await doCron(Joy);
-        await doRun(SuperMarketRedeem);
+        // await doRun(SuperMarketRedeem);
       },
     },
   ];
