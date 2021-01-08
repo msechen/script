@@ -129,8 +129,14 @@ class PlantBean extends Template {
     const _ = this._;
 
     const data = await api.doFormBody('plantBeanIndex').then(data => data.data);
-    const prevRound = data.roundList[0];
-    const {roundId} = data.roundList[1];
+
+    const prevRound = _.property('roundList[0]')(data);
+    const {roundId} = _.property('roundList[1]')(data) || {};
+
+    if (!prevRound || !roundId) {
+      self.log('获取数据出错');
+      return;
+    }
 
     // 收集定时豆液
     if (+_.property('timeNutrientsRes.nutrCount')(data) > 0) {
