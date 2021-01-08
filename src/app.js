@@ -115,7 +115,6 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(Wish);
-        await doRun(SignBeanGroup);
         await doRun(JxCfd);
       },
     },
