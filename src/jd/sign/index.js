@@ -44,17 +44,7 @@ class Sign extends Template {
     };
 
     const shopSignUrl = [
-      ['better', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22905CF71BDAEED1B9193B90C6184F6BCB%22,%22venderId%22:1000281262,%22activityId%22:10168782,%22type%22:56,%22actionType%22:7}'],
-      ['1', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%222435F399E2341025F2A253DE2C8F0ACD%22,%22venderId%22:590464,%22activityId%22:10188380,%22type%22:56,%22actionType%22:7}'],
-      ['2', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%229BC4979E04E7F58499500BA498282050%22,%22venderId%22:10290074,%22activityId%22:10188050,%22type%22:56,%22actionType%22:7}'],
-      ['3', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22493F80D2F93AD3591911610FE675280E%22,%22venderId%22:1000328145,%22activityId%22:10182070,%22type%22:56,%22actionType%22:7}'],
-      ['青岛啤酒', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%225C8E6953811539DBBE5ADBFA91C86B7F%22,%22venderId%22:1000337488,%22activityId%22:10186913,%22type%22:56,%22actionType%22:7}'],
-      ['鑫鼎达', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2285A3D0B675FFC38EB4F668DEB7B7834D%22,%22venderId%22:136277,%22activityId%22:10190083,%22type%22:56,%22actionType%22:7}'],
-      ['健力宝', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%225CFB610B608B023B725D0F113F556FE6%22,%22venderId%22:1000334541,%22activityId%22:10192181,%22type%22:56,%22actionType%22:7}'],
-      ['博世', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%227928F5620C2A9B00201EC47BADBD469A%22,%22venderId%22:1000002423,%22activityId%22:10180133,%22type%22:56,%22actionType%22:7}'],
-      ['10', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22B2EA002F495ABA53E4E7EFD841E4436A%22,%22venderId%22:775364,%22activityId%22:10202561,%22type%22:56,%22actionType%22:7}'],
-      ['5', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%2200417C8DFBCC2B97711B288A842B844B%22,%22venderId%22:1000014143,%22activityId%22:10199998,%22type%22:56,%22actionType%22:7}'],
-      // ['比乐', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22DE0B3D71D67D96A0CE19DE6A12F8A842%22,%22venderId%22:1000095723,%22activityId%22:10163552,%22type%22:56,%22actionType%22:7}'],
+      // ['better', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22905CF71BDAEED1B9193B90C6184F6BCB%22,%22venderId%22:1000281262,%22activityId%22:10168782,%22type%22:56,%22actionType%22:7}'],
     ];
     const shopSign = {
       name: '店铺签到',
@@ -180,18 +170,8 @@ class Sign extends Template {
         isSuccessFn: data => data.code === 0,
         rewardOutputFn: data => _.property('data.todayPrize.beanAmount')(data),
       },
-      {
-        name: '秒杀红包雨',
-        times: 3,
-        url: 'https://api.m.jd.com/client.action?functionId=noahRedRainLottery&client=wh5&clientVersion=1.0.0&body=%7B%22actId%22%3A%22RRA318jCtaXhZJgiLryM1iydEhc7Jna%22%7D',
-        isSuccessFn: data => data.subCode === '0',
-        rewardOutputFn: data => _.property('lotteryResult.jPeasList[0].quantity')(data),
-      },
       getLuckDraw,
       ...shopSignUrl.map(([name, url]) => _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`})),
-      double12Sign,
-      jrSign12,
-      jrBean,
       expressSign,
     ];
 
