@@ -33,7 +33,6 @@ const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
 const AppletSign = require('./jd/applet/sign');
-const Adf = require('./jd/digital/adf');
 const CrazyJoy = require('./jd/crazyJoy');
 const Harmony1 = require('./jd/wfh/harmony1');
 const HarmonyHealthyDay = require('./jd/wfh/harmonyHealthyDay');
@@ -116,11 +115,8 @@ async function main() {
         await doRun(Cash);
         await doRun(Wish);
         await doRun(JxCfd);
-      },
-    },
-    {
-      valid: 1,
-      run: async () => {
+
+        // 1点的时候没有action, 所以需要提前
         await doRun(HarmonyGoldenEgg);
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
@@ -130,8 +126,12 @@ async function main() {
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
-        await doRun(Adf);
         await doRun(PlantBean);
+      },
+    },
+    {
+      valid: 1,
+      run: async () => {
         // await doRun(KoiRedPacket);
       },
     },
