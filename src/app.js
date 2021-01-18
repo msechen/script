@@ -46,6 +46,7 @@ const VipClubShare = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
 const HrSign = require('./jd/earn/hrSign');
 const Joy = require('./jd/joy');
+const Nian = require('./jd/nian');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -191,6 +192,7 @@ async function main() {
       valid: 9,
       run: async () => {
         await doRun(DreamFactory);
+        await doRun(Nian);
       },
     },
     {
@@ -254,6 +256,7 @@ async function main() {
         await doCron(Pet);
         await doRun(CashShare);
         await doRun(Necklace);
+        await doRun(Nian, getCookieData());
       },
     },
     {
@@ -282,6 +285,7 @@ async function main() {
     await doCron(CrazyJoy);
 
     if (nowHours % 2 === 0) {
+      await doCron(Nian);
       await doCron(PlantBean);
     }
   }
