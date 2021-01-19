@@ -155,7 +155,6 @@ async function main() {
     {
       valid: 5,
       run: async () => {
-        await doRun(Discover);
         await doCron(SuperMarket);
       },
     },
