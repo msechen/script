@@ -27,6 +27,28 @@ class SuperMarket extends Template {
     const _ = this._;
 
     return {
+      beforeGetTaskList: {
+        name: 'smtg_shopIndex',
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return;
+          const {shopId, shelfList} = _.property('data.result')(data) || {};
+          if (!shopId) return;
+          for (const {id: shelfId, level, status} of shelfList) {
+            if (status !== 1) continue;
+            await api.doFormBody('smtg_shelfUpgrade', {shopId, shelfId, level: level + 1}).then(async data => {
+              if (!self.isSuccess(data)) return;
+              await api.doFormBody('smtg_receiveCoin', {type: 4}).then(async data => {
+                const userUpgradeBlueVos = _.property('data.result.userUpgradeBlueVos')(data) || [];
+                for (const {id} of userUpgradeBlueVos) {
+                  await api.doFormBody('smtg_receiveCoin', {type: 5, id}).then(async data => {
+                    self.log(JSON.stringify(data));
+                  });
+                }
+              });
+            });
+          }
+        },
+      },
       // 获取任务列表
       getTaskList: {
         name: 'smtg_queryShopTask',
@@ -123,14 +145,17 @@ class SuperMarket extends Template {
 
     nowHour === 0 && await doExchange();
     let blueCoin = 0, goldCoin = 0;
-    nowHour !== 0 && await receiveCoin(nowHour > 8 ? [0] : void 0);
+    nowHour !== 0 && await receiveCoin(nowHour > 8 ? [4] : void 0);
     (blueCoin || goldCoin) && self.log(`获取到的蓝币: ${blueCoin}, 获取到的金币: ${goldCoin}`);
 
     async function doExchange() {
       await sleep();
       const {totalBlue} = await api.doFormBody('smtg_home').then(data => data.data.result);
       const {prizeList} = await api.doFormBody('smtg_queryPrize').then(data => data.data.result);
-      const beanPrizes = prizeList.filter(({beanType, inStock}) => ['Bean', 'BeanPackage'].includes(beanType) && inStock === 0);
+      const beanPrizes = prizeList.filter(({
+                                             beanType,
+                                             inStock,
+                                           }) => ['Bean', 'BeanPackage'].includes(beanType) && inStock === 0);
       for (const beanPrize of beanPrizes) {
         const {blueCost, targetNum, finishNum, prizeId, beanNum} = beanPrize;
         const minTimes = Math.min(Math.floor(totalBlue / blueCost), targetNum - finishNum);
@@ -142,7 +167,7 @@ class SuperMarket extends Template {
     }
 
     async function receiveCoin(types = [
-      0, // 金币
+      // 0, // 金币
       1, 2, // 蓝币
     ]) {
       const nextTypes = [];
