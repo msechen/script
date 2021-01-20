@@ -51,6 +51,7 @@ const HrSign = require('./jd/earn/hrSign');
 const Joy = require('./jd/joy');
 const Nian = require('./jd/nian');
 const NianApplet = require('./jd/nian/applet');
+const BrandCity = require('./jd/brandCity');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -165,6 +166,7 @@ async function main() {
         await doCron(SuperMarket);
         await doRun(Nian);
         await doRun(NianApplet);
+        await doRun(BrandCity);
       },
     },
     {

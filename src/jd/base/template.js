@@ -87,7 +87,7 @@ class Template extends Base {
       for (const {list, option = {}} of taskList) {
         option.firstFn = option.firstFn || (item => self.doApi(api, 'doTask', item));
         option.afterWaitFn = option.afterWaitFn || ((data, item) => {
-          return self.doApi(api, 'doWaitTask', item);
+          return self.doApi(api, 'doWaitTask', item, data);
         });
         const isDone = await self.loopCall(list, option);
         isDone && taskDone++;

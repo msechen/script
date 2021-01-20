@@ -126,12 +126,12 @@ class Base {
   }
 
   // 请求 apiNamesFn
-  static async doApi(api, name, data) {
+  static async doApi(api, name, data, returnData) {
     const target = api[name];
     if (!target) return Promise.resolve();
     const {paramFn = _.noop, successFn = _.noop, errorFn = _.noop, repeat = false} = this.apiNamesFn()[name];
 
-    const _do = () => target(...[].concat(paramFn(data))).then(async (data) => {
+    const _do = () => target(...[].concat(paramFn(data, returnData))).then(async (data) => {
       return successFn(data, api);
     });
 
