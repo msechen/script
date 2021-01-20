@@ -8,7 +8,6 @@ class Nian extends Template {
   static scriptNameDesc = '打年兽';
   static shareCodeTaskList = [];
   static isWh5 = true;
-  static times = 2;
   static commonParamFn = () => ({});
 
   static apiOptions = {
@@ -39,7 +38,7 @@ class Nian extends Template {
 
           let taskList = _.property('data.result.taskVos')(data) || [];
 
-          for (const taskId of [101/*加购*/]) {
+          for (const {taskId} of taskList.filter(o => [101/*加购*/].includes(o.taskId) && o.status !== 2)) {
             await api.doFormBody('nian_getFeedDetail', {taskId}).then(async data => {
               const cartList = data.data.result.addProductVos;
               taskList = taskList.concat(cartList);

@@ -50,6 +50,7 @@ const KoiRedPacket = require('./jd/koiRedPacket');
 const HrSign = require('./jd/earn/hrSign');
 const Joy = require('./jd/joy');
 const Nian = require('./jd/nian');
+const NianApplet = require('./jd/nian/applet');
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -162,6 +163,8 @@ async function main() {
       valid: 5,
       run: async () => {
         await doCron(SuperMarket);
+        await doRun(Nian);
+        await doRun(NianApplet);
       },
     },
     {
@@ -197,7 +200,6 @@ async function main() {
       valid: 9,
       run: async () => {
         await doRun(DreamFactory);
-        await doRun(Nian);
       },
     },
     {
@@ -219,6 +221,7 @@ async function main() {
       valid: 14,
       run: async () => {
         await doRun(Wish);
+        await doRun(Nian, getCookieData());
       },
     },
     {
