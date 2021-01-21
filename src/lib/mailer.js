@@ -18,7 +18,7 @@ function createTransport(option) {
   if (!user) return;
   return nodemailer.createTransport(_.defaults(option, {
     port: 25,
-    secureConnection: true, // 使用SSL方式（安全方式，防止被窃取信息）
+    secure: false, // 使用SSL方式（安全方式，防止被窃取信息）
   }, transportOption));
 }
 
