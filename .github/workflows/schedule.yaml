@@ -30,6 +30,7 @@ jobs:
           NODE_ENV: production
           NOT_RUN: '${{ secrets.NOT_RUN }}'
           SEVER_CHAN_KEY: '${{ secrets.SEVER_CHAN_KEY }}'
+          MAILER_TRANSPORTER_OPTION: '${{ secrets.MAILER_TRANSPORTER_OPTION }}'
           JD_FRUIT_WATER_TIMES: '${{ secrets.JD_FRUIT_WATER_TIMES }}'
           JD_COOKIE: '${{ secrets.JD_COOKIE }}'
           JD_COOKIE_1: '${{ secrets.JD_COOKIE_1 }}'

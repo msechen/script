@@ -4,6 +4,7 @@ const _ = require('lodash');
 
 const {getNowMoment, getNowDate, getLogFile} = require('./lib/common');
 const serverChan = require('./lib/serverChan');
+const mailer = require('./lib/mailer');
 
 const Common = require('./jd/base/common');
 
@@ -52,6 +53,8 @@ const Joy = require('./jd/joy');
 const Nian = require('./jd/nian');
 const NianApplet = require('./jd/nian/applet');
 const BrandCity = require('./jd/brandCity');
+
+const nowHour = getNowMoment().hour();
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -103,8 +106,6 @@ async function main() {
     console.log('不执行脚本');
     return;
   }
-
-  const nowHours = getNowMoment().hours();
   const scheduleOptions = [
     {
       valid: 0,
@@ -284,7 +285,7 @@ async function main() {
   await cronLoop();
 
   for (const {valid, run} of scheduleOptions) {
-    if (nowHours === valid) {
+    if (nowHour === valid) {
       await run();
     }
   }
@@ -294,7 +295,7 @@ async function main() {
     await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
 
-    if (nowHours % 2 === 0) {
+    if (nowHour % 2 === 0) {
       await doCron(Nian);
       await doCron(PlantBean);
     }
@@ -313,7 +314,11 @@ main().then(function () {
   }
   content += resultContent;
   if (!content) return;
-  serverChan.send(`lazy_script_${getNowDate()}`, content).then(() => {
+  const title = ['lazy_script', getNowDate(), nowHour].join('_');
+  mailer.send({
+    subject: title, text: content,
+  });
+  serverChan.send(title, content).then(() => {
     console.log('发送成功');
   });
 });
