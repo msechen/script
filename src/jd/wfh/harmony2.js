@@ -4,9 +4,9 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
 class Harmony2 extends HarmonyTemplate {
-  static scriptNameDesc = '电脑数码年货节';
+  static scriptNameDesc = '新店狂欢日';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({appId: '1EFRVyg'});
+  static commonParamFn = () => ({appId: '1EFRUxw'});
 }
 
 module.exports = Harmony2;
