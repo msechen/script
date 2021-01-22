@@ -315,9 +315,9 @@ main().then(function () {
   content += resultContent;
   if (!content) return;
   const title = ['lazy_script', getNowDate(), nowHour].join('_');
-  mailer.send({
-    subject: title, text: content,
-  });
+  // mailer.send({
+  //   subject: title, text: content,
+  // });
   serverChan.send(title, content).then(() => {
     console.log('发送成功');
   });
