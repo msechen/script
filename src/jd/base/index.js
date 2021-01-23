@@ -21,6 +21,7 @@ class Base {
   static needInApp = true; // 添加 userAgent
   static needInJxApp = false; // 添加 userAgent
   static needOriginH5 = false; // 添加 headers.origin
+  static needInPhone = false; // 添加 userAgent
   static apiOptions = {
     signData: {},
     options: {},
@@ -158,6 +159,7 @@ class Base {
       _.merge(options, {headers: {'User-Agent': 'jdpingou'}});
     }
     this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
+    this.needInPhone && _.merge(options, {headers: {'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.0(0x18000026) NetType/WIFI Language/zh_CN miniProgram'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
 
     const api = new Api(cookie, signData, options, formatDataFn);

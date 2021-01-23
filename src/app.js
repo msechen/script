@@ -54,6 +54,7 @@ const Joy = require('./jd/joy');
 const Nian = require('./jd/nian');
 const NianApplet = require('./jd/nian/applet');
 const BrandCity = require('./jd/brandCity');
+const Family = require('./jd/family');
 
 const nowHour = getNowMoment().hour();
 
@@ -139,6 +140,7 @@ async function main() {
         await doRun(Trump);
         await doRun(Smfe);
         await doRun(PlantBean);
+        await doRun(Family);
       },
     },
     {
