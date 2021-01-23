@@ -127,6 +127,7 @@ class KoiRedPacket extends Template {
       self.shareCodeTaskList[index] = _.assign(self.shareCodeTaskList[index] || {}, {redPacketId});
     }
     const shareCode = self.shareCodeTaskList[self.currentCookieTimes];
+    if (!shareCode) return;
     const {userInfo, redPacketId, isDone} = shareCode;
     if (!redPacketId || isDone) return;
     // TODO 待 userInfo 获取逻辑

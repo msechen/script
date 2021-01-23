@@ -279,6 +279,11 @@ async function main() {
         await doCron(PlantBean);
         await doRun(CrazyJoy);
         await doCron(Joy);
+        try {
+          await doRun(KoiRedPacket);
+        } catch (e) {
+          console.log(e);
+        }
         // await doRun(SuperMarketRedeem);
       },
     },
