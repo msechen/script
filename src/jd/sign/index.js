@@ -45,6 +45,8 @@ class Sign extends Template {
 
     const shopSignUrl = [
       // ['better', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22905CF71BDAEED1B9193B90C6184F6BCB%22,%22venderId%22:1000281262,%22activityId%22:10168782,%22type%22:56,%22actionType%22:7}'],
+      ['博世电动工具', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22795594DC704FCBFA3F9CB5062863C26D%22,%22venderId%22:1000002423,%22activityId%22:10248392,%22type%22:56,%22actionType%22:7}'],
+      ['7天', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22EAFE5ECD81F34518D05CFB573C93B071%22,%22venderId%22:10119180,%22activityId%22:10229186,%22type%22:56,%22actionType%22:7}'],
     ];
     const shopSign = {
       name: '店铺签到',
@@ -81,8 +83,8 @@ class Sign extends Template {
       isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
-    const double12Sign = {
-      name: '双十二主会场签到',
+    const meetingPlaceSign = {
+      name: '源头好物',
       url: 'https://api.m.jd.com/client.action',
       options: {
         headers: {
@@ -91,7 +93,7 @@ class Sign extends Template {
         form: {
           functionId: 'noahHaveFunLottery',
           appid: 'publicUseApi',
-          body: '{"actId":"RRDWrPqXWYj3CX4HnbQLDHRsmoJ2XU"}',
+          body: '{"actId":"RRD3eTfD2HFgPsg7GU68GL7Yqhseveh"}',
           client: 'wh5',
           clientVersion: '1.0.0',
         },
@@ -173,6 +175,7 @@ class Sign extends Template {
       getLuckDraw,
       ...shopSignUrl.map(([name, url]) => _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`})),
       expressSign,
+      meetingPlaceSign,
     ];
 
     for (const options of taskOptions) {
