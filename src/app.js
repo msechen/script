@@ -274,6 +274,11 @@ async function main() {
         await doRun(CashShare);
         await doRun(Necklace);
         await doRun(Nian, getCookieData());
+        try {
+          await doRun(KoiRedPacket);
+        } catch (e) {
+          console.log(e);
+        }
       },
     },
     {
@@ -283,11 +288,6 @@ async function main() {
         await doCron(PlantBean);
         await doRun(CrazyJoy);
         await doCron(Joy);
-        try {
-          await doRun(KoiRedPacket);
-        } catch (e) {
-          console.log(e);
-        }
         // await doRun(SuperMarketRedeem);
       },
     },
