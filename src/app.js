@@ -40,6 +40,7 @@ const Harmony2 = require('./jd/wfh/harmony2');
 const Harmony3 = require('./jd/wfh/harmony3');
 const Harmony4 = require('./jd/wfh/harmony4');
 const Harmony5 = require('./jd/wfh/harmony5');
+const Harmony6 = require('./jd/wfh/harmony6');
 const HarmonyHealthyDay = require('./jd/wfh/harmonyHealthyDay');
 const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
@@ -136,6 +137,7 @@ async function main() {
         await doRun(Harmony3);
         await doRun(Harmony4);
         await doRun(Harmony5);
+        await doRun(Harmony6);
         await doRun(GoldenEgg);
         await doRun(Wfh);
         await doRun(Trump);

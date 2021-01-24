@@ -52,7 +52,10 @@ class HarmonyTemplate extends Template {
         paramFn: self.commonParamFn,
         successFn: async (data) => {
 
-          if (!self.isSuccess(data)) return [];
+          if (!self.isSuccess(data)) {
+            self.log('活动已过期！！！');
+            return [];
+          }
 
           const result = [];
 
