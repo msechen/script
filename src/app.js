@@ -57,6 +57,7 @@ const NianApplet = require('./jd/nian/applet');
 const BrandCity = require('./jd/brandCity');
 const Family = require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
+const Coupon = require('./jd/coupon');
 
 const nowHour = getNowMoment().hour();
 

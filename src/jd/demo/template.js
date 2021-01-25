@@ -17,7 +17,7 @@ class DemoTemplate extends Template {
       getTaskList: {
         name: 'getTaskList',
         paramFn: self.commonParamFn,
-        successFn: async (data) => {
+        async successFn(data, api) {
           // writeFileJSON(data, 'getTaskList.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
@@ -49,7 +49,7 @@ class DemoTemplate extends Template {
       doRedeem: {
         name: 'doRedeem',
         paramFn: self.commonParamFn,
-        successFn: data => {
+        async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
         },
         repeat: true,
