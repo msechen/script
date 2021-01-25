@@ -14,12 +14,13 @@ try {
 
 const user = _.property('auth.user')(transportOption);
 
-function createTransport(option) {
+function createTransport(option = {}) {
   if (!user) return;
-  return nodemailer.createTransport(_.defaults(option, {
+  _.merge(option, {
     port: 25,
-    secure: false, // 使用SSL方式（安全方式，防止被窃取信息）
-  }, transportOption));
+    secure: false,
+  }, transportOption);
+  return nodemailer.createTransport(option);
 }
 
 function send(option) {
