@@ -17,8 +17,8 @@ const user = _.property('auth.user')(transportOption);
 function createTransport(option = {}) {
   if (!user) return;
   _.merge(option, {
-    port: 25,
-    secure: false,
+    port: 465,
+    secure: true,
   }, transportOption);
   return nodemailer.createTransport(option);
 }
