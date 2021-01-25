@@ -307,9 +307,9 @@ async function main() {
   async function cronLoop() {
     await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
+    await doCron(Nian);
 
     if (nowHour % 2 === 0) {
-      await doCron(Nian);
       await doCron(PlantBean);
     }
   }
