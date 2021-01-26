@@ -201,6 +201,7 @@ async function main() {
         await doRun(DreamFactory);
         await doCron(SuperMarket);
         await doRun(SuperMarket);
+        await doRun(Family);
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },

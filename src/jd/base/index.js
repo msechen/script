@@ -150,7 +150,8 @@ class Base {
   }
 
   static initApi(cookie) {
-    const {signData = {}, options = {}, formatDataFn = data => data} = this.apiOptions;
+    const apiOptions = _.isFunction(this.apiOptions) ? this.apiOptions() : this.apiOptions;
+    const {signData = {}, options = {}, formatDataFn = data => data} = apiOptions;
     const {requestFnName, apiNames = []} = this.apiExtends;
 
     this.isWh5 && _.assign(signData, {client: 'wh5', clientVersion: '1.0.0'});
