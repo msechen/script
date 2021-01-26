@@ -149,9 +149,12 @@ class SuperMarket extends Template {
     (blueCoin || goldCoin) && self.log(`获取到的蓝币: ${blueCoin}, 获取到的金币: ${goldCoin}`);
 
     async function doExchange() {
-      await sleep();
-      const {totalBlue} = await api.doFormBody('smtg_home').then(data => data.data.result);
-      const {prizeList} = await api.doFormBody('smtg_queryPrize').then(data => data.data.result);
+      const {totalBlue} = await api.doFormBody('smtg_home').then(data => _.property('data.result')(data) || {});
+      const {prizeList} = await api.doFormBody('smtg_queryPrize').then(data => _.property('data.result')(data) || {});
+      if (!totalBlue || !prizeList) {
+        self.log('获取接口出错');
+        return;
+      }
       const beanPrizes = prizeList.filter(({
                                              beanType,
                                              inStock,

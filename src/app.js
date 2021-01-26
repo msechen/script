@@ -113,7 +113,7 @@ async function main() {
     {
       valid: 0,
       run: async () => {
-        await doCron(SuperMarket);
+        // await doCron(SuperMarket);
         await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(SignRemote);
