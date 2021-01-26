@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "download": "^8.0.0",
+    "js-md5": "^0.7.3",
     "lodash": "^4.17.19",
     "moment-timezone": "^0.5.31",
     "nodemailer": "^6.4.17",

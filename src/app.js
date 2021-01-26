@@ -56,8 +56,10 @@ const BrandCity = require('./jd/brandCity');
 const Family = require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const Coupon = require('./jd/coupon');
+const ShoppingFestival = require('./jd/shoppingFestival');
 
 const nowHour = getNowMoment().hour();
+const errorOutput = [];
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
   shareCode && (shareCode = [].concat(shareCode));
@@ -97,7 +99,14 @@ async function runScript(fn, name = fn.name) {
 }
 
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
-  return target[method](cookieData);
+  let result;
+  try {
+    result = await target[method](cookieData);
+  } catch (e) {
+    errorOutput.push(e);
+    console.log(e);
+  }
+  return result;
 }
 
 async function doCron(target, cookieData = getCookieData()) {
@@ -114,6 +123,7 @@ async function main() {
       valid: 0,
       run: async () => {
         // await doCron(SuperMarket);
+        await doRun(ShoppingFestival);
         await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(SignRemote);
@@ -202,6 +212,7 @@ async function main() {
         await doCron(SuperMarket);
         await doRun(SuperMarket);
         await doRun(Family);
+        await doRun(Nian, getCookieData());
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
@@ -230,7 +241,6 @@ async function main() {
       valid: 14,
       run: async () => {
         await doRun(Wish);
-        await doRun(Nian, getCookieData());
       },
     },
     {
@@ -324,6 +334,12 @@ main().then(function () {
     content = fs.readFileSync(logFile);
   }
   content += resultContent;
+  if (!_.isEmpty(errorOutput)) {
+    mailer.send({
+      subject: ['lazy_script_error', getNowDate(), nowHour].join('_'),
+      text: errorOutput.join('\n'),
+    });
+  }
   if (!content) return;
   const title = ['lazy_script', getNowDate(), nowHour].join('_');
   mailer.send({
