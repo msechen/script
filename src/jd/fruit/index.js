@@ -58,9 +58,6 @@ class Fruit extends Base {
     // 一天两次
     await api.waterRainForFarm({type: 1, hongBaoTimes: 100}).then(self.amountLog.bind(self));
 
-    // 总签到获取水滴
-    // await api.clockInForFarm({type: 2}).then(self.amountLog.bind(self));
-
     // 点小鸭子
     await getFullCollectionReward();
 
@@ -70,11 +67,19 @@ class Fruit extends Base {
       });
     }
 
-    // 限时关注得水滴
+    // 连续签到
+    await api.doFormBody('clockInForFarm', {type: 1}).then(self.amountLog.bind(self));
     await api.doFormBody('clockInInitForFarm').then(async data => {
       if (!self.isSuccess(data)) return;
 
-      for (const {id} of data.themes) {
+      const {totalSigned, gotClockInGift, themes} = data;
+      // 总签到获取水滴
+      if (totalSigned === 7 && !gotClockInGift) {
+        await api.doFormBody('clockInForFarm', {type: 2}).then(self.amountLog.bind(self));
+      }
+
+      // 限时关注得水滴
+      for (const {id} of themes) {
         await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 1});
         await sleep(2);
         await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 2}).then(self.amountLog.bind(self));
