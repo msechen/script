@@ -93,11 +93,6 @@ const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCod
   }
 };
 
-async function runScript(fn, name = fn.name) {
-  // TODO name 默认值需要调整从 fn 中获取
-  return fn(getCookieData(name));
-}
-
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
   let result;
   try {
@@ -111,6 +106,15 @@ async function doRun(target, cookieData = getCookieData(target.scriptName), meth
 
 async function doCron(target, cookieData = getCookieData()) {
   return doRun(target, cookieData, 'cron');
+}
+
+// 本地测试
+async function doRun1(target, index = 0, needScriptName = false) {
+  await doRun(target, getCookieData(needScriptName ? target.scriptName : void 0)[index]);
+}
+
+async function doCron1(target, index = 0) {
+  await doCron(target, getCookieData()[index]);
 }
 
 async function main() {
