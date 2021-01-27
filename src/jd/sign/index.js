@@ -47,6 +47,11 @@ class Sign extends Template {
       // ['better', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22905CF71BDAEED1B9193B90C6184F6BCB%22,%22venderId%22:1000281262,%22activityId%22:10168782,%22type%22:56,%22actionType%22:7}'],
       ['博世电动工具', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22795594DC704FCBFA3F9CB5062863C26D%22,%22venderId%22:1000002423,%22activityId%22:10248392,%22type%22:56,%22actionType%22:7}'],
       ['7天', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22EAFE5ECD81F34518D05CFB573C93B071%22,%22venderId%22:10119180,%22activityId%22:10229186,%22type%22:56,%22actionType%22:7}'],
+      ['2豆', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22D71848E997002DC4F23CA79DB33BF16B%22,%22venderId%22:1000001383,%22activityId%22:10257678,%22type%22:56,%22actionType%22:7}'],
+      ['5天100', 'https://api.m.jd.com/api?appid=interCenter_shopSign&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22084DE3C6133B2205154AA6BF721C1612%22,%22venderId%22:10190358,%22activityId%22:10256490,%22type%22:56,%22actionType%22:7}'],
+      ['7天50', 'https://api.m.jd.com/api?appid=interCenter_shopSign&t=1611733210000&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22BF1E1B7C2178C631D7D9B9D1AD878234%22,%22venderId%22:1000101404,%22activityId%22:10256952,%22type%22:56,%22actionType%22:7}&jsonp=jsonp1004'],
+      ['7天50', 'https://api.m.jd.com/api?appid=interCenter_shopSign&t=1611733215000&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%22838E318ADAEEADF00A67AF662ECFF608%22,%22venderId%22:1000351845,%22activityId%22:10257014,%22type%22:56,%22actionType%22:7}&jsonp=jsonp1004'],
+      ['7天10', 'https://api.m.jd.com/api?appid=interCenter_shopSign&t=1611733220000&loginType=2&functionId=interact_center_shopSign_signCollectGift&body={%22token%22:%225FD802672EC9CC128B61685DDFDECF17%22,%22venderId%22:1000350601,%22activityId%22:10256849,%22type%22:56,%22actionType%22:7}&jsonp=jsonp1004'],
     ];
     const shopSign = {
       name: '店铺签到',
@@ -173,7 +178,10 @@ class Sign extends Template {
         rewardOutputFn: data => _.property('data.todayPrize.beanAmount')(data),
       },
       getLuckDraw,
-      ...shopSignUrl.map(([name, url]) => _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`})),
+      ...shopSignUrl.map(([name, url]) => {
+        url = url.replace(/&jsonp=\w*/, '').replace(/&t=\d*/, '');
+        return _.assign({}, shopSign, {url, name: `${shopSign.name}(${name})`});
+      }),
       expressSign,
       meetingPlaceSign,
     ];
