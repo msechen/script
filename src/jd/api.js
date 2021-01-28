@@ -94,6 +94,16 @@ class Api {
       form,
     }, options));
   }
+
+  doGet(functionId, qs, options) {
+    functionId && _.assign(qs, {functionId});
+    return this.do(_.merge({qs, method: 'GET'}, options));
+  }
+
+  doGetBody(functionId, body = {}, options) {
+    body = JSON.stringify(body);
+    return this.doGet(functionId, {body}, options);
+  }
 }
 
 function initWq() {

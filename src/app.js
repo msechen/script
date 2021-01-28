@@ -9,6 +9,7 @@ const mailer = require('./lib/mailer');
 const Common = require('./jd/base/common');
 
 const Sign = require('./jd/sign');
+const SignShop = require('./jd/sign/shop');
 const SignRemote = require('./jd/sign/remote');
 const SignBeanGroup = require('./jd/sign/beanGroup');
 const PlantBean = require('./jd/plantBean');
@@ -128,6 +129,7 @@ async function main() {
       run: async () => {
         // await doCron(SuperMarket);
         await doRun(ShoppingFestival);
+        await doRun(SignShop);
         await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(SignRemote);
