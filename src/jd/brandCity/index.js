@@ -3,7 +3,8 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 const _ = require('lodash');
-const dataQA = require('./Q&A.json').map(v => _.isString(v) ? v.split(/[?？]=/) : v);
+const rp = require('request-promise');
+const dataQA = require('./Q&A.json').filter(v => _.isString(v) ? v.match('=') : v).map(v => _.isString(v) ? v.split(/[?？]=|=/) : v);
 
 class BrandCity extends Template {
   static scriptName = 'BrandCity';
@@ -108,9 +109,30 @@ class BrandCity extends Template {
     const self = this;
 
     // test
-    // for (const {questionToken, questionStem, options} of require('./mcxhd_brandcity_getQuestions.json').result.questionList) {
+
+    // for (const {
+    //   questionId,
+    //   questionToken,
+    //   questionStem,
+    //   options
+    // } of require('./mcxhd_brandcity_getQuestions.json').result.questionList) {
     //   const targetAnswer = getAnswer(questionStem, options);
     //   console.log(targetAnswer);
+    //
+    //   await rp({
+    //     uri: 'https://api.2610086.com/jd.question',
+    //     method: 'GET',
+    //     qs: {questionId},
+    //     json: true,
+    //   }).then(data => {
+    //     if (_.property('data.questionId')(data)) {
+    //       const {optionDesc} = _.property('data')(data) || {};
+    //       if (!optionDesc) return;
+    //       let targetAnswer = options.find(o => o.optionDesc.match(optionDesc));
+    //       console.log('jd.question的远程数据如下');
+    //       console.log(targetAnswer);
+    //     }
+    //   });
     // }
     // return;
 
@@ -123,26 +145,48 @@ class BrandCity extends Template {
     async function handleAnswer() {
       const questionList = await api.doFormBody('mcxhd_brandcity_getQuestions').then(data => _.property('result.questionList')(data) || []);
 
-      for (const {questionToken, questionStem, options} of questionList) {
+      for (const {questionId, questionToken, questionStem, options} of questionList) {
         let targetAnswer = getAnswer(questionStem, options);
+        let notFoundInLocal = false;
         if (!targetAnswer) {
-          console.log(`${questionStem} 没有找到答案`);
-          targetAnswer = options[1];
+          notFoundInLocal = true;
+          console.log(`${questionStem} 没有在本地数据找到答案`);
         }
+        if (notFoundInLocal) {
+          // TODO 远程数据不一定是对的, 仅供参考
+          await rp({
+            uri: 'https://api.2610086.com/jd.question',
+            method: 'GET',
+            qs: {questionId},
+            json: true,
+          }).then(data => {
+            const {optionDesc} = _.property('data')(data) || {};
+            if (!optionDesc) return;
+            targetAnswer = options.find(o => o.optionDesc.match(optionDesc));
+          });
+        }
+        (!targetAnswer || _.isEmpty(targetAnswer)) && (targetAnswer = options[1]);
         await answerQuestion(questionToken, targetAnswer.optionId).then(data => {
           if (!self.isSuccess(data)) return;
           const {isCorrect, correctOptionId} = _.property('result')(data);
-          if ((isCorrect === 1) || !correctOptionId) return;
+          if (isCorrect === 1) {
+            notFoundInLocal && updateDataQA(questionStem, targetAnswer.optionDesc);
+            return;
+          }
           const correctOption = options.find(o => o.optionId === correctOptionId);
-          needUpdateFile = true;
-          // 更新 dataQA
-          const correctItem = [questionStem.replace(/[?？]/, ''), correctOption.optionDesc];
-          console.log(correctItem);
-          dataQA.push(correctItem);
+          correctOption && updateDataQA(questionStem, correctOption.optionDesc);
         });
       }
 
       if (!_.isEmpty(questionList)) await handleAnswer();
+    }
+
+    // 更新 dataQA
+    function updateDataQA(questionStem, optionDesc) {
+      needUpdateFile = true;
+      const correctItem = [questionStem.replace(/[?？]/, ''), optionDesc];
+      console.log(correctItem);
+      dataQA.push(correctItem);
     }
 
     async function answerQuestion(questionToken, optionId) {
@@ -170,7 +214,8 @@ class BrandCity extends Template {
         }
         self.log(`当前场次倍数: ${exchageRate} 当前随机倍数为: ${exchageRateList}`);
 
-        enableExchange = _.max(exchageRateList) === exchageRateList;
+        // TODO 需要再确认该逻辑
+        // enableExchange = _.max(exchageRateList) === exchageRateList;
 
         enableExchange && await api.doFormBody('mcxhd_brandcity_exchange').then(data => {
           if (!self.isSuccess(data)) return;
