@@ -103,6 +103,10 @@ class BrandCity extends Template {
 
   static initShareCodeTaskList(shareCodes) {
     // 处理
+    const self = this;
+    shareCodes.forEach(v => {
+      !self.shareCodeTaskList.includes(v) && self.shareCodeTaskList.push(v);
+    })
   }
 
   static async doCron(api) {
