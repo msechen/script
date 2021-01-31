@@ -90,6 +90,9 @@ class Nian extends Template {
         name: 'nian_collectScore',
         paramFn: o => _.assign(o, {actionType: 0}),
       },
+      afterGetTaskList: {
+        name: 'nian_collectSpecialGift',
+      },
       doRedeem: {
         name: 'nian_raise',
         paramFn: self.commonParamFn,
