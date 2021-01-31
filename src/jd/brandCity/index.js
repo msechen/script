@@ -156,19 +156,6 @@ class BrandCity extends Template {
           notFoundInLocal = true;
           console.log(`${questionStem} 没有在本地数据找到答案`);
         }
-        if (notFoundInLocal) {
-          // TODO 远程数据不一定是对的, 仅供参考
-          await rp({
-            uri: 'https://api.2610086.com/jd.question',
-            method: 'GET',
-            qs: {questionId},
-            json: true,
-          }).then(data => {
-            const {optionDesc} = _.property('data')(data) || {};
-            if (!optionDesc) return;
-            targetAnswer = options.find(o => o.optionDesc.match(optionDesc));
-          });
-        }
         (!targetAnswer || _.isEmpty(targetAnswer)) && (targetAnswer = options[1]);
         await answerQuestion(questionToken, targetAnswer.optionId).then(data => {
           if (!self.isSuccess(data)) return;
