@@ -151,7 +151,7 @@ async function main() {
         await doRun(HarmonyBlindBox);
         await doRun(HarmonyNewShop);
         await doRun(Harmony1);
-        // await doRun(Harmony2);
+        await doRun(Harmony2);
         await doRun(Harmony3);
         await doRun(Harmony4);
         await doRun(Harmony5);

@@ -60,6 +60,7 @@ class HarmonyTemplate extends Template {
           const result = [];
 
           for (let {
+            subTitleName,
             status,
             taskId,
             maxTimes,
@@ -72,6 +73,8 @@ class HarmonyTemplate extends Template {
             assistTaskDetailVo
           } of _.property('data.result.taskVos')(data) || []) {
             if ([2, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
+
+            waitDuration = waitDuration || subTitleName.match(/\d*s/) && +subTitleName.match(/\d*s/)[0].replace(/s$/, '');
 
             let list = _.concat(simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || []);
 

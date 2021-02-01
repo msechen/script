@@ -106,7 +106,7 @@ class BrandCity extends Template {
     const self = this;
     shareCodes.forEach(v => {
       !self.shareCodeTaskList.includes(v) && self.shareCodeTaskList.push(v);
-    })
+    });
   }
 
   static async doCron(api) {
