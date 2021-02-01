@@ -206,7 +206,7 @@ class BrandCity extends Template {
         self.log(`当前场次倍数: ${exchageRate} 当前随机倍数为: ${exchageRateList}`);
 
         // TODO 需要再确认该逻辑
-        // enableExchange = _.max(exchageRateList) === exchageRateList;
+        // enableExchange = _.max(exchageRateList) === exchageRate;
 
         enableExchange && await api.doFormBody('mcxhd_brandcity_exchange').then(data => {
           if (!self.isSuccess(data)) return;
