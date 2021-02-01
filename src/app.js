@@ -177,7 +177,7 @@ async function main() {
       valid: 2,
       async run() {
         await doRun(Necklace);
-        await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
+        // await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
         await doRun(SecondKillRedPacket);
         await doRun(Car);
         await doRun(VipClubShare);
