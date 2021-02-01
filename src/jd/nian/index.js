@@ -57,7 +57,7 @@ class Nian extends Template {
             productInfoVos,
             assistTaskDetailVo
           } of taskList) {
-            if (status === 2 || [7/*开会员*/, 101/*加购*/].includes(taskId)) continue;
+            if (status === 2 || [7/*开会员*/, 101/*加购*/, 12, 13/*队伍*/].includes(taskId)) continue;
 
             let list = _.concat(simpleRecordInfoVo || shoppingActivityVos || browseShopVo || productInfoVos || []);
 
@@ -90,9 +90,10 @@ class Nian extends Template {
         name: 'nian_collectScore',
         paramFn: o => _.assign(o, {actionType: 0}),
       },
-      afterGetTaskList: {
-        name: 'nian_collectSpecialGift',
-      },
+      // afterGetTaskList: {
+      //   name: 'nian_collectSpecialGift',
+      //   paramFn: () => _.assign({ic: 1}, self.commonParamFn()),
+      // },
       doRedeem: {
         name: 'nian_raise',
         paramFn: self.commonParamFn,
