@@ -294,7 +294,6 @@ async function main() {
       run: async () => {
         await doRun(jdFactory, getCookieData()[0]);
         await doCron(Pet);
-        await doRun(CashShare);
         await doRun(Necklace);
         await doRun(Nian, getCookieData());
         try {
