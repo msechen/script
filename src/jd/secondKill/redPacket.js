@@ -47,7 +47,7 @@ class SecondKillRedPacket extends Template {
             let list = (extraType ? ext[extraType] : _.fill(Array(maxTimes), {}, times, maxTimes)).map(o => _.assign({
               encryptAssignmentId,
               actionType: waitDuration ? 1 : 0,
-            }, _.pick(o, ['itemId'])));
+            }, _.pick(o, ['itemId']), assignmentName.match('分享') ? {completionFlag: true} : {}));
 
             result.push({list, option: {maxTimes, times, waitDuration}});
           }
