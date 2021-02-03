@@ -130,6 +130,13 @@ class KoiRedPacket extends Template {
     if (!shareCode) return;
     const {userInfo, redPacketId, isDone} = shareCode;
     if (!redPacketId || isDone) return;
+    return;
+    // await api.doFormBody('jinli_h5assist', {
+    //   "clientInfo": {},
+    //   "redPacketId": "270354435",
+    //   "followShop": 0,
+    //   "promUserState": ""
+    // });
     // TODO 待 userInfo 获取逻辑
     await api.doFunctionId('miniAssist', {
       form: {
