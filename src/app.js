@@ -47,6 +47,7 @@ const Harmony8 = require('./jd/wfh/harmony8');
 const Harmony9 = require('./jd/wfh/harmony9');
 const Harmony10 = require('./jd/wfh/harmony10');
 const Harmony11 = require('./jd/wfh/harmony11');
+const Harmony12 = require('./jd/wfh/harmony12');
 const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = require('./jd/dreamFactory');
@@ -162,6 +163,7 @@ async function main() {
         await doRun(Harmony9);
         await doRun(Harmony10);
         await doRun(Harmony11);
+        await doRun(Harmony12);
         await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
