@@ -197,8 +197,6 @@ async function main() {
       valid: 5,
       run: async () => {
         await doCron(SuperMarket);
-        await doRun(Nian);
-        await doRun(NianApplet);
         await doRun(BrandCity);
       },
     },
@@ -331,7 +329,6 @@ async function main() {
   async function cronLoop() {
     await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
-    await doCron(Nian);
 
     if (nowHour % 2 === 0) {
       await doCron(PlantBean);
