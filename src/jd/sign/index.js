@@ -158,7 +158,6 @@ class Sign extends Template {
       },
       getLuckDraw,
       expressSign,
-      meetingPlaceSign,
     ];
 
     for (const options of taskOptions) {

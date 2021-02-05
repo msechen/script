@@ -158,13 +158,13 @@ async function main() {
         await doRun(Harmony4);
         await doRun(Harmony5);
         await doRun(Harmony6);
-        await doRun(Harmony7);
+        // await doRun(Harmony7);
         await doRun(Harmony8);
         await doRun(Harmony9);
         await doRun(Harmony10);
         await doRun(Harmony11);
         await doRun(Harmony12);
-        await doRun(Wfh);
+        // await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
         await doRun(PlantBean);
@@ -197,7 +197,6 @@ async function main() {
       valid: 5,
       run: async () => {
         await doCron(SuperMarket);
-        await doRun(BrandCity);
       },
     },
     {
@@ -227,7 +226,6 @@ async function main() {
         await doCron(SuperMarket);
         await doRun(SuperMarket);
         await doRun(Family);
-        await doRun(Nian, getCookieData());
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
@@ -297,7 +295,6 @@ async function main() {
         await doRun(jdFactory, getCookieData()[0]);
         await doCron(Pet);
         await doRun(Necklace);
-        await doRun(Nian, getCookieData());
         try {
           await doRun(KoiRedPacket);
         } catch (e) {
