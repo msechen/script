@@ -305,6 +305,7 @@ async function main() {
         await doCron(PlantBean);
         await doRun(CrazyJoy);
         await doCron(Joy);
+        await doRun(SignShop);
         // await doRun(SuperMarketRedeem);
       },
     },

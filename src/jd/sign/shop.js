@@ -28,8 +28,21 @@ class SignShop extends Template {
   static async doMain(api) {
     const self = this;
 
-    // TODO 应该需要进行定时启动
-    await handleSign();
+    const nowHour = self.getNowHour();
+    if (nowHour === 0) return handleSign();
+
+    await handleTimedExecution(nowHour);
+
+    async function handleTimedExecution(nowHour) {
+      if (nowHour !== 23) return;
+      const nextMoment = getNowMoment();
+      nextMoment.add(1, 'hour');
+      nextMoment.startOf('hour');
+      const interval = nextMoment.valueOf() - getNowMoment().valueOf();
+      await sleep(Math.floor(interval / 1000));
+      // if (self.getNowHour() === 23) return handleTimedExecution(self.getNowHour());
+      await handleSign();
+    }
 
     async function handleSign() {
       // token, venderId, id
