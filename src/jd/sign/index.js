@@ -147,10 +147,10 @@ class Sign extends Template {
       jrSign,
       {
         name: '十元街签到',
-        url: 'https://api.m.jd.com/api?functionId=userSignIn&appid=swat_miniprogram&body={"activityId":"8d6845fe2e77425c82d5078d314d33c5"}',
+        url: 'https://api.m.jd.com/api?functionId=userSignIn&appid=swat_miniprogram&body={"activityId":"ccd8067defcd4787871b7f0c96fcbf5c"}',
         options: {
           headers: {
-            referer: 'https://servicewechat.com/wxa5bf5ee667d91626/107/page-frame.html',
+            referer: 'https://servicewechat.com/wxa5bf5ee667d91626/119/page-frame.html',
           },
         },
         isSuccessFn: data => data.code === 0,
