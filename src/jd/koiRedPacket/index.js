@@ -109,13 +109,6 @@ class KoiRedPacket extends Template {
     };
   };
 
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
-    if (shareCodes.length) {
-      this.shareCodeTaskList[this.currentCookieTimes] = Object.assign(this.shareCodeTaskList[this.currentCookieTimes] || {}, {userInfo: shareCodes[0]});
-    }
-  }
-
   static async beforeRequest(api) {
     const self = this;
     const _ = this._;
@@ -128,28 +121,12 @@ class KoiRedPacket extends Template {
     }
     const shareCode = self.shareCodeTaskList[self.currentCookieTimes];
     if (!shareCode) return;
-    const {userInfo, redPacketId, isDone} = shareCode;
+    const {redPacketId, isDone} = shareCode;
     if (!redPacketId || isDone) return;
-    return;
-    // await api.doFormBody('jinli_h5assist', {
-    //   "clientInfo": {},
-    //   "redPacketId": "270354435",
-    //   "followShop": 0,
-    //   "promUserState": ""
-    // });
-    // TODO 待 userInfo 获取逻辑
-    await api.doFunctionId('miniAssist', {
-      form: {
-        body: JSON.stringify({
-          followShop: 0, userInfo, redPacketId,
-        }),
-        appid: 'jd_wx_yh',
-        client: 'jd_wx_yh',
-        clientVersion: '3.2.6',
-      },
-      headers: {
-        referer: 'https://servicewechat.com/wx25bba907e33848f4/163/page-frame.html',
-      },
+    await api.doFormBody('jinli_h5assist', {
+      'clientInfo': {},
+      redPacketId,
+      followShop: 0,
     });
     shareCode.isDone = true;
   }
