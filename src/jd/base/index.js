@@ -36,6 +36,7 @@ class Base {
   };
   // 是否并发请求
   static concurrent = false;
+  static concurrentNeedWait = true;
 
   // apiNames的补充
   static apiNamesFn() {
@@ -200,7 +201,7 @@ async function loopInit(data, isCron) {
     if (self.concurrent) {
       allFns.push(new Promise(async (resolve, reject) => {
         // 并发的需等待后再启动
-        await sleep(index * 2);
+        self.concurrentNeedWait && await sleep(index * 2);
         await startDo();
         resolve();
       }));
