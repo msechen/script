@@ -3,10 +3,10 @@ const HarmonyTemplate = require('./harmony1');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
-class Harmony7 extends HarmonyTemplate {
-  static scriptNameDesc = '年终狂欢礼';
+class Harmony13 extends HarmonyTemplate {
+  static scriptNameDesc = '新年抽好礼';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({appId: '1EFRXwA'});
+  static commonParamFn = () => ({appId: '1EFRVxA'});
 }
 
-module.exports = Harmony7;
+module.exports = Harmony13;

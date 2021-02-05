@@ -48,6 +48,7 @@ const Harmony9 = require('./jd/wfh/harmony9');
 const Harmony10 = require('./jd/wfh/harmony10');
 const Harmony11 = require('./jd/wfh/harmony11');
 const Harmony12 = require('./jd/wfh/harmony12');
+const Harmony13 = require('./jd/wfh/harmony13');
 const Necklace = require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = require('./jd/dreamFactory');
@@ -165,7 +166,21 @@ async function main() {
         await doRun(PlantBean);
         await doRun(Family);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
-        await multipleRun([Harmony1, Harmony2, Harmony3, Harmony4, Harmony5, Harmony6, Harmony8, Harmony9, Harmony10, Harmony11, Harmony12]);
+        await multipleRun([
+          Harmony1,
+          Harmony2,
+          Harmony3,
+          Harmony4,
+          Harmony5,
+          Harmony6,
+          Harmony7,
+          Harmony8,
+          Harmony9,
+          Harmony10,
+          Harmony11,
+          Harmony12,
+          Harmony13,
+        ]);
       },
     },
     {
