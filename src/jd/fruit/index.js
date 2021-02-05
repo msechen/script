@@ -42,8 +42,13 @@ class Fruit extends Base {
     const self = this;
     const _ = this._;
 
-    const waterTimes = process.env.JD_FRUIT_WATER_TIMES;
-    waterTimes && await waterGoodForFarm(waterTimes);
+    const waterTimes = +(process.env.JD_FRUIT_WATER_TIMES || 0);
+    if (waterTimes) {
+      await waterGoodForFarm(waterTimes);
+      return;
+    }
+
+    // await logFarmInfo(true);
 
     for (const shareCode of shareCodes) {
       await sleep();
@@ -97,17 +102,25 @@ class Fruit extends Base {
       await api.waterFriendGotAwardForFarm().then(self.amountLog.bind(self));
     });
 
-    await api.initForFarm().then(data => {
-      const {treeEnergy, treeTotalEnergy, totalEnergy} = data.farmUserPro || {};
-      if (treeTotalEnergy) {
-        let msg = `需要总水滴数为: ${treeTotalEnergy}, 收成还差水滴数: ${treeTotalEnergy - treeEnergy}, 当前水滴数: ${totalEnergy}`;
-        const canHarvest = treeTotalEnergy - treeEnergy <= totalEnergy;
+    await logFarmInfo();
+
+    async function logFarmInfo(needHarvest = false) {
+      return api.initForFarm().then(async data => {
+        const {treeEnergy, treeTotalEnergy, totalEnergy} = data.farmUserPro || {};
+        if (!treeTotalEnergy) {
+          return self.log('目前没有种植水果');
+        }
+        const remainEnergy = treeTotalEnergy - treeEnergy;
+        let msg = `需要总水滴数为: ${treeTotalEnergy}, 收成还差水滴数: ${remainEnergy}, 当前水滴数: ${totalEnergy}`;
+        const canHarvest = remainEnergy <= totalEnergy;
         canHarvest && (msg += ', 可以收成了!!!');
         self.log(msg);
-      } else {
-        self.log('目前没有种植水果');
-      }
-    });
+        if (needHarvest && canHarvest) {
+          await waterGoodForFarm(remainEnergy / 10);
+        }
+      });
+    }
+
 
     async function waterGoodForFarm(times) {
       let successTimes = 0;

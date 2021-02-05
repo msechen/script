@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const {getNowMoment, getNowDate, getLogFile} = require('./lib/common');
+const {getNowMoment, getNowDate, getLogFile, sleep} = require('./lib/common');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
 
@@ -100,6 +100,15 @@ const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCod
   }
 };
 
+async function multipleRun(targets) {
+  let times = 0;
+  return Promise.all(targets.map(target => new Promise(async resolve => {
+    await sleep(times++);
+    await doRun(target);
+    resolve();
+  })));
+}
+
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
   let result;
   try {
@@ -138,37 +147,25 @@ async function main() {
         await doRun(SignShop);
         await doRun(Sign);
         await doRun(StatisticsBean);
-        await doRun(SignRemote);
+        // 远程脚本, 不需要等待
+        doRun(SignRemote);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
         await doRun(jdFactory, getCookieData(jdFactory.scriptName)[0]);
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
-        await doRun(Wish);
         await doRun(JxCfd);
 
         // 1点的时候没有action, 所以需要提前
-        await doRun(HarmonyGoldenEgg);
-        await doRun(HarmonyBlindBox);
-        await doRun(HarmonyNewShop);
-        await doRun(Harmony1);
-        await doRun(Harmony2);
-        await doRun(Harmony3);
-        await doRun(Harmony4);
-        await doRun(Harmony5);
-        await doRun(Harmony6);
         // await doRun(Harmony7);
-        await doRun(Harmony8);
-        await doRun(Harmony9);
-        await doRun(Harmony10);
-        await doRun(Harmony11);
-        await doRun(Harmony12);
         // await doRun(Wfh);
         await doRun(Trump);
         await doRun(Smfe);
         await doRun(PlantBean);
         await doRun(Family);
+        await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
+        await multipleRun([Harmony1, Harmony2, Harmony3, Harmony4, Harmony5, Harmony6, Harmony8, Harmony9, Harmony10, Harmony11, Harmony12]);
       },
     },
     {
@@ -253,7 +250,6 @@ async function main() {
     {
       valid: 14,
       run: async () => {
-        await doRun(Wish);
       },
     },
     {

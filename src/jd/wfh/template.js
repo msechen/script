@@ -85,14 +85,17 @@ class HarmonyTemplate extends Template {
                 shareCodeTaskList.push(assistTaskDetailVo);
               }
               list = self.getShareCodeFn();
-              times = 0;
-              maxTimes = list.length;
             }
 
             list = list.map(o => _.assign({
               taskId,
               actionType: waitDuration ? 1 : 0,
             }, _.pick(o, ['itemId', 'taskToken']), self.commonParamFn()));
+
+            if (list.length < maxTimes) {
+              times = 0;
+              maxTimes = list.length;
+            }
 
             result.push({list, option: {maxTimes, times, waitDuration}});
           }
