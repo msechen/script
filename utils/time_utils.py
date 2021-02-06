@@ -27,8 +27,9 @@ def get_last_x_min_ts(x):
 
 
 if __name__ == '__main__':
-    print(get_current_datetime())
-    print(get_today_date())
-    print(get_yestoday_date())
-    print(get_current_hour())
+    # print(get_current_datetime())
+    # print(get_today_date())
+    # print(get_yestoday_date())
+    # print(get_current_hour())
+    print(get_last_x_min_ts(10).strftime('%Y-%m-%d %H:%M:%S'))
 

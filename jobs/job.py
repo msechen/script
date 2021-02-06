@@ -8,11 +8,11 @@ from wxpy import *
 
 import common.jd_union as jd
 import common.web_spider as spider
-import zhihu.sync_data as sync_data
 from dao import holiday_dao
 from dao import service_dao
 from dao import service_subscribe_dao
 from dao import user_dao
+from dao import zh_log_dao
 
 bot = None
 user_kolly = None
@@ -25,9 +25,10 @@ def debug():
 
 # 定时任务初始化
 def init_scheduler(bot_var):
-    global bot, user_kolly, user_xy, user_dd
+    global bot, user_kolly, user_xy, user_dd, user_lanmao
     bot = bot_var
     user_kolly = ensure_one(bot.friends().search('kolly'))
+    user_lanmao = ensure_one(bot.groups().search('蓝猫数据监控'))
     user_xy = ensure_one(bot.friends().search('一棵萌图-2'))
     user_dd = ensure_one(bot.friends().search('东东哥'))
 
@@ -35,6 +36,8 @@ def init_scheduler(bot_var):
     scheduler = BackgroundScheduler()
     # 调试
     # scheduler.add_job(debug, 'interval', seconds=30)  # 间隔执行
+    # scheduler.add_job(get_lanmao_log, 'interval', seconds=10)  # 间隔执行
+
     # 天气预报
     service = service_dao.query_service_by_id(1)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
@@ -97,13 +100,13 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 知乎文章排名
-    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='40', second='30')
-
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='0/5', second='30')
+
+    # 蓝猫日志告警
+    scheduler.add_job(get_lanmao_log, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='0/10', second='30')
 
     scheduler.start()
 
@@ -138,10 +141,15 @@ def get_order():
         user_dd.send('[KD]' + result)
 
 
-# 查询京东订单
-def get_article_rank():
-    result = sync_data.query_article_rank(11)
-    user_kolly.send(result)
+# 查询错误日志
+def get_lanmao_log():
+    result = '[后台日志]'
+    logs = zh_log_dao.query_error_log()
+    if len(logs) > 0:
+        for log in logs:
+            result += '\n\n' + '时间：' + str(log.create_time)
+            result += '\n' + '消息：' + log.msg
+        user_lanmao.send(result)
 
 
 # 发送天气信息

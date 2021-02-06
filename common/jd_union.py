@@ -21,8 +21,8 @@ headers = {
 order_row_api = 'jd.union.open.order.row.query'
 sku_info_api = 'jd.union.open.goods.promotiongoodsinfo.query'
 
-appkey = '1a449d84b554735f7fe3a9037099bddc' # 大号
-appsecret = '7f69d2fcca5c443386017f9a97d14c83'
+# appkey = '1a449d84b554735f7fe3a9037099bddc' # 大号
+# appsecret = '7f69d2fcca5c443386017f9a97d14c83'
 # appkey = '2d2ea015479ddc93f30a2c7366ba4c84' # 小号
 # appsecret = 'ae911e53de6c4853a5c89a815347c90f'
 

@@ -10,7 +10,6 @@ import zhihu.sync_data as sync_data
 from auto_reply import reminder
 from common import corp_we_chat
 from common import web_spider
-from common import zhihu_article_search
 from dao import resource_dao
 from dao import resource_log_dao
 from jobs import *
@@ -47,6 +46,7 @@ bot.enable_puid('wxpy_puid.pkl')
 
 user_kolly = ensure_one(bot.friends().search('kolly'))
 user_dd = ensure_one(bot.friends().search('东东哥'))
+user_lanmao = ensure_one(bot.groups().search('蓝猫数据监控'))
 
 
 # 打印所有收到的消息

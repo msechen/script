@@ -15,6 +15,7 @@ class ZhLog(Base):
     type = Column(Integer)
     event = Column(String(256))
     msg = Column(Text)
+    create_time = Column(String(256))
 
     def __init__(self, type, event, msg):
         self.type = type
