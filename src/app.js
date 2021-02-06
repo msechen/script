@@ -144,12 +144,10 @@ async function main() {
       valid: 0,
       run: async () => {
         // await doCron(SuperMarket);
-        await doRun(ShoppingFestival);
         await doRun(SignShop);
         await doRun(Sign);
         await doRun(StatisticsBean);
-        // 远程脚本, 不需要等待
-        doRun(SignRemote);
+        await doRun(SignRemote);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
