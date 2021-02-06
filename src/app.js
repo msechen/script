@@ -173,11 +173,7 @@ async function main() {
           Harmony6,
           Harmony7,
           Harmony8,
-          Harmony9,
-          Harmony10,
           Harmony11,
-          Harmony12,
-          Harmony13,
         ]);
       },
     },
