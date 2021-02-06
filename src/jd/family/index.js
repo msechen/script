@@ -57,6 +57,10 @@ class Family extends Template {
         try {
           result = JSON.parse(data.replace(/try{ \w*\(/, '').replace(');}catch(e){}', ''));
         } catch (e) {
+          try {
+            result = JSON.parse(data.replace(/\w*\(/, '').replace(/\)$/, ''));
+          } catch (e) {
+          }
         }
         return result;
       },
@@ -76,14 +80,18 @@ class Family extends Template {
   };
 
   static isSuccess(data) {
-    return !this._.isEmpty(data);
+    return !_.isEmpty(data);
+  }
+
+  static initTaskList(taskList) {
+    return taskList;
   }
 
   static apiNamesFn() {
     const self = this;
     const _ = this._;
 
-    return {
+    const result = {
       // 获取任务列表
       getTaskList: {
         name: self.getApiNames().getTaskList,
@@ -95,7 +103,7 @@ class Family extends Template {
 
           const result = [];
 
-          const taskList = _.property('tasklist')(data) || [];
+          const taskList = self.initTaskList(_.property('tasklist')(data) || []);
           for (let {
             isdo,
             taskid,
@@ -104,7 +112,7 @@ class Family extends Template {
           } of taskList) {
             // tasktype 2 做美食
             // tasktype 5 忽略
-            if (isdo === 0 || times !== 0 || [].includes(tasktype)) continue;
+            if (isdo === 0 || _.isNumber(times) && (times !== 0) || [].includes(tasktype)) continue;
             let list = self.getTaskList({taskid, tasktype});
 
             result.push({list, option: {maxTimes: list.length, times: 0, waitDuration: 0}});
@@ -125,6 +133,19 @@ class Family extends Template {
         },
       },
     };
+    const doRedeem = self.getApiNames().doRedeem;
+    if (doRedeem) {
+      _.assign(result, {
+        doRedeem: {
+          name: doRedeem,
+          async successFn(data, api) {
+            if (!self.isSuccess(data)) return false;
+          },
+          repeat: true,
+        },
+      })
+    }
+    return result;
   };
 }
 
