@@ -159,6 +159,32 @@ class Sign extends Template {
       },
       getLuckDraw,
       expressSign,
+      {
+        name: '京喜签到',
+        url: 'https://m.jingxi.com/pgcenter/sign/UserSignOpr',
+        options: {
+          headers: {
+            'Referer': 'https://jddx.jd.com/m/jddnew/money/index.html',
+          },
+          qs: {
+            sceneval: 2,
+          },
+        },
+        isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
+      },
+      {
+        name: '东喜双签',
+        url: 'https://m.jingxi.com/double_sign/IssueReward',
+        options: {
+          headers: {
+            'Referer': 'https://jddx.jd.com/m/jddnew/money/index.html',
+          },
+          qs: {
+            sceneval: 2,
+          },
+        },
+        isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.double_sign_status')(data) === 0),
+      },
     ];
 
     for (const options of taskOptions) {
