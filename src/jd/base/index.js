@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 const Api = require('../api');
-const {sleep, getNowMoment} = require('../../lib/common');
+const {sleep, getNowMoment, parallelRun} = require('../../lib/common');
 const {printLog} = require('../../lib/common');
 
 class Base {
@@ -36,7 +36,7 @@ class Base {
   };
   // 是否并发请求
   static concurrent = false;
-  static concurrentNeedWait = true;
+  static concurrentOnceDelay = 2;
 
   // apiNames的补充
   static apiNamesFn() {
@@ -192,25 +192,22 @@ class Base {
 }
 
 async function loopInit(data, isCron) {
+  const self = this;
   let currentCookieTimes = 0;
   data = _.concat(data);
-  const self = this;
-  let allFns = [];
-  for (const [index, {cookie, shareCodes}] of data.entries()) {
-    const startDo = () => _do(cookie, shareCodes);
-    if (self.concurrent) {
-      allFns.push(new Promise(async (resolve, reject) => {
-        // 并发的需等待后再启动
-        self.concurrentNeedWait && await sleep(index * 2);
-        await startDo();
-        resolve();
-      }));
-      continue;
-    }
-    await startDo();
+
+  if (self.concurrent) {
+    return parallelRun({
+      list: data,
+      runFn: ({cookie, shareCodes}) => _do(cookie, shareCodes),
+      onceNumber: 1,
+      onceDelaySecond: self.concurrentOnceDelay,
+    });
   }
-  !_.isEmpty(allFns) && await Promise.all(allFns);
-  await sleep(2);
+
+  for (const {cookie, shareCodes} of data) {
+    await _do(cookie, shareCodes);
+  }
 
   async function _do(cookie, shareCodes) {
     await self.beforeInit();

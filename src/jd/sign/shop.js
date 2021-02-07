@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
+const {sleep, writeFileJSON, getNowMoment, parallelRun} = require('../../lib/common');
 const moment = require('moment-timezone');
 const _ = require('lodash');
 
@@ -10,7 +10,7 @@ class SignShop extends Template {
   static needOriginH5 = true;
   static times = 1;
   static concurrent = true;
-  static concurrentNeedWait = false;
+  static concurrentOnceDelay = 0;
 
   static apiOptions = {
     options: {
@@ -47,7 +47,7 @@ class SignShop extends Template {
 
     async function handleSign() {
       // token, venderId, id
-      const allParams = [
+      const list = [
         // 2.2新增
         '33711E18F790A9451F2C8641B4BF4E56',
         'CECDE29DEBDBE9646D3401DF1485363E',
@@ -73,9 +73,11 @@ class SignShop extends Template {
         'DF08AC29F911C1503065A2D89BD5A86A',
       ];
 
-      for (const params of allParams) {
-        await doSign(...[].concat(params));
-      }
+      await parallelRun({
+        list,
+        runFn: v => doSign(...[].concat(v)),
+        onceNumber: 10,
+      });
     }
 
     async function doSign(token, venderId, id) {

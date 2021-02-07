@@ -44,6 +44,15 @@ async function waitSpecifyHour(hour, next) {
   return waitSpecifyDate(`${getNowDate()} ${hour}:00:00`, next);
 }
 
+async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySecond = 0}) {
+  return Promise.all(list.map((item, index) => new Promise(async resolve => {
+    const delaySecond = Math.floor(index / onceNumber) * onceDelaySecond;
+    delaySecond && await sleep(delaySecond);
+    await runFn(item);
+    resolve();
+  })));
+}
+
 module.exports = {
   sleep,
 
@@ -59,4 +68,6 @@ module.exports = {
   waitSpecifyHour,
 
   writeFileJSON,
+
+  parallelRun,
 };

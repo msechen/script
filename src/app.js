@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const {getNowMoment, getNowDate, getLogFile, sleep} = require('./lib/common');
+const {getNowMoment, getNowDate, getLogFile, sleep, parallelRun} = require('./lib/common');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
 
@@ -102,12 +102,11 @@ const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCod
 };
 
 async function multipleRun(targets) {
-  let times = 0;
-  return Promise.all(targets.map(target => new Promise(async resolve => {
-    await sleep(times++);
-    await doRun(target);
-    resolve();
-  })));
+  return parallelRun({
+    list: targets,
+    runFn: doRun,
+    onceDelaySecond: 1,
+  });
 }
 
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
