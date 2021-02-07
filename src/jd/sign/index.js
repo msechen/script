@@ -144,7 +144,8 @@ class Sign extends Template {
     };
 
     const taskOptions = [
-      jrSign,
+      // signRemote脚本已经实现, 已不需要
+      // jrSign,
       {
         name: '十元街签到',
         url: 'https://api.m.jd.com/api?functionId=userSignIn&appid=swat_miniprogram&body={"activityId":"ccd8067defcd4787871b7f0c96fcbf5c"}',
