@@ -151,7 +151,6 @@ async function main() {
       valid: 0,
       run: async () => {
         // await doCron(SuperMarket);
-        await doAppletShopSign();
         await doRun(SignShop);
         await doRun(SignRemote);
         await doRun(EnterShop);
@@ -325,7 +324,6 @@ async function main() {
         await doRun(CrazyJoy);
         await doCron(Joy);
         await doRun(SignShop);
-        await doAppletShopSign();
         // await doRun(SuperMarketRedeem);
       },
     },

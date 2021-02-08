@@ -7,7 +7,6 @@ const _ = require('lodash');
 
 class AppletShopSign extends Applet {
   static scriptNameDesc = '店铺签到(小程序/app)';
-  static concurrent = true;
 
   static async doMain(api, shareCodes) {
     const self = this;
@@ -16,7 +15,6 @@ class AppletShopSign extends Applet {
       // [activityId, pathId]
 
       // 沃尔沃
-      ['6d25ebc072b945039606c3d86a992afa'],
       // 博世
       ['3d6cd5a6cf4f47a8a28477116bdc9ad3'],
     ];
