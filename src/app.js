@@ -144,9 +144,9 @@ async function main() {
       run: async () => {
         // await doCron(SuperMarket);
         await doRun(SignShop);
+        await doRun(SignRemote);
         await doRun(Sign);
         await doRun(StatisticsBean);
-        await doRun(SignRemote);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
         await doRun(Pet);
