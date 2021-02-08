@@ -45,7 +45,8 @@ class Api {
 
   async do(options) {
     options = _.merge({}, this.options, options);
-    await sleep();
+    (options.needDelay !== false) && await sleep();
+    delete options.needDelay;
     return this.commonDo(options).then(data => {
       data = data || {};
       if (this.formatData) {

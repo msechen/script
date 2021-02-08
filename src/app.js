@@ -34,7 +34,7 @@ const StatisticsBean = require('./jd/statistics/bean');
 const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
-const AppletSign = require('./jd/applet/sign');
+const AppletShopSign = require('./jd/applet/shopSign');
 const CrazyJoy = require('./jd/crazyJoy');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
@@ -69,6 +69,7 @@ const Live = require('./jd/live');
 const EnterShop = require('./jd/sign/enterShop');
 
 const nowHour = getNowMoment().hour();
+const nowDate = getNowDate();
 const errorOutput = [];
 
 const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
@@ -135,6 +136,10 @@ async function doCron1(target, index = 0) {
   await doCron(target, getCookieData()[index]);
 }
 
+function doAppletShopSign() {
+  return doRun(AppletShopSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
+}
+
 async function main() {
   if (process.env.NOT_RUN) {
     console.log('不执行脚本');
@@ -145,6 +150,7 @@ async function main() {
       valid: 0,
       run: async () => {
         // await doCron(SuperMarket);
+        await doAppletShopSign();
         await doRun(SignShop);
         await doRun(SignRemote);
         await doRun(EnterShop);
@@ -190,7 +196,6 @@ async function main() {
       valid: 2,
       async run() {
         await doRun(Necklace);
-        // await doRun(AppletSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
         await doRun(SecondKillRedPacket);
         await doRun(Car);
         await doRun(VipClubShare);
@@ -318,6 +323,7 @@ async function main() {
         await doRun(CrazyJoy);
         await doCron(Joy);
         await doRun(SignShop);
+        await doAppletShopSign();
         // await doRun(SuperMarketRedeem);
       },
     },
@@ -355,12 +361,12 @@ main().then(function () {
   content += resultContent;
   if (!_.isEmpty(errorOutput)) {
     mailer.send({
-      subject: ['lazy_script_error', getNowDate(), nowHour].join('_'),
+      subject: ['lazy_script_error', nowDate, nowHour].join('_'),
       text: errorOutput.join('\n'),
     });
   }
   if (!content) return;
-  const title = ['lazy_script', getNowDate(), nowHour].join('_');
+  const title = ['lazy_script', nowDate, nowHour].join('_');
   mailer.send({
     subject: title, text: content,
   });

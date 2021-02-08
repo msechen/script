@@ -6,7 +6,7 @@ const _ = require('lodash');
 
 class SignShop extends Template {
   static scriptName = 'SignShop';
-  static scriptNameDesc = '店铺web签到';
+  static scriptNameDesc = '店铺签到(web)';
   static needOriginH5 = true;
   static times = 1;
   static concurrent = true;
@@ -19,6 +19,7 @@ class SignShop extends Template {
         loginType: 2,
         appid: 'interCenter_shopSign',
       },
+      needDelay: false,
     },
   };
 
