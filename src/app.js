@@ -66,6 +66,7 @@ const BianPao = require('./jd/family/bianPao');
 const Coupon = require('./jd/coupon');
 const ShoppingFestival = require('./jd/shoppingFestival');
 const Live = require('./jd/live');
+const EnterShop = require('./jd/sign/enterShop');
 
 const nowHour = getNowMoment().hour();
 const errorOutput = [];
@@ -146,6 +147,7 @@ async function main() {
         // await doCron(SuperMarket);
         await doRun(SignShop);
         await doRun(SignRemote);
+        await doRun(EnterShop);
         await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(Fruit);
