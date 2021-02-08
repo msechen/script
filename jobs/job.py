@@ -137,8 +137,9 @@ def get_order():
 
     result = jd.get_order(appkey4, appsecret4)
     if len(result) > 0:
-        user_kolly.send('[KD]' + result)
-        user_dd.send('[KD]' + result)
+        # user_kolly.send('[KD]' + result)
+        # user_dd.send('[KD]' + result)
+        user_lanmao.send(result)
 
 
 # 查询错误日志
