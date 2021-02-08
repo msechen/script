@@ -16,7 +16,7 @@ class SignBeanHome extends Template {
   };
 
   static isSuccess(data) {
-    return _.property('code')(data) === '0';
+    return _.property('code')(data) === '0' && !_.property('errorCode')(data);
   };
 
   static apiNamesFn() {
@@ -52,6 +52,23 @@ class SignBeanHome extends Template {
 
             result.push({list, option: {maxTimes, waitDuration: 3}});
           }
+
+          await api.doFormBody('homeFeedsList', {page: 1}).then(async data => {
+            for (const {skuId} of _.property('data.feedsList')(data) || []) {
+              const {taskProgress, taskThreshold} = await api.doFormBody('beanHomeTask', {
+                'awardFlag': false,
+                source: 'feeds',
+                skuId,
+                'type': '1',
+              }).then(data => data.data || {});
+              await sleep(2);
+              if (!taskThreshold) continue;
+              if (taskProgress === taskThreshold) {
+                return api.doFormBody('beanHomeTask', {awardFlag: true, source: 'feeds'});
+              }
+            }
+          });
+          await sleep(2);
 
           return result;
         },
