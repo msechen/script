@@ -149,7 +149,7 @@ class PlantBean extends Template {
 
     // 获取豆豆
     if (!prevRound.awardBeans && self.getNowHour() >= 10) {
-      await api.doFormBody('receivedBean', {roundId: prevRound.roundId}).then(data => self.log(JSON.stringify(data)));
+      await api.doFormBody('receivedBean', {roundId: prevRound.roundId}).then(data => self.log(`获得的豆豆: ${_.property('data.awardBean')(data)}`));
     }
     if (self.getNowHour() >= 22) {
       // 协助朋友采集豆液
