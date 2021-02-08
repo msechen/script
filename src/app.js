@@ -65,6 +65,7 @@ const Family = require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const Coupon = require('./jd/coupon');
 const ShoppingFestival = require('./jd/shoppingFestival');
+const Live = require('./jd/live');
 
 const nowHour = getNowMoment().hour();
 const errorOutput = [];
@@ -162,6 +163,7 @@ async function main() {
         await doRun(Smfe);
         await doRun(PlantBean);
         await doRun(Family);
+        await doRun(Live);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
           Harmony1,
