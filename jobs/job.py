@@ -8,6 +8,7 @@ from wxpy import *
 
 import common.jd_union as jd
 import common.web_spider as spider
+import zhihu.sync_data as sync_data
 from dao import holiday_dao
 from dao import service_dao
 from dao import service_subscribe_dao
@@ -100,6 +101,10 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
+    # 知乎文章排名
+    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='40', second='30')
+
     # jd 订单轮训
     scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='0/5', second='30')
@@ -140,6 +145,12 @@ def get_order():
         # user_kolly.send('[KD]' + result)
         # user_dd.send('[KD]' + result)
         user_lanmao.send(result)
+
+
+# 查询文章排名
+def get_article_rank():
+    result = sync_data.query_article_rank(11)
+    user_kolly.send(result)
 
 
 # 查询错误日志
