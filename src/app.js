@@ -67,6 +67,7 @@ const Coupon = require('./jd/coupon');
 const ShoppingFestival = require('./jd/shoppingFestival');
 const Live = require('./jd/live');
 const EnterShop = require('./jd/sign/enterShop');
+const SignBeanHome = require('./jd/sign/beanHome');
 
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
@@ -154,6 +155,7 @@ async function main() {
         await doRun(SignShop);
         await doRun(SignRemote);
         await doRun(EnterShop);
+        await doRun(SignBeanHome);
         await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(Fruit);
