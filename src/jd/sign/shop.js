@@ -19,7 +19,6 @@ class SignShop extends Template {
         loginType: 2,
         appid: 'interCenter_shopSign',
       },
-      needDelay: false,
     },
   };
 
@@ -49,8 +48,6 @@ class SignShop extends Template {
     async function handleSign() {
       // token, venderId, id
       const list = [
-        // 2.2新增
-        'CECDE29DEBDBE9646D3401DF1485363E',
         // 2.4新增
         'D0AD720BE08231838A03965EA510C73C',
         '28228D1B5414046523D6E67DFC5B9E72',
@@ -68,11 +65,9 @@ class SignShop extends Template {
         'EF831211EA7DEA7A1124CC593DFA86E5',
         // 2.1
         'D71848E997002DC4F23CA79DB33BF16B',
-        'BF1E1B7C2178C631D7D9B9D1AD878234',
 
         // 可能达不成
         '405766BA298908B7052EDB42C18B573B',
-        'A01808591E7B6A72E9DDBAAE28C17A3F',
         '1A6D6887A00E8A02D37F782642D37E38',
       ];
 
