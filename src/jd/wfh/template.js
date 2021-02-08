@@ -74,7 +74,7 @@ class HarmonyTemplate extends Template {
           } of _.property('data.result.taskVos')(data) || []) {
             if ([2, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
 
-            waitDuration = waitDuration || subTitleName.match(/\d*s/) && +subTitleName.match(/\d*s/)[0].replace(/s$/, '');
+            waitDuration = waitDuration || (subTitleName.match(/\d*s/) ? +subTitleName.match(/\d*s/)[0].replace(/s$/, '') : 0);
 
             let list = _.concat(simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || []);
 
