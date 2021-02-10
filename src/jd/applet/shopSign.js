@@ -14,7 +14,9 @@ class AppletShopSign extends Applet {
     const activityIds = [
       // [activityId, pathId]
 
+      ['49f82fc8fe22491db69f61fd67c5680c', 'sevenDay'],
       // 沃尔沃
+      ['6d25ebc072b945039606c3d86a992afa'],
       // 博世
       ['3d6cd5a6cf4f47a8a28477116bdc9ad3'],
     ];
@@ -22,7 +24,7 @@ class AppletShopSign extends Applet {
     let pin = '';
     await updateTokenCookies(api);
     // TODO getSimpleActInfoVo 不一定有用
-    pin = await getSimpleActInfoVo(api, activityIds[0][0]).then(data => data.pin) || self.getCurrentEnv('JD_APPLET_PIN');
+    pin = self.getCurrentEnv('JD_APPLET_PIN');
     await parallelRun({
       list: activityIds,
       runFn: ([activityId, pathId]) => {
