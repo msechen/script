@@ -161,7 +161,11 @@ def get_lanmao_log():
         for log in logs:
             result += '\n\n' + '时间：' + str(log.create_time)
             result += '\n' + '消息：' + log.msg
-        user_lanmao.send(result)
+        if len(result) > 1000:
+            user_lanmao.send('[后台日志]\n 日志过多，请检查是否异常')
+        else:
+            user_lanmao.send(result)
+
 
 
 # 发送天气信息
