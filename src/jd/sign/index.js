@@ -5,6 +5,7 @@ const moment = require('moment-timezone');
 
 class Sign extends Template {
   static scriptName = 'Sign';
+  static scriptNameDesc = '签到集合';
   static times = 1;
 
   static isSuccess(data) {
@@ -183,7 +184,31 @@ class Sign extends Template {
             sceneval: 2,
           },
         },
-        isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.double_sign_status')(data) === 0),
+        isSuccessFn: data => {
+          const isSucceed = _.property('retCode')(data) === 0 && (_.property('data.double_sign_status')(data) === 0);
+          if (!isSucceed) self.log(data);
+          return isSucceed;
+        },
+      },
+      {
+        name: '领现金-金融双签',
+        url: 'https://nu.jr.jd.com/gw/generic/jrm/h5/m/process',
+        options: {
+          headers: {
+            'referer': 'https://m.jr.jd.com/integrate/signincash/index.html',
+          },
+          form: {
+            reqData: JSON.stringify({
+              'actCode': 'F68B2C3E71',
+              'type': 4,
+              'frontParam': {'belong': 'xianjin'},
+              'riskDeviceParam': JSON.stringify({
+                'fp': 'dfc0f4908b93e9b55f2fc3eb85ec6d21',
+              }),
+            }),
+          },
+        },
+        isSuccessFn: data => _.property('resultData.data.businessData.businessCode')(data) === '000sq',
       },
     ];
 
