@@ -182,7 +182,6 @@ async function main() {
           Harmony4,
           Harmony5,
           Harmony6,
-          Harmony7,
           Harmony8,
           Harmony11,
         ]);
