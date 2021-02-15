@@ -68,6 +68,7 @@ const ShoppingFestival = require('./jd/shoppingFestival');
 const Live = require('./jd/live');
 const EnterShop = require('./jd/sign/enterShop');
 const SignBeanHome = require('./jd/sign/beanHome');
+const GlobalChallenge = require('./jd/globalMart/challenge');
 
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
@@ -165,6 +166,7 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(JxCfd);
+        await doRun(GlobalChallenge);
 
         // 1点的时候没有action, 所以需要提前
         // await doRun(Harmony7);

@@ -56,10 +56,6 @@ class DemoTemplate extends Template {
       },
     };
   };
-
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
-  }
 }
 
 module.exports = DemoTemplate;

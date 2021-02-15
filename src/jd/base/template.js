@@ -11,6 +11,13 @@ class Template extends Base {
   static repeatDoTask = false;
   static shareCodeTaskList = [];
 
+  static updateShareCodeFn(shareCode) {
+    const self = this;
+    const shareCodeTaskList = self.shareCodeTaskList;
+    if (!shareCodeTaskList.includes(shareCode)) {
+      shareCodeTaskList.splice(self.currentCookieTimes, 0, shareCode);
+    }
+  }
   // 获取 shareCode
   static getShareCodeFn() {
     const self = this;
@@ -59,9 +66,12 @@ class Template extends Base {
   }
 
   static initShareCodeTaskList(shareCodes) {
-    if (shareCodes) {
-      // do something to shareCodeTaskList
-    }
+    const self = this;
+    // 通用处理
+    shareCodes.forEach(code => {
+      if (self.shareCodeTaskList.includes(code)) return;
+      self.shareCodeTaskList.push(code);
+    });
   }
 
   static async beforeRequest(api) {
