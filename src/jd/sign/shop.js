@@ -65,7 +65,6 @@ class SignShop extends Template {
         '938178698B30D33A73C3A059ECC5A838',
 
         // 可能达不成
-        '405766BA298908B7052EDB42C18B573B',
         '1A6D6887A00E8A02D37F782642D37E38',
       ];
 
