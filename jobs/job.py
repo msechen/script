@@ -149,8 +149,10 @@ def get_order():
 
 # 查询文章排名
 def get_article_rank():
-    result = sync_data.query_article_rank(11)
-    user_kolly.send(result)
+    result1 = sync_data.query_article_rank(11)
+    user_kolly.send(result1)
+    result2 = sync_data.query_article_rank(16)
+    user_xy.send(result2)
 
 
 # 查询错误日志
