@@ -164,9 +164,8 @@ def get_lanmao_log():
             result += '\n\n' + '时间：' + str(log.create_time)
             result += '\n' + '消息：' + log.msg
         if len(result) > 1000:
-            user_lanmao.send('[后台日志]\n 日志过多，请检查是否异常')
-        else:
-            user_lanmao.send(result)
+            result += '\n\n' + result[0:500]
+        user_lanmao.send(result)
 
 
 
