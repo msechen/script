@@ -186,7 +186,7 @@ class Sign extends Template {
         },
         isSuccessFn: data => {
           const isSucceed = _.property('retCode')(data) === 0 && (_.property('data.double_sign_status')(data) === 0);
-          if (!isSucceed) self.log(data);
+          if (!isSucceed) self.log(JSON.stringify(data));
           return isSucceed;
         },
       },
