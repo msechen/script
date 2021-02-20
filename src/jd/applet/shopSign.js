@@ -14,17 +14,19 @@ class AppletShopSign extends Applet {
     const activityIds = [
       // [activityId, pathId]
 
-      ['49f82fc8fe22491db69f61fd67c5680c', 'sevenDay'],
-      // 沃尔沃
-      ['6d25ebc072b945039606c3d86a992afa'],
       // 博世
       ['3d6cd5a6cf4f47a8a28477116bdc9ad3'],
+      ['19902886114648d699f96cc0a6d1e02d'],
     ];
     if (!activityIds.length) return;
     let pin = '';
     await updateTokenCookies(api);
     // TODO getSimpleActInfoVo 不一定有用
-    pin = self.getCurrentEnv('JD_APPLET_PIN');
+    pin = await getSimpleActInfoVo(api, activityIds[0][0]).then(data => data.pin);
+    if (!pin) {
+      self.log('pin获取失败');
+      pin = self.getCurrentEnv('JD_APPLET_PIN');
+    }
     await parallelRun({
       list: activityIds,
       runFn: ([activityId, pathId]) => {
