@@ -55,7 +55,7 @@ class Family extends Template {
       formatDataFn(data) {
         let result = {};
         try {
-          result = JSON.parse(data.replace(/try{ \w*\(/, '').replace(');}catch(e){}', ''));
+          result = JSON.parse(data.replace(/try{\s*\w*\(/, '').replace(');}catch(e){}', ''));
         } catch (e) {
           try {
             result = JSON.parse(data.replace(/\w*\(/, '').replace(/\)$/, ''));
@@ -103,17 +103,18 @@ class Family extends Template {
 
           const result = [];
 
-          const taskList = self.initTaskList(_.property('tasklist')(data) || []);
-          for (let {
-            isdo,
-            taskid,
-            tasktype,
-            times,
-          } of taskList) {
+          const taskList = self.initTaskList(_.property('tasklist')(data) || data);
+          for (let item of taskList) {
+            let {
+              isdo,
+              taskid,
+              tasktype,
+              times,
+            } = item;
             // tasktype 2 做美食
             // tasktype 5 忽略
             if (isdo === 0 || _.isNumber(times) && (times !== 0) || [].includes(tasktype)) continue;
-            let list = self.getTaskList({taskid, tasktype});
+            let list = self.getTaskList({taskid, tasktype, item});
 
             result.push({list, option: {maxTimes: list.length, times: 0, waitDuration: 0}});
           }
