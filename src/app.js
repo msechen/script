@@ -153,6 +153,7 @@ async function main() {
       valid: 0,
       run: async () => {
         // await doCron(SuperMarket);
+        await doRun(KoiRedPacket);
         await doAppletShopSign();
         await doRun(SignShop);
         await doRun(SignRemote);
@@ -244,6 +245,7 @@ async function main() {
         await doCron(SuperMarket);
         await doRun(SuperMarket);
         await doRun(Family);
+        await doRun(Sign);
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
@@ -312,11 +314,7 @@ async function main() {
         await doRun(jdFactory, getCookieData()[0]);
         await doCron(Pet);
         await doRun(Necklace);
-        try {
-          await doRun(KoiRedPacket);
-        } catch (e) {
-          console.log(e);
-        }
+        await doRun(KoiRedPacket);
       },
     },
     {

@@ -173,6 +173,9 @@ class Sign extends Template {
         },
         isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
       },
+    ];
+
+    const cashSign = [
       {
         name: '东喜双签',
         url: 'https://m.jingxi.com/double_sign/IssueReward',
@@ -212,7 +215,7 @@ class Sign extends Template {
       },
     ];
 
-    for (const options of taskOptions) {
+    for (const options of self.getNowHour() !== 0 ? cashSign : taskOptions) {
       const {times = 1} = options;
       for (let i = 0; i < times; i++) {
         await doTask(options);
