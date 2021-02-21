@@ -49,6 +49,11 @@ const live = {
   functionIds: ['liveChannelReportDataV912'],
   liveChannelReportDataV912: [],
 };
+const smallBean = {
+  functionIds: ['beanTaskList', 'beanDoTask'],
+  beanTaskList: [],
+  beanDoTask: [],
+};
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
   const originDir = `${JD_CHLSJ_PATH}/${key}`;
@@ -84,6 +89,7 @@ function init() {
     wish,
     statistics,
     live,
+    smallBean,
   ].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
@@ -100,4 +106,5 @@ module.exports = {
   wish,
   statistics,
   live,
+  smallBean,
 };

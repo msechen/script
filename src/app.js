@@ -12,6 +12,7 @@ const Sign = require('./jd/sign');
 const SignShop = require('./jd/sign/shop');
 const SignRemote = require('./jd/sign/remote');
 const SignBeanGroup = require('./jd/sign/beanGroup');
+const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const PlantBean = require('./jd/plantBean');
 const SuperMarket = require('./jd/superMarket');
 const SuperMarketRedeem = require('./jd/superMarket/redeem');
