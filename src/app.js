@@ -177,17 +177,11 @@ async function main() {
         await doRun(Smfe);
         await doRun(PlantBean);
         await doRun(Family);
-        await doRun(Live);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
-          Harmony1,
           Harmony2,
-          Harmony3,
-          Harmony4,
-          Harmony5,
-          Harmony6,
-          Harmony8,
-          Harmony11,
+          // 抽奖次数用完了
+          // Harmony4,
         ]);
       },
     },
