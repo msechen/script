@@ -183,11 +183,13 @@ class Base {
       this.currentCookieTimes = 0;
       await loopInit.call(this, data, false);
     }
+    await sleep(2);
   }
 
   // 定时任务
   static async cron(data) {
     await loopInit.call(this, data, true);
+    await sleep(2);
   }
 }
 
