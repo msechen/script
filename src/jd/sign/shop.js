@@ -30,7 +30,7 @@ class SignShop extends Template {
     const self = this;
 
     const nowHour = self.getNowHour();
-    if (nowHour === 0) return handleSign();
+    if (nowHour !== 23) return handleSign();
 
     await handleTimedExecution(nowHour);
 
@@ -45,7 +45,7 @@ class SignShop extends Template {
       await handleSign();
     }
 
-    async function handleSign() {
+    async function handleSign(listInfo = false) {
       // token, venderId, id
       const list = [
         // 2.22新增
@@ -74,8 +74,22 @@ class SignShop extends Template {
 
       await parallelRun({
         list,
-        runFn: v => doSign(...[].concat(v)),
-        onceNumber: 10,
+        runFn: v => (listInfo ? handleListShopInfo : doSign)(...[].concat(v)),
+      });
+    }
+
+    async function handleListShopInfo(token) {
+      const currentSignDays = await api.doGetBody('interact_center_shopSign_getSignRecord', {token}).then(data => _.property('data.days')(data));
+      return getActivityInfo(token).then(data => {
+        if (!self.isSuccess(data)) return;
+        const continuePrizeRuleList = _.property('data.continuePrizeRuleList')(data);
+        const prizeRules = continuePrizeRuleList.map(({prizeList, days, userPrizeRuleStatus}) => {
+          if (userPrizeRuleStatus === 2) return '';
+          const beanPrize = prizeList.find(({type}) => type === 4);
+          if (!beanPrize) return '';
+          return `${days}天${Math.floor(beanPrize.discount)}豆`;
+        }).filter(str => str);
+        self.log(`${token} 已签到${currentSignDays}天, 奖品: ${prizeRules.join(', ')}`);
       });
     }
 
@@ -83,11 +97,13 @@ class SignShop extends Template {
       if (venderId) {
         return signCollectGift(venderId, id, token);
       }
+      const nowHour = self.getNowHour();
       return getActivityInfo(token).then(data => {
         if (!self.isSuccess(data)) {
           return self.log(`${token}: ${data.msg}`);
         }
-        if (_.property('data.userActivityStatus')(data) === 2) {
+        // 避免出现接口请求前是23点的情况
+        if (_.property('data.userActivityStatus')(data) === 2 && !(nowHour === 23 && self.getNowHour() === 0)) {
           return self.log(`${token}: 已经签到`);
         }
         return signCollectGift(data.data.venderId, data.data.id, token);
@@ -96,7 +112,7 @@ class SignShop extends Template {
 
     // 获取店铺信息
     async function getActivityInfo(token) {
-      return api.doGetBody('interact_center_shopSign_getActivityInfo', {token});
+      return api.doGetBody('interact_center_shopSign_getActivityInfo', {token}, {needDelay: false});
     }
 
     // 签到
