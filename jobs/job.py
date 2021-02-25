@@ -151,8 +151,8 @@ def get_order():
 def get_article_rank():
     result1 = sync_data.query_article_rank(11)
     user_kolly.send(result1)
-    result2 = sync_data.query_article_rank(16)
-    user_xy.send(result2)
+    # result2 = sync_data.query_article_rank(16)
+    # user_xy.send(result2)
 
 
 # 查询错误日志
