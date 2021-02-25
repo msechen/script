@@ -169,7 +169,6 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(JxCfd);
-        await doRun(GlobalChallenge);
 
         // 1点的时候没有action, 所以需要提前
         // await doRun(Harmony7);
