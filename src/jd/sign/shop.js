@@ -29,6 +29,9 @@ class SignShop extends Template {
   static async doMain(api) {
     const self = this;
 
+    // 签到页面url
+    // https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=
+
     // token, venderId, id
     let shopInfos = [
       // 2.22新增
@@ -39,21 +42,18 @@ class SignShop extends Template {
       '3282B7F26FDBA6D6B823A8D4AB89D734',
       '1F3B4F74428203E454CDA0CF23893197',
       '07CBF9FC8DE65E3880ABD05B9A952866',
-      'E48CE90A5185D6082F3FA90E647161FC',
       // 2.20新增
       '9EAE21AA94BC979D0C7D56F428526393',
       'AFC577CD1825D16CB45679BFA2D2947A',
-      'E39EFD5CE6AB17A059E4369F0915D9DF',
-      '9978C7F4D9BDCB75E103617911D41F41',
       // 2.21新增
       '32DEC15741D404DBA4EB19ECCF1B2C6E',
       // 2.4新增
       '28228D1B5414046523D6E67DFC5B9E72',
       // 2.6新增
-      // 2.24新增
-      'F1542DA4AC7DC4103132A67CD0FE951E',
-      '676E2B7713EB641477598F886D3F45BF',
-      'D5E3697DDB9BFA10747E099508BFF92A',
+      // 2.25新增
+      'CBED3E212CD0E6CF6559BA319A67F191',
+      '2AEB0E1E6482C7C653899B8A84816B9D',
+      '54EAC92DC04508E441CA99EB2234CA80',
     ];
 
     const nowHour = self.getNowHour();
