@@ -49,6 +49,11 @@ const live = {
   functionIds: ['liveChannelReportDataV912'],
   liveChannelReportDataV912: [],
 };
+const common = {
+  functionIds: ['genToken', 'isvObfuscator'],
+  genToken: [],
+  isvObfuscator: [],
+};
 const smallBean = {
   functionIds: ['beanTaskList', 'beanDoTask'],
   beanTaskList: [],
@@ -90,6 +95,7 @@ function init() {
     statistics,
     live,
     smallBean,
+    common,
   ].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
@@ -107,4 +113,5 @@ module.exports = {
   statistics,
   live,
   smallBean,
+  common,
 };
