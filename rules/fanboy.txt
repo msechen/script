@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: GQrBoTznhZCltgxLr5FdVw
-! Version: 202102261401
+! Checksum: gjqepCdbdiXN3at71kdFOQ
+! Version: 202102280041
 ! Title: Fanboy's Annoyance List
-! Last modified: 26 Feb 2021 14:01 UTC
+! Last modified: 28 Feb 2021 00:41 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -6182,6 +6182,7 @@ https://dealnews.com##.engagement-container
 https://propublica.org##.fundraising-letter-inline
 https://artnews.com##.get-the-magazine__outer
 https://npr.org##.global-modal
+https://myanimelist.net##.header-mini-banner
 https://miaminewtimes.com##.ia-support
 https://metservice.com##.img-responsive-container
 https://wired.com##.journey-unit
@@ -6669,6 +6670,7 @@ https://thecourier.co.uk##.cta--bg
 https://rewire.news##.cta-a
 https://gazette-news.co.uk,worcesternews.co.uk,yourlocalguardian.co.uk##.cta-component-half-width
 https://digg.com##.cta-stories
+https://politico.eu##.cta__content--wrapper
 https://meta.com##.ctabox
 https://codeclimate.com##.ctas
 https://thebostonpilot.com##.ctct-embed-signup
@@ -10951,6 +10953,7 @@ https://auto-motor-und-sport.de##a[is-google-trigger]
 https://presseportal.de##div[id^="facebook_fanbox_"]
 https://stadt-bremerhaven.de##div[style="background: #f8f8f8; padding:20px;margin:0 0 10px -20px;width: 593px;"]
 https://jetzt.de##.social-channels
+https://bz-berlin.de##.social-media-icons
 https://pcwelt.de##.social_media_buttons
 https://spiegel.de##.social-bar
 https://focus.de##.socFbLikeShare
@@ -11319,6 +11322,7 @@ https://citroenselect.it##.social-network
 https://davinotti.com##.social__variant
 https://investireoggi.it##.social_menu
 https://salepepe.it##.sp2015-footer-social
+https://terranostranews.it##.spu-bg
 https://gametimers.it,ilsicilia.it,kontrokultura.it,notizie.umbria.it,topicnews.it##.ss-ic
 https://tuttomercatoweb.com##.telegram
 https://agensir.it##.temporary-skin-adv
@@ -11592,6 +11596,7 @@ https://elektrotresen.de,fliesenoutlet.com,stw.berlin###disclaimer
 https://carl-walther.de###disclaimer-bar
 https://novasol.at###disclosure-container
 https://fool.de###dogfish
+https://computerwelt.at###dr_blocking_div
 https://strabag-pfs.de###dsgvo
 https://mail.de###euccBanner
 https://autokostencheck.de###footerSlideContainer
@@ -11684,7 +11689,7 @@ https://infiniti.at,infiniti.ch,infiniti.de##.c_128
 https://syfit.de##.c_cont
 https://juedische-allgemeine.de##.cc
 https://herrenausstatter.de##.ce-container
-https://aeesuisse.ch##.ce_rsce_oneo_fixed_note
+https://aeesuisse.ch,bluesnews.de##.ce_rsce_oneo_fixed_note
 https://tobias-bauer.de##.ce_rsce_swissy_fixed_note
 https://oper-wuppertal.de##.ci-container
 https://massivum.de##.cn_box
@@ -12741,6 +12746,7 @@ https://eltiempo.es##.curtain_lightbox
 https://ingemecanica.com##.encabez
 https://bandaancha.eu##.euCk
 https://bwin.es##.info-message
+https://elperiodicodeaqui.com##.info_priv
 https://ulabox.com##.js-alert
 https://plataformaarquitectura.cl##.kth-toast
 https://enaire.es,fiveguys.es##.modal-backdrop
@@ -13510,7 +13516,7 @@ https://lg.com#@#.cookie-check
 https://zwijsen.nl#@#.cookie-consent-container
 https://zwijsen.nl#@#.cookie-consent-content
 https://zwijsen.nl#@#.cookie-consent-wrapper
-https://airam.fi,codra.net,dovoba.de,medicinenet.com#@#.cookie-consent:not(body):not(html)
+https://airam.fi,codra.net,dovoba.de,medicinenet.com,meinebank.de#@#.cookie-consent:not(body):not(html)
 https://bokadirekt.se,danbolig.dk,hongkong.fi,rusta.com,xmradio.nl#@#.cookie-content
 https://danbolig.dk,mega.io,skuola.net#@#.cookie-dialog
 https://ikks.com#@#.cookie-footer
@@ -13628,7 +13634,7 @@ https://spotify.com#@#.privacy-modal
 https://google.ac,google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.by,google.com.bz,google.com.cn,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.jo,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.ru,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tn,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.ve,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hk,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.it.ao,google.je,google.jo,google.jp,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.ne.jp,google.ng,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tl,google.tm,google.tn,google.to,google.tt,google.us,google.vg,google.vu,google.ws#@#.privacyBar
 https://metallica.com#@#.privacy_policy_message_box
 https://online.no,telenor.no#@#.privacy_prompt
-https://referencerecordings.com,studio100.it,tko.pl#@#.pum[data-popmake*="cookies"]
+https://referencerecordings.com,studio100.it,taxelocale6.ro,tko.pl#@#.pum[data-popmake*="cookies"]
 https://jyllands-posten.dk#@#.qc-cmp-showing
 https://jyllands-posten.dk#@#.qc-cmp-ui-container
 https://motofaktor.pl#@#.rodo-accept
@@ -16963,6 +16969,7 @@ http://dealnews.com##.engagement-container
 http://propublica.org##.fundraising-letter-inline
 http://artnews.com##.get-the-magazine__outer
 http://npr.org##.global-modal
+http://myanimelist.net##.header-mini-banner
 http://miaminewtimes.com##.ia-support
 http://metservice.com##.img-responsive-container
 http://wired.com##.journey-unit
@@ -17450,6 +17457,7 @@ http://thecourier.co.uk##.cta--bg
 http://rewire.news##.cta-a
 http://gazette-news.co.uk,worcesternews.co.uk,yourlocalguardian.co.uk##.cta-component-half-width
 http://digg.com##.cta-stories
+http://politico.eu##.cta__content--wrapper
 http://meta.com##.ctabox
 http://codeclimate.com##.ctas
 http://thebostonpilot.com##.ctct-embed-signup
@@ -21733,6 +21741,7 @@ http://auto-motor-und-sport.de##a[is-google-trigger]
 http://presseportal.de##div[id^="facebook_fanbox_"]
 http://stadt-bremerhaven.de##div[style="background: #f8f8f8; padding:20px;margin:0 0 10px -20px;width: 593px;"]
 http://jetzt.de##.social-channels
+http://bz-berlin.de##.social-media-icons
 http://pcwelt.de##.social_media_buttons
 http://spiegel.de##.social-bar
 http://focus.de##.socFbLikeShare
@@ -22101,6 +22110,7 @@ http://citroenselect.it##.social-network
 http://davinotti.com##.social__variant
 http://investireoggi.it##.social_menu
 http://salepepe.it##.sp2015-footer-social
+http://terranostranews.it##.spu-bg
 http://gametimers.it,ilsicilia.it,kontrokultura.it,notizie.umbria.it,topicnews.it##.ss-ic
 http://tuttomercatoweb.com##.telegram
 http://agensir.it##.temporary-skin-adv
@@ -22375,6 +22385,7 @@ http://elektrotresen.de,fliesenoutlet.com,stw.berlin###disclaimer
 http://carl-walther.de###disclaimer-bar
 http://novasol.at###disclosure-container
 http://fool.de###dogfish
+http://computerwelt.at###dr_blocking_div
 http://strabag-pfs.de###dsgvo
 http://mail.de###euccBanner
 http://autokostencheck.de###footerSlideContainer
@@ -22467,7 +22478,7 @@ http://infiniti.at,infiniti.ch,infiniti.de##.c_128
 http://syfit.de##.c_cont
 http://juedische-allgemeine.de##.cc
 http://herrenausstatter.de##.ce-container
-http://aeesuisse.ch##.ce_rsce_oneo_fixed_note
+http://aeesuisse.ch,bluesnews.de##.ce_rsce_oneo_fixed_note
 http://tobias-bauer.de##.ce_rsce_swissy_fixed_note
 http://oper-wuppertal.de##.ci-container
 http://massivum.de##.cn_box
@@ -23524,6 +23535,7 @@ http://eltiempo.es##.curtain_lightbox
 http://ingemecanica.com##.encabez
 http://bandaancha.eu##.euCk
 http://bwin.es##.info-message
+http://elperiodicodeaqui.com##.info_priv
 http://ulabox.com##.js-alert
 http://plataformaarquitectura.cl##.kth-toast
 http://enaire.es,fiveguys.es##.modal-backdrop
@@ -24293,7 +24305,7 @@ http://lg.com#@#.cookie-check
 http://zwijsen.nl#@#.cookie-consent-container
 http://zwijsen.nl#@#.cookie-consent-content
 http://zwijsen.nl#@#.cookie-consent-wrapper
-http://airam.fi,codra.net,dovoba.de,medicinenet.com#@#.cookie-consent:not(body):not(html)
+http://airam.fi,codra.net,dovoba.de,medicinenet.com,meinebank.de#@#.cookie-consent:not(body):not(html)
 http://bokadirekt.se,danbolig.dk,hongkong.fi,rusta.com,xmradio.nl#@#.cookie-content
 http://danbolig.dk,mega.io,skuola.net#@#.cookie-dialog
 http://ikks.com#@#.cookie-footer
@@ -24411,7 +24423,7 @@ http://spotify.com#@#.privacy-modal
 http://google.ac,google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.by,google.com.bz,google.com.cn,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.jo,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.ru,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tn,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.ve,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hk,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.it.ao,google.je,google.jo,google.jp,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.ne.jp,google.ng,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tl,google.tm,google.tn,google.to,google.tt,google.us,google.vg,google.vu,google.ws#@#.privacyBar
 http://metallica.com#@#.privacy_policy_message_box
 http://online.no,telenor.no#@#.privacy_prompt
-http://referencerecordings.com,studio100.it,tko.pl#@#.pum[data-popmake*="cookies"]
+http://referencerecordings.com,studio100.it,taxelocale6.ro,tko.pl#@#.pum[data-popmake*="cookies"]
 http://jyllands-posten.dk#@#.qc-cmp-showing
 http://jyllands-posten.dk#@#.qc-cmp-ui-container
 http://motofaktor.pl#@#.rodo-accept
