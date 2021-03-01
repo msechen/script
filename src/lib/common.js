@@ -2,6 +2,7 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 const moment = require('moment-timezone');
+const rp = require('request-promise');
 
 const _sleep = require('util').promisify(setTimeout);
 /**
@@ -53,6 +54,38 @@ async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySeco
   })));
 }
 
+/**
+ * @description 获取重定向链接(短链接)的真正URL
+ * @param uri{string}
+ * @param after200Fn{function}
+ * @param options{object}
+ * @return {Promise<string>}
+ */
+async function getRealUrl(uri, after200Fn, options = {}) {
+  _.assign(options, {
+    uri, followRedirect: false,
+    resolveWithFullResponse: true,
+  });
+  return rp(options).then(res => {
+    if (res.statusCode === 200) {
+      const body = res.body;
+      if (!after200Fn) return console.log(`${uri} 不需要302`);
+      const newUri = after200Fn(body);
+      if (!newUri) return console.log(`${uri}, 获取出错`);
+      return getRealUrl(newUri, after200Fn, options);
+    }
+  }).catch(function (error) {
+    const res = error.response;
+    if (res.statusCode === 302) {
+      const realUrl = _.property('headers.location')(res);
+      console.log('真正的URL地址如下:');
+      console.log(realUrl);
+      return realUrl;
+    }
+    console.log(`${uri}, 获取出错`);
+  });
+}
+
 module.exports = {
   sleep,
 
@@ -70,4 +103,6 @@ module.exports = {
   writeFileJSON,
 
   parallelRun,
+
+  getRealUrl,
 };
