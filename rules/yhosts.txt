@@ -1,4 +1,4 @@
-!version=202102091712
+!version=202102272009
 !-----Test
 ||https://at.umeng.com
 ||https://adfurikun.jp
@@ -2916,6 +2916,7 @@
 ||https://c.365yigou.cn
 ||https://c.45io.com
 ||https://c.51xmgys.com
+||https://c.acgshenshicha.cn
 ||https://c.anmeilai.net
 ||https://c.bayongzx.cn
 ||https://c.bccyyc.com
@@ -3066,6 +3067,7 @@
 ||https://changmaoxinjzo.com
 ||https://channel.togo666.com
 ||https://chaojilamei.cn
+||https://charlotteyeon.com
 ||https://chemdraw.com
 ||https://chuantu.biz
 ||https://cilidaquan.pw
@@ -3108,6 +3110,7 @@
 ||https://cpc.haohaowan8.com
 ||https://cpv-adv.ggytc.com
 ||https://cpv.czpush.com
+||https://cqa9.cn
 ||https://cs.twcczhu.com
 ||https://css.asitend.com
 ||https://css888.bceapp.com
@@ -3149,6 +3152,7 @@
 ||https://d5nxst8fruw4z.cloudfront.net
 ||https://d6.mobaders.com
 ||https://d7.mobaders.com
+||https://d7b.cn
 ||https://d8885.com
 ||https://d9w.fl1c.com
 ||https://da.mgtv.com
@@ -3202,6 +3206,7 @@
 ||https://dm.fsyzcs.com
 ||https://dm.gbeik.com
 ||https://dm.jinshasi.cn
+||https://dms63.he3kz8.com
 ||https://dmtu.0m31a.cn
 ||https://do.lymstsc.com
 ||https://dodi.86zhnc.cn
@@ -3472,6 +3477,7 @@
 ||https://e.jioeg.com
 ||https://e.jkert.com
 ||https://e.jltdbyq.com
+||https://e.jnsdkjzs.com
 ||https://e.joyxv.com
 ||https://e.jvvyc.cn
 ||https://e.jwiyr.com
@@ -4029,6 +4035,7 @@
 ||https://hyfh.benbaisteel.com
 ||https://hyjss.tkshyp.com
 ||https://hyuj.gmxyorg.cn
+||https://hz.hzhongjianfund.com
 ||https://hz1.lanmei80.com
 ||https://hzdaye.m.zwdu.com
 ||https://hzyd.cdn.bcebos.com
@@ -5412,6 +5419,7 @@
 ||https://mh1.zhengdongwuye.cn
 ||https://mhwozc.cn
 ||https://mic.bahu.xyz
+||https://mic.ububyiw6655.xyz
 ||https://miaobeichina.com
 ||https://mil.gbzumh.cn
 ||https://miui.hftaili.com
@@ -5622,6 +5630,7 @@
 ||https://p.tamenshuo.com
 ||https://p.vtdtfl.cn
 ||https://p.ynjczy.net
+||https://p0l.cn
 ||https://p2.hyz86.com
 ||https://p2.ykauto.cn
 ||https://p4.95558000.com
@@ -6000,6 +6009,7 @@
 ||https://sod.onelink.me
 ||https://soft.chaomeng8.com
 ||https://sohu.husenfood.com
+||https://sou.dkdlsj.com
 ||https://sources.wangqipu.com
 ||https://sourcescdn.xiaobingw.cn
 ||https://sp.wndoor.com
@@ -6135,6 +6145,7 @@
 ||https://t2.vbxx.net
 ||https://t2.wshufa.com
 ||https://t3.wubiinlee.com
+||https://t38uu.k42jvw.com
 ||https://t75.qyqc4s.com
 ||https://t8ac8a8f8.jingfeed.com
 ||https://ta.dogyqw.cn
@@ -6266,6 +6277,7 @@
 ||https://v.76768hwj.cn
 ||https://v.8yrn.cn
 ||https://v.9y88.com
+||https://v.acgshenshicha.cn
 ||https://v.amghwdf.cn
 ||https://v.awmlkuu.cn
 ||https://v.bayongzx.cn
@@ -6312,6 +6324,7 @@
 ||https://v.zoepb.cn
 ||https://voq3450129.y4j32.cn
 ||https://v1.0594529.com
+||https://v4g.cn
 ||https://v7.kawinhome.com
 ||https://v7.shaoyumuye.com
 ||https://vadioc.cn
@@ -6521,6 +6534,7 @@
 ||https://www.dadjia.com
 ||https://www.dajean.com
 ||https://www.danpinwu.com
+||https://www.danweijungu5812.top
 ||https://www.day66.com
 ||https://www.dgfggy.com
 ||https://www.diediao.com
@@ -6870,8 +6884,10 @@
 ||https://y.unilz588.com
 ||https://y.xinghao89.com
 ||https://y.zp22.cn
+||https://y7jq.cn
 ||https://yacafrr.bailingcloud.cn
 ||https://yahafda.qivsod.com
+||https://yao.zzsdjq.com
 ||https://ycszgt.cn
 ||https://ycy.hyjyjc.com
 ||https://ydlz.k859n.cn
@@ -9204,6 +9220,8 @@
 ||https://www.toujing9.top
 ||https://www.toujing8.top
 ||https://www.toujing11.top
+||https://www.kldsam.com
+||https://down.ewo1617.com
 ||https://acdcdn.com
 ||https://squeezedthoughtfully.com
 ||https://sorrowfulchemical.com
@@ -9220,7 +9238,13 @@
 ||https://hxlover.com
 ||https://etl-xlmc-ssl.xunlei.com
 ||https://fangniaowang.net
-!version=202102091712
+||https://adv.aiclk.com
+||https://game-motivatead.aiclk.com
+||https://recv.aiclk.com
+||https://tac.aiclk.com
+||https://tracelog-debug.aiclk.com
+||https://upload.aiclk.com
+!version=202102272009
 !-----Test
 ||http://at.umeng.com
 ||http://adfurikun.jp
@@ -12138,6 +12162,7 @@
 ||http://c.365yigou.cn
 ||http://c.45io.com
 ||http://c.51xmgys.com
+||http://c.acgshenshicha.cn
 ||http://c.anmeilai.net
 ||http://c.bayongzx.cn
 ||http://c.bccyyc.com
@@ -12288,6 +12313,7 @@
 ||http://changmaoxinjzo.com
 ||http://channel.togo666.com
 ||http://chaojilamei.cn
+||http://charlotteyeon.com
 ||http://chemdraw.com
 ||http://chuantu.biz
 ||http://cilidaquan.pw
@@ -12330,6 +12356,7 @@
 ||http://cpc.haohaowan8.com
 ||http://cpv-adv.ggytc.com
 ||http://cpv.czpush.com
+||http://cqa9.cn
 ||http://cs.twcczhu.com
 ||http://css.asitend.com
 ||http://css888.bceapp.com
@@ -12371,6 +12398,7 @@
 ||http://d5nxst8fruw4z.cloudfront.net
 ||http://d6.mobaders.com
 ||http://d7.mobaders.com
+||http://d7b.cn
 ||http://d8885.com
 ||http://d9w.fl1c.com
 ||http://da.mgtv.com
@@ -12424,6 +12452,7 @@
 ||http://dm.fsyzcs.com
 ||http://dm.gbeik.com
 ||http://dm.jinshasi.cn
+||http://dms63.he3kz8.com
 ||http://dmtu.0m31a.cn
 ||http://do.lymstsc.com
 ||http://dodi.86zhnc.cn
@@ -12694,6 +12723,7 @@
 ||http://e.jioeg.com
 ||http://e.jkert.com
 ||http://e.jltdbyq.com
+||http://e.jnsdkjzs.com
 ||http://e.joyxv.com
 ||http://e.jvvyc.cn
 ||http://e.jwiyr.com
@@ -13251,6 +13281,7 @@
 ||http://hyfh.benbaisteel.com
 ||http://hyjss.tkshyp.com
 ||http://hyuj.gmxyorg.cn
+||http://hz.hzhongjianfund.com
 ||http://hz1.lanmei80.com
 ||http://hzdaye.m.zwdu.com
 ||http://hzyd.cdn.bcebos.com
@@ -14634,6 +14665,7 @@
 ||http://mh1.zhengdongwuye.cn
 ||http://mhwozc.cn
 ||http://mic.bahu.xyz
+||http://mic.ububyiw6655.xyz
 ||http://miaobeichina.com
 ||http://mil.gbzumh.cn
 ||http://miui.hftaili.com
@@ -14844,6 +14876,7 @@
 ||http://p.tamenshuo.com
 ||http://p.vtdtfl.cn
 ||http://p.ynjczy.net
+||http://p0l.cn
 ||http://p2.hyz86.com
 ||http://p2.ykauto.cn
 ||http://p4.95558000.com
@@ -15222,6 +15255,7 @@
 ||http://sod.onelink.me
 ||http://soft.chaomeng8.com
 ||http://sohu.husenfood.com
+||http://sou.dkdlsj.com
 ||http://sources.wangqipu.com
 ||http://sourcescdn.xiaobingw.cn
 ||http://sp.wndoor.com
@@ -15357,6 +15391,7 @@
 ||http://t2.vbxx.net
 ||http://t2.wshufa.com
 ||http://t3.wubiinlee.com
+||http://t38uu.k42jvw.com
 ||http://t75.qyqc4s.com
 ||http://t8ac8a8f8.jingfeed.com
 ||http://ta.dogyqw.cn
@@ -15488,6 +15523,7 @@
 ||http://v.76768hwj.cn
 ||http://v.8yrn.cn
 ||http://v.9y88.com
+||http://v.acgshenshicha.cn
 ||http://v.amghwdf.cn
 ||http://v.awmlkuu.cn
 ||http://v.bayongzx.cn
@@ -15534,6 +15570,7 @@
 ||http://v.zoepb.cn
 ||http://voq3450129.y4j32.cn
 ||http://v1.0594529.com
+||http://v4g.cn
 ||http://v7.kawinhome.com
 ||http://v7.shaoyumuye.com
 ||http://vadioc.cn
@@ -15743,6 +15780,7 @@
 ||http://www.dadjia.com
 ||http://www.dajean.com
 ||http://www.danpinwu.com
+||http://www.danweijungu5812.top
 ||http://www.day66.com
 ||http://www.dgfggy.com
 ||http://www.diediao.com
@@ -16092,8 +16130,10 @@
 ||http://y.unilz588.com
 ||http://y.xinghao89.com
 ||http://y.zp22.cn
+||http://y7jq.cn
 ||http://yacafrr.bailingcloud.cn
 ||http://yahafda.qivsod.com
+||http://yao.zzsdjq.com
 ||http://ycszgt.cn
 ||http://ycy.hyjyjc.com
 ||http://ydlz.k859n.cn
@@ -18426,6 +18466,8 @@
 ||http://www.toujing9.top
 ||http://www.toujing8.top
 ||http://www.toujing11.top
+||http://www.kldsam.com
+||http://down.ewo1617.com
 ||http://acdcdn.com
 ||http://squeezedthoughtfully.com
 ||http://sorrowfulchemical.com
@@ -18442,3 +18484,9 @@
 ||http://hxlover.com
 ||http://etl-xlmc-ssl.xunlei.com
 ||http://fangniaowang.net
+||http://adv.aiclk.com
+||http://game-motivatead.aiclk.com
+||http://recv.aiclk.com
+||http://tac.aiclk.com
+||http://tracelog-debug.aiclk.com
+||http://upload.aiclk.com
