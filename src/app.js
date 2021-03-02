@@ -241,6 +241,7 @@ async function main() {
         await doRun(SuperMarket);
         await doRun(Family);
         await doRun(Sign);
+        await doRun(BeautyMakeup);
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
@@ -263,6 +264,7 @@ async function main() {
         await doCron(Fruit);
         await doCron(Pet);
         await doCron(Joy);
+        await doRun(BeautyMakeup);
       },
     },
     {
@@ -301,6 +303,7 @@ async function main() {
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
+        await doRun(BeautyMakeup);
       },
     },
     {

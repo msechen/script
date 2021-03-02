@@ -10,22 +10,41 @@ const {common} = require('../../../charles/api');
 class BeautyMakeup extends Template {
   static scriptName = 'BeautyMakeup';
   static scriptNameDesc = '美丽颜究院';
-  static shareCodeTaskList = [];
-  static commonParamFn = () => ({});
   static times = 1;
 
   static isSuccess(data) {
     return _.property('code')(data) === '0';
   }
 
-  //{"msg":{"type":"action","args":{},"action":"shop_products"}}
-
   static async doMain(api) {
     const self = this;
 
     let token = '';
+    // 部分任务完成情况
     let checkUpData = {};
+    // 用户信息, 主要是金币
     let userData = {};
+    // 店铺商品列表
+    let shopProducts = {};
+    // 问答
+    let questionData = [];
+    // 可生产的材料列表
+    let produceMaterialData = {};
+    let producePositionData = {
+      b1: {}, b2: {}, h1: {}, h2: {}, s1: {}, s2: {},
+    };
+    // 可生产的产品列表
+    let productList = [];
+    let needSellProductId = 0;
+    // 产品生产进度
+    let produceProductData = [];
+    // 兑换列表
+    let benefitData = [];
+    // 背包信息
+    let packageData = {};
+    // 售卖任务信息
+    let sellProductData = {};
+    const productMaxProduceSameTimes = 4;
 
     await initToken();
     if (!token) return;
@@ -44,9 +63,9 @@ class BeautyMakeup extends Template {
         },
       },
       //获取任务进度 请求
-      checkUp: {'msg': {'type': 'action', 'args': {}, 'action': 'check_up'}},
+      check_up: {'msg': {'type': 'action', 'args': {}, 'action': 'check_up'}},
       //获取店铺及商品信息 请求
-      shopProducts: {'msg': {'type': 'action', 'args': {}, 'action': 'shop_products'}},
+      shop_products: {'msg': {'type': 'action', 'args': {}, 'action': 'shop_products'}},
       //完成浏览会场任务 请求
       meetingplace_view: {'msg': {'type': 'action', 'args': {'source': 1}, 'action': 'meetingplace_view'}},
       //完成浏览商品任务 请求
@@ -100,6 +119,12 @@ class BeautyMakeup extends Template {
           'action': 'material_produce',
         },
       },
+      // 获取仓库中的材料
+      get_package: {'msg': {'type': 'action', 'args': {}, 'action': 'get_package'}},
+      // 获取售卖任务
+      get_task: {'msg': {'type': 'action', 'args': {}, 'action': 'get_task'}},
+      // 完成售卖任务
+      complete_task: {'msg': {'type': 'action', 'args': {'task_id': 0}, 'action': 'complete_task'}},
       //研发产品列表 请求
       product_lists: {'msg': {'type': 'action', 'args': {'page': 1, 'num': 10}, 'action': 'product_lists'}},
       //获取正在研发产品列表 请求
@@ -117,24 +142,31 @@ class BeautyMakeup extends Template {
     };
     const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`);
     ws.on('open', async () => {
-      sendMessage(wsMsg.init);
-      await sleep(2);
-      sendMessage(wsMsg.stats);
-      await sleep();
-      sendMessage(wsMsg.shopProducts);
-      await sleep();
-      !checkUpData['today_answered'] && sendMessage(wsMsg.get_question);
+      await sendMessage(wsMsg.init);
+      await sendMessage(wsMsg.stats); // TODO 该逻辑可能不需要
+      await sendMessage(wsMsg.shop_products);
+      await sendMessage(wsMsg.get_produce_material);
+      await sendMessage(wsMsg.product_producing);
+      await sendMessage(wsMsg.product_lists);
+      await sendMessage(wsMsg.get_package);
 
-      // TODO 确认什么时候签到
-      // await signIn();
-      // //执行每日问答
-      // await answerQuestion();
-      // //材料生产相关操作
-      // await meterial();
-      // //产品生产相关操作
-      // await productProduce();
-      // //兑换福利
-      // await exchange();
+      // 做任务
+      await handleAnswer();
+      await handleCheckUpReceive();
+      await meetingPlace();
+      await handleViewShop();
+      await handleAddProduct();
+
+      // 生产
+      await handleReceiveMaterial();
+      await handleReceiveProduct();
+      await handleSellProduct();
+      await handleProduceMaterial();
+
+      // 兑换
+      await handleExchange();
+
+      self.log('完成相关任务!');
     });
     ws.on('message', onMessage);
 
@@ -156,125 +188,259 @@ class BeautyMakeup extends Template {
     }
 
     async function onMessage(result) {
-      self.log(result);
       const {data, code, msg, action} = JSON.parse(result) || {};
       if (code !== 200) return self.log(`${action}请求失败, msg: ${msg}`);
-
-      self.log(action);
-      self.log(JSON.stringify(data));
 
       const allActions = {
         async check_up(data) {
           checkUpData = data;
-          // if (_.isEmpty(checkUpData['check_up'])) {
-          //   await signIn();
-          // }
-          // await handleCheckUpReceive();
-          await meetingPlace();
         },
-        get_user(data) {
+        async check_up_receive(data) {
+          self.log('三餐签到成功');
+        },
+        async get_user(data) {
           userData = data;
         },
-        get_package(data) {
+        async get_ad(data) {
+          if (data['check_sign_in'] === 1) {
+            await signIn();
+          }
         },
         async shop_products(data) {
-          await handleViewShop(data['shops']);
-          await handleAddProduct(data['products']);
-
-          await sleep(2);
-          sendMessage(wsMsg.get_benefit);
+          shopProducts = data;
         },
         async get_question(data) {
-          await handleAnswer(data);
+          questionData = data;
+        },
+        async get_produce_material(data) {
+          produceMaterialData = data;
+        },
+        async produce_position_info(data) {
+          const position = data['position'];
+          producePositionData[position] = data;
+        },
+        async material_fetch(data) {
+          const position = data['position'];
+          producePositionData[position] = data;
+        },
+        async product_producing(data) {
+          produceProductData = data;
+        },
+        async get_package(data) {
+          packageData = data;
+        },
+        async get_task(data) {
+          sellProductData = data;
+        },
+        async complete_task(data) {
+          self.log('售卖任务完成一次');
+          userData['coins'] = data['user_coins'];
+        },
+        async product_lists(data) {
+          productList = data;
+        },
+        async product_produce(data) {
+          produceProductData = data;
         },
         async get_benefit(data) {
-          await exchange(data);
+          benefitData = data;
         },
       };
+      // writeFileJSON(data, `${action}.json`, __dirname);
       allActions[action] && allActions[action](data);
+      await sleep();
     }
 
     // 签到
     async function signIn() {
-      sendMessage(wsMsg.sign_in_1);
-      await sleep();
-      // TODO 确认该逻辑是否有效
-      // sendMessage(msg.sign_in_2);
+      await sendMessage(wsMsg.sign_in_1);
     }
 
     // 浏览会场
     async function meetingPlace() {
-      for (let i = checkUpData['meetingplace_view'].length; i < checkUpData['mettingplace_count']; i++) {
-        sendMessage(wsMsg.meetingplace_view);
-        await sleep();
+      for (let i = checkUpData['meetingplace_view']; i < checkUpData['mettingplace_count']; i++) {
+        await sendMessage(wsMsg.meetingplace_view);
       }
     }
 
     // 三餐签到
     async function handleCheckUpReceive() {
-      // TODO 确认该逻辑怎么生成
+      await sendMessage(wsMsg.check_up);
       if (_.isEmpty(checkUpData['check_up'])) return;
-      wsMsg.check_up_receive.msg.args.check_up_id = checkUpData['check_up'][0].id;
-      sendMessage(wsMsg.check_up_receive);
+      const targetData = _.last(checkUpData['check_up']);
+      if (targetData['receive_status'] === 1) return;
+      wsMsg.check_up_receive.msg.args.check_up_id = targetData.id;
+      await sendMessage(wsMsg.check_up_receive);
     }
 
     // 加购
-    async function handleAddProduct(list) {
+    async function handleAddProduct() {
       for (let i = checkUpData['product_adds'].length; i < checkUpData['daily_product_add_times']; i++) {
-        const {id, shop_id: shopId} = list[i];
+        const {id} = shopProducts['products'][i];
         wsMsg.add_product_view_1.msg.args.add_product_id = id;
-        sendMessage(wsMsg.add_product_view_1);
-        await sleep();
-        // msg.add_product_view_2.msg.args.vender = shopId;
-        // sendMessage(msg.add_product_view_2);
-        // await sleep();
-        // TODO 确认该逻辑要不
-        // sendMessage(msg.add_product_view_3);
-        // msg.add_product_view_3.msg.args.vender = shopId;
+        await sendMessage(wsMsg.add_product_view_1);
       }
     }
 
     // 浏览关注店铺
-    async function handleViewShop(list) {
+    async function handleViewShop() {
       for (let i = checkUpData['shop_view'].length; i < checkUpData['daily_shop_follow_times']; i++) {
-        const {id, vender_id: venderId} = list[i];
+        const {id} = shopProducts['shops'][i];
         wsMsg.shop_view_1.msg.args.shop_id = id;
-        sendMessage(wsMsg.shop_view_1);
-        await sleep();
-        // TODO 确认该逻辑要不
-        // msg.shop_view_2.msg.args.vender = venderId;
-        // sendMessage(msg.shop_view_2);
+        await sendMessage(wsMsg.shop_view_1);
       }
     }
 
-    async function handleAnswer(data) {
-      wsMsg.submit_answer.msg.args.commit = _.fromPairs(data.map(({id, answers}) => [id, +answers]));
-      sendMessage(wsMsg.submit_answer);
+    // 每日问答
+    async function handleAnswer() {
+      if (checkUpData['today_answered']) return;
+      await sendMessage(wsMsg.get_question);
+      wsMsg.submit_answer.msg.args.commit = _.fromPairs(questionData.map(({id, answers}) => [id, +answers]));
+      await sendMessage(wsMsg.submit_answer);
     }
 
-    async function exchange(data) {
-      for (const {id, name, times_limit: times, day_limit: maxTimes} of data) {
-        if (name.match('京豆')) {
-          wsMsg.to_exchange.msg.args.benefit_id = id;
-          await self.loopCall([], {
-            times, maxTimes, duration: 1,
-            firstFn() {
-              sendMessage(wsMsg.to_exchange);
-            },
-          });
+    async function updateMaterialPositionInfo() {
+      for (const position of _.keys(producePositionData)) {
+        wsMsg.produce_position_info.msg.args.position = position;
+        await sendMessage(wsMsg.produce_position_info);
+      }
+    }
+
+    async function handleProduceMaterial() {
+      const sellProduct = productList.find(o => o['id'] === needSellProductId);
+      const mainMaterial = sellProduct ? sellProduct['product_materials'].map(o => o['material_id']) : [];
+      for (const data of _.values(producePositionData)) {
+        const position = data['position'];
+        if (data['is_valid'] === 1 && data['valid_electric'] > 0) {
+          // 可以进行生产
+          const allKeys = ['special', 'high', 'base'];
+          for (const key of allKeys) {
+            if (position.substring(0, 1) < key.substring(0, 1)) continue;
+            const materials = _.flatten(produceMaterialData[key].map(o => o.items)).filter(o => !o.isProduced);
+            let material = materials.find(o => mainMaterial.includes(o['id'])) || materials[0];
+            if (!material) continue;
+            material.isProduced = true;
+            await handleProduce(position, material.id);
+            break;
+          }
+        }
+      }
+
+      async function handleProduce(position, materialId) {
+        wsMsg.material_produce.msg.args.position = position;
+        wsMsg.material_produce.msg.args.material_id = materialId;
+        await sendMessage(wsMsg.material_produce);
+      }
+    }
+
+    async function handleProduceProduct(id, lackNum) {
+      const limitNum = lackNum || 10;
+      const product = productList.find(o => o['id'] === id);
+      if (!product) return false;
+      const materials = product['product_materials'].map(v => {
+        return packageData['material'].find(o => o['item_id'] === v['material_id']) || {num: 0};
+      });
+      const maxNum = getMaxProductNum(1, product['product_materials'], materials) || 0;
+      if (id) {
+        if (lackNum && (maxNum < lackNum)) {
+          // TODO 生产材料
+          self.log(`材料不足, 不可以生产${product['name']}`);
+          needSellProductId = id;
+          return false;
+        }
+      }
+      if (!maxNum) return false;
+      await handleProduceSameTime(id, maxNum);
+      const producingData = produceProductData.filter(o => o['product_id'] === id);
+      if (_.isEmpty(producingData)) return false;
+      await sleep(_.max(_.map(producingData, 'expires')));
+      await handleReceiveProduct();
+      return true;
+
+      function getMaxProductNum(num = 1, preList, totalList) {
+        let found = false;
+        if (num === limitNum) return num;
+        for (let i = 0; i < preList.length; i++) {
+          if ((preList[i]['num'] * num) > totalList[i]['num']) {
+            found = true;
+            return;
+          }
+        }
+        return found ? --num : getMaxProductNum(++num, preList, totalList);
+      }
+
+      // 同时生产
+      async function handleProduceSameTime(id, allNums) {
+        wsMsg.product_produce.msg.args.product_id = id;
+        let data = [];
+        let i = 0;
+        do {
+          for (let j = 0; j < productMaxProduceSameTimes && i < allNums; j++) {
+            i++;
+            data[j] = data[j] || 0;
+            data[j]++;
+          }
+        } while (i < allNums);
+        for (const amount of data) {
+          wsMsg.product_produce.msg.args.amount = amount;
+          await sendMessage(wsMsg.product_produce);
         }
       }
     }
 
-    function sendMessage(data) {
-      ws.send(_.isObject(data) ? JSON.stringify(data) : data);
+    // 收取生产好的材料
+    async function handleReceiveMaterial() {
+      await updateMaterialPositionInfo();
+      for (const {position, produce_num} of _.values(producePositionData)) {
+        if (produce_num === 0) continue;
+        wsMsg.material_fetch.msg.args.position = position;
+        await sendMessage(wsMsg.material_fetch);
+      }
     }
 
-    // const tokenKey = await api.doFormBody('genToken', void 0, common.genToken[0]).then(data => {
-    //   if (data.code === '0') return data['tokenKey'];
-    // });
-    // if (!tokenKey) return;
-    // api.cookie = `IsvToken=${tokenKey}; ${api.cookie}`;
+    // 收取生产好的产品
+    async function handleReceiveProduct(id) {
+      await sendMessage(wsMsg.product_producing);
+      const list = id ? produceProductData.filter(o => o['id'] === id) : produceProductData;
+      for (const {id, expires} of _.concat(list)) {
+        if (expires !== 0) continue;
+        wsMsg.product_fetch.msg.args.log_id = id;
+        await sendMessage(wsMsg.product_fetch);
+      }
+    }
+
+    async function handleSellProduct() {
+      await sendMessage(wsMsg.get_task);
+      const lackNum = sellProductData['num'] - sellProductData['package_stock'];
+      let enableCompleted = true;
+      // 数量不够, 需要进行生产
+      if (lackNum > 0) {
+        enableCompleted = await handleProduceProduct(sellProductData['product_id'], lackNum);
+      }
+      if (!enableCompleted) return;
+      wsMsg.complete_task.msg.args.task_id = sellProductData['id'];
+      await sendMessage(wsMsg.complete_task);
+      await handleSellProduct();
+    }
+
+    // 兑换东西
+    async function handleExchange() {
+      await sendMessage(wsMsg.get_benefit);
+      for (const {id, name, day_exchange_count: times, day_limit: maxTimes, coins} of benefitData) {
+        if (name.match('京豆')) {
+          wsMsg.to_exchange.msg.args.benefit_id = id;
+          for (let i = times; i < maxTimes; i++) {
+            if (userData['coins'] < +coins) continue;
+            await sendMessage(wsMsg.to_exchange);
+          }
+        }
+      }
+    }
+
+    async function sendMessage(data) {
+      ws.send(_.isObject(data) ? JSON.stringify(data) : data);
+      await sleep();
+    }
   }
 }
 
