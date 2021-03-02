@@ -14,18 +14,18 @@ class BianPao extends Family {
   };
   static customApiOptions = {
     qs: {
-      activeid: '10081587',
-      token: '79bde8767a63c6841a726f97f7f80548',
+      activeid: '10082232',
+      token: 'a11db0d53ef1061ce81e6f228d2b5d34',
     },
     headers: {
-      referer: 'https://linggame.jd.com/babelDiy/Zeus/heA49fhvyw9UakaaS3UUJRL7v3o/index.html',
+      referer: 'https://linggame.jd.com/babelDiy/Zeus/3Y7JfoyA2Nwoa4FRqgDY4WpVjfgP/index.html',
     },
   };
 
   static getTaskList({taskid, tasktype}) {
     let item = {taskid};
     let list = [item];
-    if (taskid === '600680b2986178004811b19e') {
+    if (taskid === '6034e1efd5d966f7a1beeee2') {
       item['callback'] = 'CheckParamsB';
       list.push(item);
     }

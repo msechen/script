@@ -178,6 +178,7 @@ async function main() {
         await doRun(Smfe);
         await doRun(PlantBean);
         await doRun(Family);
+        await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
           Harmony2,
