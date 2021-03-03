@@ -35,6 +35,10 @@ class Family extends Template {
     return list;
   }
 
+  static afterGetTaskList(data) {
+    this.log(`当前分数为: ${data.tatalprofits}`);
+  }
+
   static getApiNames() {
     const assign = _.assign({}, defaultApiNames, this.apiNames);
     return assign;
@@ -130,7 +134,7 @@ class Family extends Template {
         name: self.getApiNames().afterGetTaskList,
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.log(`当前分数为: ${data.tatalprofits}`);
+          self.afterGetTaskList(data);
         },
       },
     };

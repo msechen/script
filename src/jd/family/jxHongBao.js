@@ -17,11 +17,8 @@ class JxHongBao extends Family {
   };
   static customApiOptions = {
     uri: 'https://m.jingxi.com/fanxiantask/dotask',
-    qs: {
-      traceid: '1122142945135337809',
-    },
     headers: {
-      referer: 'https://st.jingxi.com/pingou/activity/task_rebate/index.html?source=share&jxsid=16138339799479583557',
+      referer: 'https://st.jingxi.com/pingou/activity/task_rebate/index.html',
     },
   };
 
@@ -39,6 +36,22 @@ class JxHongBao extends Family {
       list.push({tasktype: item.type, taskid: i + 1});
     }
     return list;
+  }
+
+  static afterGetTaskList(result) {
+    const data = result['data'] || {};
+    let newWaitAmount = data['newwaitamonut'] || '';
+    if (!newWaitAmount || (+newWaitAmount === 0)) return this.log(`目前没有待返红包`);
+    // TODO 确认这个逻辑是否需要
+    // newWaitAmount = +data['baseamount'] + +data['addwaitamount'] + newWaitAmount;
+    const doneMarket = _.map(data['donemarket'] || [], o => +o['maxamount']).reduce((accumulator, currentValue) => accumulator + currentValue) || 0;
+    const msg = [
+      `待返红包为: ${newWaitAmount}`,
+      `还需天数: ${Math.ceil(newWaitAmount / doneMarket)}`,
+      `今天已返红包: ${doneMarket.toFixed(2)}`,
+      `任务进度: ${data['taskdesc']}`,
+    ];
+    this.log(msg.join(', '));
   }
 }
 
