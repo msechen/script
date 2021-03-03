@@ -1,7 +1,9 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
 const moment = require('moment-timezone');
+const _ = require('lodash');
+const CryptoJS = require('crypto-js');
 
 class Joy extends Template {
   static scriptName = 'Joy';
@@ -12,10 +14,10 @@ class Joy extends Template {
 
   static apiOptions = {
     options: {
-      uri: 'https://jdjoy.jd.com/pet',
-      qs: {
+      uri: 'https://jdjoy.jd.com/common/pet',
+      qs: _.assign({
         reqSource: 'h5',
-      },
+      }, sign()),
       headers: {
         referer: 'https://jdjoy.jd.com/pet/index',
         origin: 'https://jdjoy.jd.com',
@@ -74,26 +76,32 @@ class Joy extends Template {
             scanMarketList,
             followShops,
             followChannelList,
+            followGoodList,
           } of taskList) {
-            if (!['ScanMarket', 'FollowShop', 'FollowChannel'].includes(taskType)) continue;
+            if (!['ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood'].includes(taskType)) continue;
 
             times = times || void 0;
             maxTimes = maxTimes || void 0;
 
-            let list = (scanMarketList || followShops || followChannelList || []).filter(o => !o.status).map(o => {
+            let list = (scanMarketList || followShops || followChannelList || followGoodList || []).filter(o => !o.status).map(o => {
               return _.assign({reqSource: 'h5'}, scanMarketList ? {
                 marketLink: o.marketLinkH5,
                 taskType,
               } : (followChannelList ? {
                 channelId: o.channelId,
                 taskType,
-              } : {shopId: o.shopId}));
+              } : (followGoodList ? {sku: o.sku} : {shopId: o.shopId})));
             });
 
             const option = {maxTimes, times, waitDuration};
             if (taskType === 'FollowShop') {
               _.assign(option, {
                 firstFn: o => api.doPath('followShop', o),
+              });
+            }
+            if (taskType === 'FollowGood') {
+              _.assign(option, {
+                firstFn: o => api.doPath('followGood', o),
               });
             }
 
@@ -110,6 +118,7 @@ class Joy extends Template {
           headers: {
             contentType: 'application/json',
           },
+          qs: sign(o, 'application/json'),
         }],
       },
       doRedeem: {
@@ -133,10 +142,15 @@ class Joy extends Template {
     const _ = self._;
 
     await handleSign();
-    // 喂食最少的
-    await handleFeed(0);
+    // 喂食最多的
+    await handleFeed();
     // 助力后获取狗粮
-    self.getNowHour() === 23 && api.doPath('getFood', void 0, {method: 'GET', taskType: 'InviteUser'});
+    if(self.getNowHour() === 23) {
+      api.doPath('getFood', void 0, {method: 'GET', taskType: 'InviteUser'});
+      api.doPath('getFood', void 0, {method: 'GET', taskType: 'SignEveryDay'});
+      api.doPath('getFood', void 0, {method: 'GET', taskType: 'FeedEveryDay'});
+      api.doPath('getFood', void 0, {method: 'GET', taskType: 'exchange'});
+    }
 
     // 三餐签到
     async function handleSign() {
@@ -169,6 +183,49 @@ class Joy extends Template {
     }
 
   }
+}
+
+// helpers
+function sign(body, cType = '') {
+  let lkt = '1614764172524' || getNowMoment().valueOf();
+  let keycode = '98c14c997fde50cc18bdefecfd48ceb7';
+  let lks = '';
+  if (cType.indexOf('json') > 0) {
+    lks = CryptoJS.MD5(Base64(AesEncrypt('' + JSON.stringify(sortByLetter(body)))) + '_' + keycode + '_' + lkt).toString();
+  } else {
+    lks = CryptoJS.MD5('_' + keycode + '_' + lkt).toString();
+  }
+  return {lkt, lks};
+}
+
+function Base64(e) {
+  let t = CryptoJS.enc.Utf8.parse(e);
+  return CryptoJS.enc.Base64.stringify(t);
+}
+
+function AesEncrypt(e) {
+  let o = '98c14c997fde50cc18bdefecfd48ceb7';
+  let i = CryptoJS.enc.Utf8.parse(o);
+  let r = CryptoJS.enc.Utf8.parse('ea653f4f3c5eda12');
+  let t = CryptoJS.enc.Utf8.parse(e);
+  return CryptoJS.AES.encrypt(t, i, {
+    'iv': r,
+    'mode': CryptoJS.mode.CBC,
+    'padding': CryptoJS.pad.Pkcs7,
+  }).ciphertext.toString();
+}
+
+function sortByLetter(e, t) {
+  if (e instanceof Array) {
+    t = t || [];
+    for (let a = 0; a < e.length; a++)
+      t[a] = sortByLetter(e[a], t[a]);
+  } else
+    !(e instanceof Array) && e instanceof Object ? (t = t || {},
+      Object.keys(e).sort().map(function (a) {
+        t[a] = sortByLetter(e[a], t[a]);
+      })) : t = e;
+  return t;
 }
 
 module.exports = Joy;
