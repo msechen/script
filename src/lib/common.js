@@ -66,6 +66,14 @@ async function getRealUrl(uri, after200Fn, options = {}) {
     uri, followRedirect: false,
     resolveWithFullResponse: true,
   });
+  if (new URL(uri).host === 'u.jd.com') {
+    after200Fn = body => {
+      const urlPrefix = 'var hrl=\'';
+      const prefixMatch = body.match(urlPrefix);
+      if (!prefixMatch) return;
+      return body.substring(prefixMatch.index + urlPrefix.length, body.match('\';var ua=').index);
+    };
+  }
   return rp(options).then(res => {
     if (res.statusCode === 200) {
       const body = res.body;
@@ -84,6 +92,14 @@ async function getRealUrl(uri, after200Fn, options = {}) {
     }
     console.log(`${uri}, 获取出错`);
   });
+}
+
+function getOriginDataFromFile(filePath) {
+  return _.filter(fs.readFileSync(filePath).toString().split(/\n+/));
+}
+
+function getUrlDataFromFile(filePath) {
+  return _.filter(getOriginDataFromFile(filePath), str => str.startsWith('http'));
 }
 
 module.exports = {
@@ -105,4 +121,6 @@ module.exports = {
   parallelRun,
 
   getRealUrl,
+  getUrlDataFromFile,
+  getOriginDataFromFile,
 };

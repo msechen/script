@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
-const {getRealUrl} = require('../../lib/common');
+const {getRealUrl, getOriginDataFromFile, getUrlDataFromFile} = require('../../lib/common');
 
 main();
 
@@ -11,7 +11,7 @@ async function main() {
 }
 
 function updateTokenFromLog() {
-  const result = _.uniq(getOriginDataFromFile('shop.log').filter(v => v.match('402')).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '')));
+  const result = _.uniq(getOriginDataFromFile(path.resolve(__dirname, 'shop.log')).filter(v => v.match('402')).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '')));
 
   if (_.isEmpty(result)) return;
   console.log('已失效的活动如下:');
@@ -21,24 +21,17 @@ function updateTokenFromLog() {
 }
 
 async function addTokenFromShopUrl() {
-  const shortUrls = getOriginDataFromFile('shopShortUrl.txt');
+  const urlPath = path.resolve(__dirname, 'shopToken.url');
+  const shortUrls = getUrlDataFromFile(urlPath);
   const tokens = [];
   for (const url of shortUrls) {
-    const longUrl = await getRealShopUrl(url);
+    const longUrl = await getRealUrl(url);
     tokens.push(new URL(longUrl).searchParams.get('token'));
   }
   console.log('新增的token如下');
   console.log(tokens);
   updateShopScript({addTokens: tokens});
-}
-
-function getRealShopUrl(uri) {
-  return getRealUrl(uri, body => {
-    const urlPrefix = 'var hrl=\'';
-    const prefixMatch = body.match(urlPrefix);
-    if (!prefixMatch) return;
-    return body.substring(prefixMatch.index + urlPrefix.length, body.match('\';var ua=').index);
-  });
+  fs.writeFileSync(urlPath, '');
 }
 
 function updateShopScript({removeTokens = [], addTokens = []}) {
@@ -71,6 +64,3 @@ function updateShopScript({removeTokens = [], addTokens = []}) {
 }
 
 // helpers
-function getOriginDataFromFile(fileName) {
-  return _.filter(fs.readFileSync(path.resolve(__dirname, fileName)).toString().split(/\n+/));
-}

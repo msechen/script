@@ -72,6 +72,7 @@ const EnterShop = require('./jd/sign/enterShop');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = require('./jd/globalMart/challenge');
 const BeautyMakeup = require('./jd/beautyMakeup');
+const ShopGift = require('./jd/wq/shopGift');
 
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
@@ -180,11 +181,6 @@ async function main() {
         await doRun(Family);
         await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
-        await multipleRun([
-          Harmony2,
-          // 抽奖次数用完了
-          // Harmony4,
-        ]);
       },
     },
     {

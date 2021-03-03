@@ -23,3 +23,6 @@ charles/chlsj/*
 src/json/
 src/jd/*.json
 src/jd/*/*.json
+
+src/jd/*.url
+src/jd/*/*.url
