@@ -36,6 +36,7 @@ class BeautyMakeup extends Template {
     // 可生产的产品列表
     let productList = [];
     let needSellProductId = 0;
+    let sellProductMaxNum = 0;
     // 产品生产进度
     let produceProductData = [];
     // 兑换列表
@@ -126,7 +127,7 @@ class BeautyMakeup extends Template {
       // 完成售卖任务
       complete_task: {'msg': {'type': 'action', 'args': {'task_id': 0}, 'action': 'complete_task'}},
       //研发产品列表 请求
-      product_lists: {'msg': {'type': 'action', 'args': {'page': 1, 'num': 10}, 'action': 'product_lists'}},
+      product_lists: {'msg': {'type': 'action', 'args': {'page': 1, 'num': 100}, 'action': 'product_lists'}},
       //获取正在研发产品列表 请求
       product_producing: {'msg': {'type': 'action', 'args': {}, 'action': 'product_producing'}},
       //研发产品 请求
@@ -141,7 +142,18 @@ class BeautyMakeup extends Template {
       to_exchange: {'msg': {'type': 'action', 'args': {'benefit_id': 0}, 'action': 'to_exchange'}},
     };
     const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`);
+    let opened = false;
     ws.on('open', async () => {
+      opened = true;
+    });
+    ws.on('message', onMessage);
+    await afterOpen();
+
+    async function afterOpen() {
+      if (!opened) {
+        await sleep(2);
+        return afterOpen();
+      }
       await sendMessage(wsMsg.init);
       await sendMessage(wsMsg.stats); // TODO 该逻辑可能不需要
       await sendMessage(wsMsg.shop_products);
@@ -163,15 +175,19 @@ class BeautyMakeup extends Template {
       await handleSellProduct();
       await handleProduceMaterial();
 
+      if (self.getNowHour() > 12) {
+        // 最后一次才完成这个任务
+        await handleDoProduceTask();
+      }
+
       // 兑换
       await handleExchange();
 
-      self.log('完成相关任务!');
-    });
-    ws.on('message', onMessage);
+      self.log(`金币为: ${userData['coins']}`);
+    }
 
     async function initToken() {
-      const isvToken = await api.doFormBody('isvObfuscator', void 0, common.isvObfuscator[0]).then(data => {
+      const isvToken = await api.doFormBody('isvObfuscator', void 0, common.isvObfuscator.find(o => o.body.match('xinruimz-isv.isvjcloud.com'))).then(data => {
         if (self.isSuccess(data)) return data['token'];
       });
       if (!isvToken) return;
@@ -234,7 +250,6 @@ class BeautyMakeup extends Template {
         },
         async complete_task(data) {
           self.log('售卖任务完成一次');
-          userData['coins'] = data['user_coins'];
         },
         async product_lists(data) {
           productList = data;
@@ -248,6 +263,12 @@ class BeautyMakeup extends Template {
       };
       // writeFileJSON(data, `${action}.json`, __dirname);
       allActions[action] && allActions[action](data);
+
+      // 通用处理
+      if (data['user_coins']) {
+        userData['coins'] = data['user_coins'];
+      }
+
       await sleep();
     }
 
@@ -334,6 +355,7 @@ class BeautyMakeup extends Template {
     }
 
     async function handleProduceProduct(id, lackNum) {
+      await sendMessage(wsMsg.get_package);
       const limitNum = lackNum || 10;
       const product = productList.find(o => o['id'] === id);
       if (!product) return false;
@@ -346,6 +368,7 @@ class BeautyMakeup extends Template {
           // TODO 生产材料
           self.log(`材料不足, 不可以生产${product['name']}`);
           needSellProductId = id;
+          sellProductMaxNum = maxNum;
           return false;
         }
       }
@@ -404,6 +427,7 @@ class BeautyMakeup extends Template {
       const list = id ? produceProductData.filter(o => o['id'] === id) : produceProductData;
       for (const {id, expires} of _.concat(list)) {
         if (expires !== 0) continue;
+        checkUpData['produce'] = 1;
         wsMsg.product_fetch.msg.args.log_id = id;
         await sendMessage(wsMsg.product_fetch);
       }
@@ -421,6 +445,13 @@ class BeautyMakeup extends Template {
       wsMsg.complete_task.msg.args.task_id = sellProductData['id'];
       await sendMessage(wsMsg.complete_task);
       await handleSellProduct();
+    }
+
+    // 完成产品研发任务
+    async function handleDoProduceTask() {
+      if (checkUpData['produce']) return;
+      const id = sellProductMaxNum > 0 ? sellProductMaxNum : _.last(productList)['id'];
+      await handleProduceProduct(id, 1);
     }
 
     // 兑换东西
