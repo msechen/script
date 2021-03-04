@@ -280,6 +280,7 @@ async function main() {
     {
       valid: 16,
       run: async () => {
+        await doCron(Joy);
         await doRun(PlantBean, getCookieData());
       },
     },
