@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: 8Q14zgESrsL12IuVNNlvLQ
-! Version: 202103010041
+! Checksum: dhj3H3JZ2S77AuxPa9pgyg
+! Version: 202103040041
 ! Title: Fanboy's Annoyance List
-! Last modified: 01 Mar 2021 00:41 UTC
+! Last modified: 04 Mar 2021 00:41 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -521,6 +521,7 @@
 ||https://foxpush.com^$third-party
 ||https://foxpush.net^$third-party
 ||https://getback.ch^$third-party
+||https://getpush.net^$third-party
 ||https://getpushmonkey.com^$third-party
 ||https://getsupernova.com^$third-party
 ||https://gravitec.net^$third-party
@@ -1919,6 +1920,7 @@
 ||http://foxpush.com^$third-party
 ||http://foxpush.net^$third-party
 ||http://getback.ch^$third-party
+||http://getpush.net^$third-party
 ||http://getpushmonkey.com^$third-party
 ||http://getsupernova.com^$third-party
 ||http://gravitec.net^$third-party
@@ -2218,6 +2220,7 @@
 ||http://cookiereports.com^$third-party
 ||http://cookies.innershed.co.uk^
 ||http://cookiescript.info^$third-party
+||http://d2eucw4fxv7nil.cloudfront.net^
 ||http://dmgmediaprivacy.co.uk^$third-party
 ||http://donkeymob.com^$third-party
 ||http://ecookie.nl^$third-party
@@ -2351,6 +2354,7 @@
 ||http://ewnews.com^*/newsletter.
 ||http://forms.windowsitpro.com^
 ||http://fortune.com^*/OO-NL_
+||http://gn-flagpoles.api.bbci.co.uk^
 ||http://goodhousekeeping.co.za^*/subscribe-
 ||http://goodhousekeeping.co.za^*/subscribe.
 ||http://ibtimes.co.in^*/newsletter.js
@@ -6192,6 +6196,7 @@ https://propublica.org##.module-donate
 https://newsweek.com##.msub
 https://lbry.tv##.nag
 https://buzzfeednews.com##.newsblock-tips
+https://shmoop.com##.no-ads
 https://propublica.org##.promo-bar__link-wrapper
 https://apkmirror.com##.promotedApp
 https://stuff.co.nz##.spade_3g.spade_3f.spade_3e
@@ -7574,6 +7579,7 @@ https://airship.com##.PushNotification
 https://reddit.com##.XPromoInFeed
 https://aliexpress.com##._3KrBP
 https://chicagotribune.com##.met-flyout
+https://wowhead.com##.notifications-dialog
 https://post-gazette.com##.pg-notifybox
 https://9to5google.com,9to5mac.com,electrek.co##.push-notify
 https://food.com##.pushdown-message
@@ -8247,6 +8253,7 @@ https://mashable.com##.follow-trigger
 https://vt.edu##.follow-virginia-tech-icons
 https://thisoldhouse.com##.followLink
 https://parent24.com##.follow_news
+https://moviemistakes.com##.followbuttons
 https://zimbabwesituation.com##.followdesktop
 https://rbth.com,rt.com##.follows-channel
 https://bet.com##.followstorieslikethis
@@ -9172,6 +9179,7 @@ https://wattsindustries.com###header1_overlay2
 https://eutelsat.com###header_higher
 https://trendsmap.com###header_message
 https://fitzpatrickreferrals.co.uk###hellobar
+https://heroesprofile.com###heroesprofile-alert
 https://goodsstall.co.uk###hideme
 https://exchange.uk.com###ibox
 https://flatme.it###ic
@@ -9360,7 +9368,6 @@ https://mtn.co.za##.Toast
 https://6abc.com,abc11.com,abc13.com,abc30.com,abc7.com,abc7chicago.com,abc7news.com,abc7ny.com##.Tooltip
 https://hotcleaner.com##.V9
 https://hotcleaner.com##.XNKr
-https://jooble.org##._10033
 https://hiberworld.com##._1u7AkTjy
 https://tunnelmb.net##._23LkM
 https://911tabs.com##._29v-t
@@ -9824,6 +9831,7 @@ https://santatracker.google.com##SANTA-NOTICE
 https://trustnet.com##USER-TYPE-POPUP
 https://vivid.money##[class^="cookieNotification_"]
 https://shutterstock.com##[data-automation="Eu_banner_container"]
+https://jooble.org##[data-test-name="_termsOfServices"]
 https://iubenda.com##a[style="padding-top: 10px; display: block;"]
 https://shab.ch##agb-bar
 https://orcid.org##app-banners
@@ -11582,6 +11590,7 @@ https://deutsche-handwerks-zeitung.de,handwerk-magazin.de,trendaward.de###cc-box
 https://hosteurope.de###cche
 https://badkissingen.de,wuerzburg.de###chint
 https://jmmgc.com###cnotice
+https://aktienportal1.de,eifelzeitung.de,ep1.de###coPolicyMain
 https://adventskalender-gewinnspiele.de,happy-spots.de,kirmes-in-deutschland.de,stadtfeste-in-deutschland.de,weihnachtsmaerkte-in-deutschland.de,weinfeste-in-deutschland.de###cono
 https://kunstnet.de,notebookinfo.de,zitatezumnachdenken.com###consent
 https://der-farang.com###consent_overlay
@@ -11753,6 +11762,7 @@ https://receiver.de,steckdosenleiste.org##.legalAdvice
 https://aktionspreis.de##.leiste_vollstaendig
 https://echo-online.de,giessener-anzeiger.de##.lightbox-overlay
 https://echo-online.de,giessener-anzeiger.de##.lightbox-skin
+https://lokalportal.de##.lp_snack-bar__container
 https://wirklichweiterkommen.de##.lsa-dialog
 https://jobmensa.de##.m-usermessage
 https://uhu.de##.message
@@ -12234,7 +12244,7 @@ https://centrometeolombardo.com###cc_div
 https://eismoinfo.lt###consent
 https://ecodallecitta.it###contenuto_consenso
 https://spesasicura.com###cook
-https://aeo.it,bookingaltoadige.com,camionsupermarket.it,chiesi.com,citroen-club.it,confidisystema.com,enistation.com,esselunga.it,esselungajob.it,exprivia.it,famila.it,giornaledicalabria.it,ildolomiti.it,kolping.it,messinaline.it,miabolzano.it,miamerano.it,mymercato.it,negozi.fastweb.it,pallacanestrovarese.it,primocanale.it,radiociao.com,rimini.com,sace.it,sanfrancescopatronoditalia.it,spesati.it,tecnocasa.it,wd40.it###cookie
+https://aeo.it,bookingaltoadige.com,camionsupermarket.it,chiesi.com,citroen-club.it,confidisystema.com,enistation.com,esselunga.it,esselungajob.it,exprivia.it,famila.it,giornaledicalabria.it,ildolomiti.it,kolping.it,messinaline.it,miabolzano.it,miamerano.it,mtonauticastore.it,mymercato.it,negozi.fastweb.it,pallacanestrovarese.it,primocanale.it,radiociao.com,rimini.com,sace.it,sanfrancescopatronoditalia.it,spesati.it,tecnocasa.it,wd40.it###cookie
 https://angolotesti.it,armietiro.it,automobilismo.it,automobilismodepoca.it,chateau-dax.it,ciclismo.it,cyclistmagazine.it,evomagazine.it,lupopornohd.it,menshealth.it,motociclismo.it,musictory.it,ordineavvocati.bari.it,pardini.it,runnersworld.it,tennisitaliano.it,testimania.com,thefilmclub.it,unipv.it,velaemotore.it###cookies
 https://telea1.it###cooky_content
 https://majani.it###cs-banner
@@ -12287,7 +12297,7 @@ https://sky.it###soundbox_cookie
 https://amazon.it###sp-cc
 https://digimobil.it###sticky-popup
 https://beniculturali.it,nlite.it,sigmastudio.it###system-message
-https://cataniaoggi.it###thepriv
+https://agronline.it,cataniaoggi.it###thepriv
 https://sia.eu###toast
 https://cippy.it###toast-container
 https://luxuryzone.it###top-notification-container
@@ -12702,6 +12712,8 @@ https://landrover.ru##.notificationBars
 https://kamkabel.ru##.panel_152_wp
 https://pegast.ru##.pgs-top
 https://66.ru##.t-i-agree
+https://obozrevatel.com##.t657__wrapper
+https://yoomoney.ru##div[class^="Gdpr__StyledGdpr-"]
 https://aliexpress.ru##div[class^="styles_wrapper_"]
 https://opusteno.rs###conditions-l
 https://freemeteo.rs###cookies
@@ -12828,6 +12840,7 @@ https://unian.ua##.cookies
 https://landrover.ua##.notificationBars
 https://ua-football.com##.policy-mes
 https://kinoafisha.ua##.privacy-modal
+https://hyser.ua##.privacy-policy
 https://papadon.com.ua##.t886
 https://infiniti-vietnam.com.vn##.c_128
 https://360.cymru###negesCaniatad
@@ -12990,8 +13003,6 @@ https://base.de#@##social_footer
 https://ghostery.com#@##social_media
 https://nextinpact.com#@##socialbar
 https://arte.tv,lenta.ru#@##socials
-https://youtube.com#@##subscribe-button
-https://feedburner.com#@##subscribe-options
 https://24matins.fr#@##top_share
 https://asian-u.com#@##twitter_button
 https://vk.com,vkontakte.ru#@##vk-popup
@@ -13065,8 +13076,9 @@ https://digg.com#@#.digg-button
 https://wykophitydnia.pl#@#.diggBox
 https://digg.com#@#.digg_button
 https://science-et-vie.com#@#.entry-share
-https://epaka.pl#@#.fa-facebook
-https://teslarati.com#@#.fa-facebook-square
+https://epaka.pl,fontawesome.com#@#.fa-facebook
+https://fontawesome.com,teslarati.com#@#.fa-facebook-square
+https://fontawesome.com#@#.fa-rss
 https://insomnia.gr#@#.fa-share
 https://hackmd.io,qrdesign.net#@#.fa-share-alt
 https://bitbucket.org,ebuddy.com,etoro.com,foodora.at,foodora.ca,foodora.com.au,foodora.de,foodora.fi,foodora.fr,foodora.nl,foodora.no,foodora.se,geekli.st,getyounity.com,globalcitizen.org,musixmatch.com,plug.dj,swiatebookow.pl#@#.facebook-button
@@ -13078,7 +13090,7 @@ https://watchever.de#@#.facebookBtn
 https://okcupid.com,quora.com,rdio.com,ticketabc.com#@#.facebook_button
 https://jappy.de#@#.facebookbutton
 https://airbnb.cat,airbnb.com,airbnb.de,dobreprogramy.pl,tekstowo.pl#@#.fb-button
-https://marketdino.pl,mediaexpert.leszczynscy.pl,pajarito.de#@#.fb-container
+https://foxbit.com.br,marketdino.pl,mediaexpert.leszczynscy.pl,pajarito.de#@#.fb-container
 https://flugzeugbilder.de,kizlarsoruyor.com#@#.fb-content
 https://google.com#@#.fb-dialog
 https://flugzeugbilder.de#@#.fb-footer
@@ -13262,7 +13274,7 @@ https://funnyordie.com#@#.social-bar-container
 https://adgully.com,chillitorun.pl,ecoustics.com,espansionetv.it,flyertalk.com,galaxydata.ru,ivid.it,laziopress.it,onovini.com,rta24.eu,salentolive24.com,saydigi-tech.com,stw24.pl,torrechannel.it,vonguru.fr,wahl-o-mat.de#@#.social-bottom
 https://bitbucket.org,foodit.com,paypal.com,tvspielfilm.de#@#.social-box
 https://chess.com#@#.social-btns
-https://4shared.com,disqus.com,everli.com,fastcompany.com,golem.de,nu.nl#@#.social-button
+https://4shared.com,bestbuy.com,disqus.com,everli.com,fastcompany.com,golem.de,nu.nl#@#.social-button
 https://adevarul.ro,airbnb.cat,airbnb.com,airbnb.de,airbnb.it,bilingua.io,cheezburger.com,musixmatch.com,nu.nl,ozy.com,tipranks.com#@#.social-buttons
 https://ironstudios.com,pioneer-iot.com,velox.net.ua,workroom-myata.ru#@#.social-circle
 https://readyrefresh.com#@#.social-col
@@ -13359,8 +13371,6 @@ https://listenonrepeat.com#@#.ssk-facebook
 https://cbsnews.com#@#.std-social
 https://streetsblog.org,thinkprogress.org#@#.sticky-share
 https://stumbleupon.com#@#.stumble-button
-https://fewo-direkt.de,nvidia.pl#@#.subscribe-container
-https://nvidia.pl#@#.subscribe-text
 https://first-class-and-more.de,geekgamer.tv#@#.subscribe-widget
 https://flightradar24.com#@#.twitter-feed
 https://bme.jhu.edu,e-biznes.pl#@#.twitter-follow-button
@@ -13507,7 +13517,7 @@ https://rainews.it#@#.as-oil-content-overlay
 https://rainews.it#@#.as-oil[data-qa="oil-Layer"]
 https://openfiber.it,supertennis.tv#@#.cc-banner
 https://bing.com,czuczu.pl,experian.com,supertennis.tv#@#.cc-container
-https://morningstar.ca,tangerine.ca#@#.cc_container
+https://morningstar.ca,mysoapbox.com,tangerine.ca#@#.cc_container
 https://onet.pl#@#.cmp-app_gdpr
 https://arnes.si,consent.yahoo.com,lawrievetgroup.co.uk,oath.com#@#.consent-container
 https://consent.yahoo.com,lawrievetgroup.co.uk,payments.amazon.ca,payments.amazon.co.jp,payments.amazon.co.uk,payments.amazon.com,payments.amazon.com.au,payments.amazon.com.br,payments.amazon.de,payments.amazon.es,payments.amazon.fr,payments.amazon.in,payments.amazon.it,simplii.com#@#.consent-wrapper
@@ -16986,6 +16996,7 @@ http://propublica.org##.module-donate
 http://newsweek.com##.msub
 http://lbry.tv##.nag
 http://buzzfeednews.com##.newsblock-tips
+http://shmoop.com##.no-ads
 http://propublica.org##.promo-bar__link-wrapper
 http://apkmirror.com##.promotedApp
 http://stuff.co.nz##.spade_3g.spade_3f.spade_3e
@@ -18368,6 +18379,7 @@ http://airship.com##.PushNotification
 http://reddit.com##.XPromoInFeed
 http://aliexpress.com##._3KrBP
 http://chicagotribune.com##.met-flyout
+http://wowhead.com##.notifications-dialog
 http://post-gazette.com##.pg-notifybox
 http://9to5google.com,9to5mac.com,electrek.co##.push-notify
 http://food.com##.pushdown-message
@@ -19041,6 +19053,7 @@ http://mashable.com##.follow-trigger
 http://vt.edu##.follow-virginia-tech-icons
 http://thisoldhouse.com##.followLink
 http://parent24.com##.follow_news
+http://moviemistakes.com##.followbuttons
 http://zimbabwesituation.com##.followdesktop
 http://rbth.com,rt.com##.follows-channel
 http://bet.com##.followstorieslikethis
@@ -19967,6 +19980,7 @@ http://wattsindustries.com###header1_overlay2
 http://eutelsat.com###header_higher
 http://trendsmap.com###header_message
 http://fitzpatrickreferrals.co.uk###hellobar
+http://heroesprofile.com###heroesprofile-alert
 http://goodsstall.co.uk###hideme
 http://exchange.uk.com###ibox
 http://flatme.it###ic
@@ -20155,7 +20169,6 @@ http://mtn.co.za##.Toast
 http://6abc.com,abc11.com,abc13.com,abc30.com,abc7.com,abc7chicago.com,abc7news.com,abc7ny.com##.Tooltip
 http://hotcleaner.com##.V9
 http://hotcleaner.com##.XNKr
-http://jooble.org##._10033
 http://hiberworld.com##._1u7AkTjy
 http://tunnelmb.net##._23LkM
 http://911tabs.com##._29v-t
@@ -20619,6 +20632,7 @@ http://santatracker.google.com##SANTA-NOTICE
 http://trustnet.com##USER-TYPE-POPUP
 http://vivid.money##[class^="cookieNotification_"]
 http://shutterstock.com##[data-automation="Eu_banner_container"]
+http://jooble.org##[data-test-name="_termsOfServices"]
 http://iubenda.com##a[style="padding-top: 10px; display: block;"]
 http://shab.ch##agb-bar
 http://orcid.org##app-banners
@@ -22378,6 +22392,7 @@ http://deutsche-handwerks-zeitung.de,handwerk-magazin.de,trendaward.de###cc-box
 http://hosteurope.de###cche
 http://badkissingen.de,wuerzburg.de###chint
 http://jmmgc.com###cnotice
+http://aktienportal1.de,eifelzeitung.de,ep1.de###coPolicyMain
 http://adventskalender-gewinnspiele.de,happy-spots.de,kirmes-in-deutschland.de,stadtfeste-in-deutschland.de,weihnachtsmaerkte-in-deutschland.de,weinfeste-in-deutschland.de###cono
 http://kunstnet.de,notebookinfo.de,zitatezumnachdenken.com###consent
 http://der-farang.com###consent_overlay
@@ -22549,6 +22564,7 @@ http://receiver.de,steckdosenleiste.org##.legalAdvice
 http://aktionspreis.de##.leiste_vollstaendig
 http://echo-online.de,giessener-anzeiger.de##.lightbox-overlay
 http://echo-online.de,giessener-anzeiger.de##.lightbox-skin
+http://lokalportal.de##.lp_snack-bar__container
 http://wirklichweiterkommen.de##.lsa-dialog
 http://jobmensa.de##.m-usermessage
 http://uhu.de##.message
@@ -23030,7 +23046,7 @@ http://centrometeolombardo.com###cc_div
 http://eismoinfo.lt###consent
 http://ecodallecitta.it###contenuto_consenso
 http://spesasicura.com###cook
-http://aeo.it,bookingaltoadige.com,camionsupermarket.it,chiesi.com,citroen-club.it,confidisystema.com,enistation.com,esselunga.it,esselungajob.it,exprivia.it,famila.it,giornaledicalabria.it,ildolomiti.it,kolping.it,messinaline.it,miabolzano.it,miamerano.it,mymercato.it,negozi.fastweb.it,pallacanestrovarese.it,primocanale.it,radiociao.com,rimini.com,sace.it,sanfrancescopatronoditalia.it,spesati.it,tecnocasa.it,wd40.it###cookie
+http://aeo.it,bookingaltoadige.com,camionsupermarket.it,chiesi.com,citroen-club.it,confidisystema.com,enistation.com,esselunga.it,esselungajob.it,exprivia.it,famila.it,giornaledicalabria.it,ildolomiti.it,kolping.it,messinaline.it,miabolzano.it,miamerano.it,mtonauticastore.it,mymercato.it,negozi.fastweb.it,pallacanestrovarese.it,primocanale.it,radiociao.com,rimini.com,sace.it,sanfrancescopatronoditalia.it,spesati.it,tecnocasa.it,wd40.it###cookie
 http://angolotesti.it,armietiro.it,automobilismo.it,automobilismodepoca.it,chateau-dax.it,ciclismo.it,cyclistmagazine.it,evomagazine.it,lupopornohd.it,menshealth.it,motociclismo.it,musictory.it,ordineavvocati.bari.it,pardini.it,runnersworld.it,tennisitaliano.it,testimania.com,thefilmclub.it,unipv.it,velaemotore.it###cookies
 http://telea1.it###cooky_content
 http://majani.it###cs-banner
@@ -23083,7 +23099,7 @@ http://sky.it###soundbox_cookie
 http://amazon.it###sp-cc
 http://digimobil.it###sticky-popup
 http://beniculturali.it,nlite.it,sigmastudio.it###system-message
-http://cataniaoggi.it###thepriv
+http://agronline.it,cataniaoggi.it###thepriv
 http://sia.eu###toast
 http://cippy.it###toast-container
 http://luxuryzone.it###top-notification-container
@@ -23498,6 +23514,8 @@ http://landrover.ru##.notificationBars
 http://kamkabel.ru##.panel_152_wp
 http://pegast.ru##.pgs-top
 http://66.ru##.t-i-agree
+http://obozrevatel.com##.t657__wrapper
+http://yoomoney.ru##div[class^="Gdpr__StyledGdpr-"]
 http://aliexpress.ru##div[class^="styles_wrapper_"]
 http://opusteno.rs###conditions-l
 http://freemeteo.rs###cookies
@@ -23624,6 +23642,7 @@ http://unian.ua##.cookies
 http://landrover.ua##.notificationBars
 http://ua-football.com##.policy-mes
 http://kinoafisha.ua##.privacy-modal
+http://hyser.ua##.privacy-policy
 http://papadon.com.ua##.t886
 http://infiniti-vietnam.com.vn##.c_128
 http://360.cymru###negesCaniatad
@@ -23786,8 +23805,6 @@ http://base.de#@##social_footer
 http://ghostery.com#@##social_media
 http://nextinpact.com#@##socialbar
 http://arte.tv,lenta.ru#@##socials
-http://youtube.com#@##subscribe-button
-http://feedburner.com#@##subscribe-options
 http://24matins.fr#@##top_share
 http://asian-u.com#@##twitter_button
 http://vk.com,vkontakte.ru#@##vk-popup
@@ -23861,8 +23878,9 @@ http://digg.com#@#.digg-button
 http://wykophitydnia.pl#@#.diggBox
 http://digg.com#@#.digg_button
 http://science-et-vie.com#@#.entry-share
-http://epaka.pl#@#.fa-facebook
-http://teslarati.com#@#.fa-facebook-square
+http://epaka.pl,fontawesome.com#@#.fa-facebook
+http://fontawesome.com,teslarati.com#@#.fa-facebook-square
+http://fontawesome.com#@#.fa-rss
 http://insomnia.gr#@#.fa-share
 http://hackmd.io,qrdesign.net#@#.fa-share-alt
 http://bitbucket.org,ebuddy.com,etoro.com,foodora.at,foodora.ca,foodora.com.au,foodora.de,foodora.fi,foodora.fr,foodora.nl,foodora.no,foodora.se,geekli.st,getyounity.com,globalcitizen.org,musixmatch.com,plug.dj,swiatebookow.pl#@#.facebook-button
@@ -23874,7 +23892,7 @@ http://watchever.de#@#.facebookBtn
 http://okcupid.com,quora.com,rdio.com,ticketabc.com#@#.facebook_button
 http://jappy.de#@#.facebookbutton
 http://airbnb.cat,airbnb.com,airbnb.de,dobreprogramy.pl,tekstowo.pl#@#.fb-button
-http://marketdino.pl,mediaexpert.leszczynscy.pl,pajarito.de#@#.fb-container
+http://foxbit.com.br,marketdino.pl,mediaexpert.leszczynscy.pl,pajarito.de#@#.fb-container
 http://flugzeugbilder.de,kizlarsoruyor.com#@#.fb-content
 http://google.com#@#.fb-dialog
 http://flugzeugbilder.de#@#.fb-footer
@@ -24058,7 +24076,7 @@ http://funnyordie.com#@#.social-bar-container
 http://adgully.com,chillitorun.pl,ecoustics.com,espansionetv.it,flyertalk.com,galaxydata.ru,ivid.it,laziopress.it,onovini.com,rta24.eu,salentolive24.com,saydigi-tech.com,stw24.pl,torrechannel.it,vonguru.fr,wahl-o-mat.de#@#.social-bottom
 http://bitbucket.org,foodit.com,paypal.com,tvspielfilm.de#@#.social-box
 http://chess.com#@#.social-btns
-http://4shared.com,disqus.com,everli.com,fastcompany.com,golem.de,nu.nl#@#.social-button
+http://4shared.com,bestbuy.com,disqus.com,everli.com,fastcompany.com,golem.de,nu.nl#@#.social-button
 http://adevarul.ro,airbnb.cat,airbnb.com,airbnb.de,airbnb.it,bilingua.io,cheezburger.com,musixmatch.com,nu.nl,ozy.com,tipranks.com#@#.social-buttons
 http://ironstudios.com,pioneer-iot.com,velox.net.ua,workroom-myata.ru#@#.social-circle
 http://readyrefresh.com#@#.social-col
@@ -24155,8 +24173,6 @@ http://listenonrepeat.com#@#.ssk-facebook
 http://cbsnews.com#@#.std-social
 http://streetsblog.org,thinkprogress.org#@#.sticky-share
 http://stumbleupon.com#@#.stumble-button
-http://fewo-direkt.de,nvidia.pl#@#.subscribe-container
-http://nvidia.pl#@#.subscribe-text
 http://first-class-and-more.de,geekgamer.tv#@#.subscribe-widget
 http://flightradar24.com#@#.twitter-feed
 http://bme.jhu.edu,e-biznes.pl#@#.twitter-follow-button
@@ -24303,7 +24319,7 @@ http://rainews.it#@#.as-oil-content-overlay
 http://rainews.it#@#.as-oil[data-qa="oil-Layer"]
 http://openfiber.it,supertennis.tv#@#.cc-banner
 http://bing.com,czuczu.pl,experian.com,supertennis.tv#@#.cc-container
-http://morningstar.ca,tangerine.ca#@#.cc_container
+http://morningstar.ca,mysoapbox.com,tangerine.ca#@#.cc_container
 http://onet.pl#@#.cmp-app_gdpr
 http://arnes.si,consent.yahoo.com,lawrievetgroup.co.uk,oath.com#@#.consent-container
 http://consent.yahoo.com,lawrievetgroup.co.uk,payments.amazon.ca,payments.amazon.co.jp,payments.amazon.co.uk,payments.amazon.com,payments.amazon.com.au,payments.amazon.com.br,payments.amazon.de,payments.amazon.es,payments.amazon.fr,payments.amazon.in,payments.amazon.it,simplii.com#@#.consent-wrapper
