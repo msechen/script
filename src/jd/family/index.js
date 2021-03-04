@@ -35,7 +35,7 @@ class Family extends Template {
     return list;
   }
 
-  static afterGetTaskList(data) {
+  static afterGetTaskList(data, api) {
     this.log(`当前分数为: ${data.tatalprofits}`);
   }
 
@@ -134,7 +134,7 @@ class Family extends Template {
         name: self.getApiNames().afterGetTaskList,
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.afterGetTaskList(data);
+          self.afterGetTaskList(data, api);
         },
       },
     };

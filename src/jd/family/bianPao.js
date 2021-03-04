@@ -32,6 +32,25 @@ class BianPao extends Family {
     return list;
   }
 
+  static async afterGetTaskList(data, api) {
+    const self = this;
+    self.log(`当前分数为: ${data.tatalprofits}`);
+    // TODO 兑换目前还未实现
+    return;
+    const prizeDetail = data.prizedetail || [];
+    const target = _.last(prizeDetail.filter(o => o['get'] === 0));
+    await exchange(target['active'], target['level']);
+
+    function exchange(active, level) {
+      return api.doPath('family_draw', void 0, {
+        qs: {
+          active,
+          level,
+          type: 2,
+        },
+      });
+    }
+  }
 }
 
 module.exports = BianPao;
