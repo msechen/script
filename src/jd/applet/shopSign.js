@@ -14,9 +14,6 @@ class AppletShopSign extends Applet {
     const activityIds = [
       // [activityId, pathId]
 
-      // 博世
-      ['3d6cd5a6cf4f47a8a28477116bdc9ad3'],
-      ['19902886114648d699f96cc0a6d1e02d'],
     ];
     if (!activityIds.length) return;
     let pin = '';
