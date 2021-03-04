@@ -382,14 +382,15 @@ class BeautyMakeup extends Template {
 
       function getMaxProductNum(num = 1, preList, totalList) {
         let found = false;
-        if (num === limitNum) return num;
         for (let i = 0; i < preList.length; i++) {
           if ((preList[i]['num'] * num) > totalList[i]['num']) {
             found = true;
             return;
           }
         }
-        return found ? --num : getMaxProductNum(++num, preList, totalList);
+        if (found) return --num;
+        if (num === limitNum) return num;
+        return getMaxProductNum(++num, preList, totalList);
       }
 
       // 同时生产
