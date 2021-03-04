@@ -42,20 +42,23 @@ class SignShop extends Template {
       // 2.25新增
       '0FEBDDE1FBE9618E670D8242EFFFD643',
       'D6A88099F516166806DA1A43892AC212',
-      '9B08D58CC112C4732EB55431DFF47288',
       '1AFDEE76E0663DE71177237A45E1E2A3',
       '5A7A64558770D0EB369A7C7074F0C111',
       'B38993125BB0EDC4612E2B90C9D31D3F',
       'B3A45DCD7E724CB47B4BB165692AAFFF',
       '3D7D91F53126D7D82BB0DE0FE9937BBA',
       '1868B2896C16E38333DE6C2A65B5F57F',
-      'E26EF3EADAF5E34F743FA5C6A05891AB',
       'E64E528CB5003BE6A3B412930F60E0C0',
+      'B0B96FE2BB806FFA8E736ED485511ECE',
+      'E3C7A0B8C9CE2893E65B077BB98EF697',
       // 脚本新增插入位置
     ];
 
     const nowHour = self.getNowHour();
-    if (nowHour !== 23) return handleSign();
+    if (nowHour !== 23) {
+      await updateShopInfos(false);
+      return handleSign();
+    }
 
     await handleTimedExecution(nowHour);
 
@@ -85,12 +88,16 @@ class SignShop extends Template {
     }
 
     // 补全shopInfos
-    async function updateShopInfos() {
+    async function updateShopInfos(addOtherInfo = true) {
       shopInfos = shopInfos.map(v => _.concat(v));
       for (let shopInfo of shopInfos) {
         if (shopInfo.length !== 1) continue;
-        await getActivityInfo(shopInfo[0]).then(data => {
+        const token = shopInfo[0];
+        await getActivityInfo(token).then(async data => {
           if (!self.isSuccess(data)) return shopInfo.pop();
+          const notSign = await handleListShopInfo(token);
+          if (notSign) return shopInfo.pop();
+          if (!addOtherInfo) return;
           shopInfo.push(data.data.venderId);
           shopInfo.push(data.data.id);
         });
@@ -110,6 +117,7 @@ class SignShop extends Template {
           return `${days}天${Math.floor(beanPrize.discount)}豆`;
         }).filter(str => str);
         self.log(`${token} 已签到${currentSignDays}天, 奖品: ${prizeRules.join(', ')}`);
+        return _.isEmpty(prizeRules);
       });
     }
 
