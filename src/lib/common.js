@@ -94,6 +94,20 @@ async function getRealUrl(uri, after200Fn, options = {}) {
   });
 }
 
+// 从 process.env 获取值
+function getEnv(key, index = 0) {
+  return index === 0 ? process.env[key] : process.env[`${key}_${index}`];
+}
+
+function getEnvList(key, limit = 5) {
+  let result = [];
+  for (let i = 0; i < limit; i++) {
+    const envVal = getEnv(key, i);
+    envVal && result.push(envVal);
+  }
+  return result;
+}
+
 function getOriginDataFromFile(filePath) {
   return _.filter(fs.readFileSync(filePath).toString().split(/\n+/));
 }
@@ -119,6 +133,9 @@ module.exports = {
   writeFileJSON,
 
   parallelRun,
+
+  getEnv,
+  getEnvList,
 
   getRealUrl,
   getUrlDataFromFile,

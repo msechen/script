@@ -1,21 +1,29 @@
-const Applet = require('./index');
+const Isv = require('./index');
 
 const {sleep, writeFileJSON, parallelRun} = require('../../lib/common');
 const moment = require('moment-timezone');
-const {updateTokenCookies, getSimpleActInfoVo} = require('./api');
+const {updateTokenCookies, getSimpleActInfoVo, generateToken} = require('./api');
 const _ = require('lodash');
 
-class AppletShopSign extends Applet {
-  static scriptNameDesc = '店铺签到(小程序/app)';
+class IsvShopSign extends Isv {
+  static scriptName = 'IsvShopSign';
+  static scriptNameDesc = '店铺签到(app)';
 
   static async doMain(api, shareCodes) {
     const self = this;
 
     const activityIds = [
       // [activityId, pathId]
+      ['f1f81c4b1d5e47b2aba7c2531739fc74', 'sevenDay'],
+      ['3e6c53c198724f8583229bbc0f1fcbb3'],
+      ['c498049594e449268869100c32e121f4'],
 
+      // 需要加入品牌会员
+      // 十月稻田
+      ['db57818738344160bf9b68e3d32f51f5'],
     ];
     if (!activityIds.length) return;
+    await generateToken(api);
     let pin = '';
     await updateTokenCookies(api);
     // TODO getSimpleActInfoVo 不一定有用
@@ -39,4 +47,4 @@ class AppletShopSign extends Applet {
   }
 }
 
-module.exports = AppletShopSign;
+module.exports = IsvShopSign;

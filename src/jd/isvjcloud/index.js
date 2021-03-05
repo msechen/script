@@ -3,9 +3,9 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const moment = require('moment-timezone');
 
-class Applet extends Template {
-  static scriptName = 'Applet';
-  static scriptNameDesc = '小程序主入口';
+class Isv extends Template {
+  static scriptName = 'Isv';
+  static scriptNameDesc = '第三方活动入口';
   static shareCodeTaskList = [];
   static times = 1;
 
@@ -29,4 +29,4 @@ class Applet extends Template {
   }
 }
 
-module.exports = Applet;
+module.exports = Isv;

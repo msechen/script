@@ -1,5 +1,7 @@
 const _ = require('lodash');
 
+const {common} = require('../../../charles/api');
+
 async function updateTokenCookies(api, loopTimes = 0) {
   return api.doUrl('https://lzkj-isv.isvjcloud.com/sign/sevenDay/signActivity', {
     resolveWithFullResponse: true,
@@ -21,27 +23,40 @@ async function updateTokenCookies(api, loopTimes = 0) {
       return updateTokenCookies(api, loopTimes);
     }
     const tokenCookies = response.headers['set-cookie'].map(str => str.split(';')[0]);
-    api.cookie = _.concat(api.cookie, tokenCookies).join('; ');
+    api.cookie = _.concat(tokenCookies).join('; ');
     return tokenCookies;
   });
 }
 
+async function generateToken(api) {
+  return api.commonDo({
+    form: common.isvObfuscator.find(o => o.body.match('lzkj-isv.isvjcloud.com')),
+    qs: {
+      functionId: 'isvObfuscator',
+    },
+  }).then(data => {
+    if (data['code'] === '0') api.isvToken = data['token'];
+  });
+}
+
 async function getSimpleActInfoVo(api, activityId) {
-  const shopId = await api.doPath('customer/getSimpleActInfoVo', {
+  const venderId = await api.doPath('customer/getSimpleActInfoVo', {
     activityId,
-  }).then(data => _.property('data.shopId')(data));
+  }).then(data => _.property('data.venderId')(data));
   const pin = await api.doPath('customer/getMyPing', {
-    userId: shopId,
-    fromType: 'WeChat',
-    token: api.cookie.split(';')[0].split('=')[1],
+    userId: venderId,
+    fromType: 'APP',
+    token: api.isvToken,
   }).then(data => _.property('data.secretPin')(data));
 
   return {
-    shopId, pin,
+    venderId, pin,
   };
 }
 
 module.exports = {
   updateTokenCookies,
   getSimpleActInfoVo,
+
+  generateToken,
 };

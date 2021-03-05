@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const {getNowMoment, getNowDate, getLogFile, sleep, parallelRun} = require('./lib/common');
+const {getNowMoment, getNowDate, getLogFile, sleep, parallelRun, getEnvList} = require('./lib/common');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
 
@@ -35,7 +35,7 @@ const StatisticsBean = require('./jd/statistics/bean');
 const Ssjj = require('./jd/ssjj');
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
-const AppletShopSign = require('./jd/applet/shopSign');
+const IsvShopSign = require('./jd/isvjcloud/shopSign');
 const CrazyJoy = require('./jd/crazyJoy');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
@@ -92,22 +92,13 @@ const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCod
     }
     return shareCodes;
   };
-  const cookies = getEnvByName(envCookieName);
+  const cookies = getEnvList(envCookieName);
 
   return cookies.map((cookie, index) => {
     const allShareCodes = getShareCodes(name, index);
     const shareCodes = getShareCodeFn(index, allShareCodes) || allShareCodes;
     return {cookie, shareCodes};
   });
-
-  function getEnvByName(name) {
-    let result = [];
-    for (let i = 0; i < 5; i++) {
-      const envVal = (i === 0 ? process.env[name] : process.env[`${name}_${i}`]);
-      envVal && result.push(envVal);
-    }
-    return result;
-  }
 };
 
 async function multipleRun(targets) {
@@ -142,10 +133,6 @@ async function doCron1(target, index = 0) {
   await doCron(target, getCookieData()[index]);
 }
 
-function doAppletShopSign() {
-  return doRun(AppletShopSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
-}
-
 async function main() {
   if (process.env.NOT_RUN) {
     console.log('不执行脚本');
@@ -157,10 +144,8 @@ async function main() {
       run: async () => {
         // await doCron(SuperMarket);
         await doRun(KoiRedPacket);
-        await doAppletShopSign();
+        await doRun(IsvShopSign);
         await doRun(SignShop);
-        await doRun(SignRemote);
-        await doRun(EnterShop);
         await doRun(SignBeanHome);
         await doRun(Sign);
         await doRun(StatisticsBean);
@@ -321,9 +306,10 @@ async function main() {
         await doCron(PlantBean);
         await doRun(CrazyJoy);
         await doCron(Joy);
+
+        // 24点后定时启动
         await doRun(SignShop);
-        await doAppletShopSign();
-        // await doRun(SuperMarketRedeem);
+        await multipleRun([SignRemote, IsvShopSign]);
       },
     },
   ];
