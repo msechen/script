@@ -11,7 +11,10 @@ async function main() {
 }
 
 function updateTokenFromLog() {
-  const result = _.uniq(getOriginDataFromFile(path.resolve(__dirname, 'shop.log')).filter(v => v.match('402')).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '')));
+  const data = getOriginDataFromFile(path.resolve(__dirname, 'shop.log'));
+  const notGiftData = data.filter(v => v.match(/已签到\w+天/) && !v.match('奖品'));
+  const expiredData = data.filter(v => v.match('402'));
+  const result = _.uniq(_.concat(notGiftData, expiredData).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '').trim()));
 
   if (_.isEmpty(result)) return;
   console.log('已失效的活动如下:');
