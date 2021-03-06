@@ -164,6 +164,7 @@ async function main() {
         await doRun(Smfe);
         await doRun(PlantBean);
         await doRun(Family);
+        await doRun(Live);
         await doRun(JxHongBao);
         await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
