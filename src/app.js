@@ -71,7 +71,7 @@ const Live = require('./jd/live');
 const EnterShop = require('./jd/sign/enterShop');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = require('./jd/globalMart/challenge');
-const BeautyMakeup = require('./jd/beautyMakeup');
+const BeautyMakeup = {start: _.noop};
 const ShopGift = require('./jd/wq/shopGift');
 
 const nowHour = getNowMoment().hour();
