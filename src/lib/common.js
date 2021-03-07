@@ -77,7 +77,10 @@ async function getRealUrl(uri, after200Fn, options = {}) {
   return rp(options).then(res => {
     if (res.statusCode === 200) {
       const body = res.body;
-      if (!after200Fn) return console.log(`${uri} 不需要302`);
+      if (!after200Fn) {
+        console.log(`${uri} 不需要302`);
+        return uri;
+      }
       const newUri = after200Fn(body);
       if (!newUri) return console.log(`${uri}, 获取出错`);
       return getRealUrl(newUri, after200Fn, options);
