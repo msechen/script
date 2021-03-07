@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: dhj3H3JZ2S77AuxPa9pgyg
-! Version: 202103040041
+! Checksum: ksPDC+yq1egLbegej+hhwQ
+! Version: 202103070041
 ! Title: Fanboy's Annoyance List
-! Last modified: 04 Mar 2021 00:41 UTC
+! Last modified: 07 Mar 2021 00:41 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -5969,6 +5969,7 @@ https://gq.com##.utilities-bottom
 https://in.com##.utility_bar_block
 https://zdnet.com##.utils
 https://ndtv.com##.uv-bottom-right
+https://gameworldobserver.com##.vacancies-block
 https://venturebeat.com##.vb_widget
 https://realonlinedegrees.com,visualeconomics.com##.ve2_joinbox
 https://sify.com##.vhare-textbg
@@ -6661,6 +6662,7 @@ https://evolvepolitics.com##.code-block-6
 https://shropshirestar.com##.comments-cta
 https://vogue.com##.component-cnid-modal-backdrop
 https://vanityfair.com##.component-modal
+https://sbs.com.au##.connect-sbs
 https://wired.com##.consumer-marketing-unit--display-rail
 https://moneycontrol.com##.contact
 https://houseandleisure.co.za##.contact-us
@@ -8338,7 +8340,7 @@ https://sciencetimes.com##.i-btngroup
 https://pastebin.com##.i_tf
 https://classicalite.com##.ic_bt
 https://techtimes.com##.ic_g
-https://essence.com,etonline.com,utne.com##.icon-bar
+https://academictimes.com,essence.com,etonline.com,utne.com##.icon-bar
 https://ted.com##.icon-center
 https://cookieandkate.com##.icon-font
 https://nextbigfuture.com##.icon-g
@@ -13321,7 +13323,7 @@ https://gallerix.asia,gallerix.org#@#.social-tumblr
 https://4players.de,chrisblattman.com,deadspin.com,gizmodo.com,jezebel.com,kinja.com,kotaku.com,lifehacker.com#@#.social-twitter
 https://medialeaks.ru#@#.social-widgets
 https://bronchiectasisandntminitiative.org,copdfoundation.org,viralnova.com#@#.social-wrap
-https://chess-online.com,dreuz.info,etoro.com,foxnews.com,manager.paczkomaty.pl#@#.social-wrapper
+https://chess-online.com,dreuz.info,etoro.com,foxnews.com,ilgiorno.it,ilrestodelcarlino.it,lanazione.it,manager.paczkomaty.pl,quotidiano.net#@#.social-wrapper
 https://coub.com#@#.socialBlock
 https://runescape.com,study.163.com#@#.socialBox
 https://ceneo.pl,showmax.com#@#.socialBtns
@@ -16769,6 +16771,7 @@ http://gq.com##.utilities-bottom
 http://in.com##.utility_bar_block
 http://zdnet.com##.utils
 http://ndtv.com##.uv-bottom-right
+http://gameworldobserver.com##.vacancies-block
 http://venturebeat.com##.vb_widget
 http://realonlinedegrees.com,visualeconomics.com##.ve2_joinbox
 http://sify.com##.vhare-textbg
@@ -17461,6 +17464,7 @@ http://evolvepolitics.com##.code-block-6
 http://shropshirestar.com##.comments-cta
 http://vogue.com##.component-cnid-modal-backdrop
 http://vanityfair.com##.component-modal
+http://sbs.com.au##.connect-sbs
 http://wired.com##.consumer-marketing-unit--display-rail
 http://moneycontrol.com##.contact
 http://houseandleisure.co.za##.contact-us
@@ -19138,7 +19142,7 @@ http://sciencetimes.com##.i-btngroup
 http://pastebin.com##.i_tf
 http://classicalite.com##.ic_bt
 http://techtimes.com##.ic_g
-http://essence.com,etonline.com,utne.com##.icon-bar
+http://academictimes.com,essence.com,etonline.com,utne.com##.icon-bar
 http://ted.com##.icon-center
 http://cookieandkate.com##.icon-font
 http://nextbigfuture.com##.icon-g
@@ -24123,7 +24127,7 @@ http://gallerix.asia,gallerix.org#@#.social-tumblr
 http://4players.de,chrisblattman.com,deadspin.com,gizmodo.com,jezebel.com,kinja.com,kotaku.com,lifehacker.com#@#.social-twitter
 http://medialeaks.ru#@#.social-widgets
 http://bronchiectasisandntminitiative.org,copdfoundation.org,viralnova.com#@#.social-wrap
-http://chess-online.com,dreuz.info,etoro.com,foxnews.com,manager.paczkomaty.pl#@#.social-wrapper
+http://chess-online.com,dreuz.info,etoro.com,foxnews.com,ilgiorno.it,ilrestodelcarlino.it,lanazione.it,manager.paczkomaty.pl,quotidiano.net#@#.social-wrapper
 http://coub.com#@#.socialBlock
 http://runescape.com,study.163.com#@#.socialBox
 http://ceneo.pl,showmax.com#@#.socialBtns
