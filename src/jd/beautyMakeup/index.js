@@ -141,7 +141,11 @@ class BeautyMakeup extends Template {
       //兑换奖品 请求
       to_exchange: {'msg': {'type': 'action', 'args': {'benefit_id': 0}, 'action': 'to_exchange'}},
     };
-    const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`);
+    const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`, {
+      headers: {
+        'User-Agent': 'jdapp',
+      },
+    });
     let opened = false;
     ws.on('open', async () => {
       opened = true;
