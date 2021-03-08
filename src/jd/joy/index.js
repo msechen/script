@@ -83,10 +83,8 @@ class Joy extends Template {
 
             if (taskType === 'HelpFeed') {
               if (receiveStatus === 'chance_left') {
-                const friendList = await api.doPath('getFriends', void 0, {
-                  method: 'GET',
-                  qs: {itemsPerPage: 20},
-                }).then(data => data['datas']) || [];
+                let friendList = await getFriends(api);
+                if (_.isEmpty(friendList)) friendList = await getFriends(api);
                 const enableHelpList = friendList.filter(o => o['status'] === 'not_feed' && o['points']);
                 let helpFeedTimes = 1;
                 for (const {friendPin} of enableHelpList) {
@@ -202,6 +200,7 @@ class Joy extends Template {
     // 兑换豆豆
     async function handleExchange() {
       if (nowHour !== 16) return;
+      const petCoin = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(data => _.property('data.petCoin')(data));
       const data = await api.doUrl('https://jdjoy.jd.com/common/gift/getBeanConfigs', {method: 'GET'}).then(result => result['data']);
       if (!data) return;
       let beanInfo;
@@ -212,12 +211,12 @@ class Joy extends Template {
         beanInfo = data['beanConfigs8'];
       }
       if (nowHour >= 16 && nowHour <= 23) {
-        beanInfo = data['beanConfigs0'];
+        beanInfo = data['beanConfigs16'];
       }
       if (!beanInfo) return;
       for (const {id, leftStock, giftValue, giftName} of beanInfo) {
         // 只兑换500的, 需要8500积分
-        if (leftStock === 0 || giftValue !== 500) continue;
+        if (leftStock === 0 || giftValue !== 500 || petCoin < giftValue) continue;
         const body = {
           'buyParam': {
             'orderSource': 'pet',
@@ -244,15 +243,12 @@ class Joy extends Template {
         };
         await api.doUrl('https://jdjoy.jd.com/common/gift/new/exchange', {
           headers: {
-            headers: {
-              contentType: 'application/json',
-            },
+            contentType: 'application/json',
           },
           body,
           qs: sign(body, 'application/json'),
         }).then(data => {
-          if (!self.isSuccess(data)) return;
-          self.log(`${giftName} 兑换成功!`);
+          self.log(`${giftName} 兑换结果: ${data['errorCode']}`);
         });
       }
     }
@@ -288,7 +284,14 @@ class Joy extends Template {
 }
 
 async function doFeed(api, taskType) {
-  return api.doPath('getFood', void 0, {method: 'GET', taskType});
+  return api.doPath('getFood', void 0, {method: 'GET', qs: {taskType}});
+}
+
+async function getFriends(api) {
+  return api.doPath('getFriends', void 0, {
+    method: 'GET',
+    qs: {itemsPerPage: 20},
+  }).then(data => data['datas']) || [];
 }
 
 // helpers
