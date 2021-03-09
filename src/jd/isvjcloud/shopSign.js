@@ -15,8 +15,6 @@ class IsvShopSign extends Isv {
     const activityIds = [
       // [activityId, pathId]
       ['f1f81c4b1d5e47b2aba7c2531739fc74', 'sevenDay'],
-      ['3e6c53c198724f8583229bbc0f1fcbb3'],
-      ['c498049594e449268869100c32e121f4'],
 
       // 需要加入品牌会员
       // 十月稻田
