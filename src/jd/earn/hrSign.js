@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, waitSpecifyHour} = require('../../lib/common');
+const {sleep, writeFileJSON} = require('../../lib/common');
+const {timedExecution} = require('../../lib/cron');
 const moment = require('moment-timezone');
 
 const brand = '6793136074';
@@ -36,7 +37,7 @@ class HrSign extends Template {
     api.cookie = self.getCurrentEnv.call(api, 'JD_COOKIE');
     // 要先关注
     await api.addFavShop('1000099941');
-    await waitSpecifyHour(10, _do);
+    await timedExecution(10, _do);
 
     async function _do() {
       await api.doUrl('https://hd-zex-isv.isvjcloud.com/zex-jd-srv/user/v2/getMemberInfo', {

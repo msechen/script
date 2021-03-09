@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, getNowMoment, parallelRun} = require('../../lib/common');
+const {timedExecution} = require('../../lib/cron');
 const moment = require('moment-timezone');
 const _ = require('lodash');
 
@@ -56,22 +57,13 @@ class SignShop extends Template {
       return handleSign();
     }
 
-    await handleTimedExecution(nowHour);
-
-    async function handleTimedExecution(nowHour) {
-      if (nowHour !== 23) return;
-      await updateShopInfos();
-      const nextMoment = getNowMoment();
-      nextMoment.add(1, 'hour');
-      nextMoment.startOf('hour');
-      const interval = nextMoment.valueOf() - getNowMoment().valueOf();
-      await sleep(Math.floor(interval / 1000));
-      // if (self.getNowHour() === 23) return handleTimedExecution(self.getNowHour());
+    await updateShopInfos();
+    await timedExecution(24, async () => {
       await handleSign();
       // 避免签到不成功需要再重复一次
       await sleep();
       await handleSign();
-    }
+    });
 
     async function handleSign(listInfo = false) {
       // token, venderId, id
