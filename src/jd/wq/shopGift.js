@@ -1,9 +1,11 @@
 const Template = require('./index');
 
 const path = require('path');
+const fs = require('fs');
 const {sleep, writeFileJSON, getNowMoment, getRealUrl, getUrlDataFromFile} = require('../../lib/common');
 const moment = require('moment-timezone');
 const _ = require('lodash');
+const shopGiftUrlPath = path.resolve(__dirname, 'shopGift.url');
 
 class ShopGift extends Template {
   static scriptName = 'ShopGift';
@@ -21,7 +23,7 @@ class ShopGift extends Template {
     const self = this;
     const doPath = (functionId, qs) => api.doPath(functionId, void 0, {qs});
 
-    const urls = getUrlDataFromFile(path.resolve(__dirname, 'shopGift.url'));
+    const urls = getUrlDataFromFile(shopGiftUrlPath);
     for (const url of urls) {
       const realUrl = await getRealUrl(url);
       const shopId = new URL(realUrl).searchParams.get('shopId');
@@ -41,7 +43,7 @@ class ShopGift extends Template {
       await api.delFavShop(shopId);
       await doPath('addfavgiftshop', {venderId});
       await doPath('GiveShopGift', {venderId, giftId, activeId}).then(data => {
-        if (data['retCode'] !== 0) return;
+        if (data['retCode'] !== 0) return self.log(`${shopId} errMsg: ${data['errMsg']}`);
         self.log(`${shopId} 获取到豆豆: ${jingBean['sendCount']}`);
       });
       await api.delFavShop(shopId);
@@ -52,6 +54,7 @@ class ShopGift extends Template {
       return api.commonDo({
         uri: 'https://shop.m.jd.com',
         qs: {shopId},
+        ignorePrintLog: true,
       }).then(data => {
         if (!_.isString(data)) return;
         const match = data.match(/venderId\s*:\s*['"]\w*['"]/);
@@ -60,6 +63,14 @@ class ShopGift extends Template {
       });
     }
   }
+}
+
+if (process.argv[2] === 'start') {
+  const {getLocalEnvs, getCookieData} = require('../../lib/env');
+  process.env = getLocalEnvs();
+  ShopGift.start(getCookieData()).then(() => {
+    fs.writeFileSync(shopGiftUrlPath, '');
+  });
 }
 
 module.exports = ShopGift;

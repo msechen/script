@@ -158,4 +158,10 @@ class SignShop extends Template {
   }
 }
 
+if (process.argv[2] === 'start') {
+  const {getLocalEnvs, getCookieData} = require('../../lib/env');
+  process.env = getLocalEnvs();
+  SignShop.start(getCookieData()).then();
+}
+
 module.exports = SignShop;

@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const {getNowMoment, getNowDate, getLogFile, sleep, parallelRun, getEnvList} = require('./lib/common');
+const {getNowMoment, getNowDate, getLogFile, sleep, parallelRun} = require('./lib/common');
+const {getCookieData} = require('./lib/env');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
 const TemporarilyOffline = {start: _.noop, cron: _.noop};
@@ -53,29 +54,6 @@ const ShopGift = require('./jd/wq/shopGift');
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
 const errorOutput = [];
-
-const getCookieData = (name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) => {
-  shareCode && (shareCode = [].concat(shareCode));
-  getShareCodeFn = getShareCodeFn || (() => shareCode);
-  const getShareCodes = (name, targetIndex) => {
-    if (!name) return [];
-    name = name.toUpperCase();
-    const key = `JD_${name}_SHARE_CODE`;
-    const shareCodes = [];
-    for (let i = 0; i < 10; i++) {
-      const shareCode = i === 0 ? process.env[key] : process.env[`${key}_${i}`];
-      shareCode && i !== targetIndex && shareCodes.push(shareCode);
-    }
-    return shareCodes;
-  };
-  const cookies = getEnvList(envCookieName);
-
-  return cookies.map((cookie, index) => {
-    const allShareCodes = getShareCodes(name, index);
-    const shareCodes = getShareCodeFn(index, allShareCodes) || allShareCodes;
-    return {cookie, shareCodes};
-  });
-};
 
 async function multipleRun(targets) {
   return parallelRun({

@@ -4,27 +4,9 @@
 
 const exec = require('child_process').execSync;
 const {getNowDate, getLogFile} = require('./lib/common');
+const {getLocalEnvs} = require('./lib/env');
 const tail = require('./lib/tail');
-const fs = require('fs');
-const path = require('path');
 const _ = require('lodash');
-const Tail = require('tail').Tail;
-
-const getEnv = () => {
-  const envPath = path.resolve(__dirname, '../.env.local');
-  if (!fs.existsSync(envPath)) return;
-  // key=value
-  const fileContent = fs.readFileSync(envPath).toString();
-  if (!fileContent) return;
-  let result = {};
-  _.filter(fileContent.split('\n')).forEach(str => {
-    if (str.startsWith('#')) return;
-    const splitIndex = str.indexOf('=');
-    result[str.substring(0, splitIndex)] = str.substring(splitIndex + 1);
-  });
-  return result;
-};
-
 
 async function start() {
   ['request', 'app'].forEach(name => {
@@ -36,7 +18,7 @@ async function start() {
   });
 
   // 输出
-  return exec(`node src/app.js`, {env: getEnv() || {}}).toString();
+  return exec(`node src/app.js`, {env: getLocalEnvs()}).toString();
 }
 
 start().then(result => {

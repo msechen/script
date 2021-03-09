@@ -58,4 +58,10 @@ class DemoTemplate extends Template {
   };
 }
 
+if (process.argv[2] === 'start') {
+  const {getLocalEnvs, getCookieData} = require('../../lib/env');
+  process.env = getLocalEnvs();
+  DemoTemplate.start(getCookieData()).then();
+}
+
 module.exports = DemoTemplate;
