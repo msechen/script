@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
+const {timedExecution} = require('../../lib/cron');
 const _ = require('lodash');
 const webSocket = require('../../lib/webSocket');
 
@@ -158,6 +158,10 @@ class BeautyMakeup extends Template {
         await sleep(2);
         return afterOpen();
       }
+      if (self.getNowHour() === 0) {
+        // 定时兑换
+        return handleExchange();
+      }
       await sendMessage(wsMsg.init);
       await sendMessage(wsMsg.stats); // TODO 该逻辑可能不需要
       await sendMessage(wsMsg.shop_products);
@@ -183,9 +187,6 @@ class BeautyMakeup extends Template {
         // 最后一次才完成这个任务
         await handleDoProduceTask();
       }
-
-      // 兑换
-      await handleExchange();
 
       self.log(`金币为: ${userData['coins']}`);
     }
@@ -477,6 +478,26 @@ class BeautyMakeup extends Template {
       ws.send(_.isObject(data) ? JSON.stringify(data) : data);
       await sleep();
     }
+  }
+}
+
+if (process.argv[2] === 'cron') {
+  const {getLocalEnvs, getCookieData} = require('../../lib/env');
+  process.env = getLocalEnvs();
+  const hours = [8, 12, 20, 24];
+  return _doCron();
+
+  async function _doCron() {
+    const nowHour = getNowMoment().hour();
+    const target = hours.find((hour, i) => {
+      const prevIndex = i - 1;
+      return nowHour < hour && nowHour >= (hours[prevIndex] || 0);
+    });
+    console.log(`[BeautyMakeup] 定时${target}点执行`);
+    return timedExecution(target, async () => {
+      await BeautyMakeup.start(getCookieData());
+      return _doCron();
+    });
   }
 }
 
