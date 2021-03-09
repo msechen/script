@@ -35,19 +35,18 @@ class SignShop extends Template {
     // token, venderId, id
     let shopInfos = [
       '07CBF9FC8DE65E3880ABD05B9A952866',
-      // 2.20新增
       '9EAE21AA94BC979D0C7D56F428526393',
-      // 2.25新增
       'D6A88099F516166806DA1A43892AC212',
       'B38993125BB0EDC4612E2B90C9D31D3F',
       '3D7D91F53126D7D82BB0DE0FE9937BBA',
-      '1868B2896C16E38333DE6C2A65B5F57F',
       'B0B96FE2BB806FFA8E736ED485511ECE',
       'E3C7A0B8C9CE2893E65B077BB98EF697',
       'CB6AD225532875E58F7CB729884EE1B7',
       '1F0603BEEBA874E6D0663B4326155910',
       'E6186A42163169F26EC8BCE78CD12794',
       'D82151E577A550FB51333A1F22C37566',
+      'D0B28DC9B54CF6A6F6B02DA17DA79898',
+      'D5E280ED9CF61D8897F122B66DB9460A',
       // 脚本新增插入位置
     ];
 
@@ -109,9 +108,10 @@ class SignShop extends Template {
         const continuePrizeRuleList = _.property('data.continuePrizeRuleList')(data);
         const prizeRules = continuePrizeRuleList.map(({prizeList, days, userPrizeRuleStatus}) => {
           if (userPrizeRuleStatus === 2) return '';
-          const beanPrize = prizeList.find(({type}) => type === 4);
-          if (!beanPrize) return '';
-          return `${days}天${Math.floor(beanPrize.discount)}豆`;
+          return _.filter(prizeList.map(({type, discount}) => {
+            if (![4/*豆豆*/, 14/*红包*/].includes(type)) return '';
+            return `${days}天${Math.floor(discount)}${type === 4 ? '豆' : '分'}`;
+          })).join();
         }).filter(str => str);
         self.log(`${token} 已签到${currentSignDays}天, 奖品: ${prizeRules.join(', ')}`);
         return _.isEmpty(prizeRules);
