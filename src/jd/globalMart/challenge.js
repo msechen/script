@@ -1,7 +1,32 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowMoment} = require('../../lib/moment');
 const _ = require('lodash');
+
+const CryptoJS = require('crypto-js');
+
+/**
+ * @description 加密处理
+ * @param taskId
+ * @param masterPin 只用于互助
+ * @return {{seals, sealsTs: number}}
+ */
+function sign(taskId, masterPin) {
+
+  return Pu(...arguments);
+
+  function Pu() {
+    for (var e = getNowMoment().valueOf(), t = 'secureact', a = Nu('U2FsdGVkX19anvYaN+euQqSaHyuhWU0I1AtxGI6eMcQ=', t), n = arguments.length, r = new Array(n), o = 0; o < n; o++) r[o] = arguments[o];
+    r.push(e, a);
+    var c = r.join(''), i = CryptoJS.MD5(c).toString();
+    return {sealsTs: e, seals: i};
+  }
+
+  function Nu(e, t) {
+    return CryptoJS.AES.decrypt(e, t).toString(CryptoJS.enc.Utf8);
+  }
+}
 
 class GlobalChallenge extends Template {
   static scriptName = 'GlobalChallenge';
@@ -37,6 +62,7 @@ class GlobalChallenge extends Template {
 
           const taskList = _.property('result.data.commonTask')(data) || [];
           for (let {
+            taskName,
             canExecute,
             taskId,
             itemId,
@@ -54,7 +80,7 @@ class GlobalChallenge extends Template {
             for (let i = times; i < maxTimes; i++) {
               list.push({taskId, itemId, viewSeconds});
             }
-            if (taskId === '3'/*每日邀请好友*/) {
+            if (taskName.match('邀请好友')/*每日邀请好友*/) {
               const inviterPin = new URL(jingCommand.url).searchParams.get('masterPin');
               self.updateShareCodeFn(inviterPin);
               list = self.getShareCodeFn();
@@ -63,11 +89,11 @@ class GlobalChallenge extends Template {
                 maxTimes: list.length,
                 times: 0,
                 firstFn(inviterPin) {
-                  return api.doFormBody('inviteHelp', {
+                  return api.doFormBody('inviteHelp', _.assign({
                     inviterPin,
-                    'taskId': '3',
+                    taskId,
                     'pageType': 'doHelp',
-                  }).then(data => {
+                  }, sign(taskId, inviterPin))).then(data => {
                     self.log(data.result.message);
                   });
                 },
@@ -82,7 +108,7 @@ class GlobalChallenge extends Template {
       },
       doTask: {
         name: 'taskRun',
-        paramFn: o => o,
+        paramFn: o => _.assign(o, sign(o.taskId)),
       },
       afterGetTaskList: {
         name: 'mainInfo',
