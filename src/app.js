@@ -121,7 +121,7 @@ async function main() {
         await doRun(Family);
         await doRun(Live);
         await doRun(JxHongBao);
-        await doRun(BianPao);
+        // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
       },
     },
