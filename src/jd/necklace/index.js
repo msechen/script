@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class Necklace extends Template {
   static scriptName = 'Necklace';

@@ -2,8 +2,7 @@ const Template = require('./index');
 
 const path = require('path');
 const fs = require('fs');
-const {sleep, writeFileJSON, getNowMoment, getRealUrl, getUrlDataFromFile} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON, getRealUrl, getUrlDataFromFile} = require('../../lib/common');
 const _ = require('lodash');
 const shopGiftUrlPath = path.resolve(__dirname, 'shopGift.url');
 

@@ -1,6 +1,6 @@
 const Base = require('../base');
 
-const {sleep, getNowMoment} = require('../../lib/common');
+const {sleep} = require('../../lib/common');
 
 class Fruit extends Base {
   static scriptName = 'Fruit';

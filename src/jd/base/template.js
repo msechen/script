@@ -1,7 +1,6 @@
 const Base = require('./index');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 const shareCodeCaches = [];
 

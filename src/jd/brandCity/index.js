@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 const _ = require('lodash');
 const rp = require('request-promise');
 const dataQA = require('./Q&A.json').filter(v => _.isString(v) ? v.match('=') : v).map(v => _.isString(v) ? v.split(/[?？]=|=/) : v);

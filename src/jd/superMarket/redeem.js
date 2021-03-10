@@ -1,7 +1,7 @@
 const SuperMarket = require('./index');
 
-const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowMoment} = require('../../lib/moment');
 
 class SuperMarketRedeem extends SuperMarket {
   static scriptName = 'SuperMarketRedeem';

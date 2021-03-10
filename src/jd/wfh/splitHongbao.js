@@ -1,7 +1,6 @@
 const HarmonyTemplate = require('./template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class SplitHongbao extends HarmonyTemplate {
   static scriptName = '开红包';

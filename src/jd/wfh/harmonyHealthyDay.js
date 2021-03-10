@@ -1,7 +1,6 @@
 const HarmonyTemplate = require('./template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class HarmonyHealthyDay extends HarmonyTemplate {
   static scriptNameDesc = '健康服务类';

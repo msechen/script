@@ -1,9 +1,9 @@
-const {getNowMoment, getNowDate} = require('./common');
+const {getNowMoment, getNowDate} = require('./moment');
 const _ = require('lodash');
 
 async function timedExecutionWithDate(date, next) {
   const nowMoment = getNowMoment();
-  const targetMoment = getNowMoment(void 0, date);
+  const targetMoment = getNowMoment(date);
   if (nowMoment.isAfter(targetMoment)) return;
   const milliseconds = targetMoment.diff(nowMoment, 'millisecond');
   // 增加误差

@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON} = require('../../lib/common');
 const _ = require('lodash');
 
 class WqBase extends Template {

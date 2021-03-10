@@ -1,7 +1,6 @@
 const Nian = require('./index');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class NianApplet extends Nian {
   static scriptName = 'NianApplet';

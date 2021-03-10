@@ -3,8 +3,9 @@
  */
 
 const exec = require('child_process').execSync;
-const {getNowDate, getLogFile} = require('./lib/common');
+const {getLogFile} = require('./lib/common');
 const {getLocalEnvs} = require('./lib/env');
+const {getNowDate} = require('./lib/moment');
 const tail = require('./lib/tail');
 const _ = require('lodash');
 

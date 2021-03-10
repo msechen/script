@@ -1,7 +1,6 @@
 const Isv = require('./index');
 
 const {sleep, writeFileJSON, parallelRun} = require('../../lib/common');
-const moment = require('moment-timezone');
 const {updateTokenCookies, getSimpleActInfoVo, generateToken} = require('./api');
 const _ = require('lodash');
 

@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const {getNowMoment, getNowDate, getLogFile, sleep, parallelRun} = require('./lib/common');
+const {getLogFile, sleep, parallelRun} = require('./lib/common');
+const {getNowMoment, getNowDate} = require('./lib/moment');
 const {getCookieData} = require('./lib/env');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');

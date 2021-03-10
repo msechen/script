@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment, getNowDate} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON} = require('../../lib/common');
 
 class Sign extends Template {
   static scriptName = 'Sign';

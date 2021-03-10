@@ -1,7 +1,7 @@
 const Base = require('../base');
 
-const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowMoment} = require('../../lib/moment');
 
 let shareCodeCaches = [];
 

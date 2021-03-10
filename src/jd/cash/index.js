@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 const _ = require('lodash');
 
 const {cash} = require('../../../charles/api');

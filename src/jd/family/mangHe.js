@@ -1,7 +1,6 @@
 const Family = require('./index');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 const _ = require('lodash');
 
 class MangHe extends Family {

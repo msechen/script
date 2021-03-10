@@ -1,8 +1,8 @@
 const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
-const moment = require('moment-timezone');
 const rp = require('request-promise');
+const {getNowTime, getNowDate} = require('./moment');
 
 const _sleep = require('util').promisify(setTimeout);
 /**
@@ -10,10 +10,6 @@ const _sleep = require('util').promisify(setTimeout);
  * @param seconds {number}
  */
 const sleep = (seconds = 1) => _sleep(seconds * 1000);
-
-const getNowMoment = (tz = 'Asia/Shanghai', date) => moment(date).tz(tz);
-const getNowDate = (format = 'YYYY-MM-DD') => getNowMoment().format(format);
-const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
 
 const logPath = path.resolve(__dirname, '../../logs');
 const getLogFile = fileName => `${logPath}/${fileName}.log.${getNowDate()}`;
@@ -98,10 +94,6 @@ module.exports = {
   getLogFile,
   printLog,
   cleanLog,
-
-  getNowMoment,
-  getNowDate,
-  getNowTime,
 
   writeFileJSON,
 

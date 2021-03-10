@@ -2,7 +2,6 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 const {timedExecution} = require('../../lib/cron');
-const moment = require('moment-timezone');
 
 const brand = '6793136074';
 

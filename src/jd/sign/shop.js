@@ -1,8 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment, parallelRun} = require('../../lib/common');
+const {sleep, writeFileJSON, parallelRun} = require('../../lib/common');
 const {timedExecution} = require('../../lib/cron');
-const moment = require('moment-timezone');
 const _ = require('lodash');
 
 class SignShop extends Template {

@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowMoment} = require('../../lib/moment');
 
 class Coupon extends Template {
   static scriptName = 'Coupon';
@@ -37,7 +37,7 @@ class Coupon extends Template {
     const unionActId = '31125';
 
     await listCouponSupporter({pageSize: -1}).then(list => {
-      const helpSituation = list.map(o => o.nickName + ': ' + getNowMoment(void 0, o.time).format('YYYY-MM-DD HH:mm:ss'));
+      const helpSituation = list.map(o => o.nickName + ': ' + getNowMoment(o.time).format('YYYY-MM-DD HH:mm:ss'));
       console.log(helpSituation);
       const allScore = _.reduce(list.map(o => o.score), (accumulator, currentValue) => accumulator + currentValue);
       self.log(`总分数为: ${allScore}, 总人数为: ${list.length}`);

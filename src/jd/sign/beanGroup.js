@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class SignBeanGroup extends Template {
   static scriptName = 'SignBeanGroup';

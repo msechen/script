@@ -6,7 +6,6 @@
 const Base = require('../base');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 const {stall: _s} = require('../../../charles/api');
 

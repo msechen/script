@@ -1,7 +1,6 @@
 const Base = require('../base');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class Demo extends Base {
   static scriptName = 'Demo';

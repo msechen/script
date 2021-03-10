@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment} = require('../../lib/common');
+const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowMoment} = require('../../lib/moment');
 const {timedExecution} = require('../../lib/cron');
 const _ = require('lodash');
 const webSocket = require('../../lib/webSocket');

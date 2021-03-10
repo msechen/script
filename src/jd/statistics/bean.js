@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, getNowMoment, getNowDate} = require('../../lib/common');
-const moment = require('moment-timezone');
+const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowMoment, getNowDate} = require('../../lib/moment');
 
 const {statistics} = require('../../../charles/api');
 

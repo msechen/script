@@ -1,7 +1,6 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const moment = require('moment-timezone');
 
 class PlantBean extends Template {
   static scriptName = 'Bean';

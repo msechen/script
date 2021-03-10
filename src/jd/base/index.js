@@ -1,7 +1,8 @@
 const _ = require('lodash');
 
 const Api = require('../api');
-const {sleep, getNowMoment, parallelRun} = require('../../lib/common');
+const {sleep, parallelRun} = require('../../lib/common');
+const {getNowMoment} = require('../../lib/moment');
 const {printLog} = require('../../lib/common');
 
 class Base {
