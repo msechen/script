@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: ksPDC+yq1egLbegej+hhwQ
-! Version: 202103070041
+! Checksum: dglvg2vQG5U3Zn32Dj6fmQ
+! Version: 202103100041
 ! Title: Fanboy's Annoyance List
-! Last modified: 07 Mar 2021 00:41 UTC
+! Last modified: 10 Mar 2021 00:41 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -784,6 +784,7 @@
 ||https://axept.io^$third-party
 ||https://axeptio.eu^$third-party
 ||https://californiatimes.com/gdpr/
+||https://ccmp.eu^$third-party
 ||https://civiccomputing.com^*=cookie$third-party
 ||https://clickio.mgr.consensu.org^$third-party
 ||https://consensu.org/gdpr/$third-party
@@ -2189,6 +2190,7 @@
 ||http://axept.io^$third-party
 ||http://axeptio.eu^$third-party
 ||http://californiatimes.com/gdpr/
+||http://ccmp.eu^$third-party
 ||http://ccpa-script.psg.nexstardigital.net^
 ||http://civiccomputing.com^*=cookie$third-party
 ||http://clickio.mgr.consensu.org^$third-party
@@ -4848,6 +4850,7 @@ https://economist.com##.ec-product-events-block
 https://webmd.com##.ed_disclaimer
 https://usatoday.com##.editorialPromo
 https://edugeek.net##.eg-ics-rss-64px
+https://auctions.yahoo.co.jp##.elTreasureBox
 https://nzherald.co.nz##.element-action-button
 https://classicalite.com,musictimes.com##.element-tooltips
 https://motherjones.com##.elsewhere-follow-light
@@ -7533,6 +7536,7 @@ https://newser.com###NewsletterPromo
 https://computerworld.com.au###art-next_signifier
 https://ratemyprofessors.com###balaMainContainer
 https://kitguru.net###check-also-box
+https://google.ae,google.at,google.be,google.bg,google.by,google.ca,google.ch,google.cl,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.nz,google.co.th,google.co.uk,google.co.ve,google.co.za,google.com,google.com.ar,google.com.au,google.com.br,google.com.co,google.com.ec,google.com.eg,google.com.hk,google.com.mx,google.com.my,google.com.pe,google.com.ph,google.com.pk,google.com.py,google.com.sa,google.com.sg,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vn,google.cz,google.de,google.dk,google.dz,google.ee,google.es,google.fi,google.fr,google.gr,google.hr,google.hu,google.ie,google.it,google.lt,google.lv,google.nl,google.no,google.pl,google.pt,google.ro,google.rs,google.ru,google.se,google.sk###consent-bump
 https://history.com###email-updates
 https://history.com###email_flyout
 https://livescience.com###inContentEmail
@@ -8954,6 +8958,8 @@ https://lifewire.com###button-pinterest-image
 https://pcmag.com###enhancedsharer
 https://dailymail.co.uk###floatingShare
 https://arstechnica.com###follow-us
+https://yandex.com###shareButton
+https://yandex.com###shareContent
 https://dailymail.co.uk###shareCountBottom
 https://reuters.com##.SocialTool_social-button
 https://pcgames-download.net##.addthis_toolbox
@@ -8964,6 +8970,7 @@ https://forbes.com##.follow_links
 https://tomshardware.co.uk,tomshardware.com##.footer-content-social
 https://informer.com,tomshardware.co.uk,tomshardware.com##.footer-follow
 https://spiegel.de##.footer-social-media
+https://duckduckgo.com##.footer__social-icon
 https://laptopmag.com##.headerSocial
 https://tlc.com##.headerSocial__socialLinks
 https://computerworlduk.com##.helpIcons
@@ -8996,6 +9003,7 @@ https://aetv.com,fyi.tv,history.com,mylifetime.com##.share-this
 https://dailymail.co.uk##.shareArticles
 https://bento.de##.share_container
 https://n4mo.org##.sharedaddy
+https://bing.com##.shareicon
 https://history.com##.show-social-links
 https://technobuffalo.com##.social
 https://spiegel.de##.social-bar-wrapper
@@ -9012,6 +9020,8 @@ https://thefreedictionary.com##.social-networks
 https://bento.de##.socialBar
 https://1001tracklists.com,newser.com##.socialButtons
 https://mediafire.com##.socialContainerWrap
+https://duckduckgo.com##.social__icon
+https://duckduckgo.com##.social__link
 https://tomshardware.com##.socialite-widget-ul
 https://ndtv.com##.socialshare-icons2
 https://ndtv.com##.stickysocial
@@ -9021,6 +9031,7 @@ https://dailymail.co.uk##.twitter
 https://jewishpress.com,spiegel.de##.twitter-follow-button
 https://dailymail.co.uk##.vjs-social-icon
 https://huffpost.com##.yr-social-list
+https://google.ae,google.at,google.be,google.bg,google.by,google.ca,google.ch,google.cl,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.nz,google.co.th,google.co.uk,google.co.ve,google.co.za,google.com,google.com.ar,google.com.au,google.com.br,google.com.co,google.com.ec,google.com.eg,google.com.hk,google.com.mx,google.com.my,google.com.pe,google.com.ph,google.com.pk,google.com.py,google.com.sa,google.com.sg,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vn,google.cz,google.de,google.dk,google.dz,google.ee,google.es,google.fi,google.fr,google.gr,google.hr,google.hu,google.ie,google.it,google.lt,google.lv,google.nl,google.no,google.pl,google.pt,google.ro,google.rs,google.ru,google.se,google.sk##KNO-SHARE-BUTTON
 https://bbc.com##div[class*="TagShareWrapper"]
 https://jman.tv###ActionBar
 https://sausageandciderfestival.co.uk###CC_Bar
@@ -9410,6 +9421,7 @@ https://argaam.com##.argaam-policy
 https://linkedin.com##.artdeco-global-alert
 https://leo.org##.as-oil
 https://businessinsider.com##.as-oil-content-overlay
+https://activision.com##.atvi-privacy-policy-module
 https://which.co.uk##.b_g
 https://chess24.com##.background
 https://uber.com##.banner--bottom
@@ -9471,6 +9483,8 @@ https://bankofengland.co.uk,cityoflondon.police.uk##.container-notifications
 https://antoineonline.com##.container-overlay
 https://18virginsex.com,altervista.org,anglianwater.co.uk,ask.fm,callcredit.co.uk,calvertjournal.com,crazydomains.co.uk,derwaldhof.com,dw.com,farecompare.com,firefox-usb.com,forever21.com,forgeworld.co.uk,gheed.com,gooddollar.org,hempel.co.uk,hempelyacht.com,here.com,hud.ac.uk,jaguarlandrover.com,leonorgreyl.com,liptonicetea.com,ludwig.guru,m64.info,mandarinoriental.com,mclaren.com,mik.eu,modecom.com,modhoster.com,moneywise.co.uk,mydraw.com,mysurveylab.com,nationalcircus.org.uk,natwest.com,npl.co.uk,octotree.io,oldgoesyoung.com,openmailbox.org,pepperl-fuchs.com,postoffice.co.uk,prodir.com,purnatur.eu,rbs.co.uk,redditinc.com,roalddahl.com,rowenta.com,samsunghealthcare.com,sense.org.uk,sheldrickwildlifetrust.org,silverlake.com,sleek-mag.com,squirt.org,statusbrew.com,syntevo.com,team-mediaportal.com,trailfinders.com,twitchstrike.com,unicheck.com,virgin-atlantic.com,wannawork.com##.cookie
 https://deezer.com##.cookie-banner
+https://geeksforgeeks.org##.cookie-consent
+https://7news.com.au##.cookie-consent--normal
 https://theatlantic.com##.cookie-disclaimer
 https://bitfeed.co##.cookiebanner
 https://austrian.com,austrianairlines.ag,austriantechnik.at##.cop
@@ -9913,6 +9927,7 @@ https://allmusic.com##.cookie-policy-box
 https://msn.com##.cookieBanner
 https://rp-online.de##.park-snackbar-cookies
 https://walmart.ca##.privacy-open > div > [class] > div[class^="css"]
+https://bing.com##div[data-cookie]
 https://spot-a-shop.at,spot-a-shop.de,spot-a-shop.fi,spot-a-shop.fr,spot-a-shop.pl,spot-a-shop.se###__next > div > div > div[class^="css"]
 https://sme.sk###js-top-info-bar
 https://egmont.cz###nrlskswidget
@@ -10354,7 +10369,7 @@ https://eprice.it###moveUp
 https://gazzetta.it###multifunctionBar-container
 https://callipo.com###nav_up
 https://sacecomponents.com###neko-to-top
-https://gamblingitalia.com,lacnews24.it,lintellettualedissidente.it,misya.info,monitorimmobiliare.it,radiospeaker.it,rivistastudio.com,silhouettedonna.it,soldioggi.it,sscnapoli.it,termometropolitico.it,terranuova.it,valgardena.it###newsletter
+https://gamblingitalia.com,lacnews24.it,lintellettualedissidente.it,misya.info,monitorimmobiliare.it,radiospeaker.it,rivistastudio.com,silhouettedonna.it,soldioggi.it,sscnapoli.it,termometropolitico.com,termometropolitico.it,terranuova.it,valgardena.it###newsletter
 https://distribuzionemoderna.info###nsl
 https://lasicilia.it###overbox_ticker_newsstand
 https://it.hisamitsu###pageTop
@@ -11201,7 +11216,7 @@ https://dueruote.it###segui
 https://comune.cagliari.it###segui_hp
 https://termometropolitico.it###seguici
 https://wikihow.it###sf
-https://canavesenews.it,gazzetta.it,torinonews24.it###share
+https://canavesenews.it,gazzetta.it,ilgazzettino.it,ilmattino.it,ilmessaggero.it,leggo.it,quotidianodipuglia.it,torinonews24.it###share
 https://goodmorningnews.it###short-url
 https://deejay.it###slider
 https://autobelle.it,bancadipiacenza.it,canavesenews.it,creditocooperativo.it,fotografidigitali.it,gianlucadimarzio.com,ilsecoloxix.it,lavoro.gov.it,meteogiornale.it,meteovista.it,navigaweb.net,optimagazine.com,optimaitalia.com,radioitalia.it,rasom.it,salute.gov.it,superwheels.net,unibo.it,virginactive.it###social
@@ -11249,6 +11264,7 @@ https://everyeye.it##.cont_reply > .link-post
 https://playstationitalianleague.com##.context-content-community-links
 https://insideover.com##.d-sm-block
 https://repubblica.it##.detail-social
+https://tv8.it##.discover
 https://donnamoderna.com##.dm20-footer-social-link
 https://donnamoderna.com##.dm20-lory-share-panel
 https://donnamoderna.com##.donnam-footer-social
@@ -12722,6 +12738,7 @@ https://freemeteo.rs###cookies
 https://infiniti.co.rs##.c_128
 https://lidl.rs##.notification
 https://siea.sk###cac
+https://digitel.sk###cookies
 https://etrend.sk###disclaimer
 https://hpobchod.sk###hpmGmtT
 https://akcneletaky.sk###infoCoo
@@ -12875,7 +12892,7 @@ https://wecollect.ch#@##subscribe_email
 https://techopedia.com,vivoplay.net#@##subscriptionModal
 https://blaklader.se,blaklader.uk,chansluts.com#@##to-the-top
 https://57reshotel.it,radiogra.pl#@##to-top
-https://bezahlen.de,stern.de#@##toTop
+https://bezahlen.de,iaa.gov.il,stern.de#@##toTop
 https://uservoice.com#@##uservoice-feedback
 https://uservoice.com#@##uservoice-feedback-tab
 https://cnn.com#@#.OUTBRAIN
@@ -13495,14 +13512,12 @@ https://bosch-mobility-solutions.com#@##m-cookie-overlay
 https://17track.net#@##modal-gdpr
 https://faberkabel.de#@##modalCookie
 https://thesocialmedwork.com#@##notice-cookie-block
-https://gq-magazine.co.uk#@##onetrust-banner-sdk
-https://gq-magazine.co.uk#@##onetrust-consent-sdk
+https://gq-magazine.co.uk,mail.com#@##onetrust-banner-sdk
+https://gq-magazine.co.uk,mail.com#@##onetrust-consent-sdk
 https://api.newsguardtech.com,rockpapershotgun.com#@##optanon
 https://theverge.com#@##privacy-consent
 https://readthedocs.io,sportdiver.com#@##privacy-policy
-https://account.sonymobile.com#@##privacy-statement
 https://dcinside.com,totalwar.com#@##privacy_policy
-https://varusteleka.com,varusteleka.fi#@##privacypolicy
 https://repostuj.pl#@##rodo-modal
 https://forgeandfortune.com#@##toasts > #toastsWrapper
 https://litebit.eu#@#.CookieConsent
@@ -13604,7 +13619,7 @@ https://vtimes.io#@#.cookies-modal__background
 https://alko.fi#@#.cookies-open
 https://diy.com#@#.cookies-policy
 https://tatilsepeti.com#@#.cookies.active
-https://milliman.com#@#.cookiesModal
+https://delhaize.be,milliman.com#@#.cookiesModal
 https://m.oe24.at#@#.cookiesOverlay2
 https://m.oe24.at#@#.cookiesOverlay2Box
 https://hublot.com#@#.cookies_consent-show
@@ -13674,6 +13689,7 @@ https://litebit.eu#@#div[class*="CookieConsent"]
 https://telenor.se#@#div[class*="cookie-consent-modal_"]
 https://ee.co.uk,monese.com#@#div[class^="cookie-banner"]
 https://dovoba.de#@#div[class^="cookie-consent_"]
+https://coolblue.be#@#div[class^="cookie-notification_"]
 https://birramenabrea.com,cnwl.nhs.uk,marketerplus.pl,myspeed.pl#@#div[data-cookie]
 https://timeout.com#@#div[data-module="cookie_banner"]
 https://konarzewski.com.pl,unicode.org#@#div[data-nconvert-cookie]
@@ -15650,6 +15666,7 @@ http://economist.com##.ec-product-events-block
 http://webmd.com##.ed_disclaimer
 http://usatoday.com##.editorialPromo
 http://edugeek.net##.eg-ics-rss-64px
+http://auctions.yahoo.co.jp##.elTreasureBox
 http://nzherald.co.nz##.element-action-button
 http://classicalite.com,musictimes.com##.element-tooltips
 http://motherjones.com##.elsewhere-follow-light
@@ -18335,6 +18352,7 @@ http://newser.com###NewsletterPromo
 http://computerworld.com.au###art-next_signifier
 http://ratemyprofessors.com###balaMainContainer
 http://kitguru.net###check-also-box
+http://google.ae,google.at,google.be,google.bg,google.by,google.ca,google.ch,google.cl,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.nz,google.co.th,google.co.uk,google.co.ve,google.co.za,google.com,google.com.ar,google.com.au,google.com.br,google.com.co,google.com.ec,google.com.eg,google.com.hk,google.com.mx,google.com.my,google.com.pe,google.com.ph,google.com.pk,google.com.py,google.com.sa,google.com.sg,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vn,google.cz,google.de,google.dk,google.dz,google.ee,google.es,google.fi,google.fr,google.gr,google.hr,google.hu,google.ie,google.it,google.lt,google.lv,google.nl,google.no,google.pl,google.pt,google.ro,google.rs,google.ru,google.se,google.sk###consent-bump
 http://history.com###email-updates
 http://history.com###email_flyout
 http://livescience.com###inContentEmail
@@ -19757,6 +19775,8 @@ http://lifewire.com###button-pinterest-image
 http://pcmag.com###enhancedsharer
 http://dailymail.co.uk###floatingShare
 http://arstechnica.com###follow-us
+http://yandex.com###shareButton
+http://yandex.com###shareContent
 http://dailymail.co.uk###shareCountBottom
 http://reuters.com##.SocialTool_social-button
 http://pcgames-download.net##.addthis_toolbox
@@ -19767,6 +19787,7 @@ http://forbes.com##.follow_links
 http://tomshardware.co.uk,tomshardware.com##.footer-content-social
 http://informer.com,tomshardware.co.uk,tomshardware.com##.footer-follow
 http://spiegel.de##.footer-social-media
+http://duckduckgo.com##.footer__social-icon
 http://laptopmag.com##.headerSocial
 http://tlc.com##.headerSocial__socialLinks
 http://computerworlduk.com##.helpIcons
@@ -19799,6 +19820,7 @@ http://aetv.com,fyi.tv,history.com,mylifetime.com##.share-this
 http://dailymail.co.uk##.shareArticles
 http://bento.de##.share_container
 http://n4mo.org##.sharedaddy
+http://bing.com##.shareicon
 http://history.com##.show-social-links
 http://technobuffalo.com##.social
 http://spiegel.de##.social-bar-wrapper
@@ -19815,6 +19837,8 @@ http://thefreedictionary.com##.social-networks
 http://bento.de##.socialBar
 http://1001tracklists.com,newser.com##.socialButtons
 http://mediafire.com##.socialContainerWrap
+http://duckduckgo.com##.social__icon
+http://duckduckgo.com##.social__link
 http://tomshardware.com##.socialite-widget-ul
 http://ndtv.com##.socialshare-icons2
 http://ndtv.com##.stickysocial
@@ -19824,6 +19848,7 @@ http://dailymail.co.uk##.twitter
 http://jewishpress.com,spiegel.de##.twitter-follow-button
 http://dailymail.co.uk##.vjs-social-icon
 http://huffpost.com##.yr-social-list
+http://google.ae,google.at,google.be,google.bg,google.by,google.ca,google.ch,google.cl,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.nz,google.co.th,google.co.uk,google.co.ve,google.co.za,google.com,google.com.ar,google.com.au,google.com.br,google.com.co,google.com.ec,google.com.eg,google.com.hk,google.com.mx,google.com.my,google.com.pe,google.com.ph,google.com.pk,google.com.py,google.com.sa,google.com.sg,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vn,google.cz,google.de,google.dk,google.dz,google.ee,google.es,google.fi,google.fr,google.gr,google.hr,google.hu,google.ie,google.it,google.lt,google.lv,google.nl,google.no,google.pl,google.pt,google.ro,google.rs,google.ru,google.se,google.sk##KNO-SHARE-BUTTON
 http://bbc.com##div[class*="TagShareWrapper"]
 http://jman.tv###ActionBar
 http://sausageandciderfestival.co.uk###CC_Bar
@@ -20213,6 +20238,7 @@ http://argaam.com##.argaam-policy
 http://linkedin.com##.artdeco-global-alert
 http://leo.org##.as-oil
 http://businessinsider.com##.as-oil-content-overlay
+http://activision.com##.atvi-privacy-policy-module
 http://which.co.uk##.b_g
 http://chess24.com##.background
 http://uber.com##.banner--bottom
@@ -20274,6 +20300,8 @@ http://bankofengland.co.uk,cityoflondon.police.uk##.container-notifications
 http://antoineonline.com##.container-overlay
 http://18virginsex.com,altervista.org,anglianwater.co.uk,ask.fm,callcredit.co.uk,calvertjournal.com,crazydomains.co.uk,derwaldhof.com,dw.com,farecompare.com,firefox-usb.com,forever21.com,forgeworld.co.uk,gheed.com,gooddollar.org,hempel.co.uk,hempelyacht.com,here.com,hud.ac.uk,jaguarlandrover.com,leonorgreyl.com,liptonicetea.com,ludwig.guru,m64.info,mandarinoriental.com,mclaren.com,mik.eu,modecom.com,modhoster.com,moneywise.co.uk,mydraw.com,mysurveylab.com,nationalcircus.org.uk,natwest.com,npl.co.uk,octotree.io,oldgoesyoung.com,openmailbox.org,pepperl-fuchs.com,postoffice.co.uk,prodir.com,purnatur.eu,rbs.co.uk,redditinc.com,roalddahl.com,rowenta.com,samsunghealthcare.com,sense.org.uk,sheldrickwildlifetrust.org,silverlake.com,sleek-mag.com,squirt.org,statusbrew.com,syntevo.com,team-mediaportal.com,trailfinders.com,twitchstrike.com,unicheck.com,virgin-atlantic.com,wannawork.com##.cookie
 http://deezer.com##.cookie-banner
+http://geeksforgeeks.org##.cookie-consent
+http://7news.com.au##.cookie-consent--normal
 http://theatlantic.com##.cookie-disclaimer
 http://bitfeed.co##.cookiebanner
 http://austrian.com,austrianairlines.ag,austriantechnik.at##.cop
@@ -20716,6 +20744,7 @@ http://allmusic.com##.cookie-policy-box
 http://msn.com##.cookieBanner
 http://rp-online.de##.park-snackbar-cookies
 http://walmart.ca##.privacy-open > div > [class] > div[class^="css"]
+http://bing.com##div[data-cookie]
 http://spot-a-shop.at,spot-a-shop.de,spot-a-shop.fi,spot-a-shop.fr,spot-a-shop.pl,spot-a-shop.se###__next > div > div > div[class^="css"]
 http://sme.sk###js-top-info-bar
 http://egmont.cz###nrlskswidget
@@ -21157,7 +21186,7 @@ http://eprice.it###moveUp
 http://gazzetta.it###multifunctionBar-container
 http://callipo.com###nav_up
 http://sacecomponents.com###neko-to-top
-http://gamblingitalia.com,lacnews24.it,lintellettualedissidente.it,misya.info,monitorimmobiliare.it,radiospeaker.it,rivistastudio.com,silhouettedonna.it,soldioggi.it,sscnapoli.it,termometropolitico.it,terranuova.it,valgardena.it###newsletter
+http://gamblingitalia.com,lacnews24.it,lintellettualedissidente.it,misya.info,monitorimmobiliare.it,radiospeaker.it,rivistastudio.com,silhouettedonna.it,soldioggi.it,sscnapoli.it,termometropolitico.com,termometropolitico.it,terranuova.it,valgardena.it###newsletter
 http://distribuzionemoderna.info###nsl
 http://lasicilia.it###overbox_ticker_newsstand
 http://it.hisamitsu###pageTop
@@ -22004,7 +22033,7 @@ http://dueruote.it###segui
 http://comune.cagliari.it###segui_hp
 http://termometropolitico.it###seguici
 http://wikihow.it###sf
-http://canavesenews.it,gazzetta.it,torinonews24.it###share
+http://canavesenews.it,gazzetta.it,ilgazzettino.it,ilmattino.it,ilmessaggero.it,leggo.it,quotidianodipuglia.it,torinonews24.it###share
 http://goodmorningnews.it###short-url
 http://deejay.it###slider
 http://autobelle.it,bancadipiacenza.it,canavesenews.it,creditocooperativo.it,fotografidigitali.it,gianlucadimarzio.com,ilsecoloxix.it,lavoro.gov.it,meteogiornale.it,meteovista.it,navigaweb.net,optimagazine.com,optimaitalia.com,radioitalia.it,rasom.it,salute.gov.it,superwheels.net,unibo.it,virginactive.it###social
@@ -22052,6 +22081,7 @@ http://everyeye.it##.cont_reply > .link-post
 http://playstationitalianleague.com##.context-content-community-links
 http://insideover.com##.d-sm-block
 http://repubblica.it##.detail-social
+http://tv8.it##.discover
 http://donnamoderna.com##.dm20-footer-social-link
 http://donnamoderna.com##.dm20-lory-share-panel
 http://donnamoderna.com##.donnam-footer-social
@@ -23526,6 +23556,7 @@ http://freemeteo.rs###cookies
 http://infiniti.co.rs##.c_128
 http://lidl.rs##.notification
 http://siea.sk###cac
+http://digitel.sk###cookies
 http://etrend.sk###disclaimer
 http://hpobchod.sk###hpmGmtT
 http://akcneletaky.sk###infoCoo
@@ -23679,7 +23710,7 @@ http://wecollect.ch#@##subscribe_email
 http://techopedia.com,vivoplay.net#@##subscriptionModal
 http://blaklader.se,blaklader.uk,chansluts.com#@##to-the-top
 http://57reshotel.it,radiogra.pl#@##to-top
-http://bezahlen.de,stern.de#@##toTop
+http://bezahlen.de,iaa.gov.il,stern.de#@##toTop
 http://uservoice.com#@##uservoice-feedback
 http://uservoice.com#@##uservoice-feedback-tab
 http://cnn.com#@#.OUTBRAIN
@@ -24299,14 +24330,12 @@ http://bosch-mobility-solutions.com#@##m-cookie-overlay
 http://17track.net#@##modal-gdpr
 http://faberkabel.de#@##modalCookie
 http://thesocialmedwork.com#@##notice-cookie-block
-http://gq-magazine.co.uk#@##onetrust-banner-sdk
-http://gq-magazine.co.uk#@##onetrust-consent-sdk
+http://gq-magazine.co.uk,mail.com#@##onetrust-banner-sdk
+http://gq-magazine.co.uk,mail.com#@##onetrust-consent-sdk
 http://api.newsguardtech.com,rockpapershotgun.com#@##optanon
 http://theverge.com#@##privacy-consent
 http://readthedocs.io,sportdiver.com#@##privacy-policy
-http://account.sonymobile.com#@##privacy-statement
 http://dcinside.com,totalwar.com#@##privacy_policy
-http://varusteleka.com,varusteleka.fi#@##privacypolicy
 http://repostuj.pl#@##rodo-modal
 http://forgeandfortune.com#@##toasts > #toastsWrapper
 http://litebit.eu#@#.CookieConsent
@@ -24408,7 +24437,7 @@ http://vtimes.io#@#.cookies-modal__background
 http://alko.fi#@#.cookies-open
 http://diy.com#@#.cookies-policy
 http://tatilsepeti.com#@#.cookies.active
-http://milliman.com#@#.cookiesModal
+http://delhaize.be,milliman.com#@#.cookiesModal
 http://m.oe24.at#@#.cookiesOverlay2
 http://m.oe24.at#@#.cookiesOverlay2Box
 http://hublot.com#@#.cookies_consent-show
@@ -24478,6 +24507,7 @@ http://litebit.eu#@#div[class*="CookieConsent"]
 http://telenor.se#@#div[class*="cookie-consent-modal_"]
 http://ee.co.uk,monese.com#@#div[class^="cookie-banner"]
 http://dovoba.de#@#div[class^="cookie-consent_"]
+http://coolblue.be#@#div[class^="cookie-notification_"]
 http://birramenabrea.com,cnwl.nhs.uk,marketerplus.pl,myspeed.pl#@#div[data-cookie]
 http://timeout.com#@#div[data-module="cookie_banner"]
 http://konarzewski.com.pl,unicode.org#@#div[data-nconvert-cookie]
