@@ -26,6 +26,7 @@
     "dev:updateShopToken": "node src/jd/sign/updateShopToken.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",
     "start:ShopSign": "node src/jd/sign/shop.js start",
+    "start:BeautyMakeup": "node src/jd/beautyMakeup/index.js start",
     "cron:BeautyMakeup": "node src/jd/beautyMakeup/index.js cron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -2,8 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 const {getNowMoment} = require('../../lib/moment');
-const {timedExecution} = require('../../lib/cron');
-const _ = require('lodash');
+const {sleepTime} = require('../../lib/cron');
 const webSocket = require('../../lib/webSocket');
 
 const {common} = require('../../../charles/api');
@@ -12,6 +11,8 @@ class BeautyMakeup extends Template {
   static scriptName = 'BeautyMakeup';
   static scriptNameDesc = '美丽颜究院';
   static times = 1;
+  static concurrent = true;
+  static concurrentOnceDelay = 0;
 
   static isSuccess(data) {
     return _.property('code')(data) === '0';
@@ -159,8 +160,9 @@ class BeautyMakeup extends Template {
         await sleep(2);
         return afterOpen();
       }
-      if (self.getNowHour() === 0) {
+      if (self.getNowHour() === 23) {
         // 定时兑换
+        await handleCronExchange();
         return handleExchange();
       }
       await sendMessage(wsMsg.init);
@@ -461,16 +463,24 @@ class BeautyMakeup extends Template {
       await handleProduceProduct(id, 1);
     }
 
+    async function handleCronExchange() {
+      await sendMessage(wsMsg.init);
+      await sendMessage(wsMsg.get_benefit);
+      // 500豆
+      wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 50000) || {})['id'] || 9;
+      await sleepTime(24);
+      await sendMessage(wsMsg.to_exchange);
+    }
+
     // 兑换东西
     async function handleExchange() {
-      await sendMessage(wsMsg.get_benefit);
-      for (const {id, name, day_exchange_count: times, day_limit: maxTimes, coins} of benefitData) {
-        if (name.match('京豆')) {
-          wsMsg.to_exchange.msg.args.benefit_id = id;
-          for (let i = times; i < maxTimes; i++) {
-            if (userData['coins'] < +coins) continue;
-            await sendMessage(wsMsg.to_exchange);
-          }
+      _.isEmpty(benefitData) && await sendMessage(wsMsg.get_benefit);
+      const beanData = benefitData.filter(o => o.name.match('京豆')).reverse();
+      for (const {id, day_exchange_count: times, day_limit: maxTimes, coins} of beanData) {
+        wsMsg.to_exchange.msg.args.benefit_id = id;
+        for (let i = times; i < maxTimes; i++) {
+          if (userData['coins'] < +coins) continue;
+          await sendMessage(wsMsg.to_exchange);
         }
       }
     }
@@ -482,10 +492,12 @@ class BeautyMakeup extends Template {
   }
 }
 
-if (process.argv[2] === 'cron') {
+if (['start', 'cron'].includes(process.argv[2])) {
   const {getLocalEnvs, getCookieData} = require('../../lib/env');
   process.env = getLocalEnvs();
-  const hours = [8, 12, 20, 24];
+  if (process.argv[2] === 'start') return start();
+
+  const hours = [7, 12, 19, 23];
   return _doCron();
 
   async function _doCron() {
@@ -495,10 +507,14 @@ if (process.argv[2] === 'cron') {
       return nowHour < hour && nowHour >= (hours[prevIndex] || 0);
     });
     console.log(`[BeautyMakeup] 定时${target}点执行`);
-    return timedExecution(target, async () => {
-      await BeautyMakeup.start(getCookieData());
-      return _doCron();
-    });
+    // 0点抢豆, 需要提前执行
+    await sleepTime([target, 59, 40]);
+    await start();
+    return _doCron();
+  }
+
+  function start() {
+    return BeautyMakeup.start(getCookieData());
   }
 }
 

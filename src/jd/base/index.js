@@ -5,6 +5,9 @@ const {sleep, parallelRun} = require('../../lib/common');
 const {getNowMoment} = require('../../lib/moment');
 const {printLog} = require('../../lib/common');
 
+// 注册全局变量
+global._ = _;
+
 class Base {
   static _ = _;
   // 当前循环的cookie下标

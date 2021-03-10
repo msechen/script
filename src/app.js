@@ -49,7 +49,6 @@ const JxHongBao = require('./jd/family/jxHongBao');
 const Live = require('./jd/live');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = require('./jd/globalMart/challenge');
-const BeautyMakeup = TemporarilyOffline || require('./jd/beautyMakeup');
 const ShopGift = require('./jd/wq/shopGift');
 
 const nowHour = getNowMoment().hour();
@@ -180,7 +179,6 @@ async function main() {
         await doRun(SuperMarket);
         await doRun(Family);
         await doRun(Sign);
-        await doRun(BeautyMakeup);
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
@@ -203,7 +201,6 @@ async function main() {
         await doCron(Fruit);
         await doCron(Pet);
         await doCron(Joy);
-        await doRun(BeautyMakeup);
       },
     },
     {
@@ -243,7 +240,6 @@ async function main() {
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
-        await doRun(BeautyMakeup);
       },
     },
     {

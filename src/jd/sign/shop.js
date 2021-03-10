@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, parallelRun} = require('../../lib/common');
-const {timedExecution} = require('../../lib/cron');
+const {sleepTime} = require('../../lib/cron');
 const _ = require('lodash');
 
 class SignShop extends Template {
@@ -57,12 +57,11 @@ class SignShop extends Template {
     }
 
     await updateShopInfos();
-    await timedExecution(24, async () => {
-      await handleSign();
-      // 避免签到不成功需要再重复一次
-      await sleep();
-      await handleSign();
-    });
+    await sleepTime(24);
+    await handleSign();
+    // 避免签到不成功需要再重复一次
+    await sleep();
+    await handleSign();
 
     async function handleSign(listInfo = false) {
       // token, venderId, id
