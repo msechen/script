@@ -64,6 +64,7 @@ async function multipleRun(targets) {
 }
 
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
+  console.log(`[${target.scriptName}] do ${method}`);
   let result;
   try {
     result = await target[method](cookieData);
