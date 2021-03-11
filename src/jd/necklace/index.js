@@ -2,11 +2,12 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
+const {necklace} = require('../../../charles/api');
+
 class Necklace extends Template {
   static scriptName = 'Necklace';
   static scriptNameDesc = '天天点点券';
-  static shareCodeTaskList = [];
-  static commonParamFn = () => ({});
+  static times = 1;
 
   static apiOptions = {
     signData: {
@@ -40,6 +41,7 @@ class Necklace extends Template {
 
           const taskList = _.property('data.result.taskConfigVos')(data) || [];
           for (let {
+            taskName,
             taskStage: status,
             id,
             maxTimes,
@@ -47,6 +49,14 @@ class Necklace extends Template {
             requireBrowseSeconds: waitDuration,
           } of taskList) {
             if ([2, 3].includes(status) || [].includes(id)) continue;
+
+            if (taskName.match('领券')) {
+              const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(id));
+              if (targetForm) {
+                await api.doForm('reportCcTask', targetForm);
+                continue;
+              }
+            }
 
             let list = [{taskId: id}];
 

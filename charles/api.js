@@ -59,6 +59,10 @@ const smallBean = {
   beanTaskList: [],
   beanDoTask: [],
 };
+const necklace = {
+  functionIds: ['reportCcTask'],
+  reportCcTask: [],
+};
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
   const originDir = `${JD_CHLSJ_PATH}/${key}`;
@@ -96,6 +100,7 @@ function init() {
     live,
     smallBean,
     common,
+    necklace,
   ].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
@@ -114,4 +119,5 @@ module.exports = {
   live,
   smallBean,
   common,
+  necklace,
 };
