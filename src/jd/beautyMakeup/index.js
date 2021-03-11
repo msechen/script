@@ -474,7 +474,7 @@ class BeautyMakeup extends Template {
 
     // 兑换东西
     async function handleExchange() {
-      _.isEmpty(benefitData) && await sendMessage(wsMsg.get_benefit);
+      await sendMessage(wsMsg.get_benefit);
       const beanData = benefitData.filter(o => o.name.match('京豆')).reverse();
       for (const {id, day_exchange_count: times, day_limit: maxTimes, coins} of beanData) {
         wsMsg.to_exchange.msg.args.benefit_id = id;
