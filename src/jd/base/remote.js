@@ -8,6 +8,7 @@ const path = require('path');
 const distPath = path.resolve(__dirname, '../../../dist');
 
 class RemoteScript extends Base {
+  static scriptName = 'RemoteScript';
   static fileDownloadUrl = '';
   static needFetchPatch = true;
 
