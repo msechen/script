@@ -50,17 +50,22 @@ class Necklace extends Template {
           } of taskList) {
             if ([2, 3].includes(status) || [].includes(id)) continue;
 
+            let list = [{taskId: id}];
+            const option = {maxTimes, times, waitDuration};
+
             if (taskName.match('领券')) {
               const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(id));
-              if (targetForm) {
-                await api.doForm('reportCcTask', targetForm);
-                continue;
-              }
+              targetForm && _.assign(option, {
+                waitDuration: 1,
+                async afterWaitFn() {
+                  await api.doForm('getCcTaskList', necklace.getCcTaskList[0]);
+                  await sleep(15);
+                  return api.doForm('reportCcTask', targetForm);
+                }
+              });
             }
 
-            let list = [{taskId: id}];
-
-            result.push({list, option: {maxTimes, times, waitDuration}});
+            result.push({list, option});
           }
 
           return result;
