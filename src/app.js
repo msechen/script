@@ -181,6 +181,7 @@ async function main() {
         await doRun(SuperMarket);
         await doRun(Family);
         await doRun(Sign);
+        await doRun(GlobalChallenge);
         // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
       },
     },
