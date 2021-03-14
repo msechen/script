@@ -103,6 +103,7 @@ async function main() {
         await doRun(SignShop);
         await doRun(SignBeanHome);
         await doRun(Sign);
+        await doRun(SignRemote);
         await doRun(StatisticsBean);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
