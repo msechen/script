@@ -186,6 +186,9 @@ class BeautyMakeup extends Template {
       await handleSellProduct();
       await handleProduceMaterial();
 
+      // 兑换
+      await handleExchange();
+
       if (self.getNowHour() > 12) {
         // 最后一次才完成这个任务
         await handleDoProduceTask();
