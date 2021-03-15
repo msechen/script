@@ -60,7 +60,9 @@ class GlobalChallenge extends Template {
 
           const result = [];
 
-          const taskList = _.property('result.data.commonTask')(data) || [];
+          const {timeLimitTask, commonTask} = _.property('result.data')(data) || {};
+
+          const taskList = _.concat(commonTask, timeLimitTask || []);
           for (let {
             taskName,
             canExecute,
@@ -80,7 +82,8 @@ class GlobalChallenge extends Template {
             for (let i = times; i < maxTimes; i++) {
               list.push({taskId, itemId, viewSeconds});
             }
-            if (taskName.match('邀请好友')/*每日邀请好友*/) {
+            // 同个人只能助力一次, 手动开启
+            if (taskName.match('邀请好友')/*每日邀请好友*/ && false) {
               const inviterPin = new URL(jingCommand.url).searchParams.get('masterPin');
               self.updateShareCodeFn(inviterPin);
               list = self.getShareCodeFn();
