@@ -266,7 +266,7 @@ async function main() {
         // 24点后定时启动
         await doRun(SignShop);
         await multipleRun([IsvShopSign]);
-        await sleep(1000);
+        await sleep(1000 * 3);
         await doRun(SignRemote);
       },
     },
