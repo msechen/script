@@ -4,6 +4,8 @@ const fs = require('fs');
 const download = require('download');
 const path = require('path');
 
+const {getLocalEnvs} = require('../../lib/env');
+
 
 const distPath = path.resolve(__dirname, '../../../dist');
 
@@ -29,7 +31,11 @@ class RemoteScript extends Base {
     }
 
     const scriptPath = await handleWriteFile(self.currentCookieTimes, cookie);
-    await exec(`node ${scriptPath} >> ${getDistFile('result.txt')}`);
+    let proxyEnv;
+    if (getLocalEnvs()['http_proxy']) {
+      proxyEnv = _.pick(getLocalEnvs(), ['NODE_TLS_REJECT_UNAUTHORIZED', 'http_proxy', 'https_proxy']);
+    }
+    await exec(`node ${scriptPath} >> ${getDistFile('result.txt')}`, proxyEnv ? {env: proxyEnv} : void 0);
 
     async function handleDownloadFile(url, filename) {
       await download(url, getDistFile(), {filename});
