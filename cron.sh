@@ -7,11 +7,12 @@
 # 0 */1 11 * * /bin/bash cron.sh
 # ------------ eg ------------
 
-script_abs=$(readlink -f "$0")
-script_dir=$(dirname "$script_abs")
+script_dir=$(cd "$(dirname "$0")";pwd)
 
 # 加载本地变量
 source /etc/profile
+
+echo "`/bin/date` 开始执行定时任务" >> "$script_dir/logs/cron.log"
 
 cd "$script_dir" && npm run dev
 
