@@ -40,6 +40,8 @@ class SignShop extends Template {
       '1F0603BEEBA874E6D0663B4326155910',
       '317AD90CFA1D8E3D6BBD2F2F19181E8D',
       '716455CB06041DA3D180113C2139BE11',
+      'F2FA870C86F2BDC5B11B92A7DC671256',
+      'BF3246DD46CABE7727D9EEA19E5D0C8A',
       // 脚本新增插入位置
     ];
 
@@ -144,7 +146,7 @@ class SignShop extends Template {
 if (process.argv[2] === 'start') {
   const {getLocalEnvs, getCookieData} = require('../../lib/env');
   process.env = getLocalEnvs();
-  SignShop.start(getCookieData()[0]).then();
+  SignShop.start(getCookieData()).then();
 }
 
 module.exports = SignShop;
