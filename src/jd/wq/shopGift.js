@@ -16,6 +16,9 @@ class ShopGift extends Template {
     headers: {
       referer: 'https://shop.m.jd.com/',
     },
+    qs: {
+      sceneval: 2,
+    }
   };
 
   static async doMain(api) {

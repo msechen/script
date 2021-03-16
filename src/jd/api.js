@@ -108,6 +108,15 @@ class Api {
     body = JSON.stringify(body);
     return this.doGet(functionId, {body}, options);
   }
+
+  doGetUrl(url, options) {
+    const _url = new URL(url);
+    return this.do(_.merge({
+      method: 'GET',
+      uri: `${_url.origin}${_url.pathname ? _url.pathname : ''}`,
+      qs: _.fromPairs(Array.from(_url.searchParams.entries())),
+    }, options));
+  }
 }
 
 function initWq() {

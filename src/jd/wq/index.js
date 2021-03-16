@@ -5,6 +5,8 @@ const _ = require('lodash');
 
 class WqBase extends Template {
   static scriptName = 'WqBase';
+  static scriptNameDesc = 'wq.jd.com';
+  static needInApp = false;
   static times = 1;
 
   static customApiOptions = {
@@ -31,7 +33,6 @@ class WqBase extends Template {
       options: _.merge({
         method: 'GET',
         qs: {
-          sceneval: 2,
           callback: 'jsonpCBKJ',
         },
       }, this.customApiOptions),

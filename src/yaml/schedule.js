@@ -27,7 +27,7 @@ const envSecrets = _.fromPairs(_.flatten([
 
   'JD_COOKIE',
   'JD_EARN_COOKIE',
-  'JD_WQ_COOKIE',
+  'JD_WQ_WX_COOKIE',
   'JD_APPLET_PIN',
   'JD_EARN_SHARE_CODE',
   'JD_FRUIT_SHARE_CODE',
