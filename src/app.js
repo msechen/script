@@ -50,7 +50,7 @@ const JxHongBao = require('./jd/family/jxHongBao');
 const Live = require('./jd/live');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = require('./jd/globalMart/challenge');
-const ShopGift = require('./jd/wq/shopGift');
+const Singjd = require('./jd/wq/singjd');
 
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();

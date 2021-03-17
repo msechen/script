@@ -8,10 +8,11 @@ class Necklace extends Template {
   static scriptName = 'Necklace';
   static scriptNameDesc = '天天点点券';
   static times = 1;
+  static needOriginH5 = true;
 
   static apiOptions = {
     signData: {
-      appid: 'jd_mp_h5',
+      appid: 'coupon-necklace',
     },
   };
 
@@ -43,25 +44,40 @@ class Necklace extends Template {
           for (let {
             taskName,
             taskStage: status,
-            id,
+            id: taskId,
             maxTimes,
             times,
             requireBrowseSeconds: waitDuration,
           } of taskList) {
-            if ([2, 3].includes(status) || [].includes(id)) continue;
+            if ([2, 3].includes(status) || [].includes(taskId)) continue;
+            waitDuration = waitDuration || 1;
 
-            let list = [{taskId: id}];
+            let list = [{taskId}];
             const option = {maxTimes, times, waitDuration};
 
             if (taskName.match('领券')) {
-              const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(id));
+              const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(taskId));
               targetForm && _.assign(option, {
                 waitDuration: 1,
                 async afterWaitFn() {
                   await api.doForm('getCcTaskList', necklace.getCcTaskList[0]);
                   await sleep(15);
                   return api.doForm('reportCcTask', targetForm);
-                }
+                },
+              });
+            }
+
+            if (taskName === '浏览精选活动') {
+              const subTaskList = await api.doFormBody('necklace_getTask', {taskId}).then(data => _.property('data.result.taskItems')(data)) || [];
+              _.assign(option, {
+                async afterWaitFn() {
+                  return self.loopCall(subTaskList, {
+                    maxTimes: subTaskList.length,
+                    firstFn({id}) {
+                      return api.doFormBody('necklace_reportTask', {taskId, itemId: id});
+                    },
+                  });
+                },
               });
             }
 
@@ -73,6 +89,10 @@ class Necklace extends Template {
       },
       doTask: {
         name: 'necklace_startTask',
+        paramFn: o => o,
+      },
+      doWaitTask: {
+        name: 'necklace_reportTask',
         paramFn: o => o,
       },
       // afterGetTaskList: {
@@ -97,10 +117,6 @@ class Necklace extends Template {
       },
     };
   };
-
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
-  }
 }
 
 module.exports = Necklace;
