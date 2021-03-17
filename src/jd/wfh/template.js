@@ -69,13 +69,14 @@ class HarmonyTemplate extends Template {
             productInfoVos,
             followShopVo,
             shoppingActivityVos,
+            browseShopVo,
             assistTaskDetailVo
           } of _.property('data.result.taskVos')(data) || []) {
             if ([2, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
 
             waitDuration = waitDuration || (subTitleName.match(/\d*s/) ? +subTitleName.match(/\d*s/)[0].replace(/s$/, '') : 0);
 
-            let list = _.concat(simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || []);
+            let list = _.concat(simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || browseShopVo || []);
 
             // 邀请助力
             if (taskId === self.shareTaskId) {

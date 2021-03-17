@@ -27,6 +27,7 @@ const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
 const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
+const Harmony1 = require('./jd/wfh/harmony1');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
@@ -126,6 +127,7 @@ async function main() {
         await doRun(JxHongBao);
         // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
+        await doRun(Harmony1);
       },
     },
     {
