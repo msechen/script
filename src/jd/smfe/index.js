@@ -54,12 +54,13 @@ class Smfe extends Template {
             [
               [1, 'signNewsInteraction', [{}]],
               [4, 'viewNewsInteractionSkus', data.result.taskSkuInfo],
+              [6, 'executeInteractionTask', [{}]],
               [7, 'executeInteractionTask', data.result.shopInfoList],
               [9, 'executeInteractionTask', [{}]],
             ].forEach(([id, functionId, _list]) => {
               if (taskId === id) {
                 list = _list.map(o => {
-                  [7, 9].includes(id) && (o.taskType = id);
+                  [6, 7, 9].includes(id) && (o.taskType = id);
                   return o;
                 }).filter(o => o.browseStatus !== 1);
                 _.assign(option, {
