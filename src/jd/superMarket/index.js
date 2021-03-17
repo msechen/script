@@ -23,7 +23,6 @@ class SuperMarket extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       beforeGetTaskList: {
@@ -32,16 +31,16 @@ class SuperMarket extends Template {
           if (!self.isSuccess(data)) return;
           const {shopId, shelfList} = _.property('data.result')(data) || {};
           if (!shopId) return;
-          for (const {id: shelfId, level, status} of shelfList) {
+          for (const {id: shelfId, level, status, name} of shelfList) {
             if (status !== 1) continue;
-            await api.doFormBody('smtg_shelfUpgrade', {shopId, shelfId, level: level + 1}).then(async data => {
+            const targetLevel = level + 1;
+            await api.doFormBody('smtg_shelfUpgrade', {shopId, shelfId, targetLevel}).then(async data => {
               if (!self.isSuccess(data)) return;
+              self.log(`${name}升级至至${targetLevel}`);
               await api.doFormBody('smtg_receiveCoin', {type: 4}).then(async data => {
                 const userUpgradeBlueVos = _.property('data.result.userUpgradeBlueVos')(data) || [];
                 for (const {id} of userUpgradeBlueVos) {
-                  await api.doFormBody('smtg_receiveCoin', {type: 5, id}).then(async data => {
-                    self.log(JSON.stringify(data));
-                  });
+                  await receiveUpdateCoin(api, id);
                 }
               });
             });
@@ -68,7 +67,7 @@ class SuperMarket extends Template {
             waitDuration,
           } of taskList) {
             if ((status === 1 && !prizeStatus) || [
-              1, // 分享游戏
+              // 1, // 分享游戏
               // 11, // 指定入口进入小游戏
               // 2, // 逛会场
               // 8, // 关注店铺
@@ -127,8 +126,19 @@ class SuperMarket extends Template {
         paramFn: () => ({'costType': 1, 'channel': '1'}),
         successFn: async (data, api) => {
           if (!self.isSuccess(data)) {
-            const {totalBlue, totalGold} = await api.doFormBody('smtg_home').then(data => data.data.result) || {};
-            totalBlue && self.log(`蓝币总计为: ${totalBlue}, 金币总计为: ${totalGold}`);
+            let {
+              totalBlue = 0,
+              userUpgradeBlueVos,
+            } = await api.doFormBody('smtg_newHome').then(data => data.data.result) || {};
+            await self.loopCall(userUpgradeBlueVos, {
+              maxTimes: userUpgradeBlueVos.length,
+              firstFn({id, blueCoins}) {
+                return receiveUpdateCoin(api, id).then(() => {
+                  totalBlue += blueCoins;
+                });
+              },
+            });
+            totalBlue && self.log(`蓝币总计为: ${totalBlue}`);
             return false;
           }
         },
@@ -264,6 +274,10 @@ class SuperMarket extends Template {
   static initShareCodeTaskList(shareCodes) {
     // 处理
   }
+}
+
+function receiveUpdateCoin(api, id) {
+  return api.doFormBody('smtg_receiveCoin', {type: 5, id});
 }
 
 module.exports = SuperMarket;

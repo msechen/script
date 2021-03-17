@@ -16,6 +16,7 @@ const SignShop = require('./jd/sign/shop');
 const SignRemote = require('./jd/sign/remote');
 const PlantBean = require('./jd/plantBean');
 const SuperMarket = require('./jd/superMarket');
+const SuperMarketRedeem = require('./jd/superMarket/redeem');
 const Pet = require('./jd/pet');
 const PetRemote = require('./jd/pet/remote');
 const Fruit = require('./jd/fruit');
@@ -264,6 +265,7 @@ async function main() {
         await doCron(Joy);
 
         // 24点后定时启动
+        await multipleRun([SignShop, SuperMarketRedeem]);
         await doRun(SignShop);
         await multipleRun([IsvShopSign]);
       },
