@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: Vi0/b4Ezc0/SL98kcQsYIQ
-! Version: 202103160041
+! Checksum: pB49PhaWeqAFpkaENyruoQ
+! Version: 202103190041
 ! Title: Fanboy's Annoyance List
-! Last modified: 16 Mar 2021 00:41 UTC
+! Last modified: 19 Mar 2021 00:41 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -2577,7 +2577,7 @@
 ||http://emerse.com/consent.js
 ||http://freedoflondon.com/Styles/dialog-popup/jquery-ui.js
 ||http://freetls.fastly.net/main/sd-cmp-$domain=spanishdict.com
-||http://fundingchoicesmessages.google.com^$domain=apkmirror.com|gameblog.fr|smallseotools.com|telegram.hr|wordreference.com
+||http://fundingchoicesmessages.google.com^$domain=androidpolice.com|apkmirror.com|gameblog.fr|smallseotools.com|telegram.hr|wordreference.com
 ||http://gdpr.internetbrands.com^
 ||http://gdpr.prisa.com^
 ||http://government-and-constitution.org/js/consent.js
@@ -6283,6 +6283,7 @@ https://breitbart.com###cin_slideup_w
 https://sciencenews.org,sinya.com.tw,westhawaiitoday.com###colorbox
 https://monthlyreview.org###connect
 https://thewrap.com###content-bottom-sidebar
+https://academictimes.com###cover
 https://dallasnews.com###ctaNewsletterLightbox
 https://telecompaper.com###ctl00_MainPlaceHolder_HeadlineRegistersMain1_Update1
 https://guidedoc.com###curtain
@@ -9448,6 +9449,7 @@ https://abplive.in##.blur-bg
 https://studocu.com##.bottom-bar-enter-active
 https://ofisitebg.com##.bottom-freezed-bar
 https://robertsspaceindustries.com##.bottom-notif-bar
+https://yubico.com##.bottom-pop-up-container
 https://cointelegraph.com##.bottom-zone
 https://hostkey.com##.bottomMessages
 https://xhamster.com##.bottom_message
@@ -10725,6 +10727,7 @@ https://pli-petronas.pt##.ui-widget-overlay
 https://uc.pt##.warning-bar
 https://castroelectronica.pt##div[style="height: 35px; background:#2a2a2a; position:absolute; width:100%; top:0; z-index: 999999;"]
 https://capital.ro###lastmin
+https://fundatiacaleavictoriei.ro###newsletter
 https://zf.ro###scrollTop
 https://antena3.ro###slidebox
 https://dcnews.ro###sliding
@@ -11650,7 +11653,7 @@ https://autokostencheck.de###footerSlideContainer
 https://pokewiki.de###gl-topbar-bg
 https://aida.de###hfas782aj
 https://pfarrverband-koenigslutter.de###hinweis
-https://cb500.net,grammophon-platten.de,heim-und-haustiere.de,schwedisch-translator.de,sirutor-und-compur.de,wumpus-gollum-forum.de###hinweise
+https://arznei-news.de,cb500.net,grammophon-platten.de,heim-und-haustiere.de,psylex.de,schwedisch-translator.de,sirutor-und-compur.de,wumpus-gollum-forum.de###hinweise
 https://d-secour.de###importantMessages
 https://bongu.de###infoBar
 https://gruene-bundestag.de###info_message
@@ -11694,6 +11697,7 @@ https://gab-umweltservice.de###rcpm
 https://netbet.de###sec-banner-div
 https://sightseeing-kontor.de###sk-info
 https://mydealz.de,preisjaeger.at###softMessages-list
+https://soldesign.de###solbox
 https://amazon.de###sp-cc
 https://urteile-gesetze.de###stickyFooter
 https://camp-firefox.de,soeren-hentzschel.at###storage-notice
@@ -12017,6 +12021,7 @@ https://nacesty.cz###term-of-use
 https://marusik.cz##.CA
 https://therapia.cz##.CC_wrap
 https://valka.cz##.alert
+https://unitrex.eu##.annoyerBar
 https://uni-max.cz##.bar-Info
 https://infiniti.cz##.c_128
 https://rychloseznamka.cz##.cok
@@ -12738,7 +12743,7 @@ https://lisa.ru##.disclamer
 https://ozon.ru##.i4
 https://friday.ru##.information
 https://patee.ru##.informer2
-https://kinoby.ru##.message-alert
+https://iblitzmods.ru,kinoby.ru##.message-alert
 https://shophair.ru##.modal_popup_sessid_box
 https://landrover.ru##.notificationBars
 https://kamkabel.ru##.panel_152_wp
@@ -13177,6 +13182,7 @@ https://sap.com#@#.j-social-actions
 https://sap.com#@#.j-social-button
 https://kickstarter.com,tradingview.com#@#.js-follow-user
 https://cgtn.com,nbcnews.com,playosmo.com,trello.com,vimeo.com#@#.js-share
+https://faz.net#@#.js-sharebuttons
 https://lenta.ru#@#.js-topic__socials
 https://alternativeto.net#@#.like-box
 https://darudar.org,fimfiction.net,modworkshop.net,nasaspaceflight.com#@#.like_button
@@ -13227,7 +13233,8 @@ https://speedtest.net#@#.share-body
 https://gala.fr#@#.share-bottom
 https://belgafiles.com,dakine.com,linkedin.com,way2sms.com#@#.share-box
 https://bitly.com,framestr.com,nytimes.com#@#.share-btn
-https://cnet.com,kcrw.com,vimeo.com#@#.share-button
+https://cnet.com,honestcoffeeguide.com,kcrw.com,vimeo.com#@#.share-button
+https://honestcoffeeguide.com#@#.share-button-container
 https://bandcamp.com,bleacherreport.com,distractify.com,naekranie.pl,thedodo.com#@#.share-buttons
 https://podbean.com#@#.share-content
 https://mediafire.com#@#.share-facebook
@@ -13343,7 +13350,7 @@ https://infox.ru#@#.social-section
 https://lafeltrinelli.it#@#.social-separator
 https://daenischesbettenlager.at,daenischesbettenlager.de,howtogeek.com,jysk-ks.com,jysk.al,jysk.am,jysk.ba,jysk.be,jysk.bg,jysk.by,jysk.ca,jysk.ch,jysk.co.id,jysk.co.uk,jysk.com,jysk.com.cy,jysk.com.kw,jysk.com.mt,jysk.cz,jysk.dk,jysk.ee,jysk.es,jysk.fi,jysk.fr,jysk.ge,jysk.gr,jysk.hr,jysk.hu,jysk.ie,jysk.it,jysk.kz,jysk.lt,jysk.lv,jysk.md,jysk.me,jysk.mk,jysk.nl,jysk.no,jysk.pl,jysk.pt,jysk.ro,jysk.rs,jysk.se,jysk.si,jysk.sk,jysk.ua,jysk.vn,jyskthailand.com,pisiffik.gl,rumfatalagerinn.is,skemman.fo#@#.social-share
 https://cuisineactuelle.fr,femmeactuelle.fr,matvpratique.com#@#.social-share-count
-https://cosmo.ru,last.fm,lastfm.com.br,lastfm.com.tr,lastfm.de,lastfm.es,lastfm.fr,lastfm.it,lastfm.jp,lastfm.pl,lastfm.ru,lastfm.se,songkick.com#@#.social-sharing
+https://cosmo.ru,last.fm,lastfm.com.br,lastfm.com.tr,lastfm.de,lastfm.es,lastfm.fr,lastfm.it,lastfm.jp,lastfm.pl,lastfm.ru,lastfm.se,politico.eu,songkick.com#@#.social-sharing
 https://golem.de#@#.social-sidebar
 https://domain.com.au#@#.social-stick
 https://tv-kino.net#@#.social-tab
@@ -17111,6 +17118,7 @@ http://breitbart.com###cin_slideup_w
 http://sciencenews.org,sinya.com.tw,westhawaiitoday.com###colorbox
 http://monthlyreview.org###connect
 http://thewrap.com###content-bottom-sidebar
+http://academictimes.com###cover
 http://dallasnews.com###ctaNewsletterLightbox
 http://telecompaper.com###ctl00_MainPlaceHolder_HeadlineRegistersMain1_Update1
 http://guidedoc.com###curtain
@@ -20277,6 +20285,7 @@ http://abplive.in##.blur-bg
 http://studocu.com##.bottom-bar-enter-active
 http://ofisitebg.com##.bottom-freezed-bar
 http://robertsspaceindustries.com##.bottom-notif-bar
+http://yubico.com##.bottom-pop-up-container
 http://cointelegraph.com##.bottom-zone
 http://hostkey.com##.bottomMessages
 http://xhamster.com##.bottom_message
@@ -21554,6 +21563,7 @@ http://pli-petronas.pt##.ui-widget-overlay
 http://uc.pt##.warning-bar
 http://castroelectronica.pt##div[style="height: 35px; background:#2a2a2a; position:absolute; width:100%; top:0; z-index: 999999;"]
 http://capital.ro###lastmin
+http://fundatiacaleavictoriei.ro###newsletter
 http://zf.ro###scrollTop
 http://antena3.ro###slidebox
 http://dcnews.ro###sliding
@@ -22480,7 +22490,7 @@ http://autokostencheck.de###footerSlideContainer
 http://pokewiki.de###gl-topbar-bg
 http://aida.de###hfas782aj
 http://pfarrverband-koenigslutter.de###hinweis
-http://cb500.net,grammophon-platten.de,heim-und-haustiere.de,schwedisch-translator.de,sirutor-und-compur.de,wumpus-gollum-forum.de###hinweise
+http://arznei-news.de,cb500.net,grammophon-platten.de,heim-und-haustiere.de,psylex.de,schwedisch-translator.de,sirutor-und-compur.de,wumpus-gollum-forum.de###hinweise
 http://d-secour.de###importantMessages
 http://bongu.de###infoBar
 http://gruene-bundestag.de###info_message
@@ -22524,6 +22534,7 @@ http://gab-umweltservice.de###rcpm
 http://netbet.de###sec-banner-div
 http://sightseeing-kontor.de###sk-info
 http://mydealz.de,preisjaeger.at###softMessages-list
+http://soldesign.de###solbox
 http://amazon.de###sp-cc
 http://urteile-gesetze.de###stickyFooter
 http://camp-firefox.de,soeren-hentzschel.at###storage-notice
@@ -22847,6 +22858,7 @@ http://nacesty.cz###term-of-use
 http://marusik.cz##.CA
 http://therapia.cz##.CC_wrap
 http://valka.cz##.alert
+http://unitrex.eu##.annoyerBar
 http://uni-max.cz##.bar-Info
 http://infiniti.cz##.c_128
 http://rychloseznamka.cz##.cok
@@ -23568,7 +23580,7 @@ http://lisa.ru##.disclamer
 http://ozon.ru##.i4
 http://friday.ru##.information
 http://patee.ru##.informer2
-http://kinoby.ru##.message-alert
+http://iblitzmods.ru,kinoby.ru##.message-alert
 http://shophair.ru##.modal_popup_sessid_box
 http://landrover.ru##.notificationBars
 http://kamkabel.ru##.panel_152_wp
@@ -24007,6 +24019,7 @@ http://sap.com#@#.j-social-actions
 http://sap.com#@#.j-social-button
 http://kickstarter.com,tradingview.com#@#.js-follow-user
 http://cgtn.com,nbcnews.com,playosmo.com,trello.com,vimeo.com#@#.js-share
+http://faz.net#@#.js-sharebuttons
 http://lenta.ru#@#.js-topic__socials
 http://alternativeto.net#@#.like-box
 http://darudar.org,fimfiction.net,modworkshop.net,nasaspaceflight.com#@#.like_button
@@ -24057,7 +24070,8 @@ http://speedtest.net#@#.share-body
 http://gala.fr#@#.share-bottom
 http://belgafiles.com,dakine.com,linkedin.com,way2sms.com#@#.share-box
 http://bitly.com,framestr.com,nytimes.com#@#.share-btn
-http://cnet.com,kcrw.com,vimeo.com#@#.share-button
+http://cnet.com,honestcoffeeguide.com,kcrw.com,vimeo.com#@#.share-button
+http://honestcoffeeguide.com#@#.share-button-container
 http://bandcamp.com,bleacherreport.com,distractify.com,naekranie.pl,thedodo.com#@#.share-buttons
 http://podbean.com#@#.share-content
 http://mediafire.com#@#.share-facebook
@@ -24173,7 +24187,7 @@ http://infox.ru#@#.social-section
 http://lafeltrinelli.it#@#.social-separator
 http://daenischesbettenlager.at,daenischesbettenlager.de,howtogeek.com,jysk-ks.com,jysk.al,jysk.am,jysk.ba,jysk.be,jysk.bg,jysk.by,jysk.ca,jysk.ch,jysk.co.id,jysk.co.uk,jysk.com,jysk.com.cy,jysk.com.kw,jysk.com.mt,jysk.cz,jysk.dk,jysk.ee,jysk.es,jysk.fi,jysk.fr,jysk.ge,jysk.gr,jysk.hr,jysk.hu,jysk.ie,jysk.it,jysk.kz,jysk.lt,jysk.lv,jysk.md,jysk.me,jysk.mk,jysk.nl,jysk.no,jysk.pl,jysk.pt,jysk.ro,jysk.rs,jysk.se,jysk.si,jysk.sk,jysk.ua,jysk.vn,jyskthailand.com,pisiffik.gl,rumfatalagerinn.is,skemman.fo#@#.social-share
 http://cuisineactuelle.fr,femmeactuelle.fr,matvpratique.com#@#.social-share-count
-http://cosmo.ru,last.fm,lastfm.com.br,lastfm.com.tr,lastfm.de,lastfm.es,lastfm.fr,lastfm.it,lastfm.jp,lastfm.pl,lastfm.ru,lastfm.se,songkick.com#@#.social-sharing
+http://cosmo.ru,last.fm,lastfm.com.br,lastfm.com.tr,lastfm.de,lastfm.es,lastfm.fr,lastfm.it,lastfm.jp,lastfm.pl,lastfm.ru,lastfm.se,politico.eu,songkick.com#@#.social-sharing
 http://golem.de#@#.social-sidebar
 http://domain.com.au#@#.social-stick
 http://tv-kino.net#@#.social-tab
