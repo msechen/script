@@ -2,11 +2,10 @@ const HarmonyTemplate = require('./template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
-class Harmony1 extends HarmonyTemplate {
-  static scriptNameDesc = '开盲盒抽奖';
+class Harmony2 extends HarmonyTemplate {
+  static scriptNameDesc = '东东焕新装';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({appId: '1EFRWyw'});
-  static skipTaskIds = [4/*开会员*/];
+  static commonParamFn = () => ({appId: '1EFRZwA'});
   static apiNames = {
     getTaskList: 'healthyDay_getHomeData',
     doTask: 'harmony_collectScore',
@@ -15,4 +14,4 @@ class Harmony1 extends HarmonyTemplate {
   };
 }
 
-module.exports = Harmony1;
+module.exports = Harmony2;
