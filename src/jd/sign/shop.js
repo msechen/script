@@ -35,21 +35,15 @@ class SignShop extends Template {
     // token, venderId, id
     let shopInfos = [
       '07CBF9FC8DE65E3880ABD05B9A952866',
-      'D6A88099F516166806DA1A43892AC212',
-      '1F0603BEEBA874E6D0663B4326155910',
       '317AD90CFA1D8E3D6BBD2F2F19181E8D',
-      '716455CB06041DA3D180113C2139BE11',
       'F2FA870C86F2BDC5B11B92A7DC671256',
       'BF3246DD46CABE7727D9EEA19E5D0C8A',
       'DA6CCB4368A3CC69FDAE630CF8811101',
       '951B100390D6BC3FB7789653FF32BB4C',
-      '6B5AF1D437F578980C8FE86928E20560',
-      'D726C4E1AA6158E33CB2FF163CD04D5F',
       'F60FD026FA048CEF867DD2BE11A3CB81',
       '0EED8D181FCE4ABE5CD6053D0862EFC2',
-      '0EA32901087510C269FA59F9EBF6450F',
-      'F9CCF5A91CB126898F2E79732925E51F',
       '9F34B41791BD2C11F422AB11A3CCCEB8',
+      'DB2FF2011620050C6C988943123EC8AC',
       // 脚本新增插入位置
     ];
 
@@ -83,7 +77,10 @@ class SignShop extends Template {
         if (shopInfo.length !== 1) continue;
         const token = shopInfo[0];
         await getActivityInfo(token).then(async data => {
-          if (!self.isSuccess(data)) return shopInfo.pop();
+          if (!self.isSuccess(data)) {
+            self.log(`${token}: 402 已经失效`);
+            return shopInfo.pop();
+          }
           const notSign = await handleListShopInfo(token);
           if (notSign) return shopInfo.pop();
           if (!addOtherInfo) return;
@@ -106,8 +103,10 @@ class SignShop extends Template {
             return `${days}天${Math.floor(discount)}${type === 4 ? '豆' : '分'}`;
           })).join();
         }).filter(str => str);
-        self.log(`${token} 已签到${currentSignDays}天, 奖品: ${prizeRules.join(', ')}`);
-        return _.isEmpty(prizeRules);
+        const notPrize = _.isEmpty(prizeRules);
+        const prizeRuleMsg = notPrize ? '' : `奖品: ${prizeRules.join(', ')}`;
+        self.log(_.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', '));
+        return notPrize;
       });
     }
 
