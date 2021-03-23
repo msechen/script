@@ -8,7 +8,6 @@ class Grassy extends Template {
   static scriptNameDesc = '新品种草(答题)';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static times = 1;
   static apiOptions = {
     options: {
       uri: 'https://grassy.m.jd.com/followProduct',
@@ -38,6 +37,17 @@ class Grassy extends Template {
           // writeFileJSON(data, 'init.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
+
+          const currentShareId = await api.doPath('initSupport').then(data => {
+            return _.property('data.shareId')(data);
+          });
+          self.updateShareCodeFn(currentShareId);
+          for (const shareId of self.getShareCodeFn()) {
+            await api.doPath('support', void 0, {qs: {shareId}}).then(data => {
+              if (!self.isSuccess(data)) return self.log(data.msg);
+              self.log('助力成功');
+            });
+          }
 
           const result = [];
 
@@ -75,7 +85,7 @@ class Grassy extends Template {
         },
       },
     };
-  };
+  }
 }
 
 if (process.argv[2] === 'start') {
