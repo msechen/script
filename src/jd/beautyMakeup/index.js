@@ -215,6 +215,7 @@ class BeautyMakeup extends Template {
     }
 
     async function onMessage(result) {
+      if (result === 'pong') return;
       const {data, code, msg, action} = JSON.parse(result) || {};
       if (code !== 200) return self.log(`${action}请求失败, msg: ${msg}`);
 
@@ -387,7 +388,7 @@ class BeautyMakeup extends Template {
       await handleProduceSameTime(id, maxNum);
       const producingData = produceProductData.filter(o => o['product_id'] === id);
       if (_.isEmpty(producingData)) return false;
-      await sleep(_.max(_.map(producingData, 'expires')));
+      await keepOnline(_.max(_.map(producingData, 'expires')));
       await handleReceiveProduct();
       return true;
 
@@ -491,6 +492,17 @@ class BeautyMakeup extends Template {
     async function sendMessage(data) {
       ws.send(_.isObject(data) ? JSON.stringify(data) : data);
       await sleep();
+    }
+
+    async function keepOnline(seconds) {
+      const maxSeconds = 10;
+      const needLoop = seconds > maxSeconds;
+      // 不需要等待
+      sendMessage('ping');
+      await sleep(needLoop ? maxSeconds : seconds);
+      if (needLoop) {
+        await keepOnline(seconds - maxSeconds);
+      }
     }
   }
 }
