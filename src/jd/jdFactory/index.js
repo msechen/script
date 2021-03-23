@@ -41,7 +41,26 @@ class jdFactory extends Base {
       // 不在活动期间
       if (!isSuccess(data)) return true;
 
-      for (let {status, taskId, maxTimes, times, waitDuration = 0, simpleRecordInfoVo, productInfoVos, followShopVo, shoppingActivityVos, threeMealInfoVos, assistTaskDetailVo = {}} of _.property('data.result.taskVos')(data) || []) {
+      if (+_.property('data.result.userScore')(data) >= 3000000) {
+        self.log('蓄电池已满，使用后才可获得更多电量哦！');
+        const shareList = shareCodes.map(taskToken => ({taskToken}));
+        shareList.length && await _doTask(shareList, {taskId: 2, maxTimes: 5});
+        return true;
+      }
+
+      for (let {
+        status,
+        taskId,
+        maxTimes,
+        times,
+        waitDuration = 0,
+        simpleRecordInfoVo,
+        productInfoVos,
+        followShopVo,
+        shoppingActivityVos,
+        threeMealInfoVos,
+        assistTaskDetailVo = {}
+      } of _.property('data.result.taskVos')(data) || []) {
         const isShareTask = taskId === 2; /*邀请助力*/
         if (isShareTask && shareCodes) {
           await _doTask(shareCodes.map(taskToken => ({taskToken})), {taskId, maxTimes: 5});
@@ -62,23 +81,24 @@ class jdFactory extends Base {
 
         let taskList = simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || threeMealInfoVos;
         await _doTask(taskList, {taskId, maxTimes, times, waitDuration});
-
-        async function _doTask(taskList, {taskId, maxTimes = 1, times = 0, waitDuration = 0}) {
-          for (const {status, taskToken, itemId} of _.filter([].concat(taskList))) {
-            if (status === 2 || maxTimes === times) continue;
-            await sleep(2);
-            times++;
-            await collectScore(taskToken, taskId, itemId).then(data => {
-              const score = _.property('data.result.score')(data);
-              score && (allScore += +score);
-              if (isShareTask) {
-                isSuccess(data) && self.log(`助力结果: ${data.data.bizMsg}`);
-              }
-            });
-          }
-        }
       }
     });
+
+    async function _doTask(taskList, {taskId, maxTimes = 1, times = 0, waitDuration = 0}) {
+      const isShareTask = taskId === 2; /*邀请助力*/
+      for (const {status, taskToken, itemId} of _.filter([].concat(taskList))) {
+        if (status === 2 || maxTimes === times) continue;
+        await sleep(2);
+        times++;
+        await collectScore(taskToken, taskId, itemId).then(data => {
+          const score = _.property('data.result.score')(data);
+          score && (allScore += +score);
+          if (isShareTask) {
+            isSuccess(data) && self.log(`助力结果: ${data.data.bizMsg}`);
+          }
+        });
+      }
+    }
 
     if (activityNotStart) return;
 
@@ -98,7 +118,13 @@ class jdFactory extends Base {
           this.log('获取用户信息出错');
           return;
         }
-        const {couponCount, name, remainScore, useScore, totalScore} = _.property('data.result.factoryInfo')(data) || {};
+        const {
+          couponCount,
+          name,
+          remainScore,
+          useScore,
+          totalScore,
+        } = _.property('data.result.factoryInfo')(data) || {};
         name && self.log(`${name}现在还剩${couponCount}件, 电量还差 ${+totalScore - (+remainScore + +useScore)}`);
 
         (_.property('data.result.skuIdList')(data) || []).forEach(({couponCount, name, fullScore}) => {
@@ -117,6 +143,11 @@ class jdFactory extends Base {
   static async doCron(api) {
     const self = this;
     const _ = this._;
+
+    const userScore = await api.jdfactory_getTaskDetail({}).then(async data => +_.property('data.result.userScore')(data));
+    if (userScore >= 3000000) {
+      return;
+    }
 
     await api.jdfactory_collectElectricity().then(data => {
       this.log(`定时获取到的电量为 ${_.property('data.result.electricityValue')(data)}`);
