@@ -45,10 +45,12 @@ class Mgold extends Template {
           for (let {
             type,
             list,
+            hasVote,
           } of taskList) {
-            if (list.some(o => o['hasVote'])) continue;
-            list = list.find(o => !o['hasVote']).map(o => ({
-              type: type,
+            if (hasVote) continue;
+
+            list = list.filter(o => !o['hasVote']).map(o => ({
+              type,
               sku: o.skuId,
             }));
 
