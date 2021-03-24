@@ -23,12 +23,14 @@ const Fruit = require('./jd/fruit');
 const FruitRemote = require('./jd/fruit/remote');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
-const jdFactory = TemporarilyOffline || require('./jd/jdFactory');
+const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
 const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
+const Harmony3 = require('./jd/wfh/harmony3');
+const Harmony4 = require('./jd/wfh/harmony4');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
@@ -132,6 +134,8 @@ async function main() {
         await multipleRun([
           Harmony1,
           Harmony2,
+          Harmony3,
+          Harmony4,
         ]);
       },
     },
