@@ -17,7 +17,7 @@ function sign(taskId, masterPin) {
   return Pu(...arguments);
 
   function Pu() {
-    for (var e = getNowMoment().valueOf(), t = 'secureact', a = Nu('U2FsdGVkX19anvYaN+euQqSaHyuhWU0I1AtxGI6eMcQ=', t), n = arguments.length, r = new Array(n), o = 0; o < n; o++) r[o] = arguments[o];
+    for (var e = getNowMoment().valueOf(), t = 'secureact', a = Nu('U2FsdGVkX19sLIB1GPSwzHyWUgTvJt8/Gkz6E5e3M58=', t), n = arguments.length, r = new Array(n), o = 0; o < n; o++) r[o] = arguments[o];
     r.push(e, a);
     var c = r.join(''), i = CryptoJS.MD5(c).toString();
     return {sealsTs: e, seals: i};
@@ -83,7 +83,8 @@ class GlobalChallenge extends Template {
               list.push({taskId, itemId, viewSeconds});
             }
             // 同个人只能助力一次, 手动开启
-            if (taskName.match('邀请好友')/*每日邀请好友*/ && false) {
+            if (taskName.match('邀请好友')/*每日邀请好友*/) {
+              continue;
               const inviterPin = new URL(jingCommand.url).searchParams.get('masterPin');
               self.updateShareCodeFn(inviterPin);
               list = self.getShareCodeFn();
@@ -112,6 +113,10 @@ class GlobalChallenge extends Template {
       doTask: {
         name: 'taskRun',
         paramFn: o => _.assign(o, sign(o.taskId)),
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return;
+          self.log('完成一次任务');
+        }
       },
       afterGetTaskList: {
         name: 'mainInfo',
