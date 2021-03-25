@@ -32,8 +32,17 @@ class Live extends Template {
 
           if (!self.isSuccess(data)) return [];
 
-          const result = [];
+          const signTask = _.property('data.sign')(data) || {};
+          for (const {day, state} of signTask['list']) {
+            if (day === signTask['today'] && state === 1) {
+              await api.doFormBody('getChannelTaskRewardToM', {"type": "signTask", itemId: signTask['itemId']}, {
+                appid,
+                v: getNowMoment().valueOf()
+              });
+            }
+          }
 
+          const result = [];
           const taskList = _.property('data.task')(data) || [];
           for (let {
             desc,
