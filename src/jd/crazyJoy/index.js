@@ -206,6 +206,7 @@ class CrazyJoy extends Template {
     }
 
     async function getGameState() {
+      await sleep(5);
       return api.doFormBody('crazyJoy_user_gameState', {'paramData': {'inviter': ''}});
     }
 
