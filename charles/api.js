@@ -5,9 +5,9 @@ const _ = require('lodash');
 
 function extractForm(sessions, keys) {
   const reqBody = sessions
-  .map(o => o.request.body.text)
-  .map(text => text.split('&')
-  .filter(str => keys.includes(str.split('=')[0])));
+    .map(o => o.request.body.text)
+    .map(text => text.split('&')
+      .filter(str => keys.includes(str.split('=')[0])));
   return reqBody.map(array => {
     // ['key=value']
     return _.fromPairs(array.map(str => str.split('=').map(decodeURIComponent)));
@@ -80,7 +80,11 @@ const formatForm = (key, object) => {
       originResult = _.flatten(fs.readdirSync(originDir).reverse().map(fileName => {
         return JSON.parse(fs.readFileSync(`${originDir}/${fileName}`));
       }));
-      result = extractForm(originResult, cashFormKeys) || [];
+      (extractForm(originResult, cashFormKeys) || []).forEach(form => {
+        if (!result.map(o => o.body).includes(form.body)) {
+          result.push(form);
+        }
+      });
     } catch (e) {
       // ignore
     }

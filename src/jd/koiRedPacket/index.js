@@ -2,6 +2,8 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
+const {necklace} = require('../../../charles/api');
+
 class KoiRedPacket extends Template {
   static scriptName = 'KoiRedPacket';
   static scriptNameDesc = '锦鲤红包';
@@ -56,13 +58,21 @@ class KoiRedPacket extends Template {
             stockStatus: times,
             waitDuration,
           } of taskList) {
-            if ([4].includes(status) || [0/* 去领券中心领3张优惠券 */, 1 /* 从京东首页进领券中心逛30s */].includes(taskType)) continue;
-
+            if ([4].includes(status) || [0/* 去领券中心领3张优惠券 */].includes(taskType)) continue;
             if (status === 3) {
               await receiveTaskRedPacket(api, taskType);
               continue;
             } else if (status === 7) {
               await api.doFormBody('startTask', {taskType});
+
+              if (taskType === 1) {/* 从京东首页进领券中心逛10s */
+                await api.doFormBody('startTask', {taskType});
+                const [task] = await api.doForm('getCcTaskList', necklace.getCcTaskList[0]).then(data => _.property('result.taskList')(data) || []);
+                if (!task) continue;
+                await sleep(+_.property('detail.requireBrowseSeconds')(task) || 10);
+                const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(task.taskId));
+                await api.doForm('reportCcTask', targetForm);
+              }
             }
 
             let list = (await api.doFormBody('getTaskDetailForColor', {taskType}).then(data => _.property('data.result.advertDetails')(data)) || [])
