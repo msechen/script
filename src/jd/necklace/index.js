@@ -7,7 +7,6 @@ const {necklace} = require('../../../charles/api');
 class Necklace extends Template {
   static scriptName = 'Necklace';
   static scriptNameDesc = '天天点点券';
-  static times = 1;
   static needOriginH5 = true;
 
   static apiOptions = {
@@ -47,6 +46,7 @@ class Necklace extends Template {
             id: taskId,
             maxTimes,
             times,
+            groupNumber,
             requireBrowseSeconds: waitDuration,
           } of taskList) {
             if ([2, 3].includes(status) || [].includes(taskId)) continue;
@@ -67,18 +67,22 @@ class Necklace extends Template {
               });
             }
 
-            if (taskName === '浏览精选活动') {
-              const subTaskList = await api.doFormBody('necklace_getTask', {taskId}).then(data => _.property('data.result.taskItems')(data)) || [];
-              _.assign(option, {
-                async afterWaitFn() {
-                  return self.loopCall(subTaskList, {
-                    maxTimes: subTaskList.length,
-                    firstFn({id}) {
-                      return api.doFormBody('necklace_reportTask', {taskId, itemId: id});
-                    },
-                  });
-                },
-              });
+            if (groupNumber) {
+              await doSubTask();
+
+              async function doSubTask() {
+                const subTaskList = await api.doFormBody('necklace_getTask', {taskId}).then(data => _.property('data.result.taskItems')(data)) || [];
+                _.assign(option, {
+                  async afterWaitFn() {
+                    return self.loopCall(subTaskList, {
+                      maxTimes: subTaskList.length,
+                      firstFn({id}) {
+                        return api.doFormBody('necklace_reportTask', {taskId, itemId: id});
+                      },
+                    });
+                  },
+                });
+              }
             }
 
             result.push({list, option});
