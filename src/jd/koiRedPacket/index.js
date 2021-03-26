@@ -64,15 +64,14 @@ class KoiRedPacket extends Template {
               continue;
             } else if (status === 7) {
               await api.doFormBody('startTask', {taskType});
+            }
 
-              if (taskType === 1) {/* 从京东首页进领券中心逛10s */
-                await api.doFormBody('startTask', {taskType});
-                const [task] = await api.doForm('getCcTaskList', necklace.getCcTaskList[0]).then(data => _.property('result.taskList')(data) || []);
-                if (!task) continue;
-                await sleep(+_.property('detail.requireBrowseSeconds')(task) || 10);
-                const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(task.taskId));
-                await api.doForm('reportCcTask', targetForm);
-              }
+            if ([2, 7].includes(status) && (taskType === 1)) {/* 从京东首页进领券中心逛10s */
+              const [task] = await api.doForm('getCcTaskList', necklace.getCcTaskList[0]).then(data => _.property('result.taskList')(data) || []);
+              if (!task) continue;
+              await sleep(+_.property('detail.requireBrowseSeconds')(task) || 10);
+              const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(task.taskId));
+              targetForm && await api.doForm('reportCcTask', targetForm);
             }
 
             let list = (await api.doFormBody('getTaskDetailForColor', {taskType}).then(data => _.property('data.result.advertDetails')(data)) || [])
