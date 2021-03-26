@@ -117,6 +117,13 @@ class Api {
       qs: _.fromPairs(Array.from(_url.searchParams.entries())),
     }, options));
   }
+
+  doGetPath(functionId, qs = {}, options = {}) {
+    return this.do(_.merge({
+      uri: `${this.options.uri}/${functionId}`,
+      qs,
+    }, options));
+  }
 }
 
 function initWq() {

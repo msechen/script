@@ -55,6 +55,7 @@ const Live = require('./jd/live');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = require('./jd/globalMart/challenge');
 const Singjd = require('./jd/wq/singjd');
+const Isp5G = require('./jd/isp5g');
 
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
@@ -277,7 +278,7 @@ async function main() {
         // 24点后定时启动
         await multipleRun([SignShop, SuperMarketRedeem]);
         await doRun(SignShop);
-        await multipleRun([IsvShopSign]);
+        await multipleRun([IsvShopSign, Isp5G]);
       },
     },
   ];
