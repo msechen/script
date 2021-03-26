@@ -227,8 +227,8 @@ async function main() {
     {
       valid: 15,
       run: async () => {
-        await doRun(CrazyJoy);
         await doCron(Joy);
+        await doRun(CrazyJoy);
       },
     },
     {

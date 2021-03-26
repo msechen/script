@@ -129,7 +129,7 @@ class CrazyJoy extends Template {
 
     // 升级 joy
     async function upgradeJoy() {
-      // 展示目前可以购买的joy
+      if (self.getNowHour() === 23) return;
 
       await autoMerge();
       await sleep(1);
