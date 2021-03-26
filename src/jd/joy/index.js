@@ -79,7 +79,7 @@ class Joy extends Template {
             followChannelList,
             followGoodList,
           } of taskList) {
-            if (!['ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood', 'HelpFeed'].includes(taskType)) continue;
+            if (!['ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood'/*, 'HelpFeed'*/].includes(taskType)) continue;
 
             if (taskType === 'HelpFeed') {
               if (receiveStatus === 'chance_left') {
@@ -183,17 +183,28 @@ class Joy extends Template {
     // 参赛
     async function handleRace() {
       if (nowHour < 9) return;
-      const notParticipate = await api.doUrl('https://jdjoy.jd.com/common/pet/combat/detail/v2', {
+      await api.doUrl('https://jdjoy.jd.com/common/pet/combat/detail/v2', {
         method: 'GET',
         qs: {help: false},
-      }).then(data => _.property('data.petRaceResult')(data) === 'not_participate');
-      if (!notParticipate) return;
-      await api.doUrl('https://jdjoy.jd.com/common/pet/combat/match', {
-        method: 'GET',
-        qs: {teamLevel: 2}, // 只参加双人赛跑
-      }).then(data => {
-        if (!self.isSuccess(data)) return;
-        self.log('参赛成功');
+      }).then(async data => {
+        const {petRaceResult, winCoin} = _.property('data')(data) || {};
+        if (petRaceResult === 'not_participate') {
+          await api.doUrl('https://jdjoy.jd.com/common/pet/combat/match', {
+            method: 'GET',
+            qs: {teamLevel: 2}, // 只参加双人赛跑
+          }).then(data => {
+            if (!self.isSuccess(data)) return;
+            self.log('参赛成功');
+          });
+        } else if (petRaceResult === 'unreceive') {
+          await api.doPath('combat/receive', void 0, {
+            method: 'GET',
+          }).then(data => {
+            if (!self.isSuccess(data)) return;
+            self.log(`获取到积分: ${winCoin}`);
+          });
+          return handleRace();
+        }
       });
     }
 
