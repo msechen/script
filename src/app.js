@@ -31,6 +31,7 @@ const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
 const Harmony3 = require('./jd/wfh/harmony3');
 const Harmony4 = require('./jd/wfh/harmony4');
+const Harmony5 = require('./jd/wfh/harmony5');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
@@ -136,6 +137,7 @@ async function main() {
           Harmony2,
           Harmony3,
           Harmony4,
+          Harmony5,
         ]);
       },
     },
