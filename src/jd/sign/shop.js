@@ -39,12 +39,11 @@ class SignShop extends Template {
       'BF3246DD46CABE7727D9EEA19E5D0C8A',
       'DA6CCB4368A3CC69FDAE630CF8811101',
       'DB2FF2011620050C6C988943123EC8AC',
-      '817E406CD9A28B96BD3A8C0BCB945496',
-      '6860C7ECF39C7A3C3E5AE1D4AB2D0994',
       '7A9157DE18FB40B1A22AC3C656480C53',
       'D90E469FC51FA8164A75E3AF2CC6FFF9',
       '1E0157E4D0EB41797850D7CF6A6DE3F9',
       'BC32C8FCB67734C76D54EAF538AA27E7',
+      'C9E84C09E37707B3B152F8CA954052B1',
       // 脚本新增插入位置
     ];
 
@@ -96,12 +95,12 @@ class SignShop extends Template {
       const currentSignDays = await api.doGetBody('interact_center_shopSign_getSignRecord', {token}).then(data => _.property('data.days')(data));
       return getActivityInfo(token).then(data => {
         if (!self.isSuccess(data)) return;
-        const continuePrizeRuleList = _.property('data.continuePrizeRuleList')(data);
-        const prizeRules = continuePrizeRuleList.map(({prizeList, days, userPrizeRuleStatus}) => {
+        const allPrizeRuleList = _.concat(_.property('data.prizeRuleList')(data), _.property('data.continuePrizeRuleList')(data));
+        const prizeRules = allPrizeRuleList.map(({prizeList, days, userPrizeRuleStatus}) => {
           if (userPrizeRuleStatus === 2) return '';
           return _.filter(prizeList.map(({type, discount}) => {
             if (![4/*豆豆*/, 14/*红包*/].includes(type)) return '';
-            return `${days}天${Math.floor(discount)}${type === 4 ? '豆' : '分'}`;
+            return `${days ? days : '每'}天${Math.floor(discount)}${type === 4 ? '豆' : '分'}`;
           })).join();
         }).filter(str => str);
         const notPrize = _.isEmpty(prizeRules);
