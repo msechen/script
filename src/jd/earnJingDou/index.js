@@ -9,9 +9,10 @@ class EarnJingDou extends Template {
   static scriptName = 'EarnJingDou';
   static scriptNameDesc = '做任务天天领豆豆';
   static shareCodeTaskList = [];
-  static times = 1;
   static commonParamFn = () => ({'channel': 'SWAT_RED_PACKET', 'systemId': '19'});
   static needInApp = false;
+  static concurrent = true;
+  static concurrentOnceDelay = 0;
 
   static apiOptions = {
     options: {
@@ -45,8 +46,25 @@ class EarnJingDou extends Template {
 
           if (!self.isSuccess(data)) return [];
 
-          const {redPacketRewardTakeFlag} = getPageData(api);
+          const {
+            redPacketOpenFlag,
+            redPacketRewardTakeFlag,
+            beanAmountTakeMinLimit,
+            currActivityBeanAmount
+          } = await getPageData(api);
           if (redPacketRewardTakeFlag) return;
+          if (currActivityBeanAmount >= beanAmountTakeMinLimit) {
+            await takeReward(api).then(data => {
+              if (self.isSuccess(data)) return;
+              self.log(`获取到豆豆： ${data.data.rewardBeanAmount}`);
+            });
+            return [];
+          }
+
+          // 开红包
+          if (!redPacketOpenFlag) {
+            await openRedPacket(api);
+          }
 
           const result = [];
 
@@ -59,6 +77,8 @@ class EarnJingDou extends Template {
             if (taskDataStatus === 3/* || ['京豆兑彩', '话费充值'].includes(title)*/) continue;
 
             let list = [taskIdEncrypted];
+
+            (taskDataStatus === 0) && await api.doFormBody('vviptask_receive_getone', {ids: taskIdEncrypted, ...self.commonParamFn()})
 
             result.push({list, option: {waitDuration: 1}});
           }
@@ -74,15 +94,6 @@ class EarnJingDou extends Template {
         name: 'vviptask_reward_receive',
         paramFn: idEncKey => ({idEncKey, ...self.commonParamFn()}),
       },
-      // TODO 确认提现的functionId
-      // doRedeem: {
-      //   name: '',
-      //   paramFn: self.commonParamFn,
-      //   async successFn(data, api) {
-      //     if (!self.isSuccess(data)) return false;
-      //   },
-      //   repeat: true,
-      // },
     };
   }
 }
@@ -93,8 +104,25 @@ function getPageData(api) {
     body: JSON.stringify({'paramData': {'token': '3b9f3e0d-7a67-4be3-a05f-9b076cb8ed6a'}}),
   }).then(data => {
     // writeFileJSON(data, 'pg_channel_page_data.json', __dirname);
-    return _.property('data.floorInfoList[0].floorData')(data);
+    return _.property('data.floorInfoList[0].floorData.userActivityInfo')(data);
   });
+}
+
+function invoke(api, dataSourceCode) {
+  return api.doGet('pg_interact_interface_invoke', {
+    appid,
+    body: JSON.stringify({"floorToken": "d7f086c1-5e6e-4572-b8dd-93ec7353d89e", dataSourceCode, "argMap": {}}),
+  }).then(data => {
+    // writeFileJSON(data, 'pg_interact_interface_invoke.json', __dirname);
+  });
+}
+
+function openRedPacket(api) {
+  return invoke(api, 'openRedPacket');
+}
+
+function takeReward(api) {
+  return invoke(api, 'takeReward');
 }
 
 if (process.argv[2] === 'start') {
