@@ -4,12 +4,12 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 const _ = require('lodash');
 
 const appid = 'swat_miniprogram';
+let floorToken;
 
 class EarnJingDou extends Template {
   static scriptName = 'EarnJingDou';
   static scriptNameDesc = '做任务天天领豆豆';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({'channel': 'SWAT_RED_PACKET', 'systemId': '19'});
   static needInApp = false;
   static concurrent = true;
   static concurrentOnceDelay = 0;
@@ -19,6 +19,7 @@ class EarnJingDou extends Template {
       uri: 'https://api.m.jd.com/api',
       form: {
         appid,
+        body: {'channel': 'SWAT_RED_PACKET', 'systemId': '19'},
       },
       qs: {
         fromType: 'wxapp',
@@ -40,7 +41,7 @@ class EarnJingDou extends Template {
       // 获取任务列表
       getTaskList: {
         name: 'vviptask_receive_list',
-        paramFn: () => _.assign({'withAutoAward': 1}, self.commonParamFn()),
+        paramFn: () => ({'withAutoAward': 1}),
         async successFn(data, api) {
           // writeFileJSON(data, 'vviptask_receive_list.json', __dirname);
 
@@ -50,7 +51,7 @@ class EarnJingDou extends Template {
             redPacketOpenFlag,
             redPacketRewardTakeFlag,
             beanAmountTakeMinLimit,
-            currActivityBeanAmount
+            currActivityBeanAmount,
           } = await getPageData(api);
           if (redPacketRewardTakeFlag) return;
           if (currActivityBeanAmount >= beanAmountTakeMinLimit) {
@@ -71,14 +72,14 @@ class EarnJingDou extends Template {
           const taskList = _.property('data')(data) || [];
           for (let {
             taskDataStatus,
-            id: taskIdEncrypted,
+            id,
             title,
           } of taskList) {
             if (taskDataStatus === 3/* || ['京豆兑彩', '话费充值'].includes(title)*/) continue;
 
-            let list = [taskIdEncrypted];
+            let list = [id];
 
-            (taskDataStatus === 0) && await api.doFormBody('vviptask_receive_getone', {ids: taskIdEncrypted, ...self.commonParamFn()})
+            (taskDataStatus === 0) && await api.doFormBody('vviptask_receive_getone', {ids: id});
 
             result.push({list, option: {waitDuration: 1}});
           }
@@ -88,11 +89,11 @@ class EarnJingDou extends Template {
       },
       doTask: {
         name: 'vviptask_reach_task',
-        paramFn: taskIdEncrypted => ({taskIdEncrypted, ...self.commonParamFn()}),
+        paramFn: taskIdEncrypted => ({taskIdEncrypted}),
       },
       doWaitTask: {
         name: 'vviptask_reward_receive',
-        paramFn: idEncKey => ({idEncKey, ...self.commonParamFn()}),
+        paramFn: idEncKey => ({idEncKey}),
       },
     };
   }
@@ -101,9 +102,10 @@ class EarnJingDou extends Template {
 function getPageData(api) {
   return api.doGet('pg_channel_page_data', {
     appid,
-    body: JSON.stringify({'paramData': {'token': '3b9f3e0d-7a67-4be3-a05f-9b076cb8ed6a'}}),
-  }).then(data => {
+    body: {'paramData': {'token': '3b9f3e0d-7a67-4be3-a05f-9b076cb8ed6a'}},
+  }).then(async data => {
     // writeFileJSON(data, 'pg_channel_page_data.json', __dirname);
+    floorToken = _.property('data.floorInfoList[0].token')(data);
     return _.property('data.floorInfoList[0].floorData.userActivityInfo')(data);
   });
 }
@@ -111,7 +113,7 @@ function getPageData(api) {
 function invoke(api, dataSourceCode) {
   return api.doGet('pg_interact_interface_invoke', {
     appid,
-    body: JSON.stringify({"floorToken": "d7f086c1-5e6e-4572-b8dd-93ec7353d89e", dataSourceCode, "argMap": {}}),
+    body: {floorToken, dataSourceCode, 'argMap': {}},
   }).then(data => {
     // writeFileJSON(data, 'pg_interact_interface_invoke.json', __dirname);
   });

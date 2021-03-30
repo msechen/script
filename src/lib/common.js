@@ -88,6 +88,22 @@ function getUrlDataFromFile(filePath) {
   return _.filter(getOriginDataFromFile(filePath), str => str.startsWith('http'));
 }
 
+/**
+ * @description 字符串化Object的值
+ * @param target {Object}
+ */
+function objectValuesStringify(target) {
+  if (_.isEmpty(target)) return;
+  for (const [key, value] of Object.entries(target)) {
+    if (!_.isString(value)) {
+      try {
+        target[key] = JSON.stringify(value);
+      } catch (e) {
+      }
+    }
+  }
+}
+
 module.exports = {
   sleep,
 
@@ -102,4 +118,6 @@ module.exports = {
   getRealUrl,
   getUrlDataFromFile,
   getOriginDataFromFile,
+
+  objectValuesStringify,
 };

@@ -1,6 +1,6 @@
 const rp = require('request-promise');
 const _ = require('lodash');
-const {printLog, sleep} = require('../lib/common');
+const {printLog, sleep, objectValuesStringify} = require('../lib/common');
 
 const requestURI = 'https://api.m.jd.com/client.action';
 const DEFAULT_OPTION = {
@@ -15,6 +15,8 @@ const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
     printLog('jdAPI', 'request', [findNotEmpty(qs, others), findNotEmpty(form, body), result], type);
   };
   const options = {form, body, qs, ...others};
+
+  [form, qs].forEach(objectValuesStringify);
 
   if (!_.isNil(body) && _.isEmpty(form)) {
     delete options.form;
@@ -47,10 +49,10 @@ class Api {
   }
 
   async do(options) {
-    options = _.merge({}, this.options, options);
-    (options.needDelay !== false) && await sleep();
-    delete options.needDelay;
-    return this.commonDo(options).then(data => {
+    const newOptions = _.merge({}, this.options, options);
+    (newOptions.needDelay !== false) && await sleep();
+    delete newOptions.needDelay;
+    return this.commonDo(newOptions).then(data => {
       data = data || {};
       if (this.formatData) {
         return this.formatData(data);
@@ -76,14 +78,6 @@ class Api {
   }
 
   doForm(functionId, form, options = {}) {
-    Object.keys(form).forEach(key => {
-      const value = form[key];
-      if (_.isPlainObject(value)) {
-        form[key] = JSON.stringify(value);
-        // TODO 需要确认一下逻辑
-        form[key] = form[key].replace(/\//g, '\\/');
-      }
-    });
     return this.doFunctionId(functionId, _.merge({form}, options));
   }
 
