@@ -61,11 +61,11 @@ const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
 const errorOutput = [];
 
-async function multipleRun(targets) {
+async function multipleRun(targets, onceDelaySecond = 1) {
   return parallelRun({
     list: targets,
     runFn: doRun,
-    onceDelaySecond: 1,
+    onceDelaySecond,
   });
 }
 
@@ -276,8 +276,7 @@ async function main() {
 
         // 24点后定时启动
         await multipleRun([SignShop, SuperMarketRedeem]);
-        await doRun(SignShop);
-        await multipleRun([IsvShopSign, Isp5G, EarnJingDou]);
+        await multipleRun([EarnJingDou, IsvShopSign, Isp5G], 0);
       },
     },
   ];

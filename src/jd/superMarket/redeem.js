@@ -9,13 +9,14 @@ class SuperMarketRedeem extends SuperMarket {
   static scriptNameDesc = '东东超市-兑换豆豆';
   static times = 1;
   static concurrent = true;
+  static concurrentOnceDelay = 0;
 
   static async doMain(api, shareCodes) {
     const self = this;
     const _ = self._;
 
-    const prizeList = await getPrizes();
     await sleepTime(24);
+    const prizeList = await getPrizes();
     await handleRedeem();
 
     function getPrizes() {
