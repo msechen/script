@@ -46,7 +46,7 @@ const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = require('./jd/dreamFactory');
 const JxCfd = require('./jd/jxCfd');
 const Car = require('./jd/car');
-const VipClubShare = require('./jd/vipClub/shake');
+const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
 const Joy = require('./jd/joy');
 const Family = require('./jd/family');
@@ -131,6 +131,7 @@ async function main() {
         await doRun(Live);
         await doRun(GlobalChallenge);
         await doRun(JxHongBao);
+        await doRun(VipClubShake);
         // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
@@ -154,7 +155,6 @@ async function main() {
         await doRun(Necklace);
         await doRun(SecondKillRedPacket);
         await doRun(Car);
-        await doRun(VipClubShare);
       },
     },
     {

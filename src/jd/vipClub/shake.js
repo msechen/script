@@ -2,6 +2,8 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
+const appid = 'sharkBean';
+
 class VipClubShake extends Template {
   static scriptName = 'VipClubShake';
   static scriptNameDesc = '领豆豆-摇一摇';
@@ -21,6 +23,10 @@ class VipClubShake extends Template {
     },
   };
 
+  static apiExtends = {
+    requestFnName: 'doGet',
+  };
+
   static isSuccess(data) {
     return this._.property('success')(data);
   }
@@ -31,25 +37,35 @@ class VipClubShake extends Template {
 
     const getTaskFn = (info) => JSON.stringify({info, withItem: true});
     return {
-      // 获取一次免费次数
-      beforeGetTaskList: {
-        name: 'vvipclub_receive_lottery_times',
-        paramFn: self.commonParamFn.bind(0, {
-          appid: 'sharkBean',
-        }),
-      },
       // 获取任务列表
       getTaskList: {
         name: 'vvipclub_lotteryTask',
-        paramFn: self.commonParamFn.bind(0, {
-          body: getTaskFn('browseTask'),
-        }),
+        paramFn: () => ({body: getTaskFn('browseTask')}),
         async successFn(data, api) {
           // writeFileJSON(data, 'vvipclub_lotteryTask.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
 
-          const attentionTaskData = await api.doFormBody('vvipclub_lotteryTask', ...self.commonParamFn({body: getTaskFn('attentionTask')}));
+          // 签到
+          await api.doGet('pg_channel_page_data', {
+            appid,
+            body: {'paramData': {'token': 'dd2fb032-9fa3-493b-8cd0-0d57cd51812d'}},
+          }).then(async data => {
+            const floorToken = _.property('data.floorInfoList[1].token')(data);
+            const currSignCursor = _.property('data.floorInfoList[1].floorData.signActInfo.currSignCursor')(data);
+            const signActCycles = _.property('data.floorInfoList[1].floorData.signActInfo.signActCycles')(data);
+            if (signActCycles[currSignCursor - 1]['signStatus'] === 0) return;
+            return api.doGet('pg_interact_interface_invoke', {
+              appid,
+              body: {
+                floorToken,
+                'dataSourceCode': 'signIn',
+                'argMap': {currSignCursor},
+              },
+            });
+          });
+
+          const attentionTaskData = await api.doGetBody('vvipclub_lotteryTask', getTaskFn('attentionTask'));
 
           const result = [];
 
@@ -74,20 +90,16 @@ class VipClubShake extends Template {
       },
       doTask: {
         name: 'vvipclub_doTask',
-        paramFn: o => self.commonParamFn({
-          body: JSON.stringify(o),
-        }),
+        paramFn: body => ({body}),
       },
       // 旧版
       afterGetTaskList: {
         name: 'vvipclub_shaking',
-        paramFn: self.commonParamFn.bind(0, {
-          body: JSON.stringify({type: '0'}),
-        }),
+        paramFn: () => ({body: {type: '0'}}),
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
           const rewardBeanAmount = _.property('data.prizeBean.count')(data);
-          rewardBeanAmount && self.log(`获取到豆豆: ${rewardBeanAmount}`);
+          rewardBeanAmount && self.log(`[旧版]获取到豆豆: ${rewardBeanAmount}`);
           if (!_.property('data.luckyBox.freeTimes')(data)) return false;
         },
         repeat: true,
@@ -95,13 +107,11 @@ class VipClubShake extends Template {
       // 新版
       doRedeem: {
         name: 'vvipclub_shaking_lottery',
-        paramFn: self.commonParamFn.bind(0, {
-          appid: 'sharkBean',
-        }),
+        paramFn: () => ({appid}),
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
           const rewardBeanAmount = _.property('data.rewardBeanAmount')(data);
-          rewardBeanAmount && self.log(`获取到豆豆: ${rewardBeanAmount}`);
+          rewardBeanAmount && self.log(`[新版]获取到豆豆: ${rewardBeanAmount}`);
           if (!_.property('data.remainLotteryTimes')(data)) return false;
         },
         repeat: true,

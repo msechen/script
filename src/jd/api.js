@@ -99,7 +99,6 @@ class Api {
   }
 
   doGetBody(functionId, body = {}, options) {
-    body = JSON.stringify(body);
     return this.doGet(functionId, {body}, options);
   }
 
