@@ -28,6 +28,7 @@
     "start:ShopSign": "node src/jd/sign/shop.js start",
     "start:BeautyMakeup": "node src/jd/beautyMakeup/index.js start",
     "start:EarnJingDou": "node src/jd/earnJingDou/index.js start",
+    "start:DreamFactory": "node src/jd/dreamFactory/index.js start",
     "start:Grassy": "node src/jd/grassy/index.js start",
     "cron:BeautyMakeup": "node src/jd/beautyMakeup/index.js cron",
     "test": "echo \"Error: no test specified\" && exit 1"
