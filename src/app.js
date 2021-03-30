@@ -29,8 +29,6 @@ const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
-const Harmony3 = require('./jd/wfh/harmony3');
-const Harmony4 = require('./jd/wfh/harmony4');
 const Harmony5 = require('./jd/wfh/harmony5');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
@@ -54,7 +52,7 @@ const BianPao = require('./jd/family/bianPao');
 const JxHongBao = require('./jd/family/jxHongBao');
 const Live = require('./jd/live');
 const SignBeanHome = require('./jd/sign/beanHome');
-const GlobalChallenge = require('./jd/globalMart/challenge');
+const GlobalChallenge = TemporarilyOffline || require('./jd/globalMart/challenge');
 const Singjd = require('./jd/wq/singjd');
 const Isp5G = require('./jd/isp5g');
 const EarnJingDou = require('./jd/earnJingDou');
@@ -137,8 +135,6 @@ async function main() {
         await multipleRun([
           Harmony1,
           Harmony2,
-          Harmony3,
-          Harmony4,
           Harmony5,
         ]);
       },
