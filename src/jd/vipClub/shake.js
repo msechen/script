@@ -92,18 +92,6 @@ class VipClubShake extends Template {
         name: 'vvipclub_doTask',
         paramFn: body => ({body}),
       },
-      // 旧版
-      afterGetTaskList: {
-        name: 'vvipclub_shaking',
-        paramFn: () => ({body: {type: '0'}}),
-        async successFn(data, api) {
-          if (!self.isSuccess(data)) return false;
-          const rewardBeanAmount = _.property('data.prizeBean.count')(data);
-          rewardBeanAmount && self.log(`[旧版]获取到豆豆: ${rewardBeanAmount}`);
-          if (!_.property('data.luckyBox.freeTimes')(data)) return false;
-        },
-        repeat: true,
-      },
       // 新版
       doRedeem: {
         name: 'vvipclub_shaking_lottery',
