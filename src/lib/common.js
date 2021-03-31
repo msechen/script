@@ -104,6 +104,21 @@ function objectValuesStringify(target) {
   }
 }
 
+/**
+ * @description 根据正则匹配居于中间的数据
+ * @param target {string}
+ * @param reg {RegExp|undefined} 正则表达式, eg: /"test":"(\w*)"/
+ * @param prefix {string|undefined} 匹配的开始
+ * @param suffix {string|undefined} 匹配的结尾
+ * @param match {string|undefined} 需要找出的内容
+ * @return {string}
+ */
+function matchMiddle(target, {reg, prefix, suffix, match = '\w'}) {
+  reg = reg || new RegExp(`${prefix}(${match}*)${suffix}`);
+  const execResult = reg.exec(target) || [];
+  return execResult[1] || '';
+}
+
 module.exports = {
   sleep,
 
@@ -120,4 +135,5 @@ module.exports = {
   getOriginDataFromFile,
 
   objectValuesStringify,
+  matchMiddle,
 };
