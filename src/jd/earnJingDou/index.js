@@ -56,7 +56,7 @@ class EarnJingDou extends Template {
           if (redPacketRewardTakeFlag) return;
           if (currActivityBeanAmount >= beanAmountTakeMinLimit) {
             await takeReward(api).then(data => {
-              if (self.isSuccess(data)) return;
+              if (!self.isSuccess(data)) return;
               self.log(`获取到豆豆： ${data.data.rewardBeanAmount}`);
             });
             return [];
