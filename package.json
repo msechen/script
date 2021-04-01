@@ -30,6 +30,7 @@
     "start:EarnJingDou": "node src/jd/earnJingDou/index.js start",
     "start:DreamFactory": "node src/jd/dreamFactory/index.js start",
     "start:SuperShake": "node src/jd/superShake/index.js start",
+    "start:SuperBrandDay": "node src/jd/superBrand/day.js start",
     "start:Grassy": "node src/jd/grassy/index.js start",
     "cron:BeautyMakeup": "node src/jd/beautyMakeup/index.js cron",
     "test": "echo \"Error: no test specified\" && exit 1"
