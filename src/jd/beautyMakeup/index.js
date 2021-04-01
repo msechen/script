@@ -22,6 +22,7 @@ class BeautyMakeup extends Template {
     const self = this;
 
     let token = '';
+    let userAgent = 'jdapp;iPhone;9.4.4;14.2;$openudid$;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone8,1;addressid/682688717;supportBestPay/0;appBuild/167588;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1';
     // 部分任务完成情况
     let checkUpData = {};
     // 用户信息, 主要是金币
@@ -145,7 +146,7 @@ class BeautyMakeup extends Template {
     };
     const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`, {
       headers: {
-        'User-Agent': 'jdapp',
+        'User-Agent': userAgent,
       },
     });
     let opened = false;
@@ -198,7 +199,10 @@ class BeautyMakeup extends Template {
     }
 
     async function initToken() {
-      const isvToken = await api.doFormBody('isvObfuscator', void 0, common.isvObfuscator.find(o => o.body.match('xinruimz-isv.isvjcloud.com'))).then(data => {
+      const targetForm = common.isvObfuscator.find(o => o.body.match('xinruimz-isv.isvjcloud.com'));
+      if (!targetForm) return;
+      userAgent = userAgent.replace('$openudid$', targetForm.openudid);
+      const isvToken = await api.doFormBody('isvObfuscator', void 0, targetForm).then(data => {
         if (self.isSuccess(data)) return data['token'];
       });
       if (!isvToken) return;
@@ -206,6 +210,7 @@ class BeautyMakeup extends Template {
         headers: {
           cookie: `IsvToken=${isvToken}`,
           origin: 'https://xinruimz-isv.isvjcloud.com',
+          'User-Agent': userAgent,
         },
         body: {
           'token': isvToken,
