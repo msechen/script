@@ -3,8 +3,6 @@ const Family = require('./index');
 const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
 const _ = require('lodash');
 
-const indexUrl = 'https://anmp.jd.com/babelDiy/Zeus/2x3yeXUmPbFVCAoXKQqSrdrQuoBk/index.html';
-
 let tasks = [];
 
 class MangHe extends Family {
@@ -18,14 +16,16 @@ class MangHe extends Family {
     afterGetTaskList: 'query',
     doRedeem: 'draw',
   };
+  static indexUrl = 'https://anmp.jd.com/babelDiy/Zeus/2x3yeXUmPbFVCAoXKQqSrdrQuoBk/index.html';
   static customApiOptions = {
     uri: 'https://wq.jd.com/activet2/piggybank',
     qs: {
+      // TODO 从 indexUrl 中获取
       activeid: '10083445',
       token: 'd6ac251c2919d3917274a011122fd050',
     },
     headers: {
-      referer: indexUrl,
+      referer: this.indexUrl,
     },
   };
 
@@ -39,7 +39,7 @@ class MangHe extends Family {
 
   static async beforeRequest(api) {
     await api.commonDo({
-      uri: indexUrl,
+      uri: this.indexUrl,
       headers: {
         Cookie: '',
       },
@@ -65,7 +65,7 @@ class MangHe extends Family {
 if (process.argv[2] === 'start') {
   const {getLocalEnvs, getCookieData} = require('../../lib/env');
   process.env = getLocalEnvs();
-  MangHe.start(getCookieData()).then();
+  MangHe.start(getCookieData()[0]).then();
 }
 
 module.exports = MangHe;
