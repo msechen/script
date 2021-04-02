@@ -1,7 +1,11 @@
 const Family = require('./index');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
 const _ = require('lodash');
+
+const indexUrl = 'https://anmp.jd.com/babelDiy/Zeus/2x3yeXUmPbFVCAoXKQqSrdrQuoBk/index.html';
+
+let tasks = [];
 
 class MangHe extends Family {
   static scriptName = 'MangHe';
@@ -17,11 +21,11 @@ class MangHe extends Family {
   static customApiOptions = {
     uri: 'https://wq.jd.com/activet2/piggybank',
     qs: {
-      activeid: '10081708',
-      token: 'ea06a749289d6d9753513f30a918a345',
+      activeid: '10083445',
+      token: 'd6ac251c2919d3917274a011122fd050',
     },
     headers: {
-      referer: 'https://anmp.jd.com/babelDiy/Zeus/3hphatqtBrbSAo3EPsiHxjx6b4BS/index.html',
+      referer: indexUrl,
     },
   };
 
@@ -33,33 +37,35 @@ class MangHe extends Family {
     return [{}];
   }
 
-  static getTaskList() {
-    return [
-      "5ff567085da81a8c06981918",
-      "5ff567085da81a8c06981925",
-      "5ff567085da81a8c06981924",
-      "5ff567085da81a8c06981923",
-      "5ff567085da81a8c06981922",
-      "5ff567085da81a8c06981921",
-      "5ff567085da81a8c06981920",
-      "5ff567085da81a8c06981919",
-      "5ff567085da81a8c06981917",
-      "5ff567085da81a8c0698191f",
-      "5ff567085da81a8c0698191e",
-      "5ff567085da81a8c0698191d",
-      "5ff567085da81a8c0698191c",
-      "5ff567085da81a8c0698191b",
-      "5ff567085da81a8c0698191a",
-      "600ad24d986178004811ba78",
-      "600ad24d986178004811ba77",
-      "600ad24d986178004811ba76",
-      "600ad24d986178004811ba75",
-      "600ad24d986178004811ba74",
-      "600ad24d986178004811ba73",
-      "600ad24d986178004811ba72",
-      "600ad24d986178004811ba71"
-    ].map(taskid => ({taskid, task_bless: 10}));
+  static async beforeRequest(api) {
+    await api.commonDo({
+      uri: indexUrl,
+      headers: {
+        Cookie: '',
+      },
+      method: 'GET',
+      qs: api.options.qs,
+    }).then(data => {
+      const taskStr = matchMiddle(data, {reg: /"tasks":(.*),"activeType":/});
+      try {
+        tasks = JSON.parse(taskStr);
+      } catch (e) {
+      }
+    });
   }
+
+  static getTaskList() {
+    return tasks.map(o => ({
+      taskid: o['_id'],
+      task_bless: o['taskRankNum'] || 10,
+    }));
+  }
+}
+
+if (process.argv[2] === 'start') {
+  const {getLocalEnvs, getCookieData} = require('../../lib/env');
+  process.env = getLocalEnvs();
+  MangHe.start(getCookieData()).then();
 }
 
 module.exports = MangHe;
