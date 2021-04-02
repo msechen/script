@@ -46,8 +46,8 @@ class Family extends Template {
 
   static customApiOptions = {
     qs: {
-      activeid: '10081245',
-      token: '77a482ad11bd58240dc2871fa8d75602',
+      activeid: '10083413',
+      token: '4b426a6e4fd2fd2a2525789e4b517c43',
     },
     headers: {
       referer: 'https://lgame.jd.com/babelDiy/Zeus/2ZpHzZdUuvWxMJT4KXuRdK6NPj3D/index.html',
