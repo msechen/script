@@ -115,6 +115,7 @@ class Api {
     return this.do(_.merge({
       uri: `${this.options.uri}/${functionId}`,
       qs,
+      method: 'GET',
     }, options));
   }
 }

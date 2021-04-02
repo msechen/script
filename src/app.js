@@ -56,6 +56,7 @@ const GlobalChallenge = TemporarilyOffline || require('./jd/globalMart/challenge
 const Singjd = require('./jd/wq/singjd');
 const Isp5G = require('./jd/isp5g');
 const EarnJingDou = require('./jd/earnJingDou');
+const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
@@ -276,7 +277,7 @@ async function main() {
 
         // 24点后定时启动
         await multipleRun([SignShop, SuperMarketRedeem]);
-        await multipleRun([EarnJingDou, IsvShopSign, Isp5G], 0);
+        await multipleRun([Carnivalcity, EarnJingDou, IsvShopSign, Isp5G], 0);
       },
     },
   ];
