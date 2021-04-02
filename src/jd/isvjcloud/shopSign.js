@@ -13,10 +13,11 @@ class IsvShopSign extends Isv {
 
     const activityIds = [
       // [activityId, pathId]
+      ['3e6c53c198724f8583229bbc0f1fcbb3'],
 
       // 需要加入品牌会员
-      // 十月稻田
-      ['db57818738344160bf9b68e3d32f51f5'],
+      // 十月稻田京东自营旗舰店(每月更新)
+      ['e2afd62e078b46d1a13a1d92a1df37b1'],
     ];
     if (!activityIds.length) return;
     await generateToken(api);
@@ -41,6 +42,12 @@ class IsvShopSign extends Isv {
       },
     });
   }
+}
+
+if (process.argv[2] === 'start') {
+  const {getLocalEnvs, getCookieData} = require('../../lib/env');
+  process.env = getLocalEnvs();
+  IsvShopSign.start(getCookieData()).then();
 }
 
 module.exports = IsvShopSign;
