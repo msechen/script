@@ -17,7 +17,7 @@ class Carnivalcity extends Template {
     },
     formatDataFn(data) {
       if (data['code'] !== 200) {
-        self.log(`请求错误, ${data.msg}`);
+        Carnivalcity.log(`请求错误, ${data.msg}`);
         return {};
       }
       return data.data;
@@ -35,7 +35,7 @@ class Carnivalcity extends Template {
     const doPostPath = (path, form) => api.doPath(path, form, generateApiOptions(`/khc/${path}`, form, false));
     const doTaskPath = (path, form) => doPostPath(`task/${path}`, form);
 
-    // self.isFirstLoop() && await handleTask();
+    self.isFirstLoop() && await handleTask();
     await handleShare();
 
     async function handleTask() {
