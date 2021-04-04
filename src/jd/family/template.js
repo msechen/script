@@ -4,10 +4,11 @@ const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
 const _ = require('lodash');
 
 let tasks = [];
+let completeTaskList = [];
 
-class MangHe extends Family {
-  static scriptName = 'MangHe';
-  static scriptNameDesc = '女装抽盲盒';
+class FamilyTemplate extends Family {
+  static scriptName = 'FamilyTemplate';
+  static scriptNameDesc = '任务抽奖模板';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static apiNames = {
@@ -20,9 +21,9 @@ class MangHe extends Family {
   static customApiOptions = {
     uri: 'https://wq.jd.com/activet2/piggybank',
     qs: {
-      // TODO 从 indexUrl 中获取
-      activeid: '10083445',
-      token: 'd6ac251c2919d3917274a011122fd050',
+      // 从 indexUrl 中获取
+      // activeid: '10083445',
+      // token: 'd6ac251c2919d3917274a011122fd050',
     },
     headers: {
       referer: this.indexUrl,
@@ -33,11 +34,13 @@ class MangHe extends Family {
     return !_.isEmpty(data) && (_.property('errcode')(data) === 0);
   }
 
-  static initTaskList(taskList) {
+  static initTaskList(data) {
+    completeTaskList = data.data['complete_task_list'];
     return [{}];
   }
 
   static async beforeRequest(api) {
+    const self = this;
     await api.commonDo({
       uri: this.indexUrl,
       headers: {
@@ -47,9 +50,14 @@ class MangHe extends Family {
       qs: api.options.qs,
     }).then(data => {
       const taskStr = matchMiddle(data, {reg: /"tasks":(.*),"activeType":/});
+      const activeId = matchMiddle(data, {reg: /"activeId":"(.*)","actToken":/});
+      const actToken = matchMiddle(data, {reg: /"actToken":"(.*)","external":/});
+      if (activeId) api.options.qs.activeid = activeId;
+      if (actToken) api.options.qs.token = actToken;
       try {
         tasks = JSON.parse(taskStr);
       } catch (e) {
+        self.log('获取config失败');
       }
     });
   }
@@ -58,14 +66,18 @@ class MangHe extends Family {
     return tasks.map(o => ({
       taskid: o['_id'],
       task_bless: o['taskRankNum'] || 10,
-    }));
+    })).filter(o => !completeTaskList.includes(o['taskid']));
+  }
+
+  static afterGetTaskList(data, api) {
+    this.isSuccess(data) && this.log('已完成任务和抽奖');
   }
 }
 
 if (process.argv[2] === 'start') {
   const {getLocalEnvs, getCookieData} = require('../../lib/env');
   process.env = getLocalEnvs();
-  MangHe.start(getCookieData()[0]).then();
+  FamilyTemplate.start(getCookieData()[0]).then();
 }
 
-module.exports = MangHe;
+module.exports = FamilyTemplate;

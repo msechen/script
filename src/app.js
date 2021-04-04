@@ -50,6 +50,8 @@ const Joy = require('./jd/joy');
 const Family = require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const JxHongBao = require('./jd/family/jxHongBao');
+const WomenBlindBox = require('./jd/family/WomenBlindBox');
+const LuckyToHitTheGoldenEgg = require('./jd/family/LuckyToHitTheGoldenEgg');
 const Live = require('./jd/live');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = TemporarilyOffline || require('./jd/globalMart/challenge');
@@ -277,7 +279,12 @@ async function main() {
 
         // 24点后定时启动
         await multipleRun([SignShop, SuperMarketRedeem]);
-        await multipleRun([Carnivalcity, EarnJingDou, IsvShopSign, Isp5G], 0);
+        await multipleRun([
+          Carnivalcity, EarnJingDou, IsvShopSign, Isp5G,
+          // 做任务抽奖
+          WomenBlindBox,
+          LuckyToHitTheGoldenEgg,
+        ], 0);
       },
     },
   ];
