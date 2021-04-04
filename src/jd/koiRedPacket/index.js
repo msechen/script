@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
+const md5 = require('js-md5');
 
 const {necklace} = require('../../../charles/api');
 
@@ -13,6 +14,11 @@ class KoiRedPacket extends Template {
   static needOriginH5 = true;
 
   static apiOptions = {
+    options: {
+      headers: {
+        referer: 'https://happy.m.jd.com/babelDiy/Zeus/3ugedFa7yA6NhxLN5gw2L3PF9sQC/index.html',
+      },
+    },
     signData: {
       appid: 'jd_mp_h5',
       client: 'jd_mp_h5',
@@ -63,7 +69,7 @@ class KoiRedPacket extends Template {
               await receiveTaskRedPacket(api, taskType);
               continue;
             } else if (status === 7) {
-              await api.doFormBody('startTask', {taskType});
+              await api.doFormBody('startTask', generateToken({taskType}));
             }
 
             if ([2, 7].includes(status) && (taskType === 1)) {/* 从京东首页进领券中心逛10s */
@@ -72,10 +78,12 @@ class KoiRedPacket extends Template {
               await sleep(+_.property('detail.requireBrowseSeconds')(task) || 10);
               const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(task.taskId));
               targetForm && await api.doForm('reportCcTask', targetForm);
+              await receiveTaskRedPacket(api, taskType);
+              continue;
             }
 
             let list = (await api.doFormBody('getTaskDetailForColor', {taskType}).then(data => _.property('data.result.advertDetails')(data)) || [])
-            .filter(o => o.status === 0).map(o => ({taskType, detailId: o.id, followCode: 0}));
+            .filter(o => o.status === 0).map(o => ({taskType, detailId: o.id/*, followCode: 0*/}));
 
             list.length && result.push({list, option: {maxTimes, times, waitDuration}});
           }
@@ -85,7 +93,7 @@ class KoiRedPacket extends Template {
       },
       doTask: {
         name: 'taskReportForColor',
-        paramFn: o => o,
+        paramFn: o => generateToken(o),
         async successFn(data, api) {
           if (_.property('data.result.innerTaskStatus')(data) === 3) {
             return receiveTaskRedPacket(api, _.property('data.result.taskType')(data));
@@ -101,7 +109,7 @@ class KoiRedPacket extends Template {
           await self.loopCall([], {
             maxTimes,
             async firstFn() {
-              return api.doFormBody('h5receiveRedpacket', {redPacketId});
+              return api.doFormBody('h5receiveRedpacket', generateToken({redPacketId}));
             },
           });
         },
@@ -138,6 +146,11 @@ class KoiRedPacket extends Template {
     });
     shareCode.isDone = true;
   }
+}
+
+function generateToken(body) {
+  const token = md5(md5(`j${JSON.stringify(body)}D`));
+  return _.assign({token}, body);
 }
 
 module.exports = KoiRedPacket;
