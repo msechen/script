@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: iZURk4ZMGTceyW3q8/LpdQ
-! Version: 202104010052
+! Checksum: yDyBr3l/klHGO//Hbz5ZSQ
+! Version: 202104040052
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw^$third-party
@@ -3009,7 +3009,6 @@
 ||https://jsdelivr.net/gh/sex169hub/
 ||https://jsdelivr.net/gh/supfree/supfree/top.gif
 ||https://jsdelivr.net/gh/voocdn/static/www/QlZ2twef.js
-||https://jsjinfu.com/maizhan/js/age.js
 ||https://json.cn/js/aliWindow.js
 ||https://jstucdn.com/g3/
 ||https://jstucdn.com/js/goovis.js
@@ -3236,7 +3235,6 @@
 ||https://loli.net/2020/07/10/wMqf6ivLVZc92UY.png
 ||https://loli.net/2020/07/13/b1gRsV4OutfYhvp.gif
 ||https://loli.net/2020/07/25/pRqtQvjgE74SzaW.gif
-||https://loli.net/2020/08/05/6orxItEVzlTjKam.png
 ||https://loli.net/2020/08/31/j6NV3wFeIxCtnBX.gif
 ||https://loli.net/2020/09/04/Wx3MdOVvsTPwIlE.gif
 ||https://loli.net/2020/10/26/cSHbJifFgNoyaz8.png
@@ -4403,7 +4401,6 @@
 ||https://whnews.cn/wh_public/xuxu/
 ||https://wholehk.com/atttuop.js
 ||https://wholehk.com/ptpptt.js
-||https://whsir.com/image/aliyun
 ||https://wigcw.cn/20180109150051.png
 ||https://wigcw.cn/240X355.jpg
 ||https://williamlong.info/script/sidebar.js
@@ -4531,7 +4528,6 @@
 ||https://xinshijue6080.com/Runtime/js/
 ||https://xinshijueba.com/js/home/
 ||https://xinshijuecn.com/js/home/
-||https://xinshuige.com/static/images/115AD.jpg
 ||https://xinwenren.com/index.php?m=poster&
 ||https://xinyi.com/Public/config/Couplet/Index39.js
 ||https://xinyi.com/Public/config/Couplet/Index40.js
@@ -10684,7 +10680,6 @@
 ||http://jsdelivr.net/gh/sex169hub/
 ||http://jsdelivr.net/gh/supfree/supfree/top.gif
 ||http://jsdelivr.net/gh/voocdn/static/www/QlZ2twef.js
-||http://jsjinfu.com/maizhan/js/age.js
 ||http://json.cn/js/aliWindow.js
 ||http://jstucdn.com/g3/
 ||http://jstucdn.com/js/goovis.js
@@ -10924,7 +10919,6 @@
 ||http://loli.net/2020/07/10/wMqf6ivLVZc92UY.png
 ||http://loli.net/2020/07/13/b1gRsV4OutfYhvp.gif
 ||http://loli.net/2020/07/25/pRqtQvjgE74SzaW.gif
-||http://loli.net/2020/08/05/6orxItEVzlTjKam.png
 ||http://loli.net/2020/08/31/j6NV3wFeIxCtnBX.gif
 ||http://loli.net/2020/09/04/Wx3MdOVvsTPwIlE.gif
 ||http://loli.net/2020/10/26/cSHbJifFgNoyaz8.png
@@ -12220,7 +12214,6 @@
 ||http://whnews.cn/wh_public/xuxu/
 ||http://wholehk.com/atttuop.js
 ||http://wholehk.com/ptpptt.js
-||http://whsir.com/image/aliyun
 ||http://wigcw.cn/20180109150051.png
 ||http://wigcw.cn/240X355.jpg
 ||http://williamlong.info/script/sidebar.js
@@ -12358,7 +12351,6 @@
 ||http://xinshijue6080.com/Runtime/js/
 ||http://xinshijueba.com/js/home/
 ||http://xinshijuecn.com/js/home/
-||http://xinshuige.com/static/images/115AD.jpg
 ||http://xinwenren.com/index.php?m=poster&
 ||http://xinyi.com/Public/config/Couplet/Index39.js
 ||http://xinyi.com/Public/config/Couplet/Index40.js
@@ -13331,6 +13323,7 @@
 ||http://qifake.com^
 ||http://qiji1.jdwx.info^
 ||http://qiyeb.iaskbus.com^
+||http://qiyegongqiu1.qiyegongqiu.com^
 ||http://qizhihaotian.com^*.js
 ||http://ql.uzuzuz.com^
 ||http://qpb.sohu.com^
@@ -13576,6 +13569,7 @@
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
 ||http://watakaw133.xyz^
+||http://hougonw.com^
 ||http://0217qpineuxbcdhopswkvf.xyz^
 ||http://0224fqpowiuxybnmvdfghj.xyz^
 ||http://027whht.com^
@@ -14256,6 +14250,7 @@
 ||http://grjs08.com^
 ||http://grtnahd.cn^
 ||http://grubfast.com^
+||http://gssdsj.com^
 ||http://gtchong.com^
 ||http://gtifund.cn^
 ||http://gtnde.com^
@@ -14491,6 +14486,7 @@
 ||http://jollyspring.com^
 ||http://jotrening.com^
 ||http://jpg1.oss-cn-beijing.aliyuncs.com^
+||http://jpqgxy.com^
 ||http://jqhevyf.cn^
 ||http://jqpvv.cn^
 ||http://jskang.cn^
@@ -14639,6 +14635,7 @@
 ||http://lychangxu.cn^
 ||http://lyczhb.com^
 ||http://lyjz001.com^
+||http://lylifa.com^
 ||http://lzida.com^
 ||http://lzytt.com^
 ||http://m06nev.com^
@@ -14844,6 +14841,7 @@
 ||http://qianrenge.cc/qian/
 ||http://qianyuntengyue.com^
 ||http://qiaopiguniang.com^
+||http://qichetuoyun.com.cn^
 ||http://qiditrade.com^
 ||http://qilungroup.cn^
 ||http://qinchugudao.com^
@@ -20385,7 +20383,7 @@ https://9ht.com##a[href*=".360.cn/"]
 https://cnzol.com##a[href*=".91comics.com/"]
 https://163.com,bilibili.com,longzhu.com##a[href*=".admaster."]
 https://itboth.com,itkeyword.com##a[href*=".aliyun."]
-https://boke112.com,dzbhdm.com,mzh.ren,techweb.com.cn##a[href*=".aliyun.com"]
+https://boke112.com,dzbhdm.com,mzh.ren,techweb.com.cn,whsir.com##a[href*=".aliyun.com"]
 https://github.com##a[href*=".aliyun.com/minisite/goods?"]
 https://mydrivers.com##a[href*=".ashx?to="]
 https://zhanqi.tv##a[href*=".bfun.cn/ad."]:not([href*=".zhanqi."])
@@ -21160,6 +21158,7 @@ https://mydrivers.com#?#.news_info > p:last-of-type + div:-abp-has(> br + a)
 https://mydrivers.com#?#.news_info > p:last-of-type + div:-abp-has(> div > a)
 https://mydrivers.com#?#.news_info > p:last-of-type:-abp-has(> br + a)
 https://mydrivers.com#?#.news_info > p:nth-last-of-type(2):-abp-has(> br + a)
+https://mypianku.net##nav + div
 https://news.baidu.com#?#.index-list-item:-abp-has(.tip-time:-abp-contains(广告))
 https://news.sohu.com,www.sohu.com#?#.list16 > ul > li:-abp-contains(广告)
 https://nfmovies.com#?#div[id]:-abp-has(>img[onclick="openurl()"])
@@ -26766,7 +26765,7 @@ http://9ht.com##a[href*=".360.cn/"]
 http://cnzol.com##a[href*=".91comics.com/"]
 http://163.com,bilibili.com,longzhu.com##a[href*=".admaster."]
 http://itboth.com,itkeyword.com##a[href*=".aliyun."]
-http://boke112.com,dzbhdm.com,mzh.ren,techweb.com.cn##a[href*=".aliyun.com"]
+http://boke112.com,dzbhdm.com,mzh.ren,techweb.com.cn,whsir.com##a[href*=".aliyun.com"]
 http://github.com##a[href*=".aliyun.com/minisite/goods?"]
 http://mydrivers.com##a[href*=".ashx?to="]
 http://zhanqi.tv##a[href*=".bfun.cn/ad."]:not([href*=".zhanqi."])
@@ -27542,6 +27541,7 @@ http://mydrivers.com#?#.news_info > p:last-of-type + div:-abp-has(> br + a)
 http://mydrivers.com#?#.news_info > p:last-of-type + div:-abp-has(> div > a)
 http://mydrivers.com#?#.news_info > p:last-of-type:-abp-has(> br + a)
 http://mydrivers.com#?#.news_info > p:nth-last-of-type(2):-abp-has(> br + a)
+http://mypianku.net##nav + div
 http://news.baidu.com#?#.index-list-item:-abp-has(.tip-time:-abp-contains(广告))
 http://news.sohu.com,www.sohu.com#?#.list16 > ul > li:-abp-contains(广告)
 http://nfmovies.com#?#div[id]:-abp-has(>img[onclick="openurl()"])
