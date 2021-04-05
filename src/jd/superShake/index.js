@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common');
 const _ = require('lodash');
 
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2GXPFfQmeLgzZuQCWFZWCtwUqro5/index.html';
@@ -105,10 +105,6 @@ class SuperShake extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  SuperShake.start(getCookieData()).then();
-}
+singleRun(SuperShake).then();
 
 module.exports = SuperShake;

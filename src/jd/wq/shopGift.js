@@ -2,7 +2,7 @@ const Template = require('./index');
 
 const path = require('path');
 const fs = require('fs');
-const {sleep, writeFileJSON, getRealUrl, getUrlDataFromFile} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, getRealUrl, getUrlDataFromFile} = require('../../lib/common');
 const _ = require('lodash');
 const shopGiftUrlPath = path.resolve(__dirname, 'shopGift.url');
 
@@ -67,12 +67,8 @@ class ShopGift extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  ShopGift.start(getCookieData()).then(() => {
-    fs.writeFileSync(shopGiftUrlPath, '');
-  });
-}
+singleRun(ShopGift).then(() => {
+  fs.writeFileSync(shopGiftUrlPath, '');
+});
 
 module.exports = ShopGift;

@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 const brandActivityId = 'aeb4960d-bb33-49d4-a9a3-4314b68e8420';
@@ -98,10 +98,6 @@ class SuperBrandDay extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  SuperBrandDay.start(getCookieData()).then();
-}
+singleRun(SuperBrandDay).then();
 
 module.exports = SuperBrandDay;

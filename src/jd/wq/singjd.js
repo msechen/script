@@ -1,6 +1,6 @@
 const Template = require('./index');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 const {mLoginWx} = require('./api');
 
@@ -44,10 +44,6 @@ class Singjd extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  Singjd.start(getCookieData()).then();
-}
+singleRun(Singjd).then();
 
 module.exports = Singjd;

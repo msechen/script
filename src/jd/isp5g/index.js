@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 class Isp5G extends Template {
@@ -96,10 +96,6 @@ class Isp5G extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  Isp5G.start(getCookieData()).then();
-}
+singleRun(Isp5G).then();
 
 module.exports = Isp5G;

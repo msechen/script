@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 class Grassy extends Template {
@@ -88,10 +88,6 @@ class Grassy extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  Grassy.start(getCookieData()).then();
-}
+singleRun(Grassy).then();
 
 module.exports = Grassy;

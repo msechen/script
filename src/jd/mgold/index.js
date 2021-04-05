@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 class Mgold extends Template {
@@ -72,10 +72,6 @@ class Mgold extends Template {
   };
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  Mgold.start(getCookieData()).then();
-}
+singleRun(Mgold).then();
 
 module.exports = Mgold;

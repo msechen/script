@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, parallelRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, parallelRun} = require('../../lib/common');
 const {sleepTime} = require('../../lib/cron');
 const _ = require('lodash');
 
@@ -156,10 +156,6 @@ class SignShop extends Template {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  SignShop.start(getCookieData()).then();
-}
+singleRun(SignShop).then();
 
 module.exports = SignShop;

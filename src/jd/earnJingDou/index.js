@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 const appid = 'swat_miniprogram';
@@ -127,10 +127,6 @@ function takeReward(api) {
   return invoke(api, 'takeReward');
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  EarnJingDou.start(getCookieData()).then();
-}
+singleRun(EarnJingDou).then();
 
 module.exports = EarnJingDou;

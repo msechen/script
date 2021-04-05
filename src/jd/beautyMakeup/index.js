@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const {getNowMoment} = require('../../lib/moment');
 const {sleepTime} = require('../../lib/cron');
 const webSocket = require('../../lib/webSocket');
@@ -512,10 +512,9 @@ class BeautyMakeup extends Template {
   }
 }
 
-if (['start', 'cron'].includes(process.argv[2])) {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  if (process.argv[2] === 'start') return start();
+singleRun(BeautyMakeup, ['start', 'cron'], method => {
+  const {getCookieData} = require('../../lib/env');
+  if (method === 'start') return start();
 
   const hours = [7, 12, 19, 23];
   return _doCron();
@@ -536,6 +535,6 @@ if (['start', 'cron'].includes(process.argv[2])) {
   function start() {
     return BeautyMakeup.start(getCookieData());
   }
-}
+}).then();
 
 module.exports = BeautyMakeup;

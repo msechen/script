@@ -36,6 +36,7 @@
     "start:Grassy": "node src/jd/grassy/index.js start",
     "start:CashRedeem": "node src/jd/cash/redeem.js start",
     "start:JoyRedeem": "node src/jd/joy/redeem.js start",
+    "start:CashShare": "node src/jd/cash/share.js start",
     "cron:BeautyMakeup": "node src/jd/beautyMakeup/index.js cron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

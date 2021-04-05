@@ -1,6 +1,6 @@
 const Isv = require('./index');
 
-const {sleep, writeFileJSON, parallelRun} = require('../../lib/common');
+const {sleep, writeFileJSON, parallelRun, singleRun} = require('../../lib/common');
 const {updateTokenCookies, getSimpleActInfoVo, generateToken} = require('./api');
 const _ = require('lodash');
 
@@ -45,10 +45,6 @@ class IsvShopSign extends Isv {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  IsvShopSign.start(getCookieData()).then();
-}
+singleRun(IsvShopSign).then();
 
 module.exports = IsvShopSign;

@@ -1,6 +1,6 @@
 const Family = require('./index');
 
-const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
+const {sleep, writeFileJSON, matchMiddle, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 let tasks = [];
@@ -74,10 +74,6 @@ class FamilyTemplate extends Family {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  FamilyTemplate.start(getCookieData()[0]).then();
-}
+singleRun(FamilyTemplate).then();
 
 module.exports = FamilyTemplate;

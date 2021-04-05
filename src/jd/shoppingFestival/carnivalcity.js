@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const {getNowMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const md5 = require('js-md5');
@@ -152,10 +152,6 @@ function generateSign(path, data = {}, timestamp, isGet = true) {
   }
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  Carnivalcity.start(getCookieData()).then();
-}
+singleRun(Carnivalcity).then();
 
 module.exports = Carnivalcity;

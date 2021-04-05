@@ -1,6 +1,6 @@
 const Base = require('../base');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 class CashShare extends Base {
   static scriptName = 'CashShare';
@@ -58,5 +58,7 @@ class CashShare extends Base {
     }
   }
 }
+
+singleRun(CashShare).then();
 
 module.exports = CashShare;

@@ -123,17 +123,22 @@ function matchMiddle(target, {reg, prefix, suffix, match = '\w'}) {
  * @description 单个文件运行脚本
  * @param target {Class}
  * @param method {String|Array|undefined}
- * @param afterFn {Function|undefined}
+ * @param runFn {Function|undefined}
+ * @return {Promise|*}
  */
-async function singleRun(target, method = 'start', afterFn = null) {
+async function singleRun(target, method = 'start', runFn = null) {
   const {getLocalEnvs, getCookieData} = require('./env');
+
+  let promise;
 
   for (const m of _.concat(method)) {
     if (process.argv[2] === m) {
       process.env = getLocalEnvs();
-      await (afterFn ? afterFn(m) : target[m](getCookieData()));
+      promise = await (runFn ? runFn(m) : target[m](getCookieData()));
     }
   }
+
+  return promise;
 }
 
 module.exports = {

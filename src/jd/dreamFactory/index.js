@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 class DreamFactory extends Template {
   static scriptName = 'DreamFactory';
@@ -66,5 +66,7 @@ class DreamFactory extends Template {
     }
   }
 }
+
+singleRun(DreamFactory).then();
 
 module.exports = DreamFactory;
