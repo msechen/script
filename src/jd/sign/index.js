@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 class Sign extends Template {
   static scriptName = 'Sign';
@@ -143,6 +143,22 @@ class Sign extends Template {
       rewardOutputFn: data => _.property('content[0].title')(data),
     };
 
+    const speedSign = {
+      name: '极速版签到',
+      url: 'https://api.m.jd.com/api?functionId=speedSign&body=%7B%22kernelPlatform%22%3A%22RN%22%2C%22activityId%22%3A%228a8fabf3cccb417f8e691b6774938bc2%22%2C%22noWaitPrize%22%3A%22false%22%7D&osVersion=14.2&rfs=0000&appid=lite-apple&lang=zh_CN&d_brand=apple&isBackground=N&client=apple&uuid=coW0lj7vbXVin6h7ON%2BtMNFQqYBqMahr&uts=0f31TVRjBSsgZHmA8SwAVDr8XvClBusknIA9Df6ILhujqCSJEiMg5RpGRh7CH9QBTYXnBtLSU7Kym6U31Qpw3KF094PV%2FdcFwCggw%2BWkrfK7ziOoZpKgwCf%2FMp0JXYByygQks9moca1iVHr67P29RSEzpfcnkbao7LB7OU4e%2F5J7kEMpuDsNENoGm6z2vtT72iea5kBadhUktdyLrv8bpA%3D%3D&partner=apple&wifiBssid=unknown&build=1036&openudid=362209a87559b31c2dad7860c2728b5f398d1ee6&clientVersion=3.3.0&scope=01&eid=eidId8e78121d5s8YJYRX9bATh%2BRBDD%2BlcdWvWCWEtgPvhHqpjhccf3NPGyx2G3grwpRGFZ0w%2Fm3S0sSAVMK1bgdCae7h1ntV1EpafBX2ITMFprS5NFa&networkType=wifi&area=19_1601_3634_63217&adid=9D996AE0-FB82-4BF1-A8C3-E58CD5828CD3&d_model=iPhone8%2C1&joycious=90&screen=750%2A1334&networklibtype=JDNetworkBaseAF&appid=lite-apple&t=1617576523730&sign=822730149ede1e7e546285c5220efe903655bfc38adc7e197edb3c6f90712fa7',
+      options: {
+        headers: {
+          'user-agent': 'JDMobileLite/3.3.0 (iPhone; iOS 14.2; Scale/2.00)',
+        },
+      },
+      isSuccessFn(data) {
+        const isSucceed = data['subCode'] === 0;
+        if (!isSucceed) self.log(data['msg']);
+        return isSucceed;
+      },
+      rewardOutputFn: data => JSON.stringify(data),
+    };
+
     const taskOptions = [
       // signRemote脚本已经实现, 已不需要
       // jrSign,
@@ -173,6 +189,8 @@ class Sign extends Template {
         isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
       },
     ];
+
+    if (process.env.JD_SPEED_SIGN_ENABLE) taskOptions.push(speedSign);
 
     const cashSign = [
       {
@@ -222,5 +240,7 @@ class Sign extends Template {
     }
   };
 }
+
+singleRun(Sign).then();
 
 module.exports = Sign;
