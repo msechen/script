@@ -47,8 +47,9 @@ const statistics = {
   getJingBeanBalanceDetail: [],
 };
 const live = {
-  functionIds: ['liveChannelReportDataV912'],
+  functionIds: ['liveChannelReportDataV912', 'liveActivityV946'],
   liveChannelReportDataV912: [],
+  liveActivityV946: [],
 };
 const common = {
   functionIds: ['genToken', 'isvObfuscator'],
