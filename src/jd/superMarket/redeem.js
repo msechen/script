@@ -13,34 +13,37 @@ class SuperMarketRedeem extends SuperMarket {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = self._;
 
+    let beanPrizes;
+    await updateBeanPrizes();
     await sleepTime(24);
-    const prizeList = await getPrizes();
     await handleRedeem();
+    await updateBeanPrizes();
+    await handleRedeem();
+
+    async function updateBeanPrizes() {
+      const prizeList = await getPrizes();
+      beanPrizes = prizeList.filter(({beanType, inStock}) =>
+        ['Bean', 'BeanPackage'].includes(beanType)/* && inStock === 0*/).reverse();
+    }
 
     function getPrizes() {
       return api.doFormBody('smtg_queryPrize').then(data => _.property('data.result.prizeList')(data));
     }
 
     async function handleRedeem() {
-      const beanPrizes = prizeList.filter(({
-                                             beanType,
-                                             inStock,
-                                           }) => ['Bean', 'BeanPackage'].includes(beanType)/* && inStock === 0*/).reverse();
-      return self.loopCall(beanPrizes, {
-        maxTimes: beanPrizes.length,
-        firstFn: obtainPrize,
-      });
+      for (const prize of beanPrizes) {
+        const {finishNum, targetNum} = prize;
+        for (let i = finishNum; i < targetNum; i++) {
+          await obtainPrize(prize);
+        }
+      }
 
       async function obtainPrize(prize) {
         const {prizeId, title} = prize;
-        return api.doFormBody('smtg_obtainPrize', {prizeId}).then(data => {
-          if (self.isSuccess(data)) {
-            self.log(`${title}兑换成功一次`);
-            return obtainPrize(prize);
-          }
-          self.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
+        return api.doFormBody('smtg_obtainPrize', {prizeId}).then(async data => {
+          if (!self.isSuccess(data)) return self.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
+          self.log(`${title}兑换成功一次`);
         });
       }
     }
