@@ -1,12 +1,11 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
-
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 class DemoTemplate extends Template {
   static scriptName = 'DemoTemplate';
+  static scriptNameDesc = 'DemoTemplate';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
 
@@ -59,10 +58,6 @@ class DemoTemplate extends Template {
   };
 }
 
-if (process.argv[2] === 'start') {
-  const {getLocalEnvs, getCookieData} = require('../../lib/env');
-  process.env = getLocalEnvs();
-  DemoTemplate.start(getCookieData()).then();
-}
+singleRun(DemoTemplate).then();
 
 module.exports = DemoTemplate;

@@ -21,10 +21,11 @@ const JD_CHLSJ_PATH = `${CHLSJ_PATH}/jd`;
 const JD_FORM_PATH = `${FORM_PATH}/jd`;
 const cashFormKeys = ['body', 'clientVersion', 'sign', 'st', 'sv', 'client', 'openudid'];
 const cash = {
-  functionIds: ['cash_homePage', 'cash_sign', 'cash_doTask'],
+  functionIds: ['cash_homePage', 'cash_sign', 'cash_doTask', 'cash_getRedPacket'],
   cash_homePage: [],
   cash_sign: [],
   cash_doTask: [],
+  cash_getRedPacket: [],
 };
 const stall = {
   functionIds: ['stall_collectScore'],

@@ -119,6 +119,23 @@ function matchMiddle(target, {reg, prefix, suffix, match = '\w'}) {
   return execResult[1] || '';
 }
 
+/**
+ * @description 单个文件运行脚本
+ * @param target {Class}
+ * @param method {String|Array|undefined}
+ * @param afterFn {Function|undefined}
+ */
+async function singleRun(target, method = 'start', afterFn = null) {
+  const {getLocalEnvs, getCookieData} = require('./env');
+
+  for (const m of _.concat(method)) {
+    if (process.argv[2] === m) {
+      process.env = getLocalEnvs();
+      await (afterFn ? afterFn(m) : target[m](getCookieData()));
+    }
+  }
+}
+
 module.exports = {
   sleep,
 
@@ -136,4 +153,6 @@ module.exports = {
 
   objectValuesStringify,
   matchMiddle,
+
+  singleRun,
 };

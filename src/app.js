@@ -47,6 +47,7 @@ const Car = require('./jd/car');
 const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
 const Joy = require('./jd/joy');
+const JoyRedeem = require('./jd/joy/redeem');
 const Family = require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const JxHongBao = require('./jd/family/jxHongBao');
@@ -278,7 +279,11 @@ async function main() {
         await doCron(Joy);
 
         // 24点后定时启动
-        await multipleRun([SignShop, SuperMarketRedeem]);
+        await multipleRun([
+          SignShop,
+          SuperMarketRedeem,
+          JoyRedeem,
+        ]);
         await multipleRun([
           Carnivalcity, EarnJingDou, IsvShopSign, Isp5G,
           // 做任务抽奖

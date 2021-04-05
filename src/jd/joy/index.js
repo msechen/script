@@ -11,6 +11,7 @@ class Joy extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 1;
+  static sign = sign;
 
   static apiOptions = {
     options: {
@@ -164,7 +165,6 @@ class Joy extends Template {
     await handleSign();
     await handleFeed(); // 喂食最多的
     await handleRace();
-    await handleExchange();
     // 领取狗粮
     if (self.getNowHour() === 23) {
       const foodTaskType = [
@@ -206,62 +206,6 @@ class Joy extends Template {
           return handleRace();
         }
       });
-    }
-
-    // 兑换豆豆
-    async function handleExchange() {
-      if (nowHour !== 16) return;
-      const petCoin = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(data => _.property('data.petCoin')(data));
-      const data = await api.doUrl('https://jdjoy.jd.com/common/gift/getBeanConfigs', {method: 'GET'}).then(result => result['data']);
-      if (!data) return;
-      let beanInfo;
-      if (0 <= nowHour && nowHour < 8) {
-        beanInfo = data['beanConfigs0'];
-      }
-      if (nowHour >= 8 && nowHour < 16) {
-        beanInfo = data['beanConfigs8'];
-      }
-      if (nowHour >= 16 && nowHour <= 23) {
-        beanInfo = data['beanConfigs16'];
-      }
-      if (!beanInfo) return;
-      for (const {id, leftStock, giftValue, giftName} of beanInfo) {
-        // 只兑换500的, 需要8500积分
-        if (leftStock === 0 || giftValue !== 500 || petCoin < giftValue) continue;
-        const body = {
-          'buyParam': {
-            'orderSource': 'pet',
-            'saleInfoId': id,
-          },
-          'deviceInfo': {
-            'eid': 'M7UO6SRTFR5GQS7SPKPOGT7ZZB6KH2I7CUXZGVFSPJ5773VII5RHNSVRM4FK4RSLDCBRG3QQUS4WNC5PZ2767E6D3Q',
-            'fp': '28c2c6f0199a7790b251a724031be426',
-            'deviceType': '',
-            'macAddress': '',
-            'imei': '',
-            'os': '',
-            'osVersion': '',
-            'ip': '',
-            'appId': '',
-            'openUUID': '',
-            'idfa': '',
-            'uuid': '',
-            'clientVersion': '',
-            'networkType': '',
-            'appType': '',
-            'sdkToken': 'jdd01KKYHD3TR2D74RQPGTZ4XDKYRETYXJ4W2EKNLXFBWQJ6WSFEJEO345P4SCFDCLATWWWACAWMO7D6XGZLNCUU6BNXYQQUXNGCL4ZLYVZQ01234567',
-          },
-        };
-        await api.doUrl('https://jdjoy.jd.com/common/gift/new/exchange', {
-          headers: {
-            contentType: 'application/json',
-          },
-          body,
-          qs: sign(body, 'application/json'),
-        }).then(data => {
-          self.log(`${giftName} 兑换结果: ${data['errorCode']}`);
-        });
-      }
     }
 
     // 三餐签到
