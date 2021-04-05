@@ -23,6 +23,7 @@ class Base {
   // request 参数
   static isWh5 = false; // 添加signData
   static needInApp = true; // 添加 userAgent
+  static needInSpeedApp = false; // 添加 userAgent
   static needInJxApp = false; // 添加 userAgent
   static needOriginH5 = false; // 添加 headers.origin
   static needInPhone = false; // 添加 userAgent
@@ -163,6 +164,10 @@ class Base {
     if (this.needInJxApp) {
       this.needInApp = false;
       _.merge(options, {headers: {'User-Agent': 'jdpingou'}});
+    }
+    if (this.needInSpeedApp) {
+      this.needInApp = false;
+      _.merge(options, {headers: {'User-Agent': 'jdltapp'}});
     }
     this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
     this.needInPhone && _.merge(options, {headers: {'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.0(0x18000026) NetType/WIFI Language/zh_CN miniProgram'}});

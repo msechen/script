@@ -93,7 +93,7 @@ class Api {
     }, options));
   }
 
-  doGet(functionId, qs, options) {
+  doGet(functionId, qs = {}, options) {
     functionId && _.assign(qs, {functionId});
     return this.do(_.merge({qs, method: 'GET'}, options));
   }

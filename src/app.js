@@ -61,6 +61,9 @@ const Isp5G = require('./jd/isp5g');
 const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 
+/* 极速版 */
+const SpringReward = require('./jd/speed/SpringReward');
+
 const nowHour = getNowMoment().hour();
 const nowDate = getNowDate();
 const errorOutput = [];
@@ -134,6 +137,7 @@ async function main() {
         await doRun(GlobalChallenge);
         await doRun(JxHongBao);
         await doRun(VipClubShake);
+        await doRun(SpringReward);
         // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
