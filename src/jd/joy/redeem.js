@@ -45,8 +45,8 @@ class JoyRedeem extends Joy {
       const nowHour = self.getNowHour();
       if (nowHour !== 23) return;
       if (!beanInfos) return;
-      for (const {id, leftStock, giftValue, giftName} of beanInfos) {
-        await doExChange({id, leftStock, giftValue, giftName});
+      for (const beanInfo of beanInfos) {
+        await doExChange(beanInfo);
       }
     }
 
