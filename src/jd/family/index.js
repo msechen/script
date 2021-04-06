@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
 const defaultApiNames = {
@@ -27,7 +27,7 @@ class Family extends Template {
     if (tasktype === 2) {
       item['callback'] = 'CheckParamsF';
     }
-    if (taskid === '5fed97ce5da81a8c069810df' && getNowMoment().hour() < 8) {
+    if (taskid === '5fed97ce5da81a8c069810df' && getMoment().hour() < 8) {
       for (let i = 0; i < 60; i++) {
         list.push(item);
       }

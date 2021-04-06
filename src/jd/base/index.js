@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const Api = require('../api');
 const {sleep, parallelRun} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const {printLog} = require('../../lib/common');
 
 // 注册全局变量
@@ -84,7 +84,7 @@ class Base {
   }
 
   static getNowHour() {
-    return getNowMoment().hours();
+    return getMoment().hours();
   }
 
   static getCurrentEnv(key) {

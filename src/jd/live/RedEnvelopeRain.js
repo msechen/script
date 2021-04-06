@@ -2,7 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const {sleepTime} = require('../../lib/cron');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 
 const {live} = require('../../../charles/api');
 
@@ -24,9 +24,9 @@ class LiveRedEnvelopeRain extends Template {
         const targetIconArea = (_.property('data.iconArea')(data) || []).find(o => o['type'].match('red_packege_rain')) || {};
         if (_.property('data.state')(targetIconArea) !== 1) return;
         const {startTime, data: {activityUrl}} = targetIconArea;
-        const targetMoment = getNowMoment(startTime);
+        const targetMoment = getMoment(startTime);
         const actId = new URL(activityUrl).searchParams.get('id');
-        await sleepTime([targetMoment.getHours(), targetMoment.getMinutes()]);
+        await sleepTime([targetMoment.hour(), targetMoment.minute()]);
         return noahRedRainLottery(actId);
       });
     }

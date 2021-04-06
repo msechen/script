@@ -1,7 +1,7 @@
 const SuperMarket = require('./index');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const {sleepTime} = require('../../lib/cron');
 
 class SuperMarketRedeem extends SuperMarket {

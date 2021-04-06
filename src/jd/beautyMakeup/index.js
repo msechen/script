@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const {sleepTime} = require('../../lib/cron');
 const webSocket = require('../../lib/webSocket');
 
@@ -520,7 +520,7 @@ singleRun(BeautyMakeup, ['start', 'cron'], method => {
   return _doCron();
 
   async function _doCron() {
-    const nowHour = getNowMoment().hour();
+    const nowHour = getMoment().hour();
     const target = hours.find((hour, i) => {
       const prevIndex = i - 1;
       return nowHour < hour && nowHour >= (hours[prevIndex] || 0);

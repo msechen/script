@@ -1,4 +1,4 @@
-const {getNowMoment, getNowDate} = require('./moment');
+const {getMoment, getNowDate} = require('./moment');
 const _ = require('lodash');
 
 /**
@@ -7,8 +7,8 @@ const _ = require('lodash');
  * @return {Promise<void>}
  */
 async function sleepDate(date) {
-  const nowMoment = getNowMoment();
-  const targetMoment = getNowMoment(date);
+  const nowMoment = getMoment();
+  const targetMoment = getMoment(date);
   if (nowMoment.isAfter(targetMoment)) return;
   const milliseconds = targetMoment.diff(nowMoment, 'millisecond');
   // 增加误差

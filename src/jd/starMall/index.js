@@ -1,7 +1,7 @@
 const Base = require('../base');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 
 let shareCodeCaches = [];
 
@@ -56,7 +56,7 @@ class starMall extends Base {
         const appointDesc = data.result.shareSetting.appointDesc;
         let needToShare = false;
         if (appointDesc.match('11')) {
-          if (appointDesc.match(getNowMoment().format('MM.D'))) {
+          if (appointDesc.match(getMoment().format('MM.D'))) {
             needToShare = true;
           } else {
             // 非当前时间的明星不需要做任务

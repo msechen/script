@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const CryptoJS = require('crypto-js');
 
@@ -251,7 +251,7 @@ async function getFriends(api) {
 
 // helpers
 function sign(body, cType = '') {
-  const lkt = getNowMoment().valueOf();
+  const lkt = getMoment().valueOf();
   let keycode = '98c14c997fde50cc18bdefecfd48ceb7';
   let lks = '';
   if (cType.indexOf('json') > 0) {

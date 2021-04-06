@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
 const CryptoJS = require('crypto-js');
@@ -17,7 +17,7 @@ function sign(taskId, masterPin) {
   return Pu(...arguments);
 
   function Pu() {
-    for (var e = getNowMoment().valueOf(), t = 'secureact', a = Nu('U2FsdGVkX19sLIB1GPSwzHyWUgTvJt8/Gkz6E5e3M58=', t), n = arguments.length, r = new Array(n), o = 0; o < n; o++) r[o] = arguments[o];
+    for (var e = getMoment().valueOf(), t = 'secureact', a = Nu('U2FsdGVkX19sLIB1GPSwzHyWUgTvJt8/Gkz6E5e3M58=', t), n = arguments.length, r = new Array(n), o = 0; o < n; o++) r[o] = arguments[o];
     r.push(e, a);
     var c = r.join(''), i = CryptoJS.MD5(c).toString();
     return {sealsTs: e, seals: i};

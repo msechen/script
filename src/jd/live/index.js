@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
 const {live} = require('../../../charles/api');
@@ -26,7 +26,7 @@ class Live extends Template {
       // 获取任务列表
       getTaskList: {
         name: 'liveChannelTaskListToM',
-        paramFn: () => [{timestamp: getNowMoment().valueOf()}, {appid}],
+        paramFn: () => [{timestamp: getMoment().valueOf()}, {appid}],
         async successFn(data, api) {
           // writeFileJSON(data, 'liveChannelTaskListToM.json', __dirname);
 
@@ -37,7 +37,7 @@ class Live extends Template {
             if (day === signTask['today'] && state === 1) {
               await api.doFormBody('getChannelTaskRewardToM', {"type": "signTask", itemId: signTask['itemId']}, {
                 appid,
-                v: getNowMoment().valueOf()
+                v: getMoment().valueOf()
               });
             }
           }

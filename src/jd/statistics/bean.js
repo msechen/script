@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment, getNowDate} = require('../../lib/moment');
+const {getMoment, getNowDate} = require('../../lib/moment');
 
 const {statistics} = require('../../../charles/api');
 
@@ -21,7 +21,7 @@ class StatisticsBean extends Template {
     if (self.currentCookieTimes === 0) await sleep(15);
 
     let detailList = [];
-    const prevDate = getNowMoment().subtract(1, 'days').format('YYYY-MM-DD');
+    const prevDate = getMoment().subtract(1, 'days').format('YYYY-MM-DD');
     for (const form of statistics.getJingBeanBalanceDetail) {
       const list = await api.doForm('getJingBeanBalanceDetail', form).then(data => data.detailList);
       if (_.isEmpty(list)) {

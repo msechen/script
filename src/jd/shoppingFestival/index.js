@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const md5 = require('js-md5');
 
@@ -142,7 +142,7 @@ class ShoppingFestival extends Template {
 }
 
 function getSignDataOptions(qs = {}, urlPath = '') {
-  const timestamp = getNowMoment().valueOf();
+  const timestamp = getMoment().valueOf();
   _.assign(qs, {t: timestamp});
   const sign = getSign(qs, timestamp, urlPath);
   return {

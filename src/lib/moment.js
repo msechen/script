@@ -4,14 +4,14 @@
 
 const moment = require('moment-timezone');
 
-const getNowMoment = (date = void 0, tz = 'Asia/Shanghai') => moment.tz(date, tz);
-const getNowDate = (format = 'YYYY-MM-DD') => getNowMoment().format(format);
-const getNowHour = () => getNowMoment().hour();
+// TODO 更改为 moment.tz.setDefault
+const getMoment = (date = void 0, tz = 'Asia/Shanghai') => moment.tz(date, tz);
+const getNowDate = (format = 'YYYY-MM-DD') => getMoment().format(format);
+const getNowHour = () => getMoment().hour();
 const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
 
-
 module.exports = {
-  getNowMoment,
+  getMoment,
   getNowDate,
   getNowTime,
   getNowHour,

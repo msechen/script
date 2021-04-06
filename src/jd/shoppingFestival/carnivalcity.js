@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
-const {getNowMoment} = require('../../lib/moment');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const md5 = require('js-md5');
 
@@ -109,7 +109,7 @@ class Carnivalcity extends Template {
 }
 
 function generateApiOptions(path, data, isGet = true) {
-  const timestamp = getNowMoment().valueOf();
+  const timestamp = getMoment().valueOf();
   const sign = generateSign(path, data, timestamp, isGet);
   const options = {
     headers: {
