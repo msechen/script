@@ -3,6 +3,9 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
+const appid = 'activities_platform';
+const linkId = 'jOkIZzWCgGa9NfPuHBSx1A';
+
 class SpringReward extends Template {
   static scriptName = 'SpringReward';
   static scriptNameDesc = '极速版-领红包';
@@ -17,13 +20,13 @@ class SpringReward extends Template {
   static apiOptions = {
     options: {
       uri: 'https://api.m.jd.com',
-      method: 'GET',
       qs: {
-        appid: 'activities_platform',
-        body: {'linkId': 'CKKfDuj5ere8P1EUy_lC0g'},
+        appid,
+        body: {linkId},
       },
       headers: {
         origin: 'https://prodev.m.jd.com',
+        referer: 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html',
       },
     },
   };
@@ -44,12 +47,51 @@ class SpringReward extends Template {
         await api.doGetBody('spring_reward_receive', {inviter}).then(data => {
           if (!self.isSuccess(data)) return self.log(data.errMsg);
           remainChance--;
-          self.log(`获得: ${_.property('data.received.prizeDesc')}`);
+          const {prizeDesc} = _.property('data.received')(data)
+          self.log(`获得: ${prizeDesc}`);
         });
         await sleep(2);
         if (--maxTimes === 0) break;
       }
     });
+
+    self.isLastLoop() && await handleCash();
+
+    async function handleCash() {
+      await api.doGetBody('spring_reward_list', {
+        "pageNum": 1,
+        "pageSize": 10,
+      }).then(async data => {
+        const items = _.property('data.items')(data) || [];
+        if (items.some(o => o['state'] === 1)) return;
+        const cashes = items.filter(o => o['prizeType'] === 4 && o['state'] === 0);
+        if (_.isEmpty(cashes)) return;
+        // 一次只能同时提现一个
+        return apCashWithDraw(cashes[0]);
+      });
+
+      async function apCashWithDraw({id, poolBaseId, prizeGroupId, prizeBaseId, prizeType}) {
+        const functionId = 'apCashWithDraw';
+        return api.commonDo({
+          form: {
+            body: {
+              "businessSource": "SPRING_FESTIVAL_RED_ENVELOPE",
+              "base": {
+                id, poolBaseId, prizeGroupId, prizeBaseId, prizeType,
+                "business": null,
+              },
+              linkId,
+            },
+            appid,
+            functionId,
+          },
+          uri: api.options.uri,
+          headers: api.options.headers,
+        }).then(data => {
+          self.log(data.data.message);
+        })
+      }
+    }
   }
 }
 
