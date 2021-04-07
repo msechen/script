@@ -25,6 +25,8 @@ const envSecrets = _.fromPairs(_.flatten([
   ['MAILER_TRANSPORTER_OPTION', 1],
   ['JD_FRUIT_WATER_TIMES', 1],
 
+  'JD_CRAZY_JOY_STOP_UPGRADE',
+
   'JD_COOKIE',
   'JD_EARN_COOKIE',
   'JD_WQ_WX_COOKIE',

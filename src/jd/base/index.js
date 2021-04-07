@@ -1,9 +1,9 @@
 const _ = require('lodash');
 
 const Api = require('../api');
-const {sleep, parallelRun} = require('../../lib/common');
+const {sleep, printLog, parallelRun} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
-const {printLog} = require('../../lib/common');
+const {getEnv} = require('../../lib/env');
 
 // 注册全局变量
 global._ = _;
@@ -88,7 +88,7 @@ class Base {
   }
 
   static getCurrentEnv(key) {
-    return process.env[`${key}${this.currentCookieTimes ? ('_' + this.currentCookieTimes) : ''}`];
+    return getEnv(key, this.currentCookieTimes);
   }
 
   static async loopCall(list = [], option) {

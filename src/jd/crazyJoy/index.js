@@ -50,7 +50,7 @@ class CrazyJoy extends Template {
 
     if (self.isLastLoop()) {
       // await getLevelReward();
-      // await extractBean();
+      await extractBean();
       await log();
     }
 
@@ -129,10 +129,9 @@ class CrazyJoy extends Template {
 
     // 升级 joy
     async function upgradeJoy() {
-      if (self.getNowHour() === 23) return;
+      if (self.getCurrentEnv('JD_CRAZY_JOY_STOP_UPGRADE')) return;
 
       await autoMerge();
-      await sleep(1);
       let joyIds = await getJoyIds();
       if (_.isEmpty(joyIds)) return;
 
@@ -297,6 +296,7 @@ class CrazyJoy extends Template {
         totalBeans,
       } = await api.doFormBody('crazyJoy_user_getJdBeanInfo', void 0, void 0, {method: 'GET'}).then(data => data.data) || {};
       beanGradation = _.sortBy(beanGradation || [], 'count').reverse();
+      self.log(`已获得的豆豆: ${totalBeans}`);
       for (const {count} of beanGradation) {
         if (totalBeans >= count) {
           await api.doFormBody('crazyJoy_user_applyJdBeanPaid', {'paramData': {'bean': count}});
