@@ -8,19 +8,24 @@ class JoyRedeem extends Joy {
   static times = 1;
   static repeatDoTask = false;
   static concurrent = true;
-  static concurrentOnceDelay = 0;
 
   static async doMain(api) {
     const self = this;
 
-    const petCoin = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(data => _.property('beanConfigs.petCoin')(data));
-    const beanInfos = await getBeanInfos();
-    await sleepTime(24);
+    const petCoin = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(data => _.property('data.petCoin')(data));
+    const beanHours = [24, 8, 16];
+    const targetHour = beanHours[0];
+    const beanInfos = await getBeanInfos(targetHour);
+    if (beanInfos.find(o => o['giftValue'] === 500).salePrice > petCoin) {
+      return self.log('当前积分不足, 无法兑换');
+    }
+    await sleepTime(targetHour);
     await handleExchange();
 
-    async function getBeanInfos() {
+    async function getBeanInfos(targetHour) {
+      if (targetHour === 24) targetHour = 0;
       const beanConfigs = await api.doUrl('https://jdjoy.jd.com/common/gift/getBeanConfigs', {method: 'GET'}).then(result => result['beanConfigs']) || {};
-      let beanInfos = beanConfigs['beanConfigs0'] || [{
+      return beanConfigs[`beanConfigs${targetHour}`] || [{
         'id': 339,
         'giftId': 8,
         'giftName': '500京豆',
@@ -28,22 +33,10 @@ class JoyRedeem extends Joy {
         'giftValue': 500.0000,
         'salePrice': 8000,
       }];
-      /*if (0 <= nowHour && nowHour < 8) {
-        beanInfos = beanConfigs['beanConfigs0'];
-      }
-      if (nowHour >= 8 && nowHour < 16) {
-        beanInfos = beanConfigs['beanConfigs8'];
-      }
-      if (nowHour >= 16 && nowHour <= 23) {
-        beanInfos = beanConfigs['beanConfigs16'];
-      }*/
-      return beanInfos;
     }
 
     // 兑换豆豆
     async function handleExchange() {
-      const nowHour = self.getNowHour();
-      if (nowHour !== 23) return;
       if (!beanInfos) return;
       for (const beanInfo of beanInfos) {
         await doExChange(beanInfo);
