@@ -135,6 +135,7 @@ class KoiRedPacket extends Template {
       const redPacketId = await api.doFormBody('h5activityIndex').then(data => _.property('data.result.redpacketInfo.id')(data));
       self.shareCodeTaskList[index] = _.assign(self.shareCodeTaskList[index] || {}, {redPacketId});
     }
+    if (self.getNowHour() === 0) return; // 按需进行
     const shareCode = self.shareCodeTaskList[self.currentCookieTimes];
     if (!shareCode) return;
     const {redPacketId, isDone} = shareCode;
