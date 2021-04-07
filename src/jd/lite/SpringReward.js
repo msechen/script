@@ -12,6 +12,7 @@ class SpringReward extends Template {
   static needInSpeedApp = true;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
+  static times = 1;
 
   static isSuccess(data) {
     return data['code'] === 0;
@@ -31,23 +32,22 @@ class SpringReward extends Template {
     },
   };
 
-  static async doMain(api) {
+  static async doMain(api, shareCodes) {
     const self = this;
 
     await api.doGet('spring_reward_query').then(async data => {
       if (!self.isSuccess(data)) return;
-      let {markedPin, remainChance} = data.data;
-      self.updateShareCodeFn(markedPin);
+      let {remainChance} = data.data;
 
       await sleep(2);
-      const inviter = self.getShareCodeFn()[0];
+      const inviter = shareCodes[0] || 'CeymEOdTGnhBzMjmwC12IA';
       // 循环最大次数
       let maxTimes = 10;
       while (remainChance > 0) {
         await api.doGetBody('spring_reward_receive', {inviter}).then(data => {
           if (!self.isSuccess(data)) return self.log(data.errMsg);
           remainChance--;
-          const {prizeDesc} = _.property('data.received')(data)
+          const {prizeDesc} = _.property('data.received')(data);
           self.log(`获得: ${prizeDesc}`);
         });
         await sleep(2);
@@ -59,8 +59,8 @@ class SpringReward extends Template {
 
     async function handleCash() {
       await api.doGetBody('spring_reward_list', {
-        "pageNum": 1,
-        "pageSize": 10,
+        'pageNum': 1,
+        'pageSize': 10,
       }).then(async data => {
         const items = _.property('data.items')(data) || [];
         if (items.some(o => o['state'] === 1)) return;
@@ -75,10 +75,10 @@ class SpringReward extends Template {
         return api.commonDo({
           form: {
             body: {
-              "businessSource": "SPRING_FESTIVAL_RED_ENVELOPE",
-              "base": {
+              'businessSource': 'SPRING_FESTIVAL_RED_ENVELOPE',
+              'base': {
                 id, poolBaseId, prizeGroupId, prizeBaseId, prizeType,
-                "business": null,
+                'business': null,
               },
               linkId,
             },
@@ -89,7 +89,7 @@ class SpringReward extends Template {
           headers: api.options.headers,
         }).then(data => {
           self.log(data.data.message);
-        })
+        });
       }
     }
   }
