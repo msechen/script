@@ -24,6 +24,7 @@ const envSecrets = _.fromPairs(_.flatten([
   ['SEVER_CHAN_KEY', 1],
   ['MAILER_TRANSPORTER_OPTION', 1],
   ['JD_FRUIT_WATER_TIMES', 1],
+  ['JD_LIVE_RED_ENVELOPE_RAIN_STOP', 1],
 
   'JD_CRAZY_JOY_STOP_UPGRADE',
 

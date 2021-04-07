@@ -3,6 +3,7 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON, singleRun, parallelRun} = require('../../lib/common');
 const {sleepTime} = require('../../lib/cron');
 const {getMoment} = require('../../lib/moment');
+const {getEnv} = require('../../lib/env');
 
 const {live} = require('../../../charles/api');
 
@@ -16,14 +17,28 @@ class LiveRedEnvelopeRain extends Template {
   static async doMain(api) {
     const self = this;
 
-    await parallelRun({list: live.liveActivityV946, runFn: getActId});
+    if (getEnv('JD_LIVE_RED_ENVELOPE_RAIN_STOP')) return self.log('停止执行脚本');
 
-    async function getActId(form) {
+    // 多次轮询不定时已有数据是否有红包雨
+    await parallelRun({
+      list: live.liveActivityV946,
+      runFn: handleRedRain,
+      onceDelaySecond: 2,
+    });
+
+    async function handleRedRain(form) {
       const liveId = JSON.parse(form.body).liveId;
       return api.doForm('liveActivityV946', form).then(async data => {
         // writeFileJSON(data, 'liveActivityV946.json', __dirname);
         const targetIconArea = (_.property('data.iconArea')(data) || []).find(o => o['type'].match('red_packege_rain')) || {};
-        if (_.isEmpty(targetIconArea)) return self.log(`${liveId} 没有红包雨`);
+        if (_.isEmpty(targetIconArea)) {
+          self.log(`${liveId} 没有红包雨`);
+          // 2点前终止
+          if (self.getNowHour() <= 2) return;
+          // 等待30分钟后继续执行
+          await sleep(30 * 60);
+          return handleRedRain(form);
+        }
         const {startTime, endTime, data: {activityUrl}} = targetIconArea;
         const targetMoment = getMoment(startTime);
         const actId = new URL(activityUrl).searchParams.get('id');
@@ -32,7 +47,7 @@ class LiveRedEnvelopeRain extends Template {
         await noahRedRainLottery(actId);
         const endMoment = getMoment(endTime);
         await sleepTime([endMoment.hour(), endMoment.minute(), 10]);
-        return getActId(form);
+        return handleRedRain(form);
       });
     }
 

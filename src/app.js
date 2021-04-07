@@ -52,6 +52,7 @@ const JxHongBao = require('./jd/family/jxHongBao');
 const WomenBlindBox = require('./jd/family/WomenBlindBox');
 const LuckyToHitTheGoldenEgg = require('./jd/family/LuckyToHitTheGoldenEgg');
 const Live = require('./jd/live');
+const LiveRedEnvelopeRain = require('./jd/live/RedEnvelopeRain');
 const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = TemporarilyOffline || require('./jd/globalMart/challenge');
 const Singjd = require('./jd/wq/singjd');
@@ -252,6 +253,7 @@ async function main() {
       valid: 18,
       run: async () => {
         await doCron(Joy);
+        await doRun(LiveRedEnvelopeRain);
       },
     },
     {
