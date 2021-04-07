@@ -60,7 +60,8 @@ const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 
 /* 极速版 */
-const SpringReward = require('./jd/speed/SpringReward');
+const LiteSign = require('./jd/lite/Sign');
+const SpringReward = require('./jd/lite/SpringReward');
 
 const nowHour = getMoment().hour();
 const nowDate = getNowDate();
