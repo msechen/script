@@ -1,19 +1,24 @@
 const fs = require('fs');
 const path = require('path');
+const exec = require('child_process').execSync;
 
 const _ = require('lodash');
 
 function extractForm(sessions, keys) {
   const reqBody = sessions
-    .map(o => o.request.body.text)
-    .map(text => text.split('&')
-      .filter(str => keys.includes(str.split('=')[0])));
+  .map(o => o.request.body.text)
+  .map(text => text.split('&')
+  .filter(str => keys.includes(str.split('=')[0])));
   return reqBody.map(array => {
     // ['key=value']
     return _.fromPairs(array.map(str => str.split('=').map(decodeURIComponent)));
   });
   ;
 }
+
+const gitIgnoreFiles = [
+  'stall_collectScore',
+];
 
 const CHLSJ_PATH = path.resolve(__dirname, './chlsj');
 const FORM_PATH = path.resolve(__dirname, './form');
@@ -92,9 +97,11 @@ const formatForm = (key, object) => {
     }
   }
   object[key] = result;
-  if (!fs.existsSync(jsonPath)) {
-    fs.writeFileSync(jsonPath, JSON.stringify(result), {encoding: 'utf-8'});
-  }
+
+  fs.writeFileSync(jsonPath, JSON.stringify(result), {encoding: 'utf-8'});
+  if (gitIgnoreFiles.some(functionId => jsonPath.match(functionId))) return;
+  // 新增的json文件需要进行提交
+  exec(`git add ${jsonPath}`);
 };
 
 function init() {
