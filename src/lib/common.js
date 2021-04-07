@@ -132,7 +132,7 @@ async function singleRun(target, method = 'start', runFn = null) {
   let promise;
 
   for (const m of _.concat(method)) {
-    if (runFn || process.argv[2] === m) {
+    if (process.argv[2] === m) {
       process.env = getLocalEnvs();
       promise = await (runFn ? runFn(m) : target[m](getCookieData()));
     }
