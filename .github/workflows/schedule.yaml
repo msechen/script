@@ -32,7 +32,6 @@ jobs:
           SEVER_CHAN_KEY: '${{ secrets.SEVER_CHAN_KEY }}'
           MAILER_TRANSPORTER_OPTION: '${{ secrets.MAILER_TRANSPORTER_OPTION }}'
           JD_FRUIT_WATER_TIMES: '${{ secrets.JD_FRUIT_WATER_TIMES }}'
-          JD_SPEED_SIGN_ENABLE: '${{ secrets.JD_SPEED_SIGN_ENABLE }}'
           JD_COOKIE: '${{ secrets.JD_COOKIE }}'
           JD_COOKIE_1: '${{ secrets.JD_COOKIE_1 }}'
           JD_COOKIE_2: '${{ secrets.JD_COOKIE_2 }}'

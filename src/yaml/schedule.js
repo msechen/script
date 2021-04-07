@@ -24,7 +24,6 @@ const envSecrets = _.fromPairs(_.flatten([
   ['SEVER_CHAN_KEY', 1],
   ['MAILER_TRANSPORTER_OPTION', 1],
   ['JD_FRUIT_WATER_TIMES', 1],
-  ['JD_SPEED_SIGN_ENABLE', 1],
 
   'JD_COOKIE',
   'JD_EARN_COOKIE',

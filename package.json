@@ -25,7 +25,6 @@
     "build:yaml": "node src/yaml/schedule.js",
     "dev:updateShopToken": "node src/jd/sign/updateShopToken.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",
-    "start:Sign": "node src/jd/sign/index.js start",
     "start:ShopSign": "node src/jd/sign/shop.js start",
     "start:BeautyMakeup": "node src/jd/beautyMakeup/index.js start",
     "start:EarnJingDou": "node src/jd/earnJingDou/index.js start",
