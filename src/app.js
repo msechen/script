@@ -137,6 +137,7 @@ async function main() {
         await doRun(GlobalChallenge);
         await doRun(JxHongBao);
         await doRun(VipClubShake);
+        await doRun(LiteSign);
         await doRun(SpringReward);
         // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
