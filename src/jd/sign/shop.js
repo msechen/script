@@ -36,19 +36,22 @@ class SignShop extends Template {
     let shopInfos = [
       'F2FA870C86F2BDC5B11B92A7DC671256',
       'BF3246DD46CABE7727D9EEA19E5D0C8A',
-      '1E0157E4D0EB41797850D7CF6A6DE3F9',
       '523DC3D69BA2DB1167F08A561EA37261',
       '8C61C77A44ECE086D5E51249B6CBF01D',
-      '82413ED2A7F3DF4300EBF69567E760A1',
-      'EC5D0BDCAF94FF532391558CFCFEAA5B',
       'A8E250725F8C34653D0D683F2FFC9C65',
       'A35E22B570667CF3BC3C5B227064FA2A',
       '81A2FD6866BD26CB65101E930F1972C3',
-      '49C1E8C62E5159A859FF46A5C2278C7A',
       '81DB18205052BD19A97CF11D07F09A37',
       'E68FB6554D3186F43B85D677267797CC',
       'AE6A399CC6542115869E4BC9929D050E',
       'B345197F96563C33DB1D12FD6E83712F',
+      '16F81A9A52EF196B0EA7229473A45F6C',
+      '169B172809C68DDC391D1DB9F851FA80',
+      '68CF1A5C879843340BC0032D498BBB04',
+      '809A4ED895AEAC760E64F13C73C455CA',
+      '8B46713D671C4D065AA0F8DA2B238412',
+      'D6F6398AB51287CA76DCD6555D86EF9A',
+      'F9B9E4389C0273A22B58EF07CD0A48D0',
       // 脚本新增插入位置
     ];
 
@@ -100,7 +103,8 @@ class SignShop extends Template {
       const currentSignDays = await api.doGetBody('interact_center_shopSign_getSignRecord', {token}).then(data => _.property('data.days')(data));
       return getActivityInfo(token).then(data => {
         if (!self.isSuccess(data)) return;
-        const allPrizeRuleList = _.concat(_.property('data.prizeRuleList')(data), _.property('data.continuePrizeRuleList')(data));
+        // TODO 待修正每日签到是否有获得的逻辑
+        const allPrizeRuleList = _.concat(/*_.property('data.prizeRuleList')(data), */_.property('data.continuePrizeRuleList')(data));
         const prizeRules = allPrizeRuleList.map(({prizeList, days, userPrizeRuleStatus}) => {
           if (userPrizeRuleStatus === 2) return '';
           return _.filter(prizeList.map(({type, discount}) => {
