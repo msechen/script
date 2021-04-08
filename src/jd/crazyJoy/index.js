@@ -129,9 +129,8 @@ class CrazyJoy extends Template {
 
     // 升级 joy
     async function upgradeJoy() {
-      if (self.getCurrentEnv('JD_CRAZY_JOY_STOP_UPGRADE')) return;
-
       await autoMerge();
+      if (self.getCurrentEnv('JD_CRAZY_JOY_STOP_UPGRADE')) return;
       let joyIds = await getJoyIds();
       if (_.isEmpty(joyIds)) return;
 
@@ -194,6 +193,7 @@ class CrazyJoy extends Template {
           merged = true;
           // 合成到左边
           await mergeJoy(targetBoxIndex, fromBoxIndex);
+          await sleep(2);
           joyIds[fromBoxIndex]++;
           joyIds[targetBoxIndex] = 0;
         }
