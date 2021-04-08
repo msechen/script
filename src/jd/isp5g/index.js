@@ -73,7 +73,7 @@ class Isp5G extends Template {
                 return api.doGetPath('active/taskCoin', {type}).then(data => {
                   const beanNum = _.property('data.jbeanNum')(data);
                   if (!beanNum) return;
-                  self.log(`获得 ${beanNum} 豆豆`);
+                  api.log(`获得 ${beanNum} 豆豆`);
                 });
               },
               maxTimes: list.length, waitDuration: 10,
@@ -88,7 +88,7 @@ class Isp5G extends Template {
         name: 'prize/lottery',
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.log(_.property('data.name')(data));
+          api.log(_.property('data.name')(data));
         },
         repeat: true,
       },

@@ -34,19 +34,19 @@ class ShopGift extends Template {
 
     async function getGif(shopId) {
       const venderId = await getVenderId(shopId);
-      if (!venderId) return self.log(`${shopId} 不存在`);
+      if (!venderId) return api.log(`${shopId} 不存在`);
       const {giftId, activeId, jingBean} = await doPath('QueryShopActive', {venderId}).then(data => {
         return (data['gift'] || []).find(o => o['giftType'] === 0 && o['state'] === 1) || {};
       });
 
-      if (!giftId) return self.log(`${shopId} 没有关注礼包`);
-      if (!jingBean) return self.log(`${shopId} 没有豆豆礼包`);
+      if (!giftId) return api.log(`${shopId} 没有关注礼包`);
+      if (!jingBean) return api.log(`${shopId} 没有豆豆礼包`);
 
       await api.delFavShop(shopId);
       await doPath('addfavgiftshop', {venderId});
       await doPath('GiveShopGift', {venderId, giftId, activeId}).then(data => {
-        if (data['retCode'] !== 0) return self.log(`${shopId} errMsg: ${data['errMsg']}`);
-        self.log(`${shopId} 获取到豆豆: ${jingBean['sendCount']}`);
+        if (data['retCode'] !== 0) return api.log(`${shopId} errMsg: ${data['errMsg']}`);
+        api.log(`${shopId} 获取到豆豆: ${jingBean['sendCount']}`);
       });
       await api.delFavShop(shopId);
     }

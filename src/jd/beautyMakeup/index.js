@@ -195,7 +195,7 @@ class BeautyMakeup extends Template {
         await handleDoProduceTask();
       }
 
-      self.log(`金币为: ${userData['coins']}`);
+      api.log(`金币为: ${userData['coins']}`);
     }
 
     async function initToken() {
@@ -222,14 +222,14 @@ class BeautyMakeup extends Template {
     async function onMessage(result) {
       if (result === 'pong') return;
       const {data, code, msg, action} = JSON.parse(result) || {};
-      if (code !== 200) return self.log(`${action}请求失败, msg: ${msg}`);
+      if (code !== 200) return api.log(`${action}请求失败, msg: ${msg}`);
 
       const allActions = {
         async check_up(data) {
           checkUpData = data;
         },
         async check_up_receive(data) {
-          self.log('三餐签到成功');
+          api.log('三餐签到成功');
         },
         async get_user(data) {
           userData = data;
@@ -266,7 +266,7 @@ class BeautyMakeup extends Template {
           sellProductData = data;
         },
         async complete_task(data) {
-          self.log('售卖任务完成一次');
+          api.log('售卖任务完成一次');
         },
         async product_lists(data) {
           productList = data;
@@ -382,8 +382,7 @@ class BeautyMakeup extends Template {
       const maxNum = getMaxProductNum(1, product['product_materials'], materials) || 0;
       if (id) {
         if (lackNum && (maxNum < lackNum)) {
-          // TODO 生产材料
-          self.log(`材料不足, 不可以生产${product['name']}`);
+          api.log(`材料不足, 不可以生产${product['name']}`);
           needSellProductId = id;
           sellProductMaxNum = maxNum;
           return false;

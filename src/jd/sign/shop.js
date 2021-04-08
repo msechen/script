@@ -86,7 +86,7 @@ class SignShop extends Template {
         const token = shopInfo[0];
         await getActivityInfo(token).then(async data => {
           if (!self.isSuccess(data)) {
-            self.log(`${token}: 402 已经失效`);
+            api.log(`${token}: 402 已经失效`);
             return shopInfo.pop();
           }
           const notSign = await handleListShopInfo(token);
@@ -114,7 +114,7 @@ class SignShop extends Template {
         }).filter(str => str);
         const notPrize = _.isEmpty(prizeRules);
         const prizeRuleMsg = notPrize ? '' : `奖品: ${prizeRules.join(', ')}`;
-        self.log(_.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', '));
+        api.log(_.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', '));
         return notPrize;
       });
     }
@@ -126,10 +126,10 @@ class SignShop extends Template {
       // 该逻辑不适用于0点签到, 仅做补缺
       return getActivityInfo(token).then(data => {
         if (!self.isSuccess(data)) {
-          return self.log(`${token}: ${data.msg}`);
+          return api.log(`${token}: ${data.msg}`);
         }
         if (_.property('data.userActivityStatus')(data) === 2) {
-          return self.log(`${token}: 已经签到`);
+          return api.log(`${token}: 已经签到`);
         }
         return signCollectGift(data.data.venderId, data.data.id, token);
       });
@@ -152,7 +152,7 @@ class SignShop extends Template {
         } else {
           allMsg.push(data.msg);
         }
-        self.log(allMsg.join(': '));
+        api.log(allMsg.join(': '));
         return data;
       });
     }

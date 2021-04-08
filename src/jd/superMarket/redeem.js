@@ -42,8 +42,8 @@ class SuperMarketRedeem extends SuperMarket {
       async function obtainPrize(prize) {
         const {prizeId, title} = prize;
         return api.doFormBody('smtg_obtainPrize', {prizeId}).then(async data => {
-          if (!self.isSuccess(data)) return self.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
-          self.log(`${title}兑换成功一次`);
+          if (!self.isSuccess(data)) return api.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
+          api.log(`${title}兑换成功一次`);
         });
       }
     }

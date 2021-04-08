@@ -17,7 +17,7 @@ class LiveRedEnvelopeRain extends Template {
   static async doMain(api) {
     const self = this;
 
-    if (getEnv('JD_LIVE_RED_ENVELOPE_RAIN_STOP')) return self.log('停止执行脚本');
+    if (getEnv('JD_LIVE_RED_ENVELOPE_RAIN_STOP')) return api.log('停止执行脚本');
 
     // 多次轮询不定时已有数据是否有红包雨
     await parallelRun({
@@ -32,7 +32,7 @@ class LiveRedEnvelopeRain extends Template {
         // writeFileJSON(data, 'liveActivityV946.json', __dirname);
         const targetIconArea = (_.property('data.iconArea')(data) || []).find(o => o['type'].match('red_packege_rain')) || {};
         if (_.isEmpty(targetIconArea)) {
-          self.log(`${liveId} 没有红包雨`);
+          api.log(`${liveId} 没有红包雨`);
           // 2点前终止
           if (self.getNowHour() <= 2) return;
           // 等待30分钟后继续执行
@@ -42,7 +42,7 @@ class LiveRedEnvelopeRain extends Template {
         const {startTime, endTime, data: {activityUrl}} = targetIconArea;
         const targetMoment = getMoment(startTime);
         const actId = new URL(activityUrl).searchParams.get('id');
-        self.log(`${liveId} 下一场红包雨: ${targetMoment.format('YYYY-MM-DD HH:mm:ss')}`);
+        api.log(`${liveId} 下一场红包雨: ${targetMoment.format('YYYY-MM-DD HH:mm:ss')}`);
         await sleepTime([targetMoment.hour(), targetMoment.minute(), 10]);
         await noahRedRainLottery(actId);
         const endMoment = getMoment(endTime);
@@ -57,12 +57,12 @@ class LiveRedEnvelopeRain extends Template {
           const lotteryResult = data.lotteryResult;
           _.concat(lotteryResult.couponList, lotteryResult.jPeasList, lotteryResult.financeList).forEach(o => {
             if (!o) return;
-            self.log(`获取到${o.prizeName}: ${o.quantity}`);
+            api.log(`获取到${o.prizeName}: ${o.quantity}`);
           });
           await sleep(10);
           return noahRedRainLottery(actId);
         } else {
-          self.log(data.msg);
+          api.log(data.msg);
         }
       });
     }

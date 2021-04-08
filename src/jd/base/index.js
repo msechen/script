@@ -67,9 +67,9 @@ class Base {
   }
 
   // helpers
-  static log(output) {
+  static log(output, currentCookieTimes = this.currentCookieTimes) {
     // 应该输出 Cookie Name TODO 格式化
-    output = `[${this.currentCookieTimes}] ${output}`;
+    output = `[${currentCookieTimes}] ${output}`;
     printLog(this.scriptNameDesc || this.scriptName, void 0, output);
   }
 
@@ -221,9 +221,9 @@ async function loopInit(data, isCron) {
   }
 
   async function _do(cookie, shareCodes) {
+    self.currentCookieTimes = currentCookieTimes;
     await self.beforeInit();
     await init(cookie, self.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
-    self.currentCookieTimes++;
   }
 
   async function init(cookie, shareCodes, isCron = false) {
@@ -231,6 +231,7 @@ async function loopInit(data, isCron) {
     // TODO 并发的情况下 api 的赋值不可用
     self.api = api;
     api.currentCookieTimes = currentCookieTimes++;
+    api.log = output => self.log(output, api.currentCookieTimes);
     if (isCron) {
       await self.doCron(api, shareCodes);
     } else {

@@ -62,9 +62,9 @@ class Discover extends Template {
       doRedeem: {
         name: 'discReceiveTaskAward',
         paramFn: () => [{}, discover.discReceiveTaskAward.find(o => JSON.parse(o.body).taskId === targetTaskId)],
-        successFn: data => {
+        async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.log(data.message);
+          api.log(data.message);
         },
         repeat: false,
       },

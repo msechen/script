@@ -18,7 +18,7 @@ class JoyRedeem extends Joy {
     const targetHour = beanHours[0];
     const beanInfos = await getBeanInfos(targetHour);
     if (beanInfos.find(o => o['giftValue'] === 500).salePrice > petCoin) {
-      return self.log('当前积分不足, 无法兑换');
+      return api.log('当前积分不足, 无法兑换');
     }
     await sleepTime(targetHour);
     await handleExchange();
@@ -79,7 +79,7 @@ class JoyRedeem extends Joy {
         body,
         qs: encrypt(body, true),
       }).then(data => {
-        self.log(`${giftName} 兑换结果: ${data['errorCode']}`);
+        api.log(`${giftName} 兑换结果: ${data['errorCode']}`);
       });
     }
   }
