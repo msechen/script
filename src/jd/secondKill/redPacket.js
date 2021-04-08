@@ -84,7 +84,7 @@ class SecondKillRedPacket extends Template {
           // 需要兑换的红包
           const exchangeRedPacket = 0;
           const assignmentPointsNum = exchangeRedPacket * 1000;
-          if (!assignmentPoints || (assignmentPointsNum > assignmentPoints)) return;
+          if (!assignmentPoints || assignmentPointsNum > assignmentPoints || exchangeRedPacket === 0) return;
           await api.doFormBody('assignmentPointsTransferRedPackage', {assignmentPointsNum}, {appid: 'jwsp'}).then(data => {
             if (!self.isSuccess(data)) return self.log(JSON.stringify(data));
             self.log(`兑换红包成功: ${_.property('result.discountTotal')(data)}`);
