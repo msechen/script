@@ -3,7 +3,8 @@ const path = require('path');
 const _ = require('lodash');
 
 const {getLogFile, sleep, parallelRun} = require('./lib/common');
-const {getMoment, getNowDate} = require('./lib/moment');
+const {getNowDate, getNowHour} = require('./lib/moment');
+const {sleepTime} = require('./lib/cron');
 const {getCookieData} = require('./lib/env');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
@@ -64,7 +65,7 @@ const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const LiteSign = require('./jd/lite/Sign');
 const SpringReward = require('./jd/lite/SpringReward');
 
-const nowHour = getMoment().hour();
+const nowHour = getNowHour();
 const nowDate = getNowDate();
 const errorOutput = [];
 
@@ -180,7 +181,6 @@ async function main() {
         await doRun(PetRemote);
         await doCron(TurnTableFarm);
         await doRun(Joy);
-        await doCron(Joy);
       },
     },
     {
@@ -201,7 +201,9 @@ async function main() {
         await doRun(Family);
         await doRun(Sign);
         await doRun(GlobalChallenge);
-        // await doRun(HrSign, getCookieData(void 0, 'JD_EARN_COOKIE'));
+        // 9点后再执行
+        await sleepTime([9, 10]);
+        await doRun(Joy);
       },
     },
     {
@@ -222,7 +224,7 @@ async function main() {
         await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
-        await doCron(Joy);
+        await doRun(Joy);
       },
     },
     {
@@ -233,14 +235,12 @@ async function main() {
     {
       valid: 15,
       run: async () => {
-        await doCron(Joy);
         await doRun(CrazyJoy);
       },
     },
     {
       valid: 16,
       run: async () => {
-        await doCron(Joy);
         await doRun(PlantBean, getCookieData());
       },
     },
@@ -253,7 +253,7 @@ async function main() {
     {
       valid: 18,
       run: async () => {
-        await doCron(Joy);
+        await doRun(Joy);
         await doRun(LiveRedEnvelopeRain);
       },
     },
@@ -272,6 +272,7 @@ async function main() {
         await doCron(Pet);
         await doRun(Necklace);
         await doRun(KoiRedPacket);
+        await doRun(Joy);
       },
     },
     {
@@ -280,7 +281,6 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
-        await doCron(Joy);
 
         // 24点后定时启动
         await multipleRun([
@@ -313,6 +313,10 @@ async function main() {
 
     if (nowHour % 2 === 0) {
       await doCron(PlantBean);
+    }
+
+    if (nowHour % 5 === 0) {
+      await doCron(Joy);
     }
   }
 }

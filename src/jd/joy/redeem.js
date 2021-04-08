@@ -1,6 +1,7 @@
 const Joy = require('./index');
 const {sleepTime} = require('../../lib/cron');
 const {singleRun} = require('../../lib/common');
+const {encrypt} = require('./api');
 
 class JoyRedeem extends Joy {
   static scriptName = 'JoyRedeem';
@@ -76,7 +77,7 @@ class JoyRedeem extends Joy {
           contentType: 'application/json',
         },
         body,
-        qs: self.sign(body, 'application/json'),
+        qs: encrypt(body, true),
       }).then(data => {
         self.log(`${giftName} 兑换结果: ${data['errorCode']}`);
       });
