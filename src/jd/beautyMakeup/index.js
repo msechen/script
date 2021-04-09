@@ -48,6 +48,7 @@ class BeautyMakeup extends Template {
     let packageData = {};
     // 售卖任务信息
     let sellProductData = {};
+    let autoSellData = {};
     const productMaxProduceSameTimes = 4;
 
     await initToken();
@@ -66,6 +67,8 @@ class BeautyMakeup extends Template {
           'args': {'action_type': 1, 'channel': 2, 'source_app': 2},
         },
       },
+      // 指引
+      add_user_guide: {'msg': {'type': 'action', 'args': {'position': 1}, 'action': 'add_user_guide'}},
       //获取任务进度 请求
       check_up: {'msg': {'type': 'action', 'args': {}, 'action': 'check_up'}},
       //获取店铺及商品信息 请求
@@ -102,25 +105,31 @@ class BeautyMakeup extends Template {
       //提交每日问答 请求
       submit_answer: {'msg': {'type': 'action', 'args': {'commit': {}, 'correct': 3}, 'action': 'submit_answer'}},
       //查询生产坑位信息 请求
-      produce_position_info: {'msg': {'type': 'action', 'args': {'position': ''}, 'action': 'produce_position_info'}},
+      produce_position_info_v2: {
+        'msg': {
+          'type': 'action',
+          'args': {'position': ''},
+          'action': 'produce_position_info_v2',
+        },
+      },
       //新手任务 请求
       newcomer_update: {'msg': {'type': 'action', 'args': {}, 'action': 'newcomer_update'}},
       //获取生产材料列表 请求
       get_produce_material: {'msg': {'type': 'action', 'args': {}, 'action': 'get_produce_material'}},
       //收取生产材料 请求
-      material_fetch: {
+      material_fetch_v2: {
         'msg': {
           'type': 'action',
           'args': {'position': '', 'replace_material': false},
-          'action': 'material_fetch',
+          'action': 'material_fetch_v2',
         },
       },
       //生产材料 请求
-      material_produce: {
+      material_produce_v2: {
         'msg': {
           'type': 'action',
           'args': {'position': '', 'material_id': 0},
-          'action': 'material_produce',
+          'action': 'material_produce_v2',
         },
       },
       // 获取仓库中的材料
@@ -136,13 +145,17 @@ class BeautyMakeup extends Template {
       //研发产品 请求
       product_produce: {'msg': {'type': 'action', 'args': {'product_id': 0, 'amount': 0}, 'action': 'product_produce'}},
       //收取研发产品 请求
-      product_fetch: {'msg': {'type': 'action', 'args': {'log_id': 0}, 'action': 'product_fetch'}},
+      new_product_fetch: {'msg': {'type': 'action', 'args': {'log_id': 0}, 'action': 'new_product_fetch'}},
       //三餐签到
       check_up_receive: {'msg': {'type': 'action', 'args': {'check_up_id': 0}, 'action': 'check_up_receive'}},
       //获取福利列表 请求
       get_benefit: {'msg': {'type': 'action', 'args': {}, 'action': 'get_benefit'}},
       //兑换奖品 请求
       to_exchange: {'msg': {'type': 'action', 'args': {'benefit_id': 0}, 'action': 'to_exchange'}},
+      // 自动售卖
+      auto_sell_index: {'msg': {'type': 'action', 'args': {}, 'action': 'auto_sell_index'}},
+      // 收获金币
+      collect_coins: {'msg': {'type': 'action', 'args': {}, 'action': 'collect_coins'}},
     };
     const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`, {
       headers: {
@@ -174,6 +187,9 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.product_lists);
       await sendMessage(wsMsg.get_package);
 
+      // 指引
+      await handleGuide();
+
       // 做任务
       await handleAnswer();
       await handleCheckUpReceive();
@@ -184,7 +200,7 @@ class BeautyMakeup extends Template {
       // 生产
       await handleReceiveMaterial();
       await handleReceiveProduct();
-      await handleSellProduct();
+      await handleSellProductV2();
       await handleProduceMaterial();
 
       // 兑换
@@ -248,11 +264,11 @@ class BeautyMakeup extends Template {
         async get_produce_material(data) {
           produceMaterialData = data;
         },
-        async produce_position_info(data) {
+        async produce_position_info_v2(data) {
           const position = data['position'];
           producePositionData[position] = data;
         },
-        async material_fetch(data) {
+        async material_fetch_v2(data) {
           const position = data['position'];
           producePositionData[position] = data;
         },
@@ -276,6 +292,9 @@ class BeautyMakeup extends Template {
         },
         async get_benefit(data) {
           benefitData = data;
+        },
+        async auto_sell_index(data) {
+          autoSellData = data;
         },
       };
       // writeFileJSON(data, `${action}.json`, __dirname);
@@ -329,6 +348,11 @@ class BeautyMakeup extends Template {
       }
     }
 
+    async function handleGuide() {
+      // TODO 完善该逻辑
+      if (userData.newcomer !== 1) return;
+    }
+
     // 每日问答
     async function handleAnswer() {
       if (checkUpData['today_answered']) return;
@@ -339,8 +363,8 @@ class BeautyMakeup extends Template {
 
     async function updateMaterialPositionInfo() {
       for (const position of _.keys(producePositionData)) {
-        wsMsg.produce_position_info.msg.args.position = position;
-        await sendMessage(wsMsg.produce_position_info);
+        wsMsg.produce_position_info_v2.msg.args.position = position;
+        await sendMessage(wsMsg.produce_position_info_v2);
       }
     }
 
@@ -365,15 +389,15 @@ class BeautyMakeup extends Template {
       }
 
       async function handleProduce(position, materialId) {
-        wsMsg.material_produce.msg.args.position = position;
-        wsMsg.material_produce.msg.args.material_id = materialId;
-        await sendMessage(wsMsg.material_produce);
+        wsMsg.material_produce_v2.msg.args.position = position;
+        wsMsg.material_produce_v2.msg.args.material_id = materialId;
+        await sendMessage(wsMsg.material_produce_v2);
       }
     }
 
     async function handleProduceProduct(id, lackNum) {
       await sendMessage(wsMsg.get_package);
-      const limitNum = lackNum || 10;
+      const limitNum = lackNum || 20;
       const product = productList.find(o => o['id'] === id);
       if (!product) return false;
       const materials = product['product_materials'].map(v => {
@@ -381,6 +405,11 @@ class BeautyMakeup extends Template {
       });
       const maxNum = getMaxProductNum(1, product['product_materials'], materials) || 0;
       if (id) {
+        if (maxNum === 0) {
+          // 如果当前产品不可生产, 就生产下一个
+          const currentIndex = productList.findIndex(o => o['id'] === id);
+          return handleProduceProduct(productList[currentIndex + 1].id, lackNum);
+        }
         if (lackNum && (maxNum < lackNum)) {
           api.log(`材料不足, 不可以生产${product['name']}`);
           needSellProductId = id;
@@ -433,8 +462,8 @@ class BeautyMakeup extends Template {
       await updateMaterialPositionInfo();
       for (const {position, produce_num} of _.values(producePositionData)) {
         if (produce_num === 0) continue;
-        wsMsg.material_fetch.msg.args.position = position;
-        await sendMessage(wsMsg.material_fetch);
+        wsMsg.material_fetch_v2.msg.args.position = position;
+        await sendMessage(wsMsg.material_fetch_v2);
       }
     }
 
@@ -445,8 +474,8 @@ class BeautyMakeup extends Template {
       for (const {id, expires} of _.concat(list)) {
         if (expires !== 0) continue;
         checkUpData['produce'] = 1;
-        wsMsg.product_fetch.msg.args.log_id = id;
-        await sendMessage(wsMsg.product_fetch);
+        wsMsg.new_product_fetch.msg.args.log_id = id;
+        await sendMessage(wsMsg.new_product_fetch);
       }
     }
 
@@ -462,6 +491,17 @@ class BeautyMakeup extends Template {
       wsMsg.complete_task.msg.args.task_id = sellProductData['id'];
       await sendMessage(wsMsg.complete_task);
       await handleSellProduct();
+    }
+
+    async function handleSellProductV2() {
+      await handleProduceProduct(needSellProductId = productList[0].id);
+      await sendMessage(wsMsg.auto_sell_index);
+      await sleep(autoSellData['next_collect_time']);
+      await handleCollectSellProduct();
+    }
+
+    async function handleCollectSellProduct() {
+      await sendMessage(wsMsg.collect_coins);
     }
 
     // 完成产品研发任务
