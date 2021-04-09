@@ -19,36 +19,49 @@ class LiveRedEnvelopeRain extends Template {
 
     if (getEnv('JD_LIVE_RED_ENVELOPE_RAIN_STOP')) return api.log('停止执行脚本');
 
-    // 多次轮询不定时已有数据是否有红包雨
-    await parallelRun({
-      list: live.liveActivityV946,
-      runFn: handleRedRain,
-      onceDelaySecond: 2,
-    });
+    await handleRain();
 
-    async function handleRedRain(form) {
-      const liveId = JSON.parse(form.body).liveId;
-      return api.doForm('liveActivityV946', form).then(async data => {
-        // writeFileJSON(data, 'liveActivityV946.json', __dirname);
-        const targetIconArea = (_.property('data.iconArea')(data) || []).find(o => o['type'].match('red_packege_rain')) || {};
-        if (_.isEmpty(targetIconArea)) {
-          api.log(`${liveId} 没有红包雨`);
-          // 2点前终止
-          if (self.getNowHour() <= 2) return;
-          // 等待30分钟后继续执行
-          await sleep(30 * 60);
-          return handleRedRain(form);
-        }
-        const {startTime, endTime, data: {activityUrl}} = targetIconArea;
-        const targetMoment = getMoment(startTime);
-        const actId = new URL(activityUrl).searchParams.get('id');
-        api.log(`${liveId} 下一场红包雨: ${targetMoment.format('YYYY-MM-DD HH:mm:ss')}`);
-        await sleepTime([targetMoment.hour(), targetMoment.minute(), 10]);
-        await noahRedRainLottery(actId);
-        const endMoment = getMoment(endTime);
-        await sleepTime([endMoment.hour(), endMoment.minute(), 10]);
-        return handleRedRain(form);
+    async function handleRain() {
+      const hadRainAreas = _.uniqBy(_.filter(await getRainArea()), 'actId');
+
+      if (_.isEmpty(hadRainAreas)) return;
+
+      await parallelRun({
+        list: hadRainAreas,
+        runFn: waitForLottery,
+        onceDelaySecond: 10,
+        onceNumber: 1,
       });
+
+      await sleep(10 * 60);
+      await handleRain();
+    }
+
+    async function getRainArea() {
+      return parallelRun({
+        list: live.liveActivityV946,
+        runFn(form) {
+          const liveId = JSON.parse(form.body).liveId;
+          return api.doForm('liveActivityV946', form).then(async data => {
+            // writeFileJSON(data, 'liveActivityV946.json', __dirname);
+            const targetIconArea = (_.property('data.iconArea')(data) || []).find(o => o['type'].match('red_packege_rain')) || {};
+            if (_.isEmpty(targetIconArea)) return;
+            const {startTime, endTime, data: {activityUrl}} = targetIconArea;
+            const actId = new URL(activityUrl).searchParams.get('id');
+            return {startTime, endTime, actId, liveId};
+          });
+        },
+        onceDelaySecond: 1,
+        onceNumber: 1,
+      });
+    }
+
+    async function waitForLottery(targetIconArea) {
+      const {startTime, endTime, actId, liveId} = targetIconArea;
+      const targetMoment = getMoment(startTime);
+      api.log(`${liveId} 下一场红包雨(${actId}): ${targetMoment.format('YYYY-MM-DD HH:mm:ss')}`);
+      await sleepTime([targetMoment.hour(), targetMoment.minute(), 10]);
+      await noahRedRainLottery(actId);
     }
 
     async function noahRedRainLottery(actId) {

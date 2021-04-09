@@ -32,8 +32,8 @@ async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySeco
   return Promise.all(list.map((item, index) => new Promise(async resolve => {
     const delaySecond = Math.floor(index / onceNumber) * onceDelaySecond;
     delaySecond && await sleep(delaySecond);
-    await runFn(item);
-    resolve();
+    const result = await runFn(item);
+    resolve(result);
   })));
 }
 
