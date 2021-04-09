@@ -60,6 +60,7 @@ const Singjd = require('./jd/wq/singjd');
 const Isp5G = require('./jd/isp5g');
 const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
+const Xiemi = require('./jd/xiemi/index');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -289,6 +290,7 @@ async function main() {
           JoyRedeem,
         ]);
         await multipleRun([
+          Xiemi,
           Carnivalcity, EarnJingDou, IsvShopSign, Isp5G,
           // 做任务抽奖
           WomenBlindBox,
