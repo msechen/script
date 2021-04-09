@@ -3,7 +3,7 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common');
 const _ = require('lodash');
 
-const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2GXPFfQmeLgzZuQCWFZWCtwUqro5/index.html';
+const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/4B4qLZkL4AbgjBWbznCv1oPmPwJ6/index.html';
 
 const appId = '1EFRZyg';
 
