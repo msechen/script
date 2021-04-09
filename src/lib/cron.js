@@ -22,7 +22,7 @@ async function sleepDate(date) {
  */
 async function sleepTime(time) {
   const [hour, minute = 0, second = 0] = _.concat(time);
-  const timeArray = [hour, minute, second].map(num => num > 9 ? num : '0' + num);
+  const timeArray = [hour, minute, second].map(num => num > 9 ? `${num}` : `0${num}`);
   return sleepDate(`${getNowDate()} ${timeArray.join(':')}`);
 }
 

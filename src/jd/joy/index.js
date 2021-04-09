@@ -12,19 +12,21 @@ class Joy extends Template {
   static commonParamFn = () => ({});
   static times = 1;
 
-  static apiOptions = {
-    options: {
-      uri: 'https://jdjoy.jd.com/common/pet',
-      qs: _.assign({
-        reqSource: 'h5',
-      }, encrypt()),
-      headers: {
-        referer: 'https://jdjoy.jd.com/pet/index',
-        origin: 'https://jdjoy.jd.com',
+  static apiOptions() {
+    return {
+      options: {
+        uri: 'https://jdjoy.jd.com/common/pet',
+        qs: _.assign({
+          reqSource: 'h5',
+        }, encrypt()),
+        headers: {
+          referer: 'https://jdjoy.jd.com/pet/index',
+          origin: 'https://jdjoy.jd.com',
+        },
       },
-    },
-    signData: {},
-  };
+    };
+  }
+
   static apiExtends = {
     requestFnName: 'doPath',
   };
@@ -192,7 +194,7 @@ class Joy extends Template {
       const feedCount = allFeedCount[index];
       await api.doPath('feed', void 0, {
         method: 'GET',
-        qs: {feedCount},
+        qs: _.assign({feedCount}, encrypt()),
       }).then(data => {
         if (data.errorCode === 'feed_ok') {
           self.log(`喂食成功, 消耗${feedCount}g狗粮`);
