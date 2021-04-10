@@ -2,7 +2,7 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 const rp = require('request-promise');
-const {getNowTime, getNowDate} = require('./moment');
+const {getNowHour, getNowTime, getNowDate} = require('./moment');
 
 const _sleep = require('util').promisify(setTimeout);
 /**
@@ -134,7 +134,7 @@ async function singleRun(target, method = 'start', runFn = null) {
   for (const m of _.concat(method)) {
     if (process.argv[2] === m) {
       process.env = getLocalEnvs();
-      promise = await (runFn ? runFn(m) : target[m](getCookieData()));
+      promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData()));
     }
   }
 

@@ -9,18 +9,22 @@ class JoyRedeem extends Joy {
   static times = 1;
   static repeatDoTask = false;
   static concurrent = true;
+  static loopHours = [23, 7, 15];
 
   static async doMain(api) {
     const self = this;
 
     const petCoin = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(data => _.property('data.petCoin')(data));
-    const beanHours = [24, 8, 16];
-    const targetHour = beanHours[0];
+    const beanHours = self.loopHours.map(hour => hour + 1);
+    const targetHour = self.getNowHour() + 1;
+    if (!beanHours.includes(targetHour)) return api.log(`当前时间不在兑换范围内`);
     const beanInfos = await getBeanInfos(targetHour);
     if (beanInfos.find(o => o['giftValue'] === 500).salePrice > petCoin) {
       return api.log('当前积分不足, 无法兑换');
     }
+    api.log(`准备${targetHour}进行兑换`);
     await sleepTime(targetHour);
+    api.log('开始兑换');
     await handleExchange();
 
     async function getBeanInfos(targetHour) {
@@ -78,6 +82,7 @@ class JoyRedeem extends Joy {
         },
         body,
         qs: encrypt(body, true),
+        needDelay: false,
       }).then(data => {
         api.log(`${giftName} 兑换结果: ${data['errorCode']}`);
       });
@@ -85,6 +90,17 @@ class JoyRedeem extends Joy {
   }
 }
 
-singleRun(JoyRedeem).then();
+singleRun(JoyRedeem, ['start', 'loop'], async (method, getCookieData) => {
+  if (method === 'start') {
+    return start();
+  }
+  if (method === 'loop') {
+    return JoyRedeem.loopRun(start);
+  }
+
+  async function start() {
+    return JoyRedeem.start(getCookieData());
+  }
+}).then();
 
 module.exports = JoyRedeem;

@@ -4,6 +4,7 @@ const Api = require('../api');
 const {sleep, printLog, parallelRun} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
+const {sleepTime} = require('../../lib/cron');
 
 // 注册全局变量
 global._ = _;
@@ -66,11 +67,15 @@ class Base {
   static async doCron(api, shareCodes) {
   }
 
+  static getName() {
+    return this.scriptNameDesc || this.scriptName;
+  }
+
   // helpers
   static log(output, currentCookieTimes = this.currentCookieTimes) {
     // 应该输出 Cookie Name TODO 格式化
     output = `[${currentCookieTimes}] ${output}`;
-    printLog(this.scriptNameDesc || this.scriptName, void 0, output);
+    printLog(this.getName(), void 0, output);
   }
 
   // 第一次循环
@@ -199,6 +204,25 @@ class Base {
   static async cron(data) {
     await loopInit.call(this, data, true);
     await sleep(2);
+  }
+
+  static loopHours = [];
+
+  static async loopRun(nextFn) {
+    const self = this;
+    const hours = self.loopHours.sort();
+
+    if (_.isEmpty(hours) || !nextFn) return;
+
+    const nowHour = self.getNowHour();
+    const targetHour = hours.find((hour, i) => {
+      const prevIndex = i - 1;
+      return nowHour < hour && nowHour >= (hours[prevIndex] || 0);
+    });
+    console.log(`[${self.getName()}] 定时${targetHour}点执行`);
+    await sleepTime([targetHour, 59, 40]);
+    await nextFn();
+    return self.loopRun(nextFn);
   }
 }
 

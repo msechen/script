@@ -13,6 +13,7 @@ class BeautyMakeup extends Template {
   static times = 1;
   static concurrent = true;
   static concurrentOnceDelay = 0;
+  static loopHours = [7, 12, 19, 23];
 
   static isSuccess(data) {
     return _.property('code')(data) === '0';
@@ -551,27 +552,15 @@ class BeautyMakeup extends Template {
   }
 }
 
-singleRun(BeautyMakeup, ['start', 'cron'], method => {
-  const {getCookieData} = require('../../lib/env');
-  if (method === 'start') return start();
-
-  const hours = [7, 12, 19, 23];
-  return _doCron();
-
-  async function _doCron() {
-    const nowHour = getMoment().hour();
-    const target = hours.find((hour, i) => {
-      const prevIndex = i - 1;
-      return nowHour < hour && nowHour >= (hours[prevIndex] || 0);
-    });
-    console.log(`[BeautyMakeup] 定时${target}点执行`);
-    // 0点抢豆, 需要提前执行
-    await sleepTime([target, 59, 40]);
-    await start();
-    return _doCron();
+singleRun(BeautyMakeup, ['start', 'loop'], async (method, getCookieData) => {
+  if (method === 'start') {
+    return start();
+  }
+  if (method === 'loop') {
+    return BeautyMakeup.loopRun(start);
   }
 
-  function start() {
+  async function start() {
     return BeautyMakeup.start(getCookieData());
   }
 }).then();
