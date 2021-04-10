@@ -65,6 +65,7 @@ const Xiemi = require('./jd/xiemi/index');
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
 const SpringReward = require('./jd/lite/SpringReward');
+const EarnCoins = require('./jd/lite/EarnCoins');
 
 const nowHour = getNowHour();
 const nowDate = getNowDate();
@@ -151,7 +152,7 @@ async function main() {
     {
       valid: 1,
       run: async () => {
-        // await doRun(KoiRedPacket);
+        await doRun(EarnCoins);
       },
     },
     {

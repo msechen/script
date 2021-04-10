@@ -24,6 +24,13 @@ function encrypt(functionId, body = {}, t = getMoment().valueOf()) {
   return _.assign({sign}, form);
 }
 
+function clientHandleService(method, data = {}, others = {}, t) {
+  const functionId = 'ClientHandleService.execute';
+  return {functionId, form: encrypt(functionId, {method, data, ...others}, t)};
+}
+
 module.exports = {
   encrypt,
+
+  clientHandleService,
 };
