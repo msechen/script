@@ -36,6 +36,7 @@
     "start:CashRedeem": "node src/jd/cash/redeem.js start",
     "start:CashShare": "node src/jd/cash/share.js start",
     "start:LiveRedEnvelopeRain": "node src/jd/live/RedEnvelopeRain.js start",
+    "start:Asusiqiyi": "node src/jd/asusiqiyi start",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
     "loop:BeautyMakeup": "node src/jd/beautyMakeup/index.js loop",
     "test": "echo \"Error: no test specified\" && exit 1"
