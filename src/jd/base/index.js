@@ -210,7 +210,7 @@ class Base {
 
   static async loopRun(nextFn) {
     const self = this;
-    const hours = self.loopHours.sort();
+    const hours = _.sortBy(self.loopHours);
 
     if (_.isEmpty(hours) || !nextFn) return;
 

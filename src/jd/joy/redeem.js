@@ -1,6 +1,6 @@
 const Joy = require('./index');
 const {sleepTime} = require('../../lib/cron');
-const {singleRun} = require('../../lib/common');
+const {sleep, singleRun} = require('../../lib/common');
 const {encrypt} = require('./api');
 
 class JoyRedeem extends Joy {
@@ -48,7 +48,7 @@ class JoyRedeem extends Joy {
       }
     }
 
-    async function doExChange(beanInfo) {
+    async function doExChange(beanInfo, loop = true) {
       const {id, leftStock, giftValue, giftName, salePrice} = beanInfo;
       // 只兑换500的, 需要8500积分
       if (/*leftStock === 0 || */giftValue !== 500 || petCoin < salePrice) return;
@@ -83,8 +83,12 @@ class JoyRedeem extends Joy {
         body,
         qs: encrypt(body, true),
         needDelay: false,
-      }).then(data => {
-        api.log(`${giftName} 兑换结果: ${data['errorCode']}`);
+      }).then(async data => {
+        const errorCode = data['errorCode'];
+        api.log(`${giftName} 兑换结果: ${errorCode}`);
+        if (errorCode === 'buy_success' || !loop) return;
+        await sleep();
+        await doExChange(beanInfo, false);
       });
     }
   }
