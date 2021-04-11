@@ -462,7 +462,7 @@ class BeautyMakeup extends Template {
     async function handleReceiveMaterial() {
       await updateMaterialPositionInfo();
       for (const {position, produce_num} of _.values(producePositionData)) {
-        if (produce_num === 0) continue;
+        if (produce_num === 0 || !position) continue;
         wsMsg.material_fetch_v2.msg.args.position = position;
         await sendMessage(wsMsg.material_fetch_v2);
       }
