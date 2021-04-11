@@ -185,10 +185,10 @@ class Joy extends Template {
   static async doCron(api) {
     const self = this;
 
-    await handleFeed(); // 喂食最多的
+    await handleFeed(2); // 按需喂养
 
     // 喂食
-    async function handleFeed(index = 3) {
+    async function handleFeed(index = 0) {
       if (index < 0) return;
       const allFeedCount = [10, 20, 40, 80];
       const feedCount = allFeedCount[index];
