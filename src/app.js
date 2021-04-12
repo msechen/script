@@ -297,11 +297,9 @@ async function main() {
           JoyRedeem,
         ]);
         await multipleRun([
-          Xiemi,
           Carnivalcity, EarnJingDou, IsvShopSign, Isp5G,
           // 做任务抽奖
           WomenBlindBox,
-          LuckyToHitTheGoldenEgg,
         ], 0);
       },
     },
