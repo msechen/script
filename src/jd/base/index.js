@@ -220,7 +220,7 @@ class Base {
       return nowHour < hour && nowHour >= (hours[prevIndex] || 0);
     });
     console.log(`[${self.getName()}] 定时${targetHour}点执行`);
-    await sleepTime([targetHour, 59, 40]);
+    await sleepTime([targetHour, 55]);
     await nextFn();
     return self.loopRun(nextFn);
   }

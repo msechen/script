@@ -3,14 +3,11 @@ const _ = require('lodash');
 
 /**
  * @description 定时执行, 执行日期
- * @param date {String}
+ * @param date {String|Array}
  * @return {Promise<void>}
  */
 async function sleepDate(date) {
-  const nowMoment = getMoment();
-  const targetMoment = getMoment(date);
-  if (nowMoment.isAfter(targetMoment)) return;
-  const milliseconds = targetMoment.diff(nowMoment, 'millisecond');
+  const milliseconds = diffFromNow(date);
   // 增加误差
   await require('util').promisify(setTimeout)(milliseconds + 10);
 }
@@ -21,13 +18,49 @@ async function sleepDate(date) {
  * @return {Promise<undefined|*>}
  */
 async function sleepTime(time) {
-  const [hour, minute = 0, second = 0] = _.concat(time);
-  const timeArray = [hour, minute, second].map(num => num > 9 ? `${num}` : `0${num}`);
-  return sleepDate(`${getNowDate()} ${timeArray.join(':')}`);
+  return sleepDate(timeToDate(time));
+}
+
+/**
+ *
+ * @param time {Array|Number} 时间, eg: [hour]|hour
+ * @return {Array|String}
+ */
+function timeToDate(time) {
+  if (_.isString(time)) return time;
+
+  const timeArray = _.concat(time);
+  if (timeArray.length === 6) return timeArray;
+  const [hour, minute = 0, second = 0] = timeArray;
+  const [year, month, day] = getMoment().toArray();
+  let result = [];
+  if (timeArray.length <= 5) {
+    result.push(year);
+  }
+  if (timeArray.length <= 4) {
+    result.push(month);
+  }
+  if (timeArray.length <= 3) {
+    result.push(day);
+  }
+  return result.concat(hour, minute, second);
+}
+
+/**
+ * @description 比较时间
+ * @param time 时间
+ * @return 毫秒 {number}
+ */
+function diffFromNow(time) {
+  const nowMoment = getMoment();
+  const targetMoment = getMoment(timeToDate(time));
+  if (nowMoment.isAfter(targetMoment)) return 0;
+  return targetMoment.diff(nowMoment, 'millisecond');
 }
 
 module.exports = {
   sleepTime,
+  diffFromNow,
 
   sleepDate,
 };

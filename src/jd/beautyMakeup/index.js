@@ -2,7 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
-const {sleepTime} = require('../../lib/cron');
+const {sleepTime, diffFromNow} = require('../../lib/cron');
 const webSocket = require('../../lib/webSocket');
 
 const {common} = require('../../../charles/api');
@@ -205,7 +205,7 @@ class BeautyMakeup extends Template {
       await handleProduceMaterial();
 
       // 兑换
-      await handleExchange();
+      // await handleExchange();
 
       if (self.getNowHour() > 12) {
         // 最后一次才完成这个任务
@@ -517,7 +517,7 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.get_benefit);
       // 500豆
       wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 50000) || {})['id'] || 9;
-      await sleepTime(24);
+      await keepOnline(diffFromNow(24) / 1000);
       await sendMessage(wsMsg.to_exchange);
     }
 
@@ -540,7 +540,7 @@ class BeautyMakeup extends Template {
     }
 
     async function keepOnline(seconds) {
-      const maxSeconds = 10;
+      const maxSeconds = 20;
       const needLoop = seconds > maxSeconds;
       // 不需要等待
       sendMessage('ping');
