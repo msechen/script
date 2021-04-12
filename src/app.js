@@ -183,6 +183,7 @@ async function main() {
         await doRun(PetRemote);
         await doCron(TurnTableFarm);
         await doRun(Joy);
+        await doRun(Carnivalcity);
       },
     },
     {
@@ -297,7 +298,7 @@ async function main() {
           JoyRedeem,
         ]);
         await multipleRun([
-          Carnivalcity, EarnJingDou, IsvShopSign, Isp5G,
+          EarnJingDou, IsvShopSign, Isp5G,
           // 做任务抽奖
           WomenBlindBox,
         ], 0);
