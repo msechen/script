@@ -9,7 +9,6 @@ class SuperMarketRedeem extends SuperMarket {
   static scriptNameDesc = '东东超市-兑换豆豆';
   static times = 1;
   static concurrent = true;
-  static concurrentOnceDelay = 0;
 
   static async doMain(api, shareCodes) {
     const self = this;
@@ -36,12 +35,13 @@ class SuperMarketRedeem extends SuperMarket {
         const {finishNum, targetNum} = prize;
         for (let i = finishNum; i < targetNum; i++) {
           await obtainPrize(prize);
+          await sleep(2);
         }
       }
 
       async function obtainPrize(prize) {
         const {prizeId, title} = prize;
-        return api.doFormBody('smtg_obtainPrize', {prizeId}).then(async data => {
+        return api.doFormBody('smtg_obtainPrize', {prizeId}, {needDelay: false}).then(async data => {
           if (!self.isSuccess(data)) return api.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
           api.log(`${title}兑换成功一次`);
         });

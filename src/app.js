@@ -71,6 +71,7 @@ const EarnCoins = require('./jd/lite/EarnCoins');
 const nowHour = getNowHour();
 const nowDate = getNowDate();
 const errorOutput = [];
+let yesterdayLog = '';
 
 async function multipleRun(targets, onceDelaySecond = 1) {
   return parallelRun({
@@ -292,6 +293,7 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
+        yesterdayLog = getLogFile('app');
 
         // 24点后定时启动
         await multipleRun([
@@ -337,9 +339,9 @@ main().then(function () {
   return fs.readFileSync(resultPath);
 }).then((resultContent = '') => {
   const logFile = getLogFile('app');
-  let content = '';
+  let content = yesterdayLog;
   if (fs.existsSync(logFile)) {
-    content = fs.readFileSync(logFile);
+    content += fs.readFileSync(logFile);
   }
   content += resultContent;
   if (!_.isEmpty(errorOutput)) {

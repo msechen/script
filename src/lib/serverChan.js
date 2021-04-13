@@ -10,7 +10,7 @@ async function send(title, content) {
   }
   // Markdown 格式, 换行需要两个空行
   content = content.toString().replace(/(?<!\n)\n/g, '\n\n');
-  let sendTimes = 5;
+  let sendTimes = 2;
   const options = {
     uri: `https://sc.ftqq.com/${_key}.send`,
     form: {text: title, desp: content},
@@ -19,7 +19,7 @@ async function send(title, content) {
   };
   const _send = options => {
     return rp.post(options).then(res => {
-      console.log(res);
+      console.log('发送成功');
     }).catch((err) => {
       console.log('发送失败, 需再次重新发送');
       sendTimes--;

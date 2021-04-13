@@ -22,7 +22,7 @@ class JoyRedeem extends Joy {
     if (beanInfos.find(o => o['giftValue'] === 500).salePrice > petCoin) {
       return api.log('当前积分不足, 无法兑换');
     }
-    api.log(`准备${targetHour}进行兑换`);
+    api.log(`准备${targetHour}点进行兑换`);
     await sleepTime(targetHour);
     api.log('开始兑换');
     await handleExchange();
