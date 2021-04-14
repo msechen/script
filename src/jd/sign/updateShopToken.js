@@ -29,7 +29,8 @@ async function addTokenFromShopUrl() {
   const tokens = [];
   for (const url of shortUrls) {
     const longUrl = await getRealUrl(url);
-    tokens.push(new URL(longUrl).searchParams.get('token'));
+    const token = new URL(longUrl).searchParams.get('token');
+    token && tokens.push(token);
   }
   console.log('新增的token如下');
   console.log(tokens);
