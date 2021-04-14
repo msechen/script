@@ -8,8 +8,8 @@ const _ = require('lodash');
  */
 async function sleepDate(date) {
   const milliseconds = diffFromNow(date);
-  // 增加误差
-  await require('util').promisify(setTimeout)(milliseconds + 10);
+  // 程序运行中自带误差, 无需自增
+  await require('util').promisify(setTimeout)(milliseconds);
 }
 
 /**
