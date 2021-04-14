@@ -293,7 +293,7 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
-        yesterdayLog = getLogFile('app');
+        yesterdayLog = fs.readFileSync(getLogFile('app'));
 
         // 24点后定时启动
         await multipleRun([
