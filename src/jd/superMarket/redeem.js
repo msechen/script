@@ -19,15 +19,19 @@ class SuperMarketRedeem extends SuperMarket {
     };
     await updateBeanPrizes();
     await sleepTime([23, 59, 59]);
+    await sleep(0.5);
     handleExchange(10, 'BeanPackage');
     await sleep(5);
-    await handleExchange(40, 'Bean', 2);
+    await handleExchange(40, 'Bean', 2, false);
 
-    async function handleExchange(loopTimes = 0, type, delaySeconds = 0) {
+    async function handleExchange(loopTimes = 0, type, delaySeconds = 0, enableUpdatePrize = true) {
       await exchange(loopTimes);
 
       async function exchange(times) {
-        const bean = beanPrize[type];
+        const oldBean = _.assign({}, beanPrize[type]);
+        enableUpdatePrize && await updateBeanPrizes();
+        const bean = _.assign({}, beanPrize[type]);
+        if (oldBean.prizeId !== bean.prizeId) enableUpdatePrize = false;
         const {finishNum, targetNum} = bean;
         if (times <= 0 || finishNum >= targetNum) return;
         await sleep(0.1);
@@ -60,8 +64,8 @@ class SuperMarketRedeem extends SuperMarket {
 
     async function obtainPrize(prize) {
       const {prizeId, beanType, title, encryptActId} = prize;
-      // TODO 有 encryptActId 先跳过, 待完善
-      if (!prizeId || encryptActId) return;
+      // TODO 有 encryptActId 不会有影响, 待确认
+      if (!prizeId/* || encryptActId*/) return;
       return api.doFormBody('smtg_obtainPrize', {prizeId}, {needDelay: false}).then(async data => {
         if (!self.isSuccess(data)) {
           api.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
