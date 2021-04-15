@@ -23,7 +23,7 @@
     "start": "node src/app.js",
     "dev": "node src/dev.js",
     "build:yaml": "node src/yaml/schedule.js",
-    "dev:updateShopToken": "node src/jd/sign/updateShopToken.js",
+    "build:updateShopToken": "node src/jd/sign/updateShopToken.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",
     "start:ShopSign": "node src/jd/sign/shop.js start",
     "start:BeautyMakeup": "node src/jd/beautyMakeup/index.js start",

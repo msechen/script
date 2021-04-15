@@ -32,17 +32,18 @@ class SignShop extends Template {
     // 签到页面url
     // https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=
 
+    let signSucceedTokens = [];
     // token, venderId, id
     let shopInfos = [
       'A8E250725F8C34653D0D683F2FFC9C65',
       '81DB18205052BD19A97CF11D07F09A37',
-      'AE6A399CC6542115869E4BC9929D050E',
       '8B46713D671C4D065AA0F8DA2B238412',
-      'B290C28D767767D8F89D43F4E14BB9E1',
-      'EA14688EB6404D688BCD9AC52A906248',
       '47CB0F417528B7B0F0B08825720EF952',
-      '7FFEF34BC26B44C14147483B01F024FD',
       'C25D7D7B0C50C181BD7565EB92B4FEAA',
+      '955FFE3E48E4F232C17FD2AA526CF692',
+      '48ACA3A2188FC48E7B3CE0174A7F44BD',
+      '8604BC3F4A4F71B0C0E51EC91ED39296',
+      '7FDD6485C04ABBAA8F26DF7758843B51',
       // 脚本新增插入位置
     ];
 
@@ -61,7 +62,7 @@ class SignShop extends Template {
 
     async function handleSign(listInfo = false) {
       // token, venderId, id
-      const list = shopInfos;
+      const list = shopInfos.filter(item => !signSucceedTokens.includes(_.head(_.concat(item))));
 
       await parallelRun({
         list,
@@ -139,6 +140,7 @@ class SignShop extends Template {
         activityId,
       }, {needDelay: false}).then(data => {
         if (self.isSuccess(data)) {
+          signSucceedTokens.push(name);
           allMsg.push('签到成功');
         } else {
           allMsg.push(data.msg);
