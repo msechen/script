@@ -18,43 +18,23 @@ class SuperMarketRedeem extends SuperMarket {
       Bean: {},
     };
     await updateBeanPrizes();
-    await sleepTime(24);
-    await handleExchangeBeanPackage();
-    for (let i = 0; i < 3; i++) {
-      const stop = await handleExchangeBean();
-      if (stop) break;
-      await updateBeanPrizes();
-      await sleep(5);
-    }
+    await sleepTime([23, 59, 59]);
+    handleExchange(10, 'BeanPackage');
+    await sleep(5);
+    await handleExchange(40, 'Bean', 2);
 
-    function handleExchangeBeanPackage() {
-      return _do().then(async bizCode => {
-        if (!bizCode) return;
-        if (bizCode === 400) {
-          return handleExchangeBeanPackage();
-        }
-        await _do(true, 2);
-      });
+    async function handleExchange(loopTimes = 0, type, delaySeconds = 0) {
+      await exchange(loopTimes);
 
-      async function _do(needDelay = false, loopTimes = 0) {
-        needDelay && await sleep(0.01);
-        return obtainPrize(beanPrize['BeanPackage']).then(bizCode => {
-          if (bizCode && (loopTimes > 0)) return _do(needDelay, --loopTimes);
-        });
+      async function exchange(times) {
+        const bean = beanPrize[type];
+        const {finishNum, targetNum} = bean;
+        if (times <= 0 || finishNum >= targetNum) return;
+        await sleep(0.1);
+        obtainPrize(bean);
+        delaySeconds && await sleep(delaySeconds);
+        await exchange(--times);
       }
-    }
-
-    function handleExchangeBean(loopTimes = 10) {
-      const {finishNum, targetNum} = beanPrize['Bean'];
-      if (finishNum >= targetNum) return true;
-      if (loopTimes <= 0) return;
-      return obtainPrize(beanPrize['Bean']).then(async bizCode => {
-        if (!bizCode) {
-          beanPrize['Bean'].finishNum++;
-        }
-        await sleep(2);
-        return handleExchangeBean(--loopTimes);
-      });
     }
 
     async function updateBeanPrizes(loop = true) {
@@ -64,9 +44,13 @@ class SuperMarketRedeem extends SuperMarket {
         return updateBeanPrizes(false);
       }
       for (const prize of prizeList) {
-        const {beanType, inStock} = prize;
+        const {beanType, inStock, type} = prize;
+        if (!beanType/* || type === 3*/) continue;
         // if (inStock === 0) continue;
-        beanPrize[beanType] = prize || {};
+        beanPrize[beanType] = prize || {
+          finishNum: 0,
+          targetNum: 0,
+        };
       }
     }
 
@@ -75,8 +59,9 @@ class SuperMarketRedeem extends SuperMarket {
     }
 
     async function obtainPrize(prize) {
-      const {prizeId, title} = prize;
-      if (!prizeId) return;
+      const {prizeId, beanType, title, encryptActId} = prize;
+      // TODO 有 encryptActId 先跳过, 待完善
+      if (!prizeId || encryptActId) return;
       return api.doFormBody('smtg_obtainPrize', {prizeId}, {needDelay: false}).then(async data => {
         if (!self.isSuccess(data)) {
           api.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
@@ -84,6 +69,7 @@ class SuperMarketRedeem extends SuperMarket {
           if (bizCode === 400) await updateBeanPrizes();
           return bizCode;
         }
+        beanPrize[beanType].finishNum++;
         api.log(`${title}兑换成功一次`);
       });
     }
