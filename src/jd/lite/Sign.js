@@ -9,7 +9,7 @@ const activityId = '8a8fabf3cccb417f8e691b6774938bc2';
 const kernelPlatform = 'RN';
 
 class Sign extends Template {
-  static scriptName = 'Sign';
+  static scriptName = 'LiteSign';
   static scriptNameDesc = '极速版签到';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
@@ -29,7 +29,7 @@ class Sign extends Template {
     return data['subCode'] === 0;
   }
 
-  static async doMain(api) {
+  static async doMain(api, shareCodes) {
     const self = this;
 
     const doForm = (functionId, body = {}) => api.doForm(functionId, encrypt(functionId, _.assign({
@@ -37,7 +37,7 @@ class Sign extends Template {
       activityId,
     }, body)));
 
-    await doForm('speedSignInit').then(data => {
+    await doForm('speedSignInit', {inviterId: _.head(shareCodes) || 'JO6fIuW4u8JXLgl2Lsw9HQ=='}).then(data => {
       if (_.property('data.alreadySign')(data)) return;
       return doForm('speedSign', {'noWaitPrize': 'false'}).then(data => {
         if (!self.isSuccess(data)) return;
