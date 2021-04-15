@@ -1,4 +1,4 @@
-name: sync-LXK9301-scripts
+name: sync-scripts
 on:
   schedule:
     - cron: '1 */3 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-LXK9301-scripts
+    types: sync-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync LXK9301-scripts
+      - name: sync-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://gitee.com/jk9527/jd_scripts.git"
+          source_repo: "https://github.com/   /jd_scripts.git"
           source_branch: "master"
-          destination_branch: "LXK"
+          destination_branch: "master"
           github_token: ${{ secrets.PAT }}
