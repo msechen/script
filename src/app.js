@@ -293,7 +293,7 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
-        yesterdayLog = fs.readFileSync(getLogFile('app'));
+        const yesterdayAppPath = getLogFile('app');
 
         // 24点后定时启动
         await multipleRun([
@@ -306,6 +306,8 @@ async function main() {
           // 做任务抽奖
           WomenBlindBox,
         ], 0);
+
+        yesterdayLog = fs.readFileSync(yesterdayAppPath);
       },
     },
   ];
