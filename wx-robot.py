@@ -88,6 +88,11 @@ def forward_to_kolly(msg):
     # 如果是群聊，但没有被@，则不回复
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
+    elif msg.sender.name == '内测':
+        if msg.text.startswith('#打卡'):
+            return '恭喜' + msg.member.name + '打卡成功'
+        else:
+            return '不识别的指令'
     else:
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
         msg.forward(user_kolly, prefix='群聊「' + msg.sender.name + '」的「' + msg.member.name + '」发送内容:')
