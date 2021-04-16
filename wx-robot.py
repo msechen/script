@@ -89,8 +89,9 @@ def forward_to_kolly(msg):
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
     elif msg.sender.name == '内测':
-        if msg.text.startswith('#打卡'):
-            return '恭喜' + msg.member.name + '打卡成功'
+        logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
+        if msg.text.startswith('@小糖同学 #打卡'):
+            return '恭喜「' + msg.member.name + '」打卡成功，继续努力哦~'
         else:
             return '不识别的指令'
     else:
