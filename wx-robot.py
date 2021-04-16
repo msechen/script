@@ -90,7 +90,7 @@ def forward_to_kolly(msg):
         return
     elif msg.sender.name == '内测':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
-        if msg.text.startswith('@小糖同学 #打卡'):
+        if '#打卡' in msg.text:
             return '恭喜「' + msg.member.name + '」打卡成功，继续努力哦~'
         else:
             return '不识别的指令'
