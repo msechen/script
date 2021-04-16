@@ -1,6 +1,6 @@
 const Family = require('./index');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
 class JxHongBao extends Family {
@@ -53,5 +53,7 @@ class JxHongBao extends Family {
     this.log(msg.join(', '));
   }
 }
+
+singleRun(JxHongBao).then();
 
 module.exports = JxHongBao;

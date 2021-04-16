@@ -51,6 +51,7 @@ const JoyRedeem = require('./jd/joy/redeem');
 const Family = require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const JxHongBao = require('./jd/family/jxHongBao');
+const JxFarm = require('./jd/wq/JxFarm');
 const WomenBlindBox = require('./jd/family/WomenBlindBox');
 const LuckyToHitTheGoldenEgg = require('./jd/family/LuckyToHitTheGoldenEgg');
 const Live = require('./jd/live');
@@ -176,6 +177,7 @@ async function main() {
       valid: 5,
       run: async () => {
         await doCron(SuperMarket);
+        await doRun(JxFarm);
       },
     },
     {
