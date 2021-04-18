@@ -9,7 +9,6 @@ class CashRedeem extends Cash {
   static times = 1;
   static repeatDoTask = false;
   static concurrent = true;
-  static concurrentOnceDelay = 0;
 
   static async doMain(api, shareCodes) {
     const self = this;
@@ -18,7 +17,7 @@ class CashRedeem extends Cash {
     await getRedPacket();
 
     function getRedPacket() {
-      return api.doForm('cash_getRedPacket', cash.cash_getRedPacket[0]).then(data => {
+      return api.doForm('cash_getRedPacket', cash.cash_getRedPacket[0], {needDelay: false}).then(data => {
         if (!self.isSuccess(data)) return api.log(data.data.bizMsg);
         api.log(`兑换红包成功: ${data.data.result.amountYuan}`);
         // 继续兑换

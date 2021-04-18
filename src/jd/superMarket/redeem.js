@@ -19,19 +19,25 @@ class SuperMarketRedeem extends SuperMarket {
     };
     await updateBeanPrizes();
     await sleepTime([23, 59, 59]);
-    await sleep(0.5);
+    await sleep(0.3);
     handleExchange(10, 'BeanPackage');
     await sleep(5);
+    await updateBeanPrizes();
     await handleExchange(40, 'Bean', 2, false);
 
     async function handleExchange(loopTimes = 0, type, delaySeconds = 0, enableUpdatePrize = true) {
+      beanPrize[type]['finishNum'] = 0;
       await exchange(loopTimes);
 
       async function exchange(times) {
         const oldBean = _.assign({}, beanPrize[type]);
         enableUpdatePrize && await updateBeanPrizes();
         const bean = _.assign({}, beanPrize[type]);
-        if (oldBean.prizeId !== bean.prizeId) enableUpdatePrize = false;
+        if (oldBean.prizeId !== bean.prizeId) {
+          enableUpdatePrize = false;
+        } else {
+          bean['finishNum'] = oldBean['finishNum'];
+        }
         const {finishNum, targetNum} = bean;
         if (times <= 0 || finishNum >= targetNum) return;
         await sleep(0.1);
