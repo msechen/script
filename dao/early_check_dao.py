@@ -33,6 +33,29 @@ def count_by_user_name(user_name):
     return u
 
 
+def query_early_check_rows_by_user_name(user_name):
+    # 创建Session对象:
+    session = mysql_api.get_session()
+    # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
+    rows = session.query(EarlyCheck).filter(EarlyCheck.user_name == user_name).all()
+    # 关闭Session:
+    session.close()
+    return rows
+
+
+def query_early_check_rows_by_user_name_and_date(user_name, date):
+    # 创建Session对象:
+    session = mysql_api.get_session()
+    # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
+    rows = session.query(EarlyCheck).filter(EarlyCheck.user_name == user_name). \
+        filter(EarlyCheck.date == date).all()
+    # 关闭Session:
+    session.close()
+    return rows
+
+
 if __name__ == "__main__":
-    add_early_check('test', time_utils.get_today_date(), time_utils.get_current_time())
-    print(count_by_user_name('kolly').date)
+    # add_early_check('test', time_utils.get_today_date(), time_utils.get_current_time())
+    # print(count_by_user_name('kolly').date)
+    print(len(query_early_check_rows_by_user_name('kolly')))
+    print(len(query_early_check_rows_by_user_name_and_date('test', time_utils.get_today_date())))

@@ -94,9 +94,18 @@ def forward_to_kolly(msg):
     elif msg.sender.name == '内测':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
         if '#打卡' in msg.text:
+            current_date = time_utils.get_today_date()
             current_time = time_utils.get_current_time()
-            early_check_dao.add_early_check(msg.member.name, time_utils.get_today_date(), current_time)
-            return '恭喜「' + msg.member.name + '」打卡成功，继续努力哦~'
+
+            if len(early_check_dao.query_early_check_rows_by_user_name_and_date(msg.member.name,
+                                                                                time_utils.get_today_date())) > 0:
+                return '「' + msg.member.name + '」，不要重复打卡哦~'
+
+            early_check_dao.add_early_check(msg.member.name, current_date, current_time)
+
+            sum = len(early_check_dao.query_early_check_rows_by_user_name(msg.member.name))
+
+            return '恭喜「' + msg.member.name + '」打卡成功，当前累计打卡' + str(sum) + '次，继续努力哦~'
         else:
             return '不识别的指令'
     else:
