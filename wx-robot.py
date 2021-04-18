@@ -7,11 +7,14 @@ from time import sleep
 from wxpy import *
 
 import zhihu.sync_data as sync_data
+import utils.time_utils as time_utils
+
 from auto_reply import reminder
 from common import corp_we_chat
 from common import web_spider
 from dao import resource_dao
 from dao import resource_log_dao
+from dao import early_check_dao
 from jobs import *
 from service import resource_service
 from service import user_service
@@ -91,6 +94,8 @@ def forward_to_kolly(msg):
     elif msg.sender.name == '内测':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
         if '#打卡' in msg.text:
+            current_time = time_utils.get_current_time()
+            early_check_dao.add_early_check(msg.member.name, time_utils.get_today_date(), current_time)
             return '恭喜「' + msg.member.name + '」打卡成功，继续努力哦~'
         else:
             return '不识别的指令'

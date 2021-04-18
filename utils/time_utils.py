@@ -5,6 +5,10 @@ def get_current_datetime():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
+def get_current_time():
+    return datetime.datetime.now().strftime('%H:%M')
+
+
 def get_today_date():
     return datetime.datetime.now().strftime('%Y-%m-%d')
 

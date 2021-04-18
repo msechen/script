@@ -2,25 +2,24 @@ import logging
 
 import component.mysql_api as mysql_api
 from modal import *
+import utils.time_utils as time_utils
 
 logger = logging.getLogger('wx')
 
 
 # 新增用户
 def add_early_check(user_name, date, check_time):
-    logger.info('add new add_early_check param:{} {} {} {}'.format(puid, nickname, avatar, sex, city))
-    u = User(puid, nickname, avatar, sex, city)
+    logger.info('add new add_early_check param:{} {} {}'.format(user_name, date, check_time))
+    u = EarlyCheck(user_name, date, check_time)
     # 创建session对象:
     session = mysql_api.get_session()
     # 添加到session:
-    session.add(new_user)
+    session.add(u)
     # 提交即保存到数据库:
     session.commit()
-    user_id = new_user.id
     # 关闭session:
     session.close()
-    logger.info("add user id: {}".format(user_id))
-    return user_id
+    return
 
 
 # 根据用户 ID 查询
@@ -35,4 +34,5 @@ def count_by_user_name(user_name):
 
 
 if __name__ == "__main__":
+    add_early_check('test', time_utils.get_today_date(), time_utils.get_current_time())
     print(count_by_user_name('kolly').date)
