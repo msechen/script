@@ -98,18 +98,18 @@ def forward_to_kolly(msg):
             current_time = time_utils.get_current_time()
 
             if current_time < '11:00' or current_time > '12:00':
-                return '「' + msg.member.name + '」，请在早上 05:00 到 06：45 之间打卡~'
+                return '「' + msg.member.name + '」，请在早上 05:00 到 06:45 之间打卡~'
 
             if len(early_check_dao.query_early_check_rows_by_user_name_and_date(msg.member.name,
                                                                                 time_utils.get_today_date())) > 0:
                 sum = len(early_check_dao.query_early_check_rows_by_user_name(msg.member.name))
-                return '「' + msg.member.name + '」，不要重复打卡哦~ 当前累计打卡' + str(sum) + '次'
+                return '「' + msg.member.name + '」，不要重复打卡哦~ 当前打卡进度' + str(sum) + '/30'
 
             early_check_dao.add_early_check(msg.member.name, current_date, current_time)
 
             sum = len(early_check_dao.query_early_check_rows_by_user_name(msg.member.name))
 
-            return '恭喜「' + msg.member.name + '」打卡成功，当前累计打卡' + str(sum) + '次，继续努力哦~'
+            return '恭喜「' + msg.member.name + '」打卡成功，当前打卡进度' + str(sum) + '/30，继续努力哦~'
         else:
             return '不识别的指令'
     else:
