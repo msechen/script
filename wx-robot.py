@@ -91,9 +91,9 @@ def forward_to_kolly(msg):
     # 如果是群聊，但没有被@，则不回复
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
-    elif msg.sender.name == '内测':
+    elif msg.sender.name == '内测' or msg.sender.name == '「蓝猫」早起俱乐部':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
-        if '#打卡' in msg.text:
+        if '#早起打卡' in msg.text:
             current_date = time_utils.get_today_date()
             current_time = time_utils.get_current_time()
 
@@ -103,7 +103,7 @@ def forward_to_kolly(msg):
             if len(early_check_dao.query_early_check_rows_by_user_name_and_date(msg.member.name,
                                                                                 time_utils.get_today_date())) > 0:
                 sum = len(early_check_dao.query_early_check_rows_by_user_name(msg.member.name))
-                return '「' + msg.member.name + '」，你今天已经完成打卡了~ 当前打卡进度' + str(sum) + '/30'
+                return '「' + msg.member.name + '」，你今天打卡过了~ 当前打卡进度' + str(sum) + '/30'
 
             early_check_dao.add_early_check(msg.member.name, current_date, current_time)
 
