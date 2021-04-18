@@ -97,8 +97,8 @@ def forward_to_kolly(msg):
             current_date = time_utils.get_today_date()
             current_time = time_utils.get_current_time()
 
-            if current_time < '11:00' or current_time > '12:00':
-                return '「' + msg.member.name + '」，请在早上 05:00 到 06:45 之间打卡~'
+            # if current_time < '05:00' or current_time > '06:45':
+            #     return '「' + msg.member.name + '」，请在早上 05:00 到 06:45 之间打卡~'
 
             if len(early_check_dao.query_early_check_rows_by_user_name_and_date(msg.member.name,
                                                                                 time_utils.get_today_date())) > 0:
