@@ -8,7 +8,7 @@ and you can change some paramiter in file's config part.
 
 #### getshell.py
 
-> It’s write by 【opang】 and 【pikpik】, thanks for this guys !
+> It’s written by 【opang】 and 【pikpik】, thanks for this guys !
 
 `python getshell.py` can get useful tips
 
