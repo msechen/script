@@ -56,20 +56,20 @@ class JxFarm extends WqBase {
             _stk: 'active,answer,ch,farm_jstoken,joinnum,phoneid,tasklevel,timestamp',
           };
 
-          for (const codeStr of self.shareCodeTaskList) {
-            const [active, smp] = codeStr.split(',');
-            if (active && smp) {
+          for (const shareCodeJSONStr of self.shareCodeTaskList) {
+            try {
+              const {smp, active, joinnum, ch} = JSON.parse(shareCodeJSONStr);
               // 小程序助力
-              await api.doGetPath('help', _.assign({
+              await api.doGetPath('help', {
                 smp,
                 active,
-                joinnum,
-                ch: 6,
-              })).then(data => {
-                if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
+                joinnum: joinnum || 1,
+                ch: ch || 6,
+              }).then(data => {
+                if (!self.isSuccess(data)) return api.log(data.retmsg);
                 api.log(`助力 ${data.helpnick} 成功`);
               });
-            }
+            } catch (e) {}
           }
 
           if (activestatus !== 1) {
