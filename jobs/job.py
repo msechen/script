@@ -102,16 +102,16 @@ def init_scheduler(bot_var):
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 知乎文章排名
-    # scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
-    #                   hour='*', minute='40', second='30')
+    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='40', second='30')
 
     # jd 订单轮训
-    scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='0/5', second='30')
+    # scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*', minute='0/5', second='30')
 
     # 蓝猫日志告警
-    scheduler.add_job(get_lanmao_log, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='0/10', second='30')
+    # scheduler.add_job(get_lanmao_log, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*', minute='0/10', second='30')
 
     scheduler.start()
 
