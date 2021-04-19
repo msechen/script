@@ -1,6 +1,5 @@
-!version=202102272009
+!version: 202104181130
 !-----Test
-||https://at.umeng.com
 ||https://adfurikun.jp
 ||https://aag.yahooapis.jp
 ||https://optimus-ads.amap.com
@@ -686,7 +685,6 @@
 ||https://xd.mediav.com
 ||https://xdssp.mediav.com
 ||https://acdn.adnxs.com
-||https://ib.adnxs.com
 ||https://nym2-tr.adnxs.com
 ||https://sin1-ib.adnxs.com
 ||https://vcdn.adnxs.com
@@ -1241,6 +1239,7 @@
 ||https://mixer.cupid.ptqy.gitv.tv
 ||https://msg.ptqy.gitv.tv
 ||https://msga.ptqy.gitv.tv
+||https://show.ssports.com
 ||https://store.ptqy.gitv.tv
 ||https://t7z.cupid.ptqy.gitv.tv
 ||https://de.as.cp61.ott.cibntv.net
@@ -1521,8 +1520,6 @@
 ||https://adv2.downsave.com
 ||https://mini.jijiplayer.com
 ||https://txtad.jijiplayer.com
-||https://ee.grtnahd.cn
-||https://m.grtnahd.cn
 ||https://www.xn--i6qs37am6iwyqffc.com
 ||https://xdm.ahqlx.top
 ||https://ycjisa.cn
@@ -1535,11 +1532,9 @@
 ||https://c.lelangegg.cn
 ||https://bnetds.cn
 ||https://ee.mtmfjdo.cn
-||https://ee.xfya3.cn
 ||https://eo.4s5n.cn
 ||https://hm.baidu.com.caiziwuyou.com
 ||https://m.mtmfjdo.cn
-||https://m.xfya3.cn
 ||https://mo.4s5n.cn
 ||https://mo.mktrkn.cn
 ||https://s.yhgongsi.com
@@ -1568,9 +1563,7 @@
 ||https://v.mininini.cn
 ||https://c.mininini.cn
 ||https://api.vasb.cn
-||https://ee.45xa.cn
 ||https://img.hywly.com
-||https://m.45xa.cn
 ||https://m.qmlcdlo.cn
 ||https://mo.4k9b.cn
 ||https://qd.easylive.net
@@ -1736,7 +1729,6 @@
 ||https://8131.qizhihaotian.cn
 ||https://8132.qizhihaotian.cn
 ||https://jsjs.jbzj.com
-||https://jscode.jbzj.com
 ||https://icws.jb51.net
 ||https://wm.kolinay.com
 ||https://ad.egou.com
@@ -2684,6 +2676,7 @@
 ||https://a.xmdly.com
 ||https://a.yiyuancq.com
 ||https://a-cn.duoyi.com
+||https://a0c.cn
 ||https://a1.huiqituan.com
 ||https://a1.lmaq.cn
 ||https://a1.openxt.cn
@@ -2849,6 +2842,7 @@
 ||https://b3.jandan.net
 ||https://b3.jiasudu666.com
 ||https://b4xuj.zzhhts.com
+||https://b9g4.nxwfhjvi.cn
 ||https://ba.fqzds.com
 ||https://ba.n3wz6.cn
 ||https://baby.yf898.com
@@ -2943,6 +2937,7 @@
 ||https://c.idasui.cn
 ||https://c.j782e.cn
 ||https://c.jntxst.cn
+||https://c.jumorecn.com.cn
 ||https://c.k429fma.com
 ||https://c.kangai100.cn
 ||https://c.kbf365.cn
@@ -2953,6 +2948,8 @@
 ||https://c.lalaxqt.cn
 ||https://c.lbsbbw.cn
 ||https://c.lianwangtech.com
+||https://c.linkjingkeji.com
+||https://c.lovame.com.cn
 ||https://c.lovepets70.com
 ||https://c.lrzazjl.cn
 ||https://c.lucktui.com
@@ -2972,6 +2969,7 @@
 ||https://c.panqishu.com
 ||https://c.piliangzhuce.cn
 ||https://c.ptffw.net
+||https://v.qhruisen.cn
 ||https://c.qhruixin.cn
 ||https://c.queene.cn
 ||https://c.r9uqp.cn
@@ -2992,6 +2990,7 @@
 ||https://c.v-meng.org
 ||https://c.v4dwkcv.com
 ||https://c.vip97.net
+||https://c.wangdaguanli.com
 ||https://c.wantxt.cc
 ||https://c.wechat.jx.cn
 ||https://c.wofbw.top
@@ -3043,6 +3042,7 @@
 ||https://cdn.0i-i0.com
 ||https://cdn.5bong.com
 ||https://cdn.810236.com
+||https://cdn.9823df.com
 ||https://cdn.adsk2.co
 ||https://cdn.adstract.com
 ||https://cdn.aegins.com
@@ -3073,12 +3073,14 @@
 ||https://cilidaquan.pw
 ||https://cip6.czpush.com
 ||https://cjiv.chengjie168.com.cn
+||https://ck.jssdk.top
 ||https://ckjyck.qxs.la
 ||https://clc.wanmancn.com
 ||https://clickadu.com
 ||https://clk.uunt.com
 ||https://cloud.zyiis.net
 ||https://cm.he2d.com
+||https://cmz2.stm65i8.com
 ||https://cndjs-1251973891.coshk.myqcloud.com
 ||https://cnm.xlcktv.com
 ||https://cnyibs.com
@@ -3218,6 +3220,7 @@
 ||https://down.xiazaiyuan.net
 ||https://download.350.com
 ||https://dq.baomihua.com
+||https://dqapp.cdn.bcebos.com
 ||https://drdj.m.gxwztv.com
 ||https://drsw.m.yuyouge.com
 ||https://druic.mytxt.cc
@@ -3315,7 +3318,6 @@
 ||https://e.adsdsu.cn
 ||https://e.aduiz.com
 ||https://e.aetetv.cn
-||https://e.ac56.xyz
 ||https://e.aganj.com
 ||https://e.ailix.cn
 ||https://e.aiyyu.com
@@ -3809,6 +3811,7 @@
 ||https://ehdj.njguluyu.cn
 ||https://ekfe.idanmei.cn
 ||https://ekfe.tmmjgcp.cn
+||https://eladies.zhmyq.cn
 ||https://emss.zjhim.com
 ||https://engine.tuicoco.com
 ||https://eo.6sq7c.xyz
@@ -4042,6 +4045,7 @@
 ||https://hzyuw.com
 ||https://i.hao61.net
 ||https://i.hzblic.com
+||https://i.jads.co
 ||https://i.jyhwt.cn
 ||https://i.niupic.com
 ||https://i.xdywlw.cn
@@ -4382,6 +4386,7 @@
 ||https://kwflvcdn.000dn.com
 ||https://kzni.jwhfn.cn
 ||https://l.adiers.com
+||https://l.dalemax.cn
 ||https://l.ksxcxb.cn
 ||https://l.mnjkw.cn
 ||https://l.xfmfqdt.cn
@@ -4419,6 +4424,7 @@
 ||https://log.orchidscape.net
 ||https://lol.pnhfc.com
 ||https://loldy.jiangmg.com
+ 127.0.0.1 lp7n.cy6px.com
 ||https://lq0s3c.cn
 ||https://lskwsx.m.zwdu.com
 ||https://lu.w3vj.cn
@@ -5112,6 +5118,7 @@
 ||https://m.qlr0d.cn
 ||https://m.qneit.com
 ||https://m.qu79j.cn
+||https://m.quanxs.net
 ||https://m.qusub.com
 ||https://m.r507p.cn
 ||https://m.r528e.cn
@@ -5508,6 +5515,7 @@
 ||https://ms.qaqact.cn
 ||https://msg.eclicks.cn
 ||https://msttz.tst98.com
+||https://mt.4go.cc
 ||https://mtl.gzhuibei.com
 ||https://mtl.ttsqgs.com
 ||https://mtl.xtpxw.com
@@ -5613,20 +5621,23 @@
 ||https://p.99mssj.com
 ||https://p.9wotuan.com
 ||https://p.ahzsjzgc.com
+||https://p.bangdu2.com
 ||https://p.bjdianyue.com
 ||https://p.bnuni.com
 ||https://p.eaglesh.cn
 ||https://p.jclz622983.com
 ||https://p.kf3msfm.com
+||https://p.lexph.com
 ||https://p.m5bn.com
 ||https://p.mendoc.cn
 ||https://p.niudashu.com
-!127.0.0.1 p.pstatp.com
 ||https://p.qiailm.com
 ||https://p.qijijs.top
 ||https://p.qfmzys.com
 ||https://p.saozhu1.top
+||https://p.shengcaidata.com
 ||https://p.skimresources.com
+||https://p.sswyyl.com
 ||https://p.tamenshuo.com
 ||https://p.vtdtfl.cn
 ||https://p.ynjczy.net
@@ -5651,6 +5662,7 @@
 !127.0.0.1 pb2.pstatp.com
 !127.0.0.1 pb3.pstatp.com
 ||https://package.minghui.org
+||https://paflibnq.mamiyue.com.cn
 ||https://pad.zhywyl.cn
 ||https://page.santc.cn
 ||https://parallelsdesktop.cn
@@ -5754,6 +5766,7 @@
 ||https://pork.2tumeng.com
 ||https://postut.cn
 ||https://povbdf.cn
+||https://poweredby.jads.co
 ||https://pp.lbsjrw.cn
 ||https://pp.sxjkc.cn
 ||https://pp.xjuygf.xyz
@@ -6264,6 +6277,7 @@
 ||https://utp.ucweb.com
 ||https://uu.85655095.com
 ||https://uu.zeverdg.com
+||https://uuboos.com
 ||https://uun.1uandun.com
 ||https://uv.qnmuayx.cn
 ||https://uwcu.0b6h.cn
@@ -6283,6 +6297,7 @@
 ||https://v.bayongzx.cn
 ||https://v.bingxueshenjie.cn
 ||https://v.com.5p67n.cn
+||https://v.dalemax.cn
 ||https://v.dcgwnhk.cn
 ||https://v.dengbaozx.cn
 ||https://v.dfseafood.com
@@ -6294,11 +6309,14 @@
 ||https://v.heygugu.com
 ||https://v.iche88.cn
 ||https://v.jntxst.cn
+||https://v.jumorecn.com.cn
 ||https://v.kangai100.cn
 ||https://v.koqz36.com
 ||https://v.l0yjow.cn
 ||https://v.lalaxit.cn
 ||https://v.lalaxqt.cn
+||https://v.linkjingkeji.com
+||https://v.lovame.com.cn
 ||https://v.lovepets70.com
 ||https://v.lrzazjl.cn
 ||https://v.lystrw.cn
@@ -6307,6 +6325,7 @@
 ||https://v.nkzker.cn
 ||https://v.oq68.com
 ||https://v.originz.cn
+||https://v.qhruisen.cn
 ||https://v.qhruixin.cn
 ||https://v.ql01t4.com
 ||https://v.qudwrj.cn
@@ -6315,6 +6334,7 @@
 ||https://v.szpaopao.com
 ||https://v.tgslww.cn
 ||https://v.tr31t.cn
+||https://v.wangdaguanli.com
 ||https://v.xadingli.cn
 ||https://v.xbjcgs.cn
 ||https://v.xinshide.cn
@@ -6322,7 +6342,6 @@
 ||https://v.xrooxeo.cn
 ||https://v.yahgxog.cn
 ||https://v.zoepb.cn
-||https://voq3450129.y4j32.cn
 ||https://v1.0594529.com
 ||https://v4g.cn
 ||https://v7.kawinhome.com
@@ -6353,6 +6372,7 @@
 ||https://vip.zhuba8.com
 ||https://vipchaoshi.cn
 ||https://vipwx.zhong-zhu.com
+||https://viq3.fb360xp.com
 ||https://vj.tianji520.cn
 ||https://vj.x-ssp.com
 ||https://vm.makeding.com
@@ -6411,6 +6431,7 @@
 ||https://wap.txwdn.com
 ||https://wap.utmei.cn
 ||https://wapssl.ff113300.com
+||https://wdfhbx.zdpeanut.com
 ||https://webservice.fusionsight.cn
 ||https://weizjzg.com
 ||https://weld.iefsf.com
@@ -6497,6 +6518,7 @@
 ||https://www.abie18.top
 ||https://www.abie19.top
 ||https://www.abie26.top
+||https://www.abovede6.com
 ||https://www.ad5lm.net
 ||https://www.ads80.com
 ||https://www.afj0.com
@@ -6537,9 +6559,11 @@
 ||https://www.danweijungu5812.top
 ||https://www.day66.com
 ||https://www.dgfggy.com
+||https://www.dianomi.com
 ||https://www.diediao.com
 ||https://www.doulaikanapp.com
 ||https://www.dqsft.com
+||https://www.dulaiduapp.com
 ||https://www.duobaoqj.com
 ||https://www.eddong.com
 ||https://www.ere3j2e001.com
@@ -6646,6 +6670,7 @@
 ||https://www.mgldzcls.com
 ||https://www.mie99.net
 ||https://www.minghui.org
+||https://www.mkjshusgus5481.top
 ||https://www.mohecm.com
 ||https://www.mpzw.com
 ||https://www.nangong2.com
@@ -6960,6 +6985,7 @@
 ||https://zjj.xhdccz.com
 ||https://zjjgtz.com
 ||https://zjm.zzmmkj.com
+||https://zjyl365.cn
 ||https://zlsw.nnjxqd.com
 ||https://zly.dlhxgg.com
 ||https://zmj.guanqinjie.cn
@@ -9213,10 +9239,7 @@
 ||https://y.one.impact-ad.net
 ||https://adsmind.gdtimg.com
 ||https://smartnews-ads.com
-||https://pc.weizhenwx.com
-||https://t.quandangdang.net
 ||https://jg.wensixuetang.com
-||https://v.heygugu.com
 ||https://www.toujing9.top
 ||https://www.toujing8.top
 ||https://www.toujing11.top
@@ -9244,9 +9267,11 @@
 ||https://tac.aiclk.com
 ||https://tracelog-debug.aiclk.com
 ||https://upload.aiclk.com
-!version=202102272009
+||https://vip.70qn.com
+||https://show.suning.beer
+||https://www.kldsam.com
+!version: 202104181130
 !-----Test
-||http://at.umeng.com
 ||http://adfurikun.jp
 ||http://aag.yahooapis.jp
 ||http://optimus-ads.amap.com
@@ -9932,7 +9957,6 @@
 ||http://xd.mediav.com
 ||http://xdssp.mediav.com
 ||http://acdn.adnxs.com
-||http://ib.adnxs.com
 ||http://nym2-tr.adnxs.com
 ||http://sin1-ib.adnxs.com
 ||http://vcdn.adnxs.com
@@ -10487,6 +10511,7 @@
 ||http://mixer.cupid.ptqy.gitv.tv
 ||http://msg.ptqy.gitv.tv
 ||http://msga.ptqy.gitv.tv
+||http://show.ssports.com
 ||http://store.ptqy.gitv.tv
 ||http://t7z.cupid.ptqy.gitv.tv
 ||http://de.as.cp61.ott.cibntv.net
@@ -10767,8 +10792,6 @@
 ||http://adv2.downsave.com
 ||http://mini.jijiplayer.com
 ||http://txtad.jijiplayer.com
-||http://ee.grtnahd.cn
-||http://m.grtnahd.cn
 ||http://www.xn--i6qs37am6iwyqffc.com
 ||http://xdm.ahqlx.top
 ||http://ycjisa.cn
@@ -10781,11 +10804,9 @@
 ||http://c.lelangegg.cn
 ||http://bnetds.cn
 ||http://ee.mtmfjdo.cn
-||http://ee.xfya3.cn
 ||http://eo.4s5n.cn
 ||http://hm.baidu.com.caiziwuyou.com
 ||http://m.mtmfjdo.cn
-||http://m.xfya3.cn
 ||http://mo.4s5n.cn
 ||http://mo.mktrkn.cn
 ||http://s.yhgongsi.com
@@ -10814,9 +10835,7 @@
 ||http://v.mininini.cn
 ||http://c.mininini.cn
 ||http://api.vasb.cn
-||http://ee.45xa.cn
 ||http://img.hywly.com
-||http://m.45xa.cn
 ||http://m.qmlcdlo.cn
 ||http://mo.4k9b.cn
 ||http://qd.easylive.net
@@ -10982,7 +11001,6 @@
 ||http://8131.qizhihaotian.cn
 ||http://8132.qizhihaotian.cn
 ||http://jsjs.jbzj.com
-||http://jscode.jbzj.com
 ||http://icws.jb51.net
 ||http://wm.kolinay.com
 ||http://ad.egou.com
@@ -11930,6 +11948,7 @@
 ||http://a.xmdly.com
 ||http://a.yiyuancq.com
 ||http://a-cn.duoyi.com
+||http://a0c.cn
 ||http://a1.huiqituan.com
 ||http://a1.lmaq.cn
 ||http://a1.openxt.cn
@@ -12095,6 +12114,7 @@
 ||http://b3.jandan.net
 ||http://b3.jiasudu666.com
 ||http://b4xuj.zzhhts.com
+||http://b9g4.nxwfhjvi.cn
 ||http://ba.fqzds.com
 ||http://ba.n3wz6.cn
 ||http://baby.yf898.com
@@ -12189,6 +12209,7 @@
 ||http://c.idasui.cn
 ||http://c.j782e.cn
 ||http://c.jntxst.cn
+||http://c.jumorecn.com.cn
 ||http://c.k429fma.com
 ||http://c.kangai100.cn
 ||http://c.kbf365.cn
@@ -12199,6 +12220,8 @@
 ||http://c.lalaxqt.cn
 ||http://c.lbsbbw.cn
 ||http://c.lianwangtech.com
+||http://c.linkjingkeji.com
+||http://c.lovame.com.cn
 ||http://c.lovepets70.com
 ||http://c.lrzazjl.cn
 ||http://c.lucktui.com
@@ -12218,6 +12241,7 @@
 ||http://c.panqishu.com
 ||http://c.piliangzhuce.cn
 ||http://c.ptffw.net
+||http://v.qhruisen.cn
 ||http://c.qhruixin.cn
 ||http://c.queene.cn
 ||http://c.r9uqp.cn
@@ -12238,6 +12262,7 @@
 ||http://c.v-meng.org
 ||http://c.v4dwkcv.com
 ||http://c.vip97.net
+||http://c.wangdaguanli.com
 ||http://c.wantxt.cc
 ||http://c.wechat.jx.cn
 ||http://c.wofbw.top
@@ -12289,6 +12314,7 @@
 ||http://cdn.0i-i0.com
 ||http://cdn.5bong.com
 ||http://cdn.810236.com
+||http://cdn.9823df.com
 ||http://cdn.adsk2.co
 ||http://cdn.adstract.com
 ||http://cdn.aegins.com
@@ -12319,12 +12345,14 @@
 ||http://cilidaquan.pw
 ||http://cip6.czpush.com
 ||http://cjiv.chengjie168.com.cn
+||http://ck.jssdk.top
 ||http://ckjyck.qxs.la
 ||http://clc.wanmancn.com
 ||http://clickadu.com
 ||http://clk.uunt.com
 ||http://cloud.zyiis.net
 ||http://cm.he2d.com
+||http://cmz2.stm65i8.com
 ||http://cndjs-1251973891.coshk.myqcloud.com
 ||http://cnm.xlcktv.com
 ||http://cnyibs.com
@@ -12464,6 +12492,7 @@
 ||http://down.xiazaiyuan.net
 ||http://download.350.com
 ||http://dq.baomihua.com
+||http://dqapp.cdn.bcebos.com
 ||http://drdj.m.gxwztv.com
 ||http://drsw.m.yuyouge.com
 ||http://druic.mytxt.cc
@@ -12561,7 +12590,6 @@
 ||http://e.adsdsu.cn
 ||http://e.aduiz.com
 ||http://e.aetetv.cn
-||http://e.ac56.xyz
 ||http://e.aganj.com
 ||http://e.ailix.cn
 ||http://e.aiyyu.com
@@ -13055,6 +13083,7 @@
 ||http://ehdj.njguluyu.cn
 ||http://ekfe.idanmei.cn
 ||http://ekfe.tmmjgcp.cn
+||http://eladies.zhmyq.cn
 ||http://emss.zjhim.com
 ||http://engine.tuicoco.com
 ||http://eo.6sq7c.xyz
@@ -13288,6 +13317,7 @@
 ||http://hzyuw.com
 ||http://i.hao61.net
 ||http://i.hzblic.com
+||http://i.jads.co
 ||http://i.jyhwt.cn
 ||http://i.niupic.com
 ||http://i.xdywlw.cn
@@ -13628,6 +13658,7 @@
 ||http://kwflvcdn.000dn.com
 ||http://kzni.jwhfn.cn
 ||http://l.adiers.com
+||http://l.dalemax.cn
 ||http://l.ksxcxb.cn
 ||http://l.mnjkw.cn
 ||http://l.xfmfqdt.cn
@@ -13665,6 +13696,7 @@
 ||http://log.orchidscape.net
 ||http://lol.pnhfc.com
 ||http://loldy.jiangmg.com
+ 127.0.0.1 lp7n.cy6px.com
 ||http://lq0s3c.cn
 ||http://lskwsx.m.zwdu.com
 ||http://lu.w3vj.cn
@@ -14358,6 +14390,7 @@
 ||http://m.qlr0d.cn
 ||http://m.qneit.com
 ||http://m.qu79j.cn
+||http://m.quanxs.net
 ||http://m.qusub.com
 ||http://m.r507p.cn
 ||http://m.r528e.cn
@@ -14754,6 +14787,7 @@
 ||http://ms.qaqact.cn
 ||http://msg.eclicks.cn
 ||http://msttz.tst98.com
+||http://mt.4go.cc
 ||http://mtl.gzhuibei.com
 ||http://mtl.ttsqgs.com
 ||http://mtl.xtpxw.com
@@ -14859,20 +14893,23 @@
 ||http://p.99mssj.com
 ||http://p.9wotuan.com
 ||http://p.ahzsjzgc.com
+||http://p.bangdu2.com
 ||http://p.bjdianyue.com
 ||http://p.bnuni.com
 ||http://p.eaglesh.cn
 ||http://p.jclz622983.com
 ||http://p.kf3msfm.com
+||http://p.lexph.com
 ||http://p.m5bn.com
 ||http://p.mendoc.cn
 ||http://p.niudashu.com
-!127.0.0.1 p.pstatp.com
 ||http://p.qiailm.com
 ||http://p.qijijs.top
 ||http://p.qfmzys.com
 ||http://p.saozhu1.top
+||http://p.shengcaidata.com
 ||http://p.skimresources.com
+||http://p.sswyyl.com
 ||http://p.tamenshuo.com
 ||http://p.vtdtfl.cn
 ||http://p.ynjczy.net
@@ -14897,6 +14934,7 @@
 !127.0.0.1 pb2.pstatp.com
 !127.0.0.1 pb3.pstatp.com
 ||http://package.minghui.org
+||http://paflibnq.mamiyue.com.cn
 ||http://pad.zhywyl.cn
 ||http://page.santc.cn
 ||http://parallelsdesktop.cn
@@ -15000,6 +15038,7 @@
 ||http://pork.2tumeng.com
 ||http://postut.cn
 ||http://povbdf.cn
+||http://poweredby.jads.co
 ||http://pp.lbsjrw.cn
 ||http://pp.sxjkc.cn
 ||http://pp.xjuygf.xyz
@@ -15510,6 +15549,7 @@
 ||http://utp.ucweb.com
 ||http://uu.85655095.com
 ||http://uu.zeverdg.com
+||http://uuboos.com
 ||http://uun.1uandun.com
 ||http://uv.qnmuayx.cn
 ||http://uwcu.0b6h.cn
@@ -15529,6 +15569,7 @@
 ||http://v.bayongzx.cn
 ||http://v.bingxueshenjie.cn
 ||http://v.com.5p67n.cn
+||http://v.dalemax.cn
 ||http://v.dcgwnhk.cn
 ||http://v.dengbaozx.cn
 ||http://v.dfseafood.com
@@ -15540,11 +15581,14 @@
 ||http://v.heygugu.com
 ||http://v.iche88.cn
 ||http://v.jntxst.cn
+||http://v.jumorecn.com.cn
 ||http://v.kangai100.cn
 ||http://v.koqz36.com
 ||http://v.l0yjow.cn
 ||http://v.lalaxit.cn
 ||http://v.lalaxqt.cn
+||http://v.linkjingkeji.com
+||http://v.lovame.com.cn
 ||http://v.lovepets70.com
 ||http://v.lrzazjl.cn
 ||http://v.lystrw.cn
@@ -15553,6 +15597,7 @@
 ||http://v.nkzker.cn
 ||http://v.oq68.com
 ||http://v.originz.cn
+||http://v.qhruisen.cn
 ||http://v.qhruixin.cn
 ||http://v.ql01t4.com
 ||http://v.qudwrj.cn
@@ -15561,6 +15606,7 @@
 ||http://v.szpaopao.com
 ||http://v.tgslww.cn
 ||http://v.tr31t.cn
+||http://v.wangdaguanli.com
 ||http://v.xadingli.cn
 ||http://v.xbjcgs.cn
 ||http://v.xinshide.cn
@@ -15568,7 +15614,6 @@
 ||http://v.xrooxeo.cn
 ||http://v.yahgxog.cn
 ||http://v.zoepb.cn
-||http://voq3450129.y4j32.cn
 ||http://v1.0594529.com
 ||http://v4g.cn
 ||http://v7.kawinhome.com
@@ -15599,6 +15644,7 @@
 ||http://vip.zhuba8.com
 ||http://vipchaoshi.cn
 ||http://vipwx.zhong-zhu.com
+||http://viq3.fb360xp.com
 ||http://vj.tianji520.cn
 ||http://vj.x-ssp.com
 ||http://vm.makeding.com
@@ -15657,6 +15703,7 @@
 ||http://wap.txwdn.com
 ||http://wap.utmei.cn
 ||http://wapssl.ff113300.com
+||http://wdfhbx.zdpeanut.com
 ||http://webservice.fusionsight.cn
 ||http://weizjzg.com
 ||http://weld.iefsf.com
@@ -15743,6 +15790,7 @@
 ||http://www.abie18.top
 ||http://www.abie19.top
 ||http://www.abie26.top
+||http://www.abovede6.com
 ||http://www.ad5lm.net
 ||http://www.ads80.com
 ||http://www.afj0.com
@@ -15783,9 +15831,11 @@
 ||http://www.danweijungu5812.top
 ||http://www.day66.com
 ||http://www.dgfggy.com
+||http://www.dianomi.com
 ||http://www.diediao.com
 ||http://www.doulaikanapp.com
 ||http://www.dqsft.com
+||http://www.dulaiduapp.com
 ||http://www.duobaoqj.com
 ||http://www.eddong.com
 ||http://www.ere3j2e001.com
@@ -15892,6 +15942,7 @@
 ||http://www.mgldzcls.com
 ||http://www.mie99.net
 ||http://www.minghui.org
+||http://www.mkjshusgus5481.top
 ||http://www.mohecm.com
 ||http://www.mpzw.com
 ||http://www.nangong2.com
@@ -16206,6 +16257,7 @@
 ||http://zjj.xhdccz.com
 ||http://zjjgtz.com
 ||http://zjm.zzmmkj.com
+||http://zjyl365.cn
 ||http://zlsw.nnjxqd.com
 ||http://zly.dlhxgg.com
 ||http://zmj.guanqinjie.cn
@@ -18459,10 +18511,7 @@
 ||http://y.one.impact-ad.net
 ||http://adsmind.gdtimg.com
 ||http://smartnews-ads.com
-||http://pc.weizhenwx.com
-||http://t.quandangdang.net
 ||http://jg.wensixuetang.com
-||http://v.heygugu.com
 ||http://www.toujing9.top
 ||http://www.toujing8.top
 ||http://www.toujing11.top
@@ -18490,3 +18539,6 @@
 ||http://tac.aiclk.com
 ||http://tracelog-debug.aiclk.com
 ||http://upload.aiclk.com
+||http://vip.70qn.com
+||http://show.suning.beer
+||http://www.kldsam.com
