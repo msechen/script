@@ -134,7 +134,7 @@ class HarmonyTemplate extends Template {
     };
 
     Object.keys(result).forEach(key => {
-      if (!result[key].name) delete result[key];
+      if (!self.apiNames[key]) delete result[key];
     });
 
     return result;

@@ -28,6 +28,9 @@ const jdFactory = require('./jd/jdFactory');
 const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
 const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
 const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
+const Health = require('./jd/wfh/Health');
+const HealthShare = require('./jd/wfh/HealthShare');
+const HealthSign = require('./jd/wfh/HealthSign');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
 const Harmony3 = require('./jd/wfh/harmony3');
@@ -73,6 +76,7 @@ const EarnCoins = require('./jd/lite/EarnCoins');
 const nowHour = getNowHour();
 const nowDate = getNowDate();
 const errorOutput = [];
+let yesterdayAppPath;
 let yesterdayLog = '';
 
 async function multipleRun(targets, onceDelaySecond = 1) {
@@ -153,6 +157,11 @@ async function main() {
           Harmony1,
           Harmony2,
           Harmony3,
+        ]);
+        await multipleRun([
+          HealthSign,
+          HealthShare,
+          Health,
         ]);
       },
     },
@@ -299,7 +308,7 @@ async function main() {
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
-        const yesterdayAppPath = getLogFile('app');
+        yesterdayAppPath = getLogFile('app');
 
         // 24点后定时启动
         await multipleRun([
@@ -312,8 +321,6 @@ async function main() {
           // 做任务抽奖
           WomenBlindBox,
         ], 0);
-
-        yesterdayLog = fs.readFileSync(yesterdayAppPath);
       },
     },
   ];
@@ -326,10 +333,17 @@ async function main() {
     }
   }
 
+  await doCron(Health);
+
+  if (yesterdayAppPath) {
+    yesterdayLog = fs.readFileSync(yesterdayAppPath);
+  }
+
   // 定时循环
   async function cronLoop() {
     await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
+    await doCron(Health);
 
     if (nowHour % 2 === 0) {
       await doCron(PlantBean);
