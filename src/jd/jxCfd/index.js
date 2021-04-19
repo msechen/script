@@ -54,6 +54,7 @@ class JxCfd extends Template {
 
     for (const shareCode of shareCodes) {
       await handleShare(shareCode);
+      await sleep(2);
     }
 
     async function handleShare(strShareId) {

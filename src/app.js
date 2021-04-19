@@ -121,6 +121,7 @@ async function main() {
         await doRun(KoiRedPacket);
         await doRun(IsvShopSign);
         await doRun(SignShop);
+        await doRun(EarnJingDou);
         await doRun(SignBeanHome);
         await doRun(Sign);
         await doRun(SignRemote);
@@ -220,6 +221,7 @@ async function main() {
       valid: 9,
       run: async () => {
         await doRun(DreamFactory);
+        await doRun(EarnCoins);
       },
     },
     {
