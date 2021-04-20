@@ -341,9 +341,9 @@ async function main() {
 
   // 定时循环
   async function cronLoop() {
+    await doCron(Health);
     await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
-    await doCron(Health);
 
     if (nowHour % 2 === 0) {
       await doCron(PlantBean);

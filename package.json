@@ -39,6 +39,7 @@
     "start:Asusiqiyi": "node src/jd/asusiqiyi start",
     "start:SuperMarketRedeem": "node src/jd/superMarket/redeem.js start",
     "start:JxHongBao": "node src/jd/family/jxHongBao.js start",
+    "cron:Health": "node src/jd/wfh/Health.js cron",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
     "loop:BeautyMakeup": "node src/jd/beautyMakeup/index.js loop",
     "test": "echo \"Error: no test specified\" && exit 1"
