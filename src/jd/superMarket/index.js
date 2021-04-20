@@ -29,21 +29,43 @@ class SuperMarket extends Template {
         name: 'smtg_shopIndex',
         async successFn(data, api) {
           if (!self.isSuccess(data)) return;
-          const {shopId, shelfList} = _.property('data.result')(data) || {};
+          await handleSign();
+          const {shopId, shelfList, merchandiseList} = _.property('data.result')(data) || {};
           if (!shopId) return;
-          for (const {id: shelfId, level, status, name} of shelfList) {
-            if (status !== 1) continue;
-            const targetLevel = level + 1;
-            await api.doFormBody('smtg_shelfUpgrade', {shopId, shelfId, targetLevel}).then(async data => {
-              if (!self.isSuccess(data)) return;
-              self.log(`${name}升级至至${targetLevel}`);
-              await api.doFormBody('smtg_receiveCoin', {type: 4}).then(async data => {
-                const userUpgradeBlueVos = _.property('data.result.userUpgradeBlueVos')(data) || [];
-                for (const {id} of userUpgradeBlueVos) {
-                  await receiveUpdateCoin(api, id);
-                }
+          await handleMerchandise();
+          await manageShelf();
+
+          async function handleSign() {
+            return api.doFormBody('smtg_signList').then(async data => {
+              if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
+              if (_.property('data.result.hadSigned')(data) === 1) return;
+              await api.doFormBody('smtg_sign').then(data => {
+                api.log(`签到1返回数据: ${JSON.stringify(data)}`);
+              });
+              await api.doFormBody('smtg_sign', {channel: '1'}).then(data => {
+                api.log(`签到2返回数据: ${JSON.stringify(data)}`);
               });
             });
+          }
+
+          async function manageShelf() {
+            for (const {id: shelfId, level, status, name} of shelfList) {
+              if (status === 1) {
+                const targetLevel = level + 1;
+                await api.doFormBody('smtg_shelfUpgrade', {shopId, shelfId, targetLevel}).then(async data => {
+                  if (!self.isSuccess(data)) return;
+                  api.log(`${name}升级至至${targetLevel}`);
+                });
+              } else if (status === 2) {
+                await api.doFormBody('smtg_shelfUnlock', {shopId, shelfId});
+              }
+            }
+          }
+
+          async function handleMerchandise() {
+            for (const {id: merchandiseId} of merchandiseList) {
+              await api.doFormBody('smtg_sellMerchandise', {shopId, merchandiseId});
+            }
           }
         },
       },
@@ -79,17 +101,8 @@ class SuperMarket extends Template {
             // 以下任务无需手动完成
             if ([
               5, // 卖货能手
-              6, // 盘货能手
               7, // 任务能手
             ].includes(type) && !prizeStatus) {
-              if (type === 6) {
-                // 升级最少金额的
-                const productList = await api.doFormBody('smtg_productList').then(data => data.data.result.productList.filter(o => !o.priceBlue && o.unlockStatus === 2)) || [];
-                if (!productList.length) continue;
-                const {upgradeCostGold, productId} = _.minBy(productList, o => o.upgradeCostGold);
-                const totalGold = await api.doFormBody('smtg_home').then(data => data.data.result.totalGold);
-                productId && (upgradeCostGold < totalGold) && await api.doFormBody('smtg_upgradeProduct', {productId});
-              }
               continue;
             }
 
@@ -113,31 +126,22 @@ class SuperMarket extends Template {
         name: 'smtg_doShopTask',
         paramFn: o => o,
       },
-      // 签到
+      // 获取升级蓝币
       afterGetTaskList: {
-        name: 'smtg_sign',
-        successFn: async (data, api) => {
-          // 获取京豆
-          await api.doFormBody('smtg_sign', {channel: '1'});
+        name: 'smtg_newHome',
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return false;
+          const totalBlue = await handleUpgradeBlue(api, data);
+          if (!totalBlue) return false;
         },
+        repeat: true,
       },
       doRedeem: {
         name: 'smtg_drawLottery',
         paramFn: () => ({'costType': 1, 'channel': '1'}),
         successFn: async (data, api) => {
           if (!self.isSuccess(data)) {
-            let {
-              totalBlue = 0,
-              userUpgradeBlueVos,
-            } = await api.doFormBody('smtg_newHome').then(data => data.data.result) || {};
-            await self.loopCall(userUpgradeBlueVos, {
-              maxTimes: userUpgradeBlueVos.length,
-              firstFn({id, blueCoins}) {
-                return receiveUpdateCoin(api, id).then(() => {
-                  totalBlue += blueCoins;
-                });
-              },
-            });
+            let {totalBlue = 0} = await api.doFormBody('smtg_newHome').then(data => data.data.result) || {};
             totalBlue && self.log(`蓝币总计为: ${totalBlue}`);
             return false;
           }
@@ -149,135 +153,27 @@ class SuperMarket extends Template {
 
   static async doCron(api) {
     const self = this;
-    const _ = this._;
-    const nowHour = self.getNowHour();
 
-    nowHour === 0 && await doExchange();
-    let blueCoin = 0, goldCoin = 0;
-    nowHour !== 0 && await receiveCoin(nowHour > 8 ? [4] : void 0);
-    (blueCoin || goldCoin) && self.log(`获取到的蓝币: ${blueCoin}, 获取到的金币: ${goldCoin}`);
-
-    async function doExchange() {
-      const {totalBlue} = await api.doFormBody('smtg_home').then(data => _.property('data.result')(data) || {});
-      const {prizeList} = await api.doFormBody('smtg_queryPrize').then(data => _.property('data.result')(data) || {});
-      if (!totalBlue || !prizeList) {
-        self.log('获取接口出错');
-        return;
-      }
-      const beanPrizes = prizeList.filter(({
-                                             beanType,
-                                             inStock,
-                                           }) => ['Bean', 'BeanPackage'].includes(beanType) && inStock === 0);
-      for (const beanPrize of beanPrizes) {
-        const {blueCost, targetNum, finishNum, prizeId, beanNum} = beanPrize;
-        const minTimes = Math.min(Math.floor(totalBlue / blueCost), targetNum - finishNum);
-        for (let i = 0; i < minTimes; i++) {
-          await api.doFormBody('smtg_obtainPrize', {prizeId});
-        }
-        minTimes && self.log(`成功兑换${minTimes * beanNum}个京豆`);
-      }
-    }
-
-    async function receiveCoin(types = [
-      // 0, // 金币
-      1, 2, // 蓝币
-    ]) {
-      const nextTypes = [];
-      for (const type of [].concat(types)) {
-        await api.doFormBody('smtg_receiveCoin', {type}).then(async data => {
-          if (!self.isSuccess(data)) return;
-          const {receivedBlue, receivedGold} = _.property('data.result')(data);
-          blueCoin += receivedBlue || 0;
-          goldCoin += receivedGold || 0;
-          if (type === 2 && self.isSuccess(data)) nextTypes.push(type);
-        });
-      }
-      if (!_.isEmpty(nextTypes)) {
-        await sleep(2);
-        await receiveCoin(nextTypes);
-      }
-    }
-
-    // await manageShelf();
-    async function manageShelf(updateNumber = 1) {
-      await sleep();
-
-      let needLoop = false;
-      await smtg_shelfList().then(async data => {
-        const {shelfList} = data.data.result;
-        const unlocks = shelfList.filter(o => o.unlockStatus === 2);
-        if (_.isEmpty(unlocks)) {
-          await smtg_unlockShelf(shelfList[0].shelfId).then(data => {
-            self.log(`解锁成功: ${shelfList[0].name}`);
-            if (self.isSuccess(data)) {
-              needLoop = true;
-            }
-          });
-        }
-        if (needLoop) return manageShelf(updateNumber);
-        const {upgradeCostGold, shelfId} = _.minBy(unlocks, o => o.upgradeCostGold);
-        const {totalGold} = await api.doFormBody('smtg_home');
-        if (upgradeCostGold < totalGold) {
-          await smtg_upgradeShelf(shelfId);
-          await manageShelf(updateNumber);
-        }
-
-        // for (const {upgradeCostGold, shelfId, level} of unlocks) {
-        //   for (let i = level; i < level + updateNumber; i++) {
-        //     const {totalGold} = await api.doFormBody('smtg_home');
-        //     if (upgradeCostGold > totalGold) {
-        //       break;
-        //     }
-        //     await smtg_upgradeShelf(shelfId);
-        //   }
-        // }
-      });
-
-      // 获取列表
-      async function smtg_shelfList(type = 'init') {
-        return api.doFormBody(smtg_shelfList.name, {type});
-      }
-
-      // 升级
-      async function smtg_upgradeShelf(shelfId) {
-        return api.doFormBody(smtg_upgradeShelf.name, {shelfId});
-      }
-
-      // 解锁
-      async function smtg_unlockShelf(shelfId) {
-        return api.doFormBody(smtg_unlockShelf.name, {shelfId});
-      }
-
-      async function manageShelfProduct(shelfId) {
-        await sleep();
-        await api.doFormBody('smtg_shelfProductList', {shelfId}).then(async data => {
-          const {productList} = data.data.result;
-          const blueProduct = productList.find(o => o.priceBlue);
-          if (blueProduct) {
-            await smtg_ground(shelfId, blueProduct.productId);
-            return;
-          }
-          const goldProduct = _.maxBy(productList, 'priceGold');
-          if (!goldProduct) return;
-          if (goldProduct.groundStatus > 1) return;
-          await smtg_ground(shelfId, goldProduct.productId);
-        });
-      }
-
-      async function smtg_ground(shelfId, productId) {
-        return api.doFormBody(smtg_ground.name, {shelfId, productId});
-      }
-
-    }
-  }
-
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
+    const receivedBlue = await receiveCoin(api);
+    receivedBlue && api.log(`获取蓝币: ${receivedBlue}`);
   }
 }
 
-function receiveUpdateCoin(api, id) {
-  return api.doFormBody('smtg_receiveCoin', {type: 5, id});
+function receiveCoin(api) {
+  return api.doFormBody('smtg_receiveCoin', {type: 4}).then(async data => {
+    let {receivedBlue = 0} = _.property('data.result')(data);
+    return receivedBlue + await handleUpgradeBlue(api, data);
+  });
+}
+
+async function handleUpgradeBlue(api, data) {
+  let total = 0;
+  const blueList = _.property('data.result.userUpgradeBlueVos')(data) || [];
+  for (const {id, blueCoins} of blueList) {
+    await api.doFormBody('smtg_receiveCoin', {type: 5, id});
+    total += blueCoins;
+  }
+  return total;
 }
 
 module.exports = SuperMarket;

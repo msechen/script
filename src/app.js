@@ -121,7 +121,6 @@ async function main() {
     {
       valid: 0,
       run: async () => {
-        // await doCron(SuperMarket);
         await doRun(KoiRedPacket);
         await doRun(IsvShopSign);
         await doRun(SignShop);
@@ -188,7 +187,6 @@ async function main() {
     {
       valid: 5,
       run: async () => {
-        await doCron(SuperMarket);
         await doRun(JxFarm);
       },
     },
@@ -216,7 +214,6 @@ async function main() {
       valid: 8,
       run: async () => {
         await doRun(DreamFactory);
-        await doCron(SuperMarket);
         await doRun(SuperMarket);
         await doRun(Family);
         await doRun(Sign);
@@ -242,7 +239,6 @@ async function main() {
     {
       valid: 12,
       run: async () => {
-        await doCron(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
         await doRun(Joy);
@@ -287,7 +283,7 @@ async function main() {
     {
       valid: 20,
       run: async () => {
-        await doCron(SuperMarket);
+        await doRun(SuperMarket);
         await doCron(Fruit);
         await doCron(Pet);
       },
@@ -351,6 +347,10 @@ async function main() {
 
     if (nowHour % 5 === 0) {
       await doCron(Joy);
+    }
+
+    if (nowHour % 6 === 0) {
+      await doCron(SuperMarket);
     }
   }
 }

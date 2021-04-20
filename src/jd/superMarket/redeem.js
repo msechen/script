@@ -17,9 +17,13 @@ class SuperMarketRedeem extends SuperMarket {
       BeanPackage: {},
       Bean: {},
     };
+    const totalBlue = await api.doFormBody('smtg_newHome').then(data => {
+      if (!self.isSuccess(data)) return 0;
+      return _.property('data.result.totalBlue')(data);
+    });
     await updateBeanPrizes();
     await sleepTime([23, 59, 59]);
-    await sleep(0.3);
+    await sleep(0.2);
     handleExchange(10, 'BeanPackage');
     await sleep(5);
     await updateBeanPrizes();
@@ -38,8 +42,8 @@ class SuperMarketRedeem extends SuperMarket {
         } else {
           bean['finishNum'] = oldBean['finishNum'];
         }
-        const {finishNum, targetNum} = bean;
-        if (times <= 0 || finishNum >= targetNum) return;
+        const {finishNum, targetNum, blueCost} = bean;
+        if (times <= 0 || finishNum >= targetNum || blueCost > totalBlue) return;
         await sleep(0.1);
         obtainPrize(bean);
         delaySeconds && await sleep(delaySeconds);
