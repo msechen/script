@@ -128,7 +128,7 @@ async function main() {
         await doRun(EarnJingDou);
         await doRun(SignBeanHome);
         await doRun(Sign);
-        await doRun(SignRemote);
+        doRun(SignRemote);
         await doRun(StatisticsBean);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
