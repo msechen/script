@@ -26,6 +26,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/wudongdefeng/jd-base.git"
-          source_branch: "V3"
+          source_branch: "v3"
           destination_branch: "wudongdefeng"
           github_token: ${{ secrets.PAT }}
