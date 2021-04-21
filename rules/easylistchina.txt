@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: p5pdhE4g4mC7Q39rzAHihQ
-! Version: 202104210052
+! Checksum: R3119vcNJAONp20eZXVFmw
+! Version: 202104210242
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw^$third-party
@@ -5535,7 +5535,6 @@
 ||https://hm.baidu.com^$third-party
 ||https://sinajs.cn/open/analytics/
 ||https://wrating.com^$third-party
-||http://cuilongsp.cn^
 ||http://00-gov.cn^
 ||http://0024aaaa.com^
 ||http://008844.cc^
@@ -6211,6 +6210,7 @@
 ||http://ct1985.com^
 ||http://ctrhfd.top^
 ||http://ctsywy.com^
+||http://cuilongsp.cn^
 ||http://cwmlm.com^
 ||http://cxfzw.cn^
 ||http://cxgh.net^
@@ -13365,11 +13365,6 @@
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
 ||http://watakaw133.xyz^
-||http://miyaluorenliziuan.cn^
-||http://l07m8gu.cn^
-||http://doulaihai.top^
-||http://hdsahfkja.top^
-||http://lhcqbim.cn^
 ||http://027whht.com^
 ||http://0316dieroxiemzfjwmapk.xyz^
 ||http://0323wqpioutyuencsamxsd.xyz^
@@ -13845,6 +13840,7 @@
 ||http://dodolive.cn^
 ||http://dodomo.info^
 ||http://dofkfhv.cn^
+||http://doulaihai.top^
 ||http://downcdn.top^
 ||http://dreamrecord.cn^
 ||http://dsdsds8848.xyz^
@@ -14060,6 +14056,7 @@
 ||http://hchik.com^
 ||http://hdfdm.com^
 ||http://hdminfeng.com^
+||http://hdsahfkja.top^
 ||http://hdvwm3.cn^
 ||http://he3kz8.com^
 ||http://headwell.cn^
@@ -14309,6 +14306,7 @@
 ||http://kuzexinxi.com^
 ||http://kypzu.cn^
 ||http://kyxnz.cn^
+||http://l07m8gu.cn^
 ||http://l29qi.xyz^
 ||http://l4elb.cn^
 ||http://laiye315.top^
@@ -14333,6 +14331,7 @@
 ||http://lfzxcp.com^
 ||http://lgjygg.com^
 ||http://lglady.cn^
+||http://lhcqbim.cn^
 ||http://lianfuhuang.cn^
 ||http://lianyicq.cn^
 ||http://liaotian4.com^
@@ -14412,6 +14411,7 @@
 ||http://miaos11.com^
 ||http://micreative-china.cn^
 ||http://mitjg.xyz^
+||http://miyaluorenliziuan.cn^
 ||http://mjita.cn^
 ||http://mjtowot.cn^
 ||http://ml44.cn^
