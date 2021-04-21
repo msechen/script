@@ -1,5 +1,6 @@
-!version: 202104181130
-!-----Test
+#version: 202104181130
+#url=https://github.com/VeleSila/yhosts/blob/master/hosts
+#-----Test
 ||http://adfurikun.jp
 ||http://aag.yahooapis.jp
 ||http://optimus-ads.amap.com
@@ -29,7 +30,7 @@
 ||http://htracker4.zmzfile.com
 ||http://htracker5.zmzfile.com
 ||http://file.apicvn.com
-!-----Test End
+#-----Test End
 ||http://ereg.adobe.com
 ||http://hlrcv.stage.adobe.com
 ||http://lm.licenses.adobe.com
@@ -196,7 +197,15 @@
 ||http://p.tanx.com
 ||http://pcookie.tanx.com
 ||http://phs.tanx.com
+||http://ai.m.taobao.com
+||http://ai.taobao.com
+||http://re.m.taobao.com
+||http://re.taobao.com
+||http://redirect.simba.taobao.com
+||http://show.re.taobao.com
 ||http://strip.taobaocdn.com
+||http://temai.taobao.com
+||http://tunion-api.m.taobao.com
 ||http://adn.insight.ucweb.com
 ||http://adtrack.ucweb.com
 ||http://hk.napi.ucweb.com
@@ -282,6 +291,16 @@
 ||http://ope.tanx.com
 ||http://rdstat.tanx.com
 ||http://toruk.tanx.com
+||http://click.mz.simba.taobao.com
+||http://click.tz.simba.taobao.com
+||http://dsp.simba.taobao.com
+||http://fav.simba.taobao.com
+||http://m.simba.taobao.com
+||http://mclick.simba.taobao.com
+||http://simba.m.taobao.com
+||http://srd.simba.taobao.com
+||http://stat.simba.taobao.com
+||http://textlink.simba.taobao.com
 ||http://alog.umeng.com
 ||http://api.wsq.umeng.com
 ||http://ar.umeng.com
@@ -640,8 +659,17 @@
 ||http://partner.googleadservices.com
 ||http://www.googleadservices.com
 ||http://static.googleadsserving.cn
+||http://www.googletagmanager.com
 ||http://www.google-analytics.com
 ||http://www.googletagservices.com
+||http://bdsp.x.jd.com
+||http://cm.jd.com
+||http://im-x.jd.com
+||http://img-x.jd.com
+||http://u-x.jd.com
+||http://u.x.jd.com
+||http://wn.x.jd.com
+||http://x.jd.com
 ||http://360fenxi.mediav.com
 ||http://3m.mediav.com
 ||http://cjhd.mediav.com
@@ -696,12 +724,40 @@
 ||http://digg.analytics.live.com
 ||http://ms.analytics.live.com
 ||http://watson.live.com
+||http://diagnostics.support.microsoft.com
+||http://survey.watson.microsoft.com
+||http://watson.microsoft.com
+||http://bingads.microsoft.com
+||http://www.bingads.microsoft.com
+||http://df.telemetry.microsoft.com
+||http://reports.wes.df.telemetry.microsoft.com
+||http://services.wes.df.telemetry.microsoft.com
+||http://sqm.df.telemetry.microsoft.com
+||http://sqm.telemetry.microsoft.com
+||http://telecommand.telemetry.microsoft.com
+||http://telemetry.microsoft.com
+||http://telemetry.urs.microsoft.com
+||http://watson.ppe.telemetry.microsoft.com
+||http://watson.telemetry.microsoft.com
+||http://wes.df.telemetry.microsoft.com
+||http://asimov-win.settings.data.microsoft.com.akadns.net
+||http://db5-eap.settings-win.data.microsoft.com.akadns.net
+||http://db5.settings-win.data.microsoft.com.akadns.net
+||http://db5.vortex.data.microsoft.com.akadns.net
+||http://geo.settings-win.data.microsoft.com.akadns.net
+||http://geo.vortex.data.microsoft.com.akadns.net
 ||http://v10-win.vortex.data.microsft.com.akadns.net
 ||http://alpha.telemetry.microsft.com
 ||http://eu.vortex-win.data.microsft.com
 ||http://oca.telemetry.microsft.com
 ||http://us.vortex-win.data.microsft.com
 ||http://v10.vortex-win.data.microsft.com
+||http://alpha.telemetry.microsoft.com
+||http://eu.vortex-win.data.microsoft.com
+||http://oca.telemetry.microsoft.com
+||http://settings-win.data.microsoft.com
+||http://us.vortex-win.data.microsoft.com
+||http://vortex-win-sandbox.data.microsoft.com
 ||http://a.global.msads.net
 ||http://ads1.msads.net
 ||http://ads2.msads.net
@@ -729,14 +785,102 @@
 ||http://rmads.eu.msn.com
 ||http://rmads.msn.com
 ||http://toolbar.msn.com
+||http://choice.microsoft.com.nsatc.net
+||http://i1.services.social.microsoft.com.nsatc.net
+||http://oca.telemetry.microsoft.com.nsatc.net
+||http://sqm.telemetry.microsoft.com.nsatc.net
+||http://telecommand.telemetry.microsoft.com.nsatc.net
+||http://watson.telemetry.microsoft.com.nsatc.net
+||http://aeventlog.beacon.qq.com
+||http://android.rqd.qq.com
+||http://astrategy.beacon.qq.com
+||http://eventlog.beacon.qq.com
+||http://monitor.uu.qq.com
+||http://omgmta.qq.com
+||http://omgmta1.qq.com
+||http://oth.eve.mdt.qq.com
+||http://oth.str.mdt.qq.com
+||http://oth.update.mdt.qq.com
+||http://pingma.qq.com
+||http://sngmta.qq.com
+||http://strategy.beacon.qq.com
+||http://dp3.qq.com
+||http://imc.l.qq.com
+||http://ad.qq.com
+||http://ad.qun.qq.com
+||http://adping.qq.com
+||http://adpm.app.qq.com
+||http://adrdir.qq.com
+||http://adsclick.qq.com
+||http://adsfile.qq.com
+||http://adsgroup.qq.com
+||http://adshmct.qq.com
+||http://adshmmsg.qq.com
+||http://adslvfile.qq.com
+||http://adslvseed.qq.com
+||http://adsqqclick.qq.com
+||http://adstextview.qq.com
+||http://adsview.qq.com
+||http://adsview2.qq.com
+||http://adv.app.qq.com
+||http://adver.qq.com
+||http://analy.qq.com
+||http://j.wit.qq.com
+||http://jqmt.qq.com
+||http://jsqmt.qq.com
+||http://mini2015.qq.com
+||http://op.ssp.qq.com
+||http://pacaio.match.qq.com
+||http://qqshow2-item.qq.com
+||http://setting.snswin.qq.com
+||http://tdc.qq.com
+||http://tj.video.qq.com
+||http://updatecenter.qq.com
+||http://video.ureport.push.qq.com
+||http://video.wap.mpush.qq.com
+||http://wap.mpush.qq.com
+||http://ta.qq.com
+||http://tajs.qq.com
+||http://tcss.qq.com
 ||http://p.tencentmind.com
+||http://e.qq.com
+||http://cm.e.qq.com
+||http://sdk.e.qq.com
+||http://c.gdt.qq.com
+||http://d.gdt.qq.com
+||http://i.gdt.qq.com
+||http://mi.gdt.qq.com
+||http://nc.gdt.qq.com
+||http://q.i.gdt.qq.com
+||http://rm.gdt.qq.com
+||http://t.gdt.qq.com
+||http://v.gdt.qq.com
+||http://win.gdt.qq.com
 ||http://beacon.gtimg.com
 ||http://bla.gtimg.com
 ||http://lb.gtimg.com
+||http://pgdt.gtimg.cn
 ||http://ra.gtimg.com
 ||http://wa.gtimg.com
 ||http://wb.gtimg.com
 ||http://pgdt.ugdtimg.com
+||http://bs.l.qq.com
+||http://c2.l.qq.com
+||http://cb.l.qq.com
+||http://cm.l.qq.com
+||http://hm.l.qq.com
+||http://l.qq.com
+||http://l2.l.qq.com
+||http://lb.l.qq.com
+||http://livec.l.qq.com
+||http://livem.l.qq.com
+||http://livep.l.qq.com
+||http://lives.l.qq.com
+||http://ls.l.qq.com
+||http://p2.l.qq.com
+||http://p3.l.qq.com
+||http://t.l.qq.com
+||http://w.l.qq.com
 ||http://ad4.sina.com.cn
 ||http://adm.leju.sina.com.cn
 ||http://beacon.sina.com.cn
@@ -964,11 +1108,16 @@
 ||http://dai.shuzilm.cn
 ||http://stream.shuzilm.cn
 ||http://www.shuzilm.cn
+255.255.255.255	broadcasthost
+::1             localhost
+||http://localhost
+::1             ip6-localhost
 ||http://XiaoQiang
 ||http://geo2.adobe.com
 ||http://flash.2144.com
 ||http://www.2144.cn
 ||http://iadctest.qwapi.com
+||http://ieonline.microsoft.com
 ||http://dl.2345.com
 ||http://download.2345.com
 ||http://g.wan.2345.com
@@ -991,6 +1140,11 @@
 ||http://jdb.jiudingcapital.com
 ||http://hd.jiedaibao.com
 ||http://www.jiedaibao.com
+||http://scdown.qq.com
+||http://download.sj.qq.com
+||http://c.gj.qq.com
+||http://t.sj.qq.com
+||http://ws.sj.qq.com
 ||http://www.winbaicai.com
 ||http://down.winbaicai.com
 ||http://u.diannaodian.com
@@ -1115,6 +1269,18 @@
 ||http://analytics.xgimi.com
 ||http://houtai.2345.com
 ||http://ad.gtbrowser.com
+||http://adsense.html5.qq.com
+||http://game.html5.qq.com
+||http://jpush.html5.qq.com
+||http://mqqad.cs0309.html5.qq.com
+||http://mqqad.html5.qq.com
+||http://novelsns.html5.qq.com
+||http://pvstat.html5.qq.com
+||http://tpush.html5.qq.com
+||http://adsolution.imtt.qq.com
+||http://mqqadr.reader.qq.com
+||http://news.mpush.qq.com
+||http://canvas.gdt.qq.com
 ||http://g.sdk.look.360.cn
 ||http://sdk.look.360.cn
 ||http://config.push.sogou.com
@@ -1168,6 +1334,8 @@
 ||http://tcad.wedolook.com
 ||http://addl.easetuner.com
 ||http://mxvp-ad-config-prod-1.zenmxapps.com
+||http://livep.l.ott.video.qq.com
+||http://lives.l.ott.video.qq.com
 ||http://adm.zookingsoft.com
 ||http://ytapi1.nagezan.net
 ||http://static.live.nagezan.net
@@ -1231,6 +1399,8 @@
 ||http://news-l.play.aiseet.atianqi.com
 ||http://p-l.play.aiseet.atianqi.com
 ||http://t-l.play.aiseet.atianqi.com
+||http://news-l.play.ott.video.qq.com
+||http://omgmta.play.ott.video.qq.com
 ||http://lives.l.cp81.ott.cibntv.net
 ||http://news-l.play.cp81.ott.cibntv.net
 ||http://omgmta.play.cp81.ott.cibntv.net
@@ -1323,7 +1493,17 @@
 ||http://v.smtcdns.net
 ||http://ad.hpplay.cn
 ||http://adeng.hpplay.cn
+||http://jrlt.beacon.qq.com
+||http://log.tbs.qq.com
+||http://activeqq.3g.qq.com
+||http://masdk.3g.qq.com
+||http://pmir.3g.qq.com
+||http://cmshow.gtimg.cn
+||http://wxsnsdy.tc.qq.com
+||http://vlive.qqvideo.tc.qq.com
+||http://wxsnsdy.video.qq.com
 ||http://ad.yixin.im
+||http://static.ads-twitter.com
 ||http://cpx24.com
 ||http://www.cpx24.com
 ||http://ue.ueadlian.com
@@ -1367,6 +1547,8 @@
 ||http://itaoxiaoshuo.com
 ||http://rpnews.itaoxiaoshuo.com
 ||http://com-eonsun-owl.oss-cn-hangzhou.aliyuncs.com
+||http://news.l.qq.com
+||http://p.l.qq.com
 ||http://swa.gtimg.com
 ||http://tui.gtimg.com
 ||http://ss.missyouxi.com
@@ -1734,6 +1916,8 @@
 ||http://ad.egou.com
 ||http://a.dangdang.com
 ||http://click.dangdang.com
+||http://ads.union.jd.com
+||http://du.jd.com
 ||http://s2.zdmimg.com
 ||http://res-ga.smzdm.com
 ||http://api.union.vip.com
@@ -2389,6 +2573,8 @@
 ||http://img.cmm.xmfish.com
 ||http://gg.ptfish.com
 ||http://adimgs.xici.net
+||http://sugar.zhihu.com
+||http://zhihu-web-analytics.zhihu.com
 ||http://a.77shw.com
 ||http://b.77shw.com
 ||http://ad.ettoday.net
@@ -2543,6 +2729,28 @@
 ||http://store.videojj.com
 ||http://va.videojj.com
 ||http://videojj.com
+||http://adp.atm.youku.com
+||http://iyes.youku.com
+||http://m.atm.youku.com
+||http://mf.atm.youku.com
+||http://mobilemsg.youku.com
+||http://push.m.youku.com
+||http://bsv.atm.youku.com
+||http://count.atm.youku.com
+||http://dmapp.youku.com
+||http://html.atm.youku.com
+||http://ipm.atm.youku.com
+||http://myes.youku.com
+||http://r.l.youku.com
+||http://service.danmu.youku.com
+||http://statis.mobile.youku.com
+||http://v2html.atm.youku.com
+||http://val.atm.youku.com
+||http://valb.atm.youku.com
+||http://valc.atm.youku.com
+||http://valf.atm.youku.com
+||http://valp.atm.youku.com
+||http://valt.atm.youku.com
 ||http://1.letvlive.com
 ||http://2.letvlive.com
 ||http://liba.haotv8.com
@@ -2723,6 +2931,7 @@
 ||http://ad.tatatimes.com
 ||http://ad.xn--3bs795g.link
 ||http://ad.wang502.com
+||http://adash.m.taobao.com
 ||http://adeaz.com
 ||http://adeq.hiidc.com.cn
 ||http://adimg.bbcss.com
@@ -4192,6 +4401,7 @@
 ||http://jc.vtqifk86868.cn
 ||http://jc.xuqinqi.cn
 ||http://jd.c-ptsp.com.cn
+||http://jd.com.pesbbw.cn
 ||http://jdg.bjygfd.com
 ||http://jdw.zjuwjdc.com
 ||http://jfot.e647ob.cn
@@ -5648,19 +5858,19 @@
 ||http://p6.95558000.com
 ||http://p7.95558000.com
 ||http://p8.95558000.com
-!127.0.0.1 p1.pstatp.com
-!127.0.0.1 p2.pstatp.com
-!127.0.0.1 p3.pstatp.com
-!127.0.0.1 p4.pstatp.com
-!127.0.0.1 p5.pstatp.com
-!127.0.0.1 p6.pstatp.com
-!127.0.0.1 p7.pstatp.com
-!127.0.0.1 p8.pstatp.com
-!127.0.0.1 p9.pstatp.com
-!127.0.0.1 p10.pstatp.com
-!127.0.0.1 pb1.pstatp.com
-!127.0.0.1 pb2.pstatp.com
-!127.0.0.1 pb3.pstatp.com
+#127.0.0.1 p1.pstatp.com
+#127.0.0.1 p2.pstatp.com
+#127.0.0.1 p3.pstatp.com
+#127.0.0.1 p4.pstatp.com
+#127.0.0.1 p5.pstatp.com
+#127.0.0.1 p6.pstatp.com
+#127.0.0.1 p7.pstatp.com
+#127.0.0.1 p8.pstatp.com
+#127.0.0.1 p9.pstatp.com
+#127.0.0.1 p10.pstatp.com
+#127.0.0.1 pb1.pstatp.com
+#127.0.0.1 pb2.pstatp.com
+#127.0.0.1 pb3.pstatp.com
 ||http://package.minghui.org
 ||http://paflibnq.mamiyue.com.cn
 ||http://pad.zhywyl.cn
@@ -5818,6 +6028,7 @@
 ||http://qoub.rtslgov.cn
 ||http://qp.yunanfuwuqi.com
 ||http://qq.8368661.com
+||http://qq.com.5q69n.cn
 ||http://qq.guansenff.cn
 ||http://qq.hixili.top
 ||http://qqa.miaozhu823.com
@@ -6684,6 +6895,7 @@
 ||http://www.nvshenfan.com
 ||http://www.oiwjcsh011.top
 ||http://www.onewhee.com
+||http://www.oollttqq.com
 ||http://www.ooniu.com
 ||http://www.pasco.cc
 ||http://www.pi920.com
@@ -7253,6 +7465,7 @@
 ||http://nfdnserror16.wo.com.cn
 ||http://nfdnserror17.wo.com.cn
 ||http://hivedata.cc
+||http://m.kubiqq.com
 ||http://offline-adv.oray.com
 ||http://hao.qquu8.com
 ||http://hao549.com
@@ -9098,6 +9311,7 @@
 ||http://90053999.com
 ||http://ad.dokrmob.com
 ||http://apnmedia.ask.com
+||http://baidut.github.io
 ||http://c.silvinst.com
 ||http://c1.668559.com
 ||http://c16cp358.com
