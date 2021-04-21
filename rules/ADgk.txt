@@ -6778,7 +6778,6 @@ baike.baidu.com$$div[class="relative-shop-"]
 ||afd.baidu.com^
 ||crab.baidu.com^
 ||hmma.baidu.com^
-^advertisement^
 ||aigou023.com^
 ||wakamoment.tk^
 ||27pan.2wk.com^
@@ -7722,8 +7721,6 @@ _showad*
 ||zhlala.com^
 ||zhushicm.com^
 ||zzm.cn^
-^interfaceAd^
-^interfaceAdMonitor^
 ||shence.hupu.com^
 ||cc.dace.hupu.com^
 ||games.mobileapi.hupu.com/1/7.3.2/link/
@@ -7756,7 +7753,6 @@ $domain=m.fengyunok.com,third-party
 /js/qiguo.js
 ||nubao.lsdys.cn^
 ||a6s.hn985.com^
-^getappmsgad^
 ||m.ithome.com/js/pwa^
 ||m.ithome.com/js/common/user-menu.min.js
 ||zaoyx.jrchiji.cn^
@@ -7813,7 +7809,6 @@ m.baidi.com,www.baidu.com##DIV[class='voice call']
 ||m.baidu.com/se/transcode/static/img/bgn.png
 ||x4jdm.tv/%7Bmaccms:path_ads%7D960901.js
 ||tapjoyvod.8686c.com^
-^adv^
 ||www.loldyttw.net^
 ||loldyttw.com^
 ||www.besthuaxia.com^
@@ -8149,7 +8144,6 @@ jianshu.com##div.note-comment-above-ad-wrap
 ||hm.baidu.com^
 ||erebor.douban.com^
 m.douban.com##div.center
-^ads.swf|
 ||xgapi-hl.snssdk.com/video/app/article/information/v25/?$replace=/ad_/fuck/
 ||adshare.
 ||adsfile.
@@ -8205,7 +8199,6 @@ r1eadS= null;
 ||lftxali.fancyapi.com^
 ||kingsoft.com^
 ||vzuu.com/SD/*adbidding&
-^adreaper^
 ||cp81.ott.cibntv.net^
 ||tracking.miui.com^
 ||video.market.xiaomi.com^
@@ -8294,7 +8287,6 @@ girlx8.com##div.swiper-container.weui-panel.swiper-container-horizontal
 ||adsp.xunlei.com^
 ||ebjvu.cn^
 ||api-u-ssl.xunlei.com^
-^ad|
 /videos/other/*.f4v$app=com.miui.video
 jdcloud.com##div.m-app-tips
 k.sina.cn##section.s_card.z_c2.j_article_relevent_news
