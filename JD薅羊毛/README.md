@@ -31,15 +31,15 @@ pip install paramiko
 
 ##### fofa_url.txt
 
-##### ![fofa_url](fofa_url.png)
+##### ![fofa_url](./fofa_url.png)
 
 ##### fofa_logs.txt
 
-![fofa_logs](fofa_logs.png)
+![fofa_logs](./fofa_logs.png)
 
 ##### shell.txt
 
-##### ![shell](shell.png)
+##### ![shell](./shell.png)
 
 
 
