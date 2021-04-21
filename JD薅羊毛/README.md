@@ -12,7 +12,7 @@ and you can change some paramiter in file's config part.
 
 `python getshell.py` can get useful tips
 
-![img](./getshellrun.png)
+![img](./getshellrun.jpg)
 
 use fofa_url.txt to get thire shell
 
