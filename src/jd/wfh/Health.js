@@ -3,6 +3,7 @@ const HarmonyTemplate = require('./template');
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 class Health extends HarmonyTemplate {
+  static scriptName = 'Health';
   static scriptNameDesc = '健康社区';
   static shareCodeTaskList = [];
   static time = 3;

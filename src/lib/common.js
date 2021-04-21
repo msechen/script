@@ -128,17 +128,28 @@ function matchMiddle(target, {reg, prefix, suffix, match = '\w'}) {
  */
 async function singleRun(target, method = 'start', runFn = null) {
   const {getLocalEnvs, getCookieData} = require('./env');
+  const [nodePath, filePath, command1] = process.argv;
+  const fileName = path.basename(filePath);
+  let scriptName1 = fileName.replace(/\.js$/, '');
+  const dirName = path.basename(filePath.replace(`/${fileName}`, ''));
+  // 必须是当前执行的文件, 避免被继承的类被执行
+  const scriptName = target.scriptName;
+  const isCurrentFile = eq(scriptName, scriptName1) || eq(scriptName, `${dirName}${scriptName1 === 'index' ? '' : scriptName1}`);
 
   let promise;
 
   for (const m of _.concat(method)) {
-    if (process.argv[2] === m) {
+    if (command1 === m && isCurrentFile) {
       process.env = getLocalEnvs();
       promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData()));
     }
   }
 
   return promise;
+
+  function eq(value, other) {
+    return _.eq(..._.map([value, other], _.toLower));
+  }
 }
 
 module.exports = {

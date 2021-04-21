@@ -29,8 +29,13 @@ function clientHandleService(method, data = {}, others = {}, t) {
   return {functionId, form: encrypt(functionId, {method, data, ...others}, t)};
 }
 
+function doFormBody(api, functionId, method, data, body = {}) {
+  return api.doFormBody(functionId, _.assign({method, data}, body));
+}
+
 module.exports = {
   encrypt,
 
   clientHandleService,
+  doFormBody,
 };
