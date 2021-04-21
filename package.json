@@ -4,6 +4,7 @@
   "description": "懒人脚本",
   "main": "app.js",
   "dependencies": {
+    "cron": "^1.8.2",
     "crypto-js": "^4.0.0",
     "download": "^8.0.0",
     "https-proxy-agent": "^5.0.0",
@@ -22,6 +23,7 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "node src/dev.js",
+    "cron": "node src/cron.js",
     "build:yaml": "node src/yaml/schedule.js",
     "build:updateShopToken": "node src/jd/sign/updateShopToken.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",

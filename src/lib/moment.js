@@ -9,10 +9,12 @@ const getMoment = (date = void 0, tz = 'Asia/Shanghai') => moment.tz(date, tz);
 const getNowDate = (format = 'YYYY-MM-DD') => getMoment().format(format);
 const getNowHour = () => getMoment().hour();
 const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
+const getFullDate = getNowDate.bind(0, 'YYYY-MM-DD HH:mm:ss');
 
 module.exports = {
   getMoment,
   getNowDate,
-  getNowTime,
   getNowHour,
+  getNowTime,
+  getFullDate,
 };
