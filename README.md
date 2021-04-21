@@ -6,7 +6,7 @@ write exp or poc by myself, not really well, please give me some advice to impro
 
 
 ### 0day复现exp
-- [Chrome & 微信(-no-sandbox)RCE漏洞](#)
+- [Chrome & wechat(-no-sandbox)RCE漏洞 & new_wechat_0day](https://github.com/RookieDrummer/exp/tree/main/chrome_and_wechat_RCE)
 
 ----
 ## Have a nice day... :D
