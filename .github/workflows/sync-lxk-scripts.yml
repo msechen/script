@@ -26,7 +26,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://gitee.com/jk9527/jd_scripts.git"
-          #source_repo: "https://github.com/x-dr/jdlxk.git"
           source_branch: "master"
           destination_branch: "lxk"
           github_token: ${{ secrets.PAT }}
