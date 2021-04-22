@@ -7315,12 +7315,30 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 |https://cmdyimg.tjyjj.cn/js/
 !x  -----------------------------------------------------------------------------------------------------------------
 !x  -----[KoolProxy 3.8.5]
-!x  -----update[rules]: 2021-4-17 14:25
-!x  -----update[video]: 2021-4-12 10:00
+!x  -----update[rules]: 2021-4-21 14:25
+!x  -----update[video]: 2021-4-21 10:00
 !x  -----update by larry
+
+||lqcdn.dangbei.net
+
+#韩剧tv
+||adsmind.updtimg.com
+||pgdt.updtimg.com
+|https://ossgw.alicdn.com
+||ejcop.com
+||ef-dongfeng.tanx.com
+||df.tanx.com
+||beacon-api.aliyuncs.com
+||adash.man.aliyuncs.com
+||raddus.bayescom.com
+||adashbc.ut.taobao.com
 ||realsrv.com
 ||hellobar.com
 ||rpt.gdt.qq.com
+
+||canvas.gdt.qq.com
+||raddus.bayescom.com
+
 #youku
 ||vali-g1.cp31.ott.cibntv.net
 |https://ngaa.net.cn
