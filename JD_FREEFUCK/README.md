@@ -15,9 +15,9 @@ and you can change some paramiter in file's config part.
 
 `python getshell.py` can get useful tips
 
-![img](./getshellrun1.jpg)
+![img](./pic/getshellrun1.jpg)
 
-![img](./getshellrun2.jpg)
+![img](./pic/getshellrun2.jpg)
 
 use fofa_url.txt to get thire shell
 
@@ -36,15 +36,15 @@ pip install paramiko
 
 ##### fofa_url.txt
 
-##### ![fofa_url](fofa_url.jpg)
+##### ![fofa_url](./pic/fofa_url.jpg)
 
 ##### fofa_logs.txt
 
-![fofa_logs](fofa_logs.jpg)
+![fofa_logs](./pic/fofa_logs.jpg)
 
 ##### shell.txt
 
-##### ![shell](shell.jpg)
+##### ![shell](./pic/shell.jpg)
 
 
 
