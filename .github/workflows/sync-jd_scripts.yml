@@ -32,4 +32,4 @@ jobs:
       with:
         directory: master
         github_token: ${{ secrets.PAT }}
-        branch: master
+        branch: lxk0301
