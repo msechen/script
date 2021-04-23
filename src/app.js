@@ -198,7 +198,6 @@ async function main() {
         await doRun(PetRemote);
         await doCron(TurnTableFarm);
         await doRun(Joy);
-        await doRun(Carnivalcity);
       },
     },
     {
