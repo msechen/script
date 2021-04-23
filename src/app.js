@@ -313,7 +313,7 @@ async function main() {
           JoyRedeem,
         ]);
         await multipleRun([
-          EarnJingDou, IsvShopSign, Isp5G,
+          EarnJingDou, IsvShopSign,
           // 做任务抽奖
           WomenBlindBox,
         ], 0);
