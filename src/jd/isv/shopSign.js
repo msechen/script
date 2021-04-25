@@ -13,14 +13,12 @@ class IsvShopSign extends Isv {
 
     const activityIds = [
       // [activityId, pathId]
-      ['3e6c53c198724f8583229bbc0f1fcbb3'],
-      ['32a4d8cac24f4936b1d8915be4fa9101'],
-      ['728e4c0b2eae4542be82ff1aa694a0df', 'sevenDay'],
+      ['57c242b10cca47ce80c4d93e0a7adfa0'],
       ['62be8231a42047b5b544b661a3127210', 'sevenDay'],
 
       // 需要加入品牌会员
       // 十月稻田京东自营旗舰店(每月更新)
-      ['e2afd62e078b46d1a13a1d92a1df37b1'],
+      ['eeea0c050da941f89804781dd03d5372'],
     ];
     if (!activityIds.length) return;
     await generateToken(api);
