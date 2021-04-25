@@ -1,4 +1,4 @@
-name: sync-evendevil66/taolefan
+name: sync-wechaty-fanli
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-evendevil66/taolefan
+    types: sync-wechaty-fanli
 jobs:
   repo-sync:
     env:
@@ -22,11 +22,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-evendevil66/taolefan
+      - name: sync-wechaty-fanli
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/evendevil66/taolefan.git"
-          source_branch: "master"
-          destination_branch: "taolefan"
+          source_repo: "https://github.com/gengchen528/wechaty-fanli.git"
+          source_branch: "main"
+          destination_branch: "wechaty-fanli"
           github_token: ${{ secrets.PAT }}
