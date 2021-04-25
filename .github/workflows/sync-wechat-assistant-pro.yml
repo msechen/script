@@ -1,4 +1,4 @@
-name: sync-wechaty-fanli
+name: sync-wechat-assistant-pro
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-wechaty-fanli
+    types: sync-wechat-assistant-pro
 jobs:
   repo-sync:
     env:
@@ -22,11 +22,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-wechaty-fanli
+      - name: sync-wechat-assistant-pro
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/gengchen528/wechaty-fanli.git"
-          source_branch: "main"
-          destination_branch: "wechaty-fanli"
+          source_repo: "https://github.com/gengchen528/wechat-assistant-pro.git"
+          source_branch: "master"
+          destination_branch: "wechat-assistant-pro"
           github_token: ${{ secrets.PAT }}
