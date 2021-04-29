@@ -15,6 +15,8 @@ var fs = require('fs');
 var { execSync, exec } = require('child_process');
 
 var rootPath = path.resolve(__dirname, '..')
+// cookie.sh 文件所在目录
+var confcoo = path.join(rootPath, 'config/cookie.sh');
 // config.sh 文件所在目录
 var confFile = path.join(rootPath, 'config/config.sh');
 // config.sh.sample 文件所在目录
@@ -34,7 +36,7 @@ var logPath = path.join(rootPath, 'log/');
 // 脚本目录
 var ScriptsPath = path.join(rootPath, 'scripts/');
 
-var authError = "错误的用户名密码，请重试";
+var authError = "你居然忘记易享添开的用户名密码？";
 var loginFaild = "请先登录!";
 
 var configString = "config sample crontab shareCode diy";
@@ -298,11 +300,22 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
+ * 外部页面
+ */
+app.get('/jd', function (request, response) {
+    if (request.session.loggedin) {
+        response.sendFile(path.join(__dirname + '/public/jd.html'));
+    } else {
+        response.redirect('/');
+    }
+});
+
+/**
  * 登录页面
  */
 app.get('/', function (request, response) {
     if (request.session.loggedin) {
-        response.redirect('./home');
+        response.redirect('./jd');
     } else {
         response.sendFile(path.join(__dirname + '/public/auth.html'));
     }
@@ -375,6 +388,9 @@ app.get('/api/config/:key', function (request, response) {
     if (request.session.loggedin) {
         if (configString.indexOf(request.params.key) > -1) {
             switch (request.params.key) {
+                case 'cookie':
+                    content = getFileContentByName(confcoo);
+                    break;
                 case 'config':
                     content = getFileContentByName(confFile);
                     break;
@@ -397,7 +413,7 @@ app.get('/api/config/:key', function (request, response) {
             response.setHeader("Content-Type", "text/plain");
             response.send(content);
         } else {
-            response.send("no config");
+            response.send("no config-2021");
         }
     } else {
         response.send(loginFaild);
