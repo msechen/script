@@ -1,0 +1,29 @@
+name: syncGit
+
+on:
+  workflow_dispatch:
+  watch:
+    types: started
+jobs:
+  build:
+    env:
+      dst_key: ${{ secrets.GITEE_PRIVATE_KEY }} # 我自己同步到gitee使用，其他人可忽略
+    runs-on: ubuntu-latest
+    if: ${{ github.event.repository.owner.id == github.event.sender.id }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: commit
+        run: |
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.USER_NAME }}
+          git add .
+          git commit -m "update by wuzhi" -a || echo "Nothing to update"
+      - name: sync github -> gitee
+        uses: Yikun/hub-mirror-action@master
+        if: env.dst_key
+        with:
+          src: github/wuzhi-docker1
+          dst: gitee/shuye72
+          static_list: "jd-base"
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
