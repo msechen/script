@@ -31,7 +31,7 @@
 
             $.post('./auth', { username: $user, password: $password }, function (data) {
                 if (data.err == 0) {
-                    window.location.href = "./home";
+                    window.location.href = "./jd";
                 } else {
                     Swal.fire({
                         text: data.msg,
