@@ -155,7 +155,6 @@ async function main() {
         await multipleRun([
           Harmony1,
           Harmony2,
-          Harmony3,
         ]);
         await multipleRun([
           HealthSign,
