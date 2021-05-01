@@ -128,6 +128,7 @@ yatu.tv##.dplayer-web-fullscreen-fix #tburl,#loadtop,[id^=myas],#myds1,#daohang
 yatu.tv##+js(set,document.oncontextmenu,null)
 ||tracker.$xhr,websocket,script,ping
 3z9e.cn
+7nsc.cn
 7b6l2j.cn
 anquanzhuomian.com
 ch-hr12333.com
