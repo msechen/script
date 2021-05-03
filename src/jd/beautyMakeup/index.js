@@ -12,12 +12,14 @@ class BeautyMakeup extends Template {
   static scriptNameDesc = '美丽颜究院';
   static times = 1;
   static concurrent = true;
-  static concurrentOnceDelay = 0;
-  static loopHours = [7, 12, 19, 23];
+  static concurrentOnceDelay = 30;
+  static loopHours = [3, 7, 12, 19, 23];
 
   static isSuccess(data) {
     return _.property('code')(data) === '0';
   }
+
+  static startLoopTimes = 3;
 
   static async doMain(api) {
     const self = this;
@@ -37,6 +39,7 @@ class BeautyMakeup extends Template {
     let producePositionData = {
       b1: {}, b2: {}, h1: {}, h2: {}, s1: {}, s2: {},
     };
+    let employeePosition = '';
     // 可生产的产品列表
     let productList = [];
     let needSellProductId = 0;
@@ -51,6 +54,7 @@ class BeautyMakeup extends Template {
     let sellProductData = {};
     let autoSellData = {};
     const productMaxProduceSameTimes = 4;
+    let beanPackageExchanged = false;
 
     await initToken();
     if (!token) return;
@@ -157,6 +161,25 @@ class BeautyMakeup extends Template {
       auto_sell_index: {'msg': {'type': 'action', 'args': {}, 'action': 'auto_sell_index'}},
       // 收获金币
       collect_coins: {'msg': {'type': 'action', 'args': {}, 'action': 'collect_coins'}},
+      // 发起雇佣界面
+      to_employee_index: {'msg': {'type': 'action', 'args': {'position': ''}, 'action': 'to_employee_index'}},
+      to_employee_v2: {'msg': {'type': 'action', 'args': {'position': ''}, 'action': 'to_employee_v2'}},
+      // 获取雇佣信息
+      employee_v2: {
+        'msg': {
+          'type': 'action',
+          'args': {'inviter_id': '', 'position': '', 'token': ''},
+          'action': 'employee_v2',
+        },
+      },
+      // 接受雇佣
+      employee_speed_v2: {
+        'msg': {
+          'type': 'action',
+          'args': {'inviter_id': '', 'position': ''},
+          'action': 'employee_speed_v2',
+        },
+      },
     };
     const ws = webSocket.init(`wss://xinruimz-isv.isvjcloud.com/wss/?token=${token}`, {
       headers: {
@@ -178,7 +201,7 @@ class BeautyMakeup extends Template {
       if (self.getNowHour() === 23) {
         // 定时兑换
         await handleCronExchange();
-        return handleExchange();
+        await handleExchange();
       }
       await sendMessage(wsMsg.init);
       await sendMessage(wsMsg.stats); // TODO 该逻辑可能不需要
@@ -187,9 +210,20 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.product_producing);
       await sendMessage(wsMsg.product_lists);
       await sendMessage(wsMsg.get_package);
+      await updateMaterialPositionInfo();
 
+      // 避免 websocket 没返回
+      if (_.isEmpty(userData) && self.startLoopTimes > 0) {
+        self.startLoopTimes--;
+        return self.doMain(api);
+      }
       // 指引
       await handleGuide();
+
+      if (self.getNowHour() === 0) {
+        // 发起雇佣
+        await handleToEmployee();
+      }
 
       // 做任务
       await handleAnswer();
@@ -201,11 +235,17 @@ class BeautyMakeup extends Template {
       // 生产
       await handleReceiveMaterial();
       await handleReceiveProduct();
-      await handleSellProductV2();
+      needSellProductId = productList[0].id;
+      if (self.getNowHour() >= 12) {
+        await handleSellProductV2();
+      }
       await handleProduceMaterial();
 
-      // 兑换
-      // await handleExchange();
+      if (self.getNowHour() === 0) {
+        await keepOnline(40);
+        // 接受雇佣
+        await handleAcceptEmployment();
+      }
 
       if (self.getNowHour() > 12) {
         // 最后一次才完成这个任务
@@ -294,8 +334,22 @@ class BeautyMakeup extends Template {
         async get_benefit(data) {
           benefitData = data;
         },
+        async to_exchange(data) {
+          const coins = data.coins;
+          if (coins === -50000) {
+            beanPackageExchanged = true;
+          }
+          api.log(`需花费${coins}的东西兑换成功`);
+        },
         async auto_sell_index(data) {
           autoSellData = data;
+        },
+        async collect_coins(data) {
+          api.log(`赚取金币: ${data.coins}`);
+        },
+        async to_employee_v2(data) {
+          const {token} = data;
+          self.shareCodeTaskList.push({inviter_id: userData['id'], position: employeePosition, token});
         },
       };
       // writeFileJSON(data, `${action}.json`, __dirname);
@@ -334,7 +388,8 @@ class BeautyMakeup extends Template {
     // 加购
     async function handleAddProduct() {
       for (let i = checkUpData['product_adds'].length; i < checkUpData['daily_product_add_times']; i++) {
-        const {id} = shopProducts['products'][i];
+        const {id} = shopProducts['products'][i] || {};
+        if (!id) continue;
         wsMsg.add_product_view_1.msg.args.add_product_id = id;
         await sendMessage(wsMsg.add_product_view_1);
       }
@@ -343,7 +398,8 @@ class BeautyMakeup extends Template {
     // 浏览关注店铺
     async function handleViewShop() {
       for (let i = checkUpData['shop_view'].length; i < checkUpData['daily_shop_follow_times']; i++) {
-        const {id} = shopProducts['shops'][i];
+        const {id} = shopProducts['shops'][i] || {};
+        if (!id) continue;
         wsMsg.shop_view_1.msg.args.shop_id = id;
         await sendMessage(wsMsg.shop_view_1);
       }
@@ -372,19 +428,13 @@ class BeautyMakeup extends Template {
     async function handleProduceMaterial() {
       const sellProduct = productList.find(o => o['id'] === needSellProductId);
       const mainMaterial = sellProduct ? sellProduct['product_materials'].map(o => o['material_id']) : [];
-      for (const data of _.values(producePositionData)) {
-        const position = data['position'];
-        if (data['is_valid'] === 1 && data['valid_electric'] > 0) {
-          // 可以进行生产
-          const allKeys = ['special', 'high', 'base'];
-          for (const key of allKeys) {
-            if (position.substring(0, 1) < key.substring(0, 1)) continue;
-            const materials = _.flatten(produceMaterialData[key].map(o => o.items)).filter(o => !o.isProduced);
-            let material = materials.find(o => mainMaterial.includes(o['id'])) || materials[0];
-            if (!material) continue;
-            material.isProduced = true;
-            await handleProduce(position, material.id);
-            break;
+      for (const [index, key] of ['base', 'high', 'special'].entries()) {
+        for (let i = 1; i <= 2; i++) {
+          const data = producePositionData[`${key.substring(0, 1)}${i}`];
+          const position = data['position'];
+          if (data['is_valid'] === 1 && data['valid_electric'] > 0) {
+            // TODO 判断是否可以进行生产
+            await handleProduce(position, mainMaterial[index]);
           }
         }
       }
@@ -396,8 +446,27 @@ class BeautyMakeup extends Template {
       }
     }
 
-    async function handleProduceProduct(id, lackNum) {
-      await sendMessage(wsMsg.get_package);
+    async function handleToEmployee() {
+      const key = 's';
+      const positionData = _.maxBy([1, 2].map(i => producePositionData[`${key}${i}`]), o => +(_.property('valid_electric')(o) || 0));
+      employeePosition = wsMsg.to_employee_index.msg.args.position = positionData['position'];
+      wsMsg.to_employee_v2.msg.args.position = positionData['position'];
+      await sendMessage(wsMsg.to_employee_index);
+      await sendMessage(wsMsg.to_employee_v2);
+    }
+
+    async function handleAcceptEmployment() {
+      const shareCodeTaskList = self.shareCodeTaskList;
+      const args = shareCodeTaskList[api.currentCookieTimes + 1] || shareCodeTaskList[0];
+      if (!args) return;
+      wsMsg.employee_v2.msg.args = args;
+      wsMsg.employee_speed_v2.msg.args = _.pick(args, ['inviter_id', 'position']);
+      await sendMessage(wsMsg.employee_v2);
+      await sendMessage(wsMsg.employee_speed_v2);
+    }
+
+    async function handleProduceProduct(id, lackNum, updatePackage = true) {
+      updatePackage && await sendMessage(wsMsg.get_package);
       const limitNum = lackNum || 20;
       const product = productList.find(o => o['id'] === id);
       if (!product) return false;
@@ -409,7 +478,9 @@ class BeautyMakeup extends Template {
         if (maxNum === 0) {
           // 如果当前产品不可生产, 就生产下一个
           const currentIndex = productList.findIndex(o => o['id'] === id);
-          return handleProduceProduct(productList[currentIndex + 1].id, lackNum);
+          const target = productList[currentIndex + 1];
+          if (!target) return;
+          return handleProduceProduct(target.id, lackNum, false);
         }
         if (lackNum && (maxNum < lackNum)) {
           api.log(`材料不足, 不可以生产${product['name']}`);
@@ -460,9 +531,8 @@ class BeautyMakeup extends Template {
 
     // 收取生产好的材料
     async function handleReceiveMaterial() {
-      await updateMaterialPositionInfo();
-      for (const {position, produce_num} of _.values(producePositionData)) {
-        if (produce_num === 0 || !position) continue;
+      for (const {position, produce_num, procedure} of _.values(producePositionData)) {
+        if (_.isEmpty(procedure) || !position) continue;
         wsMsg.material_fetch_v2.msg.args.position = position;
         await sendMessage(wsMsg.material_fetch_v2);
       }
@@ -495,7 +565,7 @@ class BeautyMakeup extends Template {
     }
 
     async function handleSellProductV2() {
-      await handleProduceProduct(needSellProductId = productList[0].id);
+      await handleProduceProduct(needSellProductId);
       await sendMessage(wsMsg.auto_sell_index);
       await sleep(autoSellData['next_collect_time']);
       await handleCollectSellProduct();
@@ -517,17 +587,26 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.get_benefit);
       // 500豆
       wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 50000) || {})['id'] || 9;
-      await keepOnline(diffFromNow(24) / 1000);
-      await sendMessage(wsMsg.to_exchange);
+      await keepOnline(diffFromNow([23, 59, 59]) / 1000);
+      await sleep(1 / 2);
+      await doExchange(8);
+
+      async function doExchange(times) {
+        if (times <= 0 || beanPackageExchanged) return;
+        await sleep(0.1);
+        sendMessage(wsMsg.to_exchange);
+        await doExchange(--times);
+      }
     }
 
     // 兑换东西
     async function handleExchange() {
       await sendMessage(wsMsg.get_benefit);
+      await sleep(5);
       const beanData = benefitData.filter(o => o.name.match('京豆')).reverse();
       for (const {id, day_exchange_count: times, day_limit: maxTimes, coins} of beanData) {
         wsMsg.to_exchange.msg.args.benefit_id = id;
-        for (let i = times; i < maxTimes; i++) {
+        for (let i = times === maxTimes ? 0 : times; i < maxTimes; i++) {
           if (userData['coins'] < +coins) continue;
           await sendMessage(wsMsg.to_exchange);
         }
@@ -561,7 +640,11 @@ singleRun(BeautyMakeup, ['start', 'loop'], async (method, getCookieData) => {
   }
 
   async function start() {
-    return BeautyMakeup.start(getCookieData());
+    try {
+      return BeautyMakeup.start(getCookieData());
+    } catch (e) {
+      console.error(e);
+    }
   }
 }).then();
 
