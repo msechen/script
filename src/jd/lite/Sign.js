@@ -37,9 +37,12 @@ class Sign extends Template {
       activityId,
     }, body)));
 
-    await doForm('speedSignInit', {inviterId: _.head(shareCodes) || 'JO6fIuW4u8JXLgl2Lsw9HQ=='}).then(data => {
+    await doForm('speedSignInit').then(data => {
       if (_.property('data.alreadySign')(data)) return;
-      return doForm('speedSign', {'noWaitPrize': 'false'}).then(data => {
+      return doForm('speedSign', {
+        'noWaitPrize': 'false',
+        inviterId: _.head(shareCodes) || 'JO6fIuW4u8JXLgl2Lsw9HQ==',
+      }).then(data => {
         if (!self.isSuccess(data)) return;
         const {signAmount, cashDrawAmount, aveAmount, couponRecord} = data.data || {};
         const enableWithdraw = +cashDrawAmount >= +aveAmount;
