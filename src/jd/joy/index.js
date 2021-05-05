@@ -3,21 +3,24 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
+const Cookie = require('../../lib/cookie');
 const {encrypt} = require('./api');
+
+const reqSources = ['weapp', 'h5'];
 
 class Joy extends Template {
   static scriptName = 'Joy';
   static scriptNameDesc = '宠汪汪';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static times = 1;
+  static times = 2;
 
   static apiOptions() {
     return {
       options: {
         uri: 'https://jdjoy.jd.com/common/pet',
         qs: _.assign({
-          reqSource: 'h5',
+          reqSource: reqSources[1],
         }, encrypt()),
         headers: {
           referer: 'https://jdjoy.jd.com/pet/index',
@@ -33,6 +36,10 @@ class Joy extends Template {
 
   static isSuccess(data) {
     return this._.property('success')(data);
+  }
+
+  static beforeRequest(api) {
+    api.options.qs.reqSource = reqSources[api.currentCookieTimes];
   }
 
   static apiNamesFn() {
@@ -52,6 +59,13 @@ class Joy extends Template {
           if (!self.isSuccess(data)) return [];
 
           // 签到和助力都需要手动到小程序
+
+          // 助力
+          // self.updateShareCodeFn(new Cookie(api.cookie).get('pt_pin'));
+          // const list = self.getShareCodeFn();
+          // for (const friendPin of list) {
+          //   await api.doGetPath('helpFriend', _.assign({friendPin, reqSource: reqSources[0]}, encrypt()));
+          // }
 
           const result = [];
 
@@ -74,7 +88,7 @@ class Joy extends Template {
               continue;
             }
 
-            if (!['race', 'ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood'/*, 'HelpFeed'*/].includes(taskType)) continue;
+            if (!['ViewVideo', 'race', 'ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood'/*, 'HelpFeed'*/].includes(taskType)) continue;
 
             if (taskType === 'HelpFeed') {
               if (receiveStatus === 'chance_left') {
@@ -112,6 +126,15 @@ class Joy extends Template {
                 taskType,
               } : (followGoodList ? {sku: o.sku} : {shopId: o.shopId})));
             });
+
+            if (taskType === 'ViewVideo') {
+              list = [];
+              for (let i = times; i < maxTimes; i++) {
+                list.push({taskType});
+              }
+            }
+
+            if (_.isEmpty(list)) continue;
 
             const option = {maxTimes, times, waitDuration};
             if (taskType === 'FollowShop') {
