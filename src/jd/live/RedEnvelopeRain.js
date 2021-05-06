@@ -59,7 +59,9 @@ class LiveRedEnvelopeRain extends Template {
     async function waitForLottery(targetIconArea) {
       const {startTime, endTime, actId, liveId} = targetIconArea;
       const targetMoment = getMoment(startTime);
-      api.log(`${liveId} 下一场红包雨(${actId}): ${targetMoment.format('YYYY-MM-DD HH:mm:ss')}`);
+      const logMsg = `${liveId} 下一场红包雨(${actId}): ${targetMoment.format('YYYY-MM-DD HH:mm:ss')}`;
+      api.log(logMsg);
+      (api.currentCookieTimes === 0) && console.log(`[${self.scriptNameDesc}] ${logMsg}`);
       await sleepTime([targetMoment.hour(), targetMoment.minute(), 10]);
       await noahRedRainLottery(actId);
     }

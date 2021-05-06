@@ -18,6 +18,7 @@ function extractForm(sessions, keys) {
 
 const gitIgnoreFiles = [
   'stall_collectScore',
+  'liveActivityV946',
 ];
 
 const CHLSJ_PATH = path.resolve(__dirname, './chlsj');
