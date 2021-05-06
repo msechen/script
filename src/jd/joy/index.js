@@ -39,7 +39,7 @@ class Joy extends Template {
   }
 
   static beforeRequest(api) {
-    api.options.qs.reqSource = reqSources[api.currentCookieTimes];
+    api.options.qs.reqSource = reqSources[this.currentTimes - 1];
   }
 
   static apiNamesFn() {
@@ -67,9 +67,19 @@ class Joy extends Template {
           //   await api.doGetPath('helpFriend', _.assign({friendPin, reqSource: reqSources[0]}, encrypt()));
           // }
 
+          // 限时货架
+          const deskGoods = await api.doGetPath('getDeskGoodDetails').then(data => _.property('data.deskGoods')(data)) || [];
+
           const result = [];
 
           const taskList = _.property('datas')(data) || [];
+          if (!_.isEmpty(deskGoods)) {
+            const list = deskGoods.filter(o => !o.status).map(o => ({
+              taskType: 'ScanDeskGood',
+              sku: o.sku,
+            }));
+            result.push({list, option: {maxTimes: list.length}});
+          }
           for (let {
             taskChance: maxTimes,
             joinedCount: times,
@@ -118,7 +128,7 @@ class Joy extends Template {
             maxTimes = maxTimes || void 0;
 
             let list = (scanMarketList || followShops || followChannelList || followGoodList || []).filter(o => !o.status).map(o => {
-              return _.assign({reqSource: 'h5'}, scanMarketList ? {
+              return _.assign({reqSource: api.options.qs.reqSource}, scanMarketList ? {
                 marketLink: o.marketLinkH5,
                 taskType,
               } : (followChannelList ? {
@@ -129,7 +139,7 @@ class Joy extends Template {
 
             if (taskType === 'ViewVideo') {
               list = [];
-              for (let i = times; i < maxTimes; i++) {
+              for (let i = times || 0; i < maxTimes; i++) {
                 list.push({taskType});
               }
             }
