@@ -1,10 +1,11 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common');
 const _ = require('lodash');
 
 const appid = 'activities_platform';
-const linkId = 'jOkIZzWCgGa9NfPuHBSx1A';
+const linkId = 'AkOULcXbUA_8EAPbYLLMgg';
+const indexUrl = 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html';
 
 class SpringReward extends Template {
   static scriptName = 'SpringReward';
@@ -27,7 +28,7 @@ class SpringReward extends Template {
       },
       headers: {
         origin: 'https://prodev.m.jd.com',
-        referer: 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html',
+        referer: indexUrl,
       },
     },
   };
@@ -35,8 +36,19 @@ class SpringReward extends Template {
   static async doMain(api, shareCodes) {
     const self = this;
 
+    // 更新linkId
+    await api.doGetUrl(indexUrl, {
+      headers: {
+        Cookie: '',
+      },
+    }).then(data => {
+      const newLinkId = matchMiddle(data, {reg: /"linkId":"(\w*)",/});
+      if (newLinkId === linkId) return;
+      api.options.qs.body.linkId = newLinkId;
+    });
+
     await api.doGet('spring_reward_query').then(async data => {
-      if (!self.isSuccess(data)) return;
+      if (!self.isSuccess(data)) return api.log(`活动已过期, linkId: ${api.options.qs.body.linkId}`);
       let {remainChance} = data.data;
 
       await sleep(2);
