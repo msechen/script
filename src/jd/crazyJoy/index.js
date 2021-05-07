@@ -178,7 +178,7 @@ class CrazyJoy extends Template {
       let merged = false;
       for (let i = 0; i < joyIds.length; i++) {
         const joyId = joyIds[i];
-        if (joyId === 0) continue;
+        if (joyId === 0 || joyId === 34) continue;
         const fromBoxIndex = i;
         let targetBoxIndex = -1;
         for (let j = fromBoxIndex + 1; j < joyIds.length; j++) {
@@ -190,6 +190,7 @@ class CrazyJoy extends Template {
         if (targetBoxIndex === -1) continue;
 
         if (fromBoxIndex !== targetBoxIndex) {
+          if (joyId === 34) continue;
           merged = true;
           // 合成到左边
           await mergeJoy(targetBoxIndex, fromBoxIndex);
