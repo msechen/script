@@ -3,10 +3,10 @@ const HarmonyTemplate = require('./harmony');
 const {sleep, writeFileJSON} = require('../../lib/common');
 
 class Harmony3 extends HarmonyTemplate {
-  static scriptNameDesc = '荣耀换新季';
+  static scriptNameDesc = 'lol冠军';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({appId: '1EFRYxw'});
-  static skipTaskIds = [8/*开会员*/, 12/*购买商品*/];
+  static commonParamFn = () => ({appId: '1EFRYxA'});
+  static skipTaskIds = [3/*开会员*/];
 }
 
 module.exports = Harmony3;
