@@ -81,7 +81,7 @@ class EarnJingDou extends Template {
 
             (taskDataStatus === 0) && await api.doFormBody('vviptask_receive_getone', {ids: id});
 
-            result.push({list, option: {waitDuration: 1}});
+            result.push({list, option: {waitDuration: 5}});
           }
 
           return result;
