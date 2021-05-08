@@ -39,8 +39,6 @@ class CrazyJoy extends Template {
     const _ = this._;
     const logBean = self.logBean.bind(self);
 
-    // 获取信息列表
-    // await api.doFormBody('crazyJoy_user_getMsgList', {"msgType":"USER_ACTIVE","status":"UNREAD","page":1,"pageSize":10});
     await doDayTask();
     await handleSign();
 
@@ -112,18 +110,27 @@ class CrazyJoy extends Template {
         advertViewTimes,
       } = await api.doFormBody('crazyJoy_joy_produce').then(data => _.property('data')(data) || {});
       if (advertViewTimes === 0 || !luckyBoxRecordId) return;
-      await doVideo(luckyBoxRecordId);
+      const needStop = await doVideo(luckyBoxRecordId);
+      if (needStop) return;
       await upgradeJoy();
       await doProduce();
     }
 
     // 看广告
     async function doVideo(eventRecordId) {
-      await api.doFormBody('crazyJoy_event_getVideoAdvert', {eventType: 'LUCKY_BOX_DROP', eventRecordId});
-      await sleep(30);
-      await api.doFormBody('crazyJoy_event_obtainAward', {eventType: 'LUCKY_BOX_DROP', eventRecordId}).then(data => {
-        if (!self.isSuccess(data)) return;
-        self.logBean(data);
+      return api.doFormBody('crazyJoy_event_getVideoAdvert', {
+        eventType: 'LUCKY_BOX_DROP',
+        eventRecordId,
+      }).then(async data => {
+        if (!self.isSuccess(data)) return true;
+        await sleep(30);
+        return api.doFormBody('crazyJoy_event_obtainAward', {
+          eventType: 'LUCKY_BOX_DROP',
+          eventRecordId,
+        }).then(data => {
+          if (!self.isSuccess(data)) return true;
+          self.logBean(data);
+        });
       });
     }
 
@@ -171,6 +178,7 @@ class CrazyJoy extends Template {
       if (joyIds.length > 12) {
         joyIds.shift();
       }
+      api.log(`当前joyIds为: ${joyIds}`);
       return joyIds;
     }
 
@@ -235,7 +243,7 @@ class CrazyJoy extends Template {
       }
 
       async function mergeContinuous() {
-        if (_.uniq(joyIds).length !== joyIds.length) {
+        if (_.uniq(_.filter(joyIds)).length !== _.filter(joyIds).length) {
           return;
         }
         if (joyIds.filter(v => v === 0).length === 1) {
