@@ -72,6 +72,9 @@ function Git_PullScripts {
   git fetch --all
   ExitStatusScripts=$?
   git reset --hard origin/main
+  echo -e "替换本地修改文件5.9\n"
+  cp -f ${ConfigDir}/jd_bean_change.js ${ScriptsDir}/jd_bean_change.js
+  cp -f ${ConfigDir}/jd_bean_change.js ${ScriptsDir}/jd_bean_change.js
   echo
 }
 
