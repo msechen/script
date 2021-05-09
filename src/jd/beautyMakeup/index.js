@@ -144,7 +144,7 @@ class BeautyMakeup extends Template {
       // 完成售卖任务
       complete_task: {'msg': {'type': 'action', 'args': {'task_id': 0}, 'action': 'complete_task'}},
       //研发产品列表 请求
-      product_lists: {'msg': {'type': 'action', 'args': {'page': 1, 'num': 100}, 'action': 'product_lists'}},
+      product_lists: {'msg': {'type': 'action', 'args': {'page': 1, 'num': 10}, 'action': 'product_lists'}},
       //获取正在研发产品列表 请求
       product_producing: {'msg': {'type': 'action', 'args': {}, 'action': 'product_producing'}},
       //研发产品 请求
@@ -210,6 +210,7 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.product_producing);
       await sendMessage(wsMsg.product_lists);
       await sendMessage(wsMsg.get_package);
+      await keepOnline(10);
       await updateMaterialPositionInfo();
 
       // 避免 websocket 没返回
@@ -219,11 +220,6 @@ class BeautyMakeup extends Template {
       }
       // 指引
       await handleGuide();
-
-      if (self.getNowHour() === 0) {
-        // 发起雇佣
-        await handleToEmployee();
-      }
 
       // 做任务
       await handleAnswer();
@@ -242,7 +238,9 @@ class BeautyMakeup extends Template {
       await handleProduceMaterial();
 
       if (self.getNowHour() === 0) {
-        await keepOnline(40);
+        // 发起雇佣
+        await handleToEmployee();
+        await keepOnline(60);
         // 接受雇佣
         await handleAcceptEmployment();
       }
@@ -426,18 +424,42 @@ class BeautyMakeup extends Template {
     }
 
     async function handleProduceMaterial() {
-      const sellProduct = productList.find(o => o['id'] === needSellProductId);
-      const mainMaterial = sellProduct ? sellProduct['product_materials'].map(o => o['material_id']) : [];
-      for (const [index, key] of ['base', 'high', 'special'].entries()) {
-        for (let i = 1; i <= 2; i++) {
-          const data = producePositionData[`${key.substring(0, 1)}${i}`];
-          const position = data['position'];
-          if (data['is_valid'] === 1 && data['valid_electric'] > 0) {
-            // TODO 判断是否可以进行生产
-            await handleProduce(position, mainMaterial[index]);
-          }
+      const allMaterials = packageData.material.map(o => _.assign(_.pick(o, ['num']), o['material']));
+      const materialTypes = _.map(produceMaterialData, (v, key) => key);
+      // TODO 计算出哪种材料制造时间最短
+      // 制造材料类型基本格式: base(2),base(2),high/special(4)
+      const productMaterials = productList[0]['product_materials'].map(o => {
+        const m = allMaterials.find(v => v['id'] === o['material_id']);
+        m.onceNum = o['num'];
+        return m;
+      });
+      const minOnceNum = _.min(_.map(productMaterials, 'onceNum'));
+      const positionMaterials = [];
+      _.forEach(productMaterials, (o, index) => {
+        const multiple = Math.round(o.onceNum / minOnceNum);
+        for (let i = 0; i < multiple; i++) {
+          positionMaterials.push(o);
         }
+      });
+      const minNumMaterials = _.minBy(positionMaterials, o => o.num / o.onceNum);
+      for (let i = 0; i < 6; i++) {
+        const material = positionMaterials[i];
+        if (material) continue;
+        positionMaterials.push(minNumMaterials);
       }
+      _.forEach(producePositionData, async (data, position) => {
+        // s > h > b
+        const findMaterial = ({type}) => position.substring(0, 1) >= type.substring(0, 1);
+        const index = positionMaterials.findIndex(findMaterial);
+        const material = positionMaterials[index] || productMaterials.find(findMaterial);
+        if (!material) return;
+        if (index > -1) {
+          positionMaterials.splice(index, 1);
+        }
+        if (data['is_valid'] === 1 && data['valid_electric'] > 0) {
+          await handleProduce(position, material['id']);
+        }
+      });
 
       async function handleProduce(position, materialId) {
         wsMsg.material_produce_v2.msg.args.position = position;
