@@ -67,6 +67,7 @@ const Isp5G = require('./jd/isp5g');
 const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
+const Planet = require('./jd/planet');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -174,6 +175,7 @@ async function main() {
         await doRun(Necklace);
         await doRun(SecondKillRedPacket);
         await doRun(Car);
+        await doRun(Planet);
       },
     },
     {
