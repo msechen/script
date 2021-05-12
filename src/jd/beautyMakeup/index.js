@@ -56,6 +56,8 @@ class BeautyMakeup extends Template {
     const productMaxProduceSameTimes = 4;
     let beanPackageExchanged = false;
 
+    const serverNotReturn = () => (_.isEmpty(userData) || _.isEmpty(productList)) && self.startLoopTimes > 0;
+
     await initToken();
     if (!token) return;
 
@@ -203,6 +205,8 @@ class BeautyMakeup extends Template {
         await handleCronExchange();
         await handleExchange();
       }
+      const isDayStarted = self.getNowHour() === 0;
+
       await sendMessage(wsMsg.init);
       await sendMessage(wsMsg.stats); // TODO 该逻辑可能不需要
       await sendMessage(wsMsg.shop_products);
@@ -214,10 +218,16 @@ class BeautyMakeup extends Template {
       await updateMaterialPositionInfo();
 
       // 避免 websocket 没返回
-      if (_.isEmpty(userData) && self.startLoopTimes > 0) {
+      await keepOnline(20);
+      if (serverNotReturn()) {
+        await keepOnline(60);
+      }
+      if (serverNotReturn()) {
         self.startLoopTimes--;
         return self.doMain(api);
       }
+
+      isDayStarted && await handleExchange();
       // 指引
       await handleGuide();
 
@@ -231,17 +241,16 @@ class BeautyMakeup extends Template {
       // 生产
       await handleReceiveMaterial();
       await handleReceiveProduct();
+
       needSellProductId = productList[0].id;
+      await handleProduceMaterial();
+      isDayStarted && await handleToEmployee();
       if (self.getNowHour() >= 12) {
         await handleSellProductV2();
       }
-      await handleProduceMaterial();
-
-      if (self.getNowHour() === 0) {
-        // 发起雇佣
-        await handleToEmployee();
-        await keepOnline(60);
-        // 接受雇佣
+      if (isDayStarted) {
+        // 发起和接受雇佣
+        await keepOnline(self.concurrentOnceDelay + 5);
         await handleAcceptEmployment();
       }
 
@@ -469,10 +478,9 @@ class BeautyMakeup extends Template {
     }
 
     async function handleToEmployee() {
-      const key = 's';
-      const positionData = _.maxBy([1, 2].map(i => producePositionData[`${key}${i}`]), o => +(_.property('valid_electric')(o) || 0));
-      employeePosition = wsMsg.to_employee_index.msg.args.position = positionData['position'];
-      wsMsg.to_employee_v2.msg.args.position = positionData['position'];
+      const {position} = _.maxBy(_.filter(producePositionData, o => !o['position'].match('b')), o => o['valid_electric'] * +(_.property('procedure.every_material_seconds')(o) || 0)) || {position: 's1'};
+      employeePosition = wsMsg.to_employee_index.msg.args.position = position;
+      wsMsg.to_employee_v2.msg.args.position = position;
       await sendMessage(wsMsg.to_employee_index);
       await sendMessage(wsMsg.to_employee_v2);
     }
@@ -489,7 +497,7 @@ class BeautyMakeup extends Template {
 
     async function handleProduceProduct(id, lackNum, updatePackage = true) {
       updatePackage && await sendMessage(wsMsg.get_package);
-      const limitNum = lackNum || 20;
+      const limitNum = lackNum || 40;
       const product = productList.find(o => o['id'] === id);
       if (!product) return false;
       const materials = product['product_materials'].map(v => {
@@ -623,8 +631,10 @@ class BeautyMakeup extends Template {
 
     // 兑换东西
     async function handleExchange() {
-      await sendMessage(wsMsg.get_benefit);
-      await sleep(5);
+      if (_.isEmpty(benefitData)) {
+        await sendMessage(wsMsg.get_benefit);
+        await sleep(5);
+      }
       const beanData = benefitData.filter(o => o.name.match('京豆')).reverse();
       for (const {id, day_exchange_count: times, day_limit: maxTimes, coins} of beanData) {
         wsMsg.to_exchange.msg.args.benefit_id = id;
