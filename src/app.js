@@ -293,13 +293,13 @@ async function main() {
         await doRun(jdFactory, getCookieData()[0]);
         await doCron(Pet);
         await doRun(Necklace);
-        await doRun(KoiRedPacket);
-        await doRun(Joy);
       },
     },
     {
       valid: 23,
       run: async () => {
+        await doRun(KoiRedPacket);
+        await doRun(Joy);
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
         await doRun(CrazyJoy);
