@@ -12,8 +12,7 @@ class Planet extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => [void 0, {method: 'GET'}];
   static needOriginH5 = true;
-  static concurrent = true;
-  static times = 1;
+  static times = 2;
 
   static apiOptions = {
     options: {
@@ -41,7 +40,8 @@ class Planet extends Template {
       paramFn: self.commonParamFn,
       async successFn(data, api) {
         if (!self.isSuccess(data)) return false;
-        const {filledPoints, upgradeNeeded, holdPoints} = data.data;
+        const {filledPoints, upgradeNeeded, holdPoints, userLevel: {level, levelName}} = data.data;
+        api.log(`当前等级星球为:${level} ${levelName}`);
         const allPoints = filledPoints + holdPoints;
         if (allPoints < upgradeNeeded) {
           return false;
@@ -68,6 +68,17 @@ class Planet extends Template {
           if (!self.isSuccess(data)) return [];
 
           const result = [];
+
+          // 助力
+          const pin = _.property('data.pin')(data);
+          self.updateShareCodeFn(pin);
+          const shareList = self.getShareCodeFn();
+          for (const friendPin of shareList) {
+            await api.doPath('help', void 0, {qs: {friendPin}}).then(data => {
+              if (!self.isSuccess(data)) return;
+              api.log('助力成功!');
+            });
+          }
 
           const taskList = _.property('data.myTasks')(data) || [];
           const hasSign = _.property('data.hasSign')(data);
@@ -107,11 +118,9 @@ class Planet extends Template {
         name: 'getDrawPage',
         paramFn: self.commonParamFn,
         async successFn(data, api) {
-          if (!self.isSuccess(data)) return false;
-          const {lotteryNum, lotteryThreshold, todayPoints} = data.data;
-          if (todayPoints < lotteryThreshold || lotteryNum === 0) {
-            return false;
-          }
+          if (!self.isSuccess(data)) return;
+          const {hasDraw, canDraw} = data.data;
+          if (hasDraw || !canDraw) return;
           await api.doGetPath('draw').then(data => {
             const {rewardName} = _.property('data')(data) || {};
             const msg = [];
