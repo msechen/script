@@ -218,7 +218,7 @@ class Joy extends Template {
   static async doCron(api) {
     const self = this;
 
-    await handleFeed(2); // 按需喂养
+    await handleFeed(+(self.getCurrentEnv('JD_JOY_FEED_INDEX') || 3)); // 按需喂养
 
     // 喂食
     async function handleFeed(index = 0) {
