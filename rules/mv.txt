@@ -24,8 +24,7 @@ iqiyi.com##+js(set, Object.prototype.parseXML, noopFunc)
 show.ssports.com
 ||ssports.iqiyi.com/app/$object-subrequest
 
-qq.com##.mod_ad
-v.qq.com##.txp_ad
+qq.com##.mod_ad, .txp_ad
 v.qq.com,sports.qq.com##+js(json-prune,ad,vinfo)
 v.qq.com,sports.qq.com##+js(nano-sib, \u5012\u8ba1\u65f6)
 @@||video.qq.com/fcgi-bin/
