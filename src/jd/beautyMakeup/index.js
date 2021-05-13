@@ -203,6 +203,7 @@ class BeautyMakeup extends Template {
       if (self.getNowHour() === 23) {
         // 定时兑换
         await handleCronExchange();
+        benefitData = [];
         await handleExchange();
       }
       const isDayStarted = self.getNowHour() === 0;
