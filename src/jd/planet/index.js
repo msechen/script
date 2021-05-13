@@ -46,7 +46,8 @@ class Planet extends Template {
         if (allPoints < upgradeNeeded) {
           return false;
         }
-        await api.doGetPath('upgradeLevel').then(data => {
+        return api.doGetPath('upgradeLevel').then(data => {
+          if (!self.isSuccess(data)) return false;
           const {rewardNum, levelName} = _.property('data')(data) || {};
           const msg = [];
           levelName && msg.push(`当前等级为: ${levelName}`);
