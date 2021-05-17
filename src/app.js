@@ -67,6 +67,7 @@ const Isp5G = require('./jd/isp5g');
 const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
+const BeanSmallBean = require('./jd/sign/beanSmallBean');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -136,6 +137,7 @@ async function main() {
         await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
         await doRun(Cash);
         await doRun(JxCfd);
+        await doRun(BeanSmallBean);
 
         // 1点的时候没有action, 所以需要提前
         // await doRun(Harmony7);

@@ -5,58 +5,73 @@ const _ = require('lodash');
 
 const {smallBean} = require('../../../charles/api');
 
+// 活动入口
+const indexUrl = 'https://h5.m.jd.com/rn/42yjy8na6pFsq1cx9MJQ5aTgu3kX/index.html';
+
 class BeanSmallBean extends Template {
   static scriptName = 'BeanSmallBean';
   static scriptNameDesc = '豆小豆';
   static times = 1;
 
+  static apiOptions = {
+    options: {
+      qs: {
+        appid: 'ld',
+      },
+    },
+  };
+
   static async doMain(api) {
     const self = this;
 
+    const getTaskList = () => api.doForm('beanTaskList').then(data => _.property('data.taskInfos')(data) || []);
+    const getTaskById = taskId => getTaskList().then(taskList => taskList.find(o => o['taskId'] === taskId));
 
-    await api.doFormBody('swat_game_exchangejingbean', void 0, {
-      appid: 'swat_miniprogram',
-    }, {
-      uri: 'https://api.m.jd.com/api',
-      headers: {
-        referer: 'https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html',
-      },
-    });
+    await findBeanScene();
 
-    // await getTask();
-
-    async function getTask() {
-      const taskList = await api.doForm('beanTaskList', smallBean.beanTaskList[0]).then(data => {
-        // writeFileJSON(data, 'beanTaskList.json', __dirname);
-
-        return _.property('data.taskInfos')(data).filter(o => o.status !== 2);
-      });
-
-      let needLoop = false;
-
-      for (const {subTaskVOS} of taskList) {
-        const [{taskToken, status}] = subTaskVOS;
-        if (status === 2) continue;
-        const targetForm = findForm(taskToken);
-        if (!targetForm) continue;
-        needLoop = true;
-        await api.doForm('beanDoTask', targetForm);
-        const waitForm = findForm(taskToken, 1);
-        if (!waitForm) continue;
-        await sleep(5);
-        await api.doForm('beanDoTask', waitForm);
-      }
-
-      needLoop && await getTask();
-
-      function findForm(taskToken, actionType = 0) {
-        return smallBean.beanDoTask.find(o => {
-          const body = JSON.parse(o.body);
-          return body.actionType === actionType && body.taskToken === taskToken;
-        });
+    const taskList = await getTaskList();
+    for (const {taskId, status, subTitleName, maxTimes, times, subTaskVOS} of taskList) {
+      if (maxTimes === times || status === 2) continue;
+      const [waitDuration] = subTitleName.match(/\d+/) || [0];
+      for (let i = times; i < maxTimes; i++) {
+        const taskInfo = _.property('subTaskVOS')(await getTaskById(taskId));
+        if (!taskInfo) continue;
+        const [{taskToken}] = taskInfo;
+        await doTask(taskToken, +waitDuration);
       }
     }
 
+    await findBeanScene();
+
+    async function doTask(taskToken, waitDuration) {
+      const _do = (actionType = 0) => api.doFormBody('beanDoTask', {actionType, taskToken});
+      await _do(waitDuration && 1);
+      if (!waitDuration) return;
+      await sleep(waitDuration);
+      await _do();
+    }
+
+    async function findBeanScene() {
+      return api.doFormBody('findBeanScene', {
+        'source': null,
+        'orderId': null,
+        'jklGroupCode': null,
+        'jklShareCode': null,
+        'jklActivityId': null,
+        'rnVersion': '3.9',
+        'rnClient': '1',
+      }).then(data => {
+        const {curScene} = data.data || {};
+        if (!curScene) return;
+        const {growth, level, sceneLevelConfig: {growthEnd, beanNum}} = curScene;
+        const msg = [
+          `当前成长值: ${growth}`,
+          `等级: ${level}`,
+          `下一个目标为: ${growthEnd}, 将得到豆豆: ${beanNum}`,
+        ];
+        api.log(msg.join(', '));
+      });
+    }
   }
 }
 
