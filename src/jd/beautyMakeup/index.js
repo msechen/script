@@ -188,18 +188,25 @@ class BeautyMakeup extends Template {
         'User-Agent': userAgent,
       },
     });
-    let opened = false;
-    ws.on('open', async () => {
-      opened = true;
-    });
+    ws.on('open', afterOpen);
     ws.on('message', onMessage);
-    await afterOpen();
+    ws.on('error', async function (error) {
+      console.log(error);
+      await sleep(60);
+      this.close();
+      return loopDoMain();
+    });
+
+    async function loopDoMain() {
+      const stop = serverNotReturn();
+      if (stop) {
+        self.startLoopTimes--;
+        return self.doMain(api);
+      }
+      return stop;
+    }
 
     async function afterOpen() {
-      if (!opened) {
-        await sleep(2);
-        return afterOpen();
-      }
       if (self.getNowHour() === 23) {
         // 定时兑换
         await handleCronExchange();
@@ -223,10 +230,9 @@ class BeautyMakeup extends Template {
       if (serverNotReturn()) {
         await keepOnline(60);
       }
-      if (serverNotReturn()) {
-        self.startLoopTimes--;
-        return self.doMain(api);
-      }
+
+      const stop = await loopDoMain();
+      if (stop) return;
 
       isDayStarted && await handleExchange();
       // 指引
@@ -251,7 +257,7 @@ class BeautyMakeup extends Template {
       }
       if (isDayStarted) {
         // 发起和接受雇佣
-        await keepOnline(self.concurrentOnceDelay + 5);
+        await keepOnline(self.concurrentOnceDelay + 30);
         await handleAcceptEmployment();
       }
 
@@ -598,7 +604,7 @@ class BeautyMakeup extends Template {
     async function handleSellProductV2() {
       await handleProduceProduct(needSellProductId);
       await sendMessage(wsMsg.auto_sell_index);
-      await sleep(autoSellData['next_collect_time']);
+      await keepOnline(autoSellData['next_collect_time']);
       await handleCollectSellProduct();
     }
 
