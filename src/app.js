@@ -155,7 +155,6 @@ async function main() {
         // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
-          Harmony2,
           Harmony3,
         ]);
         await multipleRun([
