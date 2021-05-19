@@ -74,6 +74,9 @@ const LiteSign = require('./jd/lite/Sign');
 const SpringReward = require('./jd/lite/SpringReward');
 const EarnCoins = require('./jd/lite/EarnCoins');
 
+/* 本地执行 */
+const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');
+
 const nowHour = getNowHour();
 const nowDate = getNowDate();
 const errorOutput = [];

@@ -68,9 +68,10 @@ const smallBean = {
   beanDoTask: [],
 };
 const necklace = {
-  functionIds: ['reportCcTask', 'getCcTaskList'],
+  functionIds: ['reportCcTask', 'getCcTaskList', 'receiveNecklaceCoupon'],
   reportCcTask: [],
   getCcTaskList: [],
+  receiveNecklaceCoupon: [],
 };
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
