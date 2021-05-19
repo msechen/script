@@ -26,7 +26,6 @@ class SecondKillRedPacket extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       // 获取任务列表
@@ -37,6 +36,9 @@ class SecondKillRedPacket extends Template {
           // writeFileJSON(data, 'queryInteractiveInfo.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
+
+          // 新的任务列表请求接口, 仅做记录
+          // await api.doFormBody('assignmentList', {}, {appid: 'jwsp'});
 
           const result = [];
 
@@ -52,13 +54,13 @@ class SecondKillRedPacket extends Template {
             assignmentEndTime,
           } of taskList) {
             let {waitDuration, extraType} = ext;
-            if (status === true || [].includes(encryptAssignmentId) || ['', '签到红包'].includes(assignmentName)) continue;
+            if (status === true || [].includes(encryptAssignmentId) || [''].includes(assignmentName)) continue;
             if (getMoment().isBefore(assignmentStartTime) || getMoment().isAfter(assignmentEndTime)) continue;
 
             let list = (extraType ? ext[extraType] : _.fill(Array(maxTimes), {}, times, maxTimes)).map(o => _.assign({
               encryptAssignmentId,
               actionType: waitDuration ? 1 : 0,
-            }, _.pick(o, ['itemId']), assignmentName.match('分享') ? {completionFlag: true} : {}));
+            }, _.pick(o, ['itemId']), (assignmentName.match('分享') || assignmentName === '签到红包') ? {completionFlag: true} : {}));
 
             result.push({list, option: {maxTimes, times, waitDuration}});
           }
@@ -93,10 +95,6 @@ class SecondKillRedPacket extends Template {
       },
     };
   };
-
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
-  }
 }
 
 singleRun(SecondKillRedPacket).then();
