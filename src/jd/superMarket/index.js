@@ -1,11 +1,12 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
+const {getNowHour} = require('../../lib/moment');
 
 class SuperMarket extends Template {
   static scriptName = 'SuperMarket';
   static shareCodeTaskList = [];
-  static repeatDoTask = true;
+  static repeatDoTask = getNowHour() !== 20;
 
   static apiOptions = {
     options: {
