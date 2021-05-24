@@ -50,26 +50,7 @@ def init_scheduler(bot_var):
                                                                     service.minute))
     scheduler.add_job(send_stock_info, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
-    # 鸡汤
-    service = service_dao.query_service_by_id(3)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_chicken_soup, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
-    # 晚安
-    service = service_dao.query_service_by_id(4)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_goodnight, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
-    # 阮一峰开发手册
-    service = service_dao.query_service_by_id(5)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_ryf_blob, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
-    # 阮一峰周刊
-    service = service_dao.query_service_by_id(6)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_ryf_weekly, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+
     # health check
     service = service_dao.query_service_by_id(7)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
@@ -127,32 +108,37 @@ def get_order():
     appkey4 = '3181401a489ee5fdaff002a00a8f8b33'  # KD
     appsecret4 = 'f52bf0f5e2d74386b167d5a56c816bcf'
 
-    result = jd.get_order(appkey1, appsecret1)
-    if len(result) > 0:
-        user_kolly.send('[大号]' + result)
+    try:
+        result = jd.get_order(appkey1, appsecret1)
+        if len(result) > 0:
+            user_kolly.send('[大号]' + result)
 
-    result = jd.get_order(appkey2, appsecret2)
-    if len(result) > 0:
-        user_kolly.send('[小号]' + result)
+        result = jd.get_order(appkey2, appsecret2)
+        if len(result) > 0:
+            user_kolly.send('[小号]' + result)
 
-    result = jd.get_order(appkey3, appsecret3)
-    if len(result) > 0:
-        user_kolly.send('[图图]' + result)
-        user_xy.send('[图图]' + result)
+        result = jd.get_order(appkey3, appsecret3)
+        if len(result) > 0:
+            user_kolly.send('[图图]' + result)
+            user_xy.send('[图图]' + result)
 
-    result = jd.get_order(appkey4, appsecret4)
-    if len(result) > 0:
-        # user_kolly.send('[KD]' + result)
-        # user_dd.send('[KD]' + result)
-        user_lanmao.send(result)
+        result = jd.get_order(appkey4, appsecret4)
+        if len(result) > 0:
+            user_lanmao.send(result)
+    except Exception:
+        pass
 
 
 # 查询文章排名
 def get_article_rank():
     result1 = sync_data.query_article_rank(11)
-    user_kolly.send(result1)
-    # result2 = sync_data.query_article_rank(16)
-    # user_xy.send(result2)
+
+    try:
+        user_kolly.send(result1)
+        # result2 = sync_data.query_article_rank(16)
+        # user_xy.send(result2)
+    except Exception:
+        pass
 
 
 # 查询错误日志
@@ -165,8 +151,11 @@ def get_lanmao_log():
             result += '\n' + '消息：' + log.msg
         if len(result) > 1000:
             result += '\n\n' + result[0:500]
-        user_lanmao.send(result)
 
+        try:
+            user_lanmao.send(result)
+        except Exception:
+            pass
 
 
 # 发送天气信息
@@ -180,30 +169,6 @@ def send_stock_info():
     zs_info = spider.get_zs_today()
     if zs_info != '':
         send_service_info(2, zs_info)
-
-
-# 早起
-def send_chicken_soup():
-    info = '小糖晨间提醒:\n\n1.打扫房间、清理垃圾\n2.跑步\n3.规划今日待办\n4.阅读半小时'
-    send_service_info(3, info)
-
-
-# 睡觉
-def send_goodnight():
-    info = '小糖睡前提醒:\n\n1.检查记账\n2.清理相册\n3.俯卧撑、下蹲\n4.清空所有inbox\n5.反思、总结、冥想'
-    send_service_info(4, info)
-
-
-# 发送阮一峰博客
-def send_ryf_blob():
-    send_service_info(5, '阮一峰开发手册 http://www.ruanyifeng.com/blog/developer/, 每天看一篇，提升自己')
-
-
-# 发送阮一峰周刊
-def send_ryf_weekly():
-    ryf_weekly_info = spider.get_ryf_weekly()
-    if ryf_weekly_info != '':
-        send_service_info(6, ryf_weekly_info)
 
 
 # health check
@@ -262,8 +227,10 @@ def send_service_info(service_id, info, *images):
         if service_id == 2:
             jj_info = spider.get_jj_today(sub.param)  # 基金代码
             info = info + '\n' + jj_info
-        chat.send(info)
-        # for img in images:
-        #     logger.info(img)
-        #     chat.send_image(img)
+
+        try:
+            chat.send(info)
+        except Exception:
+            pass
+
         sleep(random.randint(3, 5))
