@@ -56,7 +56,7 @@ class BeautyMakeup extends Template {
     const productMaxProduceSameTimes = 4;
     let beanPackageExchanged = false;
 
-    const serverNotReturn = () => (_.isEmpty(userData) || _.isEmpty(productList)) && self.startLoopTimes > 0;
+    const serverNotReturn = () => _.isEmpty(userData) || _.isEmpty(productList);
 
     await initToken();
     if (!token) return;
@@ -194,17 +194,11 @@ class BeautyMakeup extends Template {
       console.log(error);
       await sleep(60);
       this.close();
-      return loopDoMain();
-    });
-
-    async function loopDoMain() {
-      const stop = serverNotReturn();
-      if (stop) {
-        self.startLoopTimes--;
-        return self.doMain(api);
+      if (!api.needStopLoop) {
+        await self.doMain(api);
+        api.needStopLoop = true;
       }
-      return stop;
-    }
+    });
 
     async function afterOpen() {
       if (self.getNowHour() === 23) {
@@ -231,8 +225,9 @@ class BeautyMakeup extends Template {
         await keepOnline(60);
       }
 
-      const stop = await loopDoMain();
-      if (stop) return;
+      if (serverNotReturn() || api.needStopLoop) {
+        return;
+      }
 
       isDayStarted && await handleExchange();
       // 指引
@@ -257,7 +252,7 @@ class BeautyMakeup extends Template {
       }
       if (isDayStarted) {
         // 发起和接受雇佣
-        await keepOnline(self.concurrentOnceDelay + 30);
+        await keepOnline(60);
         await handleAcceptEmployment();
       }
 
@@ -494,7 +489,7 @@ class BeautyMakeup extends Template {
 
     async function handleAcceptEmployment() {
       const shareCodeTaskList = self.shareCodeTaskList;
-      const args = shareCodeTaskList[api.currentCookieTimes + 1] || shareCodeTaskList[0];
+      const args = shareCodeTaskList.find(o => o['inviter_id'] !== userData['id']);
       if (!args) return;
       wsMsg.employee_v2.msg.args = args;
       wsMsg.employee_speed_v2.msg.args = _.pick(args, ['inviter_id', 'position']);
