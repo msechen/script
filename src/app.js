@@ -68,6 +68,7 @@ const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
+const Zoo = require('./jd/618/2021');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -191,6 +192,7 @@ async function main() {
       valid: 5,
       run: async () => {
         await doRun(JxFarm);
+        await doRun(Zoo);
       },
     },
     {
@@ -354,6 +356,7 @@ async function main() {
     if (nowHour % 6 === 0) {
       await doCron(SuperMarket);
     }
+    await doCron(Zoo);
   }
 }
 
