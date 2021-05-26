@@ -188,10 +188,15 @@ class BeautyMakeup extends Template {
         'User-Agent': userAgent,
       },
     });
-    ws.on('open', afterOpen);
+    let isOpen = false;
+    let isError = false;
+    ws.on('open', () => {
+      isOpen = true;
+    });
     ws.on('message', onMessage);
     ws.on('error', async function (error) {
       console.log(error);
+      isError = true;
       await sleep(60);
       this.close();
       if (!api.needStopLoop) {
@@ -199,6 +204,14 @@ class BeautyMakeup extends Template {
         api.needStopLoop = true;
       }
     });
+    await checkWsStatus();
+
+    async function checkWsStatus() {
+      if (isError) return;
+      if (isOpen) return afterOpen();
+      await sleep(5);
+      return checkWsStatus();
+    }
 
     async function afterOpen() {
       if (self.getNowHour() === 23) {
