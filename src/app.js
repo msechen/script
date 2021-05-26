@@ -159,7 +159,7 @@ async function main() {
         // await doRun(BianPao);
         await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
-          Harmony3,
+          // Harmony3,
         ]);
         await multipleRun([
           HealthSign,
