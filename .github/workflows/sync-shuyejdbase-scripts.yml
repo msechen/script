@@ -1,4 +1,4 @@
-name: sync-wudongdefeng-scripts
+name: sync-shuyejdbase-scripts
 on:
   schedule:
     - cron: '1 */3 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-wudongdefeng-scripts
+    types: sync-shuyejdbase-scripts
 jobs:
   repo-sync:
     env:
