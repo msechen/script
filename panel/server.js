@@ -413,7 +413,7 @@ app.get('/api/config/:key', function (request, response) {
             response.setHeader("Content-Type", "text/plain");
             response.send(content);
         } else {
-            response.send("no config-2021");
+            response.send("pt_key=AAA;pt_pin=BBB;");
         }
     } else {
         response.send(loginFaild);
