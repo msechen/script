@@ -388,7 +388,7 @@ app.get('/api/config/:key', function (request, response) {
     if (request.session.loggedin) {
         if (configString.indexOf(request.params.key) > -1) {
             switch (request.params.key) {
-                case 'cookie':
+                case 'confcoo':
                     content = getFileContentByName(confcoo);
                     break;
                 case 'config':
