@@ -179,7 +179,7 @@ function Run_HangUp {
 ## 重置密码
 function Reset_Pwd {
   cp -f ${ShellDir}/sample/auth.json ${ConfigDir}/auth.json
-  echo -e "控制面板重置成功，用户名：admin，密码：shuye72\n"
+  echo -e "控制面板重置成功，用户名：admin，密码：yxtk666\n"
 }
 
 ## 运行脚本
