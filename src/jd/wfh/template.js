@@ -87,7 +87,7 @@ class HarmonyTemplate extends Template {
               list = self.getShareCodeFn();
             }
 
-            list = list.map(o => _.assign({
+            list = list.filter(o => o.status !== 2).map(o => _.assign({
               taskId,
               actionType: waitDuration ? 1 : 0,
             }, _.pick(o, ['itemId', 'taskToken']), self.commonParamFn()));
