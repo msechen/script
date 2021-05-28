@@ -194,7 +194,7 @@ async function main() {
       valid: 5,
       run: async () => {
         await doRun(JxFarm);
-        await doRun(Zoo);
+        await doRun1(Zoo);
       },
     },
     {
@@ -358,7 +358,7 @@ async function main() {
     if (nowHour % 6 === 0) {
       await doCron(SuperMarket);
     }
-    await doCron(Zoo);
+    await doCron1(Zoo);
   }
 }
 
