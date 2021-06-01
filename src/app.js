@@ -25,9 +25,6 @@ const FruitRemote = require('./jd/fruit/remote');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
 const jdFactory = require('./jd/jdFactory');
-const HarmonyGoldenEgg = require('./jd/wfh/harmonyGoldenEgg');
-const HarmonyBlindBox = require('./jd/wfh/harmonyBlindBox');
-const HarmonyNewShop = require('./jd/wfh/harmonyNewShop');
 const Health = require('./jd/wfh/Health');
 const HealthShare = require('./jd/wfh/HealthShare');
 const HealthSign = require('./jd/wfh/HealthSign');
@@ -38,7 +35,7 @@ const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
 const StatisticsBean = require('./jd/statistics/bean');
-const Ssjj = require('./jd/ssjj');
+const Ssjj = TemporarilyOffline || require('./jd/ssjj'); // 没什么收益, 所以进行移除
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
 const IsvShopSign = require('./jd/isv/shopSign');
@@ -159,7 +156,6 @@ async function main() {
         await doRun(LiteSign);
         await doRun(SpringReward);
         // await doRun(BianPao);
-        await multipleRun([HarmonyGoldenEgg, HarmonyBlindBox, HarmonyNewShop]);
         await multipleRun([
           Harmony3,
         ]);
