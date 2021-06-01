@@ -19,6 +19,7 @@ function extractForm(sessions, keys) {
 const gitIgnoreFiles = [
   'stall_collectScore',
   'liveActivityV946',
+  'zoo_collectProduceScore',
 ];
 
 const CHLSJ_PATH = path.resolve(__dirname, './chlsj');
@@ -32,6 +33,10 @@ const cash = {
   cash_sign: [],
   cash_doTask: [],
   cash_getRedPacket: [],
+};
+const zoo = {
+  functionIds: ['zoo_collectProduceScore'],
+  zoo_collectProduceScore: [],
 };
 const stall = {
   functionIds: ['stall_collectScore'],
@@ -110,6 +115,7 @@ function init() {
   [
     cash,
     stall,
+    zoo,
     discover,
     wish,
     statistics,
@@ -129,6 +135,7 @@ init();
 module.exports = {
   cash,
   stall,
+  zoo,
   discover,
   wish,
   statistics,
