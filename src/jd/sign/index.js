@@ -146,17 +146,6 @@ class Sign extends Template {
     const taskOptions = [
       // signRemote脚本已经实现, 已不需要
       // jrSign,
-      {
-        name: '十元街签到',
-        url: 'https://api.m.jd.com/api?functionId=userSignIn&appid=swat_miniprogram&body={"activityId":"ccd8067defcd4787871b7f0c96fcbf5c"}',
-        options: {
-          headers: {
-            referer: 'https://servicewechat.com/wxa5bf5ee667d91626/119/page-frame.html',
-          },
-        },
-        isSuccessFn: data => data.code === 0,
-        rewardOutputFn: data => _.property('data.todayPrize.beanAmount')(data),
-      },
       getLuckDraw,
       expressSign,
       {
