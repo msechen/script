@@ -82,7 +82,10 @@ class VipClubShake extends Template {
               finish: o.finish,
             }));
 
-            result.push({list, option: {maxTimes, times, waitDuration, isFinishFn: o => o.finish}});
+            result.push({
+              list,
+              option: {maxTimes: _.min([list.length, maxTimes]), times, waitDuration, isFinishFn: o => o.finish},
+            });
           }
 
           return result;
