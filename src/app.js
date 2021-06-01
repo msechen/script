@@ -75,6 +75,7 @@ const RubikSCube = require('./jd/smfe/RubikSCube');
 const LiteSign = require('./jd/lite/Sign');
 const SpringReward = require('./jd/lite/SpringReward');
 const EarnCoins = require('./jd/lite/EarnCoins');
+const LiteCashSign = require('./jd/lite/CashSign');
 
 /* 本地执行 */
 const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');
@@ -168,6 +169,7 @@ async function main() {
           Health,
         ]);
         await doRun(RubikSCube);
+        await doRun(LiteCashSign);
       },
     },
     {

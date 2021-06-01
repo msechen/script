@@ -172,30 +172,6 @@ class Sign extends Template {
         },
         isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
       },
-      {
-        name: '极速版现金签到',
-        url: 'https://api.m.jd.com/',
-        options: {
-          headers: {
-            referer: 'https://daily-redpacket.jd.com/?activityId=9WA12jYGulArzWS7vcrwhw',
-          },
-          form: {
-            functionId: 'apSignIn_day',
-            body: {
-              'linkId': '9WA12jYGulArzWS7vcrwhw',
-              'serviceName': 'dayDaySignGetRedEnvelopeSignService',
-              'business': 1,
-            },
-            appid: 'activities_platform',
-          },
-        },
-        isSuccessFn: data => data.data.retCode === 0,
-        rewardOutputFn: data => {
-          const historySignInAnCycle = _.property('data.historySignInAnCycle')(data);
-          // TODO 输出和提现
-          return JSON.stringify(historySignInAnCycle);
-        },
-      },
     ];
 
     const cashSign = [
