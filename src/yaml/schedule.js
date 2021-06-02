@@ -62,8 +62,8 @@ const envSecrets = _.fromPairs(_.flatten([
 ].map(target => generateEnv(..._.concat(target)))));
 
 const config = {
-  'name': 'Lazy Script(Schedule)',
-  'on': {'schedule': [{'cron': '0 0/1 * * *'}]},
+  'name': 'Lazy Script(Schedule New)',
+  'on': {'schedule': [{'cron': '10 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 * * *'}]},
   'jobs': {
     'build': {
       'runs-on': 'ubuntu-latest',
