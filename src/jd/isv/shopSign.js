@@ -13,6 +13,7 @@ class IsvShopSign extends Isv {
 
     const activityIds = [
       // [activityId, pathId]
+      ['dd2625122ffe4453a46fac510d94ac58', 'sevenDay'],
 
       // 需要加入品牌会员
       // 十月稻田京东自营旗舰店(每月更新)
