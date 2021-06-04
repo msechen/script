@@ -8,7 +8,7 @@ let activityNotStart = false;
 writeFileJSON([], '../../../charles/form/jd/zoo_collectProduceScore.json', __dirname);
 const {zoo: _z} = require('../../../charles/api');
 const allSS = _z.zoo_collectProduceScore.map(o => JSON.parse(JSON.parse(o.body).ss));
-let sIndex = 0;
+let sIndex = require('./localData.json').sIndex || 0;
 
 class Zoo extends Template {
   static scriptName = 'Zoo';
@@ -47,11 +47,12 @@ class Zoo extends Template {
     }
     api.secretp = secretp;
     if (isInit) {
-      await self.doFormBody(api, 'collectProduceScore', {ss: JSON.stringify({secretp})}).then(data => {
-        if (!self.isSuccess(data)) {
-          api.needLocalRun = true;
-        }
-      });
+      api.needLocalRun = true;
+      // await self.doFormBody(api, 'collectProduceScore', {ss: JSON.stringify({secretp})}).then(data => {
+      //   if (!self.isSuccess(data)) {
+      //     api.needLocalRun = true;
+      //   }
+      // });
     }
     return _get();
 
@@ -89,6 +90,7 @@ class Zoo extends Template {
     await handleDoTask({appSign: 2}, 1);
     if (self.isLastLoop()) {
       api.log(`当前的sIndex: ${sIndex}, allSS总长度为: ${allSS.length}`);
+      writeFileJSON({sIndex}, './localData.json', __dirname);
       await handleRaise();
 
       await self.doFormBody(api, 'getHomeData').then(data => {
@@ -104,13 +106,13 @@ class Zoo extends Template {
       } = await self.doFormBody(api, 'getTaskDetail', body).then(data => _.property('data.result')(data) || {});
 
       // 暂停互助, 因为有些账号会火爆
-      if (false) {
+      if (times === 0) {
         self.updateShareCodeFn(inviteId);
         for (const inviteId of self.getShareCodeFn()) {
           await self.doFormBody(api, 'collectScore', {inviteId, ss: await self.getSS(api)}).then(data => {
             if (!self.isSuccess(data)) return api.log(_.property('data.bizMsg')(data));
             const {guestNickName} = _.property('data.result')(data);
-            api.log(`助力 ${guestNickName} 成功`);
+            api.log(`${guestNickName} 助力其他人成功`);
           });
         }
       }
