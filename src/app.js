@@ -168,26 +168,10 @@ async function main() {
         await doRun(RubikSCube);
         await doRun(LiteCashSign);
         await doRun(GoldCreator);
-      },
-    },
-    {
-      valid: 1,
-      run: async () => {
         await doRun(EarnCoins);
-      },
-    },
-    {
-      valid: 2,
-      async run() {
         await doRun(Necklace);
         await doRun(SecondKillRedPacket);
         await doRun(Car);
-      },
-    },
-    {
-      valid: 4,
-      run: async () => {
-        await doRun(Ssjj);
       },
     },
     {
