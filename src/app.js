@@ -67,6 +67,7 @@ const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const Zoo = require('./jd/618/2021');
 const RubikSCube = require('./jd/smfe/RubikSCube');
+const GoldCreator = require('./jd/goldCreator');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -166,6 +167,7 @@ async function main() {
         ]);
         await doRun(RubikSCube);
         await doRun(LiteCashSign);
+        await doRun(GoldCreator);
       },
     },
     {
