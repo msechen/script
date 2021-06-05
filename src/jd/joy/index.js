@@ -21,6 +21,7 @@ class Joy extends Template {
         uri: 'https://jdjoy.jd.com/common/pet',
         qs: _.assign({
           reqSource: reqSources[1],
+          invokeKey: 'Oex5GmEuqGep1WLC',
         }, encrypt()),
         headers: {
           referer: 'https://jdjoy.jd.com/pet/index',
