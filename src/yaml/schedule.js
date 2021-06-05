@@ -62,9 +62,40 @@ const envSecrets = _.fromPairs(_.flatten([
   ['JD_DREAMFACTORY_TUAN_ACTIVE_ID', 1],
 ].map(target => generateEnv(..._.concat(target)))));
 
+// TODO 去掉不必要的时间
+const runHours = [
+  '0',
+  '1',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+];
+// github action 时区调整
+const actionRunHours = _.sortBy(runHours.split(',').map(v => {
+  let number = (v || 24) - 8;
+  if (number < 0) number += 24;
+  return number;
+}));
+
 const config = {
   'name': 'Lazy Script(Schedule New)',
-  'on': {'schedule': [{'cron': '10 0,1,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 * * *'}]},
+  'on': {'schedule': [{'cron': `10 ${actionRunHours.join(',')} * * *`}]},
   'jobs': {
     'build': {
       'runs-on': 'ubuntu-latest',
