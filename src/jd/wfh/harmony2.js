@@ -6,10 +6,10 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/42aShK3jwPLybTR9SxxcnKo8dPeB/index.html';
 
 class Harmony2 extends HarmonyTemplate {
-  static scriptNameDesc = '吃货爱消除';
+  static scriptNameDesc = '荣耀618';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({appId: '1EFRQw64'});
-  static skipTaskIds = [5/*开会员*/];
+  static commonParamFn = () => ({appId: '1EFVRxw'});
+  static skipTaskIds = [1/*开会员*/];
 }
 
 module.exports = Harmony2;
