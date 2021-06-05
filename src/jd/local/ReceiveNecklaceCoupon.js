@@ -15,7 +15,7 @@ class ReceiveNecklaceCoupon extends Template {
     const self = this;
 
     // 59-20优惠券
-    const coupon1 = () => handleReceiveNecklaceCoupon('785729466');
+    const coupon1 = () => handleReceiveNecklaceCoupon('791342898');
 
     await sleepTime(14);
     for (let i = 0; i < 5; i++) {
