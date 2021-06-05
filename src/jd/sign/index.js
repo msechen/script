@@ -143,6 +143,21 @@ class Sign extends Template {
       rewardOutputFn: data => _.property('content[0].title')(data),
     };
 
+    const signInAtTheVoucherCenter = {
+      name: '领券中心签到',
+      url: 'https://api.m.jd.com/client.action',
+      options: {
+        // 这里需要自己的signData
+        form: require('../../../charles/api').necklace.ccSignInNew[api.currentCookieTimes],
+        qs: {
+          functionId: 'ccSignInNew',
+        },
+        headers: {
+          'User-Agent': 'jdapp',
+        },
+      },
+      isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('result.signStatus.bizCode')(data) === '0'),
+    };
     const taskOptions = [
       // signRemote脚本已经实现, 已不需要
       // jrSign,
@@ -161,6 +176,7 @@ class Sign extends Template {
         },
         isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
       },
+      signInAtTheVoucherCenter,
     ];
 
     const cashSign = [
@@ -202,6 +218,10 @@ class Sign extends Template {
         isSuccessFn: data => _.property('resultData.data.businessData.businessCode')(data) === '000sq',
       },
     ];
+
+    if (self.getCurrentEnv('JD_SIGN_IN_AT_THE_VOUCHER_CENTER_ENABLE')) {
+      taskOptions.push(signInAtTheVoucherCenter);
+    }
 
     for (const options of self.getNowHour() !== 0 ? cashSign : taskOptions) {
       const {times = 1} = options;

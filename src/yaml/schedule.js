@@ -28,6 +28,7 @@ const envSecrets = _.fromPairs(_.flatten([
 
   'JD_CRAZY_JOY_STOP_UPGRADE',
   'JD_JOY_FEED_INDEX',
+  'JD_SIGN_IN_AT_THE_VOUCHER_CENTER_ENABLE',
 
   'JD_COOKIE',
   'JD_EARN_COOKIE',
