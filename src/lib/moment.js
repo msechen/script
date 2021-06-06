@@ -15,10 +15,28 @@ const getNowHour = () => getMoment().hour();
 const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
 const getFullDate = getNowDate.bind(0, FORMAT_FULL_DATE);
 
+function getNextHour(hours) {
+  hours = _.sortBy(hours.map(hour => hour === 0 ? 24 : hour));
+  const nowHour = getNowHour();
+  let hour;
+  for (let i = 0; i < hours.length; i++) {
+    const prev = i - 1;
+    if (prev < 0) continue;
+    if (nowHour < hours[i] && nowHour >= (hours[prev] || 0)) {
+      hour = hours[i];
+      break;
+    }
+  }
+
+  return hour;
+}
+
 module.exports = {
   getMoment,
   getNowDate,
   getNowHour,
   getNowTime,
   getFullDate,
+
+  getNextHour,
 };

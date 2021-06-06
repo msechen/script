@@ -73,11 +73,12 @@ const smallBean = {
   beanDoTask: [],
 };
 const necklace = {
-  functionIds: ['reportCcTask', 'getCcTaskList', 'receiveNecklaceCoupon', 'ccSignInNew'],
+  functionIds: ['reportCcTask', 'getCcTaskList', 'receiveNecklaceCoupon', 'ccSignInNew', 'getCcFeedInfo'],
   reportCcTask: [],
   getCcTaskList: [],
   receiveNecklaceCoupon: [],
   ccSignInNew: [],
+  getCcFeedInfo: [],
 };
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
@@ -95,7 +96,11 @@ const formatForm = (key, object) => {
       originResult = _.flatten(fs.readdirSync(originDir).reverse().map(fileName => {
         return JSON.parse(fs.readFileSync(`${originDir}/${fileName}`));
       }));
-      (extractForm(originResult, cashFormKeys) || []).forEach(form => {
+      const keys = _.concat(cashFormKeys);
+      if (['getCcFeedInfo'].includes(key)) {
+        keys.push('uuid');
+      }
+      (extractForm(originResult, keys) || []).forEach(form => {
         if (!result.map(o => o.body).includes(form.body)) {
           result.push(form);
         }
