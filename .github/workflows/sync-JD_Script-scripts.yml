@@ -1,7 +1,7 @@
 name: sync-JD_Script-scripts
 on:
   schedule:
-   # - cron: '*/30 * * * *'
+    - cron: '* * */5 * *'
   workflow_dispatch:
   watch:
     types: started
