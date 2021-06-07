@@ -32,7 +32,7 @@ class BeanSmallBean extends Template {
     const taskList = await getTaskList();
     for (const {taskId, status, subTitleName, maxTimes, times, subTaskVOS} of taskList) {
       if (maxTimes === times || status === 2) continue;
-      const [waitDuration] = subTitleName.match(/\d+/) || [0];
+      const waitDuration = _.last(subTitleName.match(/(\d+)s/) || [0]);
       for (let i = times; i < maxTimes; i++) {
         const taskInfo = _.property('subTaskVOS')(await getTaskById(taskId));
         if (!taskInfo) continue;

@@ -42,7 +42,7 @@ const IsvShopSign = require('./jd/isv/shopSign');
 const CrazyJoy = require('./jd/crazyJoy');
 const Necklace = TemporarilyOffline || require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
-const DreamFactory = require('./jd/dreamFactory');
+const DreamFactory = TemporarilyOffline || require('./jd/dreamFactory');
 const JxCfd = require('./jd/jxCfd');
 const Car = require('./jd/car');
 const VipClubShake = require('./jd/vipClub/shake');
@@ -184,7 +184,6 @@ async function main() {
     {
       valid: 6,
       run: async () => {
-        await doRun(DreamFactory);
         await doRun(FruitRemote);
         await doRun(PetRemote);
         await doCron(TurnTableFarm);
@@ -198,12 +197,6 @@ async function main() {
         await doCron(Fruit);
         await doCron(Pet);
         await doRun(CrazyJoy);
-      },
-    },
-    {
-      valid: 8,
-      run: async () => {
-        await doRun(DreamFactory);
         await doRun(SuperMarket);
         await doRun(Family);
         await doRun(Sign);
@@ -211,13 +204,13 @@ async function main() {
         // 9点后再执行
         await sleepTime([9, 10]);
         await doRun(Joy);
+        await doRun(EarnCoins);
       },
     },
     {
       valid: 9,
       run: async () => {
         await doRun(DreamFactory);
-        await doRun(EarnCoins);
       },
     },
     {
@@ -252,16 +245,10 @@ async function main() {
       },
     },
     {
-      valid: 17,
-      run: async () => {
-        await doRun(CrazyJoy);
-      },
-    },
-    {
       valid: 18,
       run: async () => {
         await doRun(Joy);
-        await doRun(LiveRedEnvelopeRain);
+        await doRun(CrazyJoy);
       },
     },
     {

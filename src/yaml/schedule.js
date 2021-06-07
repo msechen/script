@@ -65,7 +65,6 @@ const envSecrets = _.fromPairs(_.flatten([
 // TODO 去掉不必要的时间
 const runHours = [
   '0',
-  '1',
   '5',
   '6',
   '7',
@@ -78,7 +77,6 @@ const runHours = [
   '14',
   '15',
   '16',
-  '17',
   '18',
   '19',
   '20',
@@ -87,7 +85,7 @@ const runHours = [
   '23',
 ];
 // github action 时区调整
-const actionRunHours = _.sortBy(runHours.split(',').map(v => {
+const actionRunHours = _.sortBy(runHours.map(v => {
   let number = (v || 24) - 8;
   if (number < 0) number += 24;
   return number;
