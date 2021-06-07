@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/ITdesk01/JD_Script/.git"
+          source_repo: "https://github.com/ITdesk01/JD_Script.git"
           source_branch: "main"
           destination_branch: "JD_Script"
           github_token: ${{ secrets.PAT }}
