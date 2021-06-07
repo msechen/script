@@ -27,5 +27,5 @@ jobs:
         with:
           source_repo: "https://github.com/PJUNYE2/docker-jd.git"
           source_branch: "main"
-          destination_branch: "sync-PJUNYE2-docker-jd-scripts"
+          destination_branch: "PJUNYE2-docker-jd"
           github_token: ${{ secrets.PAT }}
