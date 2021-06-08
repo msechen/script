@@ -62,7 +62,7 @@ class SpringReward extends Template {
           const {prizeDesc} = _.property('data.received')(data);
           self.log(`获得: ${prizeDesc}`);
         });
-        await sleep(2);
+        await sleep(10);
         if (--maxTimes === 0) break;
       }
     });

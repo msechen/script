@@ -39,6 +39,8 @@ class Earn extends Template {
 
           // 助力
           for (const itemId of self.shareCodeTaskList) {
+            // TODO 暂时移除
+            break;
             await api.doFormBody('interactIndex', {itemId, taskId: 3}).then(data => {
               const helpDesc = _.property('data.helpRes.helpResDesc')(data);
               helpDesc && self.log(helpDesc);
