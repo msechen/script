@@ -6,7 +6,7 @@ const _ = require('lodash');
 
 function extractForm(sessions, keys) {
   const reqBody = sessions
-  .map(o => o.request.body.text)
+  .map(o => _.property('request.body.text')(o) || '').filter(o => o)
   .map(text => text.split('&')
   .filter(str => keys.includes(str.split('=')[0])));
   return reqBody.map(array => {
