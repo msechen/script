@@ -656,6 +656,7 @@ class BeautyMakeup extends Template {
         for (let i = times === maxTimes ? 0 : times; i < maxTimes; i++) {
           if (userData['coins'] < +coins) continue;
           await sendMessage(wsMsg.to_exchange);
+          await sleep(5);
         }
       }
     }
