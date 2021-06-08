@@ -131,8 +131,8 @@ async function main() {
         await doRun(SignShop);
         await doRun(EarnJingDou);
         await doRun(SignBeanHome);
-        await doRun(Sign);
         doRun(SignRemote);
+        await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(Fruit);
         await doRun(TurnTableFarm);
@@ -199,7 +199,6 @@ async function main() {
         await doRun(CrazyJoy);
         await doRun(SuperMarket);
         await doRun(Family);
-        await doRun(Sign);
         await doRun(GlobalChallenge);
         // 9点后再执行
         await sleepTime([9, 10]);

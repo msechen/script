@@ -223,7 +223,9 @@ class Sign extends Template {
       taskOptions.push(signInAtTheVoucherCenter);
     }
 
-    for (const options of self.getNowHour() !== 0 ? cashSign : taskOptions) {
+    taskOptions.push(cashSign[0]);
+
+    for (const options of taskOptions) {
       const {times = 1} = options;
       for (let i = 0; i < times; i++) {
         await doTask(options);
