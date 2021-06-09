@@ -17,7 +17,7 @@
  **You must completely delete the above content from your computer or mobile phone within 24 hours after downloading.**  </br>
 > ***You have used or copied any script made by yourself in this warehouse, it is deemed to have `accepted` this statement, please read it carefully*** 
 
-## Please move to [course](https://github.com/DX3242/README/tree/main) for more information
+## Please move to [course](https://hub.fastgit.org/DX3242/README/tree/main) for more information
 
 ## Special thanks to:
 
