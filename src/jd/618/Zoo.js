@@ -10,6 +10,7 @@ const {zoo: _z} = require('../../../charles/api');
 const allSS = _z.zoo_collectProduceScore.map(o => JSON.parse(JSON.parse(o.body).ss));
 let sIndex = require('./localData.json').sIndex || 0;
 
+// 20210524-20210618
 class Zoo extends Template {
   static scriptName = 'Zoo';
   static scriptNameDesc = '动物联盟';
@@ -181,6 +182,8 @@ class Zoo extends Template {
   }
 }
 
-singleRun(Zoo).then();
+singleRun(Zoo, 'start', async function (method, getCookieData) {
+  if (method === 'start') return Zoo.start(getCookieData(Zoo.scriptName));
+}).then();
 
 module.exports = Zoo;
