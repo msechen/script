@@ -44,6 +44,10 @@ class Api {
     this.formatData = formatData;
   }
 
+  getPin(key = 'pt_pin') {
+    return _.last(this.cookie.match(new RegExp(`${key}=(.*);`)) || ['']);
+  }
+
   commonDo(options) {
     return _request(this.cookie, options);
   }

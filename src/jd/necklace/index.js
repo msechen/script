@@ -4,6 +4,10 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 
 const {necklace} = require('../../../charles/api');
 
+const {patchData} = require('./api');
+
+let pin;
+
 class Necklace extends Template {
   static scriptName = 'Necklace';
   static scriptNameDesc = '天天点点券';
@@ -31,13 +35,15 @@ class Necklace extends Template {
         async successFn(data, api) {
           // writeFileJSON(data, 'necklace_homePage.json', __dirname);
 
+          pin = api.getPin();
+
           if (!self.isSuccess(data)) return [];
 
           const result = [];
 
           // 签到
           const needSign = _.property('data.result.signInfo.todayCurrentSceneSignStatus')(data) === 1;
-          needSign && await api.doFormBody('necklace_sign');
+          needSign && await api.doFormBody('necklace_sign', patchData({id: 'sign', data: {pin}}));
 
           const taskList = _.property('data.result.taskConfigVos')(data) || [];
           for (let {
@@ -52,7 +58,7 @@ class Necklace extends Template {
             if ([2, 3].includes(status) || [].includes(taskId)) continue;
             waitDuration = waitDuration || 1;
 
-            let list = [{taskId}];
+            let list = [patchData({id: 'startId', data: {taskId, pin}})];
             const option = {maxTimes, times, waitDuration};
 
             if (taskName.match('领券')) {
@@ -97,7 +103,7 @@ class Necklace extends Template {
       },
       doWaitTask: {
         name: 'necklace_reportTask',
-        paramFn: o => o,
+        paramFn: o => _.pick(o, 'taskId'),
       },
       // afterGetTaskList: {
       //   name: 'necklace_assistOpenCard',
@@ -113,7 +119,7 @@ class Necklace extends Template {
           if (!self.isSuccess(data)) return false;
           const bubbles = _.property('data.result.bubbles')(data) || [];
           for (const {id} of bubbles) {
-            await api.doFormBody('necklace_chargeScores', {bubleId: id});
+            await api.doFormBody('necklace_chargeScores', patchData({id: 'chargeScores', data: {bubleId: id, pin}}));
           }
           const totalScore = await api.doFormBody('necklace_homePage').then(data => _.property('data.result.totalScore')(data));
           totalScore && self.log(`当前分数为: ${totalScore}`);
