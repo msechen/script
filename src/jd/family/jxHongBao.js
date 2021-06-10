@@ -2,6 +2,7 @@ const Family = require('./index');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
+const {getMoment} = require('../../lib/moment');
 
 class JxHongBao extends Family {
   static scriptName = 'JxHongBao';
@@ -32,7 +33,7 @@ class JxHongBao extends Family {
   static getTaskList({item}) {
     let list = [];
     for (let i = 0; i < item.taskcannum; i++) {
-      list.push({tasktype: item.type, taskid: i + 1});
+      list.push({tasktype: item.type, taskid: getMoment().valueOf() % 1000 + i, _stk: 'taskid,tasktype'});
     }
     return list;
   }
