@@ -68,7 +68,7 @@
 #京喜牧场
 20 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 #618惊奇探秘夜
-0 0 * * * node /scripts/jd_qqtmy.js >> /scripts/logs/jd_qqtmy.log 2>&1
+0 0 * * * node /scripts/jd_jqtmy.js >> /scripts/logs/jd_jqtmy.log 2>&1
 
 ##############长期活动##############
 # 签到
