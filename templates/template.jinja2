@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='zh'>
+<head>
+    <meta charset='UTF-8'>
+    <title>refusea {% block title %}{% endblock %}</title>
+    <link rel='shortcut icon' href='/static/image/favicon.ico' />
+    <link rel='stylesheet' href='/static/css/default.css' />
+</head>
+<body>
+    <div class='global_container'>
+        <div>
+            <a href='/'>welcome</a> |
+            <a href="/jd/choice">京东精选</a> |
+            <a href="/jd/search">京东搜索</a> |
+            <a href="/jd/transform">京东转链</a> |
+            <a href="/jd/import">京东蜘蛛</a>
+        </div>
+        <div class='main'>
+            {% block body %}{% endblock %}
+        </div>
+        <div>copyleft © 2020 <a href='https://refusea.com'>refusea.com</a></div>
+    </div>
+</body>
+</html>

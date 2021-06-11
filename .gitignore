@@ -1,0 +1,5 @@
+.vscode/
+test/
+__pycache__/
+static/instagram/
+instagram.db

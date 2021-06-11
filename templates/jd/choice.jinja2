@@ -1,0 +1,36 @@
+{% extends "template.jinja2" %}
+{% block title %}jd choice{% endblock %}<!DOCTYPE html>
+{% block body %}
+<link rel="stylesheet" href="/static/css/jd.css" />
+<!-- 频道导航栏 -->
+<div id='jd_channel_nav' class='jd_channel_nav'></div>
+<!-- 分页导航栏 -->
+<div id='jd_page_nav_header' class='jd_page_nav'></div>
+<!-- 容器 -->
+<div id='jd_container' class='jd_container'>
+    <!-- 商品 -->
+    <div class='jd_item'>
+        <!-- 图片 -->
+        <div class='jd_item_image'><a target='_blank'><img/></a></div>
+        <!-- 商品属性 -->
+        <div class='jd_item_props'>
+            <!-- 名称 -->
+            <div class='jd_item_name'></div>
+            <!-- 价格 -->
+            <div>最低价
+                <font color='red'>￥</font><span class='jd_item_floor_price'></span>
+                [ <span style='text-decoration:line-through;'></span> ]
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style='clear: both;'></div>        
+    </div>
+</div>
+<!-- 分页导航栏 -->
+<div id='jd_page_nav_footer' class='jd_page_nav'></div>
+<script src='/static/js/jd/items.js'></script>
+<script src='/static/js/jd/choice.js'></script>
+{% endblock %}

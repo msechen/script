@@ -1,0 +1,49 @@
+{% extends "template.jinja2" %}
+{% block title %}jd search{% endblock %}
+{% block body %}
+<form name='jds_form' method='get' action='search' onsubmit="return jsearch();"><div style='margin-left: 0px;'>
+    <div class='jds_input' style='padding-right: 6px;'>名称</div>
+    <div class='jds_input' style='padding-right: 6px;'><input type='text' name='p_s_name' onfocus="this.select();" style='width: 360px'></div>
+    <div class='jds_input'><input type='checkbox' name='pn' id='jds_pn' checked></div>
+    <div class='jds_input' style='padding-right: 6px;'><label for='jds_pn'>商品名</label></div>
+    <div class='jds_input'><input type='checkbox' name='sn' id='jds_sn' checked></div>
+    <div class='jds_input' style='padding-right: 6px;'><label for='jds_sn'>店铺名</label></div>
+    <div class='jds_input'><input type='checkbox' name='coupon' id='jds_coupon'></div>
+    <div class='jds_input' style='padding-right: 6px;'><label for='jds_coupon'>有券</label></div>
+    <div class='jds_input'><input type='checkbox' name='discount' id='jds_discount'></div>
+    <div class='jds_input' style='padding-right: 6px;'><label for='jds_discount' title='最低价至少是划线价的 7 折'>7 折起</label></div>
+    <div class='jds_input'><input type='checkbox' name='jd_operate' id='jds_operate'></div>
+    <div class='jds_input' style='padding-right: 6px;'><label for='jds_operate'>京东自营</label></div>
+    <div class='jds_input'><button type='button' onclick='javascript: return jsearch();'>搜索</button></div>
+    <div style='clear: both;'></div>
+</div></form>
+<link rel="stylesheet" href="/static/css/jd.css" />
+<!-- 提示信息 -->
+<div id='jd_search_info' class='jd_search_info'></div>
+<!-- 容器 -->
+<div id='jd_container' class='jd_container'>
+    <!-- 商品 -->
+    <div class='jd_item'>
+        <!-- 图片 -->
+        <div class='jd_item_image'><a target='_blank'><img/></a></div>
+        <!-- 商品属性 -->
+        <div class='jd_item_props'>
+            <!-- 名称 -->
+            <div class='jd_item_name'></div>
+            <!-- 价格 -->
+            <div>最低价
+                <font color='red'>￥</font><span class='jd_item_floor_price'></span>
+                [ <span style='text-decoration:line-through;'></span> ]
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style='clear: both;'></div>        
+    </div>
+</div>
+
+<script src='/static/js/jd/items.js'></script>
+<script src='/static/js/jd/search.js'></script>
+{% endblock %}

@@ -1,0 +1,81 @@
+.jd_info {
+    margin-bottom: 8px;
+    color: green;
+}
+
+.jd_search_info {
+    margin: 8px 0px;
+    color: green;
+}
+
+.jd_channel_nav {
+    font-family: Arial, "microsoft yahei";
+    font-weight: 500;
+}
+
+.jd_page_nav {
+    font-size: 14px;
+    font-family: Arial, "microsoft yahei";
+    line-height: 18px;
+    max-width: 1028px;
+    margin: 6px 0px;
+}
+
+.jd_container {
+    min-height: 320px;
+    min-width: 320px;
+}
+
+.jd_item {
+    border: 1px solid silver;
+    padding: 8px;
+    margin-bottom: 6px;
+}
+
+.jd_item_image {
+    border: 1px solid silver;
+    margin-right: 16px;
+    float: left;
+}
+
+.jd_item_image img {
+    width: 320px;
+    height: 320px;
+    /* 避免上级 div height 比 width 多 4px */
+    display: block;
+}
+
+.jd_item_props {
+    max-width: 480px;
+    font-size: 12px;
+    font-family: Arial, "microsoft yahei";
+    color: #666;
+    line-height: 18px;
+    float: left;
+}
+
+.jd_item_props div {
+    margin-bottom: 20px;
+}
+
+.jd_item_name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.jd_item_floor_price {
+    color: red;
+    font-size: 22px;
+}
+
+.jd_item_coupon_border {
+    border: 1px solid #666;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+.jds_input {
+    float: left;
+    margin-right: 4px;
+}

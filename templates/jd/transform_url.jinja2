@@ -1,0 +1,28 @@
+{% extends "template.jinja2" %}
+{% block title %}jd transform url{% endblock %}
+{% block body %}
+<style>
+    .jd_div {margin: 4px; padding: 4px;}
+    .jd_div .input_text {height: 32px; width: 900px; }
+    .jd_div button {height: 36px; width: 64px;}
+</style>
+
+<div class='jd_div'>用户标识（可用手机号，用于识别用户返还推广佣金，若不填则无法识别用户）</div>
+<div class='jd_div'>
+    <input class='input_text' type='text' id='jd_sub_uid' maxlength='24'></input>
+</div>
+<div class='jd_div'>商品链接</div>
+<div class='jd_div'>
+    <input class='input_text' type='text' id='jd_original_url' onfocus="this.select();"></input><button style='margin: 0px 0px 0px 10px' onclick='javascript: return transform_url();'>转换</button>
+</div>
+<div class='jd_div'>
+    推广链接
+    <input type='checkbox' name='surl' id='jd_surl'>
+    <label for='jd_surl'>转换成本站短网址</label>
+    <a href='#' onclick='javascript: return copy_url();'>复制</a></div>
+<div class='jd_div'>
+    <input class='input_text' type='text' id='jd_transfor_url' readonly></input><button style='margin: 0px 0px 0px 10px' onclick='javascript: return goshopping();'>购物</button>
+</div>
+
+<script src='/static/js/jd/transform.js'></script>
+{% endblock %}

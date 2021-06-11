@@ -1,0 +1,14 @@
+{% extends "template.jinja2" %}
+{% block title %}jd spider{% endblock %}
+{% block body %}
+<div>
+    <a href='#' id='spider_a' onclick='javascript:return spider();'>释放蜘蛛</a>
+</div>
+
+<div>
+    <img id='spider_img' src='/static/image/loading.gif' style='display: none'>
+    <div id='spider_div' style='display: none'>爬取成功</div>
+</div>
+
+<script src='/static/js/jd/import.js'></script>
+{% endblock %}
