@@ -17,7 +17,7 @@ function runWebScript() {
 // TODO 应该重写api的方法
 function patchData({id, data}) {
   // 支持web脚本
-  if (!smashUtils) runWebScript();
+  if (!global.smashUtils) runWebScript();
   const originData = _.assign({}, data);
   delete originData.pin;
   const random = getRandom();

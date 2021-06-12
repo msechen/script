@@ -20,7 +20,7 @@ class Necklace extends Template {
   };
 
   static isSuccess(data) {
-    return this._.property('data.biz_code')(data) === 0;
+    return _.property('data.biz_code')(data) === 0;
   }
 
   static apiNamesFn() {
