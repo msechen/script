@@ -81,6 +81,10 @@ class Mlyjy extends Template {
         await api.doGetPath('meetingplace_view');
         await sleep(2);
       }
+      for (let i = taskState['beauty_times']; i < taskState['daily_beauty_num']; i++) {
+        await api.doGetPath('coins_to_times');
+        await sleep(2);
+      }
 
       // TODO 浏览店铺需要手动执行
       // for (let i = taskState['today_follow_nums']; i < taskState['daily_shop_follow_times']; i++) {
