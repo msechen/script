@@ -280,7 +280,7 @@ async function main() {
         await doRun(Joy);
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
-        await doRun(CrazyJoy);
+        // await doRun(CrazyJoy);
         yesterdayAppPath = getLogFile('app');
 
         // 24点后定时启动
