@@ -39,8 +39,6 @@
 30 12,1 * * * node /scripts/jd_zc.js >> /scripts/logs/jd_zc.log 2>&1
 #5G超级盲盒(活动时间：2021-06-2到2021-07-31)
 0 0-23/4 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
-#明星小店(星店长，2021-06-10)
-0 1,21 * * * node /scripts/jd_star_shop.js >> /scripts/logs/jd_star_shop.log 2>&1
 #龙舟
 15 13 1-18 6 *node /scripts/jd_dragonboat.js >> /scripts/logs/jd_dragonboat.log 2>&1
 #新潮品牌狂欢
@@ -61,6 +59,12 @@
 04 23,6 3-18 6 * node /scripts/jd_618Opencard04.js >> /scripts/logs/jd_618Opencard04.log 2>&1
 #大牌联合618提前购
 05 23,6 3-18 6 * node /scripts/jd_618Opencard05.js >> /scripts/logs/jd_618Opencard05.log 2>&1
+#618母婴夺宝大作战
+15 9,21 9-20 6 * node /scripts/jd_618Opencard06.js >> /scripts/logs/jd_618Opencard06.log 2>&1
+#大牌联合'臻'宠粉丝
+15 8,20 9-20 6 * node /scripts/jd_618Opencard07.js >> /scripts/logs/jd_618Opencard07.log 2>&1
+# 618大牌联合 年中钜惠购
+01 8,20 9-20 6 * node /scripts/jd_618Opencard08.js >> /scripts/logs/jd_618Opencard08.log 2>&1
 #限时盲盒
 30 7,19 1-18 6 * node /scripts/jd_limitBox.js >> /scripts/logs/jd_limitBox.log 2>&1
 #主会场红包雨
@@ -69,6 +73,8 @@
 20 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 #618惊奇探秘夜
 0 0 * * * node /scripts/jd_jqtmy.js >> /scripts/logs/jd_jqtmy.log 2>&1
+#京喜领红包
+1 5,20 * 6 * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 
 ##############长期活动##############
 # 签到
