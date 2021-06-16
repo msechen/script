@@ -97,6 +97,10 @@ class Api {
     }, options));
   }
 
+  doBodyPath(functionId, body) {
+    return this.doPath(functionId, void 0, {body});
+  }
+
   doGet(functionId, qs = {}, options) {
     functionId && _.assign(qs, {functionId});
     return this.do(_.merge({qs, method: 'GET'}, options));
