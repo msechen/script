@@ -1,12 +1,13 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const Cookie = require('../../lib/cookie');
 const {encrypt} = require('./api');
 
 const reqSources = ['weapp', 'h5'];
+const indexUrl = 'https://jdjoy.jd.com/pet/index';
 
 class Joy extends Template {
   static scriptName = 'Joy';
@@ -21,10 +22,10 @@ class Joy extends Template {
         uri: 'https://jdjoy.jd.com/common/pet',
         qs: _.assign({
           reqSource: reqSources[1],
-          invokeKey: 'Oex5GmEuqGep1WLC',
+          invokeKey: 'NRp8OPxZMFXmGkaE',
         }, encrypt()),
         headers: {
-          referer: 'https://jdjoy.jd.com/pet/index',
+          referer: indexUrl,
           origin: 'https://jdjoy.jd.com',
         },
       },
@@ -39,8 +40,13 @@ class Joy extends Template {
     return this._.property('success')(data);
   }
 
-  static beforeRequest(api) {
+  static async beforeRequest(api) {
+    const invokeKey = await api.commonDo({
+      uri: 'https://storage.360buyimg.com/bucket-cww-prod/5.0.32/jdDog_jdDog_0510e888_.js',
+      method: 'GET',
+    }).then(data => matchMiddle(data, {reg: /{"invokeKey":"(\w*)"}/}));
     api.options.qs.reqSource = reqSources[this.currentTimes - 1];
+    api.options.qs.invokeKey = invokeKey;
   }
 
   static apiNamesFn() {
