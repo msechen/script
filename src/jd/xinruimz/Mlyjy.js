@@ -60,9 +60,31 @@ class Mlyjy extends Template {
 
     async function handleDoShare() {
       const inviterId = await api.doGetPath('get_user_info').then(data => data.id);
-      self.updateShareCodeFn(inviterId);
-      for (const shareCode of self.getShareCodeFn()) {
-        await api.doPath('invite', void 0, {body: {inviter_id: shareCode}});
+      const codes = [inviterId];
+      for (let i = 0; i < 3; i++) {
+        const presentToken = await api.doPath('present_token', {
+          'card': 5,
+          'num': 1,
+        }).then(data => data['present_token']);
+        codes.push(presentToken);
+      }
+      if (self.shareCodeTaskList.some(codes => codes[0] === inviterId)) {
+        return;
+      }
+      self.shareCodeTaskList.push(codes);
+      for (const codes of self.getShareCodeFn()) {
+        const [id, ...presentTokens] = codes;
+        await api.doPath('invite', void 0, {body: {inviter_id: id}});
+        for (const presentToken of presentTokens) {
+          await api.doPath('present', void 0, {
+            body: {
+              'present_token': presentToken,
+              'inviter_id': id,
+              'card': '5',
+              'is_new': 1,
+            },
+          });
+        }
       }
     }
 

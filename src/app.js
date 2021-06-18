@@ -67,7 +67,6 @@ const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const RubikSCube = require('./jd/smfe/RubikSCube');
 const GoldCreator = require('./jd/goldCreator');
-const Mlyjy = require('./jd/xinruimz/Mlyjy');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -173,7 +172,6 @@ async function main() {
         await doRun(Necklace);
         await doRun(SecondKillRedPacket);
         await doRun(Car);
-        await doRun(Mlyjy);
       },
     },
     {
