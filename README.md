@@ -19,6 +19,8 @@
 
 ## Please move to [course](https://hub.fastgit.org/DX3242/README/tree/main) for more information
 
+## [Telegram group](https://t.me/JD_DX1005)
+
 ## Special thanks to:
 
 * [@lxk0301](https://gitee.com/lxk0301) 
