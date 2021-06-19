@@ -27,14 +27,6 @@
 0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 #金榜创造营
 40 9,21 * * * node /scripts/jd_gold_creator.js >> /scripts/logs/jd_gold_creator.log 2>&1
-#618动物联萌
-33 0,6-23/2 * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.log 2>&1
-#618动物联萌专门收集金币(每小时的第30分运行一次)
-0-59/30 * * * * node /scripts/jd_zooCollect.js >> /scripts/logs/jd_zooCollect.log 2>&1
-#家电星推官
-0 0 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1
-#家电星推官助力
-0 0 * * * node /scripts/jd_xtg_help.js >> /scripts/logs/jd_xtg_help.log 2>&1
 #5G超级盲盒(活动时间：2021-06-2到2021-07-31)
 0 0-23/4 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
 #龙舟
@@ -73,10 +65,10 @@
 1 20 1-18 6 * node /scripts/jd_hby_lottery.js >> /scripts/logs/jd_hby_lottery.log 2>&1
 #京喜牧场
 20 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
-#618惊奇探秘夜
-0 0 * * * node /scripts/jd_jqtmy.js >> /scripts/logs/jd_jqtmy.log 2>&1
 #京喜领红包
 1 5,20 * 6 * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
+#东东电竞经理
+47 10 * * * node /scripts/jd_djjl.js >> /scripts/logs/jd_djjl.log 2>&1
 
 ##############长期活动##############
 # 签到
