@@ -1,5 +1,4 @@
-!version: 202104181130
-!-----Test
+!version: 202106172037
 ||https://adfurikun.jp
 ||https://aag.yahooapis.jp
 ||https://optimus-ads.amap.com
@@ -18,6 +17,9 @@
 ||https://ad.cmvideo.cn
 ||https://ggic.cmvideo.cn
 ||https://sdk.adtiming.com
+||https://gz-data.com
+||https://gozendata.com
+||https://gzads.com
 ||https://tracker1.zmzfile.com
 ||https://tracker2.zmzfile.com
 ||https://tracker3.zmzfile.com
@@ -29,10 +31,18 @@
 ||https://htracker4.zmzfile.com
 ||https://htracker5.zmzfile.com
 ||https://file.apicvn.com
-!-----Test End
+||https://api-access.pangolin-sdk-toutiao.com
+||https://ether-pack.pangolin-sdk-toutiao.com
+||https://log-api.pangolin-sdk-toutiao.com
+||https://p1-be-endcard.pglstatp-toutiao.com
+||https://sf3-be-pack.pglstatp-toutiao.com
+||https://sf3-fe-tos.pglstatp-toutiao.com
+||https://sf6-be-pack.pglstatp-toutiao.com
+||https://v3-be-pack.pglstatp-toutiao.com
+||https://v6-be-pack.pglstatp-toutiao.com
 ||https://ereg.adobe.com
 ||https://hlrcv.stage.adobe.com
-||https://lm.licenses.adobe.com
+!127.0.0.1 lm.licenses.adobe.com
 ||https://lmlicenses.wip4.adobe.com
 ||https://na1r.services.adobe.com
 ||https://na2m-pr.licenses.adobe.com
@@ -288,6 +298,7 @@
 ||https://at.umeng.com
 ||https://dev.umeng.com
 ||https://oc.umeng.com
+||https://ulogs.umeng.com
 ||https://umeng.com
 ||https://www.umeng.com
 ||https://alog.umengcloud.com
@@ -1048,17 +1059,23 @@
 ||https://pop.sjk.ijinshan.com
 ||https://rcmd.pop.ijinshan.com
 ||https://rcv.mobad.ijinshan.com
+||https://ad.mi.com
+||https://adv.sec.miui.com
 ||https://api.ad.xiaomi.com
 ||https://api.e.mi.com
 ||https://cdn.ad.xiaomi.com
+||https://data.mistat.xiaomi.com
 ||https://e.ad.xiaomi.com
 ||https://log.ad.xiaomi.com
+||https://new.api.ad.xiaomi.com
 ||https://sdkconfig.ad.intl.xiaomi.com
 ||https://sdkconfig.ad.xiaomi.com
 ||https://ssp.ad.xiaomi.com
+||https://stat.pandora.xiaomi.com
 ||https://test.ad.xiaomi.com
 ||https://test.e.ad.xiaomi.com
 ||https://test.zeus.ad.xiaomi.com
+||https://tracking.miui.com
 ||https://zeus.ad.xiaomi.com
 ||https://etl.xlmc.sandai.net
 ||https://api.tw06.xlmc.sec.miui.com
@@ -2606,6 +2623,7 @@
 ||https://2v6624.myrebo.com
 ||https://2vo2b2.cn
 ||https://3.iscrv.com
+||https://3245dsfsd.cdgongfang.cn
 ||https://35baba.cn
 ||https://360vip.front99.com
 ||https://37.sinawap.com
@@ -2723,9 +2741,11 @@
 ||https://ad.tatatimes.com
 ||https://ad.xn--3bs795g.link
 ||https://ad.wang502.com
+||https://adxadserv.com
 ||https://adeaz.com
 ||https://adeq.hiidc.com.cn
 ||https://adimg.bbcss.com
+||https://adktrack.com
 ||https://admin.louxia.org
 ||https://adrunnr.com
 ||https://ads.api.vungle.com
@@ -2910,15 +2930,18 @@
 ||https://c.365yigou.cn
 ||https://c.45io.com
 ||https://c.51xmgys.com
+||https://c.7times.top
 ||https://c.acgshenshicha.cn
 ||https://c.anmeilai.net
 ||https://c.bayongzx.cn
 ||https://c.bccyyc.com
 ||https://c.cdlkzb.com
 ||https://c.chaochao132.xyz
+||https://c.cqdjhj.cn
 ||https://c.cyhx98.com
 ||https://c.cyto-biotherapy.com
 ||https://c.danangmo.cn
+||https://c.daizhangguanjia.com.cn
 ||https://c.dcghp.top
 ||https://c.dcgwnhk.cn
 ||https://c.dengbaozx.cn
@@ -2965,11 +2988,13 @@
 ||https://c.ns8d.com
 ||https://c.okmgy.cn
 ||https://c.originz.cn
+||https://c.oumaite168.com.cn
 ||https://c.panqis.cn
 ||https://c.panqishu.com
+||https://c.pengmingx.cn
 ||https://c.piliangzhuce.cn
 ||https://c.ptffw.net
-||https://v.qhruisen.cn
+||https://c.qhruisen.cn
 ||https://c.qhruixin.cn
 ||https://c.queene.cn
 ||https://c.r9uqp.cn
@@ -3608,7 +3633,6 @@
 ||https://e.suehy.com
 ||https://e.sugajo.cn
 ||https://e.sxhwscj.cn
-||https://e.sxhwscj.cn
 ||https://e.szqifu.com
 ||https://e.t71q.com
 ||https://e.tbaip.com
@@ -3957,6 +3981,7 @@
 ||https://gm.uc003.com
 ||https://gmeng.625323.com
 ||https://gn.lalaqky.cn
+||https://go2021-1955280580.bceapp.com
 ||https://go.dlads.cn
 ||https://go.gogolm.xyz
 ||https://go.gotourl.xyz
@@ -4424,7 +4449,7 @@
 ||https://log.orchidscape.net
 ||https://lol.pnhfc.com
 ||https://loldy.jiangmg.com
- 127.0.0.1 lp7n.cy6px.com
+||https://lp7n.cy6px.com
 ||https://lq0s3c.cn
 ||https://lskwsx.m.zwdu.com
 ||https://lu.w3vj.cn
@@ -5397,6 +5422,7 @@
 ||https://m.zu08e.cn
 ||https://m.zuopp.com
 ||https://m.zvfuka.cn
+||https://m.zzchuy.cn
 ||https://m1.asklib.com
 ||https://m1.jiasudu666.com
 ||https://m195.zzcm5.com
@@ -5417,6 +5443,7 @@
 ||https://md.iz3h6.cn
 ||https://mdzvoi.cn
 ||https://me.com.x9wj2.cn
+||https://media.vivaclix.com
 ||https://mf01.zybang.com
 ||https://mf02.zybang.com
 ||https://mf35.t7wl8.cn
@@ -5639,6 +5666,7 @@
 ||https://p.skimresources.com
 ||https://p.sswyyl.com
 ||https://p.tamenshuo.com
+||https://p.unclecarm.cn
 ||https://p.vtdtfl.cn
 ||https://p.ynjczy.net
 ||https://p0l.cn
@@ -5822,6 +5850,7 @@
 ||https://qq.hixili.top
 ||https://qqa.miaozhu823.com
 ||https://qqe.ihear123.com
+||https://qqpublic.qpic.cn
 ||https://qqs.glpen08.com
 ||https://qrbizr.cn
 ||https://qrrl.cwj2h.cn
@@ -5974,6 +6003,7 @@
 ||https://sccdn.f2zd.com
 ||https://scfrwo.cn
 ||https://scimg.27admin.com
+||https://scr.lflable.com
 ||https://script-bd.baixing.net
 ||https://sdbdccq.com
 ||https://sdf.liaotian4.com
@@ -6092,6 +6122,7 @@
 ||https://sub.alisinak.com
 ||https://sudon.afefw.com
 ||https://suoooi.cn
+||https://sv.vgimer.cn
 ||https://svip.shwxtw.com
 ||https://svip.xsmy2.cn
 ||https://sw.cailawyer.cn
@@ -6167,7 +6198,9 @@
 ||https://tben.nnchangyi.com
 ||https://td.xue63.com
 ||https://te.xclvq.cn
+||https://tech.hellobya.cn
 ||https://tech.qgdvyvd.cn
+||https://tect.hellobya.cn
 ||https://teen.77rog.com
 ||https://tejia.gaibang.fun
 ||https://tf.caohua.com
@@ -6184,6 +6217,7 @@
 ||https://tikn.hwgs.info
 ||https://titi.18tzx.com
 ||https://titi.qifajiang.cn
+||https://tj.dushu.ru
 ||https://tj.jinyuewang.cn
 ||https://tj.playcvn.com
 ||https://tj.tongjiwo.com
@@ -6288,6 +6322,7 @@
 ||https://v.1jnh85.cn
 ||https://v.510vud.cn
 ||https://v.6dvip.com
+||https://v.7times.top
 ||https://v.76768hwj.cn
 ||https://v.8yrn.cn
 ||https://v.9y88.com
@@ -6297,6 +6332,8 @@
 ||https://v.bayongzx.cn
 ||https://v.bingxueshenjie.cn
 ||https://v.com.5p67n.cn
+||https://v.cqdjhj.cn
+||https://v.daizhangguanjia.com.cn
 ||https://v.dalemax.cn
 ||https://v.dcgwnhk.cn
 ||https://v.dengbaozx.cn
@@ -6325,6 +6362,8 @@
 ||https://v.nkzker.cn
 ||https://v.oq68.com
 ||https://v.originz.cn
+||https://v.oumaite168.com.cn
+||https://v.pengmingx.cn
 ||https://v.qhruisen.cn
 ||https://v.qhruixin.cn
 ||https://v.ql01t4.com
@@ -6335,6 +6374,7 @@
 ||https://v.tgslww.cn
 ||https://v.tr31t.cn
 ||https://v.wangdaguanli.com
+||https://v.wxxljy.net
 ||https://v.xadingli.cn
 ||https://v.xbjcgs.cn
 ||https://v.xinshide.cn
@@ -6349,6 +6389,7 @@
 ||https://vadioc.cn
 ||https://vbaiu.com
 ||https://vbje.linyankm.cn
+||https://vc.vgimer.cn
 ||https://ve.tsdlp.com
 ||https://vebadu.com
 ||https://vegoid.cn
@@ -6373,6 +6414,7 @@
 ||https://vipchaoshi.cn
 ||https://vipwx.zhong-zhu.com
 ||https://viq3.fb360xp.com
+||https://vivo.mmxy.tech
 ||https://vj.tianji520.cn
 ||https://vj.x-ssp.com
 ||https://vm.makeding.com
@@ -6528,7 +6570,9 @@
 ||https://www.amort.cn
 ||https://www.anyangruisi.com
 ||https://www.aodongjiaosu.com
+||https://www.aoyou1.top
 ||https://www.aoyou2.top
+||https://www.aoyou4.top
 ||https://www.appfh.com
 ||https://www.applequan.com
 ||https://www.ashiping.com
@@ -6568,6 +6612,7 @@
 ||https://www.eddong.com
 ||https://www.ere3j2e001.com
 ||https://www.esptj.com
+||https://www.ewtyewj.com
 ||https://www.fastcache.com.cn
 ||https://www.fatcatstar.com
 ||https://www.fccxgjg.com
@@ -6617,6 +6662,7 @@
 ||https://www.insuf.cn
 ||https://www.iqiyi.space
 ||https://www.isitone.com
+||https://www.jacklm3.com
 ||https://www.jagcn.com
 ||https://www.jav23.com
 ||https://www.javascriptobfuscator.com
@@ -6692,6 +6738,7 @@
 ||https://www.pjbjzf.com
 ||https://www.poijugh.top
 ||https://www.poke88.com
+||https://www.ppslsa.com
 ||https://www.predictivadvertising.com
 ||https://www.prjslxhtx001.top
 ||https://www.prjslxhtx002.top
@@ -6707,6 +6754,7 @@
 ||https://www.qinchugudao.com
 ||https://www.qiubang.org
 ||https://www.qupinhj.com
+||https://www.qwupoq.com
 ||https://www.qzgjprj.com
 ||https://www.rangzhuai.com
 ||https://www.rannabio.com
@@ -6720,6 +6768,7 @@
 ||https://www.shkywh.com
 ||https://www.shouyoutan.com
 ||https://www.shuaixu.site
+||https://www.slkeq.com
 ||https://www.smucdn.com
 ||https://www.somennew.com
 ||https://www.song001.com
@@ -6905,6 +6954,8 @@
 ||https://y.hk9600.com
 ||https://y.hzht666.com
 ||https://y.ilancc.com
+||https://ysiqmzfr.eileader.cn
+||https://i.nyue6.com
 ||https://y.shuoshuocm.com
 ||https://y.unilz588.com
 ||https://y.xinghao89.com
@@ -6947,6 +6998,7 @@
 ||https://yunbofangbt.com
 ||https://yundingjiayuan.com
 ||https://yuyue008.cn
+||https://yxd9c.hnpljm.xyz
 ||https://yxrp.lianfuhuang.cn
 ||https://yxs.tymsyx.com
 ||https://yxyhtea.com
@@ -9269,9 +9321,35 @@
 ||https://upload.aiclk.com
 ||https://vip.70qn.com
 ||https://show.suning.beer
-||https://www.kldsam.com
-!version: 202104181130
-!-----Test
+||https://aa.toponad.com
+||https://adx-tk.rayjump.com
+||https://analytics.dspunion.com
+||https://bds.snssdk.com
+||https://cdn-adn-https-share.rayjump.com
+||https://da.anythinktech.com
+||https://gd-stats.jpush.cn
+||https://imp-toutiao-data.37.com.cn
+||https://impression.appsflyer.com
+||https://is.snssdk.com
+||https://isub.snssdk.com
+||https://ms.applovin.com
+||https://net.rayjump.com
+||https://newplayable.dspunion.com
+||https://prod-a.applovin.com
+||https://prod-bid.applovin.com
+||https://res1.applovin.com
+||https://s2s.adjust.com
+||https://s3.pstatp.com
+||https://setting.rayjump.com
+||https://sf3-ttcdn-tos.pstatp.com
+||https://sg01.rayjump.com
+||https://smart.mobvista.com
+||https://smr.snssdk.com
+||https://tk.anythinktech.com
+||https://tkcn.rayjump.com
+||https://track.tenjin.com
+||https://www.tinytapgame.com
+!version: 202106172037
 ||http://adfurikun.jp
 ||http://aag.yahooapis.jp
 ||http://optimus-ads.amap.com
@@ -9290,6 +9368,9 @@
 ||http://ad.cmvideo.cn
 ||http://ggic.cmvideo.cn
 ||http://sdk.adtiming.com
+||http://gz-data.com
+||http://gozendata.com
+||http://gzads.com
 ||http://tracker1.zmzfile.com
 ||http://tracker2.zmzfile.com
 ||http://tracker3.zmzfile.com
@@ -9301,10 +9382,18 @@
 ||http://htracker4.zmzfile.com
 ||http://htracker5.zmzfile.com
 ||http://file.apicvn.com
-!-----Test End
+||http://api-access.pangolin-sdk-toutiao.com
+||http://ether-pack.pangolin-sdk-toutiao.com
+||http://log-api.pangolin-sdk-toutiao.com
+||http://p1-be-endcard.pglstatp-toutiao.com
+||http://sf3-be-pack.pglstatp-toutiao.com
+||http://sf3-fe-tos.pglstatp-toutiao.com
+||http://sf6-be-pack.pglstatp-toutiao.com
+||http://v3-be-pack.pglstatp-toutiao.com
+||http://v6-be-pack.pglstatp-toutiao.com
 ||http://ereg.adobe.com
 ||http://hlrcv.stage.adobe.com
-||http://lm.licenses.adobe.com
+!127.0.0.1 lm.licenses.adobe.com
 ||http://lmlicenses.wip4.adobe.com
 ||http://na1r.services.adobe.com
 ||http://na2m-pr.licenses.adobe.com
@@ -9560,6 +9649,7 @@
 ||http://at.umeng.com
 ||http://dev.umeng.com
 ||http://oc.umeng.com
+||http://ulogs.umeng.com
 ||http://umeng.com
 ||http://www.umeng.com
 ||http://alog.umengcloud.com
@@ -10320,17 +10410,23 @@
 ||http://pop.sjk.ijinshan.com
 ||http://rcmd.pop.ijinshan.com
 ||http://rcv.mobad.ijinshan.com
+||http://ad.mi.com
+||http://adv.sec.miui.com
 ||http://api.ad.xiaomi.com
 ||http://api.e.mi.com
 ||http://cdn.ad.xiaomi.com
+||http://data.mistat.xiaomi.com
 ||http://e.ad.xiaomi.com
 ||http://log.ad.xiaomi.com
+||http://new.api.ad.xiaomi.com
 ||http://sdkconfig.ad.intl.xiaomi.com
 ||http://sdkconfig.ad.xiaomi.com
 ||http://ssp.ad.xiaomi.com
+||http://stat.pandora.xiaomi.com
 ||http://test.ad.xiaomi.com
 ||http://test.e.ad.xiaomi.com
 ||http://test.zeus.ad.xiaomi.com
+||http://tracking.miui.com
 ||http://zeus.ad.xiaomi.com
 ||http://etl.xlmc.sandai.net
 ||http://api.tw06.xlmc.sec.miui.com
@@ -11878,6 +11974,7 @@
 ||http://2v6624.myrebo.com
 ||http://2vo2b2.cn
 ||http://3.iscrv.com
+||http://3245dsfsd.cdgongfang.cn
 ||http://35baba.cn
 ||http://360vip.front99.com
 ||http://37.sinawap.com
@@ -11995,9 +12092,11 @@
 ||http://ad.tatatimes.com
 ||http://ad.xn--3bs795g.link
 ||http://ad.wang502.com
+||http://adxadserv.com
 ||http://adeaz.com
 ||http://adeq.hiidc.com.cn
 ||http://adimg.bbcss.com
+||http://adktrack.com
 ||http://admin.louxia.org
 ||http://adrunnr.com
 ||http://ads.api.vungle.com
@@ -12182,15 +12281,18 @@
 ||http://c.365yigou.cn
 ||http://c.45io.com
 ||http://c.51xmgys.com
+||http://c.7times.top
 ||http://c.acgshenshicha.cn
 ||http://c.anmeilai.net
 ||http://c.bayongzx.cn
 ||http://c.bccyyc.com
 ||http://c.cdlkzb.com
 ||http://c.chaochao132.xyz
+||http://c.cqdjhj.cn
 ||http://c.cyhx98.com
 ||http://c.cyto-biotherapy.com
 ||http://c.danangmo.cn
+||http://c.daizhangguanjia.com.cn
 ||http://c.dcghp.top
 ||http://c.dcgwnhk.cn
 ||http://c.dengbaozx.cn
@@ -12237,11 +12339,13 @@
 ||http://c.ns8d.com
 ||http://c.okmgy.cn
 ||http://c.originz.cn
+||http://c.oumaite168.com.cn
 ||http://c.panqis.cn
 ||http://c.panqishu.com
+||http://c.pengmingx.cn
 ||http://c.piliangzhuce.cn
 ||http://c.ptffw.net
-||http://v.qhruisen.cn
+||http://c.qhruisen.cn
 ||http://c.qhruixin.cn
 ||http://c.queene.cn
 ||http://c.r9uqp.cn
@@ -12880,7 +12984,6 @@
 ||http://e.suehy.com
 ||http://e.sugajo.cn
 ||http://e.sxhwscj.cn
-||http://e.sxhwscj.cn
 ||http://e.szqifu.com
 ||http://e.t71q.com
 ||http://e.tbaip.com
@@ -13229,6 +13332,7 @@
 ||http://gm.uc003.com
 ||http://gmeng.625323.com
 ||http://gn.lalaqky.cn
+||http://go2021-1955280580.bceapp.com
 ||http://go.dlads.cn
 ||http://go.gogolm.xyz
 ||http://go.gotourl.xyz
@@ -13696,7 +13800,7 @@
 ||http://log.orchidscape.net
 ||http://lol.pnhfc.com
 ||http://loldy.jiangmg.com
- 127.0.0.1 lp7n.cy6px.com
+||http://lp7n.cy6px.com
 ||http://lq0s3c.cn
 ||http://lskwsx.m.zwdu.com
 ||http://lu.w3vj.cn
@@ -14669,6 +14773,7 @@
 ||http://m.zu08e.cn
 ||http://m.zuopp.com
 ||http://m.zvfuka.cn
+||http://m.zzchuy.cn
 ||http://m1.asklib.com
 ||http://m1.jiasudu666.com
 ||http://m195.zzcm5.com
@@ -14689,6 +14794,7 @@
 ||http://md.iz3h6.cn
 ||http://mdzvoi.cn
 ||http://me.com.x9wj2.cn
+||http://media.vivaclix.com
 ||http://mf01.zybang.com
 ||http://mf02.zybang.com
 ||http://mf35.t7wl8.cn
@@ -14911,6 +15017,7 @@
 ||http://p.skimresources.com
 ||http://p.sswyyl.com
 ||http://p.tamenshuo.com
+||http://p.unclecarm.cn
 ||http://p.vtdtfl.cn
 ||http://p.ynjczy.net
 ||http://p0l.cn
@@ -15094,6 +15201,7 @@
 ||http://qq.hixili.top
 ||http://qqa.miaozhu823.com
 ||http://qqe.ihear123.com
+||http://qqpublic.qpic.cn
 ||http://qqs.glpen08.com
 ||http://qrbizr.cn
 ||http://qrrl.cwj2h.cn
@@ -15246,6 +15354,7 @@
 ||http://sccdn.f2zd.com
 ||http://scfrwo.cn
 ||http://scimg.27admin.com
+||http://scr.lflable.com
 ||http://script-bd.baixing.net
 ||http://sdbdccq.com
 ||http://sdf.liaotian4.com
@@ -15364,6 +15473,7 @@
 ||http://sub.alisinak.com
 ||http://sudon.afefw.com
 ||http://suoooi.cn
+||http://sv.vgimer.cn
 ||http://svip.shwxtw.com
 ||http://svip.xsmy2.cn
 ||http://sw.cailawyer.cn
@@ -15439,7 +15549,9 @@
 ||http://tben.nnchangyi.com
 ||http://td.xue63.com
 ||http://te.xclvq.cn
+||http://tech.hellobya.cn
 ||http://tech.qgdvyvd.cn
+||http://tect.hellobya.cn
 ||http://teen.77rog.com
 ||http://tejia.gaibang.fun
 ||http://tf.caohua.com
@@ -15456,6 +15568,7 @@
 ||http://tikn.hwgs.info
 ||http://titi.18tzx.com
 ||http://titi.qifajiang.cn
+||http://tj.dushu.ru
 ||http://tj.jinyuewang.cn
 ||http://tj.playcvn.com
 ||http://tj.tongjiwo.com
@@ -15560,6 +15673,7 @@
 ||http://v.1jnh85.cn
 ||http://v.510vud.cn
 ||http://v.6dvip.com
+||http://v.7times.top
 ||http://v.76768hwj.cn
 ||http://v.8yrn.cn
 ||http://v.9y88.com
@@ -15569,6 +15683,8 @@
 ||http://v.bayongzx.cn
 ||http://v.bingxueshenjie.cn
 ||http://v.com.5p67n.cn
+||http://v.cqdjhj.cn
+||http://v.daizhangguanjia.com.cn
 ||http://v.dalemax.cn
 ||http://v.dcgwnhk.cn
 ||http://v.dengbaozx.cn
@@ -15597,6 +15713,8 @@
 ||http://v.nkzker.cn
 ||http://v.oq68.com
 ||http://v.originz.cn
+||http://v.oumaite168.com.cn
+||http://v.pengmingx.cn
 ||http://v.qhruisen.cn
 ||http://v.qhruixin.cn
 ||http://v.ql01t4.com
@@ -15607,6 +15725,7 @@
 ||http://v.tgslww.cn
 ||http://v.tr31t.cn
 ||http://v.wangdaguanli.com
+||http://v.wxxljy.net
 ||http://v.xadingli.cn
 ||http://v.xbjcgs.cn
 ||http://v.xinshide.cn
@@ -15621,6 +15740,7 @@
 ||http://vadioc.cn
 ||http://vbaiu.com
 ||http://vbje.linyankm.cn
+||http://vc.vgimer.cn
 ||http://ve.tsdlp.com
 ||http://vebadu.com
 ||http://vegoid.cn
@@ -15645,6 +15765,7 @@
 ||http://vipchaoshi.cn
 ||http://vipwx.zhong-zhu.com
 ||http://viq3.fb360xp.com
+||http://vivo.mmxy.tech
 ||http://vj.tianji520.cn
 ||http://vj.x-ssp.com
 ||http://vm.makeding.com
@@ -15800,7 +15921,9 @@
 ||http://www.amort.cn
 ||http://www.anyangruisi.com
 ||http://www.aodongjiaosu.com
+||http://www.aoyou1.top
 ||http://www.aoyou2.top
+||http://www.aoyou4.top
 ||http://www.appfh.com
 ||http://www.applequan.com
 ||http://www.ashiping.com
@@ -15840,6 +15963,7 @@
 ||http://www.eddong.com
 ||http://www.ere3j2e001.com
 ||http://www.esptj.com
+||http://www.ewtyewj.com
 ||http://www.fastcache.com.cn
 ||http://www.fatcatstar.com
 ||http://www.fccxgjg.com
@@ -15889,6 +16013,7 @@
 ||http://www.insuf.cn
 ||http://www.iqiyi.space
 ||http://www.isitone.com
+||http://www.jacklm3.com
 ||http://www.jagcn.com
 ||http://www.jav23.com
 ||http://www.javascriptobfuscator.com
@@ -15964,6 +16089,7 @@
 ||http://www.pjbjzf.com
 ||http://www.poijugh.top
 ||http://www.poke88.com
+||http://www.ppslsa.com
 ||http://www.predictivadvertising.com
 ||http://www.prjslxhtx001.top
 ||http://www.prjslxhtx002.top
@@ -15979,6 +16105,7 @@
 ||http://www.qinchugudao.com
 ||http://www.qiubang.org
 ||http://www.qupinhj.com
+||http://www.qwupoq.com
 ||http://www.qzgjprj.com
 ||http://www.rangzhuai.com
 ||http://www.rannabio.com
@@ -15992,6 +16119,7 @@
 ||http://www.shkywh.com
 ||http://www.shouyoutan.com
 ||http://www.shuaixu.site
+||http://www.slkeq.com
 ||http://www.smucdn.com
 ||http://www.somennew.com
 ||http://www.song001.com
@@ -16177,6 +16305,8 @@
 ||http://y.hk9600.com
 ||http://y.hzht666.com
 ||http://y.ilancc.com
+||http://ysiqmzfr.eileader.cn
+||http://i.nyue6.com
 ||http://y.shuoshuocm.com
 ||http://y.unilz588.com
 ||http://y.xinghao89.com
@@ -16219,6 +16349,7 @@
 ||http://yunbofangbt.com
 ||http://yundingjiayuan.com
 ||http://yuyue008.cn
+||http://yxd9c.hnpljm.xyz
 ||http://yxrp.lianfuhuang.cn
 ||http://yxs.tymsyx.com
 ||http://yxyhtea.com
@@ -18541,4 +18672,31 @@
 ||http://upload.aiclk.com
 ||http://vip.70qn.com
 ||http://show.suning.beer
-||http://www.kldsam.com
+||http://aa.toponad.com
+||http://adx-tk.rayjump.com
+||http://analytics.dspunion.com
+||http://bds.snssdk.com
+||http://cdn-adn-https-share.rayjump.com
+||http://da.anythinktech.com
+||http://gd-stats.jpush.cn
+||http://imp-toutiao-data.37.com.cn
+||http://impression.appsflyer.com
+||http://is.snssdk.com
+||http://isub.snssdk.com
+||http://ms.applovin.com
+||http://net.rayjump.com
+||http://newplayable.dspunion.com
+||http://prod-a.applovin.com
+||http://prod-bid.applovin.com
+||http://res1.applovin.com
+||http://s2s.adjust.com
+||http://s3.pstatp.com
+||http://setting.rayjump.com
+||http://sf3-ttcdn-tos.pstatp.com
+||http://sg01.rayjump.com
+||http://smart.mobvista.com
+||http://smr.snssdk.com
+||http://tk.anythinktech.com
+||http://tkcn.rayjump.com
+||http://track.tenjin.com
+||http://www.tinytapgame.com
