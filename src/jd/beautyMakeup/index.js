@@ -241,8 +241,6 @@ class BeautyMakeup extends Template {
       if (serverNotReturn() || api.needStopLoop) {
         return;
       }
-
-      isDayStarted && await handleExchange();
       // 指引
       await handleGuide();
 
@@ -576,8 +574,8 @@ class BeautyMakeup extends Template {
 
     // 收取生产好的材料
     async function handleReceiveMaterial() {
-      for (const {position, produce_num, procedure} of _.values(producePositionData)) {
-        if (_.isEmpty(procedure) || !position) continue;
+      for (const {position, produce_num, procedure, valid_electric} of _.values(producePositionData)) {
+        if ((produce_num === 0 && _.isEmpty(procedure)) || !position || valid_electric < 0) continue;
         wsMsg.material_fetch_v2.msg.args.position = position;
         await sendMessage(wsMsg.material_fetch_v2);
       }
@@ -631,14 +629,15 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.init);
       await sendMessage(wsMsg.get_benefit);
       // 500豆
-      wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 50000) || {})['id'] || 9;
-      await keepOnline(diffFromNow([23, 59, 59]) / 1000);
-      await sleep(1 / 2);
-      await doExchange(8);
+      wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 100000) || {})['id'] || 9;
+      await keepOnline(diffFromNow([23, 59, 50]) / 1000);
+      await doExchange(2);
+      await sleep();
+      sendMessage(wsMsg.to_exchange);
 
       async function doExchange(times) {
         if (times <= 0 || beanPackageExchanged) return;
-        await sleep(0.1);
+        await sleep(5);
         sendMessage(wsMsg.to_exchange);
         await doExchange(--times);
       }
