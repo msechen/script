@@ -304,15 +304,12 @@ async function main() {
     }
   }
 
-  await doCron(Health);
-
   if (yesterdayAppPath) {
     yesterdayLog = fs.readFileSync(yesterdayAppPath);
   }
 
   // 定时循环
   async function cronLoop() {
-    await doCron(Health);
     await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
 
@@ -322,6 +319,7 @@ async function main() {
 
     if (nowHour % 5 === 0) {
       await doCron(Joy);
+      await doCron(Health);
     }
 
     if (nowHour % 6 === 0) {
