@@ -3,6 +3,7 @@ const Family = require('./index');
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 const {getMoment} = require('../../lib/moment');
+const Encrypt = require('./Encrypt');
 
 class JxHongBao extends Family {
   static scriptName = 'JxHongBao';
@@ -30,10 +31,11 @@ class JxHongBao extends Family {
     return _.property('data.tasklist')(data);
   }
 
-  static getTaskList({item}) {
+  static async getTaskList({item}) {
+    const encrypt = new Encrypt();
     let list = [];
     for (let i = 0; i < item.taskcannum; i++) {
-      list.push({tasktype: item.type, taskid: getMoment().valueOf() % 1000 + i, _stk: 'taskid,tasktype'});
+      list.push(await encrypt.sign({taskid: `${getMoment().valueOf() % 1000 + i}`, tasktype: `${item.type}`}));
     }
     return list;
   }

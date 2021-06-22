@@ -118,7 +118,7 @@ class Family extends Template {
             // tasktype 2 做美食
             // tasktype 5 忽略
             if (isdo === 0 || _.isNumber(times) && (times !== 0) || [].includes(tasktype)) continue;
-            let list = self.getTaskList({taskid, tasktype, item});
+            let list = await self.getTaskList({taskid, tasktype, item}, api);
 
             result.push({list, option: {maxTimes: list.length, times: 0, waitDuration: 0}});
           }
