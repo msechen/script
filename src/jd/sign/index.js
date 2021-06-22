@@ -177,15 +177,27 @@ class Sign extends Template {
         isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
       },
       signInAtTheVoucherCenter,
+      {
+        name: '京东汽车领券签到',
+        url: 'https://cgame-stadium.jd.com/api/v1/sign',
+        options: {
+          headers: {
+            origin: 'https://pro.m.jd.com',
+            referer: 'https://pro.m.jd.com/mall/active/dj6us2JJRLMMBb4iDaSK4wxvBMt/index.html',
+            activityid: '12c912a824654a1c8590e4d46e4d3be2',
+          },
+        },
+        isSuccessFn: data => data.status,
+      }
     ];
 
     const cashSign = [
       {
         name: '东喜双签',
-        url: 'https://m.jingxi.com/double_sign/IssueReward',
+        url: 'https://wq.jd.com/double_sign/IssueReward',
         options: {
           headers: {
-            'Referer': 'https://jddx.jd.com/m/jddnew/money/index.html',
+            'Referer': 'https://wqs.jd.com/pingou/jxapp_double_signin/index.html',
           },
           qs: {
             sceneval: 2,
