@@ -151,7 +151,7 @@ async function main() {
         await doRun(Family);
         await doRun(Live);
         await doRun(GlobalChallenge);
-        await doRun(JxHongBao);
+        // await doRun(JxHongBao);
         await doRun(VipClubShake);
         await doRun(LiteSign);
         await doRun(SpringReward);
