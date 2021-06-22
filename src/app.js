@@ -157,8 +157,7 @@ async function main() {
         await doRun(SpringReward);
         // await doRun(BianPao);
         await multipleRun([
-          Harmony2,
-          Harmony3,
+          // Harmony2,
         ]);
         await multipleRun([
           HealthSign,
