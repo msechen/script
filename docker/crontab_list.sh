@@ -3,7 +3,7 @@
 
 ##############短期活动##############
 
-# 极速版春香节红包
+# 极速版红包
 30 9 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 # 超级直播间红包雨
 0,30,31 20-23/1 * * * node /scripts/jd_live_redrain.js >> /scripts/logs/jd_live_redrain.log 2>&1
@@ -23,14 +23,8 @@
 13 1,22,23 * * * node /scripts/jd_daily_lottery.js >> /scripts/logs/jd_daily_lottery.log 2>&1
 #jd_beauty
 1 7,12,19 * * * node /scripts/jd_beauty.js >> /scripts/logs/jd_beauty.log 2>&1
-#手机狂欢城
-0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 #金榜创造营
 40 9,21 * * * node /scripts/jd_gold_creator.js >> /scripts/logs/jd_gold_creator.log 2>&1
-#5G超级盲盒(活动时间：2021-06-2到2021-07-31)
-0 0-23/4 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
-#龙舟
-15 13 1-18 6 *node /scripts/jd_dragonboat.js >> /scripts/logs/jd_dragonboat.log 2>&1
 #新潮品牌狂欢
 30 9,10 1-18 6 * node /scripts/jd_mcxhd_brandcity.js >> /scripts/logs/jd_mcxhd_brandcity.log 2>&1
 #品牌狂欢城
@@ -39,30 +33,8 @@
 1 0-23/1 * 6 * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 #京享值pk
 15 0,6,13,19,21 * 6 * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
-#大牌联合618提前购
-0 23,6 3-18 6 * node /scripts/jd_618Opencard01.js >> /scripts/logs/jd_618Opencard01.log 2>&1
-#大牌联合618提前购
-01 23,6 3-18 6 * node /scripts/jd_618Opencard02.js >> /scripts/logs/jd_618Opencard02.log 2>&1
-#大牌联合618提前购
-02 23,6 3-18 6 * node /scripts/jd_618Opencard03.js >> /scripts/logs/jd_618Opencard03.log 2>&1
-#大牌联合618提前购
-04 23,6 3-18 6 * node /scripts/jd_618Opencard04.js >> /scripts/logs/jd_618Opencard04.log 2>&1
-#大牌联合618提前购
-05 23,6 3-18 6 * node /scripts/jd_618Opencard05.js >> /scripts/logs/jd_618Opencard05.log 2>&1
-#618母婴夺宝大作战
-15 9,21 9-20 6 * node /scripts/jd_618Opencard06.js >> /scripts/logs/jd_618Opencard06.log 2>&1
-#大牌联合'臻'宠粉丝
-15 8,20 9-23 6 * node /scripts/jd_618Opencard07.js >> /scripts/logs/jd_618Opencard07.log 2>&1
-# 618大牌联合 年中钜惠购
-01 8,20 9-23 6 * node /scripts/jd_618Opencard08.js >> /scripts/logs/jd_618Opencard08.log 2>&1
-# 大牌超级联合 618年中购
-01 3,13 9-23 6 * node /scripts/jd_618Opencard09.js >> /scripts/logs/jd_618Opencard09.log 2>&1
-# 大牌联合618年中钜惠抢先购
-01 2,12 9-23 6 * node /scripts/jd_618Opencard10.js >> /scripts/logs/jd_618Opencard10.log 2>&1
 #限时盲盒
 30 7,19 1-18 6 * node /scripts/jd_limitBox.js >> /scripts/logs/jd_limitBox.log 2>&1
-#主会场红包雨
-1 20 1-18 6 * node /scripts/jd_hby_lottery.js >> /scripts/logs/jd_hby_lottery.log 2>&1
 #京喜牧场
 20 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 #京喜领红包
