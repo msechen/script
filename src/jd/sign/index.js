@@ -188,7 +188,7 @@ class Sign extends Template {
           },
         },
         isSuccessFn: data => data.status,
-      }
+      },
     ];
 
     const cashSign = [
@@ -235,7 +235,9 @@ class Sign extends Template {
       taskOptions.push(signInAtTheVoucherCenter);
     }
 
-    taskOptions.push(cashSign[0]);
+    if (self.getNowHour() === 23) {
+      taskOptions.push(cashSign[0]);
+    }
 
     for (const options of taskOptions) {
       const {times = 1} = options;

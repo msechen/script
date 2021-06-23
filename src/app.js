@@ -273,6 +273,7 @@ async function main() {
     {
       valid: 23,
       run: async () => {
+        await doRun(Sign);
         await doRun(KoiRedPacket);
         await doRun(Joy);
         await doRun(PlantBean, getCookieData());
