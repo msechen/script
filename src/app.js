@@ -285,7 +285,7 @@ async function main() {
         await multipleRun([
           SignShop,
           SuperMarketRedeem,
-          JoyRedeem,
+          // JoyRedeem,
         ]);
         await multipleRun([
           EarnJingDou, IsvShopSign,
