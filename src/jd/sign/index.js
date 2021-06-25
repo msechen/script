@@ -189,6 +189,27 @@ class Sign extends Template {
         },
         isSuccessFn: data => data.status,
       },
+      {
+        name: '领金贴签到',
+        url: 'https://ms.jr.jd.com/gw/generic/jrm/h5/m/signInSubsidy',
+        options: {
+          form: {
+            reqData: {
+              'source': 'JD_APP',
+              'channel': 'scljticon',
+              'channelLv': 'scljticon',
+              'apiVersion': '1.0.0',
+              'riskDeviceParam': '{"macAddress":"","imei":"","eid":"M7UO6SRTFR5GQS7SPKPOGT7ZZB6KH2I7CUXZGVFSPJ5773VII5RHNSVRM4FK4RSLDCBRG3QQUS4WNC5PZ2767E6D3Q","openUUID":"","uuid":"","traceIp":"","os":"","osVersion":"","appId":"","clientVersion":"","resolution":"","channelInfo":"","networkType":"","startNo":42,"openid":"","token":"NZZ5STZSSVPOCYB6AAIHPJ43FF4TKJG46JODY3JD5JM4P33JMFA2FZNET74BNLBXE5U72S6J6U6EE","sid":"","terminalType":"","longtitude":"","latitude":"","securityData":"","jscContent":"","fnHttpHead":"","receiveRequestTime":"","port":80,"appType":"","deviceType":"","fp":"4b0002be41944d73a6f8ed4151ee7e5d","ip":"","idfa":"","sdkToken":""}',
+              'others': {'shareId': '', 'token': ''},
+            },
+          },
+          headers: {
+            Origin: 'https://u.jr.jd.com',
+            Referer: 'https://u.jr.jd.com/uc-fe-growing/jintiepindao/?channelLv=scljticon',
+          },
+        },
+        isSuccessFn: data => data.resultData.code === '000',
+      },
     ];
 
     const cashSign = [
