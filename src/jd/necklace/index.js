@@ -1,21 +1,29 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
+const FakerSmashUtils = require('../../lib/FakerSmashUtils');
 
 const {necklace} = require('../../../charles/api');
 
-const {patchData} = require('./api');
-
-let pin;
+const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/41Lkp7DumXYCFmPYtU3LTcnTTXTX/index.html';
 
 class Necklace extends Template {
   static scriptName = 'Necklace';
   static scriptNameDesc = '天天点点券';
   static needOriginH5 = true;
+  static needInAppComplete = true;
 
   static apiOptions = {
     signData: {
       appid: 'coupon-necklace',
+      client: 'coupon-necklace',
+      uuid: this.getUUid(),
+      loginType: 2,
+    },
+    options: {
+      headers: {
+        referer: indexUrl,
+      },
     },
   };
 
@@ -23,9 +31,15 @@ class Necklace extends Template {
     return _.property('data.biz_code')(data) === 0;
   }
 
+  static async beforeRequest(api) {
+    new FakerSmashUtils(api, indexUrl, {
+      userAgent: this.appCompleteUserAgent,
+      smashInitData: {appid: '50082', sceneid: 'DDhomePageh5'},
+    }).patchApi(['sign', 'startTask', 'chargeScores']);
+  }
+
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       // 获取任务列表
@@ -35,15 +49,13 @@ class Necklace extends Template {
         async successFn(data, api) {
           // writeFileJSON(data, 'necklace_homePage.json', __dirname);
 
-          pin = api.getPin();
-
           if (!self.isSuccess(data)) return [];
 
           const result = [];
 
           // 签到
           const needSign = _.property('data.result.signInfo.todayCurrentSceneSignStatus')(data) === 1;
-          needSign && await api.doFormBody('necklace_sign', patchData({id: 'sign', data: {pin}}));
+          needSign && await api.doFormBody('necklace_sign');
 
           const taskList = _.property('data.result.taskConfigVos')(data) || [];
           for (let {
@@ -58,15 +70,18 @@ class Necklace extends Template {
             if ([2, 3].includes(status) || [].includes(taskId)) continue;
             waitDuration = waitDuration || 1;
 
-            let list = [patchData({id: 'startId', data: {taskId, pin}})];
+            let list = [{taskId}];
             const option = {maxTimes, times, waitDuration};
 
             if (taskName.match('领券')) {
               const targetForm = necklace.reportCcTask.find(form => JSON.parse(form.body).taskId.match(taskId));
+              if (status === 1 && !targetForm) {
+                continue;
+              }
               targetForm && _.assign(option, {
                 waitDuration: 1,
                 async afterWaitFn() {
-                  await api.doForm('getCcTaskList', necklace.getCcTaskList[0]);
+                  await api.doForm('getCcTaskList', _.last(necklace.getCcTaskList));
                   await sleep(15);
                   return api.doForm('reportCcTask', targetForm);
                 },
@@ -74,12 +89,12 @@ class Necklace extends Template {
             }
 
             if (groupNumber) {
-              await doSubTask();
+              await patchSubTask();
 
-              async function doSubTask() {
-                const subTaskList = await api.doFormBody('necklace_getTask', {taskId}).then(data => _.property('data.result.taskItems')(data)) || [];
+              async function patchSubTask() {
                 _.assign(option, {
                   async afterWaitFn() {
+                    const subTaskList = await api.doFormBody('necklace_getTask', {taskId}).then(data => _.property('data.result.taskItems')(data)) || [];
                     return self.loopCall(subTaskList, {
                       maxTimes: subTaskList.length,
                       firstFn({id}) {
@@ -119,7 +134,7 @@ class Necklace extends Template {
           if (!self.isSuccess(data)) return false;
           const bubbles = _.property('data.result.bubbles')(data) || [];
           for (const {id} of bubbles) {
-            await api.doFormBody('necklace_chargeScores', patchData({id: 'chargeScores', data: {bubleId: id, pin}}));
+            await api.doFormBody('necklace_chargeScores', {bubleId: id});
           }
           const totalScore = await api.doFormBody('necklace_homePage').then(data => _.property('data.result.totalScore')(data));
           totalScore && self.log(`当前分数为: ${totalScore}`);

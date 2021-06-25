@@ -9,6 +9,9 @@ const {sleepTime} = require('../../lib/cron');
 // 注册全局变量
 global._ = _;
 
+// [app,client,clientVersion,uuid;wifi;...]
+const appCompleteUserAgent = 'jdapp;iPhone;10.0.4;14.6;c6993893af46e44aa14818543914768cf2509fbf;network/wifi;model/iPhone13,3;addressid/682688717;appBuild/167707;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1';
+
 class Base {
   static _ = _;
   // 当前循环的cookie下标
@@ -24,6 +27,8 @@ class Base {
   // request 参数
   static isWh5 = false; // 添加signData
   static needInApp = true; // 添加 userAgent
+  static needInAppComplete = false; // 添加 userAgent
+  static appCompleteUserAgent = appCompleteUserAgent;
   static needInSpeedApp = false; // 添加 userAgent
   static needInJxApp = false; // 添加 userAgent
   static needOriginH5 = false; // 添加 headers.origin
@@ -94,6 +99,11 @@ class Base {
 
   static getCurrentEnv(key) {
     return getEnv(key, this.currentCookieTimes);
+  }
+
+  static getUUid(userAgent) {
+    userAgent = userAgent || this.appCompleteUserAgent;
+    return userAgent.split(';')[4];
   }
 
   static async loopCall(list = [], option) {
@@ -168,14 +178,15 @@ class Base {
     this.isWh5 && _.assign(signData, {client: 'wh5', clientVersion: '1.0.0'});
     if (this.needInJxApp) {
       this.needInApp = false;
-      _.merge(options, {headers: {'User-Agent': 'jdpingou'}});
+      _.merge(options, {headers: {'user-agent': 'jdpingou'}});
     }
     if (this.needInSpeedApp) {
       this.needInApp = false;
-      _.merge(options, {headers: {'User-Agent': 'jdltapp'}});
+      _.merge(options, {headers: {'user-agent': 'jdltapp'}});
     }
-    this.needInApp && _.merge(options, {headers: {'User-Agent': 'jdapp'}});
-    this.needInPhone && _.merge(options, {headers: {'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.0(0x18000026) NetType/WIFI Language/zh_CN miniProgram'}});
+    this.needInApp && _.merge(options, {headers: {'user-agent': 'jdapp'}});
+    this.needInAppComplete && _.merge(options, {headers: {'user-agent': appCompleteUserAgent}});
+    this.needInPhone && _.merge(options, {headers: {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.0(0x18000026) NetType/WIFI Language/zh_CN miniProgram'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
 
     const api = new Api(cookie, signData, options, formatDataFn);
