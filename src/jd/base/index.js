@@ -194,7 +194,7 @@ class Base {
       let apiObject = _.isArray(apiNames) ? _.zipObject(apiNames, apiNames) : apiNames;
       _.assign(apiObject, _.zipObject(_.keys(this.apiNamesFn()), _.map(_.values(this.apiNamesFn()), 'name')));
       for (const [key, functionId] of Object.entries(apiObject)) {
-        api[key] = api[requestFnName].bind(api, functionId);
+        api[key] = (...args) => api[requestFnName](functionId, ...args);
       }
     }
     return api;
