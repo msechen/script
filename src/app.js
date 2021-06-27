@@ -199,8 +199,8 @@ async function main() {
         await doRun(Family);
         await doRun(GlobalChallenge);
         // 9点后再执行
-        await sleepTime([9, 10]);
-        await doRun(Joy);
+        // await sleepTime([9, 10]);
+        // await doRun(Joy);
         await doRun(EarnCoins);
       },
     },
