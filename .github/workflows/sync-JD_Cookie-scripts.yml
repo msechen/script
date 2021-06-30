@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/hello1983/JD_Cookie.git"
-          source_branch: "master"
+          source_repo: "https://github.com/gitupdate/test.git"
+          source_branch: "main"
           destination_branch: "JD_Cookie"
           github_token: ${{ secrets.PAT }}
