@@ -275,6 +275,7 @@ async function main() {
       run: async () => {
         await doRun(Sign);
         await doRun(KoiRedPacket);
+        await doRun(Cash);
         await doRun(Joy);
         await doRun(PlantBean, getCookieData());
         await doCron(PlantBean);
