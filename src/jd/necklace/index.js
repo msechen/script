@@ -35,6 +35,7 @@ class Necklace extends Template {
     new FakerSmashUtils(api, indexUrl, {
       userAgent: this.appCompleteUserAgent,
       smashInitData: {appid: '50082', sceneid: 'DDhomePageh5'},
+      scriptUrl: 'https://storage.360buyimg.com/babel/00750963/1942873/production/dev/main.3b9712aa.js',
     }).patchApi(['sign', 'startTask', 'chargeScores']);
   }
 

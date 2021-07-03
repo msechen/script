@@ -1,5 +1,6 @@
 const vm = require('vm');
 const fs = require('fs');
+const path = require('path');
 const _ = require('lodash');
 
 const REG_SCRIPT = /<script src="([^><]+\/(main\.\w+\.js))\?t=\d+">/gm;
@@ -16,17 +17,16 @@ class FakerSmashUtils {
   constructor(api, indexUrl, data = {}) {
     this.api = api;
     this.indexUrl = indexUrl;
-    const {userAgent, smashInitData} = data;
+    const {userAgent, smashInitData, scriptUrl} = data;
     this.userAgent = userAgent || '';
     this.smashInitData = smashInitData || {};
+    this.scriptUrl = scriptUrl || '';
   }
 
   async init() {
-    const html = await this.httpGet(this.indexUrl);
-    const script = REG_SCRIPT.exec(html);
-    if (script) {
-      const [, scriptUrl, filename] = script;
-      const jsContent = await this.getJSContent(filename, scriptUrl);
+    const doRun = async scriptUrl => {
+      if (!scriptUrl) return;
+      const jsContent = await this.getJSContent(path.basename(scriptUrl), scriptUrl);
       const ctx = {
         window: {addEventListener: _.noop},
         document: {
@@ -42,6 +42,15 @@ class FakerSmashUtils {
 
       this.smashUtils = ctx.window.smashUtils;
       this.smashUtils.init(this.smashInitData);
+    };
+    if (this.scriptUrl) {
+      return doRun(this.scriptUrl);
+    }
+    const html = await this.httpGet(this.indexUrl);
+    const script = REG_SCRIPT.exec(html);
+    if (script) {
+      const [, scriptUrl, filename] = script;
+      return doRun(scriptUrl);
     }
   }
 
