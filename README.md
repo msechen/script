@@ -4,7 +4,6 @@
 
 ## 功能
 - 京东签到 [脚本源](https://github.com/NobyDa/Script/blob/master/JD-DailyBonus/JD_DailyBonus.js)
-- 东东农场 [脚本源](https://github.com/liuxiaoyucc/jd-helper/blob/master/fruit/fruit.js)
 - 东东萌宠 [脚本源](https://github.com/liuxiaoyucc/jd-helper/blob/master/pet/pet.js)
 
 ## 声明
