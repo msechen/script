@@ -126,7 +126,7 @@ async function main() {
       valid: 0,
       run: async () => {
         await doRun(KoiRedPacket);
-        await doRun(IsvShopSign);
+        // await doRun(IsvShopSign);
         await doRun(SignShop);
         await doRun(EarnJingDou);
         await doRun(SignBeanHome);
@@ -171,6 +171,7 @@ async function main() {
         await doRun(Necklace);
         await doRun(SecondKillRedPacket);
         await doRun(Car);
+        await doRun(IsvShopSign);
       },
     },
     {
