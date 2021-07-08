@@ -45,7 +45,7 @@ if ($.isNode()) {
   }
     console.log('女装盲盒\n' +
       '活动时间：2021-6-21至2021-6-30\n' +
-      '活动地址：https://anmp.jd.com/babelDiy/Zeus/2nxUXjyYLz5rNJ1HL472B3KWf71C/index.html\n' +
+      '活动地址：https://h5.m.jd.com/babelDiy/Zeus/9Z9HZWmQuwDnYKC1rzZTMpdn8ms/index.html\n' +
       '活动入口：京东app-女装馆-赢京豆');
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
@@ -69,7 +69,7 @@ if ($.isNode()) {
       }
       try {
         //await jdMh('https://h5.m.jd.com/babelDiy/Zeus/3eeruLXVbXge6CexVq8XkBbBvAfy/index.html')
-        await jdMh('https://anmp.jd.com/babelDiy/Zeus/9Z9HZWmQuwDnYKC1rzZTMpdn8ms/index.html')
+        await jdMh('https://h5.m.jd.com/babelDiy/Zeus/9Z9HZWmQuwDnYKC1rzZTMpdn8ms/index.html')
         // await jdMh('https://anmp.jd.com/babelDiy/Zeus/yiNQjMxQvs3R3SdS4nwa2MFk1FE/index.html?wxAppName=jd')
       } catch (e) {
         $.logErr(e)

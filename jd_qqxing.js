@@ -2,8 +2,8 @@
 星系牧场
 活动入口：QQ星儿童牛奶京东自营旗舰店->星系牧场
 每次都要手动打开才能跑 不知道啥问题
-号1默认给wuzhi助力,后续接龙 2给1 3给2
-https://lzdz-isv.isvjcloud.com/dingzhi/qqxing/pasture/activity?activityId=90121061401
+号1默认给我助力,后续接龙 2给1 3给2
+https://lzdz-isv.isvjcloud.com/dingzhi/qqxing/pasture/activity?activityId=90121061401&lng=107.146935&lat=33.255252&sid=cad74d1c843bd47422ae20cadf6fe5aw&un_area=8_573_6627_52446
 更新地址：https://raw.githubusercontent.com/Wenmoux/scripts/wen/jd/jd_ddnc_farmpark.js
 ============Quantumultx===============
 [task_local]
@@ -32,7 +32,7 @@ if ($.isNode()) {
 
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 message = ""
-$.shareuuid = "0e3a1d7b4ef042aeab07e16d5ad76793"
+$.shareuuid = "0e3a1d7b4ef042aeab07e16d5ad76793" //
     !(async () => {
         if (!cookiesArr[0]) {
             $.msg($.name, '【提示】请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {
@@ -99,7 +99,7 @@ $.shareuuid = "0e3a1d7b4ef042aeab07e16d5ad76793"
                     let exchanges =Math.floor($.foodNum/1000)
                     console.log(`可兑换 ${exchanges} 次 20京🐶`)
                     for(q = 0;q<exchanges && Exchange;q++){
-                    await exchange(13)   
+                    await exchange(13)
                     }
                     await getinfo()
                     if(!Exchange){console.log("你 默认 不兑换东西,请自行进去活动兑换")}
@@ -262,8 +262,10 @@ function getMyPin() {
                         $.pin = data.data.secretPin
                         //    console.log($.pin)
                         $.nickname = data.data.nickname
+                        $.lz_jdpin_token = resp['headers']['set-cookie'].filter(row => row.indexOf("lz_jdpin_token") !== -1)[0]
                         // console.log(data)
                         console.log(`欢迎回来~  ${$.nickname}`);
+                        console.log("lz_jdpin_token=" +$.lz_jdpin_token)
                     }
                 }
             } catch (e) {
@@ -307,7 +309,7 @@ function adlog() {
 
 
 
-// 获得用户信息  
+// 获得用户信息
 function getUserInfo() {
     return new Promise(resolve => {
         let body = `pin=${encodeURIComponent($.pin)}`
@@ -345,11 +347,11 @@ function getUid() {
                     console.log(`${$.name} API请求失败，请检查网路重试`)
                 } else {
                     data = JSON.parse(data);
-                        if (data.result) {                           
+                        if (data.result) {
                            if(data.data.openCardStatus !=3){
                            console.log("当前未开卡,无法助力和兑换奖励哦")
-                           }                           
-                            $.shareuuid = data.data.uid                            
+                           }
+                            $.shareuuid = data.data.uid
                             console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${$.shareuuid}\n`);
                         }
                       }
@@ -573,7 +575,7 @@ function taskPostUrl(url, body) {
             'Referer': 'https://lzdz-isv.isvjcloud.com/dingzhi/qqxing/pasture/activity/6318274?activityId=90121061401&shareUuid=15739046ca684e8c8fd303c8a14e889a&adsource=null&shareuserid4minipg=Ej42XlmwUZpSlF8TzjHBW2Sy3WQlSnqzfk0%2FaZMj9YjTmBx5mleHyWG1kOiKkz%2Fk&shopid=undefined&lng=107.146945&lat=33.255267&sid=cad74d1c843bd47422ae20cadf6fe5aw&un_area=8_573_6627_52446',
             'user-agent': 'jdapp;android;10.0.4;11;2393039353533623-7383235613364343;network/wifi;model/Redmi K30;addressid/138549750;aid/290955c2782e1c44;oaid/b30cf82cacfa8972;osVer/30;appBuild/88641;partner/xiaomi001;eufv/1;jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 11; Redmi K30 Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045537 Mobile Safari/537.36',
             'content-type': 'application/x-www-form-urlencoded',
-            'Cookie': `${cookie} IsvToken=${$.IsvToken};AUTH_C_USER=${$.pin};`,
+            'Cookie': `${cookie} IsvToken=${$.IsvToken};AUTH_C_USER=${$.pin};${$.lz_jdpin_token}`,
         }
     }
 }

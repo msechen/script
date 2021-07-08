@@ -41,7 +41,20 @@
 25 6 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
 #国创
 25 8 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
-
+#全民抢京豆
+1,10,20 0 * * * node /scripts/jd_qjd.js >> /scripts/logs/jd_qjd.log 2>&1
+#QQ星
+20 6,12,18 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
+#众筹许愿池
+20 12 * * * node /scripts/jd_wishingPool.js >> /scripts/logs/jd_wishingPool.log 2>&1
+#汪汪乐园
+30 2,20 * * * node /scripts/jd_joy_park.js >> /scripts/logs/jd_joy_park.log 2>&1
+#燃动夏季
+10 0,6-23/1 * * * node /scripts/jd_summer_movement.js >> /scripts/logs/jd_summer_movement.log 2>&1
+#新签到
+10 0,18 * * * node /scripts/jd_NewSign.js >> /scripts/logs/jd_NewSign.log 2>&1
+#早期福利
+30 6 * * * node /scripts/jd_goodMorning.js >> /scripts/logs/jd_goodMorning.log 2>&1
 
 ##############长期活动##############
 # 签到
