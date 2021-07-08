@@ -1,36 +1,25 @@
-const Base = require('../base');
+const Template = require('../base/template');
+const {getMoment} = require('../../lib/moment');
 
 const {sleep} = require('../../lib/common');
 
-class Pet extends Base {
+class Pet extends Template {
   static scriptName = 'Pet';
+  static scriptNameDesc = '东东萌宠';
+  static times = 1;
   static apiOptions = {
     options: {
-      headers: {
-        'User-Agent': 'jdapp',
-      },
       qs: {
         appid: 'wh5',
       },
+      form: {
+        body: {version: 1},
+      },
     },
-    formatDataFn: data => data,
-  };
-  static apiExtends = {
-    requestFnName: 'doFormBody',
-    apiNames: [
-      'slaveHelp', /* 助力 */
-      'getSingleShopReward', /* 浏览店铺 */
-      'getThreeMealReward', /* 三餐签到 */
-      'taskInit', /* 任务列表 */
-      'getHelpAddedBonus', /* 领取助力人数已满奖励 */
-      'initPetTown', /* 萌宠信息 */
-      'feedPets', /* 喂食 */
-      'energyCollect', /* 收集好感度 */
-    ],
   };
 
   static isSuccess(data) {
-    return this._.property('resultCode')(data) === '0';
+    return _.property('resultCode')(data) === '0';
   }
 
   static logReward(data) {
@@ -39,55 +28,192 @@ class Pet extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
+    const needHarvest = false;
+    const getResult = data => data.result || {};
+    const rewardLog = data => {
+      const reward = _.first(_.values(_.pick(data.result, ['threeMealReward', 'reward'])));
+      reward && api.log(`获取到狗粮: ${reward}`);
+    };
 
-    for (const shareCode of shareCodes) {
-      await api.slaveHelp({shareCode}).then(data => {
-        if (self.isSuccess(data)) {
-          this.log(`给 ${_.property('result.masterNickName')(data) || 'unknown'} 助力成功`);
-        } else {
-          this.log(data.message);
+    // 喂食到成熟
+    if (needHarvest) return logInfo(true);
+
+    const {
+      shareCode: currentShareCode,
+    } = await getInfo();
+
+    patchShareCodeWithDefault();
+
+    // 仅执行一次
+    if (self.getNowHour() < 5) {
+      await handleDoShare();
+    }
+    await handleDoTaskList();
+    await handlePetSport();
+    await handleGetHelpAddedBonus();
+    await logInfo();
+
+    async function getInfo() {
+      return api.doFormBody('initPetTown').then(async data => {
+        const result = getResult(data);
+        const {petPlaceInfoList} = result;
+        if (_.reduce(_.map(petPlaceInfoList, 'energy')) > 0) {
+          _.assign(result, _.pick(await handleEnergyCollect(), ['needCollectEnergy', 'totalEnergy', 'medalPercent', 'medalNum']));
         }
+        return result;
       });
     }
 
-    for (let index = 2; index < 5; index++) {
-      await api.getSingleShopReward({version: 1, index, type: 1}).then(async data => {
-        if (!self.isSuccess(data)) return;
-        await sleep(2);
-        await api.getSingleShopReward({version: 1, index, type: 2}).then(self.logReward.bind(self));
+    // 增加默认助力码
+    function patchShareCodeWithDefault() {
+      [
+        'MTAxODc2NTEzMzAwMDAwMDAyMTQ4OTI5OQ==',
+        'MTAxODc2NTEzMTAwMDAwMDAyMTc5MzQxMQ==',
+      ].forEach(code => {
+        if ([currentShareCode, ...shareCodes].includes(code)) return;
+        shareCodes.push(code);
       });
     }
-  }
 
-  static async doFeed(times, api) {
-    for (let i = 0; i < times; i++) {
-      await sleep(2);
-      await api.feedPets();
+    async function handleDoShare() {
+      for (const shareCode of shareCodes) {
+        await api.doFormBody('slaveHelp', {shareCode}).then(data => {
+          if (self.isSuccess(data)) {
+            api.log(`给 ${_.property('result.masterNickName')(data) || 'unknown'} 助力成功`);
+          } else {
+            api.log(data.message);
+          }
+        });
+      }
     }
-    await api.energyCollect();
-  }
 
-  static async doCron(api) {
-    const self = this;
-    const _ = this._;
+    async function handleDoTaskList() {
+      const taskData = await api.doFormBody('taskInit').then(getResult);
+      const {
+        signInit,
+        threeMealInit,
+        feedReachInit,
+        taskList,
+      } = taskData;
 
-    await api.getThreeMealReward().then(self.logReward.bind(self));
+      const notFinished = o => o ? !o['finished'] : true;
+      if (notFinished(signInit)) {
+        await api.doFormBody('getSignReward').then(rewardLog);
+      }
+      if (notFinished(threeMealInit) && (threeMealInit['timeRange'] !== -1)) {
+        await api.doFormBody('getThreeMealReward').then(rewardLog);
+      }
+      if (notFinished(feedReachInit)) {
+        const {feedReachAmount, hadFeedAmount} = feedReachInit;
+        await handleFeed((feedReachAmount - hadFeedAmount) / 10);
+      }
+
+      await handleDoBrowserTask();
+
+      async function handleDoBrowserTask() {
+        const browserTasks = _.filter(taskList.filter(v => v.match('browseSingleShopInit')).map(key => taskData[key]));
+        for (const {index, browseTime, status, finished} of browserTasks) {
+          if (finished) continue;
+          const body = {index, type: 1};
+          const success = await api.doFormBody('getSingleShopReward', body).then(self.isSuccess);
+          if (!success) continue;
+          await sleep(browseTime || 8);
+          body.type = 2;
+          await api.doFormBody('getSingleShopReward', body).then(rewardLog);
+        }
+      }
+    }
 
     // 喂食
-    // await self.doFeed(10, api);
+    async function handleFeed(feedTimes) {
+      let i = 0;
+      for (; i < feedTimes; i++) {
+        await sleep(2);
+        const enable = await api.doFormBody('feedPets').then(self.isSuccess);
+        if (!enable) break;
+      }
+      if (!i) return;
+      api.log(`成功喂养 ${i} 次`);
+      await handleEnergyCollect();
+    }
 
-    await api.getHelpAddedBonus().then(self.logReward.bind(self));
-    await initPetTown();
+    function handleEnergyCollect() {
+      return api.doFormBody('energyCollect').then(getResult);
+    }
 
-    async function initPetTown() {
-      await api.initPetTown().then(async data => {
-        const {masterHelpPeoples, medalNum, medalPercent, needCollectEnergy, totalEnergy, foodAmount} = data.result;
-        // 10g狗粮相当于6能量
-        const conversionRatio = 0.6;
-        const needFoodAmount = Math.round(needCollectEnergy / conversionRatio);
-        self.log(`喂养进度: 第${medalNum + 1}个徽章, 进度为${medalPercent}%, 需要收集能量为${needCollectEnergy}, 已收集的能量为${totalEnergy}, 剩余狗粮为${foodAmount}g, 还差狗粮${needFoodAmount}g`);
-      });
+    // 遛弯
+    async function handlePetSport() {
+      let times = 0;
+
+      await doPetSport();
+      times && api.log(`${times} 次遛狗奖励领取成功`);
+
+      async function doPetSport() {
+        const success = await api.doFormBody('petSport').then(self.isSuccess);
+        if (!success) return;
+        await sleep(5);
+        await api.doFormBody('getSportReward').then(data => {
+          if (!self.isSuccess(data)) return;
+          times++;
+          return doPetSport();
+        });
+      }
+    }
+
+    // 领取助力人数已满奖励
+    async function handleGetHelpAddedBonus() {
+      const {
+        masterHelpPeoples,
+        helpLimit,
+        addedBonusFlag,
+      } = await api.doFormBody('masterHelpInit').then(getResult);
+      if (!masterHelpPeoples) return;
+      if ((masterHelpPeoples.length === helpLimit) && !addedBonusFlag) {
+        return api.doFormBody('getHelpAddedBonus').then(rewardLog);
+      }
+    }
+
+    async function logInfo(needHarvest = false) {
+      const {
+        medalNum,
+        medalPercent,
+        needCollectEnergy,
+        totalEnergy,
+        foodAmount,
+        goodsInfo,
+      } = await getInfo();
+      if (!goodsInfo) {
+        // TODO 更换商品或者选择商品
+        return api.log('没有选择商品');
+      }
+      // 几个徽章对应中的能量
+      const allMedalNumEnergy = [0, 0, 0, 6610, 8260];
+      const {exchangeMedalNum} = goodsInfo;
+      const targetEnergy = allMedalNumEnergy[exchangeMedalNum - 1];
+      // 10g狗粮相当于6能量
+      const conversionRatio = 0.6;
+      const needFoodAmount = Math.round((targetEnergy - totalEnergy) / conversionRatio);
+      const canHarvest = foodAmount >= needFoodAmount;
+      api.log(`徽章进度: 第${medalNum + 1}个(${medalPercent}%), 收集能量(待/已):${needCollectEnergy}/${totalEnergy}. 收成需要狗粮${needFoodAmount}g, 当前狗粮为${foodAmount}g${canHarvest ? ', 可以收成了!' : ''}`);
+      if (needHarvest && canHarvest) {
+        const feedTimes = Math.round(needFoodAmount / 10) + 1;
+        const time = getMoment().add(feedTimes * 3, 's');
+        api.log(`完成该徽章需喂养 ${feedTimes} 次, 在 ${time.format()} 之后可以完成`);
+        await handleFeed(feedTimes);
+        if (exchangeMedalNum !== medalNum) {
+          return logInfo(needHarvest);
+        }
+      }
+    }
+
+    // 获取商品列表
+    function getGoodsInfoList() {
+      return api.doFormBody('goodsInfoList', {type: 1});
+    }
+
+    // 更换商品
+    function handleUpdateGoods(goodsId) {
+      return api.doFormBody('goodsInfoUpdate', {goodsId});
     }
   }
 }

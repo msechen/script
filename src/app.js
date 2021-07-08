@@ -19,7 +19,6 @@ const PlantBean = require('./jd/plantBean');
 const SuperMarket = require('./jd/superMarket');
 const SuperMarketRedeem = TemporarilyOffline || require('./jd/superMarket/redeem');
 const Pet = require('./jd/pet');
-const PetRemote = require('./jd/pet/remote');
 const Fruit = require('./jd/fruit');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
@@ -182,7 +181,6 @@ async function main() {
     {
       valid: 6,
       run: async () => {
-        await doRun(PetRemote);
         await doCron(TurnTableFarm);
         await doRun(Joy);
       },
@@ -191,7 +189,7 @@ async function main() {
       valid: 7,
       run: async () => {
         await doRun(DreamFactory);
-        await doCron(Pet);
+        await doRun(Pet);
         await doRun(CrazyJoy);
         await doRun(SuperMarket);
         await doRun(Family);
@@ -218,7 +216,7 @@ async function main() {
       valid: 12,
       run: async () => {
         await doRun(Fruit);
-        await doCron(Pet);
+        await doRun(Pet);
         await doRun(Joy);
       },
     },
@@ -244,6 +242,7 @@ async function main() {
       run: async () => {
         await doRun(Joy);
         await doRun(Fruit);
+        await doRun(Pet);
         await doRun(CrazyJoy);
       },
     },
@@ -257,7 +256,6 @@ async function main() {
       valid: 20,
       run: async () => {
         await doRun(SuperMarket);
-        await doCron(Pet);
       },
     },
     {
@@ -265,7 +263,7 @@ async function main() {
       run: async () => {
         await doRun(jdFactory, getCookieData()[0]);
         await doRun(Fruit);
-        await doCron(Pet);
+        await doRun(Pet);
         await doRun(Necklace);
       },
     },
