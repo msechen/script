@@ -38,7 +38,7 @@ class PNGDecoder extends PNG {
         const { pixels } = this;
         const len = w * h * 4;
         const startIndex = x * 4 + y * (w * 4);
-
+    
         return { data: pixels.slice(startIndex, startIndex + len) };
     }
 }
@@ -109,7 +109,7 @@ class PuzzleRecognizer {
                 const pieces = lumas.slice(i+2,margin+i+2);
                 const median = pieces.sort((x1,x2)=>x1-x2)[20];
                 const avg = Math.avg(pieces);
-
+                
                 // noise reducation
                 if (median > left || median > mRigth) return;
                 if (avg > 100) return;
@@ -179,7 +179,7 @@ class PuzzleRecognizer {
                 const pieces = lumas.slice(i+2,margin+i+2);
                 const median = pieces.sort((x1,x2)=>x1-x2)[20];
                 const avg = Math.avg(pieces);
-
+                
                 // noise reducation
                 if (median > left || median > mRigth) return;
                 if (avg > 100) return;
@@ -402,11 +402,11 @@ class MousePosFaker {
         const perX = this.puzzleX / this.STEP;
         const perDuration = this.DURATION / this.STEP;
         const firstPos = [this.x-parseInt(Math.random()*6, 10), this.y+parseInt(Math.random()*11, 10), this.t];
-
+        
         this.pos.unshift(firstPos);
         this.stepPos(perX, perDuration);
         this.fixPos();
-
+        
         const reactTime = parseInt(60+Math.random()*100, 10);
         const lastIdx = this.pos.length - 1;
         const lastPos = [this.pos[lastIdx][0], this.pos[lastIdx][1], this.pos[lastIdx][2]+reactTime];
@@ -426,7 +426,7 @@ class MousePosFaker {
             const currX = parseInt((Math.random()*30-15)+x, 10);
             const currY = parseInt(Math.random()*7-3, 10);
             const currDuration = parseInt((Math.random()*0.4+0.8)*duration, 10);
-
+    
             this.moveToAndCollect({
                 x: currX,
                 y: currY,
@@ -498,7 +498,7 @@ function injectToRequest(fn) {
             if (data.search('验证') > -1) {
                 console.log('JDJRValidator trying......');
                 const res = await new JDJRValidator().run();
-
+            
                 opts.url += `&validate=${res.validate}`;
                 fn(opts, cb);
             } else {
