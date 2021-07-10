@@ -96,8 +96,25 @@ else
     echo -e "已设置为不自动启动控制面板，因此也不启动网页终端...\n"
 fi
 
+echo -e "======================== 6. 启动控制面板 ========================\n"
+if [[ $ENABLE_WEB_PANEL == true ]]; then
+    cd ${JD_DIR}/panel
+    pm2 start ecosystem.config.js
+    cd ${JD_DIR}/app
+    pm2 start index.js
+    if [[ $? -eq 0 ]]; then
+        echo -e "控制面板启动成功...\n"
+        echo -e "如未修改用户名密码，则初始用户名为：admin，初始密码为：adminadmin\n"
+        echo -e "请访问 http://<ip>:5678 登陆并修改配置...\n"
+    else
+        echo -e "控制面板启动失败，但容器将继续启动...\n"
+    fi
+elif [[ $ENABLE_WEB_PANEL == false ]]; then
+    echo -e "已设置为不自动启动控制面板，跳过...\n"
+fi
+
 if type python3 &>/dev/null; then
-    echo -e "======================== 6. 启动Telegram Bot ========================\n"
+    echo -e "======================== 7. 启动Telegram Bot ========================\n"
     if [[ $ENABLE_TG_BOT == true ]]; then
         cp -f $file_bot_sample $file_bot_user
         if [[ -z $(grep -E "你的USERID" $file_bot_setting_user) ]]; then
