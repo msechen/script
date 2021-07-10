@@ -3,7 +3,7 @@
     ARG REPO_URL=$REPO.com
     ARG JD_SHELL=tsnode
     ARG JD_SHELL_BRANCH=master
-    ARG JD_SHELL_HOST=tsnode_$REPO
+    ARG JD_SHELL_HOST=$REPO
 #    ARG JD_SHELL_KEY="NEED_REPLACE"
     ARG JD_SCRIPTS=jd_scripts
     ARG JD_SCRIPTS_BRANCH=master
