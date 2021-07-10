@@ -1,0 +1,64 @@
+# 更新所有脚本（包括自用own脚本）
+42 * * * * CMD_UPDATE >> ROOT_DIR/log/CMD_UPDATE.log 2>&1
+
+# 删除旧日志
+57 13 * * * CMD_RMLOG
+
+# 导出所有互助码清单，日志在log/jcode下
+48 5 * * * CMD_CODE
+
+# 重启挂机程序
+# 33 13 * * * CMD_JTASK hangup
+
+# mtask任务区域，既不属于own脚本，也不属于jd_scripts脚本的，请使用mtask命令。
+# 需自行将脚本放在scripts文件夹下，mtask命令运行的脚本可以以jd_、jr_、jx_开头，如
+# 8 5 * * * CMD_MTASK jd_live.js
+
+# otask任务区域，AutoAddOwnCron=true时，自动识别脚本中的cron信息，无法保证准确，建议收到通知后主动检查。
+# 在启动自用own脚本的cron任务时，程序会自动将文件复制到scripts文件夹下，然后再运行。
+# 自用own任务开始，请不要增加、删除或修改本行任何字符（包括空格及#），这是给自动化程序识别用的。
+# 自用own任务结束，请不要增加、删除或修改本行任何字符（包括空格及#），这是给自动化程序识别用的。
+
+# jtask任务区域，运行jd_scripts脚本，仅列出长期任务作初始化用，AutoAddCron=true时，将自动添加短期任务。
+# 请保留任务名称中的前缀"jd_"，去掉后缀".js"，如果有些任务你不想运行，注释掉就好了，不要删除。
+# 非lxk0301/jd_scripts仓库中的脚本请使用mtask命令，不要使用jtask命令。请在最后保留一个空行。
+5 9 * * * CMD_JTASK jd_bean_change
+28 5 * * * CMD_JTASK jd_bean_home
+4 0,9 * * * CMD_JTASK jd_bean_sign
+0,30 0 * * * CMD_JTASK jd_blueCoin
+12 8,12,18 * * * CMD_JTASK jd_bookshop
+41 7 * * * CMD_JTASK jd_car
+13 8,22 * * * CMD_JTASK jd_cash
+0 0 * * * CMD_JTASK jd_car_exchange
+2 0 * * * CMD_JTASK jd_club_lottery
+43 13 * * * CMD_JTASK jd_crazy_joy
+54 2-23/3 * * * CMD_JTASK jd_daily_egg
+20 * * * * CMD_JTASK jd_dreamFactory
+29 7,12,18 * * * CMD_JTASK jd_fruit
+49 6 * * 6 CMD_JTASK jd_get_share_code
+36 * * * * CMD_JTASK jd_jdfactory
+14 11 * * * CMD_JTASK jd_jdzz
+6 0,8,9,13,18,22 * * * CMD_JTASK jd_joy
+*/20 0-22 * * * CMD_JTASK jd_joy_feedPets
+0 */8 * * * CMD_JTASK jd_joy_reward
+18 10-20/2 * * * CMD_JTASK jd_joy_run
+13 0-21/3 * * * CMD_JTASK jd_joy_steal
+0 9,12,18 * * * CMD_JTASK jd_jxnc
+32 7 * * * CMD_JTASK jd_kd
+13-33/5 13 * * * CMD_JTASK jd_live
+15 1 * * * CMD_JTASK jd_lotteryMachine
+40 */4 * * * CMD_JTASK jd_moneyTree
+20 0,20 * * * CMD_JTASK jd_necklace
+10 7,12,18 * * * CMD_JTASK jd_pet
+25 * * * * CMD_JTASK jd_pigPet
+35 7-22 * * * CMD_JTASK jd_plantBean
+11 0 * * * CMD_JTASK jd_rankingList
+1 1 * * * CMD_JTASK jd_redPacket
+0 0 * * * CMD_JTASK jd_shop
+16 0 * * * CMD_JTASK jd_small_home
+35 */3 * * * CMD_JTASK jd_speed
+9 1-23/5 * * * CMD_JTASK jd_superMarket
+25 9 * * * CMD_JTASK jd_syj
+44 5 * * 5 CMD_JTASK jd_unbind
+45 23 * * * CMD_JTASK jd_unsubscribe
+19 11 * * * CMD_JTASK jx_sign
