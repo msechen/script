@@ -1,7 +1,7 @@
     FROM node:15.9.0-alpine3.12
 #    ARG REPO=github.com
 #    ARG REPO_URL=$REPO.com
-#    ARG JD_SHELL=tsnode
+#    ARG JD_SHELL=https://github.com/drew0531/tsnode.git
 #    ARG JD_SHELL_BRANCH=master
 #    ARG JD_SHELL_HOST=$REPO
 #    ARG JD_SHELL_KEY="NEED_REPLACE"
