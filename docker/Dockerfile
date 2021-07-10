@@ -46,9 +46,7 @@
 #        && echo -e "\n\nHost *\n  StrictHostKeyChecking no\n" >> /etc/ssh/ssh_config \
 #        && chmod 644 /root/.ssh/config \
 #        && ssh-keyscan $REPO_URL > /root/.ssh/known_hosts \
-        && git clone -b $JD_SHELL_BRANCH $JD_SHELL_URL $JD_DIR \
-        && git clone -b $JD_SCRIPTS_BRANCH $JD_SCRIPTS_URL $JD_DIR/scripts \
-        && cd $JD_DIR/scripts \
+        && git clone -b $JD_SHELL_BRANCH $JD_SHELL $JD_DIR \
         && npm install \
         && npm install -g pm2 \
         && ln -sf $JD_DIR/jtask.sh /usr/local/bin/jd \
