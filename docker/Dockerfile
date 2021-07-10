@@ -1,9 +1,9 @@
     FROM node:15.9.0-alpine3.12
-    ARG REPO=github.com
-    ARG REPO_URL=$REPO.com
-    ARG JD_SHELL=tsnode
-    ARG JD_SHELL_BRANCH=master
-    ARG JD_SHELL_HOST=$REPO
+#    ARG REPO=github.com
+#    ARG REPO_URL=$REPO.com
+#    ARG JD_SHELL=tsnode
+#    ARG JD_SHELL_BRANCH=master
+#    ARG JD_SHELL_HOST=$REPO
 #    ARG JD_SHELL_KEY="NEED_REPLACE"
     ARG JD_SCRIPTS=jd_scripts
     ARG JD_SCRIPTS_BRANCH=master
@@ -18,7 +18,7 @@
         ENABLE_WEB_PANEL=true \
         ENABLE_HANGUP=true \
         ENABLE_RESET_REPO_URL=true \
-        JD_SHELL_URL=https://$JD_SHELL_HOST/dewe0531/$JD_SHELL.git \
+        JD_SHELL_URL=https://github.com/dewe0531/tsnode.git \
         JD_SCRIPTS_URL=git@$JD_SCRIPTS_HOST:lxk0301/$JD_SCRIPTS.git
     WORKDIR $JD_DIR
     RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
