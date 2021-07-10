@@ -1,0 +1,11 @@
+    "user_id":,
+    "bot_token":"1636621146:AAFIO5xGnYUUuLQd79TkR-ghzr-CNysC_sc",
+    "api_id":,
+    "api_hash":"fec81c43fcdda4a5fe89784c9f962e55",
+    "proxy":false,
+    "proxy_type":"socks5或者http", 
+    "proxy_add":"代理IP地址例如：192.168.99.100", 
+    "proxy_port":"代理端口，不需要双引号例如 5890",
+    "proxy_user":"代理的username,有则填写，无则不用动",
+    "proxy_password":"代理的密码,有则填写，无则不用动",
+    "StartCMD":true
