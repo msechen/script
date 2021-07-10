@@ -1,5 +1,5 @@
     FROM node:15.9.0-alpine3.12
-    ARG REPO=github
+    ARG REPO=github.com
     ARG REPO_URL=$REPO.com
     ARG JD_SHELL=tsnode
     ARG JD_SHELL_BRANCH=master
