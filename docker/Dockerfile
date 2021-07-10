@@ -5,9 +5,9 @@
 #    ARG JD_SHELL_BRANCH=master
 #    ARG JD_SHELL_HOST=$REPO
 #    ARG JD_SHELL_KEY="NEED_REPLACE"
-    ARG JD_SCRIPTS=jd_scripts
-    ARG JD_SCRIPTS_BRANCH=master
-    ARG JD_SCRIPTS_HOST=jd_scripts_$REPO
+#    ARG JD_SCRIPTS=jd_scripts
+#    ARG JD_SCRIPTS_BRANCH=master
+#    ARG JD_SCRIPTS_HOST=jd_scripts_$REPO
 #    ARG JD_SCRIPTS_KEY="NEED_REPLACE"
     ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
         LANG=zh_CN.UTF-8 \
@@ -19,7 +19,7 @@
         ENABLE_HANGUP=true \
         ENABLE_RESET_REPO_URL=true \
         JD_SHELL_URL=https://github.com/dewe0531/tsnode.git \
-        JD_SCRIPTS_URL=git@$JD_SCRIPTS_HOST:lxk0301/$JD_SCRIPTS.git
+        JD_SCRIPTS_URL=https://github.com/chinnkarahoi/jd_scripts.git
     WORKDIR $JD_DIR
     RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
         && apk update -f \
