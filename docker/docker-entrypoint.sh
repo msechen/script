@@ -90,7 +90,7 @@ if [[ $ENABLE_WEB_PANEL == true ]]; then
     if [[ $ENABLE_TTYD == true ]]; then
         ## 增加环境变量
         export PS1="\u@\h:\w $ "
-
+        cd ${JD_DIR}/panel
         pm2 start ttyd --name="ttyd" -- -t fontSize=14 -t disableLeaveAlert=true -t rendererType=webgl bash
         if [[ $? -eq 0 ]]; then
             echo -e "网页终端启动成功...\n"
