@@ -221,7 +221,7 @@ async function pasture() {
           $.pause = false;
           console.log(`开始第${k + 1}次喂白菜`);
           await takeGetRequest('feed');
-          await $.wait(2000);
+          await $.wait(4000);
           if ($.pause) {
             await takeGetRequest('GetHomePageInfo');
             await $.wait(1000);
