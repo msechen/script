@@ -12,8 +12,10 @@
         ENABLE_RESET_REPO_URL=true \
         JD_SHELL_URL=https://github.com/dewe0531/tsnode.git \
         JD_SCRIPTS_URL=https://github.com/chinnkarahoi/jd_scripts.git
-    WORKDIR  ${JD_DIR}/app
+    WORKDIR /app
+    COPY ["package.json","yarn.lock", "./"]
     RUN yarn
+    COPY . ./
     EXPOSE 6789
     CMD [ "node", "index.js" ]
     WORKDIR ${JD_DIR}
