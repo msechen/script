@@ -59,7 +59,7 @@
         && chmod 777 $JD_DIR/*.sh \
         && rm -rf /root/.npm \
 	&& apk del .build \
-        && rm -rf /root/.cache
+        && rm -rf /root/.cache \
 	&& npm i -S png-js \
         && npm i -g cnpm \
         && cnpm i \
