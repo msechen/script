@@ -11,6 +11,7 @@ file_crontab_user="$dir_config/crontab.list"
 file_config_sample="$dir_sample/config.sample.sh"
 file_config_user="$dir_config/config.sh"
 file_cookie="$dir_config/cookie.sh"
+file_auth="$dir_sample/auth.json"
 file_bot_sample="$JD_DIR/bot/bot.py"
 file_bot_user="$dir_config/bot.py"
 file_bot_setting_sample="$dir_sample/bot.sample.json"
@@ -49,7 +50,7 @@ crontab $file_crontab_user
 
 if [ ! -s $file_config_user ]; then
     echo -e "检测到 $file_config_user 不存在，从示例文件复制一份用于初始化...\n"
-    cp -fv $file_config_sample $file_config_user
+    cp -fv $file_config_sample $file_config_user $file_auth
     echo
 fi
 
