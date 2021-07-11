@@ -12,6 +12,10 @@
         ENABLE_RESET_REPO_URL=true \
         JD_SHELL_URL=https://github.com/dewe0531/tsnode.git \
         JD_SCRIPTS_URL=https://github.com/chinnkarahoi/jd_scripts.git
+    WORKDIR  ${JD_DIR}/app
+    RUN yarn
+    EXPOSE 6789
+    CMD [ "node", "index.js" ]
     WORKDIR ${JD_DIR}
     RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
         && apk update -f \
@@ -66,8 +70,4 @@
         && cnpm i -g typescript  \
         && cnpm i -g ts-node \   
         && pip3 install requests 
-    WORKDIR  ${JD_DIR}/app
-    RUN yarn
-    EXPOSE 6789
-    CMD [ "node", "index.js" ]
     ENTRYPOINT ["docker-entrypoint.sh"]
