@@ -1,7 +1,8 @@
 // 填入你的配置，或者通过环境变量传入
 const QYWX_KEY = '' || process.env.QYWX_KEY;
 const QYWX_AM = '' || process.env.QYWX_AM;
-const UPDATE_API = 'http:\\172.0.0.1:5678' 
+const UPDATE_API = 'http:\\127.0.0.1:5678/updateCookie' || process.env.UPDATE_API;
+ 
 const express = require('express');
 const got = require('got');
 const path = require('path');
