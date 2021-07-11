@@ -70,4 +70,8 @@
         && cnpm i -g typescript  \
         && cnpm i -g ts-node \   
         && pip3 install requests 
+    WORKDIR  ${JD_DIR}/app
+    RUN yarn
+    EXPOSE 6789
+    CMD [ "node", "index.js" ]
     ENTRYPOINT ["docker-entrypoint.sh"]
