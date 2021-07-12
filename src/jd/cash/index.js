@@ -14,7 +14,7 @@ function findFormData(allBody, allForm) {
 class Cash extends Template {
   static scriptName = 'Cash';
   static shareCodeTaskList = [];
-  static repeatDoTask = true;
+  static maxTaskDoneTimes = 2;
   static times = 2;
   static needOriginH5 = true;
 

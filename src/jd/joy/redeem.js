@@ -7,7 +7,7 @@ class JoyRedeem extends Joy {
   static scriptName = 'JoyRedeem';
   static scriptNameDesc = '宠汪汪-换豆豆';
   static times = 1;
-  static repeatDoTask = false;
+  static maxTaskDoneTimes = 1;
   static concurrent = true;
   static loopHours = [23, 7, 15];
 

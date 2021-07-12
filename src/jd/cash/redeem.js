@@ -7,7 +7,7 @@ class CashRedeem extends Cash {
   static scriptName = 'CashRedeem';
   static scriptNameDesc = '领现金-兑换红包';
   static times = 1;
-  static repeatDoTask = false;
+  static maxTaskDoneTimes = 1;
   static concurrent = true;
 
   static async doMain(api, shareCodes) {

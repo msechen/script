@@ -2,13 +2,11 @@ const Base = require('./index');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
-const shareCodeCaches = [];
-
 class Template extends Base {
   static scriptName = 'Template';
   static times = 2;
-  static repeatDoTask = false;
   static shareCodeTaskList = [];
+  static maxTaskDoneTimes = 1;
 
   static updateShareCodeFn(shareCode) {
     const self = this;
@@ -17,6 +15,7 @@ class Template extends Base {
       shareCodeTaskList.splice(self.currentCookieTimes, 0, shareCode);
     }
   }
+
   // 获取 shareCode
   static getShareCodeFn() {
     const self = this;
@@ -86,23 +85,23 @@ class Template extends Base {
     await self.beforeRequest(api);
     await self.doApi(api, 'beforeGetTaskList');
 
+    let taskDoneTimes = 0;
     await _doTask();
 
     async function _doTask() {
       const taskList = await self.doApi(api, 'getTaskList') || [];
 
-      let taskDone = 0;
-
+      let isDone = false;
       for (const {list, option = {}} of taskList) {
         option.firstFn = option.firstFn || (item => self.doApi(api, 'doTask', item));
         option.afterWaitFn = option.afterWaitFn || ((data, item) => {
           return self.doApi(api, 'doWaitTask', item, data);
         });
-        const isDone = await self.loopCall(list, option);
-        isDone && taskDone++;
+        if (await self.loopCall(list, option)) {
+          isDone = true;
+        }
       }
-
-      if (self.repeatDoTask && taskDone) {
+      if (isDone && (++taskDoneTimes < self.maxTaskDoneTimes)) {
         await sleep(2);
         await _doTask();
       }

@@ -66,6 +66,7 @@ const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
 const Olympicgames = require('./jd/olympicgames');
 const OlympicgamesApplet = require('./jd/olympicgames/applet');
+const OlympicgamesShopLottery = require('./jd/olympicgames/ShopLottery');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -158,6 +159,7 @@ async function main() {
 
           Olympicgames,
           OlympicgamesApplet,
+          OlympicgamesShopLottery,
 
           // 常驻活动
           SignBeanHome, SignRemote, Sign,

@@ -8,7 +8,7 @@ class Olympicgames extends Template {
   static scriptNameDesc = '全民运动会';
   static shareCodeTaskList = [];
 
-  static skipTaskIds = [2/*邀请好友助力*/, 14/*入会*/, 26/*入会*/];
+  static skipTaskIds = [2/*邀请好友助力*/].concat(this.getNowHour() >= 22 ? [14/*入会*/, 26/*入会*/] : []);
   static indexUrl = 'https://wbbny.m.jd.com/babelDiy/Zeus/2rtpffK8wqNyPBH6wyUDuBKoAbCt/index.html';
   static functionIdPrefix = 'olympicgames';
   static smashUtilData = {
