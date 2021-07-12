@@ -42,7 +42,6 @@
     "start:JxHongBao": "node src/jd/family/jxHongBao.js start",
     "start:EarnCoinsRedeem": "node src/jd/lite/EarnCoinsRedeem.js start",
     "start:Zoo": "node src/jd/618/Zoo.js start",
-    "start:Olympicgames": "node src/jd/Olympicgames start",
     "cron:Health": "node src/jd/wfh/Health.js cron",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
     "loop:BeautyMakeup": "node src/jd/beautyMakeup loop",

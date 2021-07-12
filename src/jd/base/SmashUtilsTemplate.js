@@ -12,6 +12,7 @@ class SmashUtilsTemplate extends Template {
   static isWh5 = true;
   static repeatDoTask = true;
   static skipTaskIds = [];
+  static doneShareTask = !this.firstTimeInTheDay();
 
   // 需要更改的地方
   static indexUrl = '';
@@ -75,7 +76,7 @@ class SmashUtilsTemplate extends Template {
   static apiNamesFn() {
     const self = this;
     const apiNamesOption = getValueByFn(self.apiNamesOption, {context: self}) || {};
-    let doneShareTask = !self.firstTimeInTheDay();
+    let doneShareTask = self.doneShareTask;
 
     const option = {
       // 获取任务列表
@@ -145,7 +146,7 @@ class SmashUtilsTemplate extends Template {
           apiNamesOption[key] = {name: value};
         }
       });
-      _.assign(option, apiNamesOption);
+      _.merge(option, apiNamesOption);
     }
 
     return option;
