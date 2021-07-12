@@ -95,7 +95,7 @@ jobs:
           dir=$(pwd)
           bash Scripts/Sync.sh \
             https://github.com/scjtqs/jd_cookie master \
-            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JD-Coookie keep
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JD-Cookie keep
           [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
       - name: Set up Docker Buildx
         if: steps.jd-cookie-update.outputs.status != 'updated'
