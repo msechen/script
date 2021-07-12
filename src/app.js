@@ -89,8 +89,29 @@ async function multipleRun(targets, onceDelaySecond = 1) {
   });
 }
 
+async function serialRun(targets, runFn = doRun) {
+  for (const target of targets) {
+    let stop = false;
+    runFn(..._.concat(target)).then(() => {
+      stop = true;
+    });
+    await polling(5 * 60, () => stop);
+  }
+
+  async function polling(seconds, stopFn) {
+    if (seconds <= 0) return;
+    const onceSeconds = 30;
+    const stop = stopFn();
+    if (stop) return;
+    const secondArray = [seconds, onceSeconds];
+    await sleep(_.min(secondArray));
+    return polling(_.subtract(...secondArray), stopFn);
+  }
+}
+
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
-  console.log(`[${target.scriptName}] do ${method}`);
+  const timeLabel = `[${target.scriptName}] do ${method}`;
+  console.time(timeLabel);
   let result;
   try {
     result = await target[method](cookieData);
@@ -98,6 +119,7 @@ async function doRun(target, cookieData = getCookieData(target.scriptName), meth
     errorOutput.push(e);
     console.log(e);
   }
+  console.timeEnd(timeLabel);
   return result;
 }
 
@@ -123,53 +145,46 @@ async function main() {
     {
       valid: 0,
       run: async () => {
-        await doRun(KoiRedPacket);
-        // await doRun(IsvShopSign);
-        await doRun(SignShop);
-        await doRun(EarnJingDou);
-        await doRun(SignBeanHome);
-        doRun(SignRemote);
-        doRun(Olympicgames);
-        await doRun(Sign);
-        await doRun(StatisticsBean);
-        await doRun(Fruit);
-        await doRun(TurnTableFarm);
-        await doRun(Pet);
-        await doRun(jdFactory, getCookieData(jdFactory.scriptName)[0]);
-        await doRun(Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE'));
-        await doRun(Cash);
-        await doRun(JxCfd);
-        await doRun(BeanSmallBean);
+        await serialRun([
+          // 23点后的活动补充
+          KoiRedPacket,
+          IsvShopSign,
+          SignShop,
+          EarnJingDou,
 
-        // 1点的时候没有action, 所以需要提前
-        // await doRun(Harmony7);
-        // await doRun(Wfh);
-        await doRun(Trump);
-        await doRun(Smfe);
-        await doRun(PlantBean);
-        await doRun(Family);
-        await doRun(Live);
-        await doRun(GlobalChallenge);
-        // await doRun(JxHongBao);
-        await doRun(VipClubShake);
-        await doRun(LiteSign);
-        await doRun(SpringReward);
-        // await doRun(BianPao);
-        await multipleRun([
-          // Harmony2,
+          // 统计豆豆
+          StatisticsBean,
+
+          Olympicgames,
+
+          // 常驻活动
+          SignBeanHome, SignRemote, Sign,
+          Fruit, Pet, TurnTableFarm,
+          Cash,
+          BeanSmallBean,
+          PlantBean,
+          Family,
+          Live,
+          Necklace,
+          SecondKillRedPacket,
+
+          // 极速版
+          VipClubShake, SpringReward, LiteCashSign, EarnCoins,
+
+          [jdFactory, getCookieData(jdFactory.scriptName)[0]],
+          [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
+
+          Smfe,
+          GoldCreator,
+          Trump,
+          // TODO 确认活动有效性
+          Car,
         ]);
         await multipleRun([
           HealthSign,
           HealthShare,
           Health,
         ]);
-        await doRun(LiteCashSign);
-        await doRun(GoldCreator);
-        await doRun(EarnCoins);
-        await doRun(Necklace);
-        await doRun(SecondKillRedPacket);
-        await doRun(Car);
-        await doRun(IsvShopSign);
       },
     },
     {
@@ -188,16 +203,13 @@ async function main() {
     {
       valid: 7,
       run: async () => {
-        await doRun(DreamFactory);
-        await doRun(Pet);
-        await doRun(CrazyJoy);
-        await doRun(SuperMarket);
-        await doRun(Family);
-        await doRun(GlobalChallenge);
-        // 9点后再执行
-        // await sleepTime([9, 10]);
-        // await doRun(Joy);
-        await doRun(EarnCoins);
+        await serialRun([
+          Fruit, Pet,
+          Olympicgames,
+          SuperMarket,
+          EarnCoins,
+          Family,
+        ]);
       },
     },
     {
@@ -215,9 +227,9 @@ async function main() {
     {
       valid: 12,
       run: async () => {
-        await doRun(Fruit);
-        await doRun(Pet);
-        await doRun(Joy);
+        await serialRun([
+          Fruit, Pet,
+        ]);
       },
     },
     {
@@ -240,10 +252,10 @@ async function main() {
     {
       valid: 18,
       run: async () => {
-        await doRun(Joy);
-        await doRun(Fruit);
-        await doRun(Pet);
-        await doRun(CrazyJoy);
+        await serialRun([
+          Fruit, Pet,
+          Olympicgames,
+        ]);
       },
     },
     {
@@ -261,20 +273,23 @@ async function main() {
     {
       valid: 22,
       run: async () => {
-        await doRun(jdFactory, getCookieData()[0]);
-        await doRun(Fruit);
-        await doRun(Pet);
-        await doRun(Necklace);
+        await serialRun([
+          [jdFactory, getCookieData()[0]],
+          Fruit, Pet,
+          Necklace,
+          Olympicgames,
+        ]);
       },
     },
     {
       valid: 23,
       run: async () => {
-        await doRun(Sign);
-        await doRun(KoiRedPacket);
-        await doRun(Cash);
-        await doRun(Joy);
-        await doRun(PlantBean, getCookieData());
+        await serialRun([
+          Sign,
+          KoiRedPacket,
+          Cash,
+          [PlantBean, getCookieData()],
+        ]);
         await doCron(PlantBean);
         // await doRun(CrazyJoy);
         yesterdayAppPath = getLogFile('app');
