@@ -43,7 +43,7 @@ if [ -d "/tmp/source_repo" ]; then
     echo
     echo "-----------------------------Syncing repo-----------------------------"
     mv -f /tmp/source_repo/* /tmp/dest_repo
-    
+
     if [[ $params == *"ts2js"* ]]
     then
         ts_exist=$(find ./ -name "*.ts")
@@ -55,8 +55,8 @@ if [ -d "/tmp/source_repo" ]; then
             rm -rf node_modules
         fi
     fi
-    
-    rm -f README.md
+
+    rm -f README*
     commit
 
     echo
@@ -67,7 +67,7 @@ if [ -d "/tmp/source_repo" ]; then
     else
         echo "Repo already up-to-date!"
     fi
-    
+
     if [[ $params == *"keep"* ]]
     then
         rm -rf /tmp/source_repo /tmp/backup
@@ -79,4 +79,3 @@ else
     echo
     echo "Error source repo!"
 fi
-
