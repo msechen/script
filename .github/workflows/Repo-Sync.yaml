@@ -60,7 +60,7 @@ jobs:
           dir=$(pwd)
           bash Scripts/Sync.sh \
             https://github.com/whyour/qinglong master \
-            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/jd-panel keep
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JD-Panel keep
           [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
       - name: Set up Docker Buildx
         if: steps.jd-panel-update.outputs.status != 'updated'
@@ -131,7 +131,7 @@ jobs:
         run: |
           bash Scripts/Sync.sh \
             https://github.com/SuMaiKaDe/bot main \
-            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/jd-bot
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JD-Bot
       - name: JDHelloWorld
         run: |
           bash Scripts/Sync.sh \
