@@ -1,0 +1,239 @@
+name: Repo Sync
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - 'master'
+    paths:
+      - '.github/workflows/Repo-Sync.yaml'
+
+  schedule:
+    - cron: 3-53/10 * * * *
+
+jobs:
+  microsoft-365-admin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep Random Time
+        run: sleep $(shuf -i 10-60 -n 1)
+      - uses: actions/checkout@v2
+      - name: Github ➡ Github
+        id: microsoft-365-admin-update
+        run: |
+          dir=$(pwd)
+          bash Scripts/Sync.sh \
+            https://github.com/6mb/Microsoft-365-Admin master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/Microsoft-365-Admin keep
+          [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
+      - name: Set up Docker Buildx
+        if: steps.microsoft-365-admin-update.outputs.status != 'updated'
+        uses: docker/setup-buildx-action@v1
+      - name: Github Docker Login
+        if: steps.microsoft-365-admin-update.outputs.status != 'updated'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: dovfork
+          password: ${{ secrets.ACTION_SECRET }}
+      - name: Build and push
+        if: steps.microsoft-365-admin-update.outputs.status != 'updated'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./dest_repo
+          file: ./dest_repo/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/dovfork/microsoft-365-admin:latest
+
+  jd-panel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep Random Time
+        run: sleep $(shuf -i 10-60 -n 1)
+      - uses: actions/checkout@v2
+      - name: Github ➡ Github
+        id: jd-panel-update
+        run: |
+          dir=$(pwd)
+          bash Scripts/Sync.sh \
+            https://github.com/whyour/qinglong master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/jd-panel keep
+          [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
+      - name: Set up Docker Buildx
+        if: steps.jd-panel-update.outputs.status != 'updated'
+        uses: docker/setup-buildx-action@v1
+      - name: Github Docker Login
+        if: steps.jd-panel-update.outputs.status != 'updated'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: dovfork
+          password: ${{ secrets.ACTION_SECRET }}
+      - name: Build and push
+        if: steps.jd-panel-update.outputs.status != 'updated'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./dest_repo
+          file: ./dest_repo/docker/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/dovfork/jd-panel:latest
+
+  jd-cookie:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep Random Time
+        run: sleep $(shuf -i 10-60 -n 1)
+      - uses: actions/checkout@v2
+      - name: Github ➡ Github
+        id: jd-cookie-update
+        run: |
+          dir=$(pwd)
+          bash Scripts/Sync.sh \
+            https://github.com/scjtqs/jd_cookie master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JD-Coookie keep
+          [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
+      - name: Set up Docker Buildx
+        if: steps.jd-cookie-update.outputs.status != 'updated'
+        uses: docker/setup-buildx-action@v1
+      - name: Github Docker Login
+        if: steps.jd-cookie-update.outputs.status != 'updated'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: dovfork
+          password: ${{ secrets.ACTION_SECRET }}
+      - name: Build and push
+        if: steps.jd-cookie-update.outputs.status != 'updated'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./dest_repo
+          file: ./dest_repo/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/dovfork/jd-cookie:latest
+
+  jd-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep Random Time
+        run: sleep $(shuf -i 10-60 -n 1)
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+      - name: Bot
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/SuMaiKaDe/bot main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/jd-bot
+      - name: JDHelloWorld
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/JDHelloWorld/jd_scripts main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/jd-scripts ts2js
+      - name: hundun
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/whyour/hundun master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/hundun
+      - name: ZCY01
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/ZCY01/daily_scripts main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/ZCY01
+      - name: yangtingxiao
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/yangtingxiao/QuantumultX master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/yangtingxiao
+      - name: JDDJ
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/passerby-b/JDDJ main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JDDJ
+      - name: longzhuzhu
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/longzhuzhu/nianyu main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/longzhuzhu
+      - name: Ariszy
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/Ariszy/Private-Script master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/Ariszy
+      - name: moposmall
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/moposmall/Script main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/moposmall
+      - name: pxylen
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/pxylen/dog_jd master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/pxylen
+      - name: ztxtop
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/ztxtop/x main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/ztxtop
+      - name: airacg
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/airacg/jd_task main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/airacg
+      - name: JD_Diy
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/chiupam/JD_Diy master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/JD-Diy
+      - name: Sunert
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/Sunert/Script master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/Sunert
+      - name: curtinlv
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/curtinlv/JD-Script main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/curtinlv
+      - name: Tsukasa007
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/Tsukasa007/my_script master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/Tsukasa007
+      - name: jiulan
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/jiulan/platypus main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/jiulan
+      - name: star261
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/star261/jd main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/star261
+      - name: smiek2221
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/smiek2221/scripts master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/smiek2221
+      - name: cdle
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/cdle/jd_study main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/cdle
+      - name: Wenmoux
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/Wenmoux/scripts wen \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/Wenmoux
+      - name: panghu
+        run: |
+          bash Scripts/Sync.sh \
+            https://github.com/panghu999/panghu master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/panghu
