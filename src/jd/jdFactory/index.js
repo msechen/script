@@ -31,8 +31,12 @@ class jdFactory extends Base {
 
     const isSuccess = data => _.property('data.bizCode')(data) === 0;
 
-    const collectScore = async (taskToken, taskId, itemId) => {
-      return api.jdfactory_collectScore({taskToken});
+    const collectScore = async (taskToken, waitDuration) => {
+      await api.jdfactory_collectScore({taskToken, actionType: waitDuration ? 1 : 0});
+      if (waitDuration) {
+        await sleep(waitDuration);
+        await api.jdfactory_collectScore({taskToken, actionType: 0});
+      }
     };
 
     const activityNotStart = await api.jdfactory_getTaskDetail({}).then(async data => {
@@ -90,7 +94,7 @@ class jdFactory extends Base {
         if (status === 2 || maxTimes === times) continue;
         await sleep(2);
         times++;
-        await collectScore(taskToken, taskId, itemId).then(data => {
+        await collectScore(taskToken, waitDuration).then(data => {
           const score = _.property('data.result.score')(data);
           score && (allScore += +score);
           if (isShareTask) {
