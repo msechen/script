@@ -63,7 +63,6 @@ const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
-const RubikSCube = require('./jd/smfe/RubikSCube');
 const GoldCreator = require('./jd/goldCreator');
 const Olympicgames = require('./jd/olympicgames');
 
@@ -164,7 +163,6 @@ async function main() {
           HealthShare,
           Health,
         ]);
-        await doRun(RubikSCube);
         await doRun(LiteCashSign);
         await doRun(GoldCreator);
         await doRun(EarnCoins);
