@@ -2,10 +2,7 @@ const vm = require('vm');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-
-const REG_SCRIPT = /<script src="([^><]+\/(main\.\w+\.js))\?t=\d+">/gm;
-const REG_ENTRY = /^(.*?\.push\(\[)(\d+,\d+)/;
-const KEYWORD_MODULE = 'get_risk_result:';
+const {replaceObjectMethod} = require('./common');
 
 // js存储
 const cacheJsContent = {};
@@ -17,10 +14,12 @@ class FakerSmashUtils {
   constructor(api, indexUrl, data = {}) {
     this.api = api;
     this.indexUrl = indexUrl;
-    const {userAgent, smashInitData, scriptUrl} = data;
+    const {userAgent, smashInitData, scriptUrl, patchJSContentFn, patchRunFn} = data;
     this.userAgent = userAgent || '';
     this.smashInitData = smashInitData || {};
     this.scriptUrl = scriptUrl || '';
+    this.patchJSContentFn = patchJSContentFn;
+    this.patchRunFn = patchRunFn;
   }
 
   async init() {
@@ -46,8 +45,9 @@ class FakerSmashUtils {
     if (this.scriptUrl) {
       return doRun(this.scriptUrl);
     }
+    const scriptReg = /<script src="([^><]+\/(main\.\w+\.js))\?t=\d+">/gm;
     const html = await this.httpGet(this.indexUrl);
-    const script = REG_SCRIPT.exec(html);
+    const script = scriptReg.exec(html);
     if (script) {
       const [, scriptUrl, filename] = script;
       return doRun(scriptUrl);
@@ -58,11 +58,17 @@ class FakerSmashUtils {
     if (cacheJsContent[cacheKey]) return cacheJsContent[cacheKey];
 
     let jsContent = await this.httpGet(url);
-    const findEntry = REG_ENTRY.test(jsContent);
+    if (this.patchJSContentFn) {
+      return (cacheJsContent[cacheKey] = this.patchJSContentFn(jsContent));
+    }
+
+    const entryReg = /^(.*?\.push\(\[)(\d+,\d+)/;
+    const moduleKey = 'get_risk_result:';
+    const findEntry = entryReg.test(jsContent);
     const ctx = {
       moduleIndex: 0,
     };
-    const injectCode = `moduleIndex=arguments[0].findIndex(s=>s&&s.toString().indexOf('${KEYWORD_MODULE}')>0);return;`;
+    const injectCode = `moduleIndex=arguments[0].findIndex(s=>s&&s.toString().indexOf('${moduleKey}')>0);return;`;
     const injectedContent = jsContent.replace(/^(!function\(\w\){)/, `$1${injectCode}`);
 
     vm.createContext(ctx);
@@ -71,7 +77,7 @@ class FakerSmashUtils {
     if (!(ctx.moduleIndex && findEntry)) {
       throw new Error('Module not found.');
     }
-    jsContent = jsContent.replace(REG_ENTRY, `$1${ctx.moduleIndex},1`);
+    jsContent = jsContent.replace(entryReg, `$1${ctx.moduleIndex},1`);
     // Fix device info (actually insecure, make less sense)
     jsContent = jsContent.replace(/\w+\.getDefaultArr\(7\)/, '["a","a","a","a","a","a","1"]');
     cacheJsContent[cacheKey] = jsContent;
@@ -82,6 +88,9 @@ class FakerSmashUtils {
   async run(id, data = {}) {
     if (!this.smashUtils) {
       await this.init();
+    }
+    if (this.patchRunFn) {
+      return this.patchRunFn(this.smashUtils, data);
     }
 
     const random = Math.floor(1e+6 * Math.random()).toString().padEnd(6, '8');
@@ -102,14 +111,15 @@ class FakerSmashUtils {
 
   // 直接替换api对应方法
   patchApi(needEncryptIds) {
-    const api = this.api;
-    const doFormBody = api.doFormBody;
-    api.doFormBody = async (...args) => {
+    if (_.isEmpty(needEncryptIds)) return;
+    replaceObjectMethod(this.api, 'doFormBody', async args => {
       const [functionId, body, ...others] = args;
       const id = needEncryptIds.find(str => functionId.match(str));
-      if (id) return doFormBody.call(api, functionId, await this.run(id, body), ...others);
-      return doFormBody.apply(api, args);
-    };
+      if (id) {
+        return [functionId, await this.run(id, body), ...others];
+      }
+      return args;
+    });
   }
 
   async httpGet(uri) {

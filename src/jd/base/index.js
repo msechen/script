@@ -97,6 +97,10 @@ class Base {
     return getMoment().hours();
   }
 
+  static firstTimeInTheDay() {
+    return this.getNowHour() < 5;
+  }
+
   static getCurrentEnv(key) {
     return getEnv(key, this.currentCookieTimes);
   }
@@ -104,6 +108,18 @@ class Base {
   static getUUid(userAgent) {
     userAgent = userAgent || this.appCompleteUserAgent;
     return userAgent.split(';')[4];
+  }
+
+  static getListMatchVo(object) {
+    object = object || {};
+    let taskList = [];
+    for (const key in object) {
+      if (key.match(/Vo(s)?$/) && key !== 'scoreRuleVos') {
+        taskList = [].concat(object[key]);
+        break;
+      }
+    }
+    return taskList;
   }
 
   static async loopCall(list = [], option) {

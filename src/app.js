@@ -65,6 +65,7 @@ const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const RubikSCube = require('./jd/smfe/RubikSCube');
 const GoldCreator = require('./jd/goldCreator');
+const Olympicgames = require('./jd/olympicgames');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -129,6 +130,7 @@ async function main() {
         await doRun(EarnJingDou);
         await doRun(SignBeanHome);
         doRun(SignRemote);
+        doRun(Olympicgames);
         await doRun(Sign);
         await doRun(StatisticsBean);
         await doRun(Fruit);

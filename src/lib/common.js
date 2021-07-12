@@ -152,6 +152,22 @@ async function singleRun(target, method = 'start', runFn = null) {
   }
 }
 
+function replaceObjectMethod(context, method, patchArgsFn) {
+  const target = context[method];
+  context[method] = async (...args) => target.apply(context, await patchArgsFn(args));
+}
+
+/**
+ * @description 从Function获取其他类型获取值
+ * @param target {Function|*}
+ * @param option {Object}
+ * @return {*}
+ */
+function getValueByFn(target, option = {}) {
+  const {context} = option;
+  return _.isFunction(target) ? target.call(context) : target;
+}
+
 module.exports = {
   sleep,
 
@@ -171,4 +187,8 @@ module.exports = {
   matchMiddle,
 
   singleRun,
+
+  replaceObjectMethod,
+
+  getValueByFn,
 };
