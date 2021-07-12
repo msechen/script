@@ -97,8 +97,8 @@ class Fruit extends Template {
 
     // 获取助力人数满的奖励
     async function handleGetShareFinished() {
-      const {masterGotFinal} = await api.doFormBody('masterHelpTaskInitForFarm');
-      if (masterGotFinal) {
+      const {masterGotFinal, masterHelpPeoples} = await api.doFormBody('masterHelpTaskInitForFarm');
+      if (!masterGotFinal && (masterHelpPeoples.length === 5)) {
         await api.doFormBody('masterGotFinishedTaskForFarm').then(amountLog);
       }
     }
