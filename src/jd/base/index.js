@@ -101,6 +101,10 @@ class Base {
     return this.getNowHour() < 5;
   }
 
+  static lastTimeInTheDay() {
+    return this.getNowHour() >= 22;
+  }
+
   static getCurrentEnv(key) {
     return getEnv(key, this.currentCookieTimes);
   }

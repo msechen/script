@@ -7,7 +7,7 @@ const FakerSmashUtils = require('../../lib/FakerSmashUtils');
 class SmashUtilsTemplate extends Template {
   static scriptName = 'SmashUtilsTemplate';
   static shareCodeTaskList = [];
-  static maxTaskDoneTimes = 2;
+  static maxTaskDoneTimes = this.firstTimeInTheDay() ? 2 : 1;
   static commonParamFn = () => ({});
   static needInAppComplete = true;
   static isWh5 = true;
