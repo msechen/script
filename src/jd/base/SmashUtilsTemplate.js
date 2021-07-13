@@ -22,11 +22,6 @@ class SmashUtilsTemplate extends Template {
     // smashInitData: {},
   };
   static needEncryptIds = [];
-  /**
-   * 默认助力码
-   * @type {[]}
-   */
-  static defaultShareCodes = [];
 
   static apiCustomOption() {};
 
@@ -120,9 +115,6 @@ class SmashUtilsTemplate extends Template {
             if (doneShareTask) return;
 
             self.updateShareCodeFn(currentShareCode);
-            if (self.isLastLoop()) {
-              self.shareCodeTaskList = _.uniq(self.shareCodeTaskList.concat(self.defaultShareCodes));
-            }
             await self.handleDoShare(api);
             doneShareTask = true;
           }

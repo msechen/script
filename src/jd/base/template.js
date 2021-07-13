@@ -6,14 +6,17 @@ class Template extends Base {
   static scriptName = 'Template';
   static times = 2;
   static shareCodeTaskList = [];
+  // 更新助力码时使用, 一般用于区分Object
+  static shareCodeUniqIteratee;
+  // 默认助力码
+  static defaultShareCodes = [];
   static maxTaskDoneTimes = 1;
 
-  static updateShareCodeFn(shareCode) {
+  static updateShareCodeFn(shareCode, isCurrent = true) {
     const self = this;
     const shareCodeTaskList = self.shareCodeTaskList;
-    if (!shareCodeTaskList.includes(shareCode)) {
-      shareCodeTaskList.splice(self.currentCookieTimes, 0, shareCode);
-    }
+    shareCodeTaskList.splice(isCurrent ? self.currentCookieTimes : shareCodeTaskList.length, 0, shareCode);
+    self.shareCodeTaskList = _.uniqBy(shareCodeTaskList, self.shareCodeUniqIteratee);
   }
 
   // 获取 shareCode
@@ -66,10 +69,10 @@ class Template extends Base {
   static initShareCodeTaskList(shareCodes) {
     const self = this;
     // 通用处理
-    shareCodes.forEach(code => {
-      if (self.shareCodeTaskList.includes(code)) return;
-      self.shareCodeTaskList.push(code);
+    shareCodes.concat(self.defaultShareCodes).forEach((code, index) => {
+      self.updateShareCodeFn(code, index === 0);
     });
+    self.defaultShareCodes = [];
   }
 
   static async beforeRequest(api) {
