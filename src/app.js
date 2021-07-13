@@ -3,12 +3,12 @@ const path = require('path');
 const _ = require('lodash');
 
 const {getLogFile, sleep, parallelRun} = require('./lib/common');
-const {getNowDate, getNowHour} = require('./lib/moment');
+const {getNowDate, getNowHour, getMoment} = require('./lib/moment');
 const {sleepTime} = require('./lib/cron');
 const {getCookieData} = require('./lib/env');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
-const TemporarilyOffline = {start: _.noop, cron: _.noop};
+const TemporarilyOffline = {start: _.noop, cron: _.noop, getName: () => 'TemporarilyOffline'};
 
 const Common = require('./jd/base/common');
 
@@ -112,7 +112,7 @@ async function serialRun(targets, runFn = doRun) {
 }
 
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
-  const timeLabel = `[${target.scriptName}] do ${method}`;
+  const timeLabel = `[${getMoment().format('YYYY-MM-DD HH:mm:ss.SSS')}] [${target.getName()}] do ${method}`;
   console.time(timeLabel);
   let result;
   try {
