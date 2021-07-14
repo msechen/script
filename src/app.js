@@ -171,9 +171,10 @@ async function main() {
           Live,
           Necklace,
           SecondKillRedPacket,
+          VipClubShake,
 
           // 极速版
-          VipClubShake, SpringReward, LiteCashSign, EarnCoins,
+          LiteSign, SpringReward, LiteCashSign, EarnCoins,
 
           [jdFactory, getCookieData(jdFactory.scriptName)[0]],
           [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
