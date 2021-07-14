@@ -9,7 +9,7 @@ class Isp5G extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 1;
-  static maxTaskDoneTimes = 2;
+  static maxTaskDoneTimes = Infinity;
   static concurrent = true;
   static concurrentOnceDelay = 0;
 
