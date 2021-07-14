@@ -7,6 +7,9 @@ class Olympicgames extends Template {
   static scriptName = 'Olympicgames';
   static scriptNameDesc = '全民运动会';
   static shareCodeTaskList = [];
+  // TODO 确认该逻辑是否需要
+  // static appCompleteUserAgent = `jdpingou;iPhone;10.0.6;${Math.ceil(Math.random() * 2 + 12)}.${Math.ceil(Math.random() * 4)};${randomString(40)};`;
+  static appCompleteUserAgent = '';
 
   static skipTaskIds = [2/*邀请好友助力*/].concat(this.lastTimeInTheDay() ? [] : [14/*入会*/, 26/*入会*/]);
   static indexUrl = 'https://wbbny.m.jd.com/babelDiy/Zeus/2rtpffK8wqNyPBH6wyUDuBKoAbCt/index.html';
@@ -109,6 +112,14 @@ class Olympicgames extends Template {
       });
     }
   }
+}
+
+function randomString(e) {
+  e = e || 32;
+  let t = 'abcdefhijkmnprstwxyz2345678', a = t.length, n = '';
+  for (i = 0; i < e; i++)
+    n += t.charAt(Math.floor(Math.random() * a));
+  return n;
 }
 
 singleRun(Olympicgames).then();

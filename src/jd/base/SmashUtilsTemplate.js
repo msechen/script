@@ -38,7 +38,7 @@ class SmashUtilsTemplate extends Template {
     const apiCustomOption = getValueByFn(self.apiCustomOption, {context: self}) || {};
     const indexUrl = self.indexUrl;
 
-    return _.assign({
+    return _.merge({
       signData: {
         uuid: self.getUUid(),
       },
