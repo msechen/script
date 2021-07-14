@@ -17,6 +17,7 @@ class IsvShopSign extends Isv {
       ['a9a6fe0357f04a6a91328cb35fbd6270', 'sevenDay'],
       ['c2560ac2bcc94894ae41bb66e5921640'],
       ['92f92e8e6a044e3584ad651622f566ac'],
+      ['36ed9e41a36d4670b769a00f628ab809'],
 
       // 需要加入品牌会员
       // 十月稻田京东自营旗舰店(每月更新)
