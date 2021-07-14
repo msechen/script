@@ -71,7 +71,6 @@ class SmashUtilsTemplate extends Template {
   static apiNamesFn() {
     const self = this;
     const apiNamesOption = getValueByFn(self.apiNamesOption, {context: self}) || {};
-    let doneShareTask = self.doneShareTask;
 
     const option = {
       // 获取任务列表
@@ -112,11 +111,12 @@ class SmashUtilsTemplate extends Template {
           return result;
 
           async function handleDoShare(currentShareCode) {
-            if (doneShareTask) return;
+            api.doneShareTask = api.doneShareTask || self.doneShareTask;
+            if (api.doneShareTask) return;
 
             self.updateShareCodeFn(currentShareCode);
             await self.handleDoShare(api);
-            doneShareTask = true;
+            api.doneShareTask = true;
           }
         },
       },
