@@ -220,13 +220,13 @@ function smtg_queryPrize(timeout = 0){
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `${JD_API_HOST}&functionId=smt_queryPrizeAreas&clientVersion=8.0.0&client=m&body=%7B%22channel%22%3A%2218%22%7D&t=${Date.now()}`,
+        url : `${JD_API_HOST}&functionId=smt_queryPrizeAreas&clientVersion=8.0.0&client=m&body=%7B%22channel%22:%221%22%7D&t=${Date.now()}`,
         headers : {
           'Origin' : `https://jdsupermarket.jd.com`,
           'Cookie' : cookie,
           'Connection' : `keep-alive`,
           'Accept' : `application/json, text/plain, */*`,
-          'Referer' : `https://jdsupermarket.jd.com/game/?tt=1597540727225`,
+          'Referer' : `https://jdsupermarket.jd.com/game/?tt=1626285105405`,
           'Host' : `api.m.jd.com`,
           'Accept-Encoding' : `gzip, deflate, br`,
           'Accept-Language' : `zh-cn`
@@ -340,7 +340,7 @@ function smtg_obtainPrize(prizeId, timeout = 0, functionId = 'smt_exchangePrize'
 }
 function smtgHome() {
   return new Promise((resolve) => {
-    $.get(taskUrl('smtg_home'), (err, resp, data) => {
+    $.get(taskUrl('smtg_newHome'), (err, resp, data) => {
       try {
         if (err) {
           console.log('\n东东超市兑换奖品: API查询请求失败 ‼️‼️')
