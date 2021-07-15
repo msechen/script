@@ -64,9 +64,9 @@ const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
-const Olympicgames = require('./jd/olympicgames');
-const OlympicgamesApplet = require('./jd/olympicgames/applet');
-const OlympicgamesShopLottery = require('./jd/olympicgames/ShopLottery');
+const Olympicgames = TemporarilyOffline || require('./jd/olympicgames');
+const OlympicgamesApplet = TemporarilyOffline || require('./jd/olympicgames/applet');
+const OlympicgamesShopLottery = TemporarilyOffline || require('./jd/olympicgames/ShopLottery');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
