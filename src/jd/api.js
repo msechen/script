@@ -59,7 +59,7 @@ class Api {
     return this.commonDo(newOptions).then(data => {
       data = data || {};
       if (this.formatData) {
-        return this.formatData(data);
+        return this.formatData(data, newOptions);
       }
       return _.assign({
         _data: _.assign({}, data),
@@ -123,6 +123,17 @@ class Api {
     return this.do(_.merge({
       uri: `${this.options.uri}/${functionId}`,
       qs,
+      method: 'GET',
+    }, options));
+  }
+
+  doGetFileContent(uri, options) {
+    !/^http(s)+/.test(uri) && (uri = `https:${uri}`);
+    return this.commonDo(_.assign({
+      uri,
+      headers: {
+        Cookie: '',
+      },
       method: 'GET',
     }, options));
   }

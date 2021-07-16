@@ -45,7 +45,7 @@ const JxCfd = TemporarilyOffline || require('./jd/jxCfd');
 const Car = require('./jd/car');
 const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
-const Joy = TemporarilyOffline || require('./jd/joy');
+const Joy = require('./jd/joy');
 const JoyRedeem = require('./jd/joy/redeem');
 const Family = TemporarilyOffline || require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
@@ -220,6 +220,7 @@ async function main() {
     {
       valid: 9,
       run: async () => {
+        await doRun(Joy);
         await doRun(DreamFactory);
       },
     },

@@ -5,9 +5,11 @@ const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const Cookie = require('../../lib/cookie');
 const {encrypt} = require('./api');
+const JDJRValidator = require('../../lib/JDJRValidator');
+const path = require('path');
 
 const reqSources = ['weapp', 'h5'];
-const indexUrl = 'https://jdjoy.jd.com/pet/index';
+const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2wuqXrZrhygTQzYA7VufBEpj4amH/index.html';
 
 class Joy extends Template {
   static scriptName = 'Joy';
@@ -20,14 +22,26 @@ class Joy extends Template {
     return {
       options: {
         uri: 'https://jdjoy.jd.com/common/pet',
-        qs: _.assign({
+        qs: {
           reqSource: reqSources[1],
-          invokeKey: 'NRp8OPxZMFXmGkaE',
-        }, encrypt()),
+          invokeKey: 'qRKHmL4sna8ZOP9F',
+        },
         headers: {
           referer: indexUrl,
           origin: 'https://jdjoy.jd.com',
         },
+      },
+      async formatDataFn(data, options) {
+        const {errorCode, errorMessage} = data;
+        if (errorCode === 'H0001' || (errorMessage || '').match('验证')) {
+          return new Promise(async resolve => {
+            const {validate} = await new JDJRValidator().run();
+            if (!validate) return resolve(data);
+            _.assign(options.qs, {validate});
+            resolve(await this.commonDo(options));
+          });
+        }
+        return data;
       },
     };
   }
@@ -41,12 +55,19 @@ class Joy extends Template {
   }
 
   static async beforeRequest(api) {
-    const invokeKey = await api.commonDo({
-      uri: 'https://storage.360buyimg.com/bucket-cww-prod/5.0.32/jdDog_jdDog_0510e888_.js',
-      method: 'GET',
-    }).then(data => matchMiddle(data, {reg: /{"invokeKey":"(\w*)"}/}));
+    const invokeKey = await api.doGetFileContent(indexUrl).then(data => {
+      const scriptReg = /<script type="text\/javascript" src="([^><]+\/(app_\w+_\.js))">/gm;
+      const appScriptUrl = scriptReg.exec(data)[1];
+      return api.doGetFileContent(appScriptUrl).then(jsContent => {
+        jsContent = jsContent.replace(/.*(?=".css")/, '');
+        const jdDogKey = 'jdDog_jdDog';
+        const jdDogIndex = matchMiddle(jsContent, {reg: /"(\d+)":\s*"jdDog_jdDog",/});
+        const hash = matchMiddle(jsContent.replace(jdDogKey, ''), {reg: new RegExp(`"${jdDogIndex}":\\s*"(\\w+)",`)});
+        return api.doGetFileContent(appScriptUrl.replace(path.basename(appScriptUrl), `${jdDogKey}_${hash}_.js`)).then(data => matchMiddle(data, {reg: /{"invokeKey":"(\w*)"}/}));
+      });
+    });
+    invokeKey && (api.options.qs.invokeKey = invokeKey);
     api.options.qs.reqSource = reqSources[this.currentTimes - 1];
-    api.options.qs.invokeKey = invokeKey;
   }
 
   static apiNamesFn() {
@@ -115,9 +136,7 @@ class Joy extends Template {
                 let helpFeedTimes = 1;
                 for (const {friendPin} of enableHelpList) {
                   if (helpFeedTimes === 0) return;
-                  await api.doPath('helpFeed', void 0, {
-                    method: 'GET', qs: {friendPin},
-                  }).then(data => {
+                  await api.doGetPath('helpFeed', void 0, {friendPin}).then(data => {
                     if (!self.isSuccess(data)) return;
                     helpFeedTimes--;
                   });
@@ -135,7 +154,7 @@ class Joy extends Template {
             maxTimes = maxTimes || void 0;
 
             let list = (scanMarketList || followShops || followChannelList || followGoodList || []).filter(o => !o.status).map(o => {
-              return _.assign({reqSource: api.options.qs.reqSource}, scanMarketList ? {
+              return _.assign({}, scanMarketList ? {
                 marketLink: o.marketLinkH5,
                 taskType,
               } : (followChannelList ? {
@@ -154,16 +173,19 @@ class Joy extends Template {
             if (_.isEmpty(list)) continue;
 
             const option = {maxTimes, times, waitDuration};
-            if (taskType === 'FollowShop') {
-              _.assign(option, {
-                firstFn: o => api.doPath('followShop', o),
-              });
-            }
-            if (taskType === 'FollowGood') {
-              _.assign(option, {
-                firstFn: o => api.doPath('followGood', o),
-              });
-            }
+            _.assign(option, {
+              async firstFn(o) {
+                const newO = _.assign({}, o);
+                delete newO.taskType;
+                if (!_.isEmpty(newO)) {
+                  await handleIconClick(_.snakeCase(taskType), _.values(newO)[0]);
+                  await sleep(2);
+                }
+                const notScan = ['FollowShop', 'FollowGood'].includes(taskType);
+                const functionId = notScan ? _.camelCase(taskType) : 'scan';
+                return api[notScan ? 'doPath' : 'doBodyPath'](functionId, o);
+              },
+            });
 
             result.push({list, option});
           }
@@ -197,18 +219,12 @@ class Joy extends Template {
             });
           }
 
+          async function handleIconClick(iconCode, linkAddr) {
+            return api.doGetPath('icon/click', {iconCode, linkAddr});
+          }
+
           return result;
         },
-      },
-      doTask: {
-        name: 'scan',
-        paramFn: o => [void 0, {
-          body: o,
-          headers: {
-            contentType: 'application/json',
-          },
-          qs: encrypt(o, true),
-        }],
       },
       doRedeem: {
         name: 'enterRoom/h5',
@@ -232,10 +248,7 @@ class Joy extends Template {
       if (index < 0) return;
       const allFeedCount = [10, 20, 40, 80];
       const feedCount = allFeedCount[index];
-      await api.doPath('feed', void 0, {
-        method: 'GET',
-        qs: _.assign({feedCount}, encrypt()),
-      }).then(data => {
+      await api.doGetPath('feed', {feedCount}).then(data => {
         if (data.errorCode === 'feed_ok') {
           self.log(`喂食成功, 消耗${feedCount}g狗粮`);
           return;
@@ -249,16 +262,13 @@ class Joy extends Template {
 }
 
 async function doFeed(api, taskType) {
-  return api.doPath('getFood', void 0, {method: 'GET', qs: {taskType}}).then(data => {
+  return api.doGetPath('getFood', {taskType}).then(data => {
     data.errorCode === 'received' && Joy.log(`获得${data.data}g狗粮`);
   });
 }
 
 async function getFriends(api) {
-  return api.doPath('getFriends', void 0, {
-    method: 'GET',
-    qs: {itemsPerPage: 20},
-  }).then(data => data['datas']) || [];
+  return api.doGetPath('getFriends', {itemsPerPage: 20}).then(data => data['datas']) || [];
 }
 
 module.exports = Joy;
