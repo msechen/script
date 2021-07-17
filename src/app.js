@@ -187,7 +187,6 @@ async function main() {
         ]);
         await multipleRun([
           HealthSign,
-          HealthShare,
           Health,
         ]);
       },
