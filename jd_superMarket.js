@@ -1,34 +1,21 @@
-/*
-东东超市
-活动入口：京东APP首页-京东超市-底部东东超市
-Some Functions Modified From https://github.com/Zero-S1/JD_tools/blob/master/JD_superMarket.py
-支持京东双账号
-脚本内置了一个给作者任务助力的网络请求，默认开启，如介意请自行关闭。
-参数 helpAuthor = false
-脚本作者：lxk0301
- */
+
 const $ = new Env('东东超市');
 //Node.js用户请在jdCookie.js处填写京东ck;
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', jdSuperMarketShareArr = [], notify, newShareCodes;
-
 let jdNotify = true;//用来是否关闭弹窗通知，true表示关闭，false表示开启。
 let superMarketUpgrade = true;//自动升级,顺序:解锁升级商品、升级货架,true表示自动升级,false表示关闭自动升级
 let businessCircleJump = true;//小于对方300热力值自动更换商圈队伍,true表示运行,false表示禁止
 let drawLotteryFlag = false;//是否用500蓝币去抽奖，true表示开启，false表示关闭。默认关闭
 let joinPkTeam = true;//是否自动加入PK队伍
 let message = '', subTitle;
+let t = +new Date()
 const JD_API_HOST = 'https://api.m.jd.com/api';
 
 //助力好友分享码
 //此此内容是IOS用户下载脚本到本地使用，填写互助码的地方，同一京东账号的好友互助码请使用@符号隔开。
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
-let shareCodes = [ // IOS本地脚本用户这个列表填入你要助力的好友的shareCode
-  //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '',
-  //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '',
-]
+let shareCodes = []
 
 !(async () => {
   await requireConfig();
@@ -38,7 +25,7 @@ let shareCodes = [ // IOS本地脚本用户这个列表填入你要助力的好�
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
-      $.UserName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
+      $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = i + 1;
       $.coincount = 0;//收取了多少个蓝币
       $.coinerr = "";
@@ -201,6 +188,8 @@ async function doDailyTask() {
 }
 
 async function receiveGoldCoin() {
+  const options = taskUrl('smtg_newHome', {"shareId":"aL889PuA6H8OLnkfYtN4fU3FAtOEZ-FfzZfkSENsCZ3uKTWYBFM_7_fbotdhBVJJPdY_AXKxtTtG8muvIjHOYnmJ3raYyxt_SJZhmnCrsSIJkKHle_6ZwpXz73pRAi_KZa0Uxd4zf-lCFCnEFkQAbGQMX0JHtX-oBeP0yo8OtcA","channel":"4"})
+  $.get(options, (err, ersp, data) => {})
   $.goldCoinData = await smtgReceiveCoin({ "type": 0 });
   if ($.goldCoinData.data.bizCode === 0) {
     console.log(`领取金币成功${$.goldCoinData.data.result.receivedGold}`)
@@ -320,7 +309,8 @@ async function businessCircleActivity() {
           Teams = $.updatePkActivityIdRes['Teams'] || Teams;
           if ($.getTeams && $.getTeams.length) {
             Teams = [...Teams, ...$.getTeams.filter(item => item['pkActivityId'] === `${pkActivityId}`)];
-          }          const randomNum = randomNumber(0, Teams.length);
+          }
+          const randomNum = randomNumber(0, Teams.length);
 
           const res = await smtg_joinPkTeam(Teams[randomNum] && Teams[randomNum].teamId, Teams[randomNum] && Teams[randomNum].inviteCode, pkActivityId);
           if (res && res.data.bizCode === 0) {
@@ -710,7 +700,7 @@ async function receiveUserUpgradeBlue() {
   const res = await smtgReceiveCoin({"type": 4, "channel": "18"})
   // $.log(`${JSON.stringify(res)}\n`)
   if (res && res.data['bizCode'] === 0) {
-    console.log(`\n收取营业额：获得 ${res.data.result['receivedTurnover']}蓝币\n`);
+    console.log(`\n收取营业额：获得 ${res.data.result['receivedTurnover']}\n`);
   }
 }
 async function Home() {
@@ -963,6 +953,8 @@ function smtgSignList() {
 }
 function smtgHome() {
   return new Promise((resolve) => {
+    const options = taskUrl('smtg_newHome', {"shareId":"aL889PuA6H8OLnkfYtN4fU3FAtOEZ-FfzZfkSENsCZ3uKTWYBFM_7_fbotdhBVJJPdY_AXKxtTtG8muvIjHOYnmJ3raYyxt_SJZhmnCrsSIJkKHle_6ZwpXz73pRAi_KZa0Uxd4zf-lCFCnEFkQAbGQMX0JHtX-oBeP0yo8OtcA","channel":"4"})
+    $.get(options, (err, ersp, data) => {})
     $.get(taskUrl('smtg_newHome', { "channel": "18" }), (err, resp, data) => {
       try {
         if (err) {
@@ -1049,6 +1041,7 @@ function smtgDoAssistPkTask(code) {
   })
 }
 function smtgReceiveCoin(body) {
+  $.goldCoinData = {};
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_receiveCoin', body), (err, resp, data) => {
       try {
@@ -1513,41 +1506,38 @@ function requireConfig() {
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
-      "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
-      "headers": {
-        "Accept": "application/json,text/plain, */*",
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept-Encoding": "gzip, deflate, br",
+      'url': "https://me-api.jd.com/user_new/info/GetJDUserInfoUnion",
+      'headers': {
+        'Host': "me-api.jd.com",
+        'Accept': "*/*",
+        'Connection': "keep-alive",
+        'Cookie': cookie,
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
         "Accept-Language": "zh-cn",
-        "Connection": "keep-alive",
-        "Cookie": cookie,
-        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0")
+        "Referer": "https://home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&",
+        "Accept-Encoding": "gzip, deflate, br"
       }
     }
-    $.post(options, (err, resp, data) => {
+    $.get(options, (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
+          $.logErr(err)
         } else {
           if (data) {
             data = JSON.parse(data);
-            if (data['retcode'] === 13) {
+            if (data['retcode'] === "1001") {
               $.isLogin = false; //cookie过期
-              return
+              return;
             }
-            if (data['retcode'] === 0) {
-              $.nickName = data['base'].nickname;
-            } else {
-              $.nickName = $.UserName
+            if (data['retcode'] === "0" && data.data && data.data.hasOwnProperty("userInfo")) {
+              $.nickName = data.data.userInfo.baseInfo.nickname;
             }
           } else {
-            console.log(`京东服务器返回空数据`)
+            $.log('京东服务器返回空数据');
           }
         }
       } catch (e) {
-        $.logErr(e, resp)
+        $.logErr(e)
       } finally {
         resolve();
       }
@@ -1584,7 +1574,7 @@ function taskUrl(function_id, body = {}) {
   return {
     url: `${JD_API_HOST}?functionId=${function_id}&appid=jdsupermarket&clientVersion=8.0.0&client=m&body=${escape(JSON.stringify(body))}&t=${Date.now()}`,
     headers: {
-      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0"),
+      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       'Host': 'api.m.jd.com',
       'Cookie': cookie,
       'Referer': 'https://jdsupermarket.jd.com/game',
