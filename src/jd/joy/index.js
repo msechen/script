@@ -35,7 +35,7 @@ class Joy extends Template {
         const {errorCode, errorMessage} = data;
         if (errorCode === 'H0001' || (errorMessage || '').match('验证')) {
           return new Promise(async resolve => {
-            const {validate} = await new JDJRValidator().run();
+            const {validate} = await new JDJRValidator().run() || {};
             if (!validate) return resolve(data);
             _.assign(options.qs, {validate});
             resolve(await this.commonDo(options));

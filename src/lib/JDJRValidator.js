@@ -8,6 +8,7 @@ const stream = require('stream');
 const zlib = require('zlib');
 const vm = require('vm');
 const PNG = require('png-js');
+const {getMoment} = require('./moment');
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36';
 
 
@@ -212,7 +213,9 @@ class JDJRValidator {
   constructor() {
     this.data = {};
     this.x = 0;
-    this.t = Date.now();
+    this.t = getMoment().valueOf();
+    this.maxValidateTimes = 20;
+    this.validateTimes = 0;
   }
 
   async run(scene = 'cww') {
@@ -241,6 +244,8 @@ class JDJRValidator {
       return result;
     } else {
       console.count('验证失败');
+      this.validateTimes++;
+      if (this.validateTimes > this.maxValidateTimes) return;
       // console.count(JSON.stringify(result));
       await sleep(300);
       return await this.run(scene);
