@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://gitee.com/weiwudi1024/jd_scripts.git"
-          source_branch: "master"
+          source_repo: "https://gitee.com/asd920/Auto-jd.git"
+          source_branch: "main"
           destination_branch: "lxk"
           github_token: ${{ secrets.PAT }}
