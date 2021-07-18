@@ -5,6 +5,7 @@ dir_config="$JD_DIR/config"
 dir_sample="$JD_DIR/sample"
 dir_own="$JD_DIR/own"
 dir_log="$JD_DIR/log"
+dir_panel="$JD_DIR/panel"
 
 file_crontab_sample="$dir_sample/crontab.sample.list"
 file_crontab_user="$dir_config/crontab.list"
@@ -90,16 +91,29 @@ if [[ $ENABLE_WEB_PANEL == true ]]; then
     if [[ $ENABLE_TTYD == true ]]; then
         ## 增加环境变量
         export PS1="\u@\h:\w $ "
+       	## 复制ttyd
+        if [[ $is_termux -eq 1 ]] && type ! ttyd >/dev/null 2>&1; then
+          npm update
+          npm install ttyd
+        elif [ ! -f /usr/local/bin/ttyd ]; then
+          cp -f "$dir_panel/ttyd/ttyd.$(uname -m)" /usr/local/bin/ttyd
+          ttyd_status=$?
+          [ ! -x /usr/local/bin/ttyd ] && chmod +x /usr/local/bin/ttyd
+          [[ $ttyd_status -ne 0 ]] && echo -e "CPU架构暂不支持，无法正常使用网页终端！\n"
+        fi
         cd ${JD_DIR}/panel
-        pm2 start ttyd --name="ttyd" -- -t fontSize=14 -t disableLeaveAlert=true -t rendererType=webgl bash
+        if type pm2 >/dev/null 2>&1; then
+           [[ $ttyd_status -eq 0 ]] && pm2 start /usr/local/bin/ttyd --name="ttyd" -- -t fontSize=14 -t disableLeaveAlert=true -t rendererType=webgl bash
+           
+        else
+           [[ $ttyd_status -eq 0 ]] && nohup /usr/local/bin/ttyd -t fontSize=14 -t disableLeaveAlert=true -t rendererType=webgl bash >/dev/null 2>&1 &
+           nohup node server.js >/dev/null 2>&1 &
+        fi
         if [[ $? -eq 0 ]]; then
             echo -e "网页终端启动成功...\n"
         else
             echo -e "网页终端启动失败，但容器将继续启动...\n"
         fi
-    elif [[ $ENABLE_TTYD == false ]]; then
-        echo -e "已设置为不自动启动网页终端，跳过...\n"
-    fi
 else
     echo -e "已设置为不自动启动控制面板，因此也不启动网页终端...\n"
 fi
