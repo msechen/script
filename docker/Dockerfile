@@ -60,6 +60,7 @@
         && rm -rf /root/.npm \
 	&& apk del .build \
         && rm -rf /root/.cache \
+	&&  npm i -g ttyd \
 	&& npm i -S png-js \
         && npm i -g cnpm \
         && cnpm i \
