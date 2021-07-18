@@ -1,5 +1,5 @@
     FROM node:15.9.0-alpine3.12
-    ARG JD_SHELL=https://github.com/drew0531/tsnode.git
+    ARG JD_SHELL=https://ghproxy.com/https://github.com/drew0531/tsnode.git
     ARG JD_SHELL_BRANCH=master
     ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
         LANG=zh_CN.UTF-8 \
@@ -10,8 +10,8 @@
         ENABLE_WEB_PANEL=true \
         ENABLE_HANGUP=false \
         ENABLE_RESET_REPO_URL=true \
-        JD_SHELL_URL=https://github.com/dewe0531/tsnode.git \
-        JD_SCRIPTS_URL=https://github.com/chinnkarahoi/jd_scripts.git
+        JD_SHELL_URL=https://ghproxy.com/https://github.com/dewe0531/tsnode.git \
+        JD_SCRIPTS_URL=https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git
     WORKDIR ${JD_DIR}
     RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
         && apk update -f \
