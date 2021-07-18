@@ -286,7 +286,7 @@ function adlog() {
 function saveCow() {
     return new Promise(resolve => {
         
-        let body = `activityId=dz2103100001340201&actorUuid=${$.shareuuid}&shareUuid=${$.shareuuid}&cowNick=%E6%9F%A0%E6%AA%AC`
+        let body = `activityId=dz2103100001340201&actorUuid=${$.shareuuid}&shareUuid=${$.shareuuid}&cowNick=%E5%8B%87%E6%95%A2%E7%89%9B%E7%89%9B`
         let config = taskPostUrl('/dingzhi/yili/yangniu/saveCow', body)
         //   console.log(config)
         $.post(config, async (err, resp, data) => {
