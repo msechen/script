@@ -91,7 +91,7 @@ if [[ $ENABLE_WEB_PANEL == true ]]; then
     if [[ $ENABLE_TTYD == true ]]; then
         ## 增加环境变量
         export PS1="\u@\h:\w $ "
-       	## 复制ttyd
+		## 复制ttyd
         if [[ $is_termux -eq 1 ]] && type ! ttyd >/dev/null 2>&1; then
           npm update
           npm install ttyd
@@ -114,6 +114,9 @@ if [[ $ENABLE_WEB_PANEL == true ]]; then
         else
             echo -e "网页终端启动失败，但容器将继续启动...\n"
         fi
+    elif [[ $ENABLE_TTYD == false ]]; then
+        echo -e "已设置为不自动启动网页终端，跳过...\n"
+    fi
 else
     echo -e "已设置为不自动启动控制面板，因此也不启动网页终端...\n"
 fi
