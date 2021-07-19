@@ -60,8 +60,6 @@
 30 8,14 * * * node /scripts/jd_ylynj.js >> /scripts/logs/jd_ylynj.log 2>&1
 # 翻翻乐(7.15-8.15)
 20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
-# 京喜财富岛提现
-0 0 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1
 
 ##############长期活动##############
 # 签到
