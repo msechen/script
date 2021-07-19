@@ -1,6 +1,6 @@
-## Version: v4.2.3
-## Date: 2021-04-01
-## Update Content: 1.将config.sample.sh中AutoHelpOther预设为true；2.今后不再维护config.sample.sh中的互助码区域，如需要知道如何填写，直接运行jcode脚本后，全部复制过来粘贴在config.sh中第三区域或粘贴在config目录下sharecode.sh中即可，并按需修改，运行jtask命令时，sharecode.sh会覆盖jcode日志同名变量，不同名的不覆盖。
+## Version: v5.0.0
+## Date: 2021-7-20
+## Update Content: 1.新增主库设定功能；2.将config.sample.sh中AutoHelpOther预设为true；3.今后不再维护config.sample.sh中的互助码区域，如需要知道如何填写，直接运行jcode脚本后，全部复制过来粘贴在config.sh中第三区域或粘贴在config目录下sharecode.sh中即可，并按需修改，运行jtask命令时，sharecode.sh会覆盖jcode日志同名变量，不同名的不覆盖。
 
 ## ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 第一区域：jd_scripts特有变量填写区域（需要shell转换的） ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -33,6 +33,12 @@ export CK_AUTO_ADD="true"
 ## 其他变量详见：https://gitee.com/lxk0301/jd_docker/blob/master/githubAction.md
 ## 该链接中除JD_COOKIE、JD_BEAN_SIGN_STOP_NOTIFY、JD_BEAN_SIGN_NOTIFY_SIMPLE、UN_SUBSCRIBES这四个变量以及所有互助码类变量外，其他所有变量请在本区域自行补充
 
+################################## 主库设定（选填） ##################################
+## 值为空表示使用默认地址
+## 比如JD_SCRIPTS_URL="https://gitee.com/abc/jdtsa.git"库的地址
+## JD_SCRIPTS_BRANCH="master"库的分支，此项也需填写。
+JD_SCRIPTS_URL=""
+JD_SCRIPTS_BRANCH=""
 
 ## ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 第二区域：jd_scripts脚本特有变量填写区域（不需要shell转换的） ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
