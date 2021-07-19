@@ -233,14 +233,14 @@ class JDJRValidator {
     const pos = new MousePosFaker(puzzleX).run();
     const d = getCoordinate(pos);
 
-    // console.log(pos[pos.length-1][2] -Date.now());
+    // console.log(pos[pos.length-1][2] -getMoment().valueOf());
     // await sleep(4500);
-    await sleep(pos[pos.length - 1][2] - Date.now());
+    await sleep(pos[pos.length - 1][2] - getMoment().valueOf());
     const result = await JDJRValidator.jsonp('/slide/s.html', {d, ...this.data}, scene);
 
     if (result.message === 'success') {
       // console.log(result);
-      console.log('JDJR验证用时: %fs', (Date.now() - this.t) / 1000);
+      console.log('JDJR验证用时: %fs', (getMoment().valueOf() - this.t) / 1000);
       return result;
     } else {
       console.count('验证失败');
@@ -401,7 +401,7 @@ class MousePosFaker {
   constructor(puzzleX) {
     this.x = parseInt(Math.random() * 20 + 20, 10);
     this.y = parseInt(Math.random() * 80 + 80, 10);
-    this.t = Date.now();
+    this.t = getMoment().valueOf();
     this.pos = [[this.x, this.y, this.t]];
     this.minDuration = parseInt(1000 / HZ, 10);
     // this.puzzleX = puzzleX;
