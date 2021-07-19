@@ -1,13 +1,13 @@
 const Template = require('./template');
 
-const {sleep, writeFileJSON, singleRun, replaceObjectMethod, getValueByFn} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, replaceObjectMethod, getValueByFn, readFileJSON} = require('../../lib/common');
 const _ = require('lodash');
 const FakerSmashUtils = require('../../lib/FakerSmashUtils');
 
 class SmashUtilsTemplate extends Template {
   static scriptName = 'SmashUtilsTemplate';
   static shareCodeTaskList = [];
-  static maxTaskDoneTimes = this.firstTimeInTheDay() ? 2 : 1;
+  static maxTaskDoneTimes = this.firstTimeInTheDay() ? 3 : 1;
   static commonParamFn = () => ({});
   static needInAppComplete = true;
   static isWh5 = true;
@@ -22,6 +22,37 @@ class SmashUtilsTemplate extends Template {
     // smashInitData: {},
   };
   static needEncryptIds = [];
+  static needLocalEncryptBody = false;
+
+  // 活动火爆需要从本地获取ss来进行请求, 所以需要手动抓包
+  static getCharlesForms() {}
+
+  static getLocalDataJSONPath() {
+    return this.getFilePath('./localData.json');
+  }
+
+  static getEncryptBody() {
+    const self = this;
+    const needLoadData = () => {
+      const msg = '需要重新加载数据';
+      self.log(msg);
+      throw new Error(msg);
+    };
+    const ssMaxTimes = 3;
+    if (!self._charlesForms) {
+      self._charlesForms = self.getCharlesForms();
+    }
+    const forms = self._charlesForms;
+    if (_.isEmpty(forms)) needLoadData();
+    const allSS = _.flatten(forms.map(o => JSON.parse(o.body).ss).map(ss => new Array(ssMaxTimes).fill(ss)));
+    let {ssIndex = 0} = readFileJSON(self.getLocalDataJSONPath());
+    const ss = allSS[ssIndex];
+    if (!ss) {
+      needLoadData();
+    }
+    writeFileJSON({ssIndex: ++ssIndex}, self.getLocalDataJSONPath());
+    return {ss};
+  }
 
   static apiCustomOption() {};
 
@@ -58,14 +89,20 @@ class SmashUtilsTemplate extends Template {
   static async beforeRequest(api) {
     const self = this;
     const needEncryptIds = self.needEncryptIds;
-    if (!_.isEmpty(needEncryptIds)) {
+    if (!_.isEmpty(needEncryptIds) && !self.needLocalEncryptBody) {
       new FakerSmashUtils(api, self.indexUrl, {
         userAgent: self.appCompleteUserAgent,
         ...self.smashUtilData,
       }).patchApi(needEncryptIds);
     }
 
-    replaceObjectMethod(api, 'doFormBody', ([functionId, ...others]) => [self.patchFunctionId(functionId), ...others]);
+    replaceObjectMethod(api, 'doFormBody', ([functionId, body, signData, options]) => {
+      const id = self.patchFunctionId(functionId);
+      if (needEncryptIds.includes(functionId) && self.needLocalEncryptBody) {
+        body = _.assign(body || {}, self.getEncryptBody());
+      }
+      return [id, body, signData, options];
+    });
   }
 
   static apiNamesFn() {

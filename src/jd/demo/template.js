@@ -6,6 +6,7 @@ const _ = require('lodash');
 class DemoTemplate extends Template {
   static scriptName = 'DemoTemplate';
   static scriptNameDesc = 'DemoTemplate';
+  static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
 

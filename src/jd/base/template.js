@@ -4,6 +4,7 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 
 class Template extends Base {
   static scriptName = 'Template';
+  static dirname = __dirname;
   static times = 2;
   static shareCodeTaskList = [];
   // 更新助力码时使用, 一般用于区分Object
@@ -114,6 +115,11 @@ class Template extends Base {
       await self.doApi(api, 'afterGetTaskList');
       await self.doApi(api, 'doRedeem');
     }
+  }
+
+  // helpers
+  static getFilePath(fileName) {
+    return require('path').resolve(this.dirname || __dirname, fileName);
   }
 }
 

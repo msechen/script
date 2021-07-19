@@ -6,12 +6,10 @@ const _ = require('lodash');
 class Olympicgames extends Template {
   static scriptName = 'Olympicgames';
   static scriptNameDesc = '全民运动会';
+  static dirname = __dirname;
   static shareCodeTaskList = [];
-  // TODO 确认该逻辑是否需要
-  // static appCompleteUserAgent = `jdpingou;iPhone;10.0.6;${Math.ceil(Math.random() * 2 + 12)}.${Math.ceil(Math.random() * 4)};${randomString(40)};`;
-  static appCompleteUserAgent = '';
 
-  static skipTaskIds = [2/*邀请好友助力*/].concat(this.lastTimeInTheDay() ? [] : [14/*入会*/, 26/*入会*/]);
+  static skipTaskIds = [2/*邀请好友助力*/].concat([14/*入会*/, 26/*入会*/]);
   static indexUrl = 'https://wbbny.m.jd.com/babelDiy/Zeus/2rtpffK8wqNyPBH6wyUDuBKoAbCt/index.html';
   static functionIdPrefix = 'olympicgames';
   static smashUtilData = {
@@ -48,6 +46,7 @@ class Olympicgames extends Template {
     'startTraining', 'speedTraining', 'endTraining',
     'receiveCash',
   ];
+  static needLocalEncryptBody = true;
   static defaultShareCodes = [
     'HcmphO2hRwilf4WbHt03uVg1nRZRi20oGBqybmXMCSg4lrWabuVpzIFS7l7rtYHoZrfzteZe6mDa',
     'HcmphL_3Eln_e4bWW5hX1iio2B-1Z8J4lZ9HMLw3vGck5H9WdxKNaR8a6A',
@@ -55,6 +54,10 @@ class Olympicgames extends Template {
   static apiCustomOption = {
     signData: {appid: 'o2_act'},
   };
+
+  static getCharlesForms() {
+    return require('../../../charles/api').olympicgames.olympicgames_doTaskDetail;
+  }
 
   static apiNamesOption() {
     const self = this;
@@ -85,7 +88,7 @@ class Olympicgames extends Template {
 
           async function logFormat(info) {
             const {poolMoney, medalLevel, cash, poolCurrency, exchangeThreshold} = info;
-            if (poolCurrency >= exchangeThreshold) {
+            if (poolCurrency && poolCurrency >= exchangeThreshold) {
               const newInfo = await api.doFormBody('receiveCash', {type: 6}).then(data => _.get(data, 'data.result.userActBaseVO') || {});
               return logFormat(_.assign(info, newInfo, _.isEmpty(newInfo) ? {} : {medalLevel: medalLevel + 1}));
             }

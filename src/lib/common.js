@@ -25,8 +25,13 @@ const cleanLog = (fileName) => {
   fs.writeFileSync(getLogFile(fileName), '');
 };
 
+const _getAbsolutePath = (fileName, dirname) => dirname ? path.resolve(dirname, fileName) : fileName;
 // 将json写入文件中
-const writeFileJSON = (data, fileName, dirname) => require('fs').writeFileSync(require('path').resolve(dirname, fileName), JSON.stringify(data), {encoding: 'utf-8'});
+const writeFileJSON = (data, fileName, dirname) => fs.writeFileSync(_getAbsolutePath(fileName, dirname), JSON.stringify(data), {encoding: 'utf-8'});
+const readFileJSON = (fileName, dirname) => {
+  const absolutePath = _getAbsolutePath(fileName, dirname);
+  return fs.existsSync(absolutePath) ? JSON.parse(fs.readFileSync(absolutePath).toString()) : {};
+};
 
 async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySecond = 0}) {
   return Promise.all(list.map((item, index) => new Promise(async resolve => {
@@ -176,6 +181,7 @@ module.exports = {
   cleanLog,
 
   writeFileJSON,
+  readFileJSON,
 
   parallelRun,
 

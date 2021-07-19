@@ -5,21 +5,22 @@ const exec = require('child_process').execSync;
 const _ = require('lodash');
 
 function extractForm(sessions, keys) {
-  const reqBody = sessions
+  return sessions
   .map(o => _.property('request.body.text')(o) || '').filter(o => o)
-  .map(text => text.split('&')
-  .filter(str => keys.includes(str.split('=')[0])));
-  return reqBody.map(array => {
-    // ['key=value']
-    return _.fromPairs(array.map(str => str.split('=').map(decodeURIComponent)));
+  .map(text => {
+    let array = [];
+    for (const [key, value] of new URL(`http://test?${text}`).searchParams.entries()) {
+      keys.includes(key) && array.push([key, value]);
+    }
+    return _.fromPairs(array);
   });
-  ;
 }
 
 const gitIgnoreFiles = [
   'stall_collectScore',
   'liveActivityV946',
   'zoo_collectProduceScore',
+  'olympicgames_doTaskDetail',
 ];
 
 const CHLSJ_PATH = path.resolve(__dirname, './chlsj');
@@ -80,13 +81,19 @@ const necklace = {
   ccSignInNew: [],
   getCcFeedInfo: [],
 };
+const olympicgames = {
+  functionIds: ['olympicgames_doTaskDetail'],
+  olympicgames_doTaskDetail: [],
+};
 const formatForm = (key, object) => {
   const jsonPath = `${JD_FORM_PATH}/${key}.json`;
   const originDir = `${JD_CHLSJ_PATH}/${key}`;
   let result = [];
   let originResult = [];
+  // 不提交的话就以本地的数据源为准
+  const isGitIgnore = gitIgnoreFiles.some(functionId => jsonPath.match(functionId));
   try {
-    result = JSON.parse(fs.readFileSync(jsonPath));
+    !isGitIgnore && (result = JSON.parse(fs.readFileSync(jsonPath)));
   } catch (e) {
     // ignore
   }
@@ -112,7 +119,7 @@ const formatForm = (key, object) => {
   object[key] = result;
 
   fs.writeFileSync(jsonPath, JSON.stringify(result), {encoding: 'utf-8'});
-  if (gitIgnoreFiles.some(functionId => jsonPath.match(functionId))) return;
+  if (isGitIgnore) return;
   // 新增的json文件需要进行提交
   exec(`git add ${jsonPath}`);
 };
@@ -129,6 +136,7 @@ function init() {
     smallBean,
     common,
     necklace,
+    olympicgames,
   ].forEach(o => {
     o.functionIds.forEach(key => {
       formatForm(key, o);
@@ -149,4 +157,5 @@ module.exports = {
   smallBean,
   common,
   necklace,
+  olympicgames,
 };
