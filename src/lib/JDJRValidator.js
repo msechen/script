@@ -218,9 +218,9 @@ class JDJRValidator {
     this.validateTimes = 0;
   }
 
-  async run(scene = 'cww') {
+  async run(scene = 'cww', eid = '') {
     const tryRecognize = async () => {
-      const x = await this.recognize(scene);
+      const x = await this.recognize(scene, eid);
 
       if (x > 0) {
         return x;
@@ -252,8 +252,8 @@ class JDJRValidator {
     }
   }
 
-  async recognize(scene) {
-    const data = await JDJRValidator.jsonp('/slide/g.html', {e: ''}, scene);
+  async recognize(scene, eid) {
+    const data = await JDJRValidator.jsonp('/slide/g.html', {e: eid}, scene);
     const {bg, patch, y} = data;
     // const uri = 'data:image/png;base64,';
     // const re = new PuzzleRecognizer(uri+bg, uri+patch, y);
@@ -264,7 +264,7 @@ class JDJRValidator {
       this.data = {
         c: data.challenge,
         w: re.w,
-        e: '',
+        e: eid,
         s: '',
         o: '',
       };

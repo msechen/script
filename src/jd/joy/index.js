@@ -179,7 +179,6 @@ class Joy extends Template {
                 delete newO.taskType;
                 if (!_.isEmpty(newO)) {
                   await handleIconClick(_.snakeCase(taskType), _.values(newO)[0]);
-                  await sleep(2);
                 }
                 const notScan = ['FollowShop', 'FollowGood'].includes(taskType);
                 const functionId = notScan ? _.camelCase(taskType) : 'scan';
