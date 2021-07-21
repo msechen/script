@@ -26,6 +26,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/cdle/jd_study.git"
-          source_branch: "master"
+          source_branch: "main"
           destination_branch: "cdle"
           github_token: ${{ secrets.PAT }}
