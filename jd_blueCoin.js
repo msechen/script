@@ -54,8 +54,14 @@ const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
       if ($.isNode()) {
         if (process.env.MARKET_COIN_TO_BEANS) {
           coinToBeans = process.env.MARKET_COIN_TO_BEANS;
+          if(Number (coinToBeans) === 20 || Number (coinToBeans) === 1000 ){
+            $.typeID = 4
+          } else{ 
+            $.typeID = 0
+          }
         }
       }
+
       try {
         if (`${coinToBeans}` !== '0') {
           await smtgHome();//查询蓝币数量，是否满足兑换的条件
@@ -83,6 +89,7 @@ async function PrizeIndex() {
   //   smtg_materialPrizeIndex()
   // ])
   // const prizeList = [...$.queryPrizeData, ...$.materialPrizeIndex];
+  
   const prizeList = [...$.queryPrizeData];
   if (prizeList && prizeList.length) {
     if (`${coinToBeans}` === '1000') {
@@ -105,7 +112,7 @@ async function PrizeIndex() {
       }
       //兑换1000京豆
       if ($.totalBlue > $.blueCost) {
-        await smtg_obtainPrize(prizeList[0].prizeId);
+        await smtg_obtainPrize(prizeList[1].prizeId);
       } else {
         console.log(`兑换失败,您目前蓝币${$.totalBlue}个,不足以兑换${$.title}所需的${$.blueCost}个`);
         $.beanerr = `兑换失败,您目前蓝币${$.totalBlue}个,不足以兑换${$.title}所需的${$.blueCost}个`;
@@ -180,6 +187,7 @@ async function PrizeIndex() {
   }
 }
 
+
 //查询白酒类奖品列表API
 function smtg_materialPrizeIndex(timeout = 0) {
   $.materialPrizeIndex = [];
@@ -247,7 +255,7 @@ function smtg_queryPrize(timeout = 0){
             }
             if (data.data.bizCode === 0) {
               const { areas } = data.data.result;
-              const prizes = areas.filter(vo => vo['type'] === 4);
+              const prizes = areas.filter(vo => vo['type'] === $.typeID );
               if (prizes && prizes[0]) {
                 $.areaId = prizes[0].areaId;
                 $.periodId = prizes[0].periodId;
