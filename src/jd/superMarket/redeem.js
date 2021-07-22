@@ -30,7 +30,7 @@ class SuperMarketRedeem extends SuperMarket {
     await handleExchange(40, 'Bean', 2, false);
 
     async function handleExchange(loopTimes = 0, type, delaySeconds = 0, enableUpdatePrize = true) {
-      beanPrize[type]['finishNum'] = 0;
+      beanPrize[type]['finished'] = 0;
       await exchange(loopTimes);
 
       async function exchange(times) {
@@ -40,10 +40,11 @@ class SuperMarketRedeem extends SuperMarket {
         if (oldBean.prizeId !== bean.prizeId) {
           enableUpdatePrize = false;
         } else {
-          bean['finishNum'] = oldBean['finishNum'];
+          // 可能是旧数据, 需要重置
+          bean['finished'] = oldBean['finished'];
         }
-        const {finishNum, targetNum, blueCost} = bean;
-        if (times <= 0 || finishNum >= targetNum || blueCost > totalBlue) return;
+        const {finished, limit, blueCost, status/*status=2是没有库存,但是暂时忽略*/} = bean;
+        if (times <= 0 || finished >= limit || blueCost > totalBlue) return;
         await sleep(0.1);
         obtainPrize(bean);
         delaySeconds && await sleep(delaySeconds);
@@ -52,38 +53,52 @@ class SuperMarketRedeem extends SuperMarket {
     }
 
     async function updateBeanPrizes(loop = true) {
-      const prizeList = await getPrizes() || [];
-      if (_.isEmpty(prizeList) && loop) {
+      const areaList = await getPrizes() || [];
+      if (_.isEmpty(areaList) && loop) {
         await sleep(0.1);
         return updateBeanPrizes(false);
       }
-      for (const prize of prizeList) {
-        const {beanType, inStock, type} = prize;
-        if (!beanType/* || type === 3*/) continue;
-        // if (inStock === 0) continue;
-        beanPrize[beanType] = prize || {
-          finishNum: 0,
-          targetNum: 0,
-        };
+      for (const {title, areaId, periodId, prizes} of areaList) {
+        if (!title.match('京豆专区')/* || type === 3*/) continue;
+        prizes.forEach(o => {
+          const {amount} = o;
+          beanPrize[amount === 1000 ? 'BeanPackage' : 'Bean'] = _.assign(o, {areaId, periodId});
+        });
       }
     }
 
     function getPrizes() {
-      return api.doFormBody('smtg_queryPrize', void 0, void 0, {needDelay: false}).then(data => _.property('data.result.prizeList')(data));
+      return api.doFormBody('smt_queryPrizeAreas', void 0, void 0, {needDelay: false}).then(data => _.property('data.result.areas')(data));
     }
 
     async function obtainPrize(prize) {
-      const {prizeId, beanType, title, encryptActId} = prize;
+      const {prizeId, areaId, periodId, beanType, title, encryptActId} = prize;
       // TODO 有 encryptActId 不会有影响, 待确认
       if (!prizeId/* || encryptActId*/) return;
-      return api.doFormBody('smtg_obtainPrize', {prizeId}, {needDelay: false}).then(async data => {
+      const body = {
+        'connectId': prizeId,
+        areaId, periodId,
+        'informationParam': {
+          'eid': '',
+          'referUrl': -1,
+          'shshshfp': '',
+          'openId': -1,
+          'isRvc': 0,
+          'fp': -1,
+          'shshshfpa': '',
+          'shshshfpb': '',
+          'userAgent': -1,
+        },
+        'channel': '18',
+      };
+      return api.doFormBody('smt_exchangePrize', body, {needDelay: false}).then(async data => {
         if (!self.isSuccess(data)) {
           api.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
           const bizCode = data.data.bizCode;
           if (bizCode === 400) await updateBeanPrizes();
           return bizCode;
         }
-        beanPrize[beanType].finishNum++;
+        beanPrize[beanType].finished++;
         api.log(`${title}兑换成功一次`);
       });
     }
