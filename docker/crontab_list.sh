@@ -31,15 +31,13 @@
 #东东电竞经理
 47 10 * * * node /scripts/jd_djjl.js >> /scripts/logs/jd_djjl.log 2>&1
 #食力街跑酷达人
-10 11 * * * node /scripts/jd_paoku.js >> /scripts/logs/jd_paoku.log 2>&1
+10 11 * * * node /scripts/jd_msj.js >> /scripts/logs/jd_msj.log 2>&1
 #天天优惠大乐透
 25 6 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
 #国创
 25 8 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
 #pk
 33 10 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
-#全民抢京豆
-1,10,20 0 * * * node /scripts/jd_qjd.js >> /scripts/logs/jd_qjd.log 2>&1
 #QQ星
 20 6,12,18 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
 #众筹许愿池
@@ -66,6 +64,8 @@
 1 0,11,21 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
 # 摇钱树助力
 0-59/30 * * * * node /scripts/jd_moneyTree_help.js >> /scripts/logs/jd_moneyTree_help.log 2>&1
+# MMdou
+21 9 * * * node /scripts/jd_MMdou.js >> /scripts/logs/jd_MMdou.log 2>&1
 
 ##############长期活动##############
 # 签到
