@@ -52,7 +52,7 @@ class Api {
     // 请求优先展示 functionId, 以便定位和排查问题
     const priorityProperty = 'functionId';
     ['qs', 'form'].forEach(key => {
-      if (priorityProperty in options[key]) {
+      if (priorityProperty in (options[key] || {})) {
         options[key] = _.assign({[priorityProperty]: options[key][priorityProperty]}, options[key]);
       }
     });

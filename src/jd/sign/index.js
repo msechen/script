@@ -228,7 +228,6 @@ class Sign extends Template {
         },
         isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
       },
-      signInAtTheVoucherCenter,
       {
         name: '京东汽车领券签到',
         url: 'https://cgame-stadium.jd.com/api/v1/sign',
@@ -243,6 +242,12 @@ class Sign extends Template {
       },
       jinTieSign,
       jinTieDraw,
+      {
+        name: '签到早起福利',
+        url: 'https://api.m.jd.com/client.action?functionId=morningGetBean&body=%7B%22fp%22%3A%22-1%22%2C%22shshshfp%22%3A%22-1%22%2C%22shshshfpa%22%3A%22-1%22%2C%22referUrl%22%3A%22-1%22%2C%22userAgent%22%3A%22-1%22%2C%22jda%22%3A%22-1%22%2C%22rnVersion%22%3A%223.9%22%7D&appid=ld&client=apple&clientVersion=10.0.6&networkType=wifi&osVersion=14.6&uuid=c6993893af46e44aa14818543914768cf2509fbf&openudid=c6993893af46e44aa14818543914768cf2509fbf',
+        isSuccessFn: data => data.code === '0',
+        rewardOutputFn: data => _.get(data, 'data.bizMsg'),
+      },
     ];
 
     const cashSign = [
