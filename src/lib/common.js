@@ -12,7 +12,7 @@ const _sleep = require('util').promisify(setTimeout);
 const sleep = (seconds = 1) => _sleep(seconds * 1000);
 
 const logPath = path.resolve(__dirname, '../../logs');
-const getLogFile = fileName => `${logPath}/${fileName}.log.${getNowDate()}`;
+const getLogFile = (fileName, date = getNowDate()) => `${logPath}/${fileName}.log.${date}`;
 const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
   const logFile = fs.createWriteStream(getLogFile(fileName), {flags: 'a'});
   const _log = chunk => {

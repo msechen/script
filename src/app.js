@@ -1,14 +1,16 @@
-const fs = require('fs');
-const path = require('path');
 const _ = require('lodash');
-
-const {getLogFile, sleep, parallelRun} = require('./lib/common');
-const {getNowDate, getNowHour, getMoment} = require('./lib/moment');
-const {sleepTime} = require('./lib/cron');
+const {getNowDate, getNowHour} = require('./lib/moment');
 const {getCookieData} = require('./lib/env');
-const serverChan = require('./lib/serverChan');
-const mailer = require('./lib/mailer');
-const TemporarilyOffline = {start: _.noop, cron: _.noop, getName: () => 'TemporarilyOffline'};
+const {
+  multipleRun,
+  serialRun,
+  doRun,
+  doRun1,
+  doCron,
+  doCron1,
+  TemporarilyOffline,
+  sendNotify,
+} = require('./api');
 
 const Common = require('./jd/base/common');
 
@@ -77,66 +79,13 @@ const LiteCashSign = require('./jd/lite/CashSign');
 /* 本地执行 */
 const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');
 
-const nowHour = getNowHour();
 const nowDate = getNowDate();
-const errorOutput = [];
-let yesterdayAppPath;
-let yesterdayLog = '';
+const nowHour = getNowHour();
 
-async function multipleRun(targets, onceDelaySecond = 1) {
-  return parallelRun({
-    list: targets,
-    runFn: doRun,
-    onceDelaySecond,
-  });
-}
-
-async function serialRun(targets, runFn = doRun) {
-  for (const target of targets) {
-    let stop = false;
-    runFn(..._.concat(target)).then(() => {
-      stop = true;
-    });
-    await polling(5 * 60, () => stop);
-  }
-
-  async function polling(seconds, stopFn) {
-    if (seconds <= 0) return;
-    const onceSeconds = 30;
-    const stop = stopFn();
-    if (stop) return;
-    const secondArray = [seconds, onceSeconds];
-    await sleep(_.min(secondArray));
-    return polling(_.subtract(...secondArray), stopFn);
-  }
-}
-
-async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
-  const timeLabel = `[${getMoment().format('YYYY-MM-DD HH:mm:ss.SSS')}] [${target.getName()}] do ${method}`;
-  console.time(timeLabel);
-  let result;
-  try {
-    result = await target[method](cookieData);
-  } catch (e) {
-    errorOutput.push(e);
-    console.log(e);
-  }
-  console.timeEnd(timeLabel);
-  return result;
-}
-
-async function doCron(target, cookieData = getCookieData()) {
-  return doRun(target, cookieData, 'cron');
-}
-
-// 本地测试
-async function doRun1(target, index = 0, needScriptName = false) {
-  await doRun(target, getCookieData(needScriptName ? target.scriptName : void 0)[index]);
-}
-
-async function doCron1(target, index = 0) {
-  await doCron(target, getCookieData()[index]);
-}
+main().then(sendNotify.bind(0, {
+  sendYesterdayLog: nowHour === 23,
+  subjects: [void 0, nowDate, nowHour],
+}));
 
 async function main() {
   if (process.env.NOT_RUN) {
@@ -297,7 +246,6 @@ async function main() {
         ]);
         await doCron(PlantBean);
         // await doRun(CrazyJoy);
-        yesterdayAppPath = getLogFile('app');
 
         // 24点后定时启动
         await multipleRun([
@@ -322,10 +270,6 @@ async function main() {
     }
   }
 
-  if (yesterdayAppPath) {
-    yesterdayLog = fs.readFileSync(yesterdayAppPath);
-  }
-
   // 定时循环
   async function cronLoop() {
     await doCron(jdFactory, getCookieData()[0]);
@@ -345,30 +289,3 @@ async function main() {
     }
   }
 }
-
-main().then(function () {
-  const resultPath = path.resolve(__dirname, '../dist/result.txt');
-  if (!fs.existsSync(resultPath)) return;
-  return fs.readFileSync(resultPath);
-}).then((resultContent = '') => {
-  const logFile = getLogFile('app');
-  let content = yesterdayLog;
-  if (fs.existsSync(logFile)) {
-    content += fs.readFileSync(logFile);
-  }
-  content += resultContent;
-  if (!_.isEmpty(errorOutput)) {
-    mailer.send({
-      subject: ['lazy_script_error', nowDate, nowHour].join('_'),
-      text: errorOutput.join('\n'),
-    });
-  }
-  if (!content) return;
-  const title = ['lazy_script', nowDate, nowHour].join('_');
-  mailer.send({
-    subject: title, text: content,
-  });
-  serverChan.send(title, content).then(() => {
-    console.log('发送成功');
-  });
-});
