@@ -20,24 +20,24 @@ class Fruit extends Template {
         referer: indexUrl,
       },
     },
+    formatDataFn(data) {
+      const amountLog = data => {
+        _.pick(data, ['amount', 'addEnergy', 'addWater']);
+        const amount = _.first(_.values(_.pick(data, ['amount', 'addEnergy', 'addWater'])));
+        amount && this.log(`获取的水滴数: ${amount}`);
+      };
+      amountLog(data);
+      return data;
+    },
   };
 
   static isSuccess(data) {
     return _.property('code')(data) === '0';
   }
 
-  static amountLog(data) {
-    this.isSuccess(data) && this.log(`获取的水滴数: ${data.amount || data.addEnergy || data.addWater}`);
-  }
-
   static async doMain(api, shareCodes) {
     const self = this;
     const needHarvest = false;
-    const amountLog = data => {
-      _.pick(data, ['amount', 'addEnergy', 'addWater']);
-      const amount = _.first(_.values(_.pick(data, ['amount', 'addEnergy', 'addWater'])));
-      amount && api.log(`获取的水滴数: ${amount}`);
-    };
 
     // 指定浇水次数
     const waterTimes = +(process.env.JD_FRUIT_WATER_TIMES || 0);
@@ -56,7 +56,7 @@ class Fruit extends Template {
 
     // 新手任务获取水滴
     if (canGotNewUserToday) {
-      await api.doFormBody('gotNewUserTaskForFarm').then(amountLog);
+      await api.doFormBody('gotNewUserTaskForFarm');
     }
 
     patchShareCodeWithDefault();
@@ -99,7 +99,7 @@ class Fruit extends Template {
     async function handleGetShareFinished() {
       const {masterGotFinal, masterHelpPeoples} = await api.doFormBody('masterHelpTaskInitForFarm');
       if (!masterGotFinal && (masterHelpPeoples.length === 5)) {
-        await api.doFormBody('masterGotFinishedTaskForFarm').then(amountLog);
+        await api.doFormBody('masterGotFinishedTaskForFarm');
       }
     }
 
@@ -145,7 +145,7 @@ class Fruit extends Template {
           waterRainInit: {winTimes, config: {maxLimit}},
         } = taskData;
         if (winTimes < maxLimit) {
-          await api.doFormBody('waterRainForFarm', {type: 1, hongBaoTimes: 100}).then(amountLog);
+          await api.doFormBody('waterRainForFarm', {type: 1, hongBaoTimes: 100});
         }
       }
 
@@ -162,7 +162,7 @@ class Fruit extends Template {
         // TODO 给朋友列表浇水
 
         if (waterFriendCountKey >= waterFriendMax) {
-          await api.doFormBody('waterFriendGotAwardForFarm').then(amountLog);
+          await api.doFormBody('waterFriendGotAwardForFarm');
         }
 
         async function handleWaterFriend(shareCode) {
@@ -178,7 +178,7 @@ class Fruit extends Template {
       // 三餐签到
       async function handleGotThreeMeal(taskData) {
         const {gotThreeMealInit: {f: threeMealFinished}} = taskData;
-        !threeMealFinished && await api.doFormBody('gotThreeMealForFarm').then(amountLog);
+        !threeMealFinished && await api.doFormBody('gotThreeMealForFarm');
       }
     }
 
@@ -188,10 +188,10 @@ class Fruit extends Template {
         if (!self.isSuccess(data)) return;
 
         const {todaySigned, totalSigned, gotClockInGift, themes} = data;
-        !todaySigned && await api.doFormBody('clockInForFarm', {type: 1}).then(amountLog);
+        !todaySigned && await api.doFormBody('clockInForFarm', {type: 1});
         // 总签到获取水滴
         if (totalSigned === 7 && !gotClockInGift) {
-          await api.doFormBody('clockInForFarm', {type: 2}).then(amountLog);
+          await api.doFormBody('clockInForFarm', {type: 2});
         }
 
         // 限时关注得水滴
@@ -199,7 +199,7 @@ class Fruit extends Template {
           if (hadGot) continue;
           await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 1});
           await sleep(2);
-          await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 2}).then(amountLog);
+          await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 2});
         }
       });
     }
@@ -252,7 +252,7 @@ class Fruit extends Template {
       const farmData = await api.doFormBody('initForFarm', {shareCode});
       if (_.get(farmData, 'todayGotWaterGoalTask.canPop')) {
         // 被水滴砸中
-        await api.doFormBody('gotWaterGoalTaskForFarm', {type: 3}).then(amountLog);
+        await api.doFormBody('gotWaterGoalTaskForFarm', {type: 3});
       }
       return farmData;
     }

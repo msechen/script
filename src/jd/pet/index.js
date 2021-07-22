@@ -16,24 +16,24 @@ class Pet extends Template {
         body: {version: 1},
       },
     },
+    formatDataFn(data) {
+      const rewardLog = data => {
+        const reward = _.first(_.values(_.pick(data.result, ['threeMealReward', 'reward'])));
+        reward && this.log(`获取到狗粮: ${reward}`);
+      };
+      rewardLog(data);
+      return data;
+    }
   };
 
   static isSuccess(data) {
     return _.property('resultCode')(data) === '0';
   }
 
-  static logReward(data) {
-    this.isSuccess(data) && this.log(`获取到狗粮: ${data.result.threeMealReward || data.result.reward}`);
-  }
-
   static async doMain(api, shareCodes) {
     const self = this;
     const needHarvest = false;
     const getResult = data => data.result || {};
-    const rewardLog = data => {
-      const reward = _.first(_.values(_.pick(data.result, ['threeMealReward', 'reward'])));
-      reward && api.log(`获取到狗粮: ${reward}`);
-    };
 
     // 喂食到成熟
     if (needHarvest) return logInfo(true);
@@ -92,20 +92,28 @@ class Pet extends Template {
       const {
         signInit,
         threeMealInit,
+        firstFeedInit,
         feedReachInit,
         taskList,
       } = taskData;
-
       const notFinished = o => o ? !o['finished'] : true;
+      const needGetReward = o => o.status === 1;
+
       if (notFinished(signInit)) {
-        await api.doFormBody('getSignReward').then(rewardLog);
+        await api.doFormBody('getSignReward');
       }
       if (notFinished(threeMealInit) && (threeMealInit['timeRange'] !== -1)) {
-        await api.doFormBody('getThreeMealReward').then(rewardLog);
+        await api.doFormBody('getThreeMealReward');
       }
       if (notFinished(feedReachInit)) {
         const {feedReachAmount, hadFeedAmount} = feedReachInit;
         await handleFeed((feedReachAmount - hadFeedAmount) / 10);
+      }
+      if (needGetReward(firstFeedInit)) {
+        await api.doFormBody('getFirstFeedReward');
+      }
+      if (needGetReward(feedReachInit)) {
+        await api.doFormBody('getFeedReachReward');
       }
 
       await handleDoBrowserTask();
@@ -119,7 +127,7 @@ class Pet extends Template {
           if (!success) continue;
           await sleep(browseTime || 8);
           body.type = 2;
-          await api.doFormBody('getSingleShopReward', body).then(rewardLog);
+          await api.doFormBody('getSingleShopReward', body);
         }
       }
     }
@@ -169,7 +177,7 @@ class Pet extends Template {
       } = await api.doFormBody('masterHelpInit').then(getResult);
       if (!masterHelpPeoples) return;
       if ((masterHelpPeoples.length === helpLimit) && !addedBonusFlag) {
-        return api.doFormBody('getHelpAddedBonus').then(rewardLog);
+        return api.doFormBody('getHelpAddedBonus');
       }
     }
 
