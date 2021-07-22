@@ -171,11 +171,13 @@ class Base {
   static async doApi(api, name, data, returnData) {
     const target = api[name];
     if (!target) return Promise.resolve();
-    const {paramFn = _.noop, successFn = _.noop, errorFn = _.noop, repeat = false} = this.apiNames[name];
+    const {paramFn = _.noop, successFn = _.noop, errorFn, repeat = false} = this.apiNames[name];
 
-    const _do = () => target(...[].concat(paramFn(data, returnData))).then(async (data) => {
-      return successFn(data, api);
-    });
+    const _do = () => {
+      let next = target(...[].concat(paramFn(data, returnData))).then(async (data) => successFn(data, api));
+      if (errorFn) next = next.catch(errorFn);
+      return next;
+    };
 
     const repeatFn = () => _do().then(needRepeat => {
       // 显示返回 false 才会停止
@@ -187,7 +189,7 @@ class Base {
       return repeatFn();
     }
 
-    return _do().catch(errorFn);
+    return _do();
   }
 
   static initApi(cookie) {
