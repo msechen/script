@@ -172,6 +172,7 @@ async function main() {
           Necklace,
           SecondKillRedPacket,
           VipClubShake,
+          SuperMarket,
 
           // 极速版
           LiteSign, SpringReward, LiteCashSign, EarnCoins,
@@ -210,7 +211,6 @@ async function main() {
         await serialRun([
           Fruit, Pet,
           Olympicgames,
-          SuperMarket,
           EarnCoins,
           Family,
         ]);
@@ -266,13 +266,11 @@ async function main() {
     {
       valid: 19,
       run: async () => {
-        await doRun(EarnCoins);
       },
     },
     {
       valid: 20,
       run: async () => {
-        await doRun(SuperMarket);
       },
     },
     {
@@ -283,6 +281,8 @@ async function main() {
           Fruit, Pet,
           Necklace,
           Olympicgames,
+          EarnCoins,
+          SuperMarket,
         ]);
       },
     },

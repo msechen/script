@@ -5,8 +5,9 @@ const {getNowHour} = require('../../lib/moment');
 
 class SuperMarket extends Template {
   static scriptName = 'SuperMarket';
+  static scriptNameDesc = '东东超市';
   static shareCodeTaskList = [];
-  static repeatDoTask = getNowHour() !== 20;
+  static maxTaskDoneTimes = this.firstTimeInTheDay() ? 1 : Infinity;
 
   static apiOptions = {
     options: {
