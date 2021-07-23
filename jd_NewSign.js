@@ -8,8 +8,8 @@ npm i png-js 或者 npm i png-js -S
 修改域名 https://jdjoy.jd.com 可以改成ip https://49.7.27.236
 */
 
-const validator = require('./utils/JDJRValidator_Pure.js');
-const Faker=require('./utils/sign_graphics_validate.js') 
+const validator = require('./JDJRValidator_Pure.js');
+const Faker=require('./sign_graphics_validate.js') 
 
 const $ = new Env('京东签到图形验证');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -259,6 +259,18 @@ function tasPostkUrl(turnTableId) {
       "Origin": "https://prodev.m.jd.com",
       "Referer": "https://prodev.m.jd.com/",
       "User-Agent": $.UA,
+    }
+  }
+}
+
+function jsonParse(str) {
+  if (typeof str == "string") {
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      console.log(e);
+      $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
+      return [];
     }
   }
 }
