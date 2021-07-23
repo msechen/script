@@ -82,12 +82,16 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 知乎文章排名
-    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+    # 知乎佣金
+    scheduler.add_job(get_zhihu_earnings, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='40', second='30')
 
-    # jd 订单轮训
-    scheduler.add_job(get_order, 'cron', year='*', month='*', day='*', day_of_week='*',
+    # 知乎文章排名
+    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='45', second='30')
+
+    # JD订单轮训
+    scheduler.add_job(get_jd_order, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='0/5', second='30')
 
     # 蓝猫日志告警
@@ -98,14 +102,14 @@ def init_scheduler(bot_var):
 
 
 # 查询京东订单
-def get_order():
+def get_jd_order():
     appkey1 = '1a449d84b554735f7fe3a9037099bddc' # 大号
     appsecret1 = '7f69d2fcca5c443386017f9a97d14c83'
     appkey2 = '2d2ea015479ddc93f30a2c7366ba4c84' # 小号
     appsecret2 = 'ae911e53de6c4853a5c89a815347c90f'
     appkey3 = '1ab5eda3a89081fdcc445fc05bc963fe' # 熙雅
     appsecret3 = 'f94167788ce842a9b2bbbee5d1b569e9'
-    appkey4 = '3181401a489ee5fdaff002a00a8f8b33'  # KD
+    appkey4 = '3181401a489ee5fdaff002a00a8f8b33'  # KD工作室
     appsecret4 = 'f52bf0f5e2d74386b167d5a56c816bcf'
 
     try:
@@ -129,14 +133,22 @@ def get_order():
         pass
 
 
-# 查询文章排名
-def get_article_rank():
-    result1 = sync_data.query_article_rank(11)
+# 查询知乎佣金
+def get_zhihu_earnings():
+    result = sync_data.query_zhihu_earnings()
 
     try:
-        user_kolly.send(result1)
-        # result2 = sync_data.query_article_rank(16)
-        # user_xy.send(result2)
+        user_kolly.send(result)
+    except Exception:
+        pass
+
+
+# 查询文章排名
+def get_article_rank():
+    result = sync_data.query_article_rank(11)
+
+    try:
+        user_kolly.send(result)
     except Exception:
         pass
 

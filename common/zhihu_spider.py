@@ -141,34 +141,29 @@ def get_rank_and_like(qid, aid):
         offset += 20
 
 
-def get_article_rank(keyword, x_zse_86, cookie, article_id):
-    rank = 0
-    data, error_info = get_search_result(keyword, x_zse_86, cookie)
-    if error_info is not None:
-        return None
+# 调知乎 api 查询账户今日佣金
+def get_zhihu_earnings(start, end, cookie):
+    # 知乎 API
+    url = "https://www.zhihu.com/api/v4/mcn/order_stats?begin_date={}&end_date={}".format(start, end)
+    header = {
+        "cookie": cookie,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
 
-    for item in data["data"]:
-        types = item["type"]
-        if types == 'search_result':
-            rank += 1
-            typess = item["object"]["type"]
-            if typess == 'article':
-                id = item["object"]["id"]
-                if id == article_id:
-                    return rank
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException:
+        return "接口异常"
 
-    return 100
+    json = res.json()
+
+    return json['order_count'], json['estimate_income']
 
 
 if __name__ == "__main__":
-    # print(get_question(1))
-    print(get_question(37963557))
-    # print(get_rank_and_like('287500965', '1332349585'))
-    # print(get_view_and_answer_num('287500965'))
-    # get_question_answer_goods(35327890)
+    # print(get_question(37963557))
 
-    # keyword1 = "%E4%B9%B3%E8%83%B6%E6%9E%95"
-    # x_zse_861 = "1.0_aR2067HBoLSYoXt0GXNqgvXqc0YxNGYBY_20Hvu0r_2Y"
-    # cookie1 = '_zap=121eea9f-f9cf-4d6f-be34-79b95d7059f3; _xsrf=2NWRQicC4Ngc48wc8H3yabdVLMyxlkwb; d_c0="AIBYdVAmjRGPTp9mB2sXH7vMLI7zgfOayCI=|1594310169"; _ga=GA1.2.1594579692.1594310171; z_c0="2|1:0|10:1594310216|4:z_c0|92:Mi4xYm82WkhBQUFBQUFBZ0ZoMVVDYU5FU1lBQUFCZ0FsVk5TSXowWHdDYlphZE8yMV9MV1FPVG1xY3czWDRkbUVUMmZB|fc47693b636b1005f8d1051d3eff7be88dd647d6905ff57464f0a465141d9850"; q_c1=dd666fefcdf140e491395de13794d205|1594310268000|1594310268000; __utma=51854390.1594579692.1594310171.1594310270.1594310270.1; __utmz=51854390.1594310270.1.1.utmcsr=zhihu.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmv=51854390.100--|2=registration_date=20200709=1^3=entry_date=20200709=1; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=1600822242; Hm_lpvt_98beee57fd2ef70ccdd5ca52b9740c49=1600822242; tst=r; _gid=GA1.2.1138163163.1600822243; _gat_gtag_UA_149949619_1=1; SESSIONID=uk3m7cnoDARiUpItHvs5Ykm1WRlplMf3Bg3vKNVqodc; JOID=UFETCkkxPIcAImS_czoXX0p3STlmT1i7ZhUM3hN1dtpmfBT9CNGn6VQpYL93QuMReo3hFa285EMhh7ydbJV5Nqw=; osd=VVEVC000PIEBJmG_dTsTWkpxSD1jT166YhAM2BJxc9pgfRD4CNem7VEpZr5zR-MXe4nkFau94EYhgb2ZaZV_N6g=; KLBRSID=af132c66e9ed2b57686ff5c489976b91|1600822254|1600822239'
-    #
-    # print(get_article_rank(keyword1, x_zse_861, cookie1, "165960666"))
+    cookie = '_zap=e57707b8-7a03-4462-a346-bd5da5d02539; d_c0="APCh2_BT2Q-PTigVkv897aqeNSJEQvYc18w=|1565062665"; _xsrf=SrmxfUWg8IEOJrRXM1DcwQQD0iXNzsnN; _ga=GA1.2.1478516503.1565065195; __snaker__id=nk5RnIvDHfQhp4OA; _9755xjdesxxd_=32; __utmz=51854390.1613287518.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); tshl=; __utmc=51854390; __utmv=51854390.100-1|2=registration_date=20150224=1^3=entry_date=20150224=1; oauth_from="/settings/account"; ff_supports_webp=1; q_c1=cf37d6a5119f4336bae212034c8ffa6c|1625147574000|1565065193000; __utma=51854390.1478516503.1565065195.1621049374.1625647467.4; captcha_session_v2="2|1:0|10:1625880570|18:captcha_session_v2|88:aGR5NDFqMEg2TDdIWjZhaXFkd3ZtTkt6KzdSWkREQWN0N2NRQjlGQm9XcmZudWtTMTNxR3V4Tjg0NE1LMU0zcA==|6a630b9a403a645aa1df2ed120893f60f2bd938ba9c9b17c143692db8ada91bc"; gdxidpyhxdE=A4i35N4JADR7P1udbtX7HoovaLIm1%2BDe5tin5%2BZPnd4a5Vp%2BvcKep0ytUc%5CeetneS8NL9aRVgdMpvrlbBe5AvoqKWhCbXHkBX%5CbPpMJWyORspNAqWAlEBSA%5CMJrUBZfGjKIo%5C9EH%2BfVigwqqUet8rnrIxrE0c7m83WR3naEksPD4qkkY%3A1625881471836; YD00517437729195%3AWM_NI=37%2FibvT6PNxetv7eztvFu5WdUTwUIjETZM5ooTRdPk2KpJHjCMH7OG%2FkgvuBVP07yFSThRxeF9qezz99ORd1Yvcr1qeft8l4mO2X8IwUPbL3zcAUV4H0DV8k0l%2FwLt85YWs%3D; YD00517437729195%3AWM_NIKE=9ca17ae2e6ffcda170e2e6eea9ae5eaeefe182f3649b928ab2d55a838e8ebbb5398b8dfcb7e750898bf984d32af0fea7c3b92af1e9e18ae17e98eaa0affb6fb8aaf986f980b69abbd6d670978cb9b6cc62878c96aeb865ad8c9e85d361f295c0abcb62819388d8ce4dedb5a997f84a969000d8fc4e918ca8b3fb6f86e7bf86f972fbe781b3e73b9baaad93b47ba7babcd9ef40af91feb9bb43b58ba083cf39babd8fb6d5408cf08cb7bb61f4b4e198cf80fceb97b8f237e2a3; YD00517437729195%3AWM_TID=8I5LEaWazqtEUQAUAFIqicS4RMWaUuMO; z_c0="2|1:0|10:1625880593|4:z_c0|92:Mi4xLWVEOUFBQUFBQUFBOEtIYjhGUFpEeWNBQUFDRUFsVk5FSVVRWVFDeEk3SUp3QWRIaUt2NElNRmhSVndmdXJvMVBn|6a008e2ee3a62d3de37b8bc3ce7e001708e221e08514b1f723d3cf0c5f08ac0a"; SESSIONID=9BWviT1JQgdFt6qvvnpYstXqXxsEQCnsYtHDLyBkAiO; JOID=VFoQB0njog9o4fGTa-EiUCiFbx553udZGIyhpSC2wWwvk8PmGgZ4-Arh8pVsASvMnT1TUk4qEVpeYD5MZSEF9gA=; osd=VVkXCk_ioQhl5_CQbOwkUSuCYhh43eBUHo2ioi2wwG8onsXnGQF1_gvi9ZhqACjLkDtSUUknF1tdZzNKZCIC-wY=; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=1626673041,1626678003,1626678025,1626678030; tst=h; Hm_lpvt_98beee57fd2ef70ccdd5ca52b9740c49=1626933959; KLBRSID=fe0fceb358d671fa6cc33898c8c48b48|1626968851|1626960877'
+
+    print(get_zhihu_earnings('2021-07-23', '2021-07-23', cookie))

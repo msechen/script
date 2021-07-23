@@ -130,7 +130,7 @@ def auto_reply(msg):
     if msg.sender.name == '东东哥-10':
         if msg.text == '客户排名':
             return sync_data.query_article_rank(100)
-        else :
+        else:
             return
 
     if msg.sender.name != 'kolly🤔-1':
@@ -141,6 +141,9 @@ def auto_reply(msg):
 
     if '我的排名' == msg.text:
         return sync_data.query_article_rank(11)
+
+    if '我的佣金' == msg.text:
+        return sync_data.query_zhihu_earnings()
 
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
@@ -154,29 +157,6 @@ def auto_reply(msg):
         return "https://sports.qq.com/kbsweb/kbsshare/gamelist.htm#nav-nba"
     elif '热榜' == msg.text:
         return "https://tophub.today/"
-    elif '提醒' in msg.text:
-        return reminder.invoke_remind()
-    elif '全部问答更新' == msg.text:
-        msg.reply("问答数据开始更新……")
-        sync_data.update_zhihu_question()
-        sync_data.update_zhihu_answer()
-        return "问答数据更新完成！"
-    elif '全部商品更新' == msg.text:
-        msg.reply("商品数据开始更新……")
-        sync_data.update_jd_goods()
-        return "商品数据更新完成！"
-    elif msg.text.startswith('sku'):
-        sku_ids = msg.text[3:]
-        if len(sku_ids) > 0:
-            msg.reply(sku_ids + " 商品数据开始更新……")
-            sync_data.update_jd_goods(sku_ids)
-            msg.reply(sku_ids + " 商品数据更新完成！")
-    elif msg.text.startswith('qa'):
-        qid = msg.text[2:]
-        if len(qid) > 0:
-            msg.reply(qid + " 问答数据开始更新……")
-            sync_data.update_qa(qid, '')
-            msg.reply(qid + " 问答数据更新完成！")
     elif msg.text.endswith('表情包'):
         limit = 3
         images = []
