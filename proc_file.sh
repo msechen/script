@@ -29,24 +29,3 @@ else
       echo "已配置不启用jd_cfd_loop任务，仅杀掉"
    fi
 fi
-
-
-echo "处理jd_joy_reward任务。。。"
-if [ ! $CRZAY_JOY_REWARD_ENABLE ]; then
-   echo "默认启用处理jd_joy_reward任务杀掉处理jd_joy_reward任务任务，并重启"
-   eval $(ps -ef | grep "处理jd_joy_reward任务" | grep -v "grep" | awk '{print "kill "$1}')
-   echo '' >/scripts/logs/jd_joy_reward.log
-   cd /scripts && npx tsc /scripts/jd_joy_reward.ts && spnode /scripts/jd_joy_reward.js | ts >>/scripts/logs/jd_joy_reward.log 2>&1 &
-   echo "默认jd_joy_reward重启完成"
-else
-   if [ $CRZAY_JOY_REWARD_ENABLE = "Y" ]; then
-   echo "默认启用处理jd_joy_reward任务杀掉处理jd_joy_reward任务任务，并重启"
-      eval $(ps -ef | grep "处理jd_joy_reward任务" | grep -v "grep" | awk '{print "kill "$1}')
-      echo '' >/scripts/logs/jd_joy_reward.log
-      cd /scripts && npx tsc /scripts/jd_joy_reward.ts && spnode /scripts/jd_joy_reward.js | ts >>/scripts/logs/jd_joy_reward.log 2>&1 &
-      echo "配置jd_joy_reward重启完成"
-   else
-      eval $(ps -ef | grep "处理jd_joy_reward任务" | grep -v "grep" | awk '{print "kill "$1}')
-      echo "已配置不启用jd_joy_reward任务，仅杀掉"
-   fi
-fi
