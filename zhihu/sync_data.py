@@ -132,7 +132,7 @@ def query_zhihu_earnings():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     count, sum = zhihu_spider.get_zhihu_earnings(today, today, heiqi_cookie)
 
-    return top + mid + str(count) + end + str(sum)
+    return top + mid + str(count) + end + str(sum / 100)
 
 
 if __name__ == '__main__':
