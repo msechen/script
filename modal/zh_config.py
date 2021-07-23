@@ -8,10 +8,9 @@ Base = declarative_base()
 # 定义 Service 对象:
 class ZhConfig(Base):
     # 表的名字:
-    __tablename__ = 't_zhihu_config'
+    __tablename__ = 'sys_config'
 
     # 表的结构:
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer)
     config_key = Column(String(256))
     value = Column(Text)

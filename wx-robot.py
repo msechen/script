@@ -150,6 +150,10 @@ def auto_reply(msg):
         zh_config_dao.update_config('jfck', msg.text)
         return '更新成功'
 
+    if 'd_c0' in msg.text:
+        zh_config_dao.update_config('dxck', msg.text)
+        return '更新成功'
+
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
     elif '大盘' == msg.text:
