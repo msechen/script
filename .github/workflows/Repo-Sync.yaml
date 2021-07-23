@@ -67,6 +67,7 @@ jobs:
         run: |
           sed -i 's/mirrors.tuna.tsinghua.edu.cn/dl-cdn.alpinelinux.org/g' ./dest_repo/docker/Dockerfile
           sed -i 's/registry.npm.taobao.org/registry.npmjs.org/g' ./dest_repo/docker/Dockerfile
+          cat ./dest_repo/docker/Dockerfile
       - name: Set up Docker Buildx
         if: steps.china-unicom-update.outputs.status != 'updated'
         uses: docker/setup-buildx-action@v1
