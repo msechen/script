@@ -11,3 +11,4 @@ from .zh_question import *
 from .zh_search import *
 from .zh_log import *
 from .early_check import *
+from .zh_config import *

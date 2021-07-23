@@ -15,6 +15,7 @@ from common import web_spider
 from dao import resource_dao
 from dao import resource_log_dao
 from dao import early_check_dao
+from dao import zh_config_dao
 from jobs import *
 from service import resource_service
 from service import user_service
@@ -144,6 +145,10 @@ def auto_reply(msg):
 
     if msg.text == '客户排名':
         return sync_data.query_article_rank(100)
+
+    if 'shshshfpb' in msg.text:
+        zh_config_dao.update_config('jfck', msg.text)
+        return '更新成功'
 
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
