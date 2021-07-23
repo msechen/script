@@ -27,6 +27,7 @@ fi
 if [ ! -d $dir_log ]; then
     echo -e "没有映射log日志目录给本容器，在容器内创建该文件夹\n"
     mkdir -p $dir_log
+    mkdir -p $dir_log/jcode
 fi
 if [ ! -d $dir_own ]; then
     echo -e "没有映射own脚本目录给本容器，在容器内创建该文件夹\n"
