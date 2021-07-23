@@ -8,7 +8,7 @@ ENV DEFAULT_LIST_FILE=crontab_list.sh \
     COOKIES_LIST=/scripts/logs/cookies.list \
     REPO_URL=https://github.com/JDHelloWorld/jd_scripts.git \
     REPO_BRANCH=main \
-    DOCKER_URL=https://github.com/jianminLee/jd_scripts_docker.git
+    DOCKER_URL=https://github.com/jianminLee/docker.git
 
 RUN set -ex \
     && apk update \
@@ -20,6 +20,7 @@ RUN set -ex \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
     && git clone -b $REPO_BRANCH $REPO_URL /scripts \
+    && git clone $DOCKER_URL /scripts/docker \
     && cd /scripts/docker \
     && pip3 install -r requirements.txt \
     && cd /scripts \
@@ -27,7 +28,6 @@ RUN set -ex \
     && npm config set registry https://registry.npm.taobao.org \
     && npm install \
     && npm install typescript ts-node \
-    && git clone $DOCKER_URL\
     && cp /scripts/docker/docker_entrypoint.sh /usr/local/bin \
     && chmod +x /usr/local/bin/docker_entrypoint.sh
 

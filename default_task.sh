@@ -27,22 +27,26 @@ if [ "$1" == "True" ]; then
 set -e
 first=\$1
 cmd=\$*
+command="node"
 echo \${cmd/\$1/}
+if echo "$first" | grep -q -E '\.ts$'; then
+    command="ts-node"
+fi
 if [ \$1 == "conc" ]; then
     for job in \$(cat \$COOKIES_LIST | grep -v "#" | paste -s -d ' '); do
-        { export JD_COOKIE=\$job && node \${cmd/\$1/}
+        { export JD_COOKIE=\$job && \$command \${cmd/\$1/}
         }&
     done
 elif [ -n "\$(echo \$first | sed -n "/^[0-9]\+\$/p")" ]; then
     echo "\$(echo \$first | sed -n "/^[0-9]\+\$/p")"
-    { export JD_COOKIE=\$(sed -n "\${first}p" \$COOKIES_LIST) && node \${cmd/\$1/}
+    { export JD_COOKIE=\$(sed -n "\${first}p" \$COOKIES_LIST) && \$command \${cmd/\$1/}
     }&
 elif [ -n "\$(cat \$COOKIES_LIST  | grep "pt_pin=\$first")" ];then
     echo "\$(cat \$COOKIES_LIST  | grep "pt_pin=\$first")"
-    { export JD_COOKIE=\$(cat \$COOKIES_LIST | grep "pt_pin=\$first") && node \${cmd/\$1/}
+    { export JD_COOKIE=\$(cat \$COOKIES_LIST | grep "pt_pin=\$first") && \$command \${cmd/\$1/}
     }&
 else
-    { export JD_COOKIE=\$(cat \$COOKIES_LIST | grep -v "#" | paste -s -d '&') && node \$*
+    { export JD_COOKIE=\$(cat \$COOKIES_LIST | grep -v "#" | paste -s -d '&') && \$command \$*
     }&
 fi
 EOF
@@ -238,6 +242,7 @@ sh /scripts/docker/proc_file.sh
 echo "第10步加载最新的定时任务文件..."
 if [[ -f /usr/bin/jd_bot && -z "$DISABLE_SPNODE" ]]; then
   echo "bot交互与spnode 前置条件成立，替换任务列表的node指令为spnode"
+  sed -i "s/ ts-node / spnode /g" $mergedListFile
   sed -i "s/ node / spnode /g" $mergedListFile
   #conc每个cookies独立并行执行脚本示例，cookies数量多使用该功能可能导致内存爆掉，默认不开启 有需求，请在自定义shell里面实现
   #sed -i "/\(jd_xtg.js\|jd_car_exchange.js\)/s/spnode/spnode conc/g" $mergedListFile
