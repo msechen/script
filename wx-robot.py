@@ -136,14 +136,14 @@ def auto_reply(msg):
     if msg.sender.name != 'kolly🤔-1':
         return
 
-    if msg.text == '客户排名':
-        return sync_data.query_article_rank(100)
+    if '1' == msg.text:  # 查佣金
+        return sync_data.query_zhihu_earnings()
 
-    if '我的排名' == msg.text:
+    if '2' == msg.text:  # 查文章排名
         return sync_data.query_article_rank(11)
 
-    if '我的佣金' == msg.text:
-        return sync_data.query_zhihu_earnings()
+    if msg.text == '客户排名':
+        return sync_data.query_article_rank(100)
 
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
