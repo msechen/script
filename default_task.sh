@@ -165,6 +165,7 @@ echo "第3步判断是否配置了随机延迟参数..."
 if [ $RANDOM_DELAY_MAX ]; then
   if [ $RANDOM_DELAY_MAX -ge 1 ]; then
     echo "已设置随机延迟为 $RANDOM_DELAY_MAX , 设置延迟任务中..."
+    sed -i "/\(jd_bean_sign.js\|jd_blueCoin.js\|jd_joy_reward.js\|jd_joy_steal.js\|jd_joy_feedPets.js\|jd_car_exchange.js\)/!s/ts-node/sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node/g" $mergedListFile
     sed -i "/\(jd_bean_sign.js\|jd_blueCoin.js\|jd_joy_reward.js\|jd_joy_steal.js\|jd_joy_feedPets.js\|jd_car_exchange.js\)/!s/node/sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node/g" $mergedListFile
   fi
 else
@@ -242,7 +243,6 @@ sh /scripts/docker/proc_file.sh
 echo "第10步加载最新的定时任务文件..."
 if [[ -f /usr/bin/jd_bot && -z "$DISABLE_SPNODE" ]]; then
   echo "bot交互与spnode 前置条件成立，替换任务列表的node指令为spnode"
-  sed -i "s/ ts-node / spnode /g" $mergedListFile
   sed -i "s/ node / spnode /g" $mergedListFile
   #conc每个cookies独立并行执行脚本示例，cookies数量多使用该功能可能导致内存爆掉，默认不开启 有需求，请在自定义shell里面实现
   #sed -i "/\(jd_xtg.js\|jd_car_exchange.js\)/s/spnode/spnode conc/g" $mergedListFile
