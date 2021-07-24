@@ -3,7 +3,7 @@
 ## 文件路径、脚本网址
 dir_shell=$(dirname $(readlink -f "$0"))
 dir_root=$dir_shell
-url_shell=${JD_SHELL_URL:-https://ghproxy.com/https://github.com/drew0531/tsnode.git}
+url_shell=${JD_SHELL_URL:-https://ghproxy.com/https://github.com/drew0531/jd_pro.git}
 url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
 send_mark=$dir_shell/send_mark
 
