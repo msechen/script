@@ -78,7 +78,7 @@
 45 0-23/3 * * * cd /scripts/ && npx ts-node /scripts/jd_joy_park.ts >> /scripts/logs/jd_joy_park.log 2>&1
 
 # QQ牧场
-0 9 * * * cd /scripts/ && npx ts-node /scripts/jd_qq_pasture.ts >> /scripts/logs/jd_qq_pasture.log 2>&1
+30 0-23/3 * * * cd /scripts/ && npx ts-node /scripts/jd_qq_pasture.ts >> /scripts/logs/jd_qq_pasture.log 2>&1
 
 # 惊喜牧场
 20 0-23/3 * * * cd /scripts/ && npx ts-node /scripts/jd_jxmc.ts >> /scripts/logs/jd_jxmc.log 2>&1
