@@ -10,7 +10,7 @@
         ENABLE_WEB_PANEL=true \
         ENABLE_HANGUP=false \
         ENABLE_RESET_REPO_URL=true \
-        JD_SHELL_URL=https://ghproxy.com/https://github.com/dewe0531/tsnode.git \
+        JD_SHELL_URL=https://ghproxy.com/https://github.com/dewe0531/jd_pro.git \
         JD_SCRIPTS_URL=https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git
     WORKDIR ${JD_DIR}
     RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
