@@ -75,7 +75,7 @@
 15 0-23/2 * * * node /scripts/jd_joy_new.js >> /scripts/logs/jd_joy.log 2>&1
 
 # 汪汪乐园
-0 9 * * * cd /scripts/ && npx ts-node /scripts/jd_joy_park.ts >> /scripts/logs/jd_joy_park.log 2>&1
+45 0-23/3 * * * cd /scripts/ && npx ts-node /scripts/jd_joy_park.ts >> /scripts/logs/jd_joy_park.log 2>&1
 
 # QQ牧场
 0 9 * * * cd /scripts/ && npx ts-node /scripts/jd_qq_pasture.ts >> /scripts/logs/jd_qq_pasture.log 2>&1
