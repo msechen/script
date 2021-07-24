@@ -1,5 +1,5 @@
     FROM node:15.9.0-alpine3.12
-    ARG JD_SHELL=https://ghproxy.com/https://github.com/drew0531/tsnode.git
+    ARG JD_SHELL=https://ghproxy.com/https://github.com/drew0531/jd_pro.git
     ARG JD_SHELL_BRANCH=master
     ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
         LANG=zh_CN.UTF-8 \
