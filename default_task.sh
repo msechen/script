@@ -29,7 +29,7 @@ first=\$1
 cmd=\$*
 command="node"
 echo \${cmd/\$1/}
-if echo "$first" | grep -q -E '\.ts$'; then
+if echo "\$first" | grep -q -E '\.ts$'; then
     command="ts-node"
 fi
 if [ \$1 == "conc" ]; then
