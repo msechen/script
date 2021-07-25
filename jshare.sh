@@ -180,7 +180,7 @@ notify () {
 
 ## 统计用户数量
 count_user_sum () {
-    for ((i=1; i<=${SUM:-$((3 * 4))}; i++)); do
+    for ((i=1; i<=${SUM:-$((5 * 10))}; i++)); do
         local tmp1=Cookie$i
         local tmp2=${!tmp1}
         [[ $tmp2 ]] && user_sum=$i || break
