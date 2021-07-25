@@ -97,10 +97,9 @@ count_own_repo_sum () {
 ## 形成 own 仓库的文件夹名清单，依赖于import_config_and_check或import_config_no_check
 ## array_own_repo_path：repo存放的绝对路径组成的数组；array_own_scripts_path：所有要使用的脚本所在的绝对路径组成的数组
 gen_own_dir_and_path () {
-#    if [[ $own_repo_sum -ge 1 ]]; then
+    if [[ $own_repo_sum -ge 1 ]]; then
         local scripts_path_num="-1"
         local repo_num tmp1 tmp2 tmp3 tmp4 tmp5 dir
-     if [[ $own_repo_sum -ge 1 ]]; then
         for ((i=1; i<=$own_repo_sum; i++)); do
             repo_num=$((i - 1))
             tmp1=OwnRepoUrl$i
@@ -110,16 +109,12 @@ gen_own_dir_and_path () {
             array_own_repo_dir[$repo_num]=$(echo ${array_own_repo_url[$repo_num]} | perl -pe "s|.+com(/\|:)([\w-]+)/([\w-]+)(\.git)?|\2_\3|")
             array_own_repo_path[$repo_num]=$dir_own/${array_own_repo_dir[$repo_num]}
             tmp3=OwnRepoPath$i
-            if [[ ${!tmp3} ]]; then
-               for dir in ${!tmp3}; do
-                   let scripts_path_num++
-                   tmp4="${array_own_repo_dir[repo_num]}/$dir"
-                   tmp5=$(echo $tmp4 | perl -pe "{s|//|/|g; s|/$||}")  # 去掉多余的/
-                   array_own_scripts_path[$scripts_path_num]="$dir_own/$tmp5"
-               done
-            else
-               let scripts_path_num++
-               array_own_scripts_path[$scripts_path_num]="${array_own_scripts_path[$repo_num]}"
+            for dir in ${!tmp3}; do
+                let scripts_path_num++
+                tmp4="${array_own_repo_dir[repo_num]}/$dir"
+                tmp5=$(echo $tmp4 | perl -pe "{s|//|/|g; s|/$||}")  # 去掉多余的/
+                array_own_scripts_path[$scripts_path_num]="$dir_own/$tmp5"
+            done
          done
     fi
 
