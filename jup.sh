@@ -441,7 +441,7 @@ else
     rm -rf $dir_scripts
 fi
 
-url_scripts=${JD_SCRIPTS_URL:-https://github.com/chinnkarahoi/jd_scripts.git}
+url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
 branch_scripts=${JD_SCRIPTS_BRANCH:-master}
 
 
