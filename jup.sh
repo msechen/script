@@ -120,7 +120,7 @@ gen_own_dir_and_path () {
             else
                let scripts_path_num++
                array_own_scripts_path[$scripts_path_num]="${array_own_scripts_path[$repo_num]}"
-        done
+         done
     fi
 
     if [[ ${#OwnRawFile[*]} -ge 1 ]]; then
