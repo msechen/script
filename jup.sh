@@ -72,6 +72,7 @@ git_clone_scripts () {
 git_pull_scripts () {
     local dir_current=$(pwd)
     local dir_work=$1
+    local branch=$2
     cd $dir_work
     echo -e "开始更新仓库：$dir_work\n"
     git fetch --all
