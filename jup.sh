@@ -447,10 +447,16 @@ branch_scripts=${JD_SCRIPTS_BRANCH:-master}
 
 
 ## 更新或克隆scripts
+#if [ -d $dir_scripts/.git ]; then
+#    git_pull_scripts $dir_scripts
+#else
+#    git_clone_scripts $url_scripts $dir_scripts
+#fi
+
 if [ -d $dir_scripts/.git ]; then
-    git_pull_scripts $dir_scripts
+   git_pull_scripts $dir_scripts origin/$branch_scripts
 else
-    git_clone_scripts $url_scripts $dir_scripts
+   git_clone_scripts $url_scripts $dir_scripts $branch_scripts
 fi
 
 if [[ $exit_status -eq 0 ]]; then
