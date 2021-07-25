@@ -5,6 +5,7 @@ dir_shell=$(dirname $(readlink -f "$0"))
 dir_root=$dir_shell
 url_shell=${JD_SHELL_URL:-https://ghproxy.com/https://github.com/drew0531/jd_pro.git}
 url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
+branch_scripts=${JD_SCRIPTS_BRANCH:-master}
 send_mark=$dir_shell/send_mark
 
 ## 导入通用变量与函数
@@ -441,8 +442,8 @@ else
     rm -rf $dir_scripts
 fi
 
-url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
-branch_scripts=${JD_SCRIPTS_BRANCH:-master}
+#url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
+#branch_scripts=${JD_SCRIPTS_BRANCH:-master}
 
 
 ## 更新或克隆scripts
