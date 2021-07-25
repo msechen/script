@@ -76,7 +76,7 @@ git_pull_scripts () {
     echo -e "开始更新仓库：$dir_work\n"
     git fetch --all
     exit_status=$?
-    git reset --hard
+    git reset --hard $branch
     git pull
     cd $dir_current
 }
