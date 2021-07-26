@@ -2,21 +2,15 @@
  * @description 本地运行的脚本
  */
 
+require('./shell/updateDayLogPath');
 const exec = require('child_process').execSync;
 const {getLogFile} = require('./lib/common');
 const {getLocalEnvs} = require('./lib/env');
-const {getNowDate} = require('./lib/moment');
 const tail = require('./lib/tail');
 const _ = require('lodash');
 
 async function start() {
-  ['request', 'app'].forEach(name => {
-    const logFile = getLogFile(name);
-    exec(`touch ${logFile}`);
-    exec(`ln -snf ${logFile} ${logFile.replace(`.${getNowDate()}`, '')}`);
-
-    (name === 'app') && tail(logFile);
-  });
+  tail(getLogFile('app'));
 
   // 输出
   return exec(`node src/app.js`, {env: getLocalEnvs()}).toString();
