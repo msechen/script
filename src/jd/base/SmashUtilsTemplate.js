@@ -23,6 +23,8 @@ class SmashUtilsTemplate extends Template {
   };
   static needEncryptIds = [];
   static needLocalEncryptBody = false;
+  // 是否需要自身加密
+  static needSelfEncryptBody = false;
 
   // 活动火爆需要从本地获取ss来进行请求, 所以需要手动抓包
   static getCharlesForms() {}
@@ -31,7 +33,7 @@ class SmashUtilsTemplate extends Template {
     return this.getFilePath('./localData.json');
   }
 
-  static getEncryptBody() {
+  static getEncryptBody(api) {
     const self = this;
     const needLoadData = () => {
       const msg = '需要重新加载数据';
@@ -44,13 +46,27 @@ class SmashUtilsTemplate extends Template {
     }
     const forms = self._charlesForms;
     if (_.isEmpty(forms)) needLoadData();
-    const allSS = _.flatten(forms.map(o => JSON.parse(o.body).ss).map(ss => new Array(ssMaxTimes).fill(ss)));
-    let {ssIndex = 0} = readFileJSON(self.getLocalDataJSONPath());
-    const ss = allSS[ssIndex];
+    const allData = _.flatten((self.needSelfEncryptBody ? forms : forms.map(o => JSON.parse(o.body)))
+    .map(ss => new Array(ssMaxTimes).fill(ss)));
+    const localData = readFileJSON(self.getLocalDataJSONPath()) || [];
+    const localIndex = self.needSelfEncryptBody ? self.currentCookieTimes : 0;
+    let {ssIndex = 0} = localData[localIndex] || {};
+    const {ss, cookie, userAgent} = allData[ssIndex] || {};
     if (!ss) {
       needLoadData();
     }
-    writeFileJSON({ssIndex: ++ssIndex}, self.getLocalDataJSONPath());
+    if (self.needSelfEncryptBody) {
+      if (cookie) {
+        !api.originCookie && (api.originCookie = api.cookie);
+        api.cookie = [api.originCookie, cookie].join('; ');
+      }
+      if (userAgent) {
+        api.options.headers['user-agent'] = userAgent;
+        api.signData.uuid = self.getUUid(userAgent);
+      }
+    }
+    localData[localIndex] = {ssIndex: ++ssIndex};
+    writeFileJSON(localData, self.getLocalDataJSONPath());
     return {ss};
   }
 
@@ -99,7 +115,7 @@ class SmashUtilsTemplate extends Template {
     replaceObjectMethod(api, 'doFormBody', ([functionId, body, signData, options]) => {
       const id = self.patchFunctionId(functionId);
       if (needEncryptIds.includes(functionId) && self.needLocalEncryptBody) {
-        body = _.assign(body || {}, self.getEncryptBody());
+        body = _.assign(body || {}, self.getEncryptBody(api));
       }
       return [id, body, signData, options];
     });

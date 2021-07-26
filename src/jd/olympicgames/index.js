@@ -1,6 +1,6 @@
 const Template = require('../base/SmashUtilsTemplate');
 
-const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, readFileJSON} = require('../../lib/common');
 const _ = require('lodash');
 
 class Olympicgames extends Template {
@@ -8,6 +8,8 @@ class Olympicgames extends Template {
   static scriptNameDesc = '全民运动会';
   static dirname = __dirname;
   static shareCodeTaskList = [];
+  static needInAppComplete = false;
+  static needInApp = false;
 
   static skipTaskIds = [2/*邀请好友助力*/].concat([14/*入会*/, 26/*入会*/]);
   static indexUrl = 'https://wbbny.m.jd.com/babelDiy/Zeus/2rtpffK8wqNyPBH6wyUDuBKoAbCt/index.html';
@@ -47,6 +49,7 @@ class Olympicgames extends Template {
     'receiveCash',
   ];
   static needLocalEncryptBody = true;
+  static needSelfEncryptBody = true;
   static defaultShareCodes = [
     'HcmphO2hRwilf4WbHt03uVg1nRZRi20oGBqybmXMCSg4lrWabuVpzIFS7l7rtYHoZrfzteZe6mDa',
     'HcmphL_3Eln_e4bWW5hX1iio2B-1Z8J4lZ9HMLw3vGck5H9WdxKNaR8a6A',
@@ -56,7 +59,19 @@ class Olympicgames extends Template {
   };
 
   static getCharlesForms() {
-    return require('../../../charles/api').olympicgames.olympicgames_doTaskDetail;
+    const fileContent = readFileJSON(`../../../charles/chlsj/jd/olympicgames_doTaskDetail/${this.currentCookieTimes}.chlsj`, __dirname);
+    return fileContent.map(({request}) => {
+      const {body, header: {headers}} = request;
+      const searchParams = new URL(`http://test.cn?${body.text}`).searchParams;
+      const requestBodyJSON = _.fromPairs(Array.from(searchParams.entries()));
+      const ss = JSON.parse(requestBodyJSON.body).ss;
+      const cookies = headers.filter(({
+        name,
+        value,
+      }) => name === 'cookie' && ['sid', 'joyytoken', 'pwdt_id'].some(key => value.startsWith(key)));
+      const userAgent = headers.find(o => o.name === 'user-agent').value;
+      return {ss, cookie: _.map(cookies, 'value').join('; '), userAgent};
+    });
   }
 
   static apiNamesOption() {
