@@ -560,7 +560,6 @@ fix_crontab () {
 
 ## 主函数
 main () {
-    start_notify
     case $# in
         1)
             case $1 in
