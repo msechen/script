@@ -8,11 +8,11 @@ dir_root=$dir_shell
 . $dir_shell/jshare.sh
 
 ## 更新crontab
-#update_crontab () {
-#    if [[ $(cat $list_crontab_user) != $(crontab -l) ]]; then
-#        crontab $list_crontab_user
-#    fi
-#}
+update_crontab () {
+    if [[ $(cat $list_crontab_user) != $(crontab -l) ]]; then
+        crontab $list_crontab_user
+    fi
+}
 
 ## 组合Cookie和互助码子程序，$1：要组合的内容
 combine_sub () {
