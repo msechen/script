@@ -601,7 +601,6 @@ main () {
     esac
     fix_config
     fix_crontab
-    end_notify
     exit 0
 }
 
