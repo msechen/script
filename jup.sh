@@ -558,24 +558,6 @@ fix_crontab () {
     fi
 }
 
-## 在最开始的提醒
-start_notify () {
-    if [[ $JD_DIR ]] && [[ $(uname -m) == armv7* ]] && ! curl api.jd.com &>/dev/null; then
-        echo -e "检测到主机构架为armv7，并且无法访问网络，可能是未设置security-opt的原因...\n\n请按照 https://hub.docker.com/r/nevinee/jd 创建容器..."
-        echo -e "等待15秒后继续执行$cmd_jup...\n"
-        sleep 15
-    fi
-}
-
-## 在最后的提醒
-end_notify () {
-    if [[ $JD_DIR ]]; then
-        if [ -f /usr/local/bin/docker-entrypoint.sh ] && [ ! -d /etc/cont-init.d ] && [ ! -d /etc/services.d ]; then
-            notify "镜像更新通知" "Docker镜像的启动方式已从docker-entrypoint调整为s6-overlay，请更新镜像（无需更新配置文件），旧的镜像即将无法使用。" &>/dev/null
-        fi
-    fi
-}
-
 ## 主函数
 main () {
     start_notify
