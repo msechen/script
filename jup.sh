@@ -488,7 +488,7 @@ update_scripts () {
 
     ## 更新或克隆scripts
     if [ -d $dir_scripts/.git ]; then
-        git_pull_scripts $dir_scripts origin/$branch_scripts
+        git_pull_scripts $dir_scripts 
     else
         git_clone_scripts $url_scripts $dir_scripts $branch_scripts
     fi
