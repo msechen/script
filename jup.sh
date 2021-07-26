@@ -447,8 +447,6 @@ update_shell () {
     else
         echo -e "\n更新$dir_shell失败，请检查原因...\n"
     fi
-}
-
 
     ## 记录bot程序md5
     jbot_md5sum_old=$(cd $dir_bot; find . -type f \( -name "*.py" -o -name "*.ttf" \) | xargs md5sum)
