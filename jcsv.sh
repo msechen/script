@@ -33,3 +33,12 @@ for log in $(ls); do
         grep -E "当前京豆" $log | perl -pe "s|\D+(\d+).*|\1|g" | perl -0777 -pe "s|\n(\d+)|,\1|g" >> $bean_total
     fi
 done
+
+## 将被屏蔽的Cookie留空，只针对最近一天（一般是前一天）的京豆变化情况，历史的不管
+for num in $(echo $TempBlockCookie | perl -pe "s| |\n|g" | sort -nu); do
+    if [[ $num -gt 1 ]]; then
+        perl -i -pe "s|^($bean_date(,\d*){$(($num - 1))})(.*)|\1,0\2|" $bean_income $bean_outlay $bean_total
+    elif [[ $num -ge 1 ]]; then
+        perl -i -pe "s|^($bean_date)(,.*)|\1,0\2|" $bean_income $bean_outlay $bean_total
+    fi
+done
