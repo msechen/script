@@ -1,13 +1,14 @@
 ## 目录
-dir_panel=$dir_root/panel
 dir_config=$dir_root/config
 dir_scripts=$dir_root/scripts
+dir_bot=$dir_root/jbot
 dir_own=$dir_root/own
 dir_raw=$dir_own/raw
 dir_sample=$dir_root/sample
 dir_log=$dir_root/log
 dir_list_tmp=$dir_log/.tmp
 dir_code=$dir_log/jcode
+dir_panel=$dir_root/panel
 dir_scripts_node_modules=$dir_scripts/node_modules
 
 ## 文件
