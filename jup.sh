@@ -160,21 +160,40 @@ gen_list_own () {
 }
 
 ## 检测cron的差异，$1：脚本清单文件路径，$2：cron任务清单文件路径，$3：增加任务清单文件路径，$4：删除任务清单文件路径
+#diff_cron () {
+#    make_dir $dir_list_tmp
+#    local list_scripts="$1"
+#    local list_task="$2"
+#    local list_add="$3"
+#    local list_drop="$4"
+#    if [ -s $list_task ] && [ -s $list_scripts ]; then
+#        diff $list_scripts $list_task | grep "<" | awk '{print $2}' > $list_add
+#        diff $list_scripts $list_task | grep ">" | awk '{print $2}' > $list_drop
+#    elif [ ! -s $list_task ] && [ -s $list_scripts ]; then
+#        cp -f $list_scripts $list_add      
+#    elif [ -s $list_task ] && [ ! -s $list_scripts ]; then
+#        cp -f $list_task $list_drop
+#    fi
+#}
+
 diff_cron () {
     make_dir $dir_list_tmp
     local list_scripts="$1"
     local list_task="$2"
     local list_add="$3"
     local list_drop="$4"
-    if [ -s $list_task ] && [ -s $list_scripts ]; then
-        diff $list_scripts $list_task | grep "<" | awk '{print $2}' > $list_add
-        diff $list_scripts $list_task | grep ">" | awk '{print $2}' > $list_drop
+    if [ -s $list_task ]; then
+        grep -vwf $list_task $list_scripts > $list_add
     elif [ ! -s $list_task ] && [ -s $list_scripts ]; then
-        cp -f $list_scripts $list_add      
-    elif [ -s $list_task ] && [ ! -s $list_scripts ]; then
+        cp -f $list_scripts $list_add
+    fi
+    if [ -s $list_scripts ]; then
+        grep -vwf $list_scripts $list_task > $list_drop
+    else
         cp -f $list_task $list_drop
     fi
 }
+
 
 ## 更新docker-entrypoint，docker专用
 update_docker_entrypoint () {
