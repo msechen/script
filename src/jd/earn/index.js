@@ -4,6 +4,7 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 
 class Earn extends Template {
   static scriptName = 'Earn';
+  static scriptNameDesc = '赚赚小程序-赚好礼';
   static shareCodeTaskList = [];
   static times = 1;
   static commonParamFn = () => ({});
@@ -79,7 +80,8 @@ class Earn extends Template {
       },
       doRedeem: {
         name: 'interactTaskIndex',
-        successFn: async data => {
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return api.log(data.message);
           const helpMainResListLength = (_.property('data.helpMainResList')(data) || []).length;
           const msgs = [
             `已助力人数为: ${helpMainResListLength}`,
