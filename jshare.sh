@@ -285,3 +285,10 @@ fix_config () {
         s|CMD_MTASK|$cmd_mtask|g
     }" $list_crontab_user
 }
+
+## 更新crontab
+update_crontab () {
+    if [[ $(cat $list_crontab_user) != $(crontab -l) ]]; then
+        crontab $list_crontab_user
+    fi
+}
