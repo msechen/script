@@ -476,7 +476,7 @@ update_scripts () {
        [ -z $JD_SCRIPTS_URL ] && [[ -z $(grep $url_scripts $dir_scripts/.git/config) ]] && rm -rf $dir_scripts
         if [[ ! -z $JD_SCRIPTS_URL ]]; then
            if [[ -z $(grep $JD_SCRIPTS_URL $dir_scripts/.git/config) ]]; then
-            rm -rf $dir_scripts
+              rm -rf $dir_scripts
            fi
         fi
      else
