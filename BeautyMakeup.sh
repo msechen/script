@@ -7,7 +7,7 @@
 # 0 */1 11 * * /bin/bash cron.sh
 # ------------ eg ------------
 
-name="cron"
+name="BeautyMakeup"
 
 script_dir=$(cd "$(dirname "$0")";pwd)
 
@@ -21,6 +21,6 @@ source /etc/profile
 
 echo "`dateFormat` [$name] 开始执行定时任务" >> "$script_dir/logs/cron.log"
 
-cd "$script_dir" && npm run dev
+cd "$script_dir" && npm run start:$name
 
 echo "`dateFormat` [$name] 完成一次定时任务" >> "$script_dir/logs/cron.log"
