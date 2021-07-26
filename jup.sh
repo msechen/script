@@ -576,9 +576,17 @@ source_diy () {
 }
 
 ## 修复crontab
+#fix_crontab () {
+#    if [[ $JD_DIR ]]; then
+#        perl -i -pe "s|( ?&>/dev/null)+||g" $list_crontab_user
+#        update_crontab
+#    fi
+#}
+
+## 修复crontab
 fix_crontab () {
     if [[ $JD_DIR ]]; then
-        perl -i -pe "s|( ?&>/dev/null)+||g" $list_crontab_user
+        perl -i -pe "{s|( &>/dev/null)+||g; s|(.* ($cmd_jtask\|$cmd_otask\|$cmd_mtask\|$cmd_jcode\|$cmd_jcsv\|$cmd_jlog)( .*\|$))|\1 &>/dev/null|g}" $list_crontab_user
         update_crontab
     fi
 }
