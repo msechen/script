@@ -472,25 +472,25 @@ update_scripts () {
     [ -f $dir_scripts/package.json ] && scripts_depend_old=$(cat $dir_scripts/package.json)
     [ -f $dir_scripts/githubAction.md ] && cp -f $dir_scripts/githubAction.md $dir_list_tmp/githubAction.md
 	
-if [ -d ${dir_scripts}/.git ]; then
-    [ -z $JD_SCRIPTS_URL ] && [[ -z $(grep $url_scripts $dir_scripts/.git/config) ]] && rm -rf $dir_scripts
-    if [[ ! -z $JD_SCRIPTS_URL ]]; then
-        if [[ -z $(grep $JD_SCRIPTS_URL $dir_scripts/.git/config) ]]; then
+    if [ -d ${dir_scripts}/.git ]; then
+       [ -z $JD_SCRIPTS_URL ] && [[ -z $(grep $url_scripts $dir_scripts/.git/config) ]] && rm -rf $dir_scripts
+        if [[ ! -z $JD_SCRIPTS_URL ]]; then
+           if [[ -z $(grep $JD_SCRIPTS_URL $dir_scripts/.git/config) ]]; then
             rm -rf $dir_scripts
+           fi
         fi
+     else
+         rm -rf $dir_scripts
     fi
-else
-    rm -rf $dir_scripts
-fi
 
- url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
- branch_scripts=${JD_SCRIPTS_BRANCH:-master}
+    url_scripts=${JD_SCRIPTS_URL:-https://ghproxy.com/https://github.com/chinnkarahoi/jd_scripts.git}
+    branch_scripts=${JD_SCRIPTS_BRANCH:-master}
 
     ## 更新或克隆scripts
     if [ -d $dir_scripts/.git ]; then
-        git_pull_scripts $dir_scripts 
+        git_pull_scripts $dir_scripts origin/$branch_scripts
     else
-        git_clone_scripts $url_scripts $dir_scripts
+        git_clone_scripts $url_scripts $dir_scripts $branch_scripts
     fi
 
     if [[ $exit_status -eq 0 ]]; then
