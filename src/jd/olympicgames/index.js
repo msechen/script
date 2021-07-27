@@ -10,6 +10,7 @@ class Olympicgames extends Template {
   static shareCodeTaskList = [];
   static needInAppComplete = false;
   static needInApp = false;
+  static maxTaskDoneTimes = 4;
 
   static skipTaskIds = [2/*邀请好友助力*/].concat([14/*入会*/, 26/*入会*/]);
   static indexUrl = 'https://wbbny.m.jd.com/babelDiy/Zeus/2rtpffK8wqNyPBH6wyUDuBKoAbCt/index.html';
@@ -60,7 +61,7 @@ class Olympicgames extends Template {
 
   static getCharlesForms() {
     const fileContent = readFileJSON(`../../../charles/chlsj/jd/olympicgames_doTaskDetail/${this.currentCookieTimes}.chlsj`, __dirname);
-    return fileContent.map(({request}) => {
+    return fileContent.filter(o => _.property('request.body.text')(o)).map(({request}) => {
       const {body, header: {headers}} = request;
       const searchParams = new URL(`http://test.cn?${body.text}`).searchParams;
       const requestBodyJSON = _.fromPairs(Array.from(searchParams.entries()));
@@ -68,7 +69,7 @@ class Olympicgames extends Template {
       const cookies = headers.filter(({
         name,
         value,
-      }) => name === 'cookie' && ['sid', 'joyytoken', 'pwdt_id'].some(key => value.startsWith(key)));
+      }) => name === 'cookie'/* && ['sid', 'joyytoken', 'pwdt_id'].some(key => value.startsWith(key))*/);
       const userAgent = headers.find(o => o.name === 'user-agent').value;
       return {ss, cookie: _.map(cookies, 'value').join('; '), userAgent};
     });

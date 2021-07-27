@@ -3,6 +3,7 @@ const Template = require('./template');
 const {sleep, writeFileJSON, singleRun, replaceObjectMethod, getValueByFn, readFileJSON} = require('../../lib/common');
 const _ = require('lodash');
 const FakerSmashUtils = require('../../lib/FakerSmashUtils');
+const Cookie = require('../../lib/cookie');
 
 class SmashUtilsTemplate extends Template {
   static scriptName = 'SmashUtilsTemplate';
@@ -48,7 +49,7 @@ class SmashUtilsTemplate extends Template {
     if (_.isEmpty(forms)) needLoadData();
     const allData = _.flatten((self.needSelfEncryptBody ? forms : forms.map(o => JSON.parse(o.body)))
     .map(ss => new Array(ssMaxTimes).fill(ss)));
-    const localData = readFileJSON(self.getLocalDataJSONPath()) || [];
+    const localData = readFileJSON(self.getLocalDataJSONPath());
     const localIndex = self.needSelfEncryptBody ? self.currentCookieTimes : 0;
     let {ssIndex = 0} = localData[localIndex] || {};
     const {ss, cookie, userAgent} = allData[ssIndex] || {};
@@ -57,8 +58,7 @@ class SmashUtilsTemplate extends Template {
     }
     if (self.needSelfEncryptBody) {
       if (cookie) {
-        !api.originCookie && (api.originCookie = api.cookie);
-        api.cookie = [api.originCookie, cookie].join('; ');
+        api.cookie = new Cookie([api.cookie, cookie].join('; '));
       }
       if (userAgent) {
         api.options.headers['user-agent'] = userAgent;

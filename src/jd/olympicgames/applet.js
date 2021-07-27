@@ -7,7 +7,8 @@ class OlympicgamesApplet extends Olympicgames {
   static scriptName = 'OlympicgamesApplet';
   static scriptNameDesc = '全民运动会(小程序)';
   static doneShareTask = true;
-  static time = 1;
+  static times = 1;
+  static maxTaskDoneTimes = 2;
 
   static apiNamesOption = {
     getTaskList: {
