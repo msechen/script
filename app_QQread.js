@@ -1,29 +1,26 @@
 /*
 
-软件名:燃旅视频 收益均0.3-0.5/天,满1元可提现
+软件名:QQ阅读app 
 
-软件下载地址:http://ran.lvfacn.com/pages/share/invit?to_user_id=1307478
+软件下载地址:自行百度下载
 
-软件需求:提现需要绑定支付宝 实名身份证号和支付宝姓名匹配,身份证照片随意,网上找也可以
-
-进app后记得修改一下昵称
+脚本不完善,我也每具体看有哪些任务没做
 
 变量需求:
 
-抓包任意一天连接 其中请求提中包含 access_token= 和 user_token= 即可 复制填变量
+抓包任意一条连接 其中请求提中在亲戚头找cookie
+
+需要3个ywguid ywkey qrsn  
 
 变量填写: 
 
-export RL_boby='access_token=xxxx&user_token=xxxx'
+export ywguid=''
+export ywkey=''
+export qrsn=''
 
-提现变量 
-export RL_sftx=false#或true不同默认是false
+多号用 @ 或 换行 隔开
 
-提现金额
-export RL_sftx=''#提现金额,不填默认1.0元
-
-刷分享阅读变量 抓包 我的 界面,有一天链接包含 mine 在请求体中找到 to_user_id= 的值填变量
-export user_id=''
+就只有做任务
 
 
 cron 0 5-23 * * *  建议一小时一次
