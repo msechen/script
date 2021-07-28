@@ -189,13 +189,41 @@ def get_jingfen_earnings(start, end, cookie):
         'cosFee']
 
 
+
+# 调知+ api 查询账户今日消耗
+def get_zhijia_pay(start, end, cookie):
+    # 知+ API
+    url = '''
+        https://xg.zhihu.com/api/v1/stat/overview?userId=39261&dataType=USER&groupUnit=BY_HOUR&stTms={}&endTms={}
+    '''.format(start, end)
+    header = {
+        'cookie': cookie,
+        'referer': 'https://xg.zhihu.com/advertiser/39261/home',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        return "接口异常"
+
+    json = res.json()
+
+    return json['total']['cost']
+
+
 if __name__ == "__main__":
     # print(get_question(37963557))
 
-    zhihu_cookie = jingfen_cookie = zh_config_dao.query_config('dxck').value
+    # zhihu_cookie = jingfen_cookie = zh_config_dao.query_config('dxck').value
 
-    print(get_zhihu_earnings('2021-07-23', '2021-07-23', zhihu_cookie))
+    # print(get_zhihu_earnings('2021-07-23', '2021-07-23', zhihu_cookie))
 
-    jingfen_cookie = zh_config_dao.query_config('jfck').value
+    # jingfen_cookie = zh_config_dao.query_config('jfck').value
 
-    print(get_jingfen_earnings('2021-07-23', '2021-07-23', jingfen_cookie))
+    zhijia_cookie = zh_config_dao.query_config('zjck').value
+
+    # print(zhijia_cookie)
+
+    print(get_zhijia_pay('2021-07-29', '2021-07-29', zhijia_cookie))

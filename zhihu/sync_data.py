@@ -123,34 +123,46 @@ def query_article_rank(user_id):
 
 # 查询知乎今日佣金
 def query_zhihu_earnings():
-    top = "[通知-dx]\n"
+    top = "[知乎-1] "
     mid = "订单量："
-    end = "\n佣金："
+    end = " 佣金："
 
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     count, sum = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('dxck').value)
 
-    return top + mid + str(count) + end + str(sum / 100)
+    return top + mid + str(count) + end + str(sum/100), sum/100
 
 
 # 查询京粉今日佣金
 def query_jingfen_earnings():
-    top = "[通知-jf]\n"
+    top = "[京粉-1] "
     mid = "订单量："
-    end = "\n佣金："
+    end = " 佣金："
 
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     count, sum = zhihu_spider.get_jingfen_earnings(today, today, zh_config_dao.query_config('jfck').value)
 
-    return top + mid + str(count) + end + str(sum)
+    return top + mid + str(count) + end + str(sum), sum
 
 
-# 查询京粉今日总佣金
+# 查询知+今日消耗
+def query_zhijia_pay():
+    top = "[知+消耗] "
+
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    pay = zhihu_spider.get_zhijia_pay(today, today, zh_config_dao.query_config('zjck').value)
+
+    return top + str(pay/100), pay/100
+
+# 查询今日总收入
 def query_today_earnings():
-    zhihu_earnings = query_zhihu_earnings()
-    jingfen_earnings = query_jingfen_earnings()
+    zhihu_earnings, num1 = query_zhihu_earnings()
+    jingfen_earnings, num2 = query_jingfen_earnings()
+    zhijia_pay, num3 = query_zhijia_pay()
 
-    return zhihu_earnings + "\n\n" + jingfen_earnings
+    total = num1 + num2 - num3
+
+    return '总计：' + str(total) + "\n\n" + zhihu_earnings + "\n" + jingfen_earnings + "\n" + zhijia_pay
 
 
 if __name__ == '__main__':

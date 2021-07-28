@@ -2,7 +2,8 @@ import datetime
 import glob
 import random
 import time
-
+import os
+import sys
 
 def test():
     d0 = datetime.datetime.now()
@@ -54,13 +55,18 @@ if __name__ == '__main__':
     # print(test2())
     # test3()
     # ttt()
-    print(time.time())
-    order_time = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
-    print(order_time)
-    print(datetime.datetime.now())
-    print((datetime.datetime.now() - datetime.timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M:%S"))
+    # print(time.time())
+    # order_time = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
+    # print(order_time)
+    # print(datetime.datetime.now())
+    # print((datetime.datetime.now() - datetime.timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M:%S"))
 
-    # sku_ids = 'sku 1111 1111'[4:]
-    sku_ids = 'sku '[4:]
-    print(sku_ids)
-    print(len(sku_ids))
+    # # sku_ids = 'sku 1111 1111'[4:]
+    # sku_ids = 'sku '[4:]
+    # print(sku_ids)
+    # print(len(sku_ids))
+
+    print(os.getcwd())
+    print(sys.path)
+
+
