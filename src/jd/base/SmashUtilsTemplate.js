@@ -38,7 +38,7 @@ class SmashUtilsTemplate extends Template {
     const self = this;
     const needLoadData = () => {
       const msg = '需要重新加载数据';
-      self.log(msg);
+      api.log(msg);
       throw new Error(msg);
     };
     const ssMaxTimes = 3;
@@ -94,6 +94,15 @@ class SmashUtilsTemplate extends Template {
           origin: new URL(indexUrl).origin,
           referer: indexUrl,
         },
+      },
+      formatDataFn(data) {
+        const {bizCode, bizMsg} = data.data;
+        if (bizCode === -1002 || bizMsg.match('火爆')) {
+          const msg = `bizCode: ${bizCode}, bizMsg: ${bizMsg}`;
+          this.log(msg);
+          throw new Error(msg);
+        }
+        return data;
       },
     }, apiCustomOption);
   }

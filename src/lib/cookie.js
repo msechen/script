@@ -16,11 +16,8 @@ class Cookie {
   }
 
   set(name, value) {
-    name = name.split(';')[0];
-    if (!value) {
-      [name, value] = name.split('=');
-    }
-    this.cookieObject[name] = value;
+    const [key, v] = splitCookieStr(name);
+    this.cookieObject[key] = v || value;
   }
 
   remove(name) {
@@ -37,11 +34,25 @@ class Cookie {
 // cookie 格式：name=value; Path=/; Expires=Sun, 23-Apr-23 09:01:35 GMT; Domain=.domain.com;
 function fromPairs(data) {
   if (_.isString(data)) data = data.split(';');
-  return _.fromPairs(data.map(str => str.split(';')[0].trim().split('=')));
+  return _.fromPairs(data.map(splitCookieStr));
 }
 
 function toPairs(cookie) {
   return _.toPairs(cookie).map(array => array.join('=')).join('; ');
+}
+
+/**
+ * @description 拆分cookie str
+ * @param str
+ * @return {string[]}
+ */
+function splitCookieStr(str) {
+  str = str.split(';')[0].trim();
+  const index = str.indexOf('=');
+  if (index === -1) {
+    return [str, ''];
+  }
+  return [str.substring(0, index), str.substring(index + 1)];
 }
 
 // cookie 序列化
