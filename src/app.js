@@ -26,7 +26,7 @@ const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
 const jdFactory = require('./jd/jdFactory');
 const Health = require('./jd/wfh/Health');
-const HealthShare = require('./jd/wfh/HealthShare');
+const Health1 = require('./jd/wfh/Health1');
 const HealthSign = require('./jd/wfh/HealthSign');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
@@ -138,6 +138,7 @@ async function main() {
         await multipleRun([
           HealthSign,
           Health,
+          Health1,
         ]);
       },
     },

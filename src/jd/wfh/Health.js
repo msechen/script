@@ -6,8 +6,8 @@ class Health extends HarmonyTemplate {
   static scriptName = 'Health';
   static scriptNameDesc = '健康社区';
   static shareCodeTaskList = [];
-  static time = 3;
-  static skipTaskIds = [9/*西医亚健康测评*/, 14/*下单有礼*/];
+  static times = 3;
+  static skipTaskIds = [9/*西医亚健康测评*/, 14/*下单有礼*/, 35/*中医健康体质测评*/];
   static commonParamFn = () => ({'channelId': 1});
   static apiNames = {
     getTaskList: 'jdhealth_getTaskDetail',

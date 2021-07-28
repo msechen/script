@@ -171,7 +171,7 @@ class Base {
   static async doApi(api, name, data, returnData) {
     const target = api[name];
     if (!target) return Promise.resolve();
-    const {paramFn = _.noop, successFn = _.noop, errorFn, repeat = false} = this.apiNames[name];
+    const {paramFn = _.noop, successFn = _.noop, errorFn, repeat = false} = this.apiNameOptions[name];
 
     const _do = () => {
       let next = target(...[].concat(paramFn(data, returnData))).then(async (data) => successFn(data, api));
@@ -214,8 +214,8 @@ class Base {
     const api = new Api(cookie, signData, options, formatDataFn);
     if (requestFnName) {
       let apiObject = _.isArray(apiNames) ? _.zipObject(apiNames, apiNames) : apiNames;
-      this.apiNames = this.apiNamesFn();
-      _.assign(apiObject, _.zipObject(_.keys(this.apiNames), _.map(_.values(this.apiNames), 'name')));
+      this.apiNameOptions = this.apiNamesFn();
+      _.assign(apiObject, _.zipObject(_.keys(this.apiNameOptions), _.map(_.values(this.apiNameOptions), 'name')));
       for (const [key, functionId] of Object.entries(apiObject)) {
         api[key] = (...args) => api[requestFnName](functionId, ...args);
       }
