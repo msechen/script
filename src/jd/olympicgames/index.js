@@ -66,6 +66,9 @@ class Olympicgames extends Template {
       const searchParams = new URL(`http://test.cn?${body.text}`).searchParams;
       const requestBodyJSON = _.fromPairs(Array.from(searchParams.entries()));
       const ss = JSON.parse(requestBodyJSON.body).ss;
+      headers.forEach(o => {
+        o.name = o.name.toLowerCase();
+      });
       const cookies = headers.filter(({
         name,
         value,
