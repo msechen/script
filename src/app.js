@@ -66,9 +66,9 @@ const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
-const Olympicgames = TemporarilyOffline || require('./jd/olympicgames');
-const OlympicgamesApplet = TemporarilyOffline || require('./jd/olympicgames/applet');
-const OlympicgamesShopLottery = TemporarilyOffline || require('./jd/olympicgames/ShopLottery');
+const Olympicgames = require('./jd/olympicgames');
+const OlympicgamesApplet = require('./jd/olympicgames/applet');
+const OlympicgamesShopLottery = require('./jd/olympicgames/ShopLottery');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -105,10 +105,6 @@ async function main() {
 
           // 统计豆豆
           StatisticsBean,
-
-          Olympicgames,
-          OlympicgamesApplet,
-          OlympicgamesShopLottery,
 
           // 常驻活动
           SignBeanHome, SignRemote, Sign,
@@ -160,7 +156,6 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
-          Olympicgames,
           EarnCoins,
           Family,
         ]);
@@ -209,7 +204,6 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
-          Olympicgames,
         ]);
       },
     },
@@ -230,7 +224,6 @@ async function main() {
           [jdFactory, getCookieData()[0]],
           Fruit, Pet,
           Necklace,
-          Olympicgames,
           EarnCoins,
           SuperMarket,
         ]);
