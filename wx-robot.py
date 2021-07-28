@@ -2,6 +2,7 @@
 import glob
 import random
 import threading
+import logging
 from time import sleep
 
 from wxpy import *

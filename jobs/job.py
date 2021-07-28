@@ -83,8 +83,8 @@ def init_scheduler(bot_var):
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 知乎佣金
-    scheduler.add_job(get_zhihu_earnings, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='40', second='30')
+    scheduler.add_job(get_today_earnings, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='*', minute='58', second='30')
 
     # 知乎文章排名
     scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -134,7 +134,7 @@ def get_jd_order():
 
 
 # 查询知乎佣金
-def get_zhihu_earnings():
+def get_today_earnings():
     result = sync_data.query_today_earnings()
 
     try:
