@@ -244,7 +244,7 @@ async function main() {
         // 24点后定时启动
         await multipleRun([
           SignShop,
-          SuperMarketRedeem,
+          // SuperMarketRedeem,
           // JoyRedeem,
         ]);
         await multipleRun([

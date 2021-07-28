@@ -72,7 +72,7 @@ class SuperMarketRedeem extends SuperMarket {
     }
 
     async function obtainPrize(prize) {
-      const {prizeId, areaId, periodId, beanType, title, encryptActId} = prize;
+      const {prizeId, areaId, periodId, beanType, name, encryptActId} = prize;
       // TODO 有 encryptActId 不会有影响, 待确认
       if (!prizeId/* || encryptActId*/) return;
       const body = {
@@ -93,13 +93,13 @@ class SuperMarketRedeem extends SuperMarket {
       };
       return api.doFormBody('smt_exchangePrize', body, {needDelay: false}).then(async data => {
         if (!self.isSuccess(data)) {
-          api.log(`${title}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
+          api.log(`${name}兑换失败, ${_.property('data.bizMsg')(data)}, prizeId: ${prizeId}`);
           const bizCode = data.data.bizCode;
           if (bizCode === 400) await updateBeanPrizes();
           return bizCode;
         }
         beanPrize[beanType].finished++;
-        api.log(`${title}兑换成功一次`);
+        api.log(`${name}兑换成功一次`);
       });
     }
   }
