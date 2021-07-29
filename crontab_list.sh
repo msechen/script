@@ -13,6 +13,9 @@
 # 京东多合一签到
 7 0,17 * * * cd /scripts && npx ts-node /scripts/jd_bean_sign.ts >> /scripts/logs/jd_bean_sign_ts.log 2>&1
 
+# 京东双签
+7 0,17 * * * cd /scripts && npx ts-node /scripts/jd_bean_box.ts >> /scripts/logs/jd_bean_box.log 2>&1
+
 # 美丽研究院
 34 9,14,21 * * * node /scripts/jd_beauty.js >> /scripts/logs/jd_beauty.log 2>&1
 
