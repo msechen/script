@@ -226,7 +226,7 @@ if [ -n "$ENABLE_AUTO_HELP" ]; then
   if [ "$ENABLE_AUTO_HELP" = "true" ]; then
     echo "开启自动助力"
     #在所有脚本执行前，先执行助力码导出
-    sed -i 's/node/ . \/scripts\/docker\/auto_help.sh export > \/scripts\/logs\/auto_help_export.log \&\& node /g' ${mergedListFile}
+    sed -i 's/\(ts-node\|node\)/ . \/scripts\/docker\/auto_help.sh export > \/scripts\/logs\/auto_help_export.log \&\& node /g' ${mergedListFile}
   else
     echo "未开启自动助力"
   fi
