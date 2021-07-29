@@ -134,7 +134,7 @@
 1 1,2,23 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1
 
 # 京东宠汪汪自动兑换京豆
-0 0,8,16 * * * cd /scripts && npx tsc jd_reward.ts && node jd_reward.js >> /scripts/logs/jd_reward.log 2>&1
+0 0,8,16 * * * cd /scripts && npx ts-node jd_joy_reward.ts >> /scripts/logs/jd_joy_reward.log 2>&1
 
 # 闪购盲盒
 20 8 * * * node /scripts/jd_sgmh.js >> /scripts/logs/jd_sgmh.log 2>&1
