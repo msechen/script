@@ -89,6 +89,10 @@ class Olympicgames extends Template {
           const {bubbleInfos, userActBaseInfo, trainingInfo} = data.data.result;
           for (const {type} of bubbleInfos) {
             if (type === 7/*明日奖励*/) continue;
+            if (type === 5) {/*红包奖励*/
+              await api.doFormBody('receiveCash', {type: 3});
+              continue;
+            }
             await api.doFormBody('collectCurrency', {type});
           }
           await handleDoTraining(trainingInfo);
