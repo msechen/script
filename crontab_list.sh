@@ -88,6 +88,12 @@
 # 汪汪乐园
 45 0-23/3 * * * cd /scripts/ && npx ts-node /scripts/jd_joy_park.ts >> /scripts/logs/jd_joy_park.log 2>&1
 
+# 京东宠汪汪自动兑换京豆
+0 0,8,16 * * * cd /scripts && npx ts-node jd_joy_reward.ts >> /scripts/logs/jd_joy_reward.log 2>&1
+
+# 京东预存验证码
+58 7,15,23 * * * cd /scripts && node /scripts/jd_validate_Worker.js >> /scripts/logs/jd_validate_Worker.log 2>&1
+
 # QQ牧场
 30 0-23/3 * * * cd /scripts/ && npx ts-node /scripts/jd_qq_pasture.ts >> /scripts/logs/jd_qq_pasture.log 2>&1
 
@@ -133,9 +139,6 @@
 # 京东全民开红包
 1 1,2,23 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1
 
-# 京东宠汪汪自动兑换京豆
-0 0,8,16 * * * cd /scripts && npx ts-node jd_joy_reward.ts >> /scripts/logs/jd_joy_reward.log 2>&1
-
 # 闪购盲盒
 20 8 * * * node /scripts/jd_sgmh.js >> /scripts/logs/jd_sgmh.log 2>&1
 
@@ -165,9 +168,6 @@
 
 # 众筹许愿池
 10 0,23 * * * cd /scripts && npx ts-node /scripts/jd_wishingPool.ts >> /scripts/logs/jd_wishingPool.log 2>&1
-
-# 京东预存验证码
-58 7,15,23 * * * cd /scripts && node /scripts/jd_validate_Worker.js >> /scripts/logs/jd_validate_Worker.log 2>&1
 
 # 环境测试
 0 12 * * * node /scripts/jd_api_test.js >> /scripts/logs/jd_api_test.log 2>&1
