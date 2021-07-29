@@ -30,7 +30,7 @@ cmd=\$*
 command="node"
 echo \${cmd/\$1/}
 if echo "\$first" | grep -q -E '\.ts$'; then
-    command="ts-node"
+    command="npx ts-node"
 fi
 if [ \$1 == "conc" ]; then
     for job in \$(cat \$COOKIES_LIST | grep -v "#" | paste -s -d ' '); do
