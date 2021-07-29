@@ -4,7 +4,6 @@
 # 收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
-
 # 京东资产变动通知
 2 9 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1
 
@@ -13,6 +12,9 @@
 
 # 京东多合一签到
 7 0,17 * * * cd /scripts && node /scripts/jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
+
+# 京东多合一签到 new
+7 0,17 * * * cd /scripts && npx ts-node /scripts/jd_bean_sign.ts >> /scripts/logs/jd_bean_sign_ts.log 2>&1
 
 # 美丽研究院
 34 9,14,21 * * * node /scripts/jd_beauty.js >> /scripts/logs/jd_beauty.log 2>&1
@@ -33,7 +35,7 @@
 5 8,13,19 * * * cd /scripts && npx ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
 
 # 京喜财富岛提现
-15 * * * * cd /scripts && npx ts-node /scripts/jd_cfd_cashOut.ts >> /scripts/logs/jd_cfd_cashOut.log 2>&1
+15 * * * * cd /scripts && npx tsc jd_cfd_withdraw.ts && node /scripts/jd_cfd_withdraw.js >> /scripts/logs/jd_cfd_withdraw.log 2>&1
 
 # 摇京豆
 5 0,23 * * * node /scripts/jd_club_lottery.js >> /scripts/logs/jd_club_lottery.log 2>&1
