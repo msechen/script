@@ -10,6 +10,12 @@
 # 领京豆额外奖励
 10 7 * * * node /scripts/jd_bean_home.js >> /scripts/logs/jd_bean_home.log 2>&1
 
+# 东东超市兑换京豆包
+0 0 * * * node /scripts/jd_blueCoin.js >> /scripts/logs/jd_blueCoin.log 2>&1
+
+# 早上领京豆
+0 8 * * * cd /scripts && npx ts-node /scripts/jd_getUp.ts >> /scripts/logs/jd_getUp.log 2>&1
+
 # 京东多合一签到
 7 0,17 * * * cd /scripts && npx ts-node /scripts/jd_bean_sign.ts >> /scripts/logs/jd_bean_sign_ts.log 2>&1
 
@@ -171,3 +177,6 @@
 
 # 省钱大赢家之翻翻乐
 20 * * * * node /scripts/jd_big_winner.js >> /scripts/logs/jd_big_winner.log 2>&1
+
+# 京东种豆得豆
+1 7-21/2 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
