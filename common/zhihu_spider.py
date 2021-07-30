@@ -181,7 +181,7 @@ def get_jingfen_earnings(start, end, cookie):
         return "接口异常"
 
     if 'login' in res.text:
-        return 0, 'not login'
+        return 0, -10000
 
     json = res.json()
 

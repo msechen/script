@@ -160,7 +160,7 @@ def query_today_earnings():
     jingfen_earnings, num2 = query_jingfen_earnings()
     zhijia_pay, num3 = query_zhijia_pay()
 
-    total = num1 + num2 - num3
+    total = int(num1 + num2 - num3)
 
     return '总计：' + str(total) + "\n\n" + zhihu_earnings + "\n" + jingfen_earnings + "\n" + zhijia_pay
 
