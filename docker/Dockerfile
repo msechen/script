@@ -52,7 +52,7 @@
         && ln -sf $JD_DIR/jcsv.sh /usr/local/bin/jcsv \
 	&& ln -sf /usr/bin/python3 /usr/bin/python \
         && pip3 install --upgrade pip \
-        && cd $JD_DIR/bot \
+        && cd $JD_DIR/jbot \
         && pip3 install -r requirements.txt \
         && cp -f $JD_DIR/docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh \
         && chmod 777 /usr/local/bin/docker-entrypoint.sh \
