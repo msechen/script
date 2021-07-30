@@ -142,17 +142,27 @@ fi
 if type python3 &>/dev/null; then
     echo -e "======================== 7. 启动Telegram Bot ========================\n"
     if [[ $ENABLE_TG_BOT == true ]]; then
-        cp -f $file_bot_sample $file_bot_user
-        if [[ -z $(grep -E "你的USERID" $file_bot_setting_user) ]]; then
-            cd $dir_config
-            pm2 start bot.py --watch "$file_bot_user" --watch-delay 10 --name=bot
+#        cp -f $file_bot_sample $file_bot_user
+#        if [[ -z $(grep -E "你的USERID" $file_bot_setting_user) ]]; then
+#            cd $dir_config
+#            pm2 start bot.py --watch "$file_bot_user" --watch-delay 10 --name=bot
+#        else
+#            echo -e "似乎 $file_bot_setting_user 还未修改为你自己的信息，可能是首次部署容器，因此不启动Telegram Bot...\n"
+#        fi
+#    else
+#        echo -e "已设置为不自动启动Telegram Bot，跳过...\n"
+#    fi
+#fi
+          if [[ -z $(grep -E "123456789" $JD_DIR/config/bot.json) ]]; then
+                cd $JD_DIR/jbot
+                pm2 start ecosystem.config.js
+            else
+                echo -e  "似乎 $JD_DIR/config/bot.json 还未修改为你自己的信息，可能是首次部署容器，因此不启动Telegram Bot...\n"
+            fi
         else
-            echo -e "似乎 $file_bot_setting_user 还未修改为你自己的信息，可能是首次部署容器，因此不启动Telegram Bot...\n"
-        fi
-    else
-        echo -e "已设置为不自动启动Telegram Bot，跳过...\n"
-    fi
-fi
+            echo -e "已设置为不自动启动Telegram Bot，跳过...\n"
+      fi
+ fi
 
 echo -e "容器启动成功...\n"
 
