@@ -509,8 +509,10 @@ update_scripts () {
 
     ## 更新或克隆scripts
     if [ -d $dir_scripts/.git ]; then
+        git reset --hard
         git_pull_scripts $dir_scripts origin/$branch_scripts
     else
+        git reset --hard
         git_clone_scripts $url_scripts $dir_scripts $branch_scripts
     fi
 
