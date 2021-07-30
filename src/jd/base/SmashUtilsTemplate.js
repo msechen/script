@@ -42,10 +42,7 @@ class SmashUtilsTemplate extends Template {
       throw new Error(msg);
     };
     const ssMaxTimes = 3;
-    if (!self._charlesForms) {
-      self._charlesForms = self.getCharlesForms();
-    }
-    const forms = self._charlesForms;
+    const forms = self.getCharlesForms();
     if (_.isEmpty(forms)) needLoadData();
     const allData = _.flatten((self.needSelfEncryptBody ? forms : forms.map(o => JSON.parse(o.body)))
     .map(ss => new Array(ssMaxTimes).fill(ss)));
