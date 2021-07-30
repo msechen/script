@@ -1,4 +1,4 @@
-name: sync-zooPanda-scripts
+name: sync-jdv5-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-zooPanda-scripts
+    types: sync-jdv5-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-zooPanda-scripts
+      - name: sync-jdv5-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/zooPanda/zoo.git"
-          source_branch: "dev"
-          destination_branch: "zooPanda"
+          source_repo: "https://github.com/drew0531/jd_pro.git"
+          source_branch: "master"
+          destination_branch: "jdv5"
           github_token: ${{ secrets.PAT }}
