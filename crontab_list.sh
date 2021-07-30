@@ -180,3 +180,6 @@
 
 # 京东种豆得豆
 1 7-21/2 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
+
+# 京喜签到
+0 0,17 * * * cd /scripts && ts-node /scripts/jx_sign.ts >> /scripts/logs/jx_sign.log 2>&1
