@@ -204,11 +204,11 @@ update_docker_entrypoint () {
 }
 
 ## 更新bot.py，docker专用
-update_bot_py() {
-    if [[ $JD_DIR ]] && [[ $ENABLE_TG_BOT == true ]] && [ -f $dir_config/bot.py ] && [[ $(diff $dir_root/bot/bot.py $dir_config/bot.py) ]]; then
-        cp -f $dir_root/bot/bot.py $dir_config/bot.py
-    fi
-}
+#update_bot_py() {
+#    if [[ $JD_DIR ]] && [[ $ENABLE_TG_BOT == true ]] && [ -f $dir_config/bot.py ] && [[ $(diff $dir_root/bot/bot.py $dir_config/bot.py) ]]; then
+#        cp -f $dir_root/bot/bot.py $dir_config/bot.py
+ #   fi
+#}
 
 ## 更新docker通知
 update_docker () {
@@ -468,7 +468,9 @@ update_shell () {
 #       reset_romote_url $dir_shell $url_shell
 #       reset_romote_url $dir_scripts $url_scripts
 #    fi
-
+   ## 记录bot程序md5
+    jbot_md5sum_old=$(cd $dir_bot; find . -type f \( -name "*.py" -o -name "*.ttf" \) | xargs md5sum)
+    
     ## 更新shell
     git_pull_scripts $dir_shell
     if [[ $exit_status -eq 0 ]]; then
@@ -476,7 +478,7 @@ update_shell () {
         make_dir $dir_config
         cp -f $file_config_sample $dir_config/config.sample.sh
         update_docker_entrypoint
-        update_bot_py
+   #     update_bot_py
         detect_config_version
     else
         echo -e "\n更新$dir_shell失败，请检查原因...\n"
