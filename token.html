@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>价格保护</title>
+    <script type="text/javascript" src="https://js-nocaptcha.jd.com/statics/js/main.min.js"></script>
+</head>
+
+<body>
+    <div>
+        生成多少个TOKEN: <input type="text" id="num" value="1">
+        <input type="submit" onclick="Submit()">
+    </div>
+
+    TOKENS: <input type="text" id="tokens" value="">
+    <script type="text/javascript">
+        function Submit() {
+            const num = Number(document.getElementById('num').value)
+            let tokens = []
+            for (let i = 0; i < num; i++) {
+                let jab = null;
+                try {
+                    jab = new JAB({
+                        bizId: 'jdjiabao',
+                        initCaptcha: false
+                    })
+                    tokens.push(jab.getToken())
+                } catch (e) {
+                }
+            }
+            document.getElementById('tokens').value = tokens.join('@')
+        }
+    </script>
+</body>
+
+</html>

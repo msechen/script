@@ -1,253 +1,36 @@
 /*
-update 2021/7/25
+update 2021/4/11
 京东价格保护：脚本更新地址 https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_priceProtect.js
 脚本兼容: QuantumultX, Node.js
 ==========================Quantumultx=========================
 打开手机客户端，或者浏览器访问 https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu
 [rewrite_local]
 https:\/\/api\.m.jd.com\/api\?appid=siteppM&functionId=siteppM_priceskusPull url script-request-body https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_priceProtectRewrite.js
-[task_local]
-# 京东价格保护
-5 0 * * * https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_priceProtect.js, tag=京东价格保护, img-url=https://raw.githubusercontent.com/ZCY01/img/master/pricev1.png, enabled=true
 */
-
 const $ = new Env('京东价格保护');
 
-const unifiedGatewayName = 'https://api.m.jd.com'
-
-// 请先配置 token!!!最好抓APP的！
-let tokens = ''
-
-$.HyperParam = {
-    sid_hid: '',
-    type_hid: '3',
-    forcebot: ''
-}
 !(async () => {
-    await requireConfig()
-    // if (!$.tokenList[0]) {
-    //     $.msg($.name, '请先获取JD_TOKEN', 'https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu', {
-    //         "open-url": "https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu"
-    //     })
-    //     return
-    // }
-    for (let i = 0; i < $.cookiesArr.length; i++) {
-        if ($.cookiesArr[i]) {
-            $.cookie = $.cookiesArr[i]
-            $.UserName = decodeURIComponent($.cookie.match(/pt_pin=(.+?);/) && $.cookie.match(/pt_pin=(.+?);/)[1])
-            $.index = i + 1
-            $.isLogin = true
-            $.nickName = ''
-            await totalBean();
-            if (!$.isLogin) {
-                $.msg($.name, `【提示】cookie已失效`, `X东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/`, {
-                    "open-url": "https://bean.m.jd.com/"
-                })
-                await $.notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `X东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-                continue
+    if ($request && $request.method == 'POST' && $request.url.match(/siteppM_priceskusPull/)) {
+        const body = $request.body
+        let data = JSON.parse(decodeURIComponent(body).slice(5))
+        let token = data.token
+        let old = $.getdata('jd_tokens')
+        if (token && old) {
+            if (old.indexOf(token) == -1) {
+                $.setdata(`${old}@${token}`, 'jd_tokens')
+                $.msg(`${$.name}`, `写入token成功，当前${$.getdata('jd_tokens').split('@').length}个token`, ``)
             }
-            console.log(`\n***********开始【X东账号${$.index}】${$.nickName || $.UserName}********\n`);
-
-            $.refundtotalamount = 0
-            $.token = $.tokenList.length > i ? $.tokenList[i] : ($.token || '')
-            $.feSt = $.token ? 's' : 'f'
-
-            $.applied = false
-            await onceApply()
-            if ($.applied) {
-                await checkOnceAppliedResult()
-            }
-            await showMsg()
-            await $.wait(1000)
         }
+        else if (token) {
+            $.setdata(token, 'jd_tokens')
+            $.msg(`${$.name}`, `写入首个token成功`, ``)
+        }
+
+
     }
 })()
     .catch((e) => {
-        console.log(`❗️ ${$.name} 运行错误！\n${e}`)
     }).finally(() => $.done())
-
-function requireConfig() {
-    function jsonParse(str) {
-        if (typeof str == "string") {
-            try {
-                return JSON.parse(str);
-            } catch (e) {
-                console.log(e);
-                $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
-                return [];
-            }
-        }
-    }
-    return new Promise(resolve => {
-        console.log('开始获取配置文件\n')
-        $.notify = $.isNode() ? require('./sendNotify') : { sendNotify: async () => { } }
-        //获取 Cookies
-        $.cookiesArr = []
-        if ($.isNode()) {
-            //Node.js用户请在jdCookie.js处填写X东ck;
-            const jdCookieNode = require('./jdCookie.js');
-            Object.keys(jdCookieNode).forEach((item) => {
-                if (jdCookieNode[item]) {
-                    $.cookiesArr.push(jdCookieNode[item])
-                }
-            })
-            if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => { };
-        } else {
-            //IOS等用户直接用NobyDa的jd $.cookie
-            $.cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
-        }
-        console.log(`共${$.cookiesArr.length}个X东账号\n`)
-
-        if ($.isNode()) {
-            if (process.env.JD_TOKENS) tokens = process.env.JD_TOKENS
-        }
-        else {
-            tokens = $.getdata('jd_tokens') || tokens
-        }
-        $.tokenList = tokens.split('@')
-        resolve()
-    })
-}
-
-function onceApply() {
-    return new Promise((resolve, reject) => {
-        let paramObj = {};
-        paramObj.sid = $.HyperParam.sid_hid
-        paramObj.type = $.HyperParam.type_hid
-        paramObj.forcebot = $.HyperParam.forcebot
-        paramObj.token = $.token
-        paramObj.feSt = $.feSt
-
-        let options = taskurl('siteppM_skuOnceApply', paramObj)
-        $.post(options, (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`🚫 ${arguments.callee.name.toString()} API请求失败，请检查网路\n${JSON.stringify(err)}`)
-                } else {
-                    data = JSON.parse(data)
-                    if (data.flag) {
-                        $.applied = true
-                    }
-                    else {
-                        console.log(`一键价格保护失败，原因：${data.responseMessage}`)
-                    }
-                }
-            } catch (e) {
-                reject(`⚠️ ${arguments.callee.name.toString()} API返回结果解析出错\n${e}\n${JSON.stringify(data)}`)
-            } finally {
-                resolve()
-            }
-        })
-    })
-}
-
-function checkOnceAppliedResult() {
-    return new Promise((resolve, reject) => {
-        let paramObj = {}
-        paramObj.sid = $.HyperParam.sid_hid
-        paramObj.type = $.HyperParam.type_hid
-        paramObj.forcebot = $.forcebot
-        paramObj.num = 10
-
-        let options = taskurl('siteppM_appliedSuccAmount', paramObj)
-        $.post(options, (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`🚫 ${arguments.callee.name.toString()} API请求失败，请检查网路\n${JSON.stringify(err)}`)
-                } else {
-                    data = JSON.parse(data)
-                    if (data.flag) {
-                        $.refundtotalamount = data.succAmount
-                    }
-                    else {
-                        console.log(`一键价格保护结果：${JSON.stringify(data)}`)
-                    }
-                }
-            } catch (e) {
-                reject(`⚠️ ${arguments.callee.name.toString()} API返回结果解析出错\n${e}\n${JSON.stringify(data)}`)
-            } finally {
-                resolve()
-            }
-        })
-    })
-}
-
-function totalBean() {
-    return new Promise(async resolve => {
-        const options = {
-            "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
-            "headers": {
-                "Accept": "application/json,text/plain, */*",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Accept-Encoding": "gzip, deflate, br",
-                "Accept-Language": "zh-cn",
-                "Connection": "keep-alive",
-                "Cookie": $.cookie,
-                "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-                "User-Agent": "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"
-            },
-            "timeout": 10000,
-        }
-        $.post(options, (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`)
-                    console.log(`${$.name} API请求失败，请检查网路重试`)
-                } else {
-                    if (data) {
-                        data = JSON.parse(data);
-                        if (data['retcode'] === 13) {
-                            $.isLogin = false; //cookie过期
-                            return
-                        }
-                        if (data['retcode'] === 0) {
-                            $.nickName = (data['base'] && data['base'].nickname) || $.UserName;
-                        } else {
-                            $.nickName = $.UserName
-                        }
-                    } else {
-                        console.log(`X东服务器返回空数据`)
-                    }
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve();
-            }
-        })
-    })
-}
-
-function taskurl(functionid, body) {
-    const urlStr = `${unifiedGatewayName}/api?appid=siteppM&functionId=${functionid}&forcebot=${$.HyperParam.forcebot}&t=${new Date().getTime()}`
-    return {
-        "url": urlStr,
-        "headers": {
-            'Host': 'api.m.jd.com',
-            'Accept': '*/*',
-            'Accept-Language': 'zh-cn',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Origin': 'https://msitepp-fm.jd.com',
-            'Connection': 'keep-alive',
-            'Referer': 'https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu',
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
-            "Cookie": $.cookie
-        },
-        "body": body ? `body=${encodeURIComponent(JSON.stringify(body))}` : undefined
-    }
-}
-
-async function showMsg() {
-    const message = `X东账号${$.index} ${$.nickName || $.UserName}\n🎉 本次价格保护金额：${$.refundtotalamount}💰`
-    console.log(message)
-    if ($.refundtotalamount) {
-        $.msg($.name, ``, message, {
-            "open-url": "https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu"
-        });
-        await $.notify.sendNotify($.name, message)
-    }
-}
 
 // 来自 @chavyleung 大佬
 // https://raw.githubusercontent.com/chavyleung/scripts/master/Env.js
