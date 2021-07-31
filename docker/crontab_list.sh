@@ -30,16 +30,8 @@
 20 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 #东东电竞经理
 47 10 * * * node /scripts/jd_djjl.js >> /scripts/logs/jd_djjl.log 2>&1
-#食力街跑酷达人
-0 0 * * * node /scripts/jd_msj.js >> /scripts/logs/jd_msj.log 2>&1
 #天天优惠大乐透
 25 6 * * * node /scripts/jd_DrawEntrance.js >> /scripts/logs/jd_DrawEntrance.log 2>&1
-#国创
-25 8 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
-#pk
-33 10 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
-#QQ星
-20 6,12,18 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
 #众筹许愿池
 20 12 * * * node /scripts/jd_wishingPool.js >> /scripts/logs/jd_wishingPool.log 2>&1
 #汪汪乐园
@@ -62,6 +54,8 @@
 21 9 * * * node /scripts/jd_MMdou.js >> /scripts/logs/jd_MMdou.log 2>&1
 #京喜领88元红包
 30 1,6,12,21 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
+#京喜首页签到
+20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
 
 ##############长期活动##############
 # 签到
