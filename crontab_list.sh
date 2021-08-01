@@ -38,7 +38,7 @@
 2 0-23/4 * * * node /scripts/jd_cash.js >> /scripts/logs/jd_cash.log 2>&1
 
 # 京喜财富岛
-5 8,13,19 * * * cd /scripts && ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
+10 * * * * cd /scripts && ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
 
 # 京喜财富岛提现
 15 * * * * cd /scripts && npx tsc jd_cfd_withdraw.ts && node /scripts/jd_cfd_withdraw.js >> /scripts/logs/jd_cfd_withdraw.log 2>&1
