@@ -147,7 +147,7 @@ def auto_reply(msg):
     if msg.text == '客户排名':
         return sync_data.query_article_rank(100)
 
-    if 'shshshfpb' in msg.text:
+    if 'unick=kollyQAQ' in msg.text:
         zh_config_dao.update_config('jfck', msg.text)
         return '更新成功'
 
