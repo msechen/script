@@ -2,8 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON, replaceObjectMethod} = require('../../lib/common');
 const FakerSmashUtils = require('../../lib/FakerSmashUtils');
-const Cookie = require('../../lib/cookie');
-const {uuidRandom} = require('../base/api');
+const {getJoyToken} = require('../base/api');
 
 const {necklace} = require('../../../charles/api');
 
@@ -14,7 +13,6 @@ class Necklace extends Template {
   static scriptNameDesc = '天天点点券';
   static needOriginH5 = true;
   static needInAppComplete = true;
-  static appCompleteUserAgent = `jdapp;iPhone;10.0.8;14.4.2;${uuidRandom()};network/wifi;ADID/3F74A88A-71D3-404B-BBDF-8C0575E680EC;model/iPhone10,2;addressid/4091160336;appBuild/167741;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1`;
 
   static apiOptions = {
     signData: {
@@ -46,28 +44,16 @@ class Necklace extends Template {
   static async beforeRequest(api) {
     const self = this;
     const appId = '50082';
-    const joyToken = await api.doUrl('https://bh.m.jd.com/gettoken', {
-      form: {
-        content: {'appname': appId, 'whwswswws': '', 'jdkey': '', 'body': {'platform': '1'}},
-      },
-      headers: {
-        Cookie: '',
-      },
-    }).then(data => {
-      return data['joyytoken'];
-    });
-    const newCookie = `joyytoken=${appId}${joyToken}`;
-    api.cookie = new Cookie([api.cookie, newCookie].join('; ')).toString();
+    const joyToken = await getJoyToken(api, appId);
     return replaceObjectMethod(api, 'doFormBody', async ([functionId, body, signData, options]) => {
       const action = ['sign', 'startTask', 'chargeScores'].find(v => functionId.match(v));
       if (action) {
-        body = body || {};
-        body = await require('./ZooFaker_Necklace').utils.getBody({
-          cookie: api.cookie,
-          action,
+        body = await require('./smashUtils').getBody({
+          pin: api.getPin(),
           joyToken,
-          uuid: self.getUUid(),
-          id: body.taskId || body.bubleId,
+          appId,
+          riskData: body,
+          userAgent: self.appCompleteUserAgent,
         });
       }
       return [functionId, body, signData, options];

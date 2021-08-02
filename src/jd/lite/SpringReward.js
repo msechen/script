@@ -39,7 +39,7 @@ class SpringReward extends Template {
     // 更新linkId
     await api.doGetUrl(indexUrl, {
       headers: {
-        Cookie: '',
+        cookie: '',
       },
     }).then(data => {
       const newLinkId = matchMiddle(data, {reg: /"linkId":"(\w*)",/});

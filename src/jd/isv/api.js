@@ -8,7 +8,7 @@ async function updateTokenCookies(api, loopTimes = 0) {
     simple: false,
     method: 'GET',
     headers: {
-      Cookie: '',
+      cookie: '',
     },
     qs: {t: Math.random()},
   }).then(response => {

@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const _ = require('lodash');
+const Cookie = require('../lib/cookie');
 const {printLog, sleep, objectValuesStringify} = require('../lib/common');
 
 const requestURI = 'https://api.m.jd.com/client.action';
@@ -9,7 +10,7 @@ const DEFAULT_OPTION = {
   uri: requestURI,
 };
 
-const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
+const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
   const _printLog = (result, type) => {
     const findNotEmpty = (...array) => array.find(v => !_.isEmpty(v));
     printLog('jdAPI', 'request', [findNotEmpty(qs, others), findNotEmpty(form, body), result], type);
@@ -27,7 +28,7 @@ const _request = (Cookie, {form, body, qs, headers = {}, ...others}) => {
 
   return rp(_.assign({
     ...DEFAULT_OPTION,
-    headers: {Cookie, ...headers},
+    headers: {cookie, ...headers},
   }, options)).then(result => {
     !ignorePrintLog && _printLog(result, 'success');
     return result;
@@ -45,7 +46,7 @@ class Api {
   }
 
   getPin(key = 'pt_pin') {
-    return _.last(this.cookie.match(new RegExp(`${key}=(.*);`)) || ['']);
+    return new Cookie(this.cookie).get(key);
   }
 
   commonDo(options) {
@@ -139,7 +140,7 @@ class Api {
     return this.commonDo(_.assign({
       uri,
       headers: {
-        Cookie: '',
+        cookie: '',
       },
       method: 'GET',
     }, options));

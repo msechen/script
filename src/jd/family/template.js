@@ -44,7 +44,7 @@ class FamilyTemplate extends Family {
     await api.commonDo({
       uri: this.indexUrl,
       headers: {
-        Cookie: '',
+        cookie: '',
       },
       method: 'GET',
       qs: api.options.qs,

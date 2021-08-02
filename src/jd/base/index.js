@@ -1,6 +1,7 @@
 const _ = require('lodash');
 
 const Api = require('../api');
+const UserAgent = require('./UserAgent');
 const {sleep, printLog, parallelRun} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
@@ -110,8 +111,7 @@ class Base {
   }
 
   static getUUid(userAgent) {
-    userAgent = userAgent || this.appCompleteUserAgent;
-    return userAgent.split(';')[4];
+    return new UserAgent(userAgent || this.appCompleteUserAgent).uuid;
   }
 
   static getListMatchVo(object) {

@@ -33,7 +33,7 @@ class SuperShake extends Template {
     // 更新 appId
     return api.doGetUrl(indexUrl, {
       headers: {
-        Cookie: '',
+        cookie: '',
       },
     }).then(data => {
       const newAppId = matchMiddle(data, {reg: /"taskAppId":"(\w*)",/});

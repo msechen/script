@@ -1,3 +1,6 @@
+const UserAgent = require('../base/UserAgent');
+const {getMoment} = require('../../lib/moment');
+
 function safeAdd(x, y) {
   var lsw = (x & 0xffff) + (y & 0xffff);
   var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
@@ -438,7 +441,7 @@ function sha256_encode_hex() {
   return output;
 }
 
-let utils = {
+const smashUtils = {
   getDefaultVal: function (e) {
     try {
       return {
@@ -519,12 +522,7 @@ let utils = {
       a.push(Math.abs(n.charCodeAt(e) - r.charCodeAt(e)));
     }), a.join().replace(/,/g, '');
   },
-  getCurrentDate: function () {
-    return new Date;
-  },
-  getCurrentTime: function () {
-    return this.getCurrentDate().getTime();
-  },
+  getCurrentTime: () => getMoment().valueOf(),
   getRandomInt: function () {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0,
       t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 9;
@@ -811,49 +809,42 @@ let utils = {
     //"1627139784174~1jNN40H0elF14e91ebb633928c23d5afbaa8f947952~x~~~B~TBJHGg0bVAlaF1oPTVwfXQtaVBdJFQcVChcaGxtURA0bVkQUF0cXXhUDG1AZXhUcF0wVAxVSBg4DREU=~0v3u0bq",
     return `${timestamp}~1${nonce_str + token}~${encrypeid}~~~${isDefaultKey}~${cipher}~${this.getCrcCode(cipher)}`;
   },
-  getBody: function ($ = {}) {
-    var pin = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-    var appid = '50082';
-    var TouchSession = this.getTouchSession();
-    let riskData;
-    switch ($.action) {
-    case 'startTask':
-      riskData = {taskId: $.id};
-      break;
-    case 'chargeScores':
-      riskData = {bubleId: $.id};
-      break;
-    case 'sign':
-      riskData = {};
-      break;
-    case 'exchangeGift':
-      riskData = {scoreNums: $.id, giftConfigId: $.giftConfigId || 198};
-      break;
-    default:
-      break;
-    }
-
-    var random = Math.floor(1e+6 * Math.random()).toString().padEnd(6, '8');
-    var senddata = this.objToString2(this.RecursiveSorting({
+  getBody({
+    pin,
+    joyToken,
+    appId = '50082',
+    sceneid = 'DDhomePageh5',
+    riskData = {},
+    userAgent,
+    randomFn,
+  }) {
+    let TouchSession = this.getTouchSession();
+    const random = randomFn ? randomFn() : Math.floor(1e+6 * Math.random()).toString().padEnd(6, '8');
+    let sendData = this.objToString2(this.RecursiveSorting({
       pin,
       random,
       ...riskData,
     }));
-    var time = this.getCurrentTime();
+    const time = this.getCurrentTime();
     // time = 1626970587918;
-    var encrypt_id = this.decipherJoyToken(appid + $.joyToken, appid)['encrypt_id'].split(',');
-    var nonce_str = this.getRandomWord(10);
+    let encrypt_id = this.decipherJoyToken(appId + joyToken, appId)['encrypt_id'].split(',');
+    let nonce_str = this.getRandomWord(10);
     // nonce_str="iY8uFBbYX7";
-    var key = this.getKey(encrypt_id[2], nonce_str, time.toString());
+    let key = this.getKey(encrypt_id[2], nonce_str, time.toString());
 
-    var str1 = `${senddata}&token=${$.joyToken}&time=${time}&nonce_str=${nonce_str}&key=${key}&is_trust=1`;
+    let str1 = `${sendData}&token=${joyToken}&time=${time}&nonce_str=${nonce_str}&key=${key}&is_trust=1`;
     //console.log(str1);
     str1 = this.sha1(str1);
-    var outstr = [time, '1' + nonce_str + $.joyToken, encrypt_id[2] + ',' + encrypt_id[3]];
+    let outstr = [time, '1' + nonce_str + joyToken, encrypt_id[2] + ',' + encrypt_id[3]];
     outstr.push(str1);
     outstr.push(this.getCrcCode(str1));
     outstr.push('C');
-    var data = {
+
+    const agent = new UserAgent(userAgent);
+    const appBuild = agent.appBuild;
+    const model = agent.model;
+    const uuid = agent.uuid;
+    let data = {
       tm: [],
       tnm: [],
       grn: 1,
@@ -862,33 +853,33 @@ let utils = {
       wea: 'ffttttua',
       pdn: [7, (Math.floor(Math.random() * 1e8) % 180) + 1, 6, 11, 1, 5],
       jj: 1,
-      cs: hexMD5('Object.P.<computed>=&HTMLDocument.Ut.<computed>=https://storage.360buyimg.com/babel/00750963/1942873/production/dev/main.e5d1c436.js'),
+      // cs: hexMD5('Object.P.<computed>=&HTMLDocument.Ut.<computed>=https://storage.360buyimg.com/babel/00750963/1942873/production/dev/main.e5d1c436.js'),
+      cs: '',
       np: 'iPhone',
       t: time,
-      jk: $.uuid,
+      jk: uuid,
       fpb: '',
       nv: 'Apple Computer, Inc.',
-      nav: '167741',
+      nav: appBuild,
       scr: [736, 414],
       ro: [
-        'iPhone10,2',
+        model,
         'iOS',
-        '14.4.2',
-        '10.0.8',
-        '167741',
-        $.uuid,
+        agent.osVersion,
+        agent.appVersion,
+        appBuild,
+        uuid,
         'a',
       ],
       ioa: 'fffffftt',
       aj: 'u',
       ci: 'w3.1.0',
       cf_v: '01',
-      bd: senddata,
+      bd: sendData,
       mj: [1, 0, 0],
       blog: 'a',
       msg: '',
     };
-    // console.log(data);
     //console.log(JSON.stringify(data));
     data = new Buffer.from(this.xorEncrypt(JSON.stringify(data), key)).toString('base64');
     //console.log(data);
@@ -898,13 +889,12 @@ let utils = {
     return {
       extraData: {
         log: outstr.join('~'),
-        sceneid: 'DDhomePageh5',
+        sceneid,
       },
       ...riskData,
       random,
     };
   },
 };
-module.exports = {
-  utils,
-};
+
+module.exports = smashUtils;

@@ -127,7 +127,7 @@ class FakerSmashUtils {
     return this.api.commonDo({
       uri,
       headers: {
-        Cookie: '',
+        cookie: '',
       },
       method: 'GET',
     });
