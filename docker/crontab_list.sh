@@ -57,9 +57,9 @@
 #京喜首页签到
 20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
 #jd_olympic_opencard1
-5 0,18,22 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
+5 0,18,22 * * * node /scripts/jd_olympic_opencard1.js >> /scripts/logs/jd_olympic_opencard1.log 2>&1
 #jd_olympic_opencard2
-20 0,18,22 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
+20 0,18,22 * * * node /scripts/jd_olympic_opencard2.js >> /scripts/logs/jd_olympic_opencard2.log 2>&1
 
 ##############长期活动##############
 # 签到
