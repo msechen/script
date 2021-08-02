@@ -56,6 +56,10 @@
 30 1,6,12,21 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
 20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
+#jd_olympic_opencard1
+5 0,18,22 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
+#jd_olympic_opencard2
+20 0,18,22 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
 
 ##############长期活动##############
 # 签到
