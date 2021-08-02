@@ -1,6 +1,8 @@
 /*
 
-软件名称:美刻精灵 (安卓版) 一天不固定,大概0.5-0.8不等
+软件名称:美刻精灵 (安卓版)
+
+好像需要打开app才能跑,不知道是啥情况,现在官方更新都有点难搞了
 
 软件下载地址: https://gitee.com/soy-tool/app-script/blob/master/picture/mkjl.png
 
