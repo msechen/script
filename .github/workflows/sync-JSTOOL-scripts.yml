@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/lan-tianxiang/JS_TOOL.git"
+          source_repo: "https://github.com/lan-tianxiang/js_tool.git"
           source_branch: "A1"
           destination_branch: "JSTOOL"
           github_token: ${{ secrets.PAT }}
