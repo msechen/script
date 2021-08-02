@@ -30,6 +30,13 @@ commit(){
 echo
 echo "-----------------------Cloning destination repo-----------------------"
 git clone $dest_repo /tmp/dest_repo
+
+if [ ! -d "/tmp/dest_repo" ] 
+then
+    echo "Failed to clone dest repo!" 
+    exit 1
+fi
+
 cd /tmp/dest_repo
 find . -maxdepth 1 -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
 mkdir /tmp/backup
