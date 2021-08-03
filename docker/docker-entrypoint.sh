@@ -14,8 +14,8 @@ file_config_user="$dir_config/config.sh"
 file_cookie="$dir_config/cookie.sh"
 file_auth_sample="$dir_sample/auth.sample.json"
 file_auth_user="$dir_config/auth.json"
-file_bot_sample="$JD_DIR/bot/bot.py"
-file_bot_user="$dir_config/bot.py"
+#file_bot_sample="$JD_DIR/bot/bot.py"
+#file_bot_user="$dir_config/bot.py"
 file_bot_setting_sample="$dir_sample/bot.sample.json"
 file_bot_setting_user="$dir_config/bot.json"
 
@@ -27,7 +27,6 @@ fi
 if [ ! -d $dir_log ]; then
     echo -e "没有映射log日志目录给本容器，在容器内创建该文件夹\n"
     mkdir -p $dir_log
-    mkdir -p $dir_log/jcode
 fi
 if [ ! -d $dir_own ]; then
     echo -e "没有映射own脚本目录给本容器，在容器内创建该文件夹\n"
