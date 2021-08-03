@@ -119,7 +119,7 @@ const formatForm = (key, object) => {
   object[key] = result;
 
   fs.writeFileSync(jsonPath, JSON.stringify(result), {encoding: 'utf-8'});
-  if (isGitIgnore) return;
+  if (isGitIgnore || 1/*按需执行*/) return;
   // 新增的json文件需要进行提交
   exec(`git add ${jsonPath}`);
 };
