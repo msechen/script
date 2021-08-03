@@ -318,7 +318,7 @@ get_code();
         let timeStamp = new Date().getTime();
         ajax({
           url: './cookie?t=' + timeStamp,
-          method: 'post',
+          method: 'get',
           data: { user, msg: document.getElementById('msg').value || '无备注' },
           success: function (data) {
             if (data.err == 0) {
