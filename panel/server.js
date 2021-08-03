@@ -300,6 +300,17 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
+ * 外部页面2
+ */
+app.get('/cs', function (request, response) {
+    if (request.session.loggedin) {
+        response.sendFile(path.join(__dirname + '/public/cs.html'));
+    } else {
+        response.redirect('/');
+    }
+});
+
+/**
  * 外部页面
  */
 app.get('/jd', function (request, response) {
