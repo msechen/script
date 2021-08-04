@@ -132,7 +132,7 @@ function matchMiddle(target, {reg, prefix, suffix, match = '\w'}) {
  * @return {Promise|*}
  */
 async function singleRun(target, method = 'start', runFn = null) {
-  const {getLocalEnvs, getCookieData} = require('./env');
+  const {updateProcessEnv, getCookieData} = require('./env');
   const [nodePath, filePath, command1] = process.argv;
   const fileName = path.basename(filePath);
   let scriptName1 = fileName.replace(/\.js$/, '');
@@ -145,7 +145,7 @@ async function singleRun(target, method = 'start', runFn = null) {
 
   for (const m of _.concat(method)) {
     if (command1 === m && isCurrentFile) {
-      process.env = getLocalEnvs();
+      updateProcessEnv();
       promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData()));
     }
   }

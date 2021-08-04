@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const {getNowDate, getNowHour} = require('./lib/moment');
-const {getCookieData} = require('./lib/env');
+const {getCookieData, updateProcessEnv} = require('./lib/env');
+updateProcessEnv();
 const {
   multipleRun,
   serialRun,

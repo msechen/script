@@ -22,8 +22,7 @@
     "tail": "^2.0.4"
   },
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "node src/dev.js",
+    "dev": "node src/app.js",
     "cron": "node src/cron.js",
     "build:yaml": "node src/yaml/schedule.js",
     "build:updateShopToken": "node src/jd/sign/updateShopToken.js",

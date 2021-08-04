@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
+const {execSync} = require('child_process');
 
 function getLocalEnvs() {
   const envPath = path.resolve(__dirname, '../../.env.local');
-  if (!fs.existsSync(envPath)) return;
+  if (!fs.existsSync(envPath) || getEnv('NODE_ENV') === 'production') return;
   // key=value
   const fileContent = fs.readFileSync(envPath).toString();
   if (!fileContent) return;
@@ -14,6 +15,22 @@ function getLocalEnvs() {
     const splitIndex = str.indexOf('=');
     result[str.substring(0, splitIndex)] = str.substring(splitIndex + 1);
   });
+  // 判断是否可以配置代理
+  if (!('JUDGE_ENABLE_PROXY' in result)) return result;
+  if (['darwin', 'win32'].includes(process.platform)) {
+    const isWin = process.platform === 'win32';
+    const proxyApps = ['Charles'];
+    const enableProxy = proxyApps.some(name => {
+      if (isWin) return execSync('tasklist').toString().match(name);
+      const grepStr = `grep ${name}`;
+      return execSync(`ps -ef | ${grepStr}`).toString().trim().split('\n').find(str => !str.match(grepStr));
+    });
+    if (!enableProxy) {
+      ['http_proxy', 'https_proxy'].forEach(key => {
+        delete result[key];
+      });
+    }
+  }
   return result;
 }
 
@@ -54,8 +71,16 @@ function getEnvList(key, limit = 5) {
   return result;
 }
 
+function updateProcessEnv() {
+  const env = getLocalEnvs();
+  if (env) {
+    _.assign(process.env, env);
+  }
+}
+
 module.exports = {
   getLocalEnvs,
+  updateProcessEnv,
 
   getCookieData,
 

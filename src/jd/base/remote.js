@@ -32,8 +32,8 @@ class RemoteScript extends Base {
 
     const scriptPath = await handleWriteFile(self.currentCookieTimes, cookie);
     let proxyEnv;
-    const localEnvs = getLocalEnvs();
-    if (process.env.NODE_ENV !== 'production' && _.property('http_proxy')(localEnvs)) {
+    const localEnvs = getLocalEnvs() || {};
+    if ('http_proxy' in localEnvs) {
       proxyEnv = _.pick(localEnvs, ['NODE_TLS_REJECT_UNAUTHORIZED', 'http_proxy', 'https_proxy']);
     }
     await exec(`node ${scriptPath} >> ${getDistFile('result.txt')}`, proxyEnv ? {env: proxyEnv} : void 0);
