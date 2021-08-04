@@ -11,16 +11,19 @@ async function main() {
 }
 
 function updateTokenFromLog() {
-  const data = getOriginDataFromFile(path.resolve(__dirname, 'shop.log'));
-  const notGiftData = data.filter(v => v.match(/已签到\w+天/) && !v.match('奖品'));
+  const logPath = path.resolve(__dirname, 'shop.log');
+  const data = getOriginDataFromFile(logPath);
+  const signedReg = /已签到\w+天/;
+  const notGiftData = data.filter(v => v.match(signedReg) && !v.match('奖品'));
   const expiredData = data.filter(v => v.match('402'));
-  const result = _.uniq(_.concat(notGiftData, expiredData).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '').trim()));
+  const result = _.uniq(_.concat(notGiftData, expiredData).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '').replace(signedReg, '').trim()));
 
   if (_.isEmpty(result)) return;
   console.log('已失效的活动如下:');
   console.log(result);
 
   updateShopScript({removeTokens: result});
+  fs.writeFileSync(logPath, '');
 }
 
 async function addTokenFromShopUrl() {
