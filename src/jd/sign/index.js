@@ -210,6 +210,7 @@ class Sign extends Template {
         },
       },
     });
+
     const taskOptions = [
       // signRemote脚本已经实现, 已不需要
       // jrSign,
@@ -242,12 +243,6 @@ class Sign extends Template {
       },
       jinTieSign,
       jinTieDraw,
-      {
-        name: '签到早起福利',
-        url: 'https://api.m.jd.com/client.action?functionId=morningGetBean&body=%7B%22fp%22%3A%22-1%22%2C%22shshshfp%22%3A%22-1%22%2C%22shshshfpa%22%3A%22-1%22%2C%22referUrl%22%3A%22-1%22%2C%22userAgent%22%3A%22-1%22%2C%22jda%22%3A%22-1%22%2C%22rnVersion%22%3A%223.9%22%7D&appid=ld&client=apple&clientVersion=10.0.6&networkType=wifi&osVersion=14.6&uuid=c6993893af46e44aa14818543914768cf2509fbf&openudid=c6993893af46e44aa14818543914768cf2509fbf',
-        isSuccessFn: data => data.code === '0',
-        rewardOutputFn: data => _.get(data, 'data.bizMsg'),
-      },
     ];
 
     const cashSign = [
@@ -290,11 +285,22 @@ class Sign extends Template {
       },
     ];
 
+    const morningGetBean = {
+      name: '签到早起福利',
+      url: 'https://api.m.jd.com/client.action?functionId=morningGetBean&body=%7B%22fp%22%3A%22-1%22%2C%22shshshfp%22%3A%22-1%22%2C%22shshshfpa%22%3A%22-1%22%2C%22referUrl%22%3A%22-1%22%2C%22userAgent%22%3A%22-1%22%2C%22jda%22%3A%22-1%22%2C%22rnVersion%22%3A%223.9%22%7D&appid=ld&client=apple&clientVersion=10.0.6&networkType=wifi&osVersion=14.6&uuid=c6993893af46e44aa14818543914768cf2509fbf&openudid=c6993893af46e44aa14818543914768cf2509fbf',
+      isSuccessFn: data => data.code === '0',
+      rewardOutputFn: data => _.get(data, 'data.bizMsg'),
+    };
+
     if (self.getCurrentEnv('JD_SIGN_IN_AT_THE_VOUCHER_CENTER_ENABLE')) {
       taskOptions.push(signInAtTheVoucherCenter);
     }
 
-    if (self.getNowHour() === 23) {
+    const nowHour = self.getNowHour();
+    if (nowHour <= 8) {
+      taskOptions.push(morningGetBean);
+    }
+    if (nowHour === 23) {
       taskOptions.push(cashSign[0]);
     }
 
