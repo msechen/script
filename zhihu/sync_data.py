@@ -164,6 +164,10 @@ def query_today_earnings():
 
     return '总计：' + str(total) + "\n\n" + zhihu_earnings + "\n" + jingfen_earnings + "\n" + zhijia_pay
 
+# 查询今日阅读和点赞
+def query_today_data():
+    return zhihu_spider.get_zhihu_card_data(zh_config_dao.query_config('dxck').value)
+
 
 if __name__ == '__main__':
     print(query_today_earnings())

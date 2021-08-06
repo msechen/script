@@ -142,6 +142,25 @@ def get_rank_and_like(qid, aid):
         offset += 20
 
 
+# 调知乎 api 查询今日阅读数据
+def get_zhihu_card_data(cookie):
+    # 知乎 API
+    url = "https://www.zhihu.com/api/v4/creators/analysis/card"
+    header = {
+        "cookie": cookie,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException:
+        return "接口异常"
+
+    json = res.json()
+
+    return '阅读：' + str(json['realtime_card']['today_read_count']) + "(" + str(json['realtime_card']['yesterday_read_count']) + ")", '点赞：' + str(json['realtime_card']['today_upvoted_count']) + "(" + str(json['realtime_card']['yesterday_upvoted_count']) + ")"
+
 # 调知乎 api 查询账户今日佣金
 def get_zhihu_earnings(start, end, cookie):
     # 知乎 API
@@ -214,16 +233,6 @@ def get_zhijia_pay(start, end, cookie):
 
 
 if __name__ == "__main__":
-    # print(get_question(37963557))
+    zhihu_cookie = jingfen_cookie = zh_config_dao.query_config('dxck').value
 
-    # zhihu_cookie = jingfen_cookie = zh_config_dao.query_config('dxck').value
-
-    # print(get_zhihu_earnings('2021-07-23', '2021-07-23', zhihu_cookie))
-
-    # jingfen_cookie = zh_config_dao.query_config('jfck').value
-
-    zhijia_cookie = zh_config_dao.query_config('zjck').value
-
-    # print(zhijia_cookie)
-
-    print(get_zhijia_pay('2021-07-29', '2021-07-29', zhijia_cookie))
+    print(get_zhihu_card_data(zhihu_cookie))
