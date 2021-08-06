@@ -67,9 +67,7 @@ const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
-const Olympicgames = require('./jd/olympicgames');
-const OlympicgamesApplet = require('./jd/olympicgames/applet');
-const OlympicgamesShopLottery = require('./jd/olympicgames/ShopLottery');
+const Joy20210805 = require('./jd/joy/20210805');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -142,7 +140,7 @@ async function main() {
     {
       valid: 5,
       run: async () => {
-        await doRun(JxFarm);
+        // await doRun(JxFarm);
       },
     },
     {

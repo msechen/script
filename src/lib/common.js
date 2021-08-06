@@ -2,6 +2,7 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 const rp = require('request-promise');
+const download = require('download');
 const {getNowHour, getNowTime, getNowDate} = require('./moment');
 
 const _sleep = require('util').promisify(setTimeout);
@@ -28,9 +29,19 @@ const cleanLog = (fileName) => {
 const _getAbsolutePath = (fileName, dirname) => dirname ? path.resolve(dirname, fileName) : fileName;
 // 将json写入文件中
 const writeFileJSON = (data, fileName, dirname) => fs.writeFileSync(_getAbsolutePath(fileName, dirname), JSON.stringify(data), {encoding: 'utf-8'});
-const readFileJSON = (fileName, dirname) => {
+const readFileJSON = (fileName, dirname, defaultValue = {}) => {
   const absolutePath = _getAbsolutePath(fileName, dirname);
-  return fs.existsSync(absolutePath) ? JSON.parse(fs.readFileSync(absolutePath).toString()) : {};
+  if (!fs.existsSync(absolutePath)) return defaultValue;
+  const data = fs.readFileSync(absolutePath).toString();
+  if (!data) return defaultValue;
+  let result;
+  try {
+    result = JSON.parse(data);
+  } catch (e) {
+    console.log(e);
+  }
+  result = result || defaultValue;
+  return result;
 };
 
 async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySecond = 0}) {
@@ -173,6 +184,17 @@ function getValueByFn(target, option = {}) {
   return _.isFunction(target) ? target.call(context) : target;
 }
 
+/**
+ * @description 下载文件
+ * @param urls {Array}
+ * @param dirname __dirname
+ */
+function downloadFile(urls, dirname) {
+  urls.forEach(async url => {
+    await download(url, dirname);
+  });
+}
+
 module.exports = {
   sleep,
 
@@ -197,4 +219,6 @@ module.exports = {
   replaceObjectMethod,
 
   getValueByFn,
+
+  downloadFile,
 };
