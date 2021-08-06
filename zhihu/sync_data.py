@@ -123,26 +123,34 @@ def query_article_rank(user_id):
 
 # 查询知乎今日佣金
 def query_zhihu_earnings():
-    top = "[知乎-1] "
-    mid = "订单量："
-    end = " 佣金："
-
     today = datetime.datetime.now().strftime('%Y-%m-%d')
-    count, sum = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('dxck').value)
 
-    return top + mid + str(count) + end + str(sum/100), sum/100
+    top1 = "[知乎-1] "
+    mid1 = "订单量："
+    end1 = " 佣金："
+
+    count1, sum1 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('dxck').value)
+
+    top2 = "[知乎-2] "
+    mid2 = "订单量："
+    end2 = " 佣金："
+
+    count2, sum2 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('lsck').value)
+
+    return top1 + mid1 + str(count1) + end1 + str(sum1/100), sum1/100, top2 + mid2 + str(count2) + end2 + str(sum2/100), sum2/100
 
 
 # 查询京粉今日佣金
 def query_jingfen_earnings():
-    top = "[京粉-1] "
-    mid = "订单量："
-    end = " 佣金："
-
     today = datetime.datetime.now().strftime('%Y-%m-%d')
-    count, sum = zhihu_spider.get_jingfen_earnings(today, today, zh_config_dao.query_config('jfck').value)
 
-    return top + mid + str(count) + end + str(sum), sum
+    top1 = "[京粉-1] "
+    mid1 = "订单量："
+    end1 = " 佣金："
+
+    count1, sum1 = zhihu_spider.get_jingfen_earnings(today, today, zh_config_dao.query_config('jfck').value)
+
+    return top1 + mid1 + str(count1) + end1 + str(sum1), sum1
 
 
 # 查询知+今日消耗
@@ -156,13 +164,13 @@ def query_zhijia_pay():
 
 # 查询今日总收入
 def query_today_earnings():
-    zhihu_earnings, num1 = query_zhihu_earnings()
-    jingfen_earnings, num2 = query_jingfen_earnings()
-    zhijia_pay, num3 = query_zhijia_pay()
+    zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
+    jingfen_earnings, num3 = query_jingfen_earnings()
+    zhijia_pay, num4 = query_zhijia_pay()
 
-    total = int(num1 + num2 - num3)
+    total = int(num1 + num2 + num3 - num4)
 
-    return '总计：' + str(total) + "\n\n" + zhihu_earnings + "\n" + jingfen_earnings + "\n" + zhijia_pay
+    return '总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings + "\n" + zhijia_pay
 
 # 查询今日阅读和点赞
 def query_today_data():
