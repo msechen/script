@@ -1,4 +1,4 @@
-name: sync-PJUNYE2-docker-jd-scripts
+name: sync-jd-Shell-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-PJUNYE2-docker-jd-scripts
+    types: sync-jd-Shell-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-PJUNYE2-docker-jd-scripts
+      - name: sync-jd-Shell-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/PJUNYE2/docker-jd.git"
+          source_repo: "https://github.com/1xtk/jd-Shell.git"
           source_branch: "main"
-          destination_branch: "PJUNYE2-docker-jd"
+          destination_branch: "jd-Shell"
           github_token: ${{ secrets.PAT }}
