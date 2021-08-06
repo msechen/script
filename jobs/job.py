@@ -247,3 +247,7 @@ def send_service_info(service_id, info, *images):
             pass
 
         sleep(random.randint(3, 5))
+
+
+if __name__ == '__main__':
+    print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data())
