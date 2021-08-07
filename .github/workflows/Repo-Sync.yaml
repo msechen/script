@@ -76,8 +76,8 @@ jobs:
         if: steps.gh-card-update.outputs.status != 'updated'
         uses: docker/build-push-action@v2
         with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
+          context: ./dest_repo/frontend
+          file: ./dest_repo/frontend/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
@@ -86,8 +86,8 @@ jobs:
         if: steps.gh-card-update.outputs.status != 'updated'
         uses: docker/build-push-action@v2
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: ./dest_repo/backend
+          file: ./dest_repo/backend/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
