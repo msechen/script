@@ -41,7 +41,7 @@ const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
 const IsvShopSign = require('./jd/isv/shopSign');
 const CrazyJoy = TemporarilyOffline || require('./jd/crazyJoy');
-const Necklace = require('./jd/necklace');
+const Necklace = TemporarilyOffline || require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = TemporarilyOffline || require('./jd/dreamFactory');
 const JxCfd = TemporarilyOffline || require('./jd/jxCfd');
@@ -134,6 +134,7 @@ async function main() {
           HealthSign,
           Health,
           Health1,
+          Harmony1,
         ]);
       },
     },
