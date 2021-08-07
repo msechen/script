@@ -1,5 +1,5 @@
 from common import jd_union
-from common import zhihu_spider
+from common import zhihu_spider, web_spider
 from dao import zh_answer_dao
 from dao import zh_goods_dao
 from dao import zh_question_dao
@@ -176,6 +176,10 @@ def query_today_earnings():
 def query_today_data():
     return zhihu_spider.get_zhihu_card_data(zh_config_dao.query_config('dxck').value)
 
+# 查询文章点赞数
+def get_zhihu_like():
+    return web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117') + '\n' + web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764') + '\n' + web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592')
+
 
 if __name__ == '__main__':
-    print(query_today_earnings())
+    print(get_zhihu_like())
