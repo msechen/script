@@ -159,7 +159,7 @@ def get_zhihu_card_data(cookie):
 
     json = res.json()
 
-    return '阅读：' + str(json['realtime_card']['today_read_count']) + '(' + str(json['realtime_card']['yesterday_read_count']) + ')' + ' 点赞：' + str(json['realtime_card']['today_upvoted_count']) + '(' + str(json['realtime_card']['yesterday_upvoted_count']) + ')'
+    return '阅读：' + str(json['realtime_card']['today_read_count']) + '(' + str(json['realtime_card']['yesterday_read_count']) + ')' + '\n点赞：' + str(json['realtime_card']['today_upvoted_count']) + '(' + str(json['realtime_card']['yesterday_upvoted_count']) + ')'
 
 # 调知乎 api 查询账户今日佣金
 def get_zhihu_earnings(start, end, cookie):

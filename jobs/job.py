@@ -116,7 +116,7 @@ def get_jd_order():
         result = jd.get_order(appkey1, appsecret1)
         if len(result) > 0:
             earnings = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
-            user_kolly.send('[大号]' + result + '\n\n' + earnings)
+            user_kolly.send('[大号]' + result + '\n' + earnings)
 
         result = jd.get_order(appkey2, appsecret2)
         if len(result) > 0:

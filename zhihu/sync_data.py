@@ -170,7 +170,7 @@ def query_today_earnings():
 
     total = int(num1 + num2 + num3 - num4)
 
-    return '总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings + "\n" + zhijia_pay
+    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings + "\n" + zhijia_pay
 
 # 查询今日阅读和点赞
 def query_today_data():
