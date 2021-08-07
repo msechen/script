@@ -136,7 +136,7 @@ def get_jd_order():
 
 # 查询知乎佣金
 def get_today_earnings():
-    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data()
+    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
 
     try:
         user_kolly.send(result)
