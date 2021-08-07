@@ -448,11 +448,12 @@ class BeautyMakeup extends Template {
     async function handleProduceMaterial() {
       const allMaterials = packageData.material.map(o => _.assign(_.pick(o, ['num']), o['material']));
       const materialTypes = _.map(produceMaterialData, (v, key) => key);
+      const allProduceMaterials = _.flatten(_.map(_.flatten(_.values(produceMaterialData)), 'items'));
       // TODO 计算出哪种材料制造时间最短
       // 制造材料类型基本格式: base(2),base(2),high/special(4)
       const productMaterials = productList[0]['product_materials'].map(o => {
-        const m = allMaterials.find(v => v['id'] === o['material_id']);
-        m.onceNum = o['num'];
+        const m = allMaterials.concat(allProduceMaterials).find(v => v['id'] === o['material_id']);
+        m.onceNum = o['num'] || 0;
         return m;
       });
       const minOnceNum = _.min(_.map(productMaterials, 'onceNum'));
@@ -630,10 +631,9 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.get_benefit);
       // 500豆
       wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 100000) || {})['id'] || 9;
-      await keepOnline(diffFromNow([23, 59, 50]) / 1000);
-      await doExchange(2);
-      await sleep();
+      await sleepTime(24);
       sendMessage(wsMsg.to_exchange);
+      await sleep(5);
 
       async function doExchange(times) {
         if (times <= 0 || beanPackageExchanged) return;
