@@ -42,6 +42,8 @@
 20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 # 京喜财富岛提现
 0 0,12 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1
+#星系牧场
+1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
 #伊利养牛
 30 8,14 * * * node /scripts/jd_ylynj.js >> /scripts/logs/jd_ylynj.log 2>&1
 # 摇钱树助力

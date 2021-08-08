@@ -10,7 +10,7 @@ on:
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_olympic_opencard1
+        types: jd_opencard1
 
 jobs:
     build:
@@ -26,7 +26,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【jd_olympic_opencard1】"
+            - name: "运行【jd_opencard1】"
               run: |
                   node onlyOneExecute.js
               env:
