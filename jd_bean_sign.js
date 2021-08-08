@@ -116,9 +116,9 @@ async function downFile () {
   let url = '';
   await downloadUrl();
   if ($.body) {
-    url = 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js';
+    url = 'https://gitee.com/ZFeng1005/MyScripts/raw/main/JD_DailyBonus.js';
   } else {
-    url = 'https://cdn.jsdelivr.net/gh/NobyDa/Script@master/JD-DailyBonus/JD_DailyBonus.js';
+    url = 'https://cdn.jsdelivr.net/gh/ZFeng1005/MyScripts@main/JD_DailyBonus.js';
   }
   try {
     const options = { }
