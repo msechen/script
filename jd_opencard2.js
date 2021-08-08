@@ -4,7 +4,7 @@
 
 入口
 
-https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=4ce7c43a572d4a31b3472d90181f0d9f
+https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=d3181615046f4dbfb8fd996fcf59a848
 
 ============Quantumultx===============
 [task_local]
@@ -46,7 +46,7 @@ message = ""
     });
     return;
   }
-  $.shareUuid = ['4ce7c43a572d4a31b3472d90181f0d9f'][Math.floor((Math.random() * 1))]
+  $.shareUuid = ['d3181615046f4dbfb8fd996fcf59a848'][Math.floor((Math.random() * 1))]
 
   // 232 23
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -118,7 +118,7 @@ message = ""
 
 function openCardStartDraw(type) {
   return new Promise(resolve => {
-    let body = `activityId=dz210768869313&pin=${encodeURIComponent($.myPingData.secretPin)}&actorUuid=${$.actorUuid}&type=${type}`
+    let body = `activityId=dz210768869311&pin=${encodeURIComponent($.myPingData.secretPin)}&actorUuid=${$.actorUuid}&type=${type}`
     $.post(taskPostUrl('/dingzhi/aoyun/moreshop/openCardStartDraw', body), async (err, resp, data) => {
       try {
         if (err) {
@@ -144,7 +144,7 @@ function openCardStartDraw(type) {
 
 function getDrawRecordHasCoupon() {
   return new Promise(resolve => {
-    let body = `activityId=dz210768869313&actorUuid=${$.actorUuid}&pin=${encodeURIComponent($.myPingData.secretPin)}&num=0&sortSuatus=1`
+    let body = `activityId=dz210768869311&actorUuid=${$.actorUuid}&pin=${encodeURIComponent($.myPingData.secretPin)}&num=0&sortSuatus=1`
     $.post(taskPostUrl('/dingzhi/taskact/common/getShareRecord', body), async (err, resp, data) => {
       try {
         if (err) {
@@ -164,7 +164,7 @@ function getDrawRecordHasCoupon() {
 
 function startDraw() {
   return new Promise(resolve => {
-    let body = `pin=${encodeURIComponent($.myPingData.secretPin)}&activityId=dz210768869313&actorUuid=${$.actorUuid}&change=3`
+    let body = `pin=${encodeURIComponent($.myPingData.secretPin)}&activityId=dz210768869311&actorUuid=${$.actorUuid}&change=3`
     $.post(taskPostUrl('/dingzhi/aoyun/moreshop/startDraw', body), async (err, resp, data) => {
       try {
         if (err) {
@@ -183,7 +183,7 @@ function startDraw() {
 
 function followShop() {
   return new Promise(resolve => {
-    let body = `pin=${encodeURIComponent($.myPingData.secretPin)}&activityId=dz210768869313&actorUuid=${$.actorUuid}&shareUuid=${$.shareUuid}&taskType=23&taskValue=23`
+    let body = `pin=${encodeURIComponent($.myPingData.secretPin)}&activityId=dz210768869311&actorUuid=${$.actorUuid}&shareUuid=${$.shareUuid}&taskType=23&taskValue=23`
     $.post(taskPostUrl('/dingzhi/aoyun/moreshop/followShop', body), async (err, resp, data) => {
       try {
         if (err) {
@@ -209,7 +209,7 @@ function followShop() {
 
 function checkOpenCard() {
   return new Promise(resolve => {
-    let body = `activityId=dz210768869313&pin=${encodeURIComponent($.myPingData.secretPin)}&actorUuid=${$.actorUuid}&shareUuid=${$.shareUuid}`
+    let body = `activityId=dz210768869311&pin=${encodeURIComponent($.myPingData.secretPin)}&actorUuid=${$.actorUuid}&shareUuid=${$.shareUuid}`
     $.post(taskPostUrl('/dingzhi/aoyun/moreshop/checkOpenCard', body), async (err, resp, data) => {
       try {
         if (err) {
@@ -251,7 +251,7 @@ function shopactivityId(functionId) {
       'accept': '*/*',
       'User-Agent': $.UA,
       'content-type': 'application/x-www-form-urlencoded',
-      'Referer': `https://shopmember.m.jd.com/shopcard/?venderId=${functionId}&shopId=${functionId}&venderType=5&channel=401&returnUrl=https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`,
+      'Referer': `https://shopmember.m.jd.com/shopcard/?venderId=${functionId}&shopId=${functionId}&venderType=5&channel=401&returnUrl=https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`,
       'Cookie': cookie
     }
   }
@@ -289,7 +289,7 @@ function ruhui(functionId) {
       'accept': '*/*',
       'User-Agent': $.UA,
       'content-type': 'application/x-www-form-urlencoded',
-      'Referer': `https://shopmember.m.jd.com/shopcard/?venderId=${functionId}&shopId=${functionId}&venderType=5&channel=401&returnUrl=https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`,
+      'Referer': `https://shopmember.m.jd.com/shopcard/?venderId=${functionId}&shopId=${functionId}&venderType=5&channel=401&returnUrl=https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`,
       'Cookie': cookie
     }
   }
@@ -402,7 +402,7 @@ function getHtml() {
   //await $.wait(20)
   return new Promise(resolve => {
     $.get({
-      url: `https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`,
+      url: `https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`,
       headers: {
         'User-Agent': $.UA,
         'Host':'lzdz1-isv.isvjcloud.com',
@@ -427,10 +427,10 @@ function getHtml() {
 
 function adLog() {
   return new Promise(resolve => {
-    let pageurl = `https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`
+    let pageurl = `https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`
     $.post({
       url: `https://lzdz1-isv.isvjcloud.com/common/accessLogWithAD`,
-      body: `venderId=1000003443&code=99&pin=${encodeURIComponent($.myPingData.secretPin)}&activityId=dz210768869313&pageUrl=${encodeURIComponent(pageurl)}&subType=APP&adSource=null`,
+      body: `venderId=1000003443&code=99&pin=${encodeURIComponent($.myPingData.secretPin)}&activityId=dz210768869311&pageUrl=${encodeURIComponent(pageurl)}&subType=APP&adSource=null`,
       headers: {
         'User-Agent': $.UA,
         'Host':'lzdz1-isv.isvjcloud.com',
@@ -472,12 +472,12 @@ function drawContent() {
   return new Promise(resolve => {
     $.post({
       url: `https://lzdz1-isv.isvjcloud.com/dingzhi/taskact/common/drawContent`,
-      body: `activityId=dz210768869313&pin=${encodeURIComponent($.myPingData.secretPin)}`,
+      body: `activityId=dz210768869311&pin=${encodeURIComponent($.myPingData.secretPin)}`,
       headers: {
         'User-Agent': $.UA,
         'Host':'lzdz1-isv.isvjcloud.com',
         'Content-Type': 'application/x-www-form-urlencoded; Charset=UTF-8',
-        'Referer':`https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`,
+        'Referer':`https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`,
         'Cookie': `LZ_TOKEN_KEY=${$.LZ_TOKEN_KEY}; LZ_TOKEN_VALUE=${$.LZ_TOKEN_VALUE}; AUTH_C_USER=${$.myPingData.secretPin}; ${$.lz_jdpin_token}`,
       }
     }, async (err, resp, data) => {
@@ -506,7 +506,7 @@ function getUserInfo() {
         'User-Agent': $.UA,
         'Host':'lzdz1-isv.isvjcloud.com',
         'Content-Type': 'application/x-www-form-urlencoded; Charset=UTF-8',
-        'Referer':`https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`,
+        'Referer':`https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`,
         'Cookie': `LZ_TOKEN_KEY=${$.LZ_TOKEN_KEY}; LZ_TOKEN_VALUE=${$.LZ_TOKEN_VALUE}; AUTH_C_USER=${$.myPingData.secretPin}; ${$.lz_jdpin_token}`,
       }
     }, async (err, resp, data) => {
@@ -534,7 +534,7 @@ function getActorUuid() {
   return new Promise(resolve => {
     $.post({
       url: `https://lzdz1-isv.isvjcloud.com/dingzhi/aoyun/moreshop/activityContent`,
-      body: `activityId=dz210768869313&pin=${encodeURIComponent($.myPingData.secretPin)}&pinImg=${encodeURIComponent($.attrTouXiang)}&nick=${encodeURIComponent($.myPingData.nickname)}&shareUuid=${$.shareUuid}`,
+      body: `activityId=dz210768869311&pin=${encodeURIComponent($.myPingData.secretPin)}&pinImg=${encodeURIComponent($.attrTouXiang)}&nick=${encodeURIComponent($.myPingData.nickname)}&shareUuid=${$.shareUuid}`,
       headers: {
         'User-Agent': $.UA,
         'Host':'lzdz1-isv.isvjcloud.com',
@@ -575,7 +575,7 @@ function taskPostUrl(url, body) {
       "Content-Type": "application/x-www-form-urlencoded",
       "Origin": "https://lzdz1-isv.isvjcloud.com",
       "Connection": "keep-alive",
-      "Referer": `https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/4540555?activityId=dz210768869313&shareUuid=${$.shareUuid}`,
+      "Referer": `https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/720309?activityId=dz210768869311&shareUuid=${$.shareUuid}`,
       "User-Agent": $.UA ,
       'Cookie': `${cookie} LZ_TOKEN_KEY=${$.LZ_TOKEN_KEY}; LZ_TOKEN_VALUE=${$.LZ_TOKEN_VALUE}; AUTH_C_USER=${$.myPingData.secretPin}; ${$.lz_jdpin_token}`,
     }

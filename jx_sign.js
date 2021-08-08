@@ -36,6 +36,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭通知推送
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
+let UA, UAInfo = {};
 $.shareCodes = [];
 $.blackInfo = {}
 $.appId = 10028;
@@ -50,7 +51,7 @@ if ($.isNode()) {
 !(async () => {
   $.CryptoJS = $.isNode() ? require("crypto-js") : CryptoJS;
   await requestAlgo();
-  await $.wait(2000);
+  await $.wait(1000);
   if (!cookiesArr[0]) {
     $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
     return;
@@ -65,8 +66,10 @@ if ($.isNode()) {
         continue
       }
       if (i === 0) console.log(`\n正在收集助力码请等待\n`)
+      UA = `jdpingou;iPhone;4.13.0;14.4.2;${randomString()};network/wifi;model/iPhone10,2;appBuild/100609;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/${Math.random * 98 + 1};pap/JA2019_3111789;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
       await signhb(1)
-      await $.wait(3000)
+      await $.wait(500)
+      UAInfo[$.UserName] = UA
     }
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -78,10 +81,11 @@ if ($.isNode()) {
       $.nickName = '';
       message = '';
       $.commonlist = []
+      $.bxNum = []
       $.black = false
       $.canHelp = true
       await TotalBean()
-      console.log(`\n******开始【京东账号${$.index}】 ${$.nickName || $.UserName}*********\n`)
+      console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`)
       if (!$.isLogin) {
         $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, { "open-url": "https://bean.m.jd.com/bean/signIndex.action" })
 
@@ -90,8 +94,9 @@ if ($.isNode()) {
         }
         continue
       }
+      UA = UAInfo[$.UserName]
       await signhb(2)
-      await $.wait(3000)
+      await $.wait(2000)
       if ($.canHelp) {
         if ($.shareCodes && $.shareCodes.length) {
           console.log(`\n开始内部互助\n`)
@@ -111,7 +116,7 @@ if ($.isNode()) {
               continue
             }
             await helpSignhb($.shareCodes[j].smp)
-            await $.wait(3000)
+            await $.wait(2000)
             if (!$.black) $.shareCodes[j].num++
             break
           }
@@ -120,14 +125,21 @@ if ($.isNode()) {
         console.log(`今日已签到，无法助力好友啦~`)
       }
       if (!$.black) {
+        await helpSignhb()
         if ($.commonlist && $.commonlist.length) {
           console.log("开始做红包任务")
           for (let j = 0; j < $.commonlist.length; j++) {
             await dotask($.commonlist[j]);
-            await $.wait(3000);
+            await $.wait(2000);
           }
         } else {
           console.log("红包任务已完成")
+        }
+        if ($.bxNum && $.bxNum.length) {
+          for (let j = 0; j < $.bxNum[0].bxNum; j++) {
+            await bxdraw()
+            await $.wait(2000)
+          }
         }
         await doubleSign()
       } else {
@@ -194,6 +206,10 @@ function signhb(type = 1) {
                   $.commonlist.push(commontask[i].task)
                 }
               }
+              console.log(`可开启宝箱${data.baoxiang_left}个`)
+              $.bxNum.push({
+                'bxNum': data.baoxiang_left
+              })
               break
             default:
               break
@@ -209,7 +225,7 @@ function signhb(type = 1) {
 }
 
 // 签到 助力
-function helpSignhb(smp) {
+function helpSignhb(smp = '') {
   return new Promise((resolve) => {
     $.get(taskUrl("fanxiantask/signhb/query", `signhb_source=1000&smp=${smp}&type=1`, "signhb_source,smp,type"), async (err, resp, data) => {
       try {
@@ -267,6 +283,31 @@ function dotask(task) {
   });
 }
 
+// 宝箱
+function bxdraw() {
+  return new Promise((resolve) => {
+    $.get(taskUrl("fanxiantask/signhb/bxdraw"), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(JSON.stringify(err));
+          console.log(`${$.name} bxdraw API请求失败，请检查网路重试`);
+        } else {
+          data = JSON.parse(data.match(new RegExp(/jsonpCBK.?\((.*);*/))[1])
+          if (data.ret === 0) {
+            console.log(`开启宝箱 获得${data.sendhb}红包`);
+          } else {
+            console.log(data.errmsg);
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp);
+      } finally {
+        resolve(data);
+      }
+    })
+  })
+}
+
 // 双签
 function doubleSign() {
   return new Promise((resolve) => {
@@ -314,20 +355,27 @@ function taskUrl(functionId, body = '', stk) {
       Host: "m.jingxi.com",
       Accept: "*/*",
       Connection: "keep-alive",
-      "User-Agent": `jdpingou;iPhone;3.15.2;14.2.1;ea00763447803eb0f32045dcba629c248ea53bb3;network/wifi;model/iPhone13,2;appBuild/100365;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/0;hasOCPay/0;supportBestPay/0;session/${Math.random * 98 + 1};pap/JA2015_311210;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
+      "User-Agent": UA,
       "Accept-Language": "zh-cn",
       Referer: "https://wqsd.jd.com/pingou/dream_factory/index.html",
       "Accept-Encoding": "gzip, deflate, br",
     }
   }
 }
+function randomString() {
+  return Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10)
+}
 
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
-      url: "https://wq.jd.com/user_new/info/GetJDUserInfoUnion?sceneval=2",
+      url: "https://me-api.jd.com/user_new/info/GetJDUserInfoUnion",
       headers: {
-        Host: "wq.jd.com",
+        Host: "me-api.jd.com",
         Accept: "*/*",
         Connection: "keep-alive",
         Cookie: cookie,
@@ -344,11 +392,11 @@ function TotalBean() {
         } else {
           if (data) {
             data = JSON.parse(data);
-            if (data['retcode'] === 1001) {
+            if (data['retcode'] === "1001") {
               $.isLogin = false; //cookie过期
               return;
             }
-            if (data['retcode'] === 0 && data.data && data.data.hasOwnProperty("userInfo")) {
+            if (data['retcode'] === "0" && data.data && data.data.hasOwnProperty("userInfo")) {
               $.nickName = data.data.userInfo.baseInfo.nickname;
             }
           } else {

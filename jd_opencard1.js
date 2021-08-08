@@ -2,20 +2,16 @@
 只有前10个邀请的 才有20京豆
 第11个之后是不会有京豆的
 入口
-https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/6685289?activityId=dz210768869312&shareUuid=af841f0a3d7f403f811b4bd90af92da4
-
+https://lzdz1-isv.isvjcloud.com/dingzhi/personal/care/activity/6685289?activityId=dz210768869312&shareUuid=a2af81c7f1604724b24f2e0e72bfa744
 ============Quantumultx===============
 [task_local]
 #奥运夺金牌开卡
 30 0,22 * * * gua_olympic_opencard.js, tag=奥运夺金牌开卡, img-url=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_olympic_opencard.png, enabled=true
-
 ================Loon==============
 [Script]
 cron "30 0,22 * * *" script-path=gua_olympic_opencard.js,tag=奥运夺金牌开卡
-
 ===============Surge=================
 奥运夺金牌开卡 = type=cron,cronexp="30 0,22 * * *",wake-system=1,timeout=3600,script-path=gua_olympic_opencard.js
-
 ============小火箭=========
 奥运夺金牌开卡 = type=cron,script-path=gua_olympic_opencard.js, cronexpr="30 0,22 * * *", timeout=3600, enable=true
 */
