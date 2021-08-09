@@ -183,3 +183,6 @@
 
 # 京喜签到
 0 0,17 * * * cd /scripts && ts-node /scripts/jx_sign.ts >> /scripts/logs/jx_sign.log 2>&1
+
+# 京东手机狂欢城
+0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
