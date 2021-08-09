@@ -3,7 +3,8 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 
-const brandActivityId = 'aeb4960d-bb33-49d4-a9a3-4314b68e8420';
+// 活动入口
+const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2PTXhrEmiMEL3mD419b8Gn9bUBiJ/index.html';
 
 class SuperBrandDay extends Template {
   static scriptName = 'SuperBrandDay';
@@ -15,11 +16,8 @@ class SuperBrandDay extends Template {
   static apiOptions = {
     options: {
       qs: {
-        body: {brandActivityId},
+        body: {brandActivityId: ''},
         appid: 'content_ecology',
-      },
-      headers: {
-        referer: 'https://h5.m.jd.com/babelDiy/LFMXOAZKETWEHJAVNBHJ/2PTXhrEmiMEL3mD419b8Gn9bUBiJ/index.html',
       },
     },
   };
@@ -27,6 +25,28 @@ class SuperBrandDay extends Template {
   static apiExtends = {
     requestFnName: 'doGetBody',
   };
+
+  static async beforeRequest(api) {
+    // 更新 activityId
+    // https://storage.360buyimg.com/babel/00657178/1975420/production/dev/index.bundle.458c84b777833efa78a8.js
+    return api.commonDo({
+      form: {
+        functionId: 'qryCompositeMaterials',
+        body: {
+          'qryParam': '[{"type":"advertGroup","id":"04405074","mapTo":"Brands"}]',
+          'activityId': '2vSNXCeVuBy8mXTL2hhG3mwSysoL',
+          'pageId': '1411763',
+          'reqSrc': 'jmfe',
+          'geo': {'lng': '', 'lat': ''},
+        },
+        client: 'wh5',
+      },
+    }).then(data => {
+      const brandActivityId = _.get(data, 'data.Brands.list[0].extension.copy1');
+      api.options.qs.body.brandActivityId = brandActivityId;
+      if (!brandActivityId) return true;
+    });
+  }
 
   static apiNamesFn() {
     const self = this;
@@ -86,7 +106,10 @@ class SuperBrandDay extends Template {
       doRedeem: {
         name: 'superbrand_getGift',
         async successFn(data, api) {
-          if (!self.isSuccess(data)) return false;
+          if (!self.isSuccess(data)) {
+            api.log(data.data.bizMsg);
+            return false;
+          }
           const {couponList, goodsList, jpeasList} = _.property('data.result')(data);
           _.concat(couponList, goodsList, jpeasList).forEach(o => {
             self.log(`获得 ${o['prizeName']}`);

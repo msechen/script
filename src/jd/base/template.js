@@ -82,11 +82,12 @@ class Template extends Base {
   // doMain一般不会被重载
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     self.initShareCodeTaskList(shareCodes || []);
 
-    await self.beforeRequest(api);
+    const needStop = await self.beforeRequest(api);
+    if (needStop === true) return api.log('活动已结束(beforeRequest)');
+
     await self.doApi(api, 'beforeGetTaskList');
 
     let taskDoneTimes = 0;

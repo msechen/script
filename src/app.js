@@ -68,6 +68,7 @@ const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
 const Joy20210805 = require('./jd/joy/20210805');
+const SuperBrandDay = require('./jd/superBrand/day');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -117,6 +118,9 @@ async function main() {
           SecondKillRedPacket,
           VipClubShake,
           SuperMarket,
+
+          // 偶尔会有的活动
+          SuperBrandDay,
 
           // 极速版
           LiteSign, SpringReward, LiteCashSign, EarnCoins,
