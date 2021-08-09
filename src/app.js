@@ -97,8 +97,10 @@ async function main() {
       valid: 0,
       run: async () => {
         await serialRun([
-          // 23点后的活动补充
           KoiRedPacket,
+          Carnivalcity,
+
+          // 23点后的活动补充
           IsvShopSign,
           SignShop,
           EarnJingDou,

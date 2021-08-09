@@ -5,6 +5,8 @@ const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const md5 = require('js-md5');
 
+const indexUrl = 'https://carnivalcity.m.jd.com';
+
 class Carnivalcity extends Template {
   static scriptName = 'Carnivalcity';
   static scriptNameDesc = '手机狂欢城';
@@ -13,12 +15,19 @@ class Carnivalcity extends Template {
 
   static apiOptions = {
     options: {
-      uri: 'https://carnivalcity.m.jd.com/khc',
+      uri: 'https://api.m.jd.com/api',
+      form: {
+        appid: 'guardian-starjd',
+        loginType: 2,
+      },
+      headers: {
+        origin: indexUrl,
+        referer: indexUrl,
+      },
     },
     formatDataFn(data) {
-      if (data['code'] !== 200) {
-        Carnivalcity.log(`请求错误, ${data.msg}`);
-        return {};
+      if (![200/*请求成功*/, 4001/*当前任务已完成*/].includes(data['code'])) {
+        throw this.log(`请求错误, data: ${JSON.stringify(data)}`);
       }
       return data.data;
     },
@@ -31,8 +40,15 @@ class Carnivalcity extends Template {
   static async doMain(api) {
     const self = this;
 
-    const doGetPath = (path, qs) => api.doGetPath(path, qs, generateApiOptions(`/khc/${path}`, qs));
-    const doPostPath = (path, form) => api.doPath(path, form, generateApiOptions(`/khc/${path}`, form, false));
+    const doFormBody = (path, body = {}, form = {}) => {
+      const apiMapping = `/khc/${path}`;
+      _.assign(body, {apiMapping});
+      _.assign(form, {body, t: getMoment().valueOf()});
+      // TODO 目前暂不需要加密
+      return api.doForm('carnivalcity_jd_prod', form/*, generateApiOptions(apiMapping, form)*/);
+    };
+    const doGetPath = (path, qs) => doFormBody(path, qs);
+    const doPostPath = (path, form) => doFormBody(path, form);
     const doTaskPath = (path, form) => doPostPath(`task/${path}`, form);
 
     self.isFirstLoop() && await handleTask();
