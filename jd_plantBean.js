@@ -3,7 +3,7 @@
 更新时间：2021-1-16
 活动入口：京东APP我的-更多工具-种豆得豆
 已支持IOS京东双账号,云端N个京东账号
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
+脚本兼容:QuantumultX,Surge,Loon,JSBox,Node.js
 注：会自动关注任务中的店铺跟商品，介意者勿使用。
 互助码shareCode请先手动运行脚本查看打印可看到
 每个京东账号每天只能帮助3个人。多出的助力码将会助力失败。
@@ -44,7 +44,6 @@ let currentRoundId = null;//本期活动id
 let lastRoundId = null;//上期id
 let roundList = [];
 let awardState = '';//上期活动的京豆是否收取
-let randomCount = $.isNode() ? 20 : 5;
 !(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
@@ -90,18 +89,18 @@ async function jdPlantBean() {
     console.log(`获取任务及基本信息`)
     await plantBeanIndex();
     // console.log(plantBeanIndexResult.data.taskList);
-    if ($.plantBeanIndexResult && $.plantBeanIndexResult.code === '0') {
+    if ($.plantBeanIndexResult && $.plantBeanIndexResult.code === '0' && $.plantBeanIndexResult.data) {
       const shareUrl = $.plantBeanIndexResult.data.jwordShareInfo.shareUrl
       $.myPlantUuid = getParam(shareUrl, 'plantUuid')
-      console.log(`\n【京东账号${$.index}（${$.nickName || $.UserName}）的${$.name}好友互助码】${$.myPlantUuid}\n`);
+      console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${$.myPlantUuid}\n`);
       roundList = $.plantBeanIndexResult.data.roundList;
-      currentRoundId = roundList[1].roundId;//本期的roundId
-      lastRoundId = roundList[0].roundId;//上期的roundId
-      awardState = roundList[0].awardState;
+      currentRoundId = roundList[2].roundId;//本期的roundId
+      lastRoundId = roundList[1].roundId;//上期的roundId
+      awardState = roundList[1].awardState;
       $.taskList = $.plantBeanIndexResult.data.taskList;
       subTitle = `【京东昵称】${$.plantBeanIndexResult.data.plantUserInfo.plantNickName}`;
-      message += `【上期时间】${roundList[0].dateDesc.replace('上期 ', '')}\n`;
-      message += `【上期成长值】${roundList[0].growth}\n`;
+      message += `【上期时间】${roundList[1].dateDesc.replace('上期 ', '')}\n`;
+      message += `【上期成长值】${roundList[1].growth}\n`;
       await receiveNutrients();//定时领取营养液
       await doHelp();//助力
       await doTask();//做日常任务
@@ -117,7 +116,6 @@ async function jdPlantBean() {
   } catch (e) {
     $.logErr(e);
     const errMsg = `京东账号${$.index} ${$.nickName || $.UserName}\n任务执行异常，请检查执行日志 ‼️‼️`;
-    if ($.isNode()) await notify.sendNotify(`${$.name}`, errMsg);
     $.msg($.name, '', `京东账号${$.index} ${$.nickName || $.UserName}\n${errMsg}`)
   }
 }
@@ -171,8 +169,8 @@ async function doCultureBean() {
 async function stealFriendWater() {
   await stealFriendList();
   if ($.stealFriendList && $.stealFriendList.code === '0') {
-    if ($.stealFriendList.data.tips) {
-      console.log('偷取好友营养液今日已达上限');
+    if ($.stealFriendList.data && $.stealFriendList.data.tips) {
+      console.log('\n\n今日偷取好友营养液已达上限\n\n');
       return
     }
     if ($.stealFriendList.data && $.stealFriendList.data.friendInfoList && $.stealFriendList.data.friendInfoList.length > 0) {
@@ -201,7 +199,7 @@ async function stealFriendWater() {
         }
       }
     }
-   } else {
+  } else {
     console.log(`$.stealFriendList 异常： ${JSON.stringify($.stealFriendList)}`)
   }
 }
@@ -706,9 +704,9 @@ function TotalBean() {
               return
             }
             if (data['retcode'] === 0) {
-              $.nickName = data['base'].nickname;
-            } else {
               $.nickName = (data['base'] && data['base'].nickname) || $.UserName;
+            } else {
+              $.nickName = $.UserName
             }
           } else {
             console.log(`京东服务器返回空数据`)
