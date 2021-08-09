@@ -241,7 +241,7 @@ function rl_ksp() {
         $.post({
             url : `https://ranlv.lvfacn.com/api.php/Common/pvlog`,
             headers : rl_headers,
-            body : rl_boby+`&client=1&member_id=1307478&redouble=1&video_id=${VideoID}`,
+            body : rl_boby+`&client=1&member_id=${user_id}&redouble=1&video_id=${VideoID}`,
             
         }, async(error, response, data) => {
             //console.log(data) 
