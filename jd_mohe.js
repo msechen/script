@@ -44,7 +44,7 @@ $.shareId = [];
       '活动地址: https://blindbox5g.jd.com\n' +
       '活动时间：2021-8-2到2021-10-29\n' +
       '更新时间：2021-8-8 19:00');
-  await updateShareCodesCDN('https://wuzhi03.coding.net/p/dj/d/shareCodes/git/raw/main/jd_5g.json')
+  await updateShareCodesCDN('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jd_5g.json')
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
