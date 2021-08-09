@@ -157,6 +157,9 @@ def get_zhihu_card_data(cookie):
     except BaseException:
         return "接口异常"
 
+    if 'error' in res.text:
+        return "接口报错"
+
     json = res.json()
 
     return '阅读：' + str(json['realtime_card']['today_read_count']) + '(' + str(json['realtime_card']['yesterday_read_count']) + ')' + '\n点赞：' + str(json['realtime_card']['today_upvoted_count']) + '(' + str(json['realtime_card']['yesterday_upvoted_count']) + ')'
@@ -174,7 +177,10 @@ def get_zhihu_earnings(start, end, cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException:
-        return "接口异常"
+        return -100, -100
+
+    if 'error' in res.text:
+        return -1000, -1000
 
     json = res.json()
 

@@ -250,4 +250,4 @@ def send_service_info(service_id, info, *images):
 
 
 if __name__ == '__main__':
-    print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data())
+    print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like())
