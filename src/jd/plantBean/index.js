@@ -8,6 +8,10 @@ class PlantBean extends Template {
   static shareCodeTaskList = [];
   static times = 2;
   static concurrent = false;
+  static defaultShareCodes = [
+    'i7zarrja6jbtvgu2smlqd24e7y3h7wlwy7o5jii',
+    'hxpwjlakoy4pxmtejjqf4gpvke',
+  ];
 
   static apiOptions = {
     signData: {
@@ -17,25 +21,33 @@ class PlantBean extends Template {
   };
 
   static isSuccess(data) {
-    return this._.property('code')(data) === '0';
+    return _.property('code')(data) === '0';
   };
+
+  static async handleUpdateCurrentShareCode(api) {
+    const self = this;
+
+    const shareUrl = await api.doFormBody('plantBeanIndex').then(data => _.get(data, 'data.jwordShareInfo.shareUrl'));
+    if (shareUrl) {
+      self.updateShareCodeFn(new URL(shareUrl).searchParams.get('plantUuid'));
+    }
+  }
+
+  static async handleDoShare(api) {
+    const self = this;
+
+    for (const {plantUuid} of self.getShareCodeFn()) {
+      await api.doFormBody('plantBeanIndex', {plantUuid}).then(data => {
+        const msg = _.property('data.helpShareRes.promptText')(data);
+        msg && api.log(msg);
+      });
+    }
+  }
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
-      beforeGetTaskList: {
-        name: 'plantBeanIndex',
-        // TODO 并发不支持
-        paramFn: () => ({plantUuid: self.shareCodeTaskList.shift()}),
-        successFn(data) {
-          const msg = _.property('data.helpShareRes.promptText')(data);
-          msg && self.log(msg);
-          return !_.isEmpty(self.shareCodeTaskList);
-        },
-        repeat: true,
-      },
       // 获取任务列表
       getTaskList: {
         name: 'plantBeanIndex',
@@ -47,7 +59,12 @@ class PlantBean extends Template {
           const result = [];
 
           const taskList = _.property('data.taskList')(data) || [];
-          self.isFirstLoop() && taskList.push({taskType: 7, taskName: '金融双签', totalNum: 1, gainedNum: 0});
+          self.isFirstLoop() && self.firstTimeInTheDay() && taskList.push({
+            taskType: 7,
+            taskName: '金融双签',
+            totalNum: 1,
+            gainedNum: 0,
+          });
           for (let {
             isFinished: status,
             taskType, taskName,
@@ -104,7 +121,7 @@ class PlantBean extends Template {
         name: 'plantBeanIndex',
         successFn: async (data, api) => {
           if (!self.isSuccess(data)) return false;
-          const {roundId, bubbleInfos = [], growth} = data.data.roundList[1];
+          const {roundId, bubbleInfos = [], growth} = getCurrentRound(data.data);
           for (const {nutrientsType} of bubbleInfos) {
             await api.doFormBody('cultureBean', {roundId, nutrientsType});
           }
@@ -119,36 +136,33 @@ class PlantBean extends Template {
     };
   };
 
-  static initShareCodeTaskList(shareCodes) {
-    this.shareCodeTaskList = shareCodes;
-  }
-
   static async doCron(api) {
     const self = this;
-    const _ = this._;
 
     const data = await api.doFormBody('plantBeanIndex').then(data => data.data);
+    const {roundList = []} = data;
 
-    const prevRound = _.property('roundList[0]')(data);
-    const {roundId} = _.property('roundList[1]')(data) || {};
+    const {roundId} = getCurrentRound(data);
 
-    if (!prevRound || !roundId) {
-      self.log('获取数据出错');
-      return;
+    if (!roundId) {
+      return self.log('获取 roundId 出错');
     }
 
     // 收集定时豆液
     if (+_.property('timeNutrientsRes.nutrCount')(data) > 0) {
       await api.doFormBody('receiveNutrients', {roundId}).then(data => {
         if (!self.isSuccess(data)) return;
-        const nutrients = data.data.nutrients;
+        const nutrients = _.get(data, 'data.nutrients');
         nutrients && self.log(`收集到营养液: ${nutrients}`);
       });
     }
 
     // 获取豆豆
-    if (!prevRound.awardBeans && self.getNowHour() >= 10) {
-      await api.doFormBody('receivedBean', {roundId: prevRound.roundId}).then(data => self.log(`获得的豆豆: ${_.property('data.awardBean')(data)}`));
+    if (self.getNowHour() >= 10) {
+      for (const {roundId, awardState, dateDesc} of roundList) {
+        if (awardState !== '5') continue;
+        await api.doFormBody('receivedBean', {roundId}).then(data => self.log(`${dateDesc} 获得的豆豆: ${_.property('data.awardBean')(data)}`));
+      }
     }
     if (self.getNowHour() >= 22) {
       // 协助朋友采集豆液
@@ -170,6 +184,11 @@ class PlantBean extends Template {
       }
     }
   }
+}
+
+function getCurrentRound(data) {
+  const {roundList = []} = data;
+  return roundList.find(o => o['roundState'] === '2') || {};
 }
 
 module.exports = PlantBean;

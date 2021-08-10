@@ -202,7 +202,7 @@ async function main() {
     {
       valid: 16,
       run: async () => {
-        await doRun(PlantBean, getCookieData());
+        await doRun(PlantBean);
       },
     },
     {
@@ -242,9 +242,9 @@ async function main() {
           Sign,
           KoiRedPacket,
           Cash,
-          [PlantBean, getCookieData()],
+          PlantBean,
+          [PlantBean, void 0, 'cron'],
         ]);
-        await doCron(PlantBean);
         // await doRun(CrazyJoy);
 
         // 24点后定时启动

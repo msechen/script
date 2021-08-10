@@ -12,6 +12,7 @@ class Template extends Base {
   // 默认助力码
   static defaultShareCodes = [];
   static maxTaskDoneTimes = 1;
+  static doneShareTask = !this.firstTimeInTheDay();
 
   static updateShareCodeFn(shareCode, isCurrent = true) {
     const self = this;
@@ -79,6 +80,10 @@ class Template extends Base {
   static async beforeRequest(api) {
   }
 
+  static async handleUpdateCurrentShareCode(api) {}
+
+  static async handleDoShare(api) {}
+
   // doMain一般不会被重载
   static async doMain(api, shareCodes) {
     const self = this;
@@ -90,8 +95,18 @@ class Template extends Base {
 
     await self.doApi(api, 'beforeGetTaskList');
 
+    if (!self.doneShareTask) {
+      self.isFirstLoop() && await self.handleUpdateCurrentShareCode(api);
+      await self.handleDoShare(api);
+    }
+
     let taskDoneTimes = 0;
     await _doTask();
+
+    if (self.isLastLoop()) {
+      await self.doApi(api, 'afterGetTaskList');
+      await self.doApi(api, 'doRedeem');
+    }
 
     async function _doTask() {
       const taskList = await self.doApi(api, 'getTaskList') || [];
@@ -110,11 +125,6 @@ class Template extends Base {
         await sleep(2);
         await _doTask();
       }
-    }
-
-    if (self.isLastLoop()) {
-      await self.doApi(api, 'afterGetTaskList');
-      await self.doApi(api, 'doRedeem');
     }
   }
 
