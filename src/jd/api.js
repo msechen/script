@@ -26,10 +26,16 @@ const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
   const ignorePrintLog = options['ignorePrintLog'] || false;
   delete options['ignorePrintLog'];
 
-  return rp(_.assign({
+  const rpOptions = _.assign({
     ...DEFAULT_OPTION,
     headers: {cookie, ...headers},
-  }, options)).then(result => {
+  }, options);
+
+  if (!rpOptions.headers.cookie) {
+    delete rpOptions.headers.cookie;
+  }
+
+  return rp(rpOptions).then(result => {
     !ignorePrintLog && _printLog(result, 'success');
     return result;
   }).catch(err => {

@@ -97,7 +97,7 @@ async function getRealUrl(uri, after200Fn, options = {}) {
 }
 
 function getOriginDataFromFile(filePath) {
-  return _.filter(fs.readFileSync(filePath).toString().split(/\n+/));
+  return fs.existsSync(filePath) ? _.filter(fs.readFileSync(filePath).toString().split(/\r?\n/g)) : [];
 }
 
 function getUrlDataFromFile(filePath) {

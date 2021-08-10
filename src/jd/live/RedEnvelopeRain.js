@@ -1,9 +1,18 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun, parallelRun} = require('../../lib/common');
+const {
+  sleep,
+  writeFileJSON,
+  readFileJSON,
+  singleRun,
+  parallelRun,
+  getRealUrl,
+  getUrlDataFromFile,
+} = require('../../lib/common');
 const {sleepDate} = require('../../lib/cron');
-const {getMoment, getNowDate} = require('../../lib/moment');
+const {getMoment, getNowDate, getNextHour} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
+const {oldActIds} = require('./store');
 
 // 以本地文件数据为准, 每次都需要清空
 writeFileJSON([], '../../../charles/form/jd/liveActivityV946.json', __dirname);
@@ -11,52 +20,46 @@ const {live} = require('../../../charles/api');
 
 class LiveRedEnvelopeRain extends Template {
   static scriptName = 'LiveRedEnvelopeRain';
-  static scriptNameDesc = '直播间-红包雨';
+  static scriptNameDesc = '直播间-京豆雨';
   static times = 1;
   static isWh5 = true;
   static concurrent = true;
+  static dirname = __dirname;
 
   static async doMain(api) {
-    const self = this;
-
     if (getEnv('JD_LIVE_RED_ENVELOPE_RAIN_STOP')) return api.log('停止执行脚本');
 
-    await handleRain();
+    const self = this;
+    const localDataFile = self.getFilePath('localData.json');
+    const currentCookieTimes = api.currentCookieTimes;
+    const writeLocalData = () => {
+      urlActIds = _.uniq(urlActIds);
+      writeFileJSON({urlActIds}, localDataFile);
+    };
+    const clear = false;
+    clear && writeFileJSON({}, localDataFile);
+    let {urlActIds = []} = readFileJSON(localDataFile);
+    urlActIds = _.uniq(urlActIds.concat(oldActIds));
+    await getActIdsFromUrl();
+    writeLocalData();
 
-    async function handleRain() {
-      const hadRainAreas = _.uniqBy(_.filter(await getRainArea()), 'actId');
+    await handleRain(true);
+
+    async function handleRain(isInit = false) {
+      // const hadRainAreas = _.uniqBy(_.filter(await getRainArea()), 'actId');
+      const hadRainAreas = [];
 
       const hours = [];
       // 京豆雨一般从9点开始
       for (let i = 8; i <= 24; i++) {
         hours.push(i);
       }
-      const nowHour = self.getNowHour();
-      let hour;
-      for (let i = 0; i < hours.length; i++) {
-        const prev = i - 1;
-        if (prev < 0) continue;
-        if (nowHour < hours[i] && nowHour >= (hours[prev] || 0)) {
-          hour = hours[i];
-          break;
-        }
-      }
+      let hour = getNextHour(hours);
       if (hour && _.isEmpty(hadRainAreas)) {
         const startTime = `${getNowDate()} ${hour}:00:00`;
-        [
-          'RRA4Kr8hch51J49qasBvEv8Agf8chAD', // 5.18 17
-          // 'RRA2u4bEZ2zLYr9PKfwqfXngbVCmqNE', // 5.18 16
-          // 'RRA4RhWMc159kA62qLbaEa88evE7owb', // 5.17
-          // 'RRA3mYmDhvzgxdpAJuscqHt32VNDqCM', // 5.16
-          // 'RRA2cUocg5uYEyuKpWNdh4qE4NW1bN2', // 5.15
-          // 'RRAKoqJYHaBPhFyuYdunFqtjeVBLDC', // 5.14 半点
-          // 'RRA3zxrJChU14WAc5ZCD4GQMSxDYLRC', // 5.14
-          // 'RRA3mYmDhvzgxdpAJuscqHt32VNDqCM', // 5.13
-          // 'RRA2cUocg5uYEyuKpWNdh4qE4NW1bN2', // 5.12
-          // 'RRA3zxrJChU14WAc5ZCD4GQMSxDYLRC', // 5.11
-          // 'RRA4RhWMc159kA62qLbaEa88evE7owb', // 5.10
-          // 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', // 5.10
-        ].forEach((actId, index) => {
+
+        // TODO urlActIds 应当从文件中直接获取且需要调整数据结构, 可具体到某个时间点
+        urlActIds.forEach((actId, index) => {
           hadRainAreas.push({
             actId,
             startTime,
@@ -64,7 +67,14 @@ class LiveRedEnvelopeRain extends Template {
           });
         });
       }
-      if (_.isEmpty(hadRainAreas)) return;
+      if (_.isEmpty(hadRainAreas)) return api.log('当前没有可用的actId');
+
+      if (isInit) {
+        for (const {actId} of hadRainAreas) {
+          await sleep(currentCookieTimes + 2);
+          await noahRedRainLottery(actId);
+        }
+      }
 
       await parallelRun({
         list: hadRainAreas,
@@ -77,6 +87,7 @@ class LiveRedEnvelopeRain extends Template {
       await handleRain();
     }
 
+    // TODO app请求的已没有这个接口, 待更新
     async function getRainArea() {
       return parallelRun({
         list: live.liveActivityV946,
@@ -100,26 +111,68 @@ class LiveRedEnvelopeRain extends Template {
       const {startTime, endTime, actId, liveId} = targetIconArea;
       const targetMoment = getMoment(startTime);
       const logMsg = `${liveId} 下一场红包雨(${actId}): ${targetMoment.format()}`;
-      api.log(logMsg);
-      (api.currentCookieTimes === 0) && console.log(`[${self.scriptNameDesc}] ${logMsg}`);
-      targetMoment.add(10, 'second');
+      if (currentCookieTimes === 0) {
+        api.log(logMsg);
+        console.log(`[${self.scriptNameDesc}] ${logMsg}`);
+      }
+      targetMoment.add(4 + currentCookieTimes, 'second');
       await sleepDate(targetMoment.format());
       await noahRedRainLottery(actId);
     }
 
     async function noahRedRainLottery(actId) {
       return api.doFormBody('noahRedRainLottery', {actId}).then(async data => {
-        if (data.subCode === '0') {
-          const lotteryResult = data.lotteryResult;
-          _.concat(lotteryResult.couponList, lotteryResult.jPeasList, lotteryResult.financeList).forEach(o => {
+        const {subCode, msg} = data;
+        if (subCode === '0') {
+          const {lotteryResult: {couponList, jPeasList, financeList}} = data;
+          _.concat(couponList, jPeasList, financeList).forEach(o => {
             if (!o) return;
             api.log(`获取到${o.prizeName}: ${o.quantity}`);
           });
           await sleep(10);
           return noahRedRainLottery(actId);
         } else {
-          api.log(data.msg);
+          api.log(msg);
+          if (subCode === '1' || msg.match('火爆')) {
+            _.remove(urlActIds, v => v === actId);
+            writeLocalData();
+          }
         }
+      });
+    }
+
+    async function getActIdsFromUrl() {
+      if (currentCookieTimes > 0) return;
+      const urlFile = require('path').resolve(__dirname, 'liveId.url');
+      const urls = getUrlDataFromFile(urlFile);
+      for (const url of urls) {
+        let realUrl = await getRealUrl(url);
+        if (realUrl.match('lives.jd.com')) {
+          const liveId = new URL(realUrl).hash.split('?')[0].replace('#/', '');
+          const activityRemind = await liveDetailToM(liveId).then(data => _.get(data, 'data.activityRemind'));
+          const redRainActivity = activityRemind.find(o => o.type === 2 && _.get(o, 'data.activityUrl').match('redrain'));
+          if (redRainActivity) {
+            realUrl = _.get(redRainActivity, 'data.activityUrl');
+          }
+        }
+        const actId = new URL(realUrl).searchParams.get('id');
+        actId && urlActIds.push(actId);
+      }
+    }
+
+    async function liveDetailToM(liveId) {
+      return api.commonDo({
+        uri: 'https://api.m.jd.com/api',
+        headers: {
+          cookie: '',
+          origin: 'https://lives.jd.com',
+        },
+        qs: {
+          appid: 'h5-live',
+          functionId: 'liveDetailToM',
+          body: {liveId},
+          t: getMoment().valueOf(),
+        },
       });
     }
   }
