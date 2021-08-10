@@ -28,8 +28,8 @@ if ($.isNode()) {
     app_XMYD_password=process.env.XMYD_password? process.env.XMYD_password.split("&") : []
     
 } else {
-    app_XMYD_phone = $.getdata('XMYD_phone')$.getdata('XMYD_phoned').split('&'):[]
-    app_XMYD_password= $.getdata('XMYD_password')$.getdata('XMYD_password').split('&'):[]
+    app_XMYD_phone = $.getdata('XMYD_phone')&$.getdata('XMYD_phoned').split('&'):[]
+    app_XMYD_password= $.getdata('XMYD_password')&$.getdata('XMYD_password').split('&'):[]
     
 }
 
