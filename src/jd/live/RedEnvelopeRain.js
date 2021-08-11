@@ -10,7 +10,7 @@ const {
   getUrlDataFromFile,
 } = require('../../lib/common');
 const {sleepDate} = require('../../lib/cron');
-const {getMoment, getNowDate, getNextHour} = require('../../lib/moment');
+const {getMoment, getOnlyHourMoment, getNextHour} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
 const {oldActIds} = require('./store');
 
@@ -56,7 +56,7 @@ class LiveRedEnvelopeRain extends Template {
       }
       let hour = getNextHour(hours);
       if (hour && _.isEmpty(hadRainAreas)) {
-        const startTime = `${getNowDate()} ${hour}:00:00`;
+        const startTime = getOnlyHourMoment(hour);
 
         // TODO urlActIds 应当从文件中直接获取且需要调整数据结构, 可具体到某个时间点
         urlActIds.forEach((actId, index) => {

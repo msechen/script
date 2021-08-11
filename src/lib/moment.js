@@ -10,6 +10,7 @@ moment.defaultFormat = FORMAT_FULL_DATE;
 
 // TODO 更改为 moment.tz.setDefault
 const getMoment = (date = void 0, tz = 'Asia/Shanghai') => moment.tz(date, tz);
+const getOnlyHourMoment = (hour = 0) => getMoment().hour(hour).minute(0).second(0).millisecond(0);
 const getNowDate = (format = 'YYYY-MM-DD') => getMoment().format(format);
 const getNowHour = () => getMoment().hour();
 const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
@@ -33,6 +34,7 @@ function getNextHour(hours) {
 
 module.exports = {
   getMoment,
+  getOnlyHourMoment,
   getNowDate,
   getNowHour,
   getNowTime,
