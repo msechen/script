@@ -69,7 +69,7 @@ apptz = process.env.apptz;//是否推送，默认true
     
     Object.keys(soy_kzk_body).forEach((item) => {
         if (soy_kzk_body[item]) {
-            app_soy_kzk_body.push(soy_kzk_body[item]);
+            soy_kzk_bodyArr.push(soy_kzk_body[item]);
         };
     });
 
