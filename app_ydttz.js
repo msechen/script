@@ -163,7 +163,7 @@ apptx =  $.getdata('apptx')//默认提现假,需要自行修改变量 RL_tx=true
  
   
 function ydttzcookie() {
-   if ($request.url.indexOf("PersonalCenterController") > -1) {
+   if ($request.url.indexOf("plugin") > -1) {
 const soy_ydttz_cookie = $request.headers.Cookie
    if(soy_ydttz_cookie){
    $.setdata(soy_ydttz_cookie,`soy_ydttz_cookie${status}`)
