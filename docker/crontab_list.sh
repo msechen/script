@@ -86,6 +86,8 @@
 0 2 * * * node /scripts/jd_shop_sign.js >> /scripts/logs/jd_shop_sign.log 2>&1
 # 金机奖投票
 33 6,9 8-20 8 * node /scripts/jd_goldPhone.js >> /scripts/logs/jd_jd_goldPhone.log 2>&1
+# 京小鸽吾悦寄
+35 4,7 * * * node /scripts/jd_jxg.js >> /scripts/logs/jd_jxg.log 2>&1
 
 ##############长期活动##############
 # 签到
