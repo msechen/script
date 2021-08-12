@@ -88,6 +88,8 @@
 33 6,9 8-20 8 * node /scripts/jd_goldPhone.js >> /scripts/logs/jd_jd_goldPhone.log 2>&1
 # 京小鸽吾悦寄
 35 4,7 * * * node /scripts/jd_jxg.js >> /scripts/logs/jd_jxg.log 2>&1
+# 汽车生活季
+30 9,21 12-20 8 * node /scripts/jd_qcshj.js >> /scripts/logs/jd_qcshj.log 2>&1
 
 ##############长期活动##############
 # 签到
