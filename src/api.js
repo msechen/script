@@ -97,9 +97,7 @@ async function sendNotify({sendYesterdayLog = false, subjects = []}) {
   mailer.send({
     subject: title, text: content,
   });
-  serverChan.send(title, content).then(() => {
-    console.log('serverChan 发送成功');
-  });
+  serverChan.send(title, content);
 }
 
 module.exports = {

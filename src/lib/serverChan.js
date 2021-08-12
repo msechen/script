@@ -5,7 +5,7 @@ const {processInAC} = require('./env');
 
 const {getNowDate, getLogFile, cleanLog} = require('./common');
 
-async function send(title, content) {
+function send(title, content) {
   if (!_key) {
     return;
   }
