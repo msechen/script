@@ -50,8 +50,8 @@ class LiveRedEnvelopeRain extends Template {
       const hadRainAreas = [];
 
       const hours = [];
-      // 京豆雨一般从9点开始
-      for (let i = 8; i <= 24; i++) {
+      // 从7点开始
+      for (let i = 6; i <= 24; i++) {
         hours.push(i);
       }
       let hour = getNextHour(hours);
@@ -150,6 +150,7 @@ class LiveRedEnvelopeRain extends Template {
         if (realUrl.match('lives.jd.com')) {
           const liveId = new URL(realUrl).hash.split('?')[0].replace('#/', '');
           const activityRemind = await liveDetailToM(liveId).then(data => _.get(data, 'data.activityRemind'));
+          if (!activityRemind) continue;
           const redRainActivity = activityRemind.find(o => o.type === 2 && _.get(o, 'data.activityUrl').match('redrain'));
           if (redRainActivity) {
             realUrl = _.get(redRainActivity, 'data.activityUrl');
