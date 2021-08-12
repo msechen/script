@@ -17,9 +17,9 @@
  **You must completely delete the above content from your computer or mobile phone within 24 hours after downloading.**  </br>
 > ***You have used or copied any script made by yourself in this warehouse, it is deemed to have `accepted` this statement, please read it carefully*** 
 
-## Please move to [course](https://hub.fastgit.org/DX3242/README/tree/main) for more information
+## 如需使用教程请移步至 [course](https://hub.fastgit.org/DX3242/README/tree/main)
 
-## [Telegram group](https://t.me/JD_DX1005)
+## [TG群组](https://t.me/JD_DX1005)
 
 ## Special thanks to:
 
