@@ -1,6 +1,7 @@
 const rp = require('request-promise');
 const _key = process.env.SEVER_CHAN_KEY;
 const fs = require('fs');
+const {processInAC} = require('./env');
 
 const {getNowDate, getLogFile, cleanLog} = require('./common');
 
@@ -32,7 +33,7 @@ async function send(title, content) {
   return _send(options);
 }
 
-async function sendLog(fileName = 'app', needCleanLog = process.env.NODE_ENV === 'production') {
+async function sendLog(fileName = 'app', needCleanLog = processInAC()) {
   const logFile = getLogFile(fileName);
   let content;
   if (fs.existsSync(logFile)) {

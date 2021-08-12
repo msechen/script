@@ -27,7 +27,7 @@
     "build:yaml": "node src/yaml/schedule.js",
     "build:updateShopToken": "node src/jd/sign/updateShopToken.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",
-    "start:ShopSign": "npm run build:updateShopToken && node src/jd/sign/shop.js start",
+    "start:SignShop": "npm run build:updateShopToken && node src/jd/sign/shop.js start",
     "start:IsvShopSign": "node src/jd/isv/shopSign.js start",
     "start:BeautyMakeup": "node src/jd/beautyMakeup start",
     "start:SuperShake": "node src/jd/superShake start",

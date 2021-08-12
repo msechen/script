@@ -1,8 +1,9 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun, parallelRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, parallelRun, printLog} = require('../../lib/common');
 const {sleepTime} = require('../../lib/cron');
 const _ = require('lodash');
+const {processInAC} = require('../../lib/env');
 
 class SignShop extends Template {
   static scriptName = 'SignShop';
@@ -11,6 +12,7 @@ class SignShop extends Template {
   static times = 1;
   static concurrent = true;
   static concurrentOnceDelay = 0;
+  static dirname = __dirname;
 
   static apiOptions = {
     options: {
@@ -38,14 +40,11 @@ class SignShop extends Template {
       '3F6F1ABCC2D60622F891898018F0A6E2',
       'EFFD0BF4069A8B6882A55FB07ACDA60F',
       '513B43DB672C8C7B0D975DB75328A131',
-      '7DE1E4B12326576BF7C5D347CC909451',
       '813715D5CEE4414B6D4F0FF0407C9D96',
       '675BBEBDA9CB0DDEF56316E8102692EB',
       'A9F558F6789D649FEB6436A51D7A6059',
       '8FD67D1FD193B5C19C277B7406106EDD',
-      'C28A79C0C86688550AD57168D5D6A945',
-      'B28CC32A18AA0253076BAB60D45FCFCD',
-      'E03050677B4B26791D9D726A953B3DB0',
+      'A133DE5D8D1A5A612F49CBE1D9BCE7AA',
       // 脚本新增插入位置
     ];
 
@@ -99,16 +98,25 @@ class SignShop extends Template {
         if (!self.isSuccess(data)) return;
         // TODO 待修正每日签到是否有获得的逻辑
         const allPrizeRuleList = _.concat(/*_.property('data.prizeRuleList')(data), */_.property('data.continuePrizeRuleList')(data));
+        const prizeTypes = {
+          4: '豆',
+          10: 'E卡(元)',
+          14: '红包(分)',
+        };
         const prizeRules = allPrizeRuleList.map(({prizeList, days, userPrizeRuleStatus}) => {
           if (userPrizeRuleStatus === 2) return '';
-          return _.filter(prizeList.map(({type, discount}) => {
-            if (![4/*豆豆*/, 14/*红包*/].includes(type)) return '';
-            return `${days ? days : '每'}天${Math.floor(discount)}${type === 4 ? '豆' : '分'}`;
+          return _.filter(prizeList.map(({type, discount, userPirzeStatus}) => {
+            if (!Object.keys(prizeTypes).map(v => +v).includes(type) || userPirzeStatus !== 1) return '';
+            return `${days ? days : '每'}天${Math.floor(discount)}${prizeTypes[type]}`;
           })).join();
         }).filter(str => str);
         const notPrize = _.isEmpty(prizeRules);
         const prizeRuleMsg = notPrize ? '' : `奖品: ${prizeRules.join(', ')}`;
-        api.log(_.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', '));
+        const logMsg = _.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', ');
+        api.log(logMsg);
+        if (!processInAC()) {
+          api.log(logMsg, self.getFilePath('shop.log'));
+        }
         return notPrize;
       });
     }

@@ -1,8 +1,9 @@
 const RemoteScript = require('../base/remote');
+const {processInAC} = require('../../lib/env');
 
 class SignRemote extends RemoteScript {
   static scriptName = 'SignRemote';
-  static fileDownloadUrl = process.env.NODE_ENV === 'production' ? 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js' : 'https://cdn.jsdelivr.net/gh/NobyDa/Script@master/JD-DailyBonus/JD_DailyBonus.js';
+  static fileDownloadUrl = processInAC() ? 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js' : 'https://cdn.jsdelivr.net/gh/NobyDa/Script@master/JD-DailyBonus/JD_DailyBonus.js';
 
   static changeFileContentFn(content, cookie) {
     // 禁用活动

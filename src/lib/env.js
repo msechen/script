@@ -3,9 +3,11 @@ const path = require('path');
 const _ = require('lodash');
 const {execSync} = require('child_process');
 
+const processInAC = () => getEnv('NODE_ENV') === 'production';
+
 function getLocalEnvs() {
   const envPath = path.resolve(__dirname, '../../.env.local');
-  if (!fs.existsSync(envPath) || getEnv('NODE_ENV') === 'production') return;
+  if (!fs.existsSync(envPath) || processInAC()) return;
   // key=value
   const fileContent = fs.readFileSync(envPath).toString();
   if (!fileContent) return;
@@ -86,4 +88,6 @@ module.exports = {
 
   getEnv,
   getEnvList,
+
+  processInAC,
 };

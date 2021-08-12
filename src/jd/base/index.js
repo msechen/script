@@ -78,10 +78,10 @@ class Base {
   }
 
   // helpers
-  static log(output, currentCookieTimes = this.currentCookieTimes) {
+  static log(output, fileName, currentCookieTimes = this.currentCookieTimes) {
     // 应该输出 Cookie Name TODO 格式化
     output = `[${currentCookieTimes}] ${output}`;
-    printLog(this.getName(), void 0, output);
+    printLog(this.getName(), fileName, output);
   }
 
   // 第一次循环
@@ -289,13 +289,17 @@ async function loopInit(data, isCron) {
     // TODO 并发的情况下 api 的赋值不可用
     self.api = api;
     api.currentCookieTimes = currentCookieTimes++;
-    api.log = output => self.log(output, api.currentCookieTimes);
+    api.log = (output, fileName) => self.log(output, fileName, api.currentCookieTimes);
     if (isCron) {
       await self.doCron(api, shareCodes);
     } else {
       await self.doMain(api, shareCodes);
     }
   }
+}
+
+function log() {
+
 }
 
 module.exports = Base;
