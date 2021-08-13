@@ -1,4 +1,4 @@
-name: sync-chinnkarahoi-scripts
+name: sync-Ariszy-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-chinnkarahoi-scripts
+    types: sync-Ariszy-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-chinnkarahoi-scripts
+      - name: sync-Ariszy-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/chinnkarahoi/jd_scripts.git"
+          source_repo: "https://github.com/Ariszy/Private-Script.git"
           source_branch: "master"
-          destination_branch: "chinnkarahoi_jd_scripts"
+          destination_branch: "Ariszy_Private-Script"
           github_token: ${{ secrets.PAT }}
