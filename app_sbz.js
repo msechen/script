@@ -5,11 +5,11 @@
 收益:不祥
 
 注册地址:http://newdown.chuanyejinxuan.xyz:8888/NDA3NjYx 
-邀请码:
+邀请码:407661
 
 变量抓取:
 
-打开app,点 视频赚 看视频 ,左边红包图标转满一圈,点一下领取,在请求头会有个uuid就是变量值
+打开app,下拉刷新 我的 界面在请求头会有个uuid就是变量值
 
 变量填写:
 export soy_sbz_uuid=''
@@ -19,7 +19,7 @@ export soy_sbz_uuid=''
 v2p配置如下：
 
 【REWRITE】
-匹配链接（正则表达式） http://gateway.shangbangzhuan.com/task/
+匹配链接（正则表达式） http://gateway.shangbangzhuan.com/user/
 
 对应重写目标   kzk.js
 
@@ -27,9 +27,9 @@ v2p配置如下：
 gateway.shangbangzhuan.com
 
 重写 
-打开app,点 视频赚 看视频 ,左边红包图标转满一圈,点一下领取
+打开app,下拉刷新 我的 界面
 
-[cron * /30 8-22 * * *
+cron 0-59/1 8-22 * * *
 
 */
 
@@ -126,10 +126,12 @@ for (i = 0; i < app_soy_sbz_uuid.length; i++) {
 
 //获取ck
 function get_appdata() {
-   if ($request.url.indexOf("video") > -1) {
+   if ($request.url.indexOf("getUserVipConfig") > -1) {
 const soy_sbz_uuid = $request.headers.uuid
-   if(soy_sbz_uuid)     $.setdata(soy_sbz_uuid,`soy_sbz_uuid${status}`)
-   $.log(soy_sbz_uuid)
+   if(soy_sbz_uuid){
+       $.setdata(soy_sbz_uuid,`soy_sbz_uuid${status}`)
+       $.log(soy_sbz_uuid)
+   }
   } 
 }
 
