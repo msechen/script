@@ -21,7 +21,7 @@ v2p配置如下：
 【REWRITE】
 匹配链接（正则表达式） http://gateway.shangbangzhuan.com/user
 
-对应重写目标   kzk.js
+对应重写目标 https://gitee.com/soy-tool/app-script/raw/master/app_sbz.js 或者 app_sbz.js
 
 【MITM】  
 gateway.shangbangzhuan.com
