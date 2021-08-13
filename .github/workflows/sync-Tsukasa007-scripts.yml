@@ -1,4 +1,4 @@
-name: sync-ddo_pk-scripts
+name: sync-Tsukasa007-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-ddo_pk-scripts
+    types: sync-Tsukasa007-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-ddo_pk-scripts
+      - name: sync-Tsukasa007-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/hyzaw/scripts.git"
-          source_branch: "main"
-          destination_branch: "ddo_pk"
+          source_repo: "https://github.com/Tsukasa007/my_script.git"
+          source_branch: "master"
+          destination_branch: "Tsukasa007"
           github_token: ${{ secrets.PAT }}
