@@ -1,12 +1,20 @@
 /*小米改运动步数
   
-  cron 自己设置，一天下午6-8点一次即可
+ * TG频道: https://t.me/soy_pull
+ * TG讨论群: https://t.me/joinchat/8D2_IDN5t0A2ZmM1
+ * 原作者不知道是谁了，本人只是修复，感谢原作者
+ */
+
+/*小米改运动步数
+  cron 自己设置，一天下午6-8点1-2次即可,好像第一次不会自动同步,第二步就可以
   
   手动添加变量
   
   变量名如下,多账号 & 隔开
-  
-  export XMYD_phone=''##小米运动手机号
+
+  ##小米运动手机号
+  export XMYD_phone=''
+  ##登录密码
   export XMYD_password=''##登录密码
 
 */
