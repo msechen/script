@@ -48,7 +48,7 @@ message = ""
     });
     return;
   }
-  $.shareUuid = ['32363ce6c3214939b724c761a7972135','cc9f55af875744af89a1188693db95ce'][Math.floor((Math.random() * 2))]
+  $.shareUuid = '32363ce6c3214939b724c761a7972135'
   $.activityId = '901080701'
   console.log(`入口:\nhttps://lzdz4-isv.isvjcloud.com/dingzhi/xiaolong/collectcard/activity/1441690?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -60,7 +60,6 @@ message = ""
       $.nickName = '';
       console.log(`\n\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
       await run();
-      if(i == 0 && !$.actorUuid) return
     }
   }
 })()
@@ -135,16 +134,6 @@ async function run(){
     await myprize()
     await $.wait(1000)
     await myfriend()
-    $.log($.shareUuid)
-    if ($.index === 1) {
-      if($.actorUuid){
-        $.shareUuid = $.actorUuid;
-        console.log(`后面的号都会助力:${$.shareUuid}`)
-      }else{
-        console.log('账号1获取不到[shareUuid]退出执行，请重新执行')
-        return
-      }
-    }
   }catch(e){
     console.log(e)
   }
