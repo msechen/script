@@ -19,9 +19,9 @@ export soy_sbz_uuid=''
 v2p配置如下：
 
 【REWRITE】
-匹配链接（正则表达式） http://gateway.shangbangzhuan.com/user
+匹配链接（正则表达式） http://gateway.shangbangzhuan.com/user/
 
-对应重写目标 https://gitee.com/soy-tool/app-script/raw/master/app_sbz.js 或者 app_sbz.js
+对应重写目标   kzk.js
 
 【MITM】  
 gateway.shangbangzhuan.com
@@ -47,7 +47,8 @@ let soy_sbz_uuid = $.getdata('soy_sbz_uuid')
 
 if ($.isNode()) {
 apptz = process.env.apptz;//是否推送，默认true
-    apptx = process.env.apptx;//默认提现假,需要自行修改变量 RL_tx=true/false
+apptx = process.env.apptx;//默认提现假,需要自行修改变量
+appyq = process.env.appyq;//默认邀请,需要自行修改变量
     
     if(!process.env.soy_sbz_uuid&&process.env.soy_sbz_uuid==''){
         console.log(`\n【${$.name}】：未填写相对应的变量`);
@@ -82,7 +83,8 @@ apptz = process.env.apptz;//是否推送，默认true
   
   }
 apptz = $.getdata('apptz');//是否推送，默认true
-apptx = $.getdata('apptx');//默认提现假,需要自行修改变量 RL_tx=true/false
+apptx = $.getdata('apptx');//默认提现假,需要自行修改变量
+appyq = $.getdata('appyq');//默认邀请,需要自行修改变量
     
     let kzkcount = ($.getval('kzkcount') || '1');
   for (let i = 2; i <= kzkcount; i++) {
@@ -118,6 +120,7 @@ for (i = 0; i < app_soy_sbz_uuid.length; i++) {
 
 
 //if(apptz){if ($.isNode() ){await notify.sendNotify($.name, subTitle)}};
+if(appyq){await soy_kzk_yq()}
 
 })()
 .catch((e) => $.logErr(e))
@@ -155,7 +158,19 @@ function soy_kzk_lspjl() {
     })
 }
 
+//邀请
+function soy_kzk_yq() {
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `http://gateway.shangbangzhuan.com/user/myInvite?inviteId=407661`,
+            headers : soy_sbz_headers,
+        }, async(error, response, data) => {
+            //console.log(data)
 
+            resolve()
+        })
+    })
+}
 
 function Env(t, e) {
   class s {
