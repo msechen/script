@@ -58,6 +58,8 @@
 5 0,18,22 * * * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
 10 0,9,18,22 * * * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
+#jd_opencard3
+20 0,9,18,22 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 #jd_opencard4
 15 0,9,18,22 * * * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
 #jd_opencard5
