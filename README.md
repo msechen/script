@@ -15,3 +15,5 @@ v2p不会写重写，所以脚本需要变量都自行抓包添加
 
 4.讨论tg群:https://t.me/joinchat/8D2_IDN5t0A2ZmM1
 
+5.tg频道:https://t.me/soy_pull
+
