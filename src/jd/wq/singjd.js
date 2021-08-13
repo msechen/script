@@ -33,11 +33,10 @@ class Singjd extends Template {
 
     function doSign() {
       return _doPath('SignQuery').then(data => {
-        if (data.status !== 0) return;
-        // TODO 目前还未签到成功
+        if (data.status !== 0) return api.log('今天已签到');
         return _doPath('DrawQuery').then(data => {
           if (data.ret !== 0) return self.log(data['retmsg']);
-          self.log('签到成功');
+          api.log('签到成功');
         });
       });
     }

@@ -7,7 +7,9 @@ const Cookie = require('../../lib/cookie');
 const {getEnv} = require('../../lib/env');
 
 async function mLoginWx(api) {
-  const cookie = new Cookie(getEnv('JD_WQ_WX_COOKIE', api.currentCookieTimes));
+  const index = api.currentCookieTimes;
+  const cookie = new Cookie(getEnv('JD_WQ_WX_COOKIE', index));
+  cookie.set('openid2', getEnv('JD_WQ_WX_COOKIE_OPENID', index));
   cookie.set('rurl', 'https://wqsh.jd.com/promote/201801/bean/index.html');
   return rq({
     uri: 'https://wqlogin2.jd.com/mlogin/wxv3/LoginRedirect',
@@ -24,12 +26,15 @@ async function mLoginWx(api) {
   }).catch(({response}) => {
     if (response.statusCode !== 302) return;
     const setCookie = response.headers['set-cookie'];
-    const newCookie = new Cookie(setCookie/*, [
-      'openid2',
-      'wq_uin',
-      'wq_unionid',
-      'wq_skey',
-    ]*/);
+    if (!setCookie) {
+      throw api.log('用户未登录');
+    }
+    const newCookie = new Cookie(setCookie, [
+      // 'openid2',
+      // 'wq_uin',
+      // 'wq_unionid',
+      // 'wq_skey',
+    ]);
     return newCookie.toString();
   });
 }
