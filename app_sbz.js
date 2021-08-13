@@ -19,7 +19,7 @@ export soy_sbz_uuid=''
 v2p配置如下：
 
 【REWRITE】
-匹配链接（正则表达式） http://gateway.shangbangzhuan.com/task/video/
+匹配链接（正则表达式） http://gateway.shangbangzhuan.com/task/
 
 对应重写目标   kzk.js
 
@@ -126,7 +126,7 @@ for (i = 0; i < app_soy_sbz_uuid.length; i++) {
 
 //获取ck
 function get_appdata() {
-   if ($request.url.indexOf("finishWatch") > -1) {
+   if ($request.url.indexOf("video") > -1) {
 const soy_sbz_uuid = $request.headers.uuid
    if(soy_sbz_uuid)     $.setdata(soy_sbz_uuid,`soy_sbz_uuid${status}`)
    $.log(soy_sbz_uuid)
