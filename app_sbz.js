@@ -19,7 +19,7 @@ export soy_sbz_uuid=''
 v2p配置如下：
 
 【REWRITE】
-匹配链接（正则表达式） http://gateway.shangbangzhuan.com/user/
+匹配链接（正则表达式） http://gateway.shangbangzhuan.com/user
 
 对应重写目标   kzk.js
 
