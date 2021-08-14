@@ -194,3 +194,5 @@
 # 0,1,2 0 * * * node /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1
 # 京喜农场
 #0 9,12,18 * * * node /scripts/jd_jxnc.js >> /scripts/logs/jd_jxnc.log 2>&1
+# 清空购物车
+#0 9 * * * node /scripts/jd_cleancart.js >> /scripts/logs/jd_cleancart.log 2>&1
