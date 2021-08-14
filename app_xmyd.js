@@ -1,26 +1,28 @@
-/*小米改运动步数
-  
- * TG频道: https://t.me/soy_pull
- * TG讨论群: https://t.me/joinchat/8D2_IDN5t0A2ZmM1
- * 原作者不知道是谁了，本人只是修复，感谢原作者
- */
+/*
+  讨论tg群:https://t.me/joinchat/8D2_IDN5t0A2ZmM1
 
-/*小米改运动步数
-  cron 自己设置，一天下午6-8点1-2次即可,好像第一次不会自动同步,第二步就可以
+  tg频道:https://t.me/soy_pull
+  
+  小米改运动步数
+  
+  原作者不知道是谁了，本人只是修复，感谢原作者
+  
+  cron 自己设置，一天下午6-8点一次即可
   
   手动添加变量
   
   变量名如下,多账号 & 隔开
-
+  
   ##小米运动手机号
-  export XMYD_phone=''
+  XMYD_phone
+  
   ##登录密码
-  export XMYD_password=''##登录密码
+  XMYD_password
+  
+  ##要修改的步数(可选)
+  XMYD_STEP
 
 */
-
-
-
 
 
 const $ = new Env('小米运动改步数');
@@ -29,7 +31,7 @@ const axios = require('axios')
 const headers = {
   'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 }
-const STEP = Math.ceil(Math.random() * 10000) + 8000;
+const STEP = Math.ceil(Math.random() * 15000) + 8000;
 let tz = ($.getval('tz') || '1');//通知
 $.message = '',app_XMYD_phone=[],app_XMYD_password=[]
 
@@ -45,6 +47,9 @@ if ($.isNode()) {
     } else{
         XMYD_password = process.env.XMYD_password.split();
     };
+    if(process.env.XMYD_STEP){
+        STEP=process.env.XMYD_STEP
+    }
 } else {
     if($.getdata('XMYD_phone')&&$.getdata('XMYD_phone').indexOf('&')>-1){
         XMYD_phone=$.getdata('XMYD_phone').split('&');
@@ -55,6 +60,9 @@ if ($.isNode()) {
         XMYD_password=$.getdata('XMYD_password').split('&');
     }else{
         XMYD_password=$.getdata('XMYD_password').split();
+    }
+    if($.getdata('XMYD_STEP')){
+        STEP=$.getdata('XMYD_STEP')
     }
 }
 
