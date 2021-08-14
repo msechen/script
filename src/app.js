@@ -98,7 +98,7 @@ async function main() {
       run: async () => {
         await serialRun([
           KoiRedPacket,
-          Carnivalcity,
+          // Carnivalcity,
 
           // 23点后的活动补充
           IsvShopSign,
