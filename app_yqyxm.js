@@ -308,7 +308,8 @@ function soy_yqyxm_Cattle() {
                 }else{
                     console.log(`\n【${$.name}---土地状态】: 土地未完全解锁`)
                     console.log(`\n【${$.name}---土地状态】: 执行解锁土地任务`)
-                    Cattle_data=["data=h6cztR88qT%2BcQfKCud3Ggu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=xBae8VaLF4Erd%2BCGSCh2ku2Q5%2B8wOc3SOCRRuORLCmU%3D","data=s0ZFagJTn6bjH%2Fi1auCVWu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=flzMfcBOgkE8inRCEV5O4u2Q5%2B8wOc3SOCRRuORLCmU%3D","data=HJQbkhGnwBEWcX9PgPFjkO2Q5%2B8wOc3SOCRRuORLCmU%3D","data=g8H409OflOPuuDvNJkFgVu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=QTcyJ5KVoT07TVYCIZYibu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=YrTLtJZg2FrwIJ2fMgUMmO2Q5%2B8wOc3SOCRRuORLCmU%3D","data=cLIFT6wYYu%2Fec3ntUJG9cu2Q5%2B8wOc3SOCRRuORLCmU%3D"]
+                    await soy_yqyxm_ad()
+                    Cattle_data=["data=xBae8VaLF4Erd%2BCGSCh2ku2Q5%2B8wOc3SOCRRuORLCmU%3D","data=h6cztR88qT%2BcQfKCud3Ggu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=s0ZFagJTn6bjH%2Fi1auCVWu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=flzMfcBOgkE8inRCEV5O4u2Q5%2B8wOc3SOCRRuORLCmU%3D","data=HJQbkhGnwBEWcX9PgPFjkO2Q5%2B8wOc3SOCRRuORLCmU%3D","data=g8H409OflOPuuDvNJkFgVu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=QTcyJ5KVoT07TVYCIZYibu2Q5%2B8wOc3SOCRRuORLCmU%3D","data=YrTLtJZg2FrwIJ2fMgUMmO2Q5%2B8wOc3SOCRRuORLCmU%3D","data=cLIFT6wYYu%2Fec3ntUJG9cu2Q5%2B8wOc3SOCRRuORLCmU%3D"]
                     
                     for(let td=0;td<9;td++){
                         await soy_yqyxm_unlock(Cattle_data[td])
@@ -322,16 +323,17 @@ function soy_yqyxm_Cattle() {
     })
 }
 //解锁土地
-function soy_yqyxm_unlock(unlock_bady) {
+function soy_yqyxm_unlock(unlock_body) {
     return new Promise((resolve, reject) => {
-        $.get({
+        $.post({
             url : `http://cattle03.yuan9.cn/api/Cattle/unlock`,
             headers : soy_yqyxm_headers,
-            body:unlock_bady,
+            body : unlock_body,
         }, async(error, response, data) => {
+            //console.log(unlock_body)
             //console.log(data)
             let result = JSON.parse(data)
-            if(resul.code==200){
+            if(result.code==200){
                 console.log(`\n【${$.name}---解锁土地】: 花费 ${result.data.updateGold} 金币解锁土地`)
             }else{
                console.log(`\n【${$.name}---解锁土地】: ${result.msg}`) 
