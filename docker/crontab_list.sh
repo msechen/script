@@ -54,8 +54,6 @@
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
 20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
-#jd_opencard1
-5 0,18,22 * * * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
 10 0,9,18,22 * * * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
 #jd_opencard3
@@ -64,8 +62,6 @@
 15 0,9,18,22 * * * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
 #jd_opencard5
 25 0,9,18,22 * * * node /scripts/jd_opencard5.js >> /scripts/logs/jd_opencard5.log 2>&1
-#jd_qixi
-0 0,9,18 * * * node /scripts/jd_qixi.js >> /scripts/logs/jd_qixi.log 2>&1
 #特物
 30 8,9 * * * node /scripts/jd_productZ4Brand.js >> /scripts/logs/jd_productZ4Brand.log 2>&1
 #女装盲盒
