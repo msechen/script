@@ -7,8 +7,7 @@
 
 收益:不祥
 
-注册地址:http://newdown.chuanyejinxuan.xyz:8888/NDA3NjYx 
-邀请码:407661
+软件下载: https://tool-s.lanzoui.com/iE6kPsn651i
 
 小黄鸟变量抓取:
 
@@ -28,7 +27,8 @@ v2p配置如下：
 【REWRITE】
 匹配链接（正则表达式） https://cattle03.yuan9.cn/api
 
-对应重写目标   kzk.js
+对应重写目标
+https://gitee.com/soy-tool/app-script/blob/master/app_yqyxm.js 或 app_yqyxm.js
 
 【MITM】  
 cattle03.yuan9.cn
