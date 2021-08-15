@@ -2,7 +2,9 @@
 
 软件名称:赏帮赚
 
-收益:不祥
+收益:好像0.3-0.5天
+
+需要身份证实名
 
 注册地址:http://newdown.chuanyejinxuan.xyz:8888/NDA3NjYx 
 邀请码:407661
@@ -71,9 +73,6 @@ appyq = process.env.appyq;//默认邀请,需要自行修改变量
         };
     });
 
-
-    if(!apptz&&apptz==''){apptz=true};
-    if(!apptx&&apptx==''){apptx=true};
     
 }else{
 	if (typeof $request !== "undefined") {
@@ -99,7 +98,8 @@ appyq = $.getdata('appyq');//默认邀请,需要自行修改变量
         8 * 60 * 60 * 1000
       ).toLocaleString()} =====================\n`
     );
-
+    if(!apptz){apptz=true};
+    if(!apptx){apptx=true};
       
 for (i = 0; i < app_soy_sbz_uuid.length; i++) {
     soy_sbz_uuid=app_soy_sbz_uuid[i]
@@ -113,8 +113,12 @@ for (i = 0; i < app_soy_sbz_uuid.length; i++) {
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
+    //await soy_kzk_lspjl();
+    if(apptx){
+        await soy_kzk_getUserInfo()
+        //await soy_kzk_tx()
+    }
     
-    await soy_kzk_lspjl();
     
 };
 
@@ -138,7 +142,49 @@ const soy_sbz_uuid = $request.headers.uuid
   } 
 }
 
-
+//提现
+function soy_kzk_tx(money) {
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `http://gateway.shangbangzhuan.com/user/withdrawal?source=1&target=10&money=${money}`,
+            headers : soy_sbz_headers,
+        }, async(error, response, data) => {
+            //console.log(data)
+            let result = JSON.parse(data)
+            console.log(`\n【${$.name}---提现】: ${result.message}`)
+            /*if(result.code==200){
+                console.log(`\n【${$.name}---视频奖励】: ${result.message},获得 ${result.data/100} 元`)
+            }else{
+                console.log(`\n【${$.name}---视频奖励】: ${result.message}`)
+            }*/
+            resolve()
+        })
+    })
+}
+//
+function soy_kzk_getUserInfo() {
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `http://gateway.shangbangzhuan.com/user/getUserInfo`,
+            headers : soy_sbz_headers,
+        }, async(error, response, data) => {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==200){
+                console.log(`\n【${$.name}---余额】: 剩下 ${result.data.earnMoney} 元`)
+                txye=result.data.earnMoney
+                if(txye>=1){
+                   await  soy_kzk_tx(txye) 
+                }else{
+                   console.log(`\n【${$.name}---余额】: 余额不足 1 元,无法去提现`) 
+                }
+            }else{
+                console.log(`\n【${$.name}---余额】: ${result.message}`)
+            }
+            resolve()
+        })
+    })
+}
 //观看视频
 function soy_kzk_lspjl() {
     return new Promise((resolve, reject) => {
@@ -158,7 +204,6 @@ function soy_kzk_lspjl() {
     })
 }
 
-//邀请
 function soy_kzk_yq() {
     return new Promise((resolve, reject) => {
         $.get({
