@@ -88,6 +88,8 @@
 30 9,21 12-20 8 * node /scripts/jd_qcshj.js >> /scripts/logs/jd_qcshj.log 2>&1
 # 小米星空大冒险
 31 8,22 13-31 8 * node /scripts/jd_xmGame.js >> /scripts/logs/jd_xmGame.log 2>&1
+#明星小店
+10 9,18 9-25 8 * node /scripts/jd_star_shop.js >> /scripts/logs/jd_star_shop.log 2>&1
 
 ##############长期活动##############
 # 签到

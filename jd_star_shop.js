@@ -1,33 +1,23 @@
-/*
-明星小店(星店长)
+/**
+ 明星小店
+ 蚊子腿，欧皇可以中实物
+ cron 10 9,18 9-25 8 * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_star_shop.js
  */
 const $ = new Env('明星小店');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 $.inviteCodeList = [];
-$.authorCodeList = [
-    'Gen2xW1ROh40oPe9j-nDCw','MD_AXgMSFdIcszUq8p7yw1PCj4HaypT-KHjw3EVfcyI',
-    'KPp_lf8hX0drW3Nb5OHRUwFJN6Hailnqbgn3zp0QUyo','KpXCIXHcLwGYKKMrJjYaqjGXywQMsQph1nfzX0XKDFY','oE51sIuhjNTivJHAwBOLKQ','fjIrY2n4qUqiwriropb3_Q9Gt1mcYxNVcCzpmItukvU','yjxJJMR48elHVRVxk9Bq9g','T7SN9KHrFalS-nJCyIN2zA','gG2QqbfB1PsebKLDdH9BQjMPuCDe1KBdEwZTmGwGwN8','uW3VjhlQ8d_BXA35OSQNOw'
-  ];
+$.authorCodeList = [];
 let cookiesArr = [];
+$.linkID = '';
 let uniqueIdList = [
-    {'id':'HY4HCW','name':'陈坤'},{'id':'KDDAR9','name':'徐凯'},
-    {'id':'637BQA','name':'成毅'},{'id':'XLDYRJ','name':'白宇'},{'id':'94FEDQ','name':'任嘉伦'},{'id':'GN949D','name':'刘宇宁'},{'id':'WG73ME','name':'李光洁'},{'id':'5JFCD6','name':'李纹翰'},
-    {'id':'YCDXNN','name':'蔡徐坤'},{'id':'CX522V','name':'邓伦'},{'id':'877JM4','name':'张哲瀚'},{'id':'D22Q7C','name':'孟美岐'},{'id':'K6DARX','name':'龚俊'},{'id':'2SFR44','name':'白茶'},
-    {'id':'S99D9G','name':'刘浩存'},{'id':'ET5F23','name':'吴尊'},{'id':'TXU6GB','name':'刘雨欣'},{'id':'FBFN48','name':'李宇春'},{'id':'UK2SUY','name':'虞书欣'},{'id':'VS4PEM','name':'热依扎'},
-    {'id':'QE9757','name':'黄弈'},{'id':'2PFR4L','name':'张云龙'},{'id':'4A2M7K','name':'张伯芝'},{'id':'J8UWSP','name':'戚薇'},{'id':'3FU8S5','name':'周柯宇'},{'id':'P94VEU','name':'林志玲'},
-    {'id':'LW4LCK','name':'田鸿杰'},{'id':'MW9U5Z','name':'吴宇恒'},{'id':'AVDKNT','name':'张嘉倪'},{'id':'3PU8SZ','name':'阿云嘎'},{'id':'ZQ7TQR','name':'马家辉'}, {'id':'VZ4PEY','name':'翟潇闻'},
-    {'id':'ZH7TQ6','name':'李一桐'},{'id':'4C2M75','name':'张馨予'},{'id':'E55F2M','name':'雷米'},{'id':'M79U5N','name':'无穷小亮'},{'id':'762GUB','name':'刘昊然'},{'id':'8K7JM3','name':'止庵'},
-    {'id':'LQ4LCS','name':'倪妮'},{'id':'YTDXNL','name':'宫殿君'},{'id':'5RFCD9','name':'王菲菲'},
+    {'id':'L74LC5','name':'肖战','linkID':'P8Iw2eXANcZA4r_ofEDaAQ','taskId':false},
+    {'id':'7D2GUG','name':'张艺兴','linkID':'MRyP3a30dDZl5kSccE6B2w','taskId':215},
+    {'id':'3SU8SN','name':'陈小春','linkID':'m2okfVwwfUNLJy8RGsIMTw','taskId':230},
+    {'id':'4T2M7Z','name':'黄征','linkID':'m2okfVwwfUNLJy8RGsIMTw','taskId':230},
+    {'id':'Y5DXN4','name':'张智霖','linkID':'m2okfVwwfUNLJy8RGsIMTw','taskId':230},
+    {'id':'MK9U5L','name':'李承铉','linkID':'m2okfVwwfUNLJy8RGsIMTw','taskId':230},
 ];
-$.shopId = '94FEDQ';
-$.tokenId = 'jd6df03bd53f0f292f';
-$.xdzHelpCodeList = [];
-/**奖品只有优惠券，不做他们家的任务
- *{'id':'TRU6GG','name':'王一博'}
- *{'id':'ND55FR','name':'刘诗诗'}
- * {'id':'UN2SU2','name':'赵雷'},
- * */
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
@@ -44,55 +34,6 @@ if ($.isNode()) {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
         return;
     }
-    console.log('明星小店(星店长)\n' +
-        '助力逻辑：每个ck随机获取一个明星，然后会先内部助力，然后再助力内置助力码\n' +
-        '抽奖：是否中奖没判断，需自行查看\n' );
-
-    // console.log(`==================开始执行星店长任务==================`);
-    // for (let i = 0; i < cookiesArr.length; i++) {
-    //   $.index = i + 1;
-    //   $.cookie = cookiesArr[i];
-    //   $.isLogin = true;
-    //   $.nickName = '';
-    //   await TotalBean();
-    //   $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-    //   console.log(`\n*****开始【京东账号${$.index}】${$.nickName || $.UserName}*****\n`);
-    //   if (!$.isLogin) {
-    //     $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-    //
-    //     if ($.isNode()) {
-    //       await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-    //     }
-    //     continue
-    //   }
-    //   await xdz();
-    // }
-    // console.log(`开始执行星店长助力\n`);
-    // if(cookiesArr.length > 1 && $.xdzHelpCodeList.length > 0){
-    //   if($.xdzHelpCodeList.length > 1){
-    //     $.xdzHelpCodeList.push($.xdzHelpCodeList.shift());
-    //   }
-    //   for (let i = 0; i < cookiesArr.length; i++) {
-    //     $.cookie = cookiesArr[i];
-    //     $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-    //     $.helpCode = $.xdzHelpCodeList[i];
-    //     console.log(`${$.UserName},去助力${$.helpCode}`);
-    //     await help();
-    //     await $.wait(2000);
-    //     if($.xdzHelpCodeList[i+1]){
-    //       $.helpCode = $.xdzHelpCodeList[i+1];
-    //       console.log(`${$.UserName},去助力${$.helpCode}`);
-    //       await help();
-    //       await $.wait(2000);
-    //     }else{
-    //       $.helpCode = $.xdzHelpCodeList[0];
-    //       console.log(`${$.UserName},去助力${$.helpCode}`);
-    //       await help();
-    //       await $.wait(2000);
-    //     }
-    //   }
-    // }
-    // console.log(`==================星店长任务执行完毕==================\n`);
     console.log(`==================开始执行明星小店任务==================`);
     for (let i = 0; i < cookiesArr.length; i++) {
         $.index = i + 1;
@@ -112,16 +53,31 @@ if ($.isNode()) {
         }
         await main();
     }
-    $.inviteCodeList.push(...getRandomArrayElements($.authorCodeList, 1));
+    let res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/RandomShareCode@main/starShop.json')
+    if(!res){
+      await $.wait(1000)
+        res = await getAuthorShareCode('https://gitee.com/ZFeng3242/RandomShareCode/raw/main/starShop.json')
+    }
+    if(res && res.length > 0){
+        $.authorCodeList = getRandomArrayElements(res,1)[0];
+    }
+    $.inviteCodeList.push($.authorCodeList);
+    cookiesArr = getRandomArrayElements(cookiesArr,cookiesArr.length);
     for (let i = 0; i < cookiesArr.length; i++) {
         $.cookie = cookiesArr[i];
         $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-        let sar = Math.floor((Math.random() * uniqueIdList.length));
-        $.uniqueId = uniqueIdList[sar].id;
+        $.taskId = false;
+        let sar = 0
+        while (!$.taskId){
+            sar = Math.floor((Math.random() * uniqueIdList.length));
+            $.uniqueId = uniqueIdList[sar].id;
+            $.linkID = uniqueIdList[sar].linkID;
+            $.taskId = uniqueIdList[sar].taskId;
+        }
         for (let k = 0; k < $.inviteCodeList.length; k++) {
             $.oneCode = $.inviteCodeList[k];
             console.log(`${$.UserName}去助力：${$.uniqueId} 活动，助力码：${$.oneCode}`);
-            await takePostRequest('help');
+            await help()
             await $.wait(2000);
         }
     }
@@ -142,18 +98,20 @@ async function main() {
             $.uniqueId = uniqueIdList[j].id;
             $.helpCode = '';
             console.log(`开始第${j + 1}个明星小店，ID：${$.uniqueId},明星：${uniqueIdList[j].name}`);
+            $.linkID = uniqueIdList[j].linkID;
             await starShop();
             await $.wait(1000);
             if (j === 0) {
+                console.log(`作者:${$.authorCodeList}`)
                 console.log(`互助码：${$.helpCode}`);
-                $.inviteCodeList.push($.helpCode);
+                //$.inviteCodeList.push($.helpCode);
             }
             console.log(`\n`);
         }catch (e) {
             console.log(JSON.stringify(e.message));
         }
     }
-    console.log(`=============${$.UserName }：星店长奖励汇总================`);
+    console.log(`=============${$.UserName }：明星小店奖励汇总================`);
     await $.wait(1000);
     $.rewards = [];
     await getReward();
@@ -176,86 +134,33 @@ async function main() {
         }
     }
     if(sendMessage){
-        sendMessage += `填写收货地址路径：\n京东首页，搜索明星（陈坤），进入明星小店，我的礼物，填写收货地址`;
+        sendMessage += `填写收货地址路径：\n京东首页，搜索明星（肖战），进入明星小店，我的礼物，填写收货地址`;
         await notify.sendNotify(`星店长`, sendMessage);
     }
 }
 
-async function xdz(){
-    // $.xdzInfo = {};
-    // await getXdzInfo();
-    // if(JSON.stringify($.xdzInfo) === '{}'){
-    //   console.log(`获取活动数据为空`);
-    //   return ;
-    // }
-    // $.xdzUseInfo = {};
-    // await getXdzUseInfo();
-    // if(JSON.stringify($.xdzUseInfo) === '{}'){
-    //   console.log(`获取用户数据为空`);
-    //   return ;
-    // }
-    // let tasksList =  $.xdzUseInfo.tasks;
-    // for (let i = 0; i < tasksList.length; i++) {
-    //   $.oneTask = tasksList[i];
-    //   if($.oneTask.status !== 1){
-    //     continue;
-    //   }
-    //   if($.oneTask.taskType !== '22' && $.oneTask.taskType !== '6'){
-    //     console.log(`执行任务：${$.oneTask.taskName}`);
-    //     let subItem = $.oneTask.subItem;
-    //     for (let j = 0; j < subItem.length; j++) {
-    //       $.subItemInfo = subItem[j];
-    //       if(!$.subItemInfo.itemToken &&  $.subItemInfo.status !==1 ){
-    //         continue;
-    //       }
-    //       await doXdzTask();
-    //       await $.wait(2000);
-    //     }
-    //   }else if($.oneTask.taskType === '6'){
-    //     if($.oneTask.subItem && $.oneTask.subItem.length>0 && $.oneTask.times === 0){
-    //       $.xdzHelpCodeList.push($.oneTask.subItem[0].itemToken);
-    //       console.log(`助力码：${$.oneTask.subItem[0].itemToken}`);
-    //     }
-    //   }
-    // }
-    // let awardVoList = $.xdzInfo.awardVoList;
-    // for (let i = 0; i < awardVoList.length; i++) {
-    //   $.oneAwardInfo = awardVoList[i];
-    // if($.oneAwardInfo.status === 1 && $.oneAwardInfo.grade === 1){
-    //   console.log(`执行抽奖`);
-    //   drawAward();
-    //   await $.wait(2000);
-    // }
-    // }
-
-    console.log(`执行瓜分`);
-    await guafen();
-    await $.wait(2000);
-}
-async function guafen(){
-    let a = (new Date()).Format("yyyy-MM-ddThh:mm:ss.SZ");
-    console.log(a);
-    const url = `https://api.m.jd.com/?body=%7B%22shopId%22:%22${$.shopId}%22,%22nowTime%22:%22${a}%22,%22token%22:%22${$.tokenId}%22%7D&appid=xdz&functionId=mcxhd_starmall_getRedPacketAward&t=${Date.now()}&loginWQBiz=`;
-    const method = `GET`;
+async function help(){
+    const url = `https://api.m.jd.com/?functionId=activityStarBackGetProgressInfo&body={%22starId%22:%22${$.uniqueId}%22,%22sharePin%22:%22${$.oneCode}%22,%22taskId%22:%22${$.taskId}%22,%22linkId%22:%22${$.linkID}%22}&_t=${Date.now()}&appid=activities_platform`;
     const headers = {
-        'Origin': `https://h5.m.jd.com`,
+        'Origin' : `https://prodev.m.jd.com`,
         'Cookie': $.cookie,
-        'Accept-Encoding': `gzip, deflate, br`,
-        'Accept-Language': `zh-cn`,
+        'Connection' : `keep-alive`,
+        'Accept' : `application/json, text/plain, */*`,
+        'Referer' : `https://prodev.m.jd.com/mall/active/34LcYfTMVLu6QPowsoLtk383Hcfv/index.html`,
+        'Host' : `api.m.jd.com`,
         'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html`,
-        'Content-Type':`application/x-www-form-urlencoded;charset=UTF-8`,
-        'Accept': `application/json, text/plain, */*`,
-        'Host': `api.m.jd.com`,
+        'Accept-Encoding' : `gzip, deflate, br`,
+        'Accept-Language' : `zh-cn`
     };
-    const myRequest = {url: url, method: method, headers: headers,};
+    let myRequest =  {url: url, headers: headers};
     return new Promise(async resolve => {
         $.get(myRequest, (err, resp, data) => {
             try {
-                console.log(data);
-                data = JSON.parse(data);
-                if(data.retCode === '200'){
-                    console.log(`瓜分获得：${data.result.quota}`);
+                try {
+                    console.log(data+'\n');
+                } catch (e) {
+                    console.log(`返回异常：${data}`);
+                    return;
                 }
             } catch (e) {
                 $.logErr(e, resp)
@@ -283,160 +188,8 @@ Date.prototype.Format = function (fmt) { //author: meizz
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
-async function help(){
-    const url = `https://api.m.jd.com/?body=%7B%22shopId%22:%22${$.shopId}%22,%22itemToken%22:%22${$.helpCode}%22,%22token%22:%22${$.tokenId}%22%7D&appid=xdz&functionId=mcxhd_starmall_doTask&t=${Date.now()}&loginWQBiz=`;
-    const method = `GET`;
-    const headers = {
-        'Origin': `https://h5.m.jd.com`,
-        'Cookie': $.cookie,
-        'Accept-Encoding': `gzip, deflate, br`,
-        'Accept-Language': `zh-cn`,
-        'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html`,
-        'Content-Type':`application/x-www-form-urlencoded;charset=UTF-8`,
-        'Accept': `application/json, text/plain, */*`,
-        'Host': `api.m.jd.com`,
-    };
-    const myRequest = {url: url, method: method, headers: headers,};
-    return new Promise(async resolve => {
-        $.get(myRequest, (err, resp, data) => {
-            try {
-                console.log(`助力结果`);
-                console.log(data);
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve();
-            }
-        })
-    })
-}
-
-
-async function drawAward(){
-    const url = `https://api.m.jd.com/?body=%7B%22shopId%22:%22${$.shopId}%22,%22token%22:%22${$.tokenId}%22%7D&appid=xdz&functionId=mcxhd_starmall_drawAward&t=${Date.now()}&loginWQBiz=`;
-    const method = `GET`;
-    const headers = {
-        'Origin': `https://h5.m.jd.com`,
-        'Cookie': $.cookie,
-        'Accept-Encoding': `gzip, deflate, br`,
-        'Accept-Language': `zh-cn`,
-        'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html`,
-        'Content-Type':`application/x-www-form-urlencoded;charset=UTF-8`,
-        'Accept': `application/json, text/plain, */*`,
-        'Host': `api.m.jd.com`,
-    };
-    const myRequest = {url: url, method: method, headers: headers,};
-    return new Promise(async resolve => {
-        $.get(myRequest, (err, resp, data) => {
-            try {
-                console.log(`抽奖结果`);
-                console.log(data);
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve();
-            }
-        })
-    })
-}
-
-async function doXdzTask(){
-    const url = `https://api.m.jd.com/?body=%7B%22shopId%22:%22${$.shopId}%22,%22itemToken%22:%22${$.subItemInfo.itemToken}%22,%22token%22:%22${$.tokenId}%22%7D&appid=xdz&functionId=mcxhd_starmall_doTask&t=${Date.now()}&loginWQBiz=`;
-    const method = `GET`;
-    const headers = {
-        'Origin': `https://h5.m.jd.com`,
-        'Cookie': $.cookie,
-        'Accept-Encoding': `gzip, deflate, br`,
-        'Accept-Language': `zh-cn`,
-        'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html`,
-        'Content-Type':`application/x-www-form-urlencoded;charset=UTF-8`,
-        'Accept': `application/json, text/plain, */*`,
-        'Host': `api.m.jd.com`,
-    };
-    const myRequest = {url: url, method: method, headers: headers,};
-    return new Promise(async resolve => {
-        $.get(myRequest, (err, resp, data) => {
-            try {
-                data = JSON.parse(data);
-                if (data.retCode === '200') {
-                    console.log(`任务完成，获得星力值：${data.result.score}`);
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve();
-            }
-        })
-    })
-}
-
-async function getXdzUseInfo(){
-    const url = `https://api.m.jd.com/?body=%7B%22shopId%22:%22${$.shopId}%22,%22token%22:%22${$.tokenId }%22%7D&appid=xdz&functionId=mcxhd_starmall_taskList&t=${Date.now()}&loginWQBiz=`;
-    const method = `GET`;
-    const headers = {
-        'Origin': `https://h5.m.jd.com`,
-        'Cookie': $.cookie,
-        'Accept-Encoding': `gzip, deflate, br`,
-        'Accept-Language': `zh-cn`,
-        'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html`,
-        'Content-Type':`application/x-www-form-urlencoded;charset=UTF-8`,
-        'Accept': `application/json, text/plain, */*`,
-        'Host': `api.m.jd.com`,
-    };
-    const myRequest = {url: url, method: method, headers: headers,};
-    return new Promise(async resolve => {
-        $.get(myRequest, (err, resp, data) => {
-            try {
-                data = JSON.parse(data);
-                if (data.retCode === '200') {
-                    $.xdzUseInfo = data.result;
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve();
-            }
-        })
-    })
-}
-
-async function getXdzInfo(){
-    const url = `https://api.m.jd.com/?body=%7B%22shopId%22:%22${$.shopId}%22,%22token%22:%22${$.tokenId }%22%7D&appid=xdz&functionId=mcxhd_starmall_getStarShopPage&t=${Date.now()}&loginWQBiz=`;
-    const method = `GET`;
-    const headers = {
-        'Origin': `https://h5.m.jd.com`,
-        'Cookie': $.cookie,
-        'Accept-Encoding': `gzip, deflate, br`,
-        'Accept-Language': `zh-cn`,
-        'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html`,
-        'Content-Type':`application/x-www-form-urlencoded;charset=UTF-8`,
-        'Accept': `application/json, text/plain, */*`,
-        'Host': `api.m.jd.com`,
-    };
-    const myRequest = {url: url, method: method, headers: headers,};
-    return new Promise(async resolve => {
-        $.get(myRequest, (err, resp, data) => {
-            try {
-                data = JSON.parse(data);
-                if (data.retCode === '200') {
-                    $.xdzInfo = data.result;
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve();
-            }
-        })
-    })
-}
-
 async function getReward() {
-    const url = `https://api.m.jd.com/?functionId=activityStarBackGetRewardList&body={%22linkId%22:%22Y2aqxng42hZ0eGxGtbCMiQ%22}&_t=${Date.now()}&appid=activities_platform`;
+    const url = `https://api.m.jd.com/?functionId=activityStarBackGetRewardList&body={%22linkId%22:%22${$.linkID}%22}&_t=${Date.now()}&appid=activities_platform`;
     const method = `GET`;
     const headers = {
         'Origin': `https://prodev.m.jd.com`,
@@ -449,7 +202,6 @@ async function getReward() {
         'Accept-Encoding': `gzip, deflate, br`,
         'Accept-Language': `zh-cn`
     };
-
     const myRequest = {url: url, method: method, headers: headers,};
     return new Promise(async resolve => {
         $.get(myRequest, (err, resp, data) => {
@@ -469,7 +221,8 @@ async function getReward() {
 
 async function starShop() {
     $.info = {};
-    await takePostRequest('activityStarBackGetProgressBarInfo');
+    //await takePostRequest('activityStarBackGetProgressBarInfo');
+    await  getInfo();
     if (JSON.stringify($.info) === '{}') {
         console.log(`获取活动失败，ID：${$.uniqueId}`);
     }
@@ -526,31 +279,28 @@ async function takePostRequest(type) {
     let myRequest = ``;
     switch (type) {
         case 'activityStarBackGetProgressBarInfo':
-            body = `functionId=activityStarBackGetProgressBarInfo&body={"starId":"${$.uniqueId}","linkId":"Y2aqxng42hZ0eGxGtbCMiQ"}&_t=${Date.now()}&appid=activities_platform`;
+            body = `functionId=activityStarBackGetProgressBarInfo&body={"starId":"${$.uniqueId}","linkId":"${$.linkID}"}&_t=${Date.now()}&appid=activities_platform`;
             myRequest = getPostRequest(body);
+            console.log(body);
             break;
         case 'apTaskList':
-            body = `functionId=apTaskList&body={"uniqueId":"${$.uniqueId}","linkId":"Y2aqxng42hZ0eGxGtbCMiQ"}&_t=${Date.now()}&appid=activities_platform`;
+            body = `functionId=apTaskList&body={"uniqueId":"${$.uniqueId}","linkId":"${$.linkID}"}&_t=${Date.now()}&appid=activities_platform`;
             myRequest = getPostRequest(body);
             break;
         case 'SIGN':
-            body = `functionId=apDoTask&body={"taskType":"${$.oneTask.taskType}","taskId":${$.oneTask.id},"uniqueId":"${$.uniqueId}","linkId":"Y2aqxng42hZ0eGxGtbCMiQ"}&_t=${Date.now()}&appid=activities_platform`;
+            body = `functionId=apDoTask&body={"taskType":"${$.oneTask.taskType}","taskId":${$.oneTask.id},"uniqueId":"${$.uniqueId}","linkId":"${$.linkID}"}&_t=${Date.now()}&appid=activities_platform`;
             myRequest = getPostRequest(body);
             break;
         case 'apTaskDetail':
-            body = `functionId=apTaskDetail&body={"taskType":"${$.oneTask.taskType}","taskId":${$.oneTask.id},"uniqueId":"${$.uniqueId}","channel":4,"linkId":"Y2aqxng42hZ0eGxGtbCMiQ"}&_t=${Date.now()}&appid=activities_platform`;
+            body = `functionId=apTaskDetail&body={"taskType":"${$.oneTask.taskType}","taskId":${$.oneTask.id},"uniqueId":"${$.uniqueId}","channel":4,"linkId":"${$.linkID}"}&_t=${Date.now()}&appid=activities_platform`;
             myRequest = getPostRequest(body);
             break;
         case 'apDoTask':
-            body = `functionId=apDoTask&body={"taskType":"${$.oneTask.taskType}","taskId":${$.oneTask.id},"uniqueId":"${$.uniqueId}","channel":4,"linkId":"Y2aqxng42hZ0eGxGtbCMiQ","itemId":"${encodeURIComponent($.oneItemInfo.itemId)}"}&_t=${Date.now()}&appid=activities_platform`;
-            myRequest = getPostRequest(body);
-            break;
-        case 'help':
-            body = `functionId=activityStarBackGetProgressBarInfo&body={"starId":"${$.uniqueId}","sharePin":"${$.oneCode}","taskId":"129","linkId":"Y2aqxng42hZ0eGxGtbCMiQ"}&_t=${Date.now()}&appid=activities_platform`;
+            body = `functionId=apDoTask&body={"taskType":"${$.oneTask.taskType}","taskId":${$.oneTask.id},"uniqueId":"${$.uniqueId}","channel":4,"linkId":"${$.linkID}","itemId":"${encodeURIComponent($.oneItemInfo.itemId)}"}&_t=${Date.now()}&appid=activities_platform`;
             myRequest = getPostRequest(body);
             break;
         case 'activityStarBackDrawPrize':
-            body = `functionId=activityStarBackDrawPrize&body={"starId":"${$.uniqueId}","poolId":${$.onePrize.id},"pos":${$.onePrize.pos},"linkId":"Y2aqxng42hZ0eGxGtbCMiQ"}&_t=${Date.now()}&appid=activities_platform`;
+            body = `functionId=activityStarBackDrawPrize&body={"starId":"${$.uniqueId}","poolId":${$.onePrize.id},"pos":${$.onePrize.pos},"linkId":"${$.linkID}"}&_t=${Date.now()}&appid=activities_platform`;
             myRequest = getPostRequest(body);
             break;
         default:
@@ -612,7 +362,7 @@ function dealReturn(type, data) {
                 if(data.data.prizeType === 0){
                     console.log(`未抽中`);
                 }else{
-                    console.log(`恭喜你、抽中了`);
+                    console.log(`恭喜你、可能抽中了（以明星小店奖励汇总为准）`);
                 }
             }
             console.log(JSON.stringify(data));
@@ -624,22 +374,56 @@ function dealReturn(type, data) {
 }
 
 function getPostRequest(body) {
-    const url = `https://api.m.jd.com/`;
-    const method = `POST`;
+    const url = `https://api.m.jd.com/?${body}`;
     const headers = {
-        'Accept': `application/json, text/plain, */*`,
-        'Origin': `https://prodev.m.jd.com`,
-        'Accept-Encoding': `gzip, deflate, br`,
+        'Origin' : `https://prodev.m.jd.com`,
         'Cookie': $.cookie,
-        'Content-Type': `application/x-www-form-urlencoded`,
-        'Host': `api.m.jd.com`,
-        'Connection': `keep-alive`,
+        'Connection' : `keep-alive`,
+        'Accept' : `application/json, text/plain, */*`,
+        'Referer' : `https://prodev.m.jd.com/mall/active/34LcYfTMVLu6QPowsoLtk383Hcfv/index.html`,
+        'Host' : `api.m.jd.com`,
         'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-        'Referer': `https://prodev.m.jd.com/mall/active/b68M1tZSjGrMYa64hMKsX5jRdWL/index.html`,
-        'Accept-Language': `zh-cn`
+        'Accept-Encoding' : `gzip, deflate, br`,
+        'Accept-Language' : `zh-cn`
     };
+    return {url: url, headers: headers, body: ''};
+}
 
-    return {url: url, method: method, headers: headers, body: body};
+async function getInfo() {
+    const url = `https://api.m.jd.com/?functionId=activityStarBackGetProgressInfo&body={%22starId%22:%22${$.uniqueId}%22,%22linkId%22:%22${$.linkID}%22}&_t=${Date.now()}&appid=activities_platform`;
+    const headers = {
+        'Origin' : `https://prodev.m.jd.com`,
+        'Cookie': $.cookie,
+        'Connection' : `keep-alive`,
+        'Accept' : `application/json, text/plain, */*`,
+        'Referer' : `https://prodev.m.jd.com/mall/active/34LcYfTMVLu6QPowsoLtk383Hcfv/index.html`,
+        'Host' : `api.m.jd.com`,
+        'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+        'Accept-Encoding' : `gzip, deflate, br`,
+        'Accept-Language' : `zh-cn`
+    };
+    let myRequest =  {url: url, headers: headers};
+    return new Promise(async resolve => {
+        $.get(myRequest, (err, resp, data) => {
+            try {
+                try {
+                    data = JSON.parse(data);
+                    if (data.code === 0) {
+                        console.log(`${data.data.shareText}`);
+                        $.helpCode = data.data.encryptPin;
+                        $.info = data.data;
+                    }
+                } catch (e) {
+                    console.log(`返回异常：${data}`);
+                    return;
+                }
+            } catch (e) {
+                $.logErr(e, resp)
+            } finally {
+                resolve();
+            }
+        })
+    })
 }
 
 function TotalBean() {
@@ -684,6 +468,43 @@ function TotalBean() {
                 resolve();
             }
         })
+    })
+}
+function getAuthorShareCode(url) {
+    return new Promise(async resolve => {
+        const options = {
+            "url": `${url}`,
+            "timeout": 10000,
+            "headers": {
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+            }
+        };
+        if ($.isNode() && process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
+            const tunnel = require("tunnel");
+            const agent = {
+                https: tunnel.httpsOverHttp({
+                    proxy: {
+                        host: process.env.TG_PROXY_HOST,
+                        port: process.env.TG_PROXY_PORT * 1
+                    }
+                })
+            }
+            Object.assign(options, { agent })
+        }
+        $.get(options, async (err, resp, data) => {
+            try {
+                if (err) {
+                } else {
+                    if (data) data = JSON.parse(data)
+                }
+            } catch (e) {
+                // $.logErr(e, resp)
+            } finally {
+                resolve(data || []);
+            }
+        })
+        await $.wait(10000)
+        resolve();
     })
 }
 /**
