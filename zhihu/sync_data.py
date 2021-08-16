@@ -178,7 +178,14 @@ def query_today_data():
 
 # 查询文章点赞数
 def get_zhihu_like():
-    return web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117') + '\n' + web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764') + '\n' + web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592')
+    txt1 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117').replace(" 人赞同了该文章","")
+    like1 = txt1.replace(",", "")
+    txt2 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764').replace(" 人赞同了该文章","")
+    like2 = txt2.replace(",", "")
+    txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592').replace(" 人赞同了该文章","")
+    like3 = txt3.replace(",", "")
+
+    return txt1 + '\n' + txt2 + "(+" + str(int(like1)-int(like2)) + ")" + '\n' + txt3 + "(+" + str(int(like2)-int(like3)) + ")"
 
 
 if __name__ == '__main__':
