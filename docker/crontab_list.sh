@@ -167,13 +167,15 @@
 # 京东抽奖机
 22 0,12,18 * * *  node /scripts/jd_lotteryMachine.js >> /scripts/logs/jd_lotteryMachine.log 2>&1
 # 宠汪汪
-15 */2 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
-#宠汪汪赛跑
-45 14,19 * * * node /scripts/jd_joy_run.js >> /scripts/logs/jd_joy_run.log 2>&1
-# 宠汪汪偷狗粮
-10 0-21/3 * * * node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
-# 宠汪汪兑换
-0 0,8,12,16 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
+45 */2,23 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
+# 宠汪汪积分兑换京豆
+59 7,15,23 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
+# 宠汪汪喂食
+35 */1 * * * node /scripts/jd_joy_feedPets.js >> /scripts/logs/jd_joy_feedPets.log 2>&1
+# 宠汪汪偷好友积分与喂食
+30 0-21/3 * * * node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
+# 宠汪汪邀请助力
+10 13-20/1 * * * node /scripts/jd_joy_run.js >> /scripts/logs/jd_joy_run.log 2>&1
 # 京东摇一摇
 0 1,17 * * * node /scripts/jd_shake.js >> /scripts/logs/jd_shake.log 2>&1
 # 保价

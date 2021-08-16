@@ -10,11 +10,14 @@ Last Modified time: 2021-06-06 21:22:37
 [task_local]
 #宠汪汪积分兑换奖品
 59 7,15,23 * * * jd_joy_reward.js, tag=宠汪汪积分兑换奖品, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdcww.png, enabled=true
+
 ==============Loon==============
 [Script]
 cron "59 7,15,23 * * *" script-path=jd_joy_reward.js,tag=宠汪汪积分兑换奖品
+
 ================Surge===============
 宠汪汪积分兑换奖品 = type=cron,cronexp="59 7,15,23 * * *",wake-system=1,timeout=3600,script-path=jd_joy_reward.js
+
 ===============小火箭==========
 宠汪汪积分兑换奖品 = type=cron,script-path=jd_joy_reward.js, cronexpr="59 7,15,23 * * *", timeout=3600, enable=true
  */
@@ -93,15 +96,16 @@ Date.prototype.Format = function (fmt) { //author: meizz
       $.done();
     })
 
-
 async function joyReward() {
   try {
-    let nowtime = new Date().Format("s.S")
-    let starttime = process.env.JOY_STARTTIME ? process.env.JOY_STARTTIME : 59;
-    if(nowtime < 59) {
-      let sleeptime = (starttime - nowtime) * 1000;
-      console.log(`等待时间 ${sleeptime / 1000}`);
-      await zooFaker.sleep(sleeptime)
+    if (new Date().getMinutes() === 59) {
+      let nowtime = new Date().Format("s.S")
+      let starttime = process.env.JOY_STARTTIME ? process.env.JOY_STARTTIME : 60;
+      if(nowtime < 59) {
+        let sleeptime = (starttime - nowtime) * 1000;
+        console.log(`等待时间 ${sleeptime / 1000}`);
+        await zooFaker.sleep(sleeptime)
+      }
     }
     for (let j = 0; j <= 10; j++) {
       await getExchangeRewards();
@@ -217,7 +221,7 @@ async function joyReward() {
 }
 function getExchangeRewards() {
   let opt = {
-    url: "//jdjoy.jd.com/common/gift/getBeanConfigs?reqSource=h5&invokeKey=qRKHmL4sna8ZOP9F",
+    url: "//jdjoy.jd.com/common/gift/getBeanConfigs?reqSource=h5&invokeKey=ztmFUCxcPMNyUq0P",
     method: "GET",
     data: {},
     credentials: "include",
@@ -261,7 +265,7 @@ function getExchangeRewards() {
 function exchange(saleInfoId, orderSource) {
   let body = {"buyParam":{"orderSource":orderSource,"saleInfoId":saleInfoId},"deviceInfo":{}}
   let opt = {
-    "url": "//jdjoy.jd.com/common/gift/new/exchange?reqSource=h5&invokeKey=qRKHmL4sna8ZOP9F",
+    "url": "//jdjoy.jd.com/common/gift/new/exchange?reqSource=h5&invokeKey=ztmFUCxcPMNyUq0P",
     "data":body,
     "credentials":"include","method":"POST","header":{"content-type":"application/json"}
   }
