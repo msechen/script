@@ -40,13 +40,7 @@ class SignShop extends Template {
       '3F6F1ABCC2D60622F891898018F0A6E2',
       'EFFD0BF4069A8B6882A55FB07ACDA60F',
       '513B43DB672C8C7B0D975DB75328A131',
-      '813715D5CEE4414B6D4F0FF0407C9D96',
-      '675BBEBDA9CB0DDEF56316E8102692EB',
-      'A9F558F6789D649FEB6436A51D7A6059',
-      '8FD67D1FD193B5C19C277B7406106EDD',
       'A133DE5D8D1A5A612F49CBE1D9BCE7AA',
-      'B9D355ACEBED35673117DBFA68D4D3A5',
-      'F6C701E54C295A7B6D4C4CABDFD1EB0E',
       '5BB2C6C6332AD842011240152F7550EB',
       '2075567CC6ED0F30EAFFCF901F6C486D',
       'CAF5BA5BF6B8317E282FCBF9F5C00B0E',
@@ -84,7 +78,7 @@ class SignShop extends Template {
         const token = shopInfo[0];
         await getActivityInfo(token).then(async data => {
           if (!self.isSuccess(data)) {
-            api.log(`${token}: 402 已经失效`);
+            logShopSignInfo(`${token}: 402 已经失效`);
             return shopInfo.pop();
           }
           const notSign = await handleListShopInfo(token);
@@ -118,12 +112,16 @@ class SignShop extends Template {
         const notPrize = _.isEmpty(prizeRules);
         const prizeRuleMsg = notPrize ? '' : `奖品: ${prizeRules.join(', ')}`;
         const logMsg = _.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', ');
-        api.log(logMsg);
-        if (!processInAC()) {
-          api.log(logMsg, self.getFilePath('shop.log'));
-        }
+        logShopSignInfo(logMsg);
         return notPrize;
       });
+    }
+
+    function logShopSignInfo(msg) {
+      api.log(msg);
+      if (!processInAC()) {
+        api.log(msg, self.getFilePath('shop.log'));
+      }
     }
 
     async function doSign(token, venderId, id) {
