@@ -12,6 +12,8 @@ class Carnivalcity extends Template {
   static scriptNameDesc = '手机狂欢城';
   static shareCodeTaskList = [];
   static times = 2;
+  static concurrent = true;
+  static concurrentOnceDelay = 0;
 
   static apiOptions = {
     options: {
@@ -105,7 +107,7 @@ class Carnivalcity extends Template {
       self.updateShareCodeFn(currentShareId);
       for (const shareId of self.getShareCodeFn()) {
         await doTaskPath('doSupport', {shareId}).then(data => {
-          self.log(`助力成功, 获得豆豆${data.jdNums}`);
+          api.log(`助力成功, 获得豆豆${data.jdNums}`);
         });
       }
     }
@@ -113,13 +115,18 @@ class Carnivalcity extends Template {
     async function handleDoBrowseTask(param) {
       const brandId = param['brandId'] || '';
       const browseId = await doTaskPath('doBrowse', param).then(data => data.browseId);
-      await sleep(10);
+      await sleep(6);
       await doTaskPath('getBrowsePrize', {brandId, browseId}).then(afterTaskOutput);
     }
 
     function afterTaskOutput(data) {
       const {jingBean, integral} = data;
-      self.log(`获得豆豆: ${jingBean}, 获得分数: ${integral}`);
+      if (+jingBean === 0) {
+        const msg = '目前没豆, 停止任务';
+        api.log(msg);
+        throw msg;
+      }
+      api.log(`获得豆豆: ${jingBean}, 获得分数: ${integral}`);
     }
   }
 }
