@@ -75,15 +75,15 @@ const BASE_URL = 'https://wq.jd.com/cubeactive/steprewardv3'
     $.canHelp = true;
     $.max = false;
     UA = UAInfo[$.UserName]
-    for (let code of $.packetIdArr) {
-      if (!code) continue;
-      if ($.UserName === code['userName']) continue;
-      console.log(`【${$.UserName}】去助力【${code['userName']}】邀请码：${code['strUserPin']}`);
-      await enrollFriend(code['strUserPin']);
-      await $.wait(2000);
-      if ($.max) continue
-      if (!$.canHelp) break
-    }
+    //for (let code of $.packetIdArr) {
+      //if (!code) continue;
+      //if ($.UserName === code['userName']) continue;
+      //console.log(`【${$.UserName}】去助力【${code['userName']}】邀请码：${code['strUserPin']}`);
+      //await enrollFriend(code['strUserPin']);
+      //await $.wait(2000);
+      //if ($.max) continue
+      //if (!$.canHelp) break
+    //}
     if ($.canHelp) {
       console.log(`\n【${$.UserName}】有剩余助力机会，开始助力作者\n`)
       for (let item of $.authorMyShareIds) {
