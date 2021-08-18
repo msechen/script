@@ -29,10 +29,10 @@ def init_scheduler(bot_var):
     global bot, user_kolly, user_allwx, user_xy, user_dd, user_lanmao
     bot = bot_var
     user_kolly = ensure_one(bot.friends().search('kolly'))
-    user_allwx = ensure_one(bot.friends().search('##小号##'))
-    user_lanmao = ensure_one(bot.groups().search('蓝猫数据监控'))
     user_xy = ensure_one(bot.friends().search('一棵萌图-2'))
     user_dd = ensure_one(bot.friends().search('东东哥'))
+    user_allwx = ensure_one(bot.groups().search('##小号##'))
+    user_lanmao = ensure_one(bot.groups().search('蓝猫数据监控'))
 
     # 后台非阻塞定时任务
     scheduler = BackgroundScheduler()
@@ -45,7 +45,7 @@ def init_scheduler(bot_var):
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(send_weather_info, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
-                      
+
     # 股票信息
     service = service_dao.query_service_by_id(2)
     logger.info('服务:{} 定时启动时间 day_of_week:{} hour:{} min:{}'.format(service.name, service.day_of_week, service.hour,
