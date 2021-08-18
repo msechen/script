@@ -26,9 +26,10 @@ def debug():
 
 # 定时任务初始化
 def init_scheduler(bot_var):
-    global bot, user_kolly, user_xy, user_dd, user_lanmao
+    global bot, user_kolly, user_allwx, user_xy, user_dd, user_lanmao
     bot = bot_var
     user_kolly = ensure_one(bot.friends().search('kolly'))
+    user_allwx = ensure_one(bot.friends().search('##小号##'))
     user_lanmao = ensure_one(bot.groups().search('蓝猫数据监控'))
     user_xy = ensure_one(bot.friends().search('一棵萌图-2'))
     user_dd = ensure_one(bot.friends().search('东东哥'))
@@ -86,6 +87,10 @@ def init_scheduler(bot_var):
     scheduler.add_job(get_today_earnings, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='58', second='30')
 
+    # 知乎佣金（总结）
+    scheduler.add_job(get_today_earnings_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
+                      hour='23', minute='59', second='00')
+
     # 知乎文章排名
     scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
                       hour='*', minute='45', second='30')
@@ -140,6 +145,16 @@ def get_today_earnings():
 
     try:
         user_kolly.send(result)
+    except Exception:
+        pass
+
+
+# 查询知乎佣金V2
+def get_today_earnings_v2():
+    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
+
+    try:
+        user_allwx.send(result)
     except Exception:
         pass
 
