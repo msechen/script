@@ -191,4 +191,4 @@
 0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 
 # 拼购抽奖
-0 0,17 * * * cd /scripts && ts-node /scripts/jx_IndustryLottery.ts >> /scripts/logs/jx_IndustryLottery.log 2>&1
+0 0,17 * * * cd /scripts && ts-node /scripts/jd_IndustryLottery.ts >> /scripts/logs/jd_IndustryLottery.log 2>&1
