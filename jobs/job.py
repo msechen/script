@@ -45,6 +45,7 @@ def init_scheduler(bot_var):
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(send_weather_info, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+                      
     # 股票信息
     service = service_dao.query_service_by_id(2)
     logger.info('服务:{} 定时启动时间 day_of_week:{} hour:{} min:{}'.format(service.name, service.day_of_week, service.hour,
@@ -57,30 +58,29 @@ def init_scheduler(bot_var):
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+
     # 信用卡还款
     service = service_dao.query_service_by_id(8)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(credit_card_repay, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+
     # 月初提醒
     service = service_dao.query_service_by_id(9)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(new_month, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+
     # 年初提醒
     service = service_dao.query_service_by_id(10)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(new_year, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+
     # 节日祝福
     service = service_dao.query_service_by_id(11)
     logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
     scheduler.add_job(send_holiday_blessing, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
-    # 考试倒计时
-    service = service_dao.query_service_by_id(12)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_exam_countdown, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 知乎佣金
@@ -224,21 +224,6 @@ def send_holiday_blessing():
     blessing_info = holiday_dao.query_today_holiday()
     if blessing_info != '':
         send_service_info(11, blessing_info)
-
-
-# 考试倒计时
-def send_exam_countdown():
-    d0 = datetime.datetime.now()
-    d1 = datetime.datetime(2020, 9, 5)
-    d2 = datetime.datetime(2020, 10, 11)
-    interval1 = (d1 - d0).days + 1
-    interval2 = (d2 - d0).days + 1
-    if interval1 > 0 and interval1 % 10 == 0:
-        info = '小糖温馨提示：距离中级考试还有 ' + str(interval1) + ' 天，熙雅冲鸭 🦆'
-        send_service_info(12, info, './fight.jpeg')
-    if interval2 > 0 and interval2 % 10 == 0:
-        info = '小糖温馨提示：距离 CPA 考试还有 ' + str(interval2) + ' 天，熙雅冲鸭 🦆'
-        send_service_info(12, info, './fight.jpeg')
 
 
 def send_service_info(service_id, info, *images):
