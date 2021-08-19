@@ -151,7 +151,9 @@ def get_today_earnings():
 
 # 查询知乎佣金V2
 def get_today_earnings_v2():
-    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    result = today + '\n\n'  + sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
 
     try:
         user_allwx.send(result)
