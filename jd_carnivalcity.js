@@ -575,7 +575,7 @@ function getListIntegral() {
             message += `累计获得积分：${$.integralCount}\n`;
             console.log(`开始抽奖，当前积分可抽奖${parseInt($.integralCount / 50)}次\n`);
             for (let i = 0; i < parseInt($.integralCount / 50); i ++) {
-              await lottery();
+              //await lottery();
               await $.wait(500);
             }
           } else {
