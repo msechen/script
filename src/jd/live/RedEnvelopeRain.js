@@ -50,12 +50,12 @@ class LiveRedEnvelopeRain extends Template {
       const hadRainAreas = [];
 
       const hours = [];
-      // 从7点开始
-      for (let i = 6; i <= 24; i++) {
+      // 从0点开始, 每个小时都有
+      for (let i = 0; i <= 24; i++) {
         hours.push(i);
       }
       let hour = getNextHour(hours);
-      if (hour && _.isEmpty(hadRainAreas)) {
+      if (_.isEmpty(hadRainAreas)) {
         const startTime = getOnlyHourMoment(hour);
 
         // TODO urlActIds 应当从文件中直接获取且需要调整数据结构, 可具体到某个时间点
