@@ -17,7 +17,7 @@ FUNO_2132_saltkey=xxx;PHPSESSID=xxx;username=xxx;login=xxx;FUNO_2132_auth=xxx;FU
 
 变量填写:
 
-export soy_ydttz_body='FUNO_2132_saltkey=xxx;PHPSESSID=xxx;username=xxx;login=xxx;FUNO_2132_auth=xxx;FUNO_2132_creditrule=xxx;'
+export soy_ydttz_cookie='FUNO_2132_saltkey=xxx;PHPSESSID=xxx;username=xxx;login=xxx;FUNO_2132_auth=xxx;FUNO_2132_creditrule=xxx;'
 
 就是抓包cookie拼成的数据
 
