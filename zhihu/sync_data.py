@@ -185,7 +185,9 @@ def get_zhihu_like():
     txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592').replace(" 人赞同了该文章","")
     like3 = txt3.replace(",", "")
 
-    return txt1 + '\n' + txt2 + "(+" + str(int(like1)-int(like2)) + ")" + '\n' + txt3 + "(+" + str(int(like2)-int(like3)) + ")"
+    txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592')
+
+    return txt1 + '\n' + txt2 + "(+" + str(int(like1)-int(like2)) + ")" + '\n' + txt3 + "(+" + str(int(like2)-int(like3)) + ")" + '\n' + txt4
 
 
 if __name__ == '__main__':
