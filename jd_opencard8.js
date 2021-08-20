@@ -56,7 +56,7 @@ message = ""
     });
     return;
   }
-  $.shareUuid = ['0f23accda80747ccb8e680f3857132c3','83280d6c39ef43a89d897c05aeee25af'][Math.floor((Math.random() * 2))]
+  $.shareUuid = ['0f23accda80747ccb8e680f3857132c3','83280d6c39ef43a89d897c05aeee25af','7e51e31caeb240c7900a394a256b3695','9b82e24f46b744958c5ecd78e00ef176','19861a5ace0c440fb797850bfe1340b5'][Math.floor((Math.random() * 5))]
   $.activityId = '375dbaa9e32c4c70bb8357836956ed2e'
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity/3542672?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
