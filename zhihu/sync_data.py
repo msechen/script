@@ -9,6 +9,10 @@ from dao import zh_config_dao
 from utils import *
 
 new_day_hour = "00"
+g_like1 = 0
+g_like2 = 0
+g_like3 = 0
+g_like4 = 0
 
 # 更新知乎问题的阅读量
 def update_zhihu_question():
@@ -178,16 +182,28 @@ def query_today_data():
 
 # 查询文章点赞数
 def get_zhihu_like():
+    global g_like1, g_like2, g_like3, g_like4
     txt1 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117').replace(" 人赞同了该文章","")
-    like1 = txt1.replace(",", "")
+    like1 = int(txt1.replace(",", ""))
+    inc1 = like1 - g_like1
+    g_like1 = like1
+
     txt2 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764').replace(" 人赞同了该文章","")
-    like2 = txt2.replace(",", "")
+    like2 = int(txt2.replace(",", ""))
+    inc2 = like2 - g_like2
+    g_like2 = like2
+
     txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592').replace(" 人赞同了该文章","")
-    like3 = txt3.replace(",", "")
+    like3 = int(txt3.replace(",", ""))
+    inc3 = like3 - g_like3
+    g_like3 = like3
 
-    txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592')
+    txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592').replace(" 人赞同了该文章","")
+    like4 = int(txt4.replace(",", ""))
+    inc4 = like4 - g_like4
+    g_like4 = like4
 
-    return txt1 + '\n' + txt2 + "(+" + str(int(like1)-int(like2)) + ")" + '\n' + txt3 + "(+" + str(int(like2)-int(like3)) + ")" + '\n' + txt4
+    return txt1 + "(+" + str(inc1) + ")" + '\n' + txt2 + "(+" + str(like1-like2) + ")" + "(+" + str(inc2) + ")" + '\n' + txt3 + "(+" + str(like2-like3) + ")"  + "(+" + str(inc3) + ")" + '\n' + txt4  + "(+" + str(inc4) + ")" 
 
 
 if __name__ == '__main__':
