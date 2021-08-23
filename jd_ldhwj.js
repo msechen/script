@@ -2,10 +2,9 @@
 tgchannel：https://t.me/Ariszy8028
 github：https://github.com/Ariszy/Private-Script
 boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
-
 [task_local]
 #来电好物季
-10 1 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_ldhwj.js, tag= 来电好物季
+10 1 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_ryhxj.js, tag= 来电好物季
 ================Loon==============
 [Script]
 cron "10 1 * * *" script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_ldhwj.js,tag= 来电好物季
@@ -183,11 +182,11 @@ async function getLottery(){
     try{
         const result = JSON.parse(data)
         if(logs)$.log(data)
-        if(result.data.bizCode == 0 && result.data.result.userAwardsCacheDto.jBeanAwardVo.prizeName){
+        if(result.data.bizCode == 0 && result.data.result.lotteryReturnCode == 0){
            console.log("\n获得"+result.data.result.userAwardsCacheDto.jBeanAwardVo.prizeName+"\n")
    await $.wait(4000)
         }else{
-           $.log(result.data.bizMsg+"\n")
+           $.log("恭喜你，抽中了0豆豆\n")
         }
         }catch(e) {
           $.logErr(e, response);
@@ -262,10 +261,10 @@ list2tokenArr.push(list1.simpleRecordInfoVo.taskToken)
 list2tokenArr.push(list2.shoppingActivityVos[i].taskToken)
        }
        
-       let list3 = result.data.result.taskVos.find(item => item.taskId == 3)
-       for(let i = 0; i < list3.shoppingActivityVos.length; i ++){
-       listtokenArr.push(3+list3.shoppingActivityVos[i].taskToken)
-list2tokenArr.push(list3.shoppingActivityVos[i].taskToken)
+       let list6 = result.data.result.taskVos.find(item => item.taskId == 6)
+       for(let i = 0; i < list6.shoppingActivityVos.length; i ++){
+       listtokenArr.push(6+list6.shoppingActivityVos[i].taskToken)
+list2tokenArr.push(list6.shoppingActivityVos[i].taskToken)
        }
        
        let list4 = result.data.result.taskVos.find(item => item.taskId == 4)
@@ -367,27 +366,27 @@ async function showmsg() {
   }
 }
 function safeGet(data) {
-	try {
-		if (typeof JSON.parse(data) == "object") {
-			return true;
-		}
-	} catch (e) {
-		console.log(e);
-		console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
-		return false;
-	}
+    try {
+        if (typeof JSON.parse(data) == "object") {
+            return true;
+        }
+    } catch (e) {
+        console.log(e);
+        console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
+        return false;
+    }
 }
 
 function jsonParse(str) {
-	if (typeof str == "string") {
-		try {
-			return JSON.parse(str);
-		} catch (e) {
-			console.log(e);
-			$.msg($.name, "", "不要在BoxJS手动复制粘贴修改cookie");
-			return [];
-		}
-	}
+    if (typeof str == "string") {
+        try {
+            return JSON.parse(str);
+        } catch (e) {
+            console.log(e);
+            $.msg($.name, "", "不要在BoxJS手动复制粘贴修改cookie");
+            return [];
+        }
+    }
 }
 Array.prototype.distinct = function (){
  var arr = this,
