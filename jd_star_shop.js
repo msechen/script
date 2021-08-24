@@ -1,7 +1,6 @@
-/**
- 明星小店
- 蚊子腿，欧皇可以中实物
- cron 10 9,18 9-25 8 * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_star_shop.js
+/*
+#明星小店
+10 9,18 9-25 8 * jd_star_shop.js
  */
 const $ = new Env('明星小店');
 const notify = $.isNode() ? require('./sendNotify') : '';

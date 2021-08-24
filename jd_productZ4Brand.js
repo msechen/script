@@ -1,7 +1,5 @@
 /*
-特务Z
-cron 23 8,9 * * *
-要跑2次
+cron "23 8,9 * * *" jd_productZ4Brand.js, tag:特务Z
 */
 const $ = new Env('特务Z');
 const notify = $.isNode() ? require('./sendNotify') : '';

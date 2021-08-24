@@ -1,19 +1,6 @@
 /*
-京东月资产变动通知
-更新时间：2021-06-16 12:00
-脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
-=================================Quantumultx=========================
-[task_local]
-#京东月资产变动通知
-10 7 1-31/7 * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_all_bean_change.js, tag=翻翻乐提现, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
-=================================Loon===================================
-[Script]
-cron "10 7 1-31/7 * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_all_bean_change.js,tag=翻翻乐提现
-===================================Surge================================
-京东月资产变动通知 = type=cron,cronexp="10 7 1-31/7 * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_all_bean_change.js
-====================================小火箭=============================
-京东月资产变动通知 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_all_bean_change.js, cronexpr="10 7 1-31/7 * *", timeout=3600, enable=true
- */
+cron "30 10,22 * * *" jd_bean_MonthChange.js, tag:月资产变动通知
+*/
 const $ = new Env('京东月资产变动通知');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;

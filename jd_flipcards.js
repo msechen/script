@@ -1,4 +1,6 @@
-
+/*
+cron "20 * * * *" jd_flipcards.js, tag:省钱大赢家之翻翻乐
+*/
 const $ = new Env('省钱大赢家之翻翻乐');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;

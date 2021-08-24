@@ -1,29 +1,5 @@
 /*
-8.18-8.25 全民818 一“促”即发 [gua_opencard12.js]
-新增开卡脚本
-一次性脚本
-邀请一人20豆 被邀请也有20豆(有可能没有豆
-开2组卡 抽奖可能获得30京豆(有可能有抽到空气💨
-关注10京豆 (有可能是空气💨
-加购5京豆 (有可能是空气💨 默认不加购 如需加购请设置环境变量[guaopencard_addSku12]为"true"
-第一个账号助力作者 其他依次助力CK1
-第一个CK失效会退出脚本
-默认脚本不执行
-如需执行脚本请设置环境变量
-guaopencard12="true"
-————————————————
-入口：[8.18-8.25 全民818 一“促”即发 (https://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity/7768835?activityId=02d54511202b4d1781088b66b9e07b9c&shareUuid=c0bcf5c57dcc4446aab0f0fe111f6497)]
-============Quantumultx===============
-[task_local]
-#8.18-8.25 全民818 一“促”即发
-30 9,21 18-25 8 * https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard12.js, tag=8.18-8.25 全民818 一“促”即发, enabled=true
-================Loon==============
-[Script]
-cron "30 9,21 18-25 8 *" script-path=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard12.js,tag=8.18-8.25 全民818 一“促”即发
-===============Surge=================
-8.18-8.25 全民818 一“促”即发 = type=cron,cronexp="30 9,21 18-25 8 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard12.js
-============小火箭=========
-8.18-8.25 全民818 一“促”即发 = type=cron,script-path=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard12.js, cronexpr="30 9,21 18-25 8 *", timeout=3600, enable=true
+cron "5 0,8 * * *" jd_opencard7.js, tag:8.18-8.25 全民818 一“促”即发
 */
 const $ = new Env('8.18-8.25 全民818 一“促”即发');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

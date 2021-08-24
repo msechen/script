@@ -1,5 +1,5 @@
 /*
-30 10 * * * jd_try.js
+cron "30 10 * * *" jd_try.js, tag:京东试用
 */
 const $ = new Env('京东试用')
 

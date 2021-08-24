@@ -1,33 +1,5 @@
 /*
-8.20-8.30 联合开卡 [jd_opencard10.js]
-新增开卡脚本
-一次性脚本
-邀请一人有机会获得20豆(有可能没有豆
-开14张卡 每张有机会获得5京豆(有可能是空气💨
-开完卡获得抽盲盒1次
-关注获得抽盲盒1次 有机会获得10京豆 (有可能是空气💨
-加购获得抽盲盒1次 有机会获得5京豆 (有可能是空气💨 默认不加购 如需加购请设置环境变量[guaopencard_addSku15]为"true"
-抽盲盒有机会获得京豆(有可能是空气💨
-第一个账号助力作者 其他依次助力CK1
-第一个CK失效会退出脚本
-默认脚本不执行
-如需执行脚本请设置环境变量
-guaopencard15="true"
-————————————————
-入口
-复制👇：
-29.0 8.20-8.30 联合开卡 ￥R2rzz9jUJa￥/
-============Quantumultx===============
-[task_local]
-#8.20-8.30 联合开卡
-28 9,22 20-30 8 * https://raw.githubusercontent.com/wuzhi04/MyActions/main/jd_opencard10.js, tag=8.20-8.30 联合开卡, enabled=true
-================Loon==============
-[Script]
-cron "28 9,22 20-30 8 *" script-path=https://raw.githubusercontent.com/wuzhi04/MyActions/main/jd_opencard10.js,tag=8.20-8.30 联合开卡
-===============Surge=================
-8.20-8.30 联合开卡 = type=cron,cronexp="28 9,22 20-30 8 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/wuzhi04/MyActions/main/jd_opencard10.js
-============小火箭=========
-8.20-8.30 联合开卡 = type=cron,script-path=https://raw.githubusercontent.com/wuzhi04/MyActions/main/jd_opencard10.js, cronexpr="28 9,22 20-30 8 *", timeout=3600, enable=true
+cron "25 0,8 * * *" jd_opencard10.js, tag:8.20-8.30 联合开卡
 */
 const $ = new Env('8.20-8.30 联合开卡');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

@@ -1,4 +1,6 @@
-
+/*
+cron "30 10 * * *" jd_bean_change.js, tag:资产变化通知
+*/
 const $ = new Env('京东资产变动通知');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;

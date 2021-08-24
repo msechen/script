@@ -1,18 +1,6 @@
 /*
-京东删除优惠券
-更新时间：2021-02-22 11:46
-脚本说明：误删除的去电脑端恢复
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
-// quantumultx
-[task_local]
-#京东删除优惠券
-11 0 * * 1 https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_deleteCoupon.js, tag=京东删除优惠券, img-url=https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/image/jd.png, enabled=true
-// Loon
-[Script]
-cron "11 0 * * 1" script-path=https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_deleteCoupon.js,tag=京东删除优惠券
-// Surge
-京东删除优惠券 = type=cron,cronexp=11 0 * * 1,wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_deleteCoupon.js
- */
+0 0 * 6 * jd_delCoupon.js
+*/
 const $ = new Env('京东删除优惠券');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

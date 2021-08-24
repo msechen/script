@@ -1,27 +1,31 @@
-/*
-* 粉丝互动，没啥水
-* 修改温某的脚本，由于温某不干活，只能自己动手修改了
-* 注意：脚本会加购，脚本会加购，脚本会加购
-* 若发现脚本里没有的粉丝互动活动。欢迎反馈给我
-* cron  34 6,18 * * *
+/**
+粉丝互动，没啥水
+修改温某的脚本，由于温某不干活，只能自己动手修改了
+注意：脚本会加购，脚本会加购，脚本会加购
+若发现脚本里没有的粉丝互动活动。欢迎反馈给我
+cron "34 6,18 * * *" jd_fan.js
 * */
 const $ = new Env('粉丝互动');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [];
 const activityList = [
-    {'actid':'4d2f7df45a0e4a1b8d663e7da0fc0d0d','endTime':1628394029000},
-    {'actid':'4776be60946e45b1847bd982e24b4aa9','endTime':1628438400000},
+    {'actid':'5ae85e34c6054f379b3bdb0867842cd0','endTime':1629302400000},
+    {'actid':'4baf19fa3f454e6abf82be7d66605ab4','endTime':1630425599000},
     {'actid':'c75ae2afd7ff4aec9ed47008b08400f7','endTime':1630288800000},
-    {'actid':'ea52a4da34d34be0a1c6470bd7d92063','endTime':1628352000000},
     {'actid':'3da50af9e8664746844c5456b8920b7d','endTime':1630425599000},
-    {'actid':'4374884673374f9c883d21ceea5694f1','endTime':1628524799000},
     {'actid':'162c43699ba945e8adb83b2bd5fe0142','endTime':1630425599000},
-    {'actid':'31073025b8a34de59d8d55faffdd44ab','endTime':1630425599000},
-    {'actid':'5a8aea7f27b84900a14624fe9dcc8fe1','endTime':1628956799000},
-    {'actid':'f61f162f3b9d4e3eb457f2193bf12b80','endTime':1628611199000},
-    {'actid':'d3a8802bb5fe442dab38d1deaf2fffd7','endTime':1630425599000},//需要入会
-    {'actid':'5cd5b2ad1d284ea6bcc4b7e05baf4b7d','endTime':1628611200000},//需要入会
+    {'actid':'58121dee0d84428bbdeb83934ffa1b80','endTime':1630425599000},
+    {'actid':'8afc9104d6444696b3f16ceb23a24536','endTime':1630425599000},
+    {'actid':'f006443799d34b55b9061be7b765c3fa','endTime':1630339200000},
+    {'actid':'4ee56f673e164305a527545efe566b20','endTime':1630425599000},//需要入会
+    {'actid':'c77e8342bca24d5f86d2a076b8f00860','endTime':1629907199000},
+    {'actid':'49d8035a8f294ac7893e814d2b8e79ed','endTime':1629907199000},
+    {'actid':'f22809ea36b14411a625641ef9685e53','endTime':1630339200000},
+    {'actid':'9bb5cb2801114f2981c183abbc2aa522','endTime':1630425596000},//需要入会
+    {'actid':'eff9c47393be446f9dd576e26d13dd9d','endTime':1631635200000},
+    {'actid':'d6fe4bd6a34e4eb9b498932122453890','endTime':1630548000000},
+    {'actid':'e4c6bdba323948ceb05e4122acd97fba','endTime':1629648000000},
 ];
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {

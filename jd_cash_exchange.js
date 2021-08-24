@@ -1,36 +1,5 @@
 /*
-* ==UserScript==
-* @ScriptName        领现金兑换红包
-* @Author            Cuttlefish
-* @TgChannel         https://t.me/ddgksf2021
-* @WechatID          公众号墨鱼手记
-* @UpdateTime        20210309
-* @ScriptFunction    红包的有效期只有3天（72小时）
-* @UpdateLog         0311 [:] 更换个人信息查询的API接口
-* @ScriptURL         https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Jd/jd_cash_exchange.js
-* ==/UserScript==
-【QuantumultX】 :
-*************************
-[task_local]
-0,1,2 0 * * * https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Jd/jd_cash_exchange.js, tag=领现金兑换红包
-*************************
-【Loon】 :
-*************************
-[Script]
-cron "0,1,2 0 * * *" script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Jd/jd_cash_exchange.js,tag=领现金兑换红包
-*************************
-【Surge】 :
-*************************
-[Script]
-领现金兑换红包 = type=cron,cronexp="0,1,2 0 * * *",wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Jd/jd_cash_exchange.js
-*************************
-【小火箭】 :
-*************************
-[Script]
-领现金兑换红包 = type=cron,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Jd/jd_cash_exchange.js, cronexpr="0,1,2 0 * * *", timeout=500, enable=true
-*************************
-[mitm]
-hostname = api.m.jd.com
+cron "0,1,2 0 * * *" jd_cash_exchange.js, tag:领现金兑换红包
 */
 const $ = new Env('领现金兑换红包');
 const printDetail = false;
@@ -66,7 +35,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=cash_getRedPa
       }
       else{
         await exchange_redpocket();
-		await msgShow();
+    await msgShow();
       }
     }
   }
@@ -80,18 +49,18 @@ function exchange_redpocket(){
       try {
         if (err) {
           data = JSON.parse(resp.body);
-		  console.log(`Error：${JSON.stringify(data)}`);
+      console.log(`Error：${JSON.stringify(data)}`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-			console.log(`Result：${JSON.stringify(data)}`);
-			if(data.data.bizCode==0){
-				//$.message = data.data.result.shareRewardTip;
-				$.message = '成功！';
-			}
-			else{
-				$.message = '今日可兑换的红包已抢完';
-			}
+      console.log(`Result：${JSON.stringify(data)}`);
+      if(data.data.bizCode==0){
+        //$.message = data.data.result.shareRewardTip;
+        $.message = '成功！';
+      }
+      else{
+        $.message = '今日可兑换的红包已抢完';
+      }
           }
         }
       } catch (e) {
@@ -103,7 +72,7 @@ function exchange_redpocket(){
   })
 }
 function msgShow() {
-	return new Promise(resolve => {
+  return new Promise(resolve => {
     $.msg($.name, '', `【京东账号${$.index}】${$.nickname}\n${$.message}`);
     resolve()
   })
@@ -149,8 +118,8 @@ function jdUrl(function_id, body={}) {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Accept': '*/*',
       'Host': 'api.m.jd.com',
-	  'User-Agent': 'JD4iPhone/167568 (iPhone; iOS 13.4.1; Scale/2.00)',
-	  'Accept-Language': 'en-HK;q=1, zh-Hans-HK;q=0.9, zh-Hant-HK;q=0.8',
+    'User-Agent': 'JD4iPhone/167568 (iPhone; iOS 13.4.1; Scale/2.00)',
+    'Accept-Language': 'en-HK;q=1, zh-Hans-HK;q=0.9, zh-Hant-HK;q=0.8',
       'Cookie': cookie
     }
   }

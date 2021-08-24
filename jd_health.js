@@ -1,19 +1,20 @@
 /*
-东东健康社区
-更新时间：2021-4-22
+东东健康社区收集能量收集能量(不做任务，任务脚本请使用jd_health.js)
+更新时间：2021-4-23
 活动入口：京东APP首页搜索 "玩一玩"即可
+已支持IOS多京东账号,Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ===================quantumultx================
 [task_local]
-#东东健康社区
-13 1,6,22 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_health.js, tag=东东健康社区, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+#东东健康社区收集能量
+5-45/20 * * * * jd_health_collect.js, tag=东东健康社区收集能量, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =====================Loon================
 [Script]
-cron "13 1,6,22 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_health.js, tag=东东健康社区
+cron "5-45/20 * * * *" script-path=jd_health_collect.js, tag=东东健康社区收集能量
 ====================Surge================
-东东健康社区 = type=cron,cronexp="13 1,6,22 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_health.js
+东东健康社区收集能量 = type=cron,cronexp="5-45/20 * * * *",wake-system=1,timeout=3600,script-path=jd_health_collect.js
 ============小火箭=========
-东东健康社区 = type=cron,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_health.js, cronexpr="13 1,6,22 * * *", timeout=3600, enable=true
+东东健康社区收集能量 = type=cron,script-path=jd_health_collect.js, cronexpr="5-45/20 * * * *", timeout=3600, enable=true
  */
 const $ = new Env("东东健康社区");
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";

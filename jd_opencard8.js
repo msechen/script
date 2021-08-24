@@ -1,35 +1,5 @@
 /*
-8.18-8.26 全民发一发 大牌狂欢趴 [gua_opencard13.js]
-新增开卡脚本
-一次性脚本
-
-邀请一人20豆 被邀请也有20豆(有可能没有豆
-开2组卡 抽奖可能获得30京豆(有可能有抽到空气💨
-关注10京豆 (有可能是空气💨
-加购5京豆 (有可能是空气💨 默认不加购 如需加购请设置环境变量[guaopencard_addSku13]为"true"
-
-第一个账号助力作者 其他依次助力CK1
-第一个CK失效会退出脚本
-
-默认脚本不执行
-如需执行脚本请设置环境变量
-guaopencard13="true"
-————————————————
-入口：[8.18-8.26 全民发一发 大牌狂欢趴 (https://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity/3542672?activityId=375dbaa9e32c4c70bb8357836956ed2e&shareUuid=016ba2d74d69402c946d0f80af002f54)]
-============Quantumultx===============
-[task_local]
-#8.18-8.26 全民发一发 大牌狂欢趴
-30 9,21 18-26 8 * https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard13.js, tag=8.18-8.26 全民发一发 大牌狂欢趴, enabled=true
-
-================Loon==============
-[Script]
-cron "30 9,21 18-26 8 *" script-path=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard13.js,tag=8.18-8.26 全民发一发 大牌狂欢趴
-
-===============Surge=================
-8.18-8.26 全民发一发 大牌狂欢趴 = type=cron,cronexp="30 9,21 18-26 8 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard13.js
-
-============小火箭=========
-8.18-8.26 全民发一发 大牌狂欢趴 = type=cron,script-path=https://raw.githubusercontent.com/smiek2221/scripts/master/gua_opencard13.js, cronexpr="30 9,21 18-26 8 *", timeout=3600, enable=true
+cron "10 0,8 * * *" jd_opencard8.js, tag:8.18-8.26 全民发一发 大牌狂欢趴
 */
 const $ = new Env('8.18-8.26 全民发一发 大牌狂欢趴');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
