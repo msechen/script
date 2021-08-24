@@ -14,6 +14,11 @@ g_like2 = 0
 g_like3 = 0
 g_like4 = 0
 
+g_like1_yestoday = 20183
+g_like2_yestoday = 16000
+g_like3_yestoday = 10042
+g_like4_yestoday = 2141
+
 # 更新知乎问题的阅读量
 def update_zhihu_question():
     yestoday_date = get_yestoday_date()  # 昨天的日期
@@ -186,24 +191,28 @@ def get_zhihu_like():
     txt1 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117').replace(" 人赞同了该文章","")
     like1 = int(txt1.replace(",", ""))
     inc1 = like1 - g_like1
+    inc1_today = like1 - g_like1_yestoday
     g_like1 = like1
 
     txt2 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764').replace(" 人赞同了该文章","")
     like2 = int(txt2.replace(",", ""))
     inc2 = like2 - g_like2
+    inc2_today = like2 - g_like2_yestoday
     g_like2 = like2
 
     txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592').replace(" 人赞同了该文章","")
     like3 = int(txt3.replace(",", ""))
     inc3 = like3 - g_like3
+    inc3_today = like3 - g_like3_yestoday
     g_like3 = like3
 
     txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592').replace(" 人赞同了该文章","")
     like4 = int(txt4.replace(",", ""))
     inc4 = like4 - g_like4
+    inc4_today = like4 - g_like4_yestoday
     g_like4 = like4
 
-    return txt1 + "(+" + str(inc1) + ")" + '\n' + txt2 + "(+" + str(like1-like2) + ")" + "(+" + str(inc2) + ")" + '\n' + txt3 + "(+" + str(like2-like3) + ")"  + "(+" + str(inc3) + ")" + '\n' + txt4  + "(+" + str(inc4) + ")" 
+    return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")" + '\n' + txt4  + "(+" + str(inc4) + ")"  + "(+" + str(inc4_today) + ")"
 
 
 if __name__ == '__main__':
