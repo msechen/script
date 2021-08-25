@@ -28,7 +28,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 const logs = 0; //响应日志开关,默认关闭
 let subTitle = ``;
 let status;
-status = (status = ($.getval("kzk_status") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
+status = (status = ($.getval("ygy_status") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 let app_soy_ygy_phone=[],app_soy_ygy_password=[];
 
 
