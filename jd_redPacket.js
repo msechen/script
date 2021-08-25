@@ -70,17 +70,6 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
     $.canHelp = true;
     $.redPacketId = [...new Set($.redPacketId)];
-    //if (cookiesArr && cookiesArr.length >= 2) {
-    //  console.log(`\n\n自己账号内部互助`);
-    //  for (let item of $.redPacketId) {
-    //    console.log(`账号 ${$.index} ${$.UserName} 开始给 ${item} 进行助力`)
-    //    await jinli_h5assist(item);
-    //    if (!$.canHelp) {
-    //      console.log(`次数已用完或活动火爆，跳出助力`)
-    //      break
-    //    }
-    // }
-    //}
     if ($.canHelp) {
       console.log(`\n\n给作者进行助力`);
       for (let item of $.authorMyShareIds || []) {
@@ -91,6 +80,17 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
           break
         }
       }
+    }
+    if (cookiesArr && cookiesArr.length >= 2) {
+      console.log(`\n\n自己账号内部互助`);
+      for (let item of $.redPacketId) {
+        console.log(`账号 ${$.index} ${$.UserName} 开始给 ${item} 进行助力`)
+        await jinli_h5assist(item);
+        if (!$.canHelp) {
+          console.log(`次数已用完或活动火爆，跳出助力`)
+          break
+        }
+     }
     }
   }
 })()
