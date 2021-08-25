@@ -15,8 +15,6 @@ var fs = require('fs');
 var { execSync, exec } = require('child_process');
 
 var rootPath = path.resolve(__dirname, '..')
-// confcoo.sh 文件所在目录
-var yxtkFile = path.join(rootPath, 'config/yxtkFile.sh');
 // config.sh 文件所在目录
 var confFile = path.join(rootPath, 'config/config.sh');
 // config.sh.sample 文件所在目录
@@ -36,7 +34,7 @@ var logPath = path.join(rootPath, 'log/');
 // 脚本目录
 var ScriptsPath = path.join(rootPath, 'scripts/');
 
-var authError = "你居然忘记易享添开的用户名密码？";
+var authError = "错误的用户名密码，请重试";
 var loginFaild = "请先登录!";
 
 var configString = "config sample crontab shareCode diy";
@@ -90,7 +88,7 @@ async function step1() {
                 'Accept': 'application/json, text/plain, */*',
                 'Accept-Language': 'zh-cn',
                 'Referer': 'https://plogin.m.jd.com/login/login?appid=300&returnurl=https://wq.jd.com/passport/LoginRedirect?state=' + timeStamp + '&returnurl=https://home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&/myJd/home.action&source=wq_passport',
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.14.0 main%2F1.0 baiduboxapp/11.18.0.16 (Baidu; P2 13.3.1) NABar/0.0',
+                'User-Agent': 'jdapp;android;10.0.2;10;network/wifi;Mozilla/5.0 (Linux; Android 10; ONEPLUS A5010 Build/QKQ1.191014.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045230 Mobile Safari/537.36P',                
                 'Host': 'plogin.m.jd.com'
             }
         });
@@ -123,7 +121,7 @@ async function step2() {
                 'Accept': 'application/json, text/plain, */*',
                 'Cookie': cookies,
                 'Referer': 'https://plogin.m.jd.com/login/login?appid=300&returnurl=https://wqlogin2.jd.com/passport/LoginRedirect?state=' + timeStamp + '&returnurl=//home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&/myJd/home.action&source=wq_passport',
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.14.0 main%2F1.0 baiduboxapp/11.18.0.16 (Baidu; P2 13.3.1) NABar/0.0',
+                'User-Agent': 'jdapp;android;10.0.2;10;network/wifi;Mozilla/5.0 (Linux; Android 10; ONEPLUS A5010 Build/QKQ1.191014.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045230 Mobile Safari/537.36P',                
                 'Host': 'plogin.m.jd.com',
             }
         });
@@ -300,33 +298,11 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
- * 外部页面2
- */
-app.get('/cs', function (request, response) {
-    if (request.session.loggedin) {
-        response.sendFile(path.join(__dirname + '/public/cs.html'));
-    } else {
-        response.redirect('/');
-    }
-});
-
-/**
- * 外部页面
- */
-app.get('/jd', function (request, response) {
-    if (request.session.loggedin) {
-        response.sendFile(path.join(__dirname + '/public/jd.html'));
-    } else {
-        response.redirect('/');
-    }
-});
-
-/**
  * 登录页面
  */
 app.get('/', function (request, response) {
     if (request.session.loggedin) {
-        response.redirect('./jd');
+        response.redirect('./home');
     } else {
         response.sendFile(path.join(__dirname + '/public/auth.html'));
     }
@@ -399,9 +375,6 @@ app.get('/api/config/:key', function (request, response) {
     if (request.session.loggedin) {
         if (configString.indexOf(request.params.key) > -1) {
             switch (request.params.key) {
-                case 'yxtkFile':
-                    content = getFileContentByName(yxtkFile);
-                    break;
                 case 'config':
                     content = getFileContentByName(confFile);
                     break;
@@ -424,7 +397,7 @@ app.get('/api/config/:key', function (request, response) {
             response.setHeader("Content-Type", "text/plain");
             response.send(content);
         } else {
-            response.send("pt_key=AAA;pt_pin=BBB;");
+            response.send("no config");
         }
     } else {
         response.send(loginFaild);
