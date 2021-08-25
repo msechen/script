@@ -1,6 +1,6 @@
-## Version: v3.33.0
-## Date: 2021-04-24
-## Update Content: 增加jd_tcl环境变量，关于“更新为什么不会更新我的版本号？”这个问题最后解释一遍，不想在过多重申，自动更新运行之后发出通知，然后去控制面板首页中的对比工具一栏自行对比替换相关的参数，如果自动替换会直接覆盖你自己的ck和各种配置，所以不要再问了OK？
+## Version: v3.48.0
+## Date: 2021-08-20
+## Update Content: 加入go-cqhttp 通知（配置文件不会自动智能替换，需要手动进入面板通过对比工具手动替换）
 
 ## 上面版本号中，如果第2位数字有变化，那么代表增加了新的参数，如果只有第3位数字有变化，仅代表更新了注释，没有增加新的参数，可更新可不更新
 
@@ -82,10 +82,12 @@ RandomDelay="300"
 
 
 ################################## 定义User-Agent（选填） ##################################
-## 自定义lxk0301大佬仓库里JD系列js脚本的User-Agent，不懂不知不会User-Agent的请不要随意填写内容，随意填写了出错概不负责
+## 自定义JD系列js脚本的User-Agent，不懂不知不会User-Agent的请不要随意填写内容，随意填写了出错概不负责
 ## 如需使用，请自行解除下一行注释
 # export JD_USER_AGENT=""
 
+## 如需使用自定义JXUA，请自行解除下一行注释
+# export JX_USER_AGENT=""
 
 ################################## 定义通知TOKEN（选填） ##################################
 ## 想通过什么渠道收取通知，就填入对应渠道的值
@@ -119,6 +121,19 @@ export QYWX_KEY=""
 ## 依次填上corpid的值,corpsecret的值,touser的值,agentid,media_id的值，注意用,号隔开，例如："wwcff56746d9adwers,B-791548lnzXBE6_BWfxdf3kSTMJr9vFEPKAbh6WERQ,mingcheng,1000001,2COXgjH2UIfERF2zxrtUOKgQ9XklUqMdGSWLBoW_lSDAdafat"
 export QYWX_AM=""
 
+## 9. go-cqhttp通知设置区域
+##gobot_url 填写请求地址http://127.0.0.1/send_private_msg
+##gobot_token 填写在go-cqhttp文件设置的访问密钥
+##gobot_qq 填写推送到个人QQ或者QQ群号
+##go-cqhttp相关API https://docs.go-cqhttp.org/api
+##推送到个人QQ: http://127.0.0.1/send_private_msg  群：http://127.0.0.1/send_group_msg 
+export GOBOT_URL=""
+
+##访问密钥
+export GOBOT_TOKEN=""
+
+##如果GOBOT_URL设置 /send_private_msg 则需要填入 user_id=个人QQ 相反如果是 /send_group_msg 则需要填入 group_id=QQ群
+export GOBOT_QQ=""
 
 ################################## 定义每日签到的通知形式（选填） ##################################
 ## js脚本每日签到提供3种通知方式，分别为：
@@ -127,11 +142,9 @@ export QYWX_AM=""
 ## 原始通知，那么请在下方填入2，如果不填也默认为2，内容比较长，这也是默认通知方式
 NotifyBeanSign=""
 
-
 ################################## 定义每日签到每个接口间的延迟时间（选填） ##################################
 ## 默认每个签到接口并发无延迟，如需要依次进行每个接口，请自定义延迟时间，单位为毫秒，延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长)
 export JD_BEAN_STOP=""
-
 
 ################################## 自动按顺序进行账号间互助（选填） ##################################
 ## 设置为 true 时，以下所有互助活动，账号间将按照config.sh中Cookie顺序进行互助，此时，不会助力不在config.sh中的账号，无法和别人交换助力
@@ -140,10 +153,48 @@ export JD_BEAN_STOP=""
 AutoHelpOther=""
 
 
-################################## 定义jd_tcl加购（临时） ##################################
-## 是否加购物车
+################################## 定义jd_moneytree互助（临时） ##################################
+## 具体填法及要求详见本文件最下方“互助码填法示例”
+MyTree1=""
+MyTree2=""
+MyTree3=""
+MyTree4=""
+MyTree5=""
+MyTree6=""
+MyTreeA=""
+MyTreeB=""
 
-export PURCHASE_SHOPS=""
+ForOtherTree1=""
+ForOtherTree2=""
+ForOtherTree3=""
+ForOtherTree4=""
+ForOtherTree5=""
+ForOtherTree6=""
+
+################################## 定义燃夏部分开关 ##################################
+## 是否入会，true 入会，false 不入会，默认false
+
+export summer_movement_joinjoinjoinhui=""
+
+
+## 具体填法及要求详见本文件最下方“互助码填法示例”
+MySummer1=""
+MySummer2=""
+MySummer3=""
+MySummer4=""
+MySummer5=""
+MySummer6=""
+MySummerA=""
+MySummerB=""
+
+
+ForOtherSummer1=""
+ForOtherSummer2=""
+ForOtherSummer3=""
+ForOtherSummer4=""
+ForOtherSummer5=""
+ForOtherSummer6=""
+
 
 ################################## 定义jd_health互助（临时） ##################################
 ## 具体填法及要求详见本文件最下方“互助码填法示例”
@@ -405,24 +456,44 @@ ForOtherCfd5=""
 ForOtherCfd6=""
 
 
-################################## 定义jd_global活动互助（选填） ##################################
-## 具体填法及要求详见本文件最下方“互助码填法示例”
-MyGlobal1=""
-MyGlobal2=""
-MyGlobal3=""
-MyGlobal4=""
-MyGlobal5=""
-MyGlobal6=""
-MyGlobalA=""
-MyGlobalB=""
 
-ForOtherGlobal1=""
-ForOtherGlobal2=""
-ForOtherGlobal3=""
-ForOtherGlobal4=""
-ForOtherGlobal5=""
-ForOtherGlobal6=""
+################################## 定义jd_try相关参数（选填） ##################################
 
+##控制每次获取商品数量，默认12
+export JD_TRY_PAGE_SIZE=""
+
+##商品分类，以 @ 隔开，示例：家用电器@手机数码@电脑办公@家居家装
+export JD_TRY_CIDS_KEYS=""
+
+##试用类型，以 @ 隔开，示例：免费试用@闪电试
+export JD_TRY_TYPE_KEYS=""
+
+##过滤试用商品关键字，以 @ 隔开(默认内置了很多关键字，建议使用默认)
+export JD_TRY_GOOD_FILTERS=""
+
+##试用商品最低价格
+export JD_TRY_MIN_PRICE=""
+
+##试用商品最多提供数量（过滤垃圾商品）
+export JD_TRY_MAX_SUPPLY_COUNT=""
+
+
+
+
+################################## 定义京喜工厂开团ID（选填） ##################################
+## 京喜工厂拼团瓜分电力活动的`activeId`默认读取内置的如出现脚本开团提示失败：`活动已结束，请稍后再试~`，可自行抓包替换(开启抓包，进入拼团瓜分电力页面，寻找带有`tuan`的链接里面的`activeId=`)
+
+export TUAN_ACTIVEID=""
+
+################################## 定义jd_super_redrain通知（选填） ##################################
+## 默认开启false为关闭
+
+export RAIN_NOTIFY_CONTROL=""
+
+################################## 定义jd_cash京豆兑换（选填） ##################################
+## jd_cash京豆兑换，花费2元红包兑换200京豆，一周可换四次；
+
+export CASH_EXCHANGE=""
 
 ################################## 定义jd_superMarket蓝币兑换数量（选填） ##################################
 ## jd_superMarket蓝币兑换，可用值包括：
@@ -510,7 +581,7 @@ export JOY_RUN_NOTIFY=""
 
 ################################## 定义jd_moneyTree是否自动将金果卖出变成金币（选填） ##################################
 ## 金币有时效，默认为 "false"，不卖出金果为金币，如想希望自动卖出，请修改为 "true"
-export MONEY_TREE_SELL_FRUIT=""
+export MONEY_Tree_SELL_FRUIT=""
 
 
 ################################## 定义jd_pet是否静默运行（选填） ##################################
@@ -574,6 +645,12 @@ export CASH_NOTIFY_CONTROL=""
 ## 控制jd_jdzz是否静默运行，false 为否(发送推送通知消息)，true 为是(即：不发送推送通知消息)
 export JDZZ_NOTIFY_CONTROL=""
 
+
+################################## 定义星系牧场是否兑换 ##################################
+##星系牧场 兑换京豆默认false不兑换，需要兑换请改为true##
+export Cowexchange=""
+
+
 ################################## 定义取关参数（选填） ##################################
 ## jd_unsubscribe这个任务是用来取关每天做任务关注的商品和店铺，默认在每次运行时取关20个商品和20个店铺
 ## 如果取关数量不够，可以根据情况增加，还可以设置 jdUnsubscribeStopGoods 和 jdUnsubscribeStopShop 
@@ -608,7 +685,7 @@ export JDJOY_APPLYJDBEAN=""
 
 
 ################################## 定义是否自动加购物车（选填） ##################################
-## jd_bookshop和jd_small_home有些任务需要将商品加进购物车才能完成，默认 "false" 不做这些任务，如想做，请设置为 "true"
+## jd_small_home，和jd_jump有些任务需要将商品加进购物车才能完成，默认 "false" 不做这些任务，如想做，请设置为 "true"
 export PURCHASE_SHOPS=""
 
 
