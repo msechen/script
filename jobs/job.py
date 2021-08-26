@@ -120,7 +120,7 @@ def get_jd_order():
     try:
         result = jd.get_order(appkey1, appsecret1)
         if len(result) > 0:
-            earnings = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
+            earnings = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False)
             user_kolly.send('[大号]' + result + '\n' + earnings)
 
         result = jd.get_order(appkey2, appsecret2)
@@ -141,7 +141,7 @@ def get_jd_order():
 
 # 查询知乎佣金
 def get_today_earnings():
-    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
+    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False)
 
     try:
         user_kolly.send(result)
@@ -153,7 +153,7 @@ def get_today_earnings():
 def get_today_earnings_v2():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    result = today + '\n\n'  + sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like()
+    result = today + '\n\n'  + sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(True)
 
     try:
         user_allwx.send(result)
@@ -252,4 +252,4 @@ def send_service_info(service_id, info, *images):
 
 
 if __name__ == '__main__':
-    print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like())
+    print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False))

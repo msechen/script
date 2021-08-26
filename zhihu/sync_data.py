@@ -14,10 +14,10 @@ g_like2 = 0
 g_like3 = 0
 g_like4 = 0
 
-g_like1_yestoday = 20183
-g_like2_yestoday = 16000
-g_like3_yestoday = 10042
-g_like4_yestoday = 2141
+g_like1_yestoday = 20454
+g_like2_yestoday = 16131
+g_like3_yestoday = 10067
+g_like4_yestoday = 2175
 
 # 更新知乎问题的阅读量
 def update_zhihu_question():
@@ -186,8 +186,8 @@ def query_today_data():
     return zhihu_spider.get_zhihu_card_data(zh_config_dao.query_config('dxck').value)
 
 # 查询文章点赞数
-def get_zhihu_like():
-    global g_like1, g_like2, g_like3, g_like4
+def get_zhihu_like(total):
+    global g_like1, g_like2, g_like3, g_like4, g_like1_yestoday, g_like2_yestoday, g_like3_yestoday, g_like4_yestoday
     txt1 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117').replace(" 人赞同了该文章","")
     like1 = int(txt1.replace(",", ""))
     inc1 = like1 - g_like1
@@ -212,8 +212,14 @@ def get_zhihu_like():
     inc4_today = like4 - g_like4_yestoday
     g_like4 = like4
 
+    if total:
+        g_like1_yestoday = like1
+        g_like2_yestoday = like2
+        g_like3_yestoday = like3
+        g_like4_yestoday = like4
+
     return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")" + '\n' + txt4  + "(+" + str(inc4) + ")"  + "(+" + str(inc4_today) + ")"
 
 
 if __name__ == '__main__':
-    print(get_zhihu_like())
+    print(get_zhihu_like(False))
