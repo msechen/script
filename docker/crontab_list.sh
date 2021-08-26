@@ -56,8 +56,6 @@
 20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
 #jd_xiaolong
 20 0,9,18,22 * * * node /scripts/jd_xiaolong.js >> /scripts/logs/jd_xiaolong.log 2>&1
-#jd_opencard7
-5 0,8 * * * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
 #jd_opencard8
 10 0,8 * * * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
 #jd_opencard9
@@ -72,10 +70,6 @@
 34 6,18 * * * node /scripts/jd_fan.js >> /scripts/logs/jd_fan.log 2>&1
 #5g超级盲盒
 0 */4 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
-# 手机狂欢城(8.9-8.28)
-0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
-# 手机狂欢城助力(8.9-8.28)
-10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 # 荣耀换新季
 0 1 * * * node /scripts/jd_ryhxj.js >> /scripts/logs/jd_ryhxj.log 2>&1
 # 来电好物季
