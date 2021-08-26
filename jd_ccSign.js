@@ -1,6 +1,7 @@
 /*
 领券中心签到
 @感谢 ddo 提供sign算法
+@感谢 匿名大佬 提供pin算法
 活动入口：领券中心
 更新时间：2021-08-23
 已支持IOS双京东账号,Node.js支持N个京东账号
@@ -70,28 +71,68 @@ let allMessage = '';
     })
 
 async function jdSign() {
-  await ccSignInNew()
+  await getCouponConfig()
 }
 
-async function ccSignInNew() {
-  let functionId = `ccSignInNew`
-  let body = `%7B%22childActivityUrl%22%3A%22openapp.jdmobile%3A%2F%2Fvirtual%3Fparams%3D%7B%5C%22category%5C%22%3A%5C%22jump%5C%22%2C%5C%22des%5C%22%3A%5C%22couponCenter%5C%22%7D%22%2C%22monitorRefer%22%3A%22appClient%22%2C%22monitorSource%22%3A%22cc_sign_android_index_config%22%2C%22pageClickKey%22%3A%22Coupons_GetCenter%22%7D`
+async function getCouponConfig() {
+  let functionId = `getCouponConfig`
+  let body = escape(JSON.stringify({"childActivityUrl":"openapp.jdmobile://virtual?params={\"category\":\"jump\",\"des\":\"couponCenter\"}","incentiveShowTimes":0,"monitorRefer":"","monitorSource":"ccresource_android_index_config","pageClickKey":"Coupons_GetCenter","rewardShowTimes":0,"sourceFrom":"1"}))
   let uuid = randomString(16)
   let sign = await getSign(functionId, decodeURIComponent(body), uuid)
-  let url = `${JD_API_HOST}?functionId=${functionId}&build=89568&client=android&clientVersion=9.2.2&uuid=${uuid}&${sign}`
+  let url = `${JD_API_HOST}?functionId=${functionId}&client=android&clientVersion=10.1.2&uuid=${uuid}&${sign}`
   return new Promise(async resolve => {
     $.post(taskUrl(url, body), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} ccSignInNew API请求失败，请检查网路重试`)
+          console.log(`${$.name} getCouponConfig API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            data = JSON.parse(data)
+            let functionId, body
+            if (data.result.couponConfig.signNecklaceDomain) {
+              if (data.result.couponConfig.signNecklaceDomain.roundData.ynSign === '1') {
+                console.log(`签到失败：今日已签到~`)
+              } else {
+                let pin = await getsecretPin($.UserName)
+                functionId = `ccSignInNecklace`
+                body = escape(JSON.stringify({"childActivityUrl":"openapp.jdmobile://virtual?params={\"category\":\"jump\",\"des\":\"couponCenter\"}","monitorRefer":"appClient","monitorSource":"cc_sign_android_index_config","pageClickKey":"Coupons_GetCenter","sessionId":"","signature":data.result.couponConfig.signNecklaceDomain.signature,"pin":pin,"verifyToken":""}))
+              }
+            } else {
+              if (data.result.couponConfig.signNewDomain.roundData.ynSign === '1') {
+                console.log(`签到失败：今日已签到~`)
+              } else {
+                let pin = await getsecretPin($.UserName)
+                functionId = `ccSignInNew`
+                body = escape(JSON.stringify({"childActivityUrl":"openapp.jdmobile://virtual?params={\"category\":\"jump\",\"des\":\"couponCenter\"}","monitorRefer":"appClient","monitorSource":"cc_sign_android_index_config","pageClickKey":"Coupons_GetCenter","pin":pin}))
+              }
+            }
+            if (functionId && body) await ccSign(functionId, body)
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+async function ccSign(functionId, body) {
+  let uuid = randomString(16)
+  let sign = await getSign(functionId, decodeURIComponent(body), uuid)
+  let url = `${JD_API_HOST}?functionId=${functionId}&client=android&clientVersion=10.1.2&uuid=${uuid}&${sign}`
+  return new Promise(async resolve => {
+    $.post(taskUrl(url, body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} ccSign API请求失败，请检查网路重试`)
         } else {
           if (data) {
             data = JSON.parse(data)
             if (data.busiCode === '0') {
-              console.log(`签到成功：获得 ${data.result.signResult.signData.amount} 红包`)
-            } else if (data.busiCode === '1002') {
-              console.log(`今日已签到`)
+              console.log(functionId === 'ccSignInNew' ? `签到成功：获得 ${data.result.signResult.signData.amount} 红包` : `签到成功：获得 ${data.result.signResult.signData.necklaceScore} 点点券，${data.result.signResult.signData.amount}`)
             } else {
               console.log(`签到失败：${data.message}`)
             }
@@ -112,12 +153,42 @@ function getSign(functionid, body, uuid) {
       "body":body,
       "uuid":uuid,
       "client":"android",
-      "clientVersion":"9.2.2"
+      "clientVersion":"10.1.2"
     }
     let options = {
-      url: `https://service-ft43gk13-1302176878.sh.apigw.tencentcs.com/release/ddo`,
+      url: `https://jdsign.cf/ddo`,
       body: JSON.stringify(data),
       headers: {
+        "Host": "jdsign.tk",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+      }
+    }
+    $.post(options, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} getSign API请求失败，请检查网路重试`)
+        } else {
+
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+  })
+}
+function getsecretPin(pin) {
+  return new Promise(async resolve => {
+    let data = {
+      "pt_pin": pin
+    }
+    let options = {
+      url: `https://jdsign.cf/pin`,
+      body: JSON.stringify(data),
+      headers: {
+        "Host": "jdsign.tk",
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
       }
     }
@@ -156,7 +227,7 @@ function taskUrl(url, body) {
     headers: {
       "Host": "api.m.jd.com",
       "Connection": "keep-alive",
-      "User-Agent": "okhttp/3.12.1;jdmall;android;version/9.2.2;build/89568;screen/1440x2560;os/7.1.2;network/wifi",
+      "User-Agent": "okhttp/3.12.1;jdmall;android;version/10.1.2;build/89743;screen/1080x2030;os/9;network/wifi;",
       "Accept": "*/*",
       "Referer": "https://h5.m.jd.com/rn/42yjy8na6pFsq1cx9MJQ5aTgu3kX/index.html",
       "Accept-Encoding": "gzip, deflate",
@@ -177,41 +248,38 @@ function randomString(e) {
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
-      "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
-      "headers": {
-        "Accept": "application/json,text/plain, */*",
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept-Encoding": "gzip, deflate, br",
+      url: "https://wq.jd.com/user_new/info/GetJDUserInfoUnion?sceneval=2",
+      headers: {
+        Host: "wq.jd.com",
+        Accept: "*/*",
+        Connection: "keep-alive",
+        Cookie: cookie,
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
         "Accept-Language": "zh-cn",
-        "Connection": "keep-alive",
-        "Cookie": cookie,
-        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+        "Referer": "https://home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&",
+        "Accept-Encoding": "gzip, deflate, br"
       }
     }
-    $.post(options, (err, resp, data) => {
+    $.get(options, (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
+          $.logErr(err)
         } else {
           if (data) {
             data = JSON.parse(data);
-            if (data['retcode'] === 13) {
+            if (data['retcode'] === 1001) {
               $.isLogin = false; //cookie过期
-              return
+              return;
             }
-            if (data['retcode'] === 0) {
-              $.nickName = (data['base'] && data['base'].nickname) || $.UserName;
-            } else {
-              $.nickName = $.UserName
+            if (data['retcode'] === 0 && data.data && data.data.hasOwnProperty("userInfo")) {
+              $.nickName = data.data.userInfo.baseInfo.nickname;
             }
           } else {
-            console.log(`京东服务器返回空数据`)
+            console.log('京东服务器返回空数据');
           }
         }
       } catch (e) {
-        $.logErr(e, resp)
+        $.logErr(e)
       } finally {
         resolve();
       }
