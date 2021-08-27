@@ -1,11 +1,14 @@
 /*
+
 京东多合一签到脚本
+
 更新时间: 2021.08.15 19:00 v2.1.1
 有效接口: 20+
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 电报频道: @NobyDa 
 问题反馈: @NobyDa_bot 
 如果转载: 请注明出处
+
 如需获取京东金融签到Body, 可进入"京东金融"APP (iOS), 在"首页"点击"签到"并签到一次, 返回抓包app搜索关键字 h5/m/appSign 复制请求体填入json串数据内即可
 */
 
@@ -80,6 +83,8 @@ async function all(cookie, jrBody) {
         // JingRongDoll(stop, 'XJDouble', '金融现金-双签', 'F68B2C3E71', '', '', '', 'xianjin') //京东金融 现金双签
       ]);
       await Promise.all([
+        JDUserSignPre(stop, 'JDStory', '京东失眠-补贴', 'UcyW9Znv3xeyixW1gofhW2DAoz4'), //失眠补贴
+        JDUserSignPre(stop, 'JDPhone', '京东手机-小时', '4Vh5ybVr98nfJgros5GwvXbmTUpg'), //手机小时达
         JDUserSignPre(stop, 'JDEsports', '京东商城-电竞', 'CHdHQhA5AYDXXQN9FLt3QUAPRsB'), //京东电竞
         // JDUserSignPre(stop, 'JDClothing', '京东商城-服饰', '4RBT3H9jmgYg1k2kBnHF8NAHm7m8'), //京东服饰
         JDUserSignPre(stop, 'JDSuitcase', '京东商城-箱包', 'ZrH7gGAcEkY2gH8wXqyAPoQgk6t'), //京东箱包馆
@@ -116,6 +121,8 @@ async function all(cookie, jrBody) {
       // await JingRongDoll(Wait(stop), 'JRDoll', '京东金融-签壹', '4D25A6F482');
       // await JingRongDoll(Wait(stop), 'XJDouble', '金融现金-双签', 'F68B2C3E71', '', '', '', 'xianjin'); //京东金融 现金双签
       await JingRongDoll(Wait(stop), 'JTDouble', '京东金贴-双签', '1DF13833F7'); //京东金融 金贴双签
+      await JDUserSignPre(Wait(stop), 'JDStory', '京东失眠-补贴', 'UcyW9Znv3xeyixW1gofhW2DAoz4'); //失眠补贴
+      await JDUserSignPre(Wait(stop), 'JDPhone', '京东手机-小时', '4Vh5ybVr98nfJgros5GwvXbmTUpg'); //手机小时达
       await JDUserSignPre(Wait(stop), 'JDCard', '京东商城-卡包', '7e5fRnma6RBATV9wNrGXJwihzcD'); //京东卡包
       await JDUserSignPre(Wait(stop), 'JDUndies', '京东商城-内衣', '4PgpL1xqPSW1sVXCJ3xopDbB1f69'); //京东内衣馆
       await JDUserSignPre(Wait(stop), 'JDEsports', '京东商城-电竞', 'CHdHQhA5AYDXXQN9FLt3QUAPRsB'); //京东电竞
@@ -744,9 +751,9 @@ function JDUserSign1(s, key, title, body) {
 async function JDUserSign2(s, key, title, tid) {
   await new Promise(resolve => {
     let lkt = new Date().getTime()
-    let lks = md5('' + 'ztmFUCxcPMNyUq0P' + lkt).toString()
+    let lks = md5('' + 'RtKLB8euDo7KwsO0' + lkt).toString()
     $nobyda.get({
-      url: `https://jdjoy.jd.com/api/turncard/channel/detail?turnTableId=${tid}&invokeKey=ztmFUCxcPMNyUq0P`,
+      url: `https://jdjoy.jd.com/api/turncard/channel/detail?turnTableId=${tid}&invokeKey=RtKLB8euDo7KwsO0`,
       headers: {
         Cookie: KEY,
         'lkt': lkt,
@@ -776,9 +783,9 @@ async function JDUserSign2(s, key, title, tid) {
   return new Promise(resolve => {
     setTimeout(() => {
       let lkt = new Date().getTime()
-      let lks = md5('' + 'ztmFUCxcPMNyUq0P' + lkt).toString()
+      let lks = md5('' + 'RtKLB8euDo7KwsO0' + lkt).toString()
       const JDUrl = {
-        url: 'https://jdjoy.jd.com/api/turncard/channel/sign?invokeKey=ztmFUCxcPMNyUq0P',
+        url: 'https://jdjoy.jd.com/api/turncard/channel/sign?invokeKey=RtKLB8euDo7KwsO0',
         headers: {
           Cookie: KEY,
           'lkt': lkt,
