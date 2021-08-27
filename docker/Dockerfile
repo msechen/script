@@ -1,5 +1,5 @@
 FROM node:lts-alpine
-ARG JD_BASE_URL=https://ghproxy.com/https://github.com/1xtk/jd-open
+ARG JD_BASE_URL=https://ghproxy.com/https://github.com/1xtk/jd-Shell
 ARG JD_BASE_BRANCH=main
 ARG JD_SCRIPTS_URL=https://ghproxy.com/https://github.com/1xtk/JD-get
 ARG JD_SCRIPTS_BRANCH=main
