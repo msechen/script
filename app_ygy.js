@@ -162,7 +162,7 @@ function soy_ygy_login() {
             if(result.code==1){
                 console.log(`\n【${$.name}---观御果园登录】: ${result.info}`)
                 token=result.data.token
-                await $.wait(10000);
+                await $.wait(15000);
                 await soy_ygy_dt()
             }else{
                 console.log(`\n【${$.name}---观看广告】: ${result.message}`)
