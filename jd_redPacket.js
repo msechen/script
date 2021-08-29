@@ -42,7 +42,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
   if (!res) {
     $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jd_red.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
     await $.wait(1000)
-    res = await getAuthorShareCode('https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/jd_red.json')
+    res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jd_red.json')
   }
   $.authorMyShareIds = [...(res || [])];
   for (let i = 0; i < cookiesArr.length; i++) {
