@@ -1,15 +1,15 @@
-name: sync-wechat-assistant-pro
+name: sync-xdd-pro
 
 on:
   schedule:
-    - cron: '1 */3 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-wechat-assistant-pro
+    types: sync-xdd-pro
 jobs:
   repo-sync:
     env:
@@ -22,11 +22,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-wechat-assistant-pro
+      - name: sync-xdd-pro
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/gengchen528/wechat-assistant-pro.git"
-          source_branch: "master"
-          destination_branch: "wechat-assistant-pro"
+          source_repo: "https://github.com/U188/pk.git"
+          source_branch: "main"
+          destination_branch: "xdd"
           github_token: ${{ secrets.PAT }}
