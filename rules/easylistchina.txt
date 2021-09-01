@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: ZMN2qg7NcEw3G0S7CQadNg
-! Version: 202108310014
+! Checksum: dj+l9hBGAGiqYK2UPE0sRg
+! Version: 202109010023
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw^$third-party
@@ -12862,6 +12862,7 @@
 ||http://zzz4.com/JS_AD/
 ||http://zzzyk.com/js/
 ||http://sinaimg.cn/large/008dqLKply1gtj305hxwnj308c0bnwfs.jpg
+||http://jpg.cm^$domain=ataoju.com
 ||http://17ce.com^*_$image
 ||http://3336672.com^
 ||http://3337729.com^
@@ -13742,6 +13743,16 @@
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
 ||http://watakaw133.xyz^
+||http://pgfbtjiy.cn^
+||http://2969firefighterstore.com^
+||http://weijiakeji.top^
+||http://xhvljiw.cn^
+||http://weipapa.top^
+||http://cmyx.xyz^
+||http://fs0523.com^
+||http://ydggvnh.cn^
+||http://30life.top^
+||http://ekhdplgv.cn^
 ||http://01tn.cn^
 ||http://027whht.com^
 ||http://0511qsfhknvz.xyz^
@@ -16817,6 +16828,7 @@
 ||http://wrating.com^$third-party
 https://ubmcmm.baidustatic.com
 https://szxx.com.cn###A0
+https://555dy.fun##.tab-content + .col-pd
 https://szxx.com.cn###A1
 https://szxx.com.cn###A2
 https://gpcxw.com###AA2
@@ -23354,6 +23366,7 @@ https://weibo.com###Pl_Core_P7MultiPicPlay__7
 https://weibo.com##.apps_PCD_reco_detail_right
 http://ubmcmm.baidustatic.com
 http://szxx.com.cn###A0
+http://555dy.fun##.tab-content + .col-pd
 http://szxx.com.cn###A1
 http://szxx.com.cn###A2
 http://gpcxw.com###AA2
