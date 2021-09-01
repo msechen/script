@@ -1,5 +1,4 @@
 const http = require('http')
-const querystring = require("querystring");
 const fs = require('fs');
 const path = require('path')
 const file = path.resolve(__dirname, '../logs/cookies.list')
@@ -29,13 +28,18 @@ const server = http.createServer(function(request, response) {
         request.on('data', (chunk) => {
             body.push(chunk);
         }).on('end', () => {
-            // console.log(Buffer.concat(body).toArray())
-            body = querystring.parse(Buffer.concat(body).toString());
-            if (body.pt_key && body.pt_pin) {
-                writeCookie(body.pt_key, body.pt_pin)
-                // console.log(body.pt_key)
-                response.end('OK');
-            } else {
+            // console.log(Buffer.concat(body).toString())
+            try {
+                body = JSON.parse(Buffer.concat(body).toString());
+                if (body.pt_key && body.pt_pin) {
+                    writeCookie(body.pt_key, body.pt_pin)
+                    // console.log(body.pt_key)
+                    response.end('OK');
+                } else {
+                    response.statusCode = 400;
+                    response.end('Invalid param');
+                }
+            } catch (e) {
                 response.statusCode = 400;
                 response.end('Invalid param');
             }
