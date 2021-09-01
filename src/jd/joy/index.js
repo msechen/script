@@ -1,12 +1,12 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, matchMiddle} = require('../../lib/common');
+const {sleep, writeFileJSON, matchMiddle, replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const Cookie = require('../../lib/cookie');
-const {encrypt} = require('./api');
 const JDJRValidator = require('../../lib/JDJRValidator');
 const path = require('path');
+const CryptoJS = require('crypto-js');
 
 const reqSources = ['weapp', 'h5'];
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2wuqXrZrhygTQzYA7VufBEpj4amH/index.html';
@@ -63,11 +63,28 @@ class Joy extends Template {
         const jdDogKey = 'jdDog_jdDog';
         const jdDogIndex = matchMiddle(jsContent, {reg: /"(\d+)":\s*"jdDog_jdDog",/});
         const hash = matchMiddle(jsContent.replace(jdDogKey, ''), {reg: new RegExp(`"${jdDogIndex}":\\s*"(\\w+)",`)});
-        return api.doGetFileContent(appScriptUrl.replace(path.basename(appScriptUrl), `${jdDogKey}_${hash}_.js`)).then(data => matchMiddle(data, {reg: /{"invokeKey":"(\w*)"}/}));
+        return api.doGetFileContent(appScriptUrl.replace(path.basename(appScriptUrl), `${jdDogKey}_${hash}_.js`)).then(data => {
+          let key = matchMiddle(data, {reg: /{"invokeKey":"(\w*)"}/});
+          if (!key) {
+            const varKey = matchMiddle(data, {reg: /"invokeKey":(\w*)/});
+            key = matchMiddle(data, {reg: new RegExp(`${varKey}="(\\w*)"`)});
+          }
+          return key;
+        });
       });
     });
     invokeKey && (api.options.qs.invokeKey = invokeKey);
+    replaceObjectMethod(api, 'doPath', args => {
+      _.assign(api.options.headers, encrypt(api.options.qs.invokeKey));
+      return args;
+    });
     api.options.qs.reqSource = reqSources[this.currentTimes - 1];
+
+    function encrypt(key) {
+      const lkt = getMoment().valueOf();
+      const lks = CryptoJS.MD5(`${key}${lkt}`).toString();
+      return {lkt, lks};
+    }
   }
 
   static apiNamesFn() {
