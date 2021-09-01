@@ -5,7 +5,7 @@ const file = path.resolve(__dirname, '../logs/cookies.list')
 
 function writeCookie(pt_key, pt_pin) {
     const re = new RegExp('.*'+ pt_pin +'.*', 'g')
-    const cookie = `pt_key=${pt_key};pt_pin=${pt_pin};`
+    const cookie = `${pt_key};${pt_pin};`
     // console.log(re)
     fs.readFile(file,'utf8',function(err,data){
         // console.log('替換前' + data)
