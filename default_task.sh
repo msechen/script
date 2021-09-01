@@ -7,13 +7,13 @@ function initPythonEnv() {
   echo "开始安装运行jd_bot需要的python环境及依赖..."
   apk add --update python3-dev py3-pip py3-cryptography py3-numpy py-pillow
   echo "开始安装jd_bot依赖..."
-  #测试
-  #cd /jd_docker/docker/bot
   #合并
   cd /scripts/docker/bot
   pip3 install --upgrade pip
   pip3 install -r requirements.txt
   python3 setup.py install
+  echo "安装HTTP服务依赖..."
+  npm install -g pm2
 }
 
 #启动tg bot交互前置条件成立，开始安装配置环境
@@ -250,7 +250,9 @@ crontab $mergedListFile
 echo "第11步将仓库的docker_entrypoint.sh脚本更新至系统/usr/local/bin/docker_entrypoint.sh内..."
 cat /scripts/docker/docker_entrypoint.sh >/usr/local/bin/docker_entrypoint.sh
 
+cd /scripts/docker
+echo "启动HTTP服务进程……"
+node http.js
 echo "发送通知"
 export NOTIFY_CONTENT=""
-cd /scripts/docker
 node notify_docker_user.js
