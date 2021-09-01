@@ -4,6 +4,8 @@ set -e
 # 放在这个初始化python3环境，目的减小镜像体积，一些不需要使用bot交互的用户可以不用拉体积比较大的镜像
 # 在这个任务里面还有初始化还有目的就是为了方便bot更新了新功能的话只需要重启容器就完成更新
 function initPythonEnv() {
+  echo "安装HTTP服务依赖..."
+  npm install -g pm2
   echo "开始安装运行jd_bot需要的python环境及依赖..."
   apk add --update python3-dev py3-pip py3-cryptography py3-numpy py-pillow
   echo "开始安装jd_bot依赖..."
@@ -12,8 +14,6 @@ function initPythonEnv() {
   pip3 install --upgrade pip
   pip3 install -r requirements.txt
   python3 setup.py install
-  echo "安装HTTP服务依赖..."
-  npm install -g pm2
 }
 
 #启动tg bot交互前置条件成立，开始安装配置环境
