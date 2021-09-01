@@ -23,7 +23,7 @@ else
   git -C /scripts/docker pull --rebase
   echo "npm install 安装最新依赖"
   npm install --prefix /scripts
-  npm install -g typescript ts-node
+  npm install -g typescript ts-node pm2
 fi
 ) || exit 0
 
