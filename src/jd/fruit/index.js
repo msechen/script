@@ -1,4 +1,5 @@
 const Template = require('../base/template');
+const {getMoment} = require('../../lib/moment');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
@@ -220,7 +221,10 @@ class Fruit extends Template {
         canHarvest && (msg += ', 可以收成了!!!');
         api.log(msg);
         if (needHarvest && canHarvest) {
-          await handleWaterGoodForFarm(remainEnergy / 10);
+          const waterTimes = remainEnergy / 10;
+          const time = getMoment().add(waterTimes * 3, 's');
+          api.log(`完成需浇水 ${waterTimes} 次, 在 ${time.format()} 之后可以完成`);
+          await handleWaterGoodForFarm(waterTimes);
         }
       });
     }
