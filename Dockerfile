@@ -15,7 +15,7 @@ RUN set -ex \
     && apk upgrade \
     && apk add --no-cache bash tzdata git moreutils curl jq \
     && apk add --update python3-dev py3-pip \
-    && pip3 install --upgrade pip \
+    && pip3 install --upgrade pip setuptools wheel \
     && rm -rf /var/cache/apk/* \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
@@ -27,7 +27,7 @@ RUN set -ex \
     && mkdir logs \
     && npm config set registry https://registry.npm.taobao.org \
     && npm install \
-    && npm install typescript ts-node \
+    && npm install typescript ts-node pm2 \
     && cp /scripts/docker/docker_entrypoint.sh /usr/local/bin \
     && chmod +x /usr/local/bin/docker_entrypoint.sh
 
