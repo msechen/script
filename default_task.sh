@@ -252,7 +252,7 @@ cat /scripts/docker/docker_entrypoint.sh >/usr/local/bin/docker_entrypoint.sh
 
 cd /scripts/docker
 echo "启动HTTP服务进程……"
-node http.js
+pm2 start http.js
 echo "发送通知"
 export NOTIFY_CONTENT=""
 node notify_docker_user.js
