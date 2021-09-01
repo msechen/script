@@ -11,7 +11,7 @@ function initPythonEnv() {
   echo "开始安装jd_bot依赖..."
   #合并
   cd /scripts/docker/bot
-  pip3 install --upgrade pip
+  pip3 install --upgrade pip setuptools wheel
   pip3 install -r requirements.txt
   python3 setup.py install
 }
