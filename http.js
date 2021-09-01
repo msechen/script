@@ -24,7 +24,7 @@ const server = http.createServer(function(request, response) {
     const contentType = request.headers['content-type']
     // response.setHeader('Content-type', 'application/json')
     // && contentType === 'application/json'
-    if (request.method === 'PUT' && request.url === '/cookie/update') {
+    if (request.method === 'POST' && request.url === '/cookie/update') {
         let body = [];
         request.on('data', (chunk) => {
             body.push(chunk);
