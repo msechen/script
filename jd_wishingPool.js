@@ -22,8 +22,8 @@ let message = '', allMessage = '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let appIdArr = ['1E1NXxq0', '1E1xVyqw'];
-let appNameArr = ['众筹许愿池', '开学充电站'];
+let appIdArr = ['1E1NXxq0'];
+let appNameArr = ['众筹许愿池'];
 let appId, appName;
 $.shareCode = [];
 if ($.isNode()) {
@@ -66,14 +66,19 @@ if ($.isNode()) {
     }
   }
   let res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/wish.json')
+  if (!res) {
+    $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/wish.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
+    await $.wait(1000)
+    res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/wish.json')
+  }
   $.shareCode = [...$.shareCode, ...(res || [])]
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
-      $.canHelp = true
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       console.log(`开始内部助力\n`)
       for (let v = 0; v < appIdArr.length; v++) {
+        $.canHelp = true
         appId = appIdArr[v]
         appName = appNameArr[v]
         console.log(`开始助力第${v + 1}个活动：${appName}\n`)
@@ -116,7 +121,7 @@ async function jd_wish() {
     if (forNum === 0) {
       console.log(`没有抽奖机会\n\n`)
     } else {
-     console.log(`可以抽奖${forNum}次，去抽奖\n\n`)
+      console.log(`可以抽奖${forNum}次，去抽奖\n\n`)
     }
 
     for (let j = 0; j < forNum; j++) {
@@ -181,6 +186,7 @@ async function healthyDay_getHomeData(type = true) {
                     if (vo.times !== vo.maxTimes) {
                       $.shareCode.push({
                         "code": vo.assistTaskDetailVo.taskToken,
+                        "appId": appId,
                         "use": $.UserName
                       })
                     }

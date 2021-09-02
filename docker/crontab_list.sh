@@ -54,14 +54,6 @@
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
 20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
-#jd_xiaolong
-20 0,9,18,22 * * * node /scripts/jd_xiaolong.js >> /scripts/logs/jd_xiaolong.log 2>&1
-#jd_opencard8
-10 0,8 * * * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
-#jd_opencard9
-15 0,8 * * * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
-#jd_opencard10
-20 0,8 * * * node /scripts/jd_opencard10.js >> /scripts/logs/jd_opencard10.log 2>&1
 #特物
 30 8,9 * * * node /scripts/jd_productZ4Brand.js >> /scripts/logs/jd_productZ4Brand.log 2>&1
 #女装盲盒
@@ -82,10 +74,6 @@
 35 4,7 * * * node /scripts/jd_jxg.js >> /scripts/logs/jd_jxg.log 2>&1
 # 汽车生活季
 30 9,21 12-20 8 * node /scripts/jd_qcshj.js >> /scripts/logs/jd_qcshj.log 2>&1
-# 小米星空大冒险
-31 8,22 13-31 8 * node /scripts/jd_xmGame.js >> /scripts/logs/jd_xmGame.log 2>&1
-#明星小店
-10 9,18 9-25 8 * node /scripts/jd_star_shop.js >> /scripts/logs/jd_star_shop.log 2>&1
 # 领券中心签到
 11 0 * * * node /scripts/jd_ccSign.js >> /scripts/logs/jd_ccSign.log 2>&1
 
