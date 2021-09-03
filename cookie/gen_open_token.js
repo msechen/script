@@ -29,7 +29,7 @@ let sign_params, tokenKey, pt_key, pt_pin, error_msg = '', username = ''
                     }
                 }
             } catch (e) {
-                error_msg += `账号: ${username} wskey已失效`
+                error_msg += `账号: ${username} 更新错误！！`
                 console.log(`账号: ${username} 更新错误： ${e}`)
             }
         }
