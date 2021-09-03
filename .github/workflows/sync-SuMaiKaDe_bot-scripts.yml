@@ -1,14 +1,14 @@
-name: sync-JDBrandMember-scripts
+name: sync-SuMaiKaDe_bot-scripts
 on:
   schedule:
-    - cron: '5 */3 * * *'
+    - cron: '5 4 */1 * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-JDBrandMember-scripts
+    types: sync-SuMaiKaDe_bot-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-JDBrandMember-scripts
+      - name: sync-SuMaiKaDe_bot-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/AntonVanke/JDBrandMember.git"
+          source_repo: "https://github.com/SuMaiKaDe/bot.git"
           source_branch: "main"
-          destination_branch: "JDBrandMember"
+          destination_branch: "SuMaiKaDe_bot"
           github_token: ${{ secrets.PAT }}
