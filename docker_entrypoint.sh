@@ -49,14 +49,14 @@ if [ -n "$run_cmd" ]; then
   # 增加一层jd_bot指令已经正确安装成功校验
   # 以上条件都满足后会启动jd_bot交互，否还是按照以前的模式启动，最大程度避免现有用户改动调整
   if [[ "$ENABLE_BOT_COMMAND" == "True" && -f /usr/bin/jd_bot ]]; then
+    echo "启动HTTP服务进程……"
+    cd /scripts/docker/cookie
+    pm2 restart http.js
+    cd /scripts/docker
     echo "启动crontab定时任务主进程……"
     crond
     echo "启动telegram bot指令交主进程……"
     jd_bot
-    cd /scripts/docker/cookie
-    echo "启动HTTP服务进程……"
-    pm2 delete http.js
-    pm2 start http.js
   else
     echo "启动crontab定时任务主进程……"
     crond -f
