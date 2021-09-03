@@ -6,22 +6,25 @@ const os = require('os')
 const common = require('./common')
 
 
-let sign_params, tokenKey, pt_key, pt_pin, error_msg = ''
+let sign_params, tokenKey, pt_key, pt_pin, error_msg = '', username = ''
 !(async () => {
     const wskeys = getWsKeys();
     if (wskeys.length) {
         console.log(wskeys)
         await getSign();
-        console.log('签名参数：' + sign_params)
+        console.log('签名参数：' + JSON.stringify(sign_params))
         for (let i = 0; i < wskeys.length; i++) {
-            console.log(wskeys[i])
+            username = `${i+1} ${wskeys[i].match(/(pin=[^;]*)/)[1]}`
+            console.log(`开始获取open token: ${username}`)
             await genToken(wskeys[i])
             if (tokenKey) {
                 await appJmp()
                 if (pt_key.indexOf('fake') > -1) {
                     error_msg += `${i+1} ${pt_pin}\n`
+                    console.log(`账号: ${username} wskey已失效`)
                 } else {
                     common.writeFile(pt_key, pt_pin, common.cookies_file)
+                    console.log(`账号: ${username} openToken 更新成功`)
                 }
             }
         }
