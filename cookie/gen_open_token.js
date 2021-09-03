@@ -19,7 +19,7 @@ let sign_params, tokenKey, pt_key, pt_pin, error_msg = ''
             if (tokenKey) {
                 await appJmp()
                 if (pt_key.indexOf('fake') > -1) {
-                    error_msg += `${i} ${pt_pin}\n`
+                    error_msg += `${i+1} ${pt_pin}\n`
                 } else {
                     common.writeFile(pt_key, pt_pin, common.cookies_file)
                 }
