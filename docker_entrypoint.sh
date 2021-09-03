@@ -55,7 +55,8 @@ if [ -n "$run_cmd" ]; then
     jd_bot
     cd /scripts/docker/cookie
     echo "启动HTTP服务进程……"
-    pm2 restart http.js
+    pm2 delete http.js
+    pm2 start http.js
   else
     echo "启动crontab定时任务主进程……"
     crond -f
