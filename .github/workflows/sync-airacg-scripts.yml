@@ -1,4 +1,4 @@
-name: sync-panghu-scripts
+name: sync-airacg-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-panghu-scripts
+    types: sync-airacg-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-panghu-scripts
+      - name: sync-airacg-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/panghu999/panghu.git"
-          source_branch: "master"
-          destination_branch: "panghu"
+          source_repo: "https://github.com/airacg/jd_task.git"
+          source_branch: "main"
+          destination_branch: "airacg_jd_task"
           github_token: ${{ secrets.PAT }}
