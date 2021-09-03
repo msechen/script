@@ -12,6 +12,7 @@ function initPythonEnv() {
   pip3 install --upgrade pip
   pip3 install -r requirements.txt
   python3 setup.py install
+  cd /scripts/docker
 }
 
 #启动tg bot交互前置条件成立，开始安装配置环境
