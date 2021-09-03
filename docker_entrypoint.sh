@@ -53,6 +53,9 @@ if [ -n "$run_cmd" ]; then
     crond
     echo "启动telegram bot指令交主进程……"
     jd_bot
+    cd /scripts/docker/cookie
+    echo "启动HTTP服务进程……"
+    pm2 restart http.js
   else
     echo "启动crontab定时任务主进程……"
     crond -f
