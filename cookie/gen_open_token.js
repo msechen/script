@@ -14,13 +14,13 @@ let sign_params, tokenKey, pt_key, pt_pin, error_msg = '', username = ''
         await getSign();
         console.log('签名参数：' + JSON.stringify(sign_params))
         for (let i = 0; i < wskeys.length; i++) {
-            username = `${i+1} ${wskeys[i].match(/(pin=[^;]*)/)[1]}`
+            username = `${i + 1} ${wskeys[i].match(/(pin=[^;]*)/)[1]}`
             console.log(`开始获取open token: ${username}`)
             await genToken(wskeys[i])
             if (tokenKey) {
                 await appJmp()
                 if (pt_key.indexOf('fake') > -1) {
-                    error_msg += `${i+1} ${pt_pin}\n`
+                    error_msg += `${i + 1} ${pt_pin}\n`
                     console.log(`账号: ${username} wskey已失效`)
                 } else {
                     common.writeFile(pt_key, pt_pin, common.cookies_file)
@@ -45,11 +45,11 @@ async function getSign() {
         let url = 'https://hellodns.coding.net/p/sign/d/jsign/git/raw/master/sign'
         axios.get(url).then(res => {
             sign_params = res.data
-            resolve();
         }).catch(e => {
             notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
             process.exit(1)
         })
+        resolve()
     })
 }
 
@@ -76,12 +76,11 @@ async function appJmp() {
                     let cookie = JSON.stringify(error.response.headers['set-cookie'])
                     pt_key = cookie.match(/(pt_key=[^;]*)/)[1]
                     pt_pin = cookie.match(/(pt_pin=[^;]*)/)[1]
-                    console.log(pt_key, pt_pin)
-                    resolve()
-                    return
+                } else {
+                    console.log(error)
                 }
-                console.log(error)
             })
+        resolve()
     })
 }
 
@@ -114,10 +113,10 @@ async function genToken(wskey) {
                 } else {
                     tokenKey = ''
                 }
-                resolve()
             })
             .catch(error => {
                 console.error(error)
             })
+        resolve()
     })
 }
