@@ -253,6 +253,9 @@ crontab $mergedListFile
 echo "第11步将仓库的docker_entrypoint.sh脚本更新至系统/usr/local/bin/docker_entrypoint.sh内..."
 cat /scripts/docker/docker_entrypoint.sh >/usr/local/bin/docker_entrypoint.sh
 
+echo "第12步启动Node HTTP 更新cookie服务进程……"
+pm2 start /scripts/docker/cookie/http.js
+
 echo "发送通知"
 export NOTIFY_CONTENT=""
 node notify_docker_user.js
