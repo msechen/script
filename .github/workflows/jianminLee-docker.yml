@@ -1,0 +1,28 @@
+name: jianminLee-docker
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */2 * * *'
+  watch:
+    types: started
+  repository_dispatch:
+    types: sync-repo
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: sync repo
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/jianminLee/docker.git"
+          source_branch: "main"
+          destination_branch: "jianminLee/docker-"
+          github_token: ${{ secrets.PAT }}
