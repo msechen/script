@@ -221,7 +221,7 @@ echo -e "${random_m} ${random_h} * * * docker_entrypoint.sh >> /scripts/logs/def
 
 echo "设定 wskey 申请 openToken cron为："
 echo -e "\n# wskey 申请 openToken" >>$mergedListFile
-echo -e "${random_m} ${random_h} * * *  cd /scripts/docker/cookie/gen_open_token.js && >> /scripts/logs/gen_open_token.log 2>&1" | tee -a $mergedListFile
+echo -e "${random_m} ${random_h} * * *  cd /scripts/docker/cookie && node gen_open_token.js >> /scripts/logs/gen_open_token.log 2>&1" | tee -a $mergedListFile
 
 echo "第7步 自动助力"
 if [ -n "$ENABLE_AUTO_HELP" ]; then
