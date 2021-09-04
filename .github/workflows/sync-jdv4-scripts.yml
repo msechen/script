@@ -1,4 +1,4 @@
-name: sync-DcRat-scripts
+name: sync-jdv4-scripts
 on:
   schedule:
   - cron: '* * */20 * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-DcRat-scripts
+    types: sync-jdv4-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-DcRat-scripts
+      - name: sync-jdv4-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/qwqdanchun/DcRat.git"
-          source_branch: "main"
-          destination_branch: "DcRat"
+          source_repo: "https://gitee.com/jiulan0229/jd_shell.git"
+          source_branch: "master"
+          destination_branch: "jdv4"
           github_token: ${{ secrets.PAT }}
