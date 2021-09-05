@@ -14,10 +14,10 @@ g_like2 = 0
 g_like3 = 0
 g_like4 = 0
 
-g_like1_yestoday = 21741
-g_like2_yestoday = 16832
-g_like3_yestoday = 10238
-g_like4_yestoday = 2324
+g_like1_yestoday = 22336
+g_like2_yestoday = 17115
+g_like3_yestoday = 10303
+g_like4_yestoday = 2412
 
 # 更新知乎问题的阅读量
 def update_zhihu_question():
