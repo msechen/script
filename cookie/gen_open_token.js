@@ -5,6 +5,8 @@ const fs = require('fs');
 const os = require('os')
 const common = require('./common')
 
+const body = '%7B%22action%22%3A%22to%22%2C%22to%22%3A%22https%253A%252F%252Fplogin.m.jd.com%252Fcgi-bin%252Fm%252Fthirdapp_auth_page%253Ftoken%253DAAEAIEijIw6wxF2s3bNKF0bmGsI8xfw6hkQT6Ui2QVP7z1Xg%2526client_type%253Dandroid%2526appid%253D879%2526appup_type%253D1%22%7D'
+const clientVersion = '10.1.2'
 
 let sign_params, tokenKey, pt_key, pt_pin, error_msg = '', username = ''
 !(async () => {
@@ -45,14 +47,36 @@ function getWsKeys() {
     return fs.readFileSync(common.wskeys_file, 'utf8').split(os.EOL)
 }
 
+function randomString(e) {
+    e = e || 32;
+    var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz0123456789",
+        a = t.length,
+        n = "";
+    for (i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
+    return n
+}
+
 async function getSign() {
-    let url = 'https://hellodns.coding.net/p/sign/d/jsign/git/raw/master/sign'
-    await axios.get(url).then(res => {
-        sign_params = res.data
-    }).catch(e => {
-        notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
-        process.exit(1)
-    })
+    if (process.env.JD_WSKEY_SIGN_URL) {
+        await axios.post(process.env.JD_WSKEY_SIGN_URL, {
+            uuid: randomString(16),
+            functionId: "genToken",
+            body: body,
+            version: clientVersion
+        }).then(res => {
+            sign_params = res.data
+        }).catch(e => {
+            notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
+            process.exit(1)
+        })
+    } else {
+        await axios.get('https://hellodns.coding.net/p/sign/d/jsign/git/raw/master/sign').then(res => {
+            sign_params = res.data
+        }).catch(e => {
+            notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
+            process.exit(1)
+        })
+    }
 }
 
 async function appJmp() {
@@ -86,7 +110,7 @@ async function appJmp() {
 async function genToken(wskey) {
     let param = {
         'functionId': 'genToken',
-        'clientVersion': '10.1.2',
+        'clientVersion': clientVersion,
         'client': 'android',
         'uuid': sign_params.uuid,
         'st': sign_params.st,
@@ -94,7 +118,7 @@ async function genToken(wskey) {
         'sv': sign_params.sv
     }
     let url = `https://api.m.jd.com/client.action?${querystring.stringify(param)}`
-    let data = 'body=%7B%22action%22%3A%22to%22%2C%22to%22%3A%22https%253A%252F%252Fplogin.m.jd.com%252Fcgi-bin%252Fm%252Fthirdapp_auth_page%253Ftoken%253DAAEAIEijIw6wxF2s3bNKF0bmGsI8xfw6hkQT6Ui2QVP7z1Xg%2526client_type%253Dandroid%2526appid%253D879%2526appup_type%253D1%22%7D&'
+    let data = `body=${body}&`
     await axios.post(url, data,
         {
             headers: {
