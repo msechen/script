@@ -8,7 +8,7 @@ export lsjdh="jdAward2" ##兑换10豆
 export lsjdh="jdAward3" ##兑换100豆
 export lsjdh="jdAward4" ##兑换牛奶
 [task_local]
-0 11 * * *
+0 11 * * * jd_lsj.js
 */
 const $ = new Env('柠檬京东零食街');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -88,14 +88,7 @@ if ($.isNode()) {
   })
 async function star() {
 await gettoken()
-$.log("开始入会任务")
-await dojoinMember(1000101562)
-await $.wait(3000)
-await dojoinMember(1000077335)
-await $.wait(3000)
-await dojoinMember(1000008814)
-await $.wait(3000)
-await dojoinMember(1000014803)
+
 $.log("开始领取首页水滴")
 await dotree(1)
 await $.wait(3000)
