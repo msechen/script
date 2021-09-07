@@ -1,4 +1,5 @@
 const {getMoment, getNowDate} = require('./moment');
+const {sleep} = require('./common');
 const _ = require('lodash');
 
 /**
@@ -58,9 +59,40 @@ function diffFromNow(time) {
   return targetMoment.diff(nowMoment, 'millisecond');
 }
 
+async function doPolling({
+  beforePollFn = _.noop,
+  stopFn,
+  onceSleepTime = 30,
+  totalTime = -1,
+}) {
+  let stop = false;
+  const noLoopTime = totalTime === -1;
+  const isStop = () => stop === true;
+  const doPromise = beforePollFn();
+  if (doPromise.then) {
+    doPromise.then(() => {
+      stop = true;
+    });
+  }
+  await _poll();
+
+  async function _poll() {
+    if (!noLoopTime && totalTime <= 0) return;
+    stopFn && (stop = stopFn());
+    if (isStop()) return;
+    const secondArray = [totalTime, onceSleepTime];
+    const seconds = noLoopTime ? onceSleepTime : _.min(secondArray);
+    await sleep(seconds);
+    if (noLoopTime) return _poll();
+    totalTime = _.subtract(...secondArray);
+    return _poll();
+  }
+}
+
 module.exports = {
   sleepTime,
   diffFromNow,
 
   sleepDate,
+  doPolling,
 };

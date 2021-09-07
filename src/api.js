@@ -8,6 +8,7 @@ const fs = require('fs');
 const {getLogFile, sleep, parallelRun} = require('./lib/common');
 const {getNowDate, getMoment} = require('./lib/moment');
 const {getCookieData} = require('./lib/env');
+const {doPolling} = require('./lib/cron');
 const serverChan = require('./lib/serverChan');
 const mailer = require('./lib/mailer');
 const TemporarilyOffline = {start: _.noop, cron: _.noop, getName: () => 'TemporarilyOffline'};
@@ -24,21 +25,10 @@ async function multipleRun(targets, onceDelaySecond = 1) {
 
 async function serialRun(targets, runFn = doRun) {
   for (const target of targets) {
-    let stop = false;
-    runFn(..._.concat(target)).then(() => {
-      stop = true;
+    await doPolling({
+      beforePollFn: () => runFn(..._.concat(target)),
+      totalTime: 30 * 6,
     });
-    await polling(5 * 60, () => stop);
-  }
-
-  async function polling(seconds, stopFn) {
-    if (seconds <= 0) return;
-    const onceSeconds = 30;
-    const stop = stopFn();
-    if (stop) return;
-    const secondArray = [seconds, onceSeconds];
-    await sleep(_.min(secondArray));
-    return polling(_.subtract(...secondArray), stopFn);
   }
 }
 

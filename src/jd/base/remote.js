@@ -1,11 +1,12 @@
 const Base = require('./index');
-const exec = require('child_process').execSync;
+const {exec} = require('child_process');
 const fs = require('fs');
 const download = require('download');
 const path = require('path');
 
 const {getLocalEnvs} = require('../../lib/env');
-
+const {doPolling} = require('../../lib/cron');
+const {sleep} = require('../../lib/common');
 
 const distPath = path.resolve(__dirname, '../../../dist');
 
@@ -24,11 +25,17 @@ class RemoteScript extends Base {
 
     const getDistFile = (fileName) => path.resolve(distPath, fileName || '');
     const fileBasePath = getDistFile(self.getFileName());
+    const remoteFileExist = () => fs.existsSync(fileBasePath);
 
-    if (!fs.existsSync(fileBasePath)) {
-      // 下载最新代码
-      await handleDownloadFile(self.fileDownloadUrl, self.getFileName());
-    }
+    !remoteFileExist() && await doPolling({
+      beforePollFn: () => handleDownloadFile(self.fileDownloadUrl, self.getFileName()),
+      stopFn: () => {
+        const isExist = remoteFileExist();
+        if (isExist) console.log(`${self.getFileName()} 下载完成`);
+        return isExist;
+      },
+      totalTime: 30 * 4,
+    });
 
     const scriptPath = await handleWriteFile(self.currentCookieTimes, cookie);
     let proxyEnv;
@@ -36,7 +43,9 @@ class RemoteScript extends Base {
     if ('http_proxy' in localEnvs) {
       proxyEnv = _.pick(localEnvs, ['NODE_TLS_REJECT_UNAUTHORIZED', 'http_proxy', 'https_proxy']);
     }
-    await exec(`node ${scriptPath} >> ${getDistFile('result.txt')}`, proxyEnv ? {env: proxyEnv} : void 0);
+    // 异步执行, 避免有异常
+    exec(`node ${scriptPath} >> ${getDistFile('result.txt')}`, proxyEnv ? {env: proxyEnv} : void 0);
+    await sleep(30);
 
     async function handleDownloadFile(url, filename) {
       await download(url, getDistFile(), {filename});
