@@ -37,11 +37,8 @@ class SignShop extends Template {
     let signSucceedTokens = [];
     // token, venderId, id
     let shopInfos = [
-      'A0F78AB303FAB2F731115934FAAFA5AF',
       '1BD72525C2578A934371A58E32D64CF3',
-      'D57953DA1858F5B1E4C47D2DCE5803D5',
       'FAC8EFA459B45C8208817F11C313C05D',
-      '7464F61D1A3E83B13040D6808797C2B2',
       '8ECCB8517CD37CE0935423F7B2E5A098',
       '07F4183B7912E7AF4972F893118FBC05',
       'FDEBC523C2BD3E93E13BBCDD39D3036A',
@@ -58,9 +55,6 @@ class SignShop extends Template {
 
     await updateShopInfos();
     await sleepTime(24);
-    await handleSign();
-    // 避免签到不成功需要再重复一次
-    await sleep();
     await handleSign();
 
     async function handleSign(listInfo = false) {
