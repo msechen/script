@@ -27,7 +27,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【jd_opencard7】"
+            - name: "运行【jd_opencard13】"
               run: |
                   node onlyOneExecute.js
               env:
