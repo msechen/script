@@ -15,6 +15,10 @@ class SignRemote extends RemoteScript {
     const addSignList = [
       // [act, name]
     ];
+    // 兼容remote脚本中的输出
+    if (!cookie.endsWith(';')) {
+      cookie += ';';
+    }
     const replaceArray = [
       [/var Key = ''/, `var Key = '${cookie}'`],
       ...disableActivities.map(v => [`disable("${v}")`, 'true']),
