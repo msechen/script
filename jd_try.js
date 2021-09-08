@@ -1,4 +1,5 @@
 /*
+ * Modified 0906：修复读取商品出错异常退出问题，增加多品类申请功能 by 一个代码菜鸡
  * 由zero205二次修改：脚本默认不运行
  * 由 X1a0He 修复：依然保持脚本默认不运行
  * 如需运行请自行添加环境变量：JD_TRY，值填 true 即可运行
@@ -21,6 +22,7 @@ const URL = 'https://api.m.jd.com/client.action'
 let trialActivityIdList = []
 let trialActivityTitleList = []
 let notifyMsg = ''
+let loopFlag = 1 //循环控制标志
 // default params
 let args_xh = {
     /*
@@ -37,21 +39,20 @@ let args_xh = {
      * 5 - 电脑办公(可能会有变化)
      * 可设置环境变量：JD_TRY_TABID
      * */
-    tabId: process.env.JD_TRY_TABID || 1,
+    tabId: process.env.JD_TRY_TABID || ["1","3","4","5"],
     /*
      * 试用商品标题过滤
      * 可设置环境变量：JD_TRY_TITLEFILTERS，关键词与关键词之间用@分隔
      * */
     titleFilters: process.env.JD_TRY_TITLEFILTERS || ["教程@软件@英语@辅导@培训@表带@皮带@瑜伽垫@水饺@燕窝@高钙奶@纯牛奶@树苗@集体课@现场课@奶粉@看房游@口服液@灸贴@云南旅游@掌之友@金满缘@新兴港隆@拆机@品鉴@试饮@咨询@零基础@直播课@体验@网课@训练营@礼品袋@装修@快狐@疣@包皮@疏通@药@鱼胶@狗狗@幼犬@戒烟@尿垫@浪潮英信@专家@长高课@饲料@代办@美缝剂@体验@遮瑕@洗面奶@洁面乳@抗皱@膏@猫砂@购房@消食@积食@软胶囊@养生茶@驼背@房产@辅食@打印纸@财务管理@进销存@实战@生发液@早泄@阳痿@染发@补血@珍珠粉@玛咖@灰指甲@阿胶@维生素@同仁堂@讲堂@教材@补肾@精品课@开发@疹@疮@疥@软膏@真题@模拟题@专车接送@看海@看房@学员@投资@通关@名师@节课@酵素@滴眼液@全国流量@奶粉@香皂@精油@爱犬@课程@教学@教程@猫人@学车@你拍一@手机壳@益生菌@宠物@会计@考试@职称@漱口水@吊坠@胶原蛋白@鲜花@蛋白粉@降血糖@降血脂@降血压@管理系统@收银系统@体检@检查@减肥@玫瑰花@股票@丰胸@避孕套@保湿@补水@粉底@口红@耳钉@耳环@耳坠@收纳盒@大王卡@管理软件@博仑帅@荧光笔@原子笔@月租@上网卡@不限流量@日租卡@洗车机@热水袋@钥匙扣@饼干@甲醛检测@贴膜@美容器@拖鞋@桨叶@烫发@清洁套装@鼠标垫@数据线@硒鼓@壁纸@防晒霜@护手霜@面霜@添加剂@修复@祛疤@精华液@玻尿酸@挂画@壁画@精华水@润滑油@机油@普洱茶@吸奶器@吸顶灯@爽肤水@面膜@冰箱底座@胶漆@小靓美@洁面扑@内衣@胸罩@文胸@卷尺@种子@档案袋@塑料袋@垃圾袋@癣@脚气@阴道@生殖器@肛门@狐臭@老太太@妇女@私处@孕妇@卫生巾@卫生条@培训@洋娃娃@男孩玩具@女孩玩具@益智@女性内衣@女性内裤@女内裤@女内衣@女孩@三角裤@鱼饵@钓鱼@尿杯@安全座椅@玩具@娃娃@网课@课程@辅导@网校@电商@车载充电器@网络课程@美少女@纸尿裤@英语@俄语@四级@六级@四六级@在线网络@在线@阴道炎@宫颈@糜烂@喷剂@飞机杯@手机膜@钢化膜@水凝膜@手机壳@手机支架@钢化膜@猫粮@狗粮@戒指@手链@项链@手镯@牙刷@加湿器@水垢@喷雾@茶叶@净水壶@眼霜@香水@墨盒@墨水@墨粉@颜料@中性笔@钢笔@马克笔@震动棒@自慰器@延时@触媒@幼儿园", "教程", "英语", "辅导", "培训", "孩子", "小学","旅游","手机卡@流量卡@电话卡"],
-    // 试用价格，高于这个价格都不会试用，小于等于才会试用
+    // 试用价格，低于这个价格都不会试用，大于等于才会试用，屏蔽垃圾商品
 
     trialPrice: process.env.JD_TRY_PRICE || 70,
     /*
-     * 最小提供数量，例如试用商品只提供2份试用资格，当前设置为1，则会进行申请
-     * 若只提供5分试用资格，当前设置为10，则不会申请
+     * 目标提供数量，例如试用商品提供2份试用资格，当前设置为大于等于2，则会进行申请
      * 可设置环境变量：JD_TRY_MINSUPPLYNUM
      * */
-    minSupplyNum: process.env.JD_TRY_MINSUPPLYNUM || 1,
+    minSupplyNum: process.env.JD_TRY_MINSUPPLYNUM || 2,
     /*
      * 过滤大于设定值的已申请人数，例如下面设置的1000，A商品已经有1001人申请了，则A商品不会进行申请，会被跳过
      * 可设置环境变量：JD_TRY_APPLYNUMFILTER
@@ -96,14 +97,17 @@ let args_xh = {
                     await $.notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
                     continue
                 }
-                let size = 1;
-                while(trialActivityIdList.length < args_xh.maxLength){
-                    console.log(`\n正在进行第 ${size} 次获取试用商品\n`)
-                    await try_feedsList(args_xh.tabId, size++)   //这个是一点进京东试用就显示的页面，默认为精选页面
-                    if(trialActivityIdList.length < args_xh.maxLength){
-                        console.log(`间隔延时中，请等待 ${args_xh.applyInterval} ms`)
-                        await $.wait(args_xh.applyInterval);
+                for(let i = 0; i < args_xh.tabId.length; i++){
+                    let size = 1;
+                    while(trialActivityIdList.length < args_xh.maxLength && loopFlag == 1){
+                        console.log(`\n正在进行第 ${size} 次获取试用商品\n`)
+                        await try_feedsList(args_xh.tabId[i], size++)   //这个是一点进京东试用就显示的页面，默认为精选页面
+                        if(trialActivityIdList.length < args_xh.maxLength){
+                            console.log(`间隔延时中，请等待 ${args_xh.applyInterval} ms`)
+                            await $.wait(args_xh.applyInterval);
+                        }
                     }
+                    loopFlag = 1;
                 }
                 console.log("正在执行试用申请...")
                 await $.wait(args_xh.applyInterval);
@@ -214,9 +218,9 @@ function try_feedsList(tabId, page){
                                         console.log(`检测第 ${page} 页 第 ${i + 1} 个商品\n${data.data.feedList[i].skuTitle}`)
                                         $.isPush = false;
                                         for(let filters of args_xh.titleFilters){
-                                            if(parseFloat(data.data.feedList[i].supplyNum) < args_xh.minSupplyNum && data.data.feedList[i].supplyNum !== null){
+                                            if(parseFloat(data.data.feedList[i].supplyNum) > args_xh.minSupplyNum && data.data.feedList[i].supplyNum !== null){
                                                 $.isPush = false;
-                                                console.log(`商品被过滤，提供申请的份数小于预设申请的份数 \n`)
+                                                console.log(`商品被过滤，提供申请的份数大于预设申请的份数 \n`)
                                                 break;
                                             }
                                             if(parseFloat(data.data.feedList[i].applyNum) > args_xh.applyNumFilter && data.data.feedList[i].applyNum !== null){
@@ -224,9 +228,9 @@ function try_feedsList(tabId, page){
                                                 console.log(`商品被过滤，已申请试用人数大于预设人数 \n`)
                                                 break;
                                             }
-                                            if(parseFloat(data.data.feedList[i].trialPrice) > args_xh.trialPrice){
+                                            if(parseFloat(data.data.feedList[i].jdPrice) < args_xh.trialPrice){
                                                 $.isPush = false;
-                                                console.log(`商品被过滤，期待价格高于预设价格 \n`)
+                                                console.log(`商品被过滤，京东价格低于预设价格 \n`)
                                                 break;
                                             }
                                             if(data.data.feedList[i].skuTitle.indexOf(filters) !== -1){
