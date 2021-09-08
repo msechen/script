@@ -51,6 +51,8 @@
 11 0,8,15 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
 # jd_opencard14
 11 0,8,15 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
+# jd_opencard15
+15 0,8,15 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
 #京喜领88元红包
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
@@ -156,7 +158,7 @@
 
 ##############默认注释活动##############
 # 京东试用（默认注释，请配合取关脚本使用）
-#10 0 * * *  node /scripts/jd_try.js >> /scripts/logs/jd_try.log 2>&1
+#10 0 * * *  node /scripts/jd_try_new.js >> /scripts/logs/jd_try_new.log 2>&1
 # jd_cash_exchange
 # 0,1,2 0 * * * node /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1
 # 京喜农场
