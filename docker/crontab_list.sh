@@ -69,6 +69,8 @@
 15 0,12 * * * node /scripts/jd_lsj.js >> /scripts/logs/jd_lsj.log 2>&1
 # 店铺签到
 0 2 * * * node /scripts/jd_shop_sign.js >> /scripts/logs/jd_shop_sign.log 2>&1
+#心相印店铺活动  古蜀寻宝
+12 9,15 1-30 9,10 * node /scripts/jd_xinxiangyin.js >> /scripts/logs/jd_xinxiangyin.log
 
 ##############长期活动##############
 # 签到
