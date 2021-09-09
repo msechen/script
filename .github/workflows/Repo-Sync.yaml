@@ -308,18 +308,8 @@ jobs:
           bash Scripts/Sync.sh \
             https://github.com/smiek2221/scripts master \
             https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/smiek2221
-      - name: cdle
+      - name: X1a0He
         run: |
           bash Scripts/Sync.sh \
-            https://github.com/cdle/jd_study main \
-            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/cdle
-      - name: Wenmoux
-        run: |
-          bash Scripts/Sync.sh \
-            https://github.com/Wenmoux/scripts wen \
-            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/Wenmoux
-      - name: panghu
-        run: |
-          bash Scripts/Sync.sh \
-            https://github.com/panghu999/panghu master \
-            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/panghu
+            https://github.com/X1a0He/jd_scripts_fixed main \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/X1a0He
