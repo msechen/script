@@ -74,9 +74,11 @@ class Joy extends Template {
       });
     });
     invokeKey && (api.options.qs.invokeKey = invokeKey);
-    replaceObjectMethod(api, 'doPath', args => {
-      _.assign(api.options.headers, encrypt(api.options.qs.invokeKey));
-      return args;
+    ['doPath', 'doGetPath'].forEach(method => {
+      replaceObjectMethod(api, method, args => {
+        _.assign(api.options.headers, encrypt(api.options.qs.invokeKey));
+        return args;
+      });
     });
     api.options.qs.reqSource = reqSources[this.currentTimes - 1];
 
@@ -256,6 +258,8 @@ class Joy extends Template {
 
   static async doCron(api) {
     const self = this;
+
+    await self.beforeRequest(api);
 
     await handleFeed(+(self.getCurrentEnv('JD_JOY_FEED_INDEX') || 3)); // 按需喂养
 
