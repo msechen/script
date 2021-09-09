@@ -7,7 +7,7 @@ name: jd_opencard14
 on:
     workflow_dispatch:
     schedule:
-        - cron: "10 4,14,16 * * *"
+        - cron: "10 3,13,14 * * *"
     watch:
         types: [started]
     repository_dispatch:

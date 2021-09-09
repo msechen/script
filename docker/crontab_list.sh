@@ -48,13 +48,17 @@
 # MMdou
 21 9 * * * node /scripts/jd_MMdou.js >> /scripts/logs/jd_MMdou.log 2>&1
 # jd_opencard13
-11 0,8,15 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
+11 1,9,16 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
 # jd_opencard14
-11 0,8,15 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
+11 2,10,17 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
 # jd_opencard15
-15 0,8,15 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
+15 3,11,18 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
 # jd_opencard16
 30 9,21 1-21 9 * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
+# jd_opencard17
+30 7,19 1-21 9 * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
+# jd_opencard18
+30 6,15 1-21 9 * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
 #京喜领88元红包
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
@@ -169,3 +173,5 @@
 # 0,1,2 0 * * * node /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1
 # 京喜农场
 #0 9,12,18 * * * node /scripts/jd_jxnc.js >> /scripts/logs/jd_jxnc.log 2>&1
+# 价格保护
+# 48 */8 * * * node /scripts/jd_work_price.js >> /scripts/logs/jd_work_price.log 2>&1
