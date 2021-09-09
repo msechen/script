@@ -73,6 +73,8 @@
 0 2 * * * node /scripts/jd_shop_sign.js >> /scripts/logs/jd_shop_sign.log 2>&1
 #心相印店铺活动  古蜀寻宝
 12 9,15 1-30 9,10 * node /scripts/jd_xinxiangyin.js >> /scripts/logs/jd_xinxiangyin.log
+# 电脑配件抢京豆（一次性脚本）
+0 0 * * * node /scripts/jd_task1.js >> /scripts/logs/jd_task1.log 2>&1
 
 ##############长期活动##############
 # 签到

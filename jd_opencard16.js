@@ -197,7 +197,6 @@ function updateShareUuid(id,type) {
     }
   }
   if(type == 1) $.shareUuidArr[index].count++
-  if($.shareUuidArr[index].count >= 10) console.log(`已邀请${$.shareUuidArr[index].count}`)
   if($.shareUuidArr[index].count >= 10 || type == 0){
     for(let i in $.shareUuidArr){
       if($.shareUuidArr[i] && $.shareUuidArr[i].count < 10){
