@@ -79,6 +79,8 @@
 12 9,15 1-30 9,10 * node /scripts/jd_xinxiangyin.js >> /scripts/logs/jd_xinxiangyin.log
 # 电脑配件抢京豆（一次性脚本）
 0 0 * * * node /scripts/jd_task1.js >> /scripts/logs/jd_task1.log 2>&1
+# 内容鉴赏官
+15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
 
 ##############长期活动##############
 # 签到
