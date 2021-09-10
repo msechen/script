@@ -14,6 +14,7 @@ class JoyRedeem extends Joy {
   static async doMain(api) {
     const self = this;
 
+    await self.beforeRequest(api);
     const petCoin = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(data => _.property('data.petCoin')(data));
     const beanHours = self.loopHours.map(hour => hour + 1);
     const targetHour = self.getNowHour() + 1;
@@ -23,6 +24,9 @@ class JoyRedeem extends Joy {
       return api.log('当前积分不足, 无法兑换');
     }
     api.log(`准备${targetHour}点进行兑换`);
+    await sleepTime([targetHour - 1, 58]);
+    // 进行验证
+    await api.doGetPath('getPetTaskConfig');
     await sleepTime(targetHour);
     api.log('开始兑换');
     await handleExchange();
