@@ -1,14 +1,14 @@
-name: sync-Novl24docker-scripts
+name: sync-AwakeYouwskey-scripts
 on:
   schedule:
-    - cron: '1 */3 * * *'
+    - cron: '1 */30 * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-Novl24docker-scripts
+    types: sync-AwakeYouwskey-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-Novl24docker-scripts
+      - name: sync-AwakeYouwskey-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/Novl24/docker.git"
+          source_repo: "https://github.com/AwakeYou/wskey.git"
           source_branch: "main"
-          destination_branch: "novl24docker"
+          destination_branch: "AwakeYouwskey"
           github_token: ${{ secrets.PAT }}
