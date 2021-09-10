@@ -24,7 +24,7 @@ async function multipleRun(targets, onceDelaySecond = 1) {
 }
 
 async function serialRun(targets, runFn = doRun) {
-  for (const target of targets) {
+  for (const target of _.concat(targets)) {
     await doPolling({
       beforePollFn: () => runFn(..._.concat(target)),
       totalTime: 30 * 6,

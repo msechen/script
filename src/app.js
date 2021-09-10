@@ -155,7 +155,7 @@ async function main() {
       valid: 6,
       run: async () => {
         await doCron(TurnTableFarm);
-        await doRun(Joy);
+        await serialRun(Joy);
       },
     },
     {
@@ -171,7 +171,7 @@ async function main() {
     {
       valid: 9,
       run: async () => {
-        await doRun(Joy);
+        await serialRun(Joy);
         await doRun(DreamFactory);
       },
     },
