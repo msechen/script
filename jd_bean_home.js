@@ -1,7 +1,24 @@
 /*
 领京豆额外奖励&抢京豆
+脚本自带助力码，介意者可将 29行 helpAuthor 变量设置为 false
 活动入口：京东APP首页-领京豆
-cron "33 0-23/4 * * *" jd_bean_home.js, tag:领京豆额外奖励
+更新地址：https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_bean_home.js
+已支持IOS双京东账号, Node.js支持N个京东账号
+脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
+============Quantumultx===============
+[task_local]
+#领京豆额外奖励
+23 1,12,22 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_bean_home.js, tag=领京豆额外奖励, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_bean_home.png, enabled=true
+
+================Loon==============
+[Script]
+cron "23 1,12,22 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_bean_home.js, tag=领京豆额外奖励
+
+===============Surge=================
+领京豆额外奖励 = type=cron,cronexp="23 1,12,22 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_bean_home.js
+
+============小火箭=========
+领京豆额外奖励 = type=cron,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_bean_home.js, cronexpr="23 1,12,22 * * *", timeout=3600, enable=true
  */
 const $ = new Env('领京豆额外奖励');
 
@@ -23,8 +40,13 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/';
 !(async () => {
-   $.newShareCodes = []
-  // $.authorCode = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jd_updateBeanHome.json')
+  $.newShareCodes = []
+  // $.authorCode = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/jd_updateBeanHome.json')
+  // if (!$.authorCode) {
+  //   $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jd_updateBeanHome.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
+  //   await $.wait(1000)
+  //   $.authorCode = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jd_updateBeanHome.json') || []
+  // }
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
@@ -37,7 +59,7 @@ const JD_API_HOST = 'https://api.m.jd.com/';
       $.isLogin = true;
       $.nickName = '';
       message = '';
-      uuid = randomString(40)
+      uuid = randomString()
       await TotalBean();
       console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
@@ -129,10 +151,12 @@ async function jdBeanHome() {
     await $.wait(1000)
     await queryCouponInfo()
     $.doneState = false
+    let num = 0
     do {
       await $.wait(2000)
       await beanTaskList(2)
-    } while (!$.doneState)
+      num++
+    } while (!$.doneState && num < 5)
     await $.wait(2000)
     if ($.doneState) await beanTaskList(3)
 
@@ -207,10 +231,10 @@ async function beanTaskList(type) {
                       let taskList = vo.subTaskVOS[key]
                       if (taskList.status === 1) {
                         $.doneState = false
-                        console.log(`去做[${vo.taskName}]${taskList.title}`)
+                        console.log(`去做[${vo.taskName}]${taskList.title || ''}`)
                         await $.wait(2000)
                         await beanDoTask({"actionType": 1, "taskToken": `${taskList.taskToken}`}, vo.taskType)
-                        if (vo.taskType === 9) {
+                        if (vo.taskType === 9 || vo.taskType === 8) {
                           await $.wait(3000)
                           await beanDoTask({"actionType": 0, "taskToken": `${taskList.taskToken}`}, vo.taskType)
                         }
@@ -250,7 +274,7 @@ function beanDoTask(body, taskType) {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-            if (body.actionType === 1 && taskType !== 9) {
+            if (body.actionType === 1 && (taskType !== 9 && taskType !== 8)) {
               if (data.code === "0" && data.data.bizCode === "0") {
                 console.log(`完成任务，获得+${data.data.score}成长值`)
               } else {
@@ -353,12 +377,12 @@ function sceneGetCoupon() {
     })
   })
 }
-function randomString(e) {
-  e = e || 32;
-  let t = "abcdefhijkmnprstwxyz2345678", a = t.length, n = "";
-  for (i = 0; i < e; i++)
-    n += t.charAt(Math.floor(Math.random() * a));
-  return n
+function randomString() {
+  return Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10) +
+    Math.random().toString(16).slice(2, 10)
 }
 
 function getRandomInt(min, max) {
