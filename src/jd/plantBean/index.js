@@ -36,7 +36,7 @@ class PlantBean extends Template {
   static async handleDoShare(api) {
     const self = this;
 
-    for (const {plantUuid} of self.getShareCodeFn()) {
+    for (const plantUuid of self.getShareCodeFn()) {
       await api.doFormBody('plantBeanIndex', {plantUuid}).then(data => {
         const msg = _.property('data.helpShareRes.promptText')(data);
         msg && api.log(msg);
