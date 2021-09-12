@@ -52,6 +52,12 @@
 # 京喜工厂
 10 * * * * node /scripts/jd_dreamFactory.js >> /scripts/logs/jd_dreamFactory.log 2>&1
 
+# 京喜工厂ts
+30 * * * * cd /scripts && ts-node /scripts/jd_jxgc.ts >> /scripts/logs/jd_jxgc.log 2>&1
+
+# 京喜工厂内部互助ts
+30 * * * * cd /scripts && ts-node /scripts/jd_jxgc_help.ts >> /scripts/logs/jd_jxgc_help.log 2>&1
+
 # 京东家庭号
 1 12,23 * * * node /scripts/jd_family.js >> /scripts/logs/jd_family.log 2>&1
 
