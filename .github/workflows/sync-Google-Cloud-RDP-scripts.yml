@@ -1,4 +1,4 @@
-name: sync-shuyejdbase-scripts
+name: sync-Google-Cloud-RDP-scripts
 on:
   schedule:
     - cron: '1 */3 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-shuyejdbase-scripts
+    types: sync-Google-Cloud-RDP-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-wudongdefeng-scripts
+      - name: sync-Google-Cloud-RDP-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/wuzhi-docker1/jd-base.git"
+          source_repo: "https://github.com/smnahidemon/Google-Cloud-RDP.git"
           source_branch: "main"
-          destination_branch: "shuyejdbase"
+          destination_branch: "Google-Cloud-RDP"
           github_token: ${{ secrets.PAT }}
