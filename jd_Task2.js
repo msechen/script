@@ -1,7 +1,6 @@
 /*
 
-
-
+https://3.cn/102Qir-AW
 
 如需加购请设置环境变量[guaunknownTask_addSku4]为"true"
 
@@ -55,6 +54,8 @@ $.temp = [];
       $.nickName = '';
       console.log(`\n\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
       await run();
+      if($.index == 1 && !$.actorUuid) break
+      if($.outFlag) break
     }
   }
   if(allMessage){
@@ -81,6 +82,10 @@ async function run() {
     $.attrTouXiang = 'https://img10.360buyimg.com/imgzone/jfs/t1/7020/27/13511/6142/5c5138d8E4df2e764/5a1216a3a5043c5d.png'
     await takePostRequest('getUserInfo');
     await takePostRequest('activityContent');
+    if(!$.actorUuid){
+      console.log('获取不到[actorUuid]退出执行，请重新执行')
+      return
+    }
     await takePostRequest('helpFriend');
     $.taskList = []
     $.chance = 0
@@ -149,8 +154,12 @@ async function run() {
       console.log('该账号可能是黑号')
       return
     }
-    console.log(`助力码：${$.actorUuid}`)
+    console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
+    if($.index == 1){
+      $.shareUuid = $.actorUuid
+      console.log(`后面的号都会助力:${$.shareUuid}`)
+    }
   } catch (e) {
     console.log(e)
   }
