@@ -43,16 +43,20 @@
 21 9 * * * node /scripts/jd_MMdou.js >> /scripts/logs/jd_MMdou.log 2>&1
 # jd_opencard13
 11 1,9,16 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
-# jd_opencard14
-11 2,10,17 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
 # jd_opencard15
 15 3,11,18 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
 # jd_opencard16
 30 9,21 1-21 9 * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
 # jd_opencard17
-30 7,19 1-21 9 * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
+30 1,10,19 * * * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
 # jd_opencard18
-30 6,15 1-21 9 * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
+30 2,8,17 * * * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
+# jd_opencard19
+30 3,11,20 * * * node /scripts/jd_opencard19.js >> /scripts/logs/jd_opencard19.log 2>&1
+# jd_opencard20
+30 0,9,18 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
+# jd_opencard21
+30 4,12,21 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
 #京喜领88元红包
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
@@ -75,6 +79,8 @@
 15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
 # jd_Task2
 30 5,16 * * * node /scripts/jd_Task2.js >> /scripts/logs/jd_Task2.log 2>&1
+# 母婴-跳跳乐
+1 0,11,21 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
 
 ##############长期活动##############
 # 签到
