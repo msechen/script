@@ -124,6 +124,10 @@ class Api {
     return this.doGet(functionId, {body}, options);
   }
 
+  doGetBodyMP(functionId, body = {}, options) {
+    return this.doGet(functionId, {body}, _.merge({method: 'POST'}, options));
+  }
+
   doGetUrl(url, options) {
     const _url = new URL(url);
     return this.do(_.merge({

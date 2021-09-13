@@ -69,6 +69,7 @@ const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
 const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = require('./jd/superBrand/day');
+const SuperBrandProduct = require('./jd/superBrand/Product');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -228,6 +229,7 @@ async function main() {
       valid: 22,
       run: async () => {
         await serialRun([
+          SuperBrandProduct,
           [jdFactory, getCookieData()[0]],
           Fruit, Pet,
           Necklace,
