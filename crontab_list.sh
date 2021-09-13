@@ -40,6 +40,9 @@
 # 京喜财富岛
 10 * * * * cd /scripts && ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
 
+# 京喜财富岛互幫
+10 * * * * cd /scripts && ts-node /scripts/jd_cfd_hb.ts >> /scripts/logs/jd_cfd_hb.log 2>&1
+
 # 京喜财富岛提现
 0 * * * * cd /scripts && npx tsc jd_cfd_withdraw.ts && node /scripts/jd_cfd_withdraw.js >> /scripts/logs/jd_cfd_withdraw.log 2>&1
 
@@ -55,7 +58,7 @@
 # 京喜工厂ts
 30 * * * * cd /scripts && ts-node /scripts/jd_jxgc.ts >> /scripts/logs/jd_jxgc.log 2>&1
 
-# 京喜工厂内部互助ts
+# 京喜工厂互助ts
 30 * * * * cd /scripts && ts-node /scripts/jd_jxgc_help.ts >> /scripts/logs/jd_jxgc_help.log 2>&1
 
 # 京东家庭号
