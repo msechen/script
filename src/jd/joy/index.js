@@ -17,7 +17,6 @@ class Joy extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 2;
-  static concurrent = true;
 
   static apiOptions() {
     return {
