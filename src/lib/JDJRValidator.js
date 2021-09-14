@@ -219,6 +219,7 @@ class JDJRValidator {
   }
 
   async run(scene = 'cww', eid = '') {
+    console.log('JDJRValidator run');
     const tryRecognize = async () => {
       const x = await this.recognize(scene, eid);
 
@@ -236,7 +237,10 @@ class JDJRValidator {
     // console.log(pos[pos.length-1][2] -getMoment().valueOf());
     // await sleep(4500);
     await sleep(pos[pos.length - 1][2] - getMoment().valueOf());
+    console.time('JDJRValidator jsonp');
     const result = await JDJRValidator.jsonp('/slide/s.html', {d, ...this.data}, scene);
+    console.timeEnd('JDJRValidator jsonp');
+    console.log('result:' + JSON.stringify(result));
 
     if (result.message === 'success') {
       // console.log(result);

@@ -33,9 +33,13 @@ class Joy extends Template {
       },
       async formatDataFn(data, options) {
         const {errorCode, errorMessage} = data;
+        console.log(errorCode);
         if (errorCode === 'H0001' || (errorMessage || '').match('验证')) {
           return new Promise(async resolve => {
+            console.time('JDJRValidator');
             const {validate} = await new JDJRValidator().run() || {};
+            console.timeEnd('JDJRValidator');
+            console.log('validate: ' + validate);
             if (!validate) return resolve(data);
             _.assign(options.qs, {validate});
             resolve(await this.commonDo(options));
@@ -55,10 +59,14 @@ class Joy extends Template {
   }
 
   static async beforeRequest(api) {
+    console.time('indexUrl');
     const invokeKey = await api.doGetFileContent(indexUrl).then(data => {
+      console.timeEnd('indexUrl');
       const scriptReg = /<script type="text\/javascript" src="([^><]+\/(app_\w+_\.js))">/gm;
       const appScriptUrl = scriptReg.exec(data)[1];
+      console.time('appScriptUrl');
       return api.doGetFileContent(appScriptUrl).then(jsContent => {
+        console.timeEnd('appScriptUrl');
         jsContent = jsContent.replace(/.*(?=".css")/, '');
         const jdDogKey = 'jdDog_jdDog';
         const jdDogIndex = matchMiddle(jsContent, {reg: /"(\d+)":\s*"jdDog_jdDog",/});
@@ -73,6 +81,7 @@ class Joy extends Template {
         });
       });
     });
+    console.log('invokeKey: ' + invokeKey);
     invokeKey && (api.options.qs.invokeKey = invokeKey);
     ['doPath', 'doGetPath'].forEach(method => {
       replaceObjectMethod(api, method, args => {
