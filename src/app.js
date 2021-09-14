@@ -283,7 +283,7 @@ async function main() {
     }
 
     if (nowHour % 5 === 0) {
-      await serialRun(Joy);
+      await serialRun(Joy, doCron);
       await doCron(Health);
     }
 
