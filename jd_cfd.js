@@ -100,20 +100,6 @@ $.appId = 10028;
     $.canHelp = true
     UA = UAInfo[$.UserName]
     num = 0
-    if ($.shareCodes && $.shareCodes.length) {
-      console.log(`\n自己账号内部循环互助\n`);
-      for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
-        console.log(`账号${$.UserName} 去助力 ${$.shareCodes[j]}`)
-        $.delcode = false
-        await helpByStage($.shareCodes[j])
-        await $.wait(2000)
-        if ($.delcode) {
-          $.shareCodes.splice(j, 1)
-          j--
-          continue
-        }
-      }
-    }
     if ($.strMyShareIds && $.strMyShareIds.length && $.canHelp) {
       console.log(`\n助力作者\n`);
       for (let j = 0; j < $.strMyShareIds.length && $.canHelp; j++) {
@@ -123,6 +109,20 @@ $.appId = 10028;
         await $.wait(2000)
         if ($.delcode) {
           $.strMyShareIds.splice(j, 1)
+          j--
+          continue
+        }
+      }
+    }
+    if ($.shareCodes && $.shareCodes.length) {
+      console.log(`\n自己账号内部循环互助\n`);
+      for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
+        console.log(`账号${$.UserName} 去助力 ${$.shareCodes[j]}`)
+        $.delcode = false
+        await helpByStage($.shareCodes[j])
+        await $.wait(2000)
+        if ($.delcode) {
+          $.shareCodes.splice(j, 1)
           j--
           continue
         }
