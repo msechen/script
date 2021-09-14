@@ -806,86 +806,50 @@ app.get('/api/scripts/:dir/:file', function (request, response) {
 });
 
 /**
- * 更新已经存在的人的cookie & 自动添加新用户
+ * 更新已经存在的Cookie & 自动添加新Cookie,代码源自gitupdate大佬
  * */
 app.post('/updateCookie', function (request, response) {
-    if (request.body.cookie) {
-        const cookie = request.body.cookie;
-        const userMsg = request.body.userMsg; //备注
-        const content = getFileContentByName(confFile);
-        const lines = content.split('\n');
-        const pt_pin = cookie.match(/pt_pin=.+?;/)[0];
-        let updateFlag = false;
-        let lastIndex = 0;
-        let maxCookieCount = 0;
-        let CK_AUTO_ADD = true
-        if (content.match(/CK_AUTO_ADD=".+?"/)){CK_AUTO_ADD = content.match(/CK_AUTO_ADD=".+?"/)[0].split('"')[1]}
-        for (var i = 0; i < lines.length; i++) {
-            var line = lines[i];
-            if (line.startsWith('Cookie')) {
-                maxCookieCount = Math.max(
-                    Number(line.split('=')[0].split('Cookie')[1]),
-                    maxCookieCount
-                );
-                lastIndex = i;
-                if (
-                    line.match(/pt_pin=.+?;/) &&
-                    line.match(/pt_pin=.+?;/)[0] == pt_pin
-                ) {
-                    const head = line.split('=')[0];
-                    //const newLine = [head, '=', '"', cookie, '"', '  ##', userMsg].join
-                    const newLine = [head, '=', '"', cookie, '"'].join(
-                        ''
-                    );
-                    lines[i] = newLine;
-                    updateFlag = true;
-	                var lineNext = lines[i+1];
-	                if (
-	                    lineNext.match(/上次更新：/)
-		                ) {
-		                    const bz = lineNext.split('备注：')[1];
-		                	const newLine = ['## ', pt_pin, ' 上次更新：', new Date().toLocaleDateString(), ' 备注：', bz ? bz : userMsg].join('');
-                    		lines[i+1] = newLine;
-	                	} else {
-		                	const newLine = ['## ', pt_pin, ' 上次更新：', new Date().toLocaleDateString(), ' 备注：', userMsg].join('');
-			            	lines.splice(lastIndex + 1, 0, newLine);
-			        }
-                }
-            }
+  if (request.body.cookie) {
+    let { cookie, userMsg, cookieTime } = request.body; //cookie和扫描时填写的备注信息以及扫描时cookie时间戳
+    if (!cookieTime) cookieTime = new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000;
+    const cookieExpireTime = cookieTime + 60 * 60 * 1000 * 24 * 25;//cookie过期的时间戳(这里以25天计算)
+    const content = getFileContentByName(confFile);
+    const lines = content.split('\n');
+    const pt_pin = cookie.match(/pt_pin=.+?;/)[0];
+    let updateFlag = false;
+    let lastIndex = 0;
+    let maxCookieCount = 0;
+    let msg = `${userMsg ? ' #用户备注：' + userMsg + ' 过期时间(25天)：' + new Date(cookieExpireTime).toLocaleDateString() : ' #过期时间(25天)：' + new Date(cookieExpireTime).toLocaleDateString()}`;
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      if (line.startsWith('Cookie')) {
+        maxCookieCount = line.split('=')[0].split('Cookie')[1];
+        lastIndex = i;
+        if (
+            line.match(/pt_pin=.+?;/) &&
+            line.match(/pt_pin=.+?;/)[0] == pt_pin
+        ) {
+          const head = line.split('=')[0];
+          const newLine = [head, '=', '"', cookie, '"', `${msg}`].join('');
+          lines[i] = newLine;
+          updateFlag = true;
         }
-        let CookieCount = Number(maxCookieCount) + 1;
-        if (!updateFlag && CK_AUTO_ADD === 'true') {
-            let newLine = [
-                'Cookie',
-                CookieCount,
-                '=',
-                '"',
-                cookie,
-                '"',
-                //'  #',
-                //userMsg,
-            ].join('');
-            //提交备注
-            lines.splice(lastIndex + 1, 0, newLine);
-            newLine = ['## ', pt_pin, ' 上次更新：', new Date().toLocaleDateString(), ' 备注：', userMsg].join('');
-            lines.splice(lastIndex + 2, 0, newLine);
-        }
-        saveNewConf('config.sh', lines.join('\n'));
-        response.send({
-            err: 0,
-            msg: updateFlag ?
-                `[更新成功]\n当前用户量:(${maxCookieCount})` : CK_AUTO_ADD === 'true' ? `[新的Cookie]\n当前用户量:(${CookieCount})` : `服务器配置不自动添加Cookie\n如需启用请添加export CK_AUTO_ADD="true"`,
-                //`[更新成功]\n本服用户量:(${maxCookieCount})` : `非本服用户\n本服用户量:(${CookieCount})`,
-        });
-    } else {
-        response.send({
-            msg: '参数错误',
-            err: -1
-        });
+      }
     }
+    if (!updateFlag) {
+      const newLine = `Cookie${Number(maxCookieCount) + 1}="${cookie}" ${msg}`;
+      lines.splice(lastIndex + 1, 0, newLine);
+    }
+    saveNewConf('config.sh', lines.join('\n'));
+    response.send({
+      err: 0,
+      msg: updateFlag ? `Cookie更新成功，当前京东账号数量：${Number(maxCookieCount)}个` : `Cookie新增成功，当前京东账号数量：${Number(maxCookieCount) + 1}个`,
+    });
+  } else {
+    response.send({ msg: '参数错误', err: -1 });
+  }
 });
-
-checkConfigFile()
+checkConfigFile();
 
 app.listen(5678, () => {
     console.log('应用正在监听 5678 端口!');
