@@ -88,7 +88,7 @@
 # young
 30 0,4,13,22 * * * node /scripts/jd_young.js >> /scripts/logs/jd_young.log 2>&1
 # 企有此礼
-30 5,13,22 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
+20 0,8 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
 
 ##############长期活动##############
 # 签到
