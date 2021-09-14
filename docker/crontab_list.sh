@@ -57,8 +57,6 @@
 30 0,9,18 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
 # jd_opencard21
 30 4,12,21 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
-# jd_opencard22
-30 5,13,22 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
 #京喜领88元红包
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
@@ -87,6 +85,10 @@
 1 0,11,21 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
 # 明星小店
 12 9,19 10-17 9 * node /scripts/jd_star_shop.js >> /scripts/logs/jd_star_shop.log 2>&1
+# young
+30 0,4,13,22 * * * node /scripts/jd_young.js >> /scripts/logs/jd_young.log 2>&1
+# 企有此礼
+30 5,13,22 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
 
 ##############长期活动##############
 # 签到
