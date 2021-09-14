@@ -78,9 +78,13 @@
 # 内容鉴赏官
 15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
 # jd_Task2
-30 5,16 * * * node /scripts/jd_Task2.js >> /scripts/logs/jd_Task2.log 2>&1
+45 0,16 * * * node /scripts/jd_Task2.js >> /scripts/logs/jd_Task2.log 2>&1
+# jd_Task3
+30 0,12 * * * node /scripts/jd_Task3.js >> /scripts/logs/jd_Task3.log 2>&1
 # 母婴-跳跳乐
 1 0,11,21 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
+# 明星小店
+12 9,19 10-17 9 * node /scripts/jd_star_shop.js >> /scripts/logs/jd_star_shop.log 2>&1
 
 ##############长期活动##############
 # 签到
@@ -179,3 +183,5 @@
 #0 9,12,18 * * * node /scripts/jd_jxnc.js >> /scripts/logs/jd_jxnc.log 2>&1
 # 价格保护
 # 48 */8 * * * node /scripts/jd_work_price.js >> /scripts/logs/jd_work_price.log 2>&1
+# 惊喜红包返现助力
+# 48 20 * * * node /scripts/jx_aid_cashback.js >> /scripts/logs/jx_aid_cashback.log 2>&1
