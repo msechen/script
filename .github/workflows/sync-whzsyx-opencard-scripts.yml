@@ -1,4 +1,4 @@
-name: sync-longzhuzhu-scripts
+name: sync-whzsyx-opencard-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-longzhuzhu-scripts
+    types: sync-whzsyx-opencard-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-longzhuzhu-scripts
+      - name: sync-whzsyx-opencard-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/longzhuzhu/nianyu.git"
+          source_repo: "https://github.com/whzsyx/opencard.git"
           source_branch: "main"
-          destination_branch: "longzhuzhu"
+          destination_branch: "whzsyx-opencard"
           github_token: ${{ secrets.PAT }}
