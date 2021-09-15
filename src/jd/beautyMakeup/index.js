@@ -229,6 +229,7 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.product_producing);
       await sendMessage(wsMsg.product_lists);
       await sendMessage(wsMsg.get_package);
+      await sendMessage(wsMsg.check_up);
       await keepOnline(10);
       await updateMaterialPositionInfo();
 
@@ -397,7 +398,6 @@ class BeautyMakeup extends Template {
 
     // 三餐签到
     async function handleCheckUpReceive() {
-      await sendMessage(wsMsg.check_up);
       if (_.isEmpty(checkUpData['check_up'])) return;
       const targetData = _.last(checkUpData['check_up']);
       if (targetData['receive_status'] === 1) return;
@@ -434,6 +434,7 @@ class BeautyMakeup extends Template {
     async function handleAnswer() {
       if (checkUpData['today_answered']) return;
       await sendMessage(wsMsg.get_question);
+      if (_.isEmpty(questionData)) return;
       wsMsg.submit_answer.msg.args.commit = _.fromPairs(questionData.map(({id, answers}) => [id, +answers]));
       await sendMessage(wsMsg.submit_answer);
     }
