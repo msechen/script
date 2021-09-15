@@ -8,6 +8,7 @@ const DEFAULT_OPTION = {
   method: 'POST',
   json: true,
   uri: requestURI,
+  timeout: 1000 * 60 * 5,
 };
 
 const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
