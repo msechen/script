@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, matchMiddle, replaceObjectMethod} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, matchMiddle, replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const Cookie = require('../../lib/cookie');
@@ -299,5 +299,7 @@ async function doFeed(api, taskType) {
 async function getFriends(api) {
   return api.doGetPath('getFriends', {itemsPerPage: 20}).then(data => data['datas']) || [];
 }
+
+singleRun(Joy, ['start', 'cron']).then();
 
 module.exports = Joy;

@@ -214,7 +214,7 @@ class JDJRValidator {
     this.data = {};
     this.x = 0;
     this.t = getMoment().valueOf();
-    this.maxValidateTimes = 20;
+    this.maxValidateTimes = 50;
     this.validateTimes = 0;
   }
 
