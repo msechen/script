@@ -36,6 +36,7 @@ const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
 const StatisticsBean = require('./jd/statistics/bean');
+const StatisticsRedEnvelope = require('./jd/statistics/RedEnvelope');
 const Ssjj = TemporarilyOffline || require('./jd/ssjj'); // 没什么收益, 所以进行移除
 const Trump = require('./jd/trump');
 const Smfe = require('./jd/smfe');
@@ -106,8 +107,9 @@ async function main() {
           SignShop,
           EarnJingDou,
 
-          // 统计豆豆
+          // 统计
           StatisticsBean,
+          StatisticsRedEnvelope,
 
           // 常驻活动
           SignBeanHome, SignRemote, Sign,
@@ -235,6 +237,7 @@ async function main() {
           Necklace,
           EarnCoins,
           SuperMarket,
+          StatisticsRedEnvelope,
         ]);
       },
     },

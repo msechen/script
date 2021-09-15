@@ -34,6 +34,7 @@
     "start:SuperBrandDay": "node src/jd/superBrand/day.js start",
     "start:CashRedeem": "node src/jd/cash/redeem.js start",
     "start:LiveRedEnvelopeRain": "node src/jd/live/RedEnvelopeRain.js start",
+    "start:StatisticsRedEnvelope": "node src/jd/statistics/RedEnvelope.js start",
     "start:SuperMarketRedeem": "node src/jd/superMarket/redeem.js start",
     "start:EarnCoinsRedeem": "node src/jd/lite/EarnCoinsRedeem.js start",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
