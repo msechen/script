@@ -39,10 +39,10 @@ class Fruit extends Template {
   static async doMain(api, shareCodes) {
     const self = this;
     const needHarvest = false;
+    const waterTimes = 0;
 
     // 指定浇水次数
-    const waterTimes = +(process.env.JD_FRUIT_WATER_TIMES || 0);
-    if (waterTimes) return handleWaterGoodForFarm(waterTimes);
+    if (waterTimes) await handleWaterGoodForFarm(waterTimes);
     // 浇水到成熟
     if (needHarvest) return logFarmInfo(true);
 
@@ -62,14 +62,10 @@ class Fruit extends Template {
 
     patchShareCodeWithDefault();
 
-    // 仅执行一次
-    if (self.getNowHour() < 5) {
-      await handleDoShare();
-    }
-
     !funCollectionHasLimit && await getFullCollectionReward();
     await handleGetShareFinished();
     await handleDoTaskList();
+    await handleDoShare();
     await handleClockIn();
     await logFarmInfo();
 
@@ -85,6 +81,8 @@ class Fruit extends Template {
     }
 
     async function handleDoShare() {
+      // 仅执行一次
+      if (self.doneShareTask) return;
       for (const shareCode of shareCodes) {
         await sleep(2);
         await handleInitForFarm(shareCode).then(data => {
@@ -117,6 +115,7 @@ class Fruit extends Template {
       } = taskData;
 
       if (!todaySigned) {
+        self.doneShareTask = false;
         await api.doFormBody('signForFarm');
       }
 

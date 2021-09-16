@@ -23,7 +23,7 @@ class Pet extends Template {
       };
       rewardLog(data);
       return data;
-    }
+    },
   };
 
   static isSuccess(data) {
@@ -44,11 +44,8 @@ class Pet extends Template {
 
     patchShareCodeWithDefault();
 
-    // 仅执行一次
-    if (self.getNowHour() < 5) {
-      await handleDoShare();
-    }
     await handleDoTaskList();
+    await handleDoShare();
     await handlePetSport();
     await handleGetHelpAddedBonus();
     await logInfo();
@@ -76,6 +73,8 @@ class Pet extends Template {
     }
 
     async function handleDoShare() {
+      // 仅执行一次
+      if (self.doneShareTask) return;
       for (const shareCode of shareCodes) {
         await api.doFormBody('slaveHelp', {shareCode}).then(data => {
           if (self.isSuccess(data)) {
@@ -100,6 +99,7 @@ class Pet extends Template {
       const needGetReward = o => o.status === 1;
 
       if (notFinished(signInit)) {
+        self.doneShareTask = false;
         await api.doFormBody('getSignReward');
       }
       if (notFinished(threeMealInit) && (threeMealInit['timeRange'] !== -1)) {

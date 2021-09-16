@@ -31,7 +31,6 @@ jobs:
           NOT_RUN: '${{ secrets.NOT_RUN }}'
           SEVER_CHAN_KEY: '${{ secrets.SEVER_CHAN_KEY }}'
           MAILER_TRANSPORTER_OPTION: '${{ secrets.MAILER_TRANSPORTER_OPTION }}'
-          JD_FRUIT_WATER_TIMES: '${{ secrets.JD_FRUIT_WATER_TIMES }}'
           JD_FRUIT_WATER_DISABLE: '${{ secrets.JD_FRUIT_WATER_DISABLE }}'
           JD_LIVE_RED_ENVELOPE_RAIN_STOP: '${{ secrets.JD_LIVE_RED_ENVELOPE_RAIN_STOP }}'
           JD_CRAZY_JOY_STOP_UPGRADE: '${{ secrets.JD_CRAZY_JOY_STOP_UPGRADE }}'
