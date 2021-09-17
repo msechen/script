@@ -2,6 +2,8 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 
+const biz = 'interact';
+
 class Earn extends Template {
   static scriptName = 'Earn';
   static scriptNameDesc = '赚赚小程序-赚好礼';
@@ -13,13 +15,30 @@ class Earn extends Template {
     signData: {
       appid: 'wh5',
       loginType: '1',
-      loginWQBiz: 'interact',
+      loginWQBiz: biz,
     },
-    formatDataFn: data => data,
   };
 
   static isSuccess(data) {
     return this._.property('code')(data) === '0';
+  }
+
+  static async beforeRequest(api) {
+    const authToken = await getAuthToken();
+    if (!authToken) return true;
+    api.cookie = `wq_auth_token=${authToken}`;
+
+    // 获取 wq_auth_token
+    async function getAuthToken() {
+      return api.commonDo({
+        uri: 'https://wq.jd.com/pinbind/GetTokenForWxApp',
+        method: 'GET',
+        qs: {biz},
+        headers: {
+          referer: 'http://wq.jd.com/wxapp/pages/hd-interaction/index/index',
+        },
+      }).then(data => data.token);
+    }
   }
 
   static apiNamesFn() {
