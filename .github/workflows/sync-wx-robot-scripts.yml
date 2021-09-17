@@ -1,4 +1,4 @@
-name: sync-exp-scripts
+name: sync-wx-robot-scripts
 on:
   schedule:
     - cron: '5 */3 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-exp-scripts
+    types: sync-wx-robot-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-exp-scripts
+      - name: sync-wx-robot-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/RookieDrummer/exp.git"
-          source_branch: "main"
-          destination_branch: "exp"
+          source_repo: "https://github.com/kollyQAQ/wx-robot.git"
+          source_branch: "master"
+          destination_branch: "wx-robot"
           github_token: ${{ secrets.PAT }}
