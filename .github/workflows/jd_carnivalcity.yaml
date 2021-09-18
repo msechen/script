@@ -1,17 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_opencard13
-
+name: 手机狂欢城📳
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "10 5,15,17 * * *"
+        - cron: "0 0-18/6 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_opencard13
+        types: jd_carnivalcity
 
 jobs:
     build:
@@ -27,7 +26,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【jd_opencard13】"
+            - name: "运行【手机狂欢城】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -48,4 +47,6 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_opencard13.js
+                  JD_CITY_EXCHANGE: ${{ github.event.client_payload.JD_CITY_EXCHANGE || secrets.JD_CITY_EXCHANGE }}
+                  JD818_SHARECODES: ${{ github.event.client_payload.JD818_SHARECODES || secrets.JD818_SHARECODES }}
+                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_carnivalcity.js
