@@ -202,8 +202,8 @@
 # 拼购抽奖
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_IndustryLottery.ts >> /scripts/logs/jd_IndustryLottery.log 2>&1
 
-# 这是一个只会助力的脚本，因为没打工仔了
-0,30 21-23 * * * cd /scripts && ts-node /scripts/jd_jxgc_help.ts >> /scripts/logs/jd_jxgc_help.log 2>&1
-
 #女装盲盒
 35 1,23 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
+
+# ddWorld
+0 0,17 * * * cd /scripts && ts-node /scripts/jd_ddWorld.ts >> /scripts/logs/jd_ddWorld.log 2>&1
