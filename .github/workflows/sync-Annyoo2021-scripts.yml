@@ -27,5 +27,5 @@ jobs:
         with:
           source_repo: "https://github.com/Annyoo2021/scripts.git"
           source_branch: "main"
-          destination_branch: "Annyoo2021 "
+          destination_branch: "Annyoo2021"
           github_token: ${{ secrets.PAT }}
