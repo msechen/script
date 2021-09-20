@@ -1,14 +1,14 @@
-name: sync-lqrqwjdbase-scripts
+name: sync-Annyoo2021-scripts
 on:
   schedule:
-    - cron: '1 */3 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-lqrqwjdbase-scripts
+    types: sync-Annyoo2021-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-lqrqwjdbase-scripts
+      - name: sync-Annyoo2021-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/lqrqw/jd-base.git"
-          source_branch: "master"
-          destination_branch: "lqrqwjdbase"
+          source_repo: "https://github.com/Annyoo2021/scripts.git"
+          source_branch: "main"
+          destination_branch: "Annyoo2021 "
           github_token: ${{ secrets.PAT }}
