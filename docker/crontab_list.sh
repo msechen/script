@@ -43,22 +43,16 @@
 21 9 * * * node /scripts/jd_MMdou.js >> /scripts/logs/jd_MMdou.log 2>&1
 # jd_opencard15
 15 2,10,17 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
-# jd_opencard16
-30 3,11,18 1-21 9 * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
 # jd_opencard17
 45 4,12,19 * * * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
 # jd_opencard18
 30 2,8,17 * * * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
 # jd_opencard19
 15 6,14,21 * * * node /scripts/jd_opencard19.js >> /scripts/logs/jd_opencard19.log 2>&1
-# jd_opencard20
-30 7,15,22 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
 # jd_opencard21
 45 8,16,23 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
 # jd_opencard22
 0 1,5,16 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
-# jd_opencard23
-15 1,10,18 * * * node /scripts/jd_opencard23.js >> /scripts/logs/jd_opencard23.log 2>&1
 #京喜领88元红包
 30 1,6,12,15,18 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #京喜首页签到
