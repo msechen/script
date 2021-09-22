@@ -88,7 +88,7 @@ appyq = $.getdata('appyq');
 for (i = 0; i < app_soy_ycsd_jwt.length; i++) {
     soy_ycsd_jwt=app_soy_ycsd_jwt[i]
     soy_ycsd_message=app_soy_ycsd_message[i]
-    
+    soy_ycsd_banding()
     soy_qmrd_headers={"Host": "api.ycshidai.com",
     "Accept-Encoding": "identity",
     "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 10; SKW-A0 MIUI/V11.0.4.0.JOYUI)",
@@ -224,6 +224,20 @@ function getRandomName(NameLength){
 //取范围随机数
 function delayed(S,L){
 return Math.floor(Math.random() * (L - S + 1)) + S;  
+}
+
+function soy_ycsd_banding() {
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `http://api.ycshidai.com/referrer/banding?parent_id=645847&jwt=${soy_ycsd_jwt}`,
+            headers : {"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 7.1.2; PCLM10 Build/NZH54D)","Host": "api.ycshidai.com","Content-Type": "application/x-www-form-urlencoded"},
+            body : ``,
+        }, async(error, response, data) => {
+            
+             
+            resolve()
+        })
+    })
 }
 
 function Env(t, e) {
