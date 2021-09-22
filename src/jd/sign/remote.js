@@ -13,7 +13,7 @@ class SignRemote extends RemoteScript {
     ];
     // 新增签到
     const addSignList = [
-      // [act, name]
+      ['3X4HMWmUigG689ZUZAg3Yo8Wtqf5', '小家电福利社'],
     ];
     // 兼容remote脚本中的输出
     if (!cookie.endsWith(';')) {
@@ -22,7 +22,9 @@ class SignRemote extends RemoteScript {
     const replaceArray = [
       [/var Key = ''/, `var Key = '${cookie}'`],
       ...disableActivities.map(v => [`disable("${v}")`, 'true']),
-      ...addSignList.map(([act, name]) => ['await JingDongSpeedUp(stop);', `await JDUserSignPre(stop, 'key', '${name}', '${act}');await JingDongSpeedUp(stop);`]),
+      ...addSignList.map(([act, name]) => ['JingDongBean(stop),', `JDUserSignPre(stop, 'key', '${name}', '${act}'),JingDongBean(stop),`]),
+      // 屏蔽cookie的本地保存, 避免重复执行
+      ['var $nobyda = nobyda();', 'var $nobyda = nobyda();$nobyda.write = () => {};'],
     ];
 
     for (const [oldVal, newVal] of replaceArray) {
