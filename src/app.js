@@ -71,6 +71,7 @@ const GoldCreator = require('./jd/goldCreator');
 const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
+const DDSJ = require('./jd/ddsj');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -126,6 +127,7 @@ async function main() {
 
           // 偶尔会有的活动
           SuperBrandDay,
+          DDSJ,
 
           // 极速版
           LiteSign, SpringReward, LiteCashSign, EarnCoins,

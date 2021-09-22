@@ -95,13 +95,13 @@ class Template extends Base {
 
     await self.doApi(api, 'beforeGetTaskList');
 
+    let taskDoneTimes = 0;
+    await _doTask();
+
     if (!self.doneShareTask) {
       self.isFirstLoop() && await self.handleUpdateCurrentShareCode(api);
       await self.handleDoShare(api);
     }
-
-    let taskDoneTimes = 0;
-    await _doTask();
 
     if (self.isLastLoop()) {
       await self.doApi(api, 'afterGetTaskList');
