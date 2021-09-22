@@ -5,9 +5,7 @@ const _ = require('lodash');
 
 let activityNotStart = false;
 
-writeFileJSON([], '../../../charles/form/jd/zoo_collectProduceScore.json', __dirname);
-const {zoo: _z} = require('../../../charles/api');
-const allSS = _z.zoo_collectProduceScore.map(o => JSON.parse(JSON.parse(o.body).ss));
+let allSS = [];
 let sIndex = require('./localData.json').sIndex || 0;
 
 // 20210524-20210618
@@ -27,15 +25,32 @@ class Zoo extends Template {
     },
   };
 
+  // 是否读取本地数据
+  static needEncrypt = true;
   // 自定义前缀
   static functionIdPrefix = 'zoo';
+  // 初始化ss数据
+  static ssInitData = {};
+  static skipTaskIds = [2/*邀请好友助力*/, 14/*去开通甄选品牌会员*/];
+  // 自动解锁
+  static autoUnlock = true;
+  // 独立签到接口
+  static independentSign = true;
 
+  // TODO repalce api
   static doFormBody(api, functionId, body) {
     return api.doFormBody(`${this.functionIdPrefix}_${functionId}`, body);
   }
 
+  static initAllSS() {
+    writeFileJSON([], '../../../charles/form/jd/zoo_collectProduceScore.json', __dirname);
+    const {zoo: _z} = require('../../../charles/api');
+    allSS = _z.zoo_collectProduceScore.map(o => JSON.parse(JSON.parse(o.body).ss));
+  }
+
   static async getSS(api, isInit) {
     const self = this;
+    _.isEmpty(allSS) && self.initAllSS();
     if (api.secretp) {
       return _get();
     }
@@ -47,7 +62,7 @@ class Zoo extends Template {
       return activityNotStart = true;
     }
     api.secretp = secretp;
-    if (isInit) {
+    if (isInit && self.needEncrypt) {
       api.needLocalRun = true;
       // await self.doFormBody(api, 'collectProduceScore', {ss: JSON.stringify({secretp})}).then(data => {
       //   if (!self.isSuccess(data)) {
@@ -69,19 +84,38 @@ class Zoo extends Template {
         }
         _.assign(result, allSS[sIndex]);
       }
-      return JSON.stringify(_.assign(result, _.pick(api, 'secretp')));
+      return JSON.stringify(_.assign(result, self.ssInitData, _.pick(api, 'secretp')));
     }
   }
 
+  static async logInfo(api) {
+    const self = this;
+    await self.doFormBody(api, 'getHomeData').then(data => {
+      api.log(`当前获取到的瓜分票数: ${_.property('data.result.homeMainInfo.raiseInfo.redNum')(data)}`);
+    });
+  }
+
+  static async getRaiseBody(api) {}
+
   static async doMain(api, shareCodes) {
     const self = this;
+
+    api.formatData = function (data) {
+      const {bizCode, bizMsg} = data.data;
+      if (bizCode === -1002 || bizMsg.match('火爆')) {
+        const msg = `bizCode: ${bizCode}, bizMsg: ${bizMsg}`;
+        this.log(msg);
+        throw new Error(msg);
+      }
+      return data;
+    };
 
     self.initShareCodeTaskList(shareCodes || []);
 
     await self.getSS(api, true);
     if (activityNotStart) return;
 
-    if (self.isFirstLoop()) {
+    if (self.isFirstLoop() && self.independentSign) {
       const todayStatus = await self.doFormBody(api, 'getSignHomeData').then(data => _.property('data.result.todayStatus')(data));
       (todayStatus === 0) && await self.doFormBody(api, 'sign');
     }
@@ -90,13 +124,13 @@ class Zoo extends Template {
     // 小程序
     await handleDoTask({appSign: 2}, 1);
     if (self.isLastLoop()) {
-      api.log(`当前的sIndex: ${sIndex}, allSS总长度为: ${allSS.length}`);
-      writeFileJSON({sIndex}, './localData.json', __dirname);
-      await handleRaise();
+      if (api.needLocalRun) {
+        api.log(`当前的sIndex: ${sIndex}, allSS总长度为: ${allSS.length}`);
+        writeFileJSON({sIndex}, './localData.json', __dirname);
+      }
+      self.autoUnlock && await handleRaise();
 
-      await self.doFormBody(api, 'getHomeData').then(data => {
-        api.log(`当前获取到的瓜分票数: ${_.property('data.result.homeMainInfo.raiseInfo.redNum')(data)}`);
-      });
+      await self.logInfo(api);
     }
 
     async function handleDoTask(body, times = 0) {
@@ -120,7 +154,7 @@ class Zoo extends Template {
 
       for (const task of taskVos) {
         let {taskId, status, times, maxTimes, waitDuration} = task;
-        if ([2/*邀请好友助力*/, 14/*去开通甄选品牌会员*/].includes(taskId) || status === 2) continue;
+        if (self.skipTaskIds.includes(taskId) || status === 2) continue;
         let list = getList(task);
         if (_.isEmpty(list)) {
           const feedTask = await self.doFormBody(api, 'getFeedDetail', {taskId}).then(data => _.property('data.result.addProductVos[0]')(data));
@@ -165,7 +199,9 @@ class Zoo extends Template {
     }
 
     async function handleRaise() {
-      await self.doFormBody(api, 'raise').then(async data => {
+      const body = await self.getRaiseBody(api);
+      if (body === false) return;
+      await self.doFormBody(api, 'raise', body).then(async data => {
         self.isSuccess(data) && await handleRaise();
       });
     }
