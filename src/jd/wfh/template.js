@@ -59,7 +59,7 @@ class HarmonyTemplate extends Template {
           const result = [];
 
           for (let {
-            subTitleName,
+            subTitleName = '',
             status,
             taskId,
             maxTimes,
