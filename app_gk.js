@@ -223,7 +223,7 @@ function soy_gk_getDiamonds() {
             let result = JSON.parse(data)
             if(result.code==0){
                 Diamonds= ~~result.data.customer.diamondBalance
-                if(Diamonds<=10){
+                if(Diamonds<10){
                  console.log(`\n【${$.name}---查询剩余钻石】: 不足10钻石,无法提现`)   
                 }else{
                   await soy_gk_Withdrawal()  
