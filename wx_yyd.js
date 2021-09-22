@@ -99,12 +99,14 @@ appyq = $.getdata('appyq');
 }
 }
     console.log(
-        `================== 脚本执行 - 北京时间(UTC+8)：${new Date(
+        `=== 脚本执行 - 北京时间：${new Date(
         new Date().getTime() +
         new Date().getTimezoneOffset() * 60 * 1000 +
         8 * 60 * 60 * 1000
-      ).toLocaleString()} =====================\n`
+      ).toLocaleString()} ===\n`
     );
+    console.log(`===【共 ${app_soy_v_yyd_authorization.length} 个账号】===`)
+    
     if(!apptz){apptz=true};
     if(!apptx){apptx=true};
       
@@ -161,19 +163,18 @@ function soy_v_yyd_TX() {
                 "authorization": soy_v_yyd_authorization,
                 "Content-Type": "application/json;charset=UTF-8",
                 "X-Requested-With": "com.tencent.mm",
-                "Referer": "http://22.iprograms.cn/?state=withdraw",
+                //"Referer": "http://22.iprograms.cn/?state=withdraw",
             },
             body : `{"money_id":2,"mode":"wechat"}`,
         }, async(error, response, data) => {
             //console.log(data)
             let result = JSON.parse(data)
-            console.log(`\n【${$.name}---提现】: ${result.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 提现】: ${result.message}`)
 
             resolve()
         })
     })
 }
-
 
 function soy_v_yyd_sign() {
     return new Promise((resolve, reject) => {
@@ -190,9 +191,9 @@ function soy_v_yyd_sign() {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.data.code==0){
-                console.log(`\n【${$.name}---极速签到】: 签到成功`)
+                console.log(`\n【${$.name}---账号 ${$.index} 极速签到】: 签到成功`)
             }else{
-                console.log(`\n【${$.name}---极速签到】: ${result.data.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 极速签到】: ${result.data.msg}`)
             }
             resolve()
         })
@@ -210,10 +211,10 @@ function soy_v_yyd_get_js_record_id(){
             let result = JSON.parse(data)
             if(result.data.code==0){
                 record_id=result.data.data.record_id
-                console.log(`\n【${$.name}---获取文章ID】: ${record_id}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 获取文章ID】: ${record_id}`)
                 await soy_v_yyd_js_update()
             }else{
-                console.log(`\n【${$.name}---获取文章ID】: ${result.data.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 获取文章ID】: ${result.data.msg}`)
                 //console.log(`\n【${$.name}】: 将要做极速阅读任务`)
             }
             resolve()
@@ -221,6 +222,7 @@ function soy_v_yyd_get_js_record_id(){
     })
 
 }
+
 function soy_v_yyd_js_update() {
     stay=Math.floor(Math.random()*(11000-6000+1000)+6000)
     return new Promise((resolve, reject) => {
@@ -237,12 +239,12 @@ function soy_v_yyd_js_update() {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.data.code==0){
-                console.log(`\n【${$.name}---阅读文章】: 阅读ID ${record_id} 获得 ${result.data.data.money} 元`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读文章】: 阅读ID ${record_id} 获得 ${result.data.data.money} 元`)
                 //console.log(stay,stay+Math.floor(Math.random()*(5000-2000+1000)+2000))
                 await $.wait(stay+Math.floor(Math.random()*(5000-2000+1000)+2000))
                 await soy_v_yyd_get_js_record_id()
             }else{
-                console.log(`\n【${$.name}---阅读文章】: ${result.data.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读文章】: ${result.data.msg}`)
             }
             resolve()
         })
@@ -256,18 +258,23 @@ function soy_v_yyd_get_record_id(){
             headers : soy_v_yyd_headers,
             //body : "",
         }, async(error, response, data) => {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data)
-            if(result.data.code==0){
+            if(result.code==200){
+               if(result.data.code==0){
                 record_id=result.data.data.record_id
-                console.log(`\n【${$.name}---获取文章ID】: ${record_id}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 获取文章ID】: ${record_id}`)
                 await soy_v_yyd_update()
             }else{
-                console.log(`\n【${$.name}---获取文章ID】: ${result.data.msg}`)
-                console.log(`\n【${$.name}】: 将要做极速阅读任务`)
+                console.log(`\n【${$.name}---账号 ${$.index} 获取文章ID】: ${result.data.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 】: 将要做极速阅读任务`)
                 await soy_v_yyd_sign()
                 await soy_v_yyd_get_js_record_id()
+            } 
+            }else{
+               console.log(`\n【${$.name}---账号 ${$.index} 获取文章ID】: ${result.message}`) 
             }
+            
             resolve()
         })
     })
@@ -290,12 +297,12 @@ function soy_v_yyd_update() {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.data.code==0){
-                console.log(`\n【${$.name}---阅读文章】: 阅读ID ${record_id} 获得 ${result.data.data.money} 元`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读文章】: 阅读ID ${record_id} 获得 ${result.data.data.money} 元`)
                 //console.log(stay,stay+Math.floor(Math.random()*(5000-2000+1000)+2000))
                 await $.wait(stay+Math.floor(Math.random()*(5000-2000+1000)+2000))
                 await soy_v_yyd_get_record_id()
             }else{
-                console.log(`\n【${$.name}---阅读文章】: ${result.data.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 阅读文章】: ${result.data.msg}`)
             }
             resolve()
         })
