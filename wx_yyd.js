@@ -256,7 +256,7 @@ function soy_v_yyd_get_record_id(){
             headers : soy_v_yyd_headers,
             //body : "",
         }, async(error, response, data) => {
-            //console.log(data)
+            console.log(data)
             let result = JSON.parse(data)
             if(result.data.code==0){
                 record_id=result.data.data.record_id
