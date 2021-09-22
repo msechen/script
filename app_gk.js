@@ -2,8 +2,6 @@
 
 软件名称:雇客
 
-收益:好像0.3-0.5天
-
 需要认证,好像支付宝授权即可,忘记了
 
 项目注册地址:https://gitee.com/soy-tool/app-script/blob/master/picture/gk.png
