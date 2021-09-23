@@ -207,3 +207,6 @@
 
 # ddWorld
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_ddWorld.ts >> /scripts/logs/jd_ddWorld.log 2>&1
+
+# 京东魔方
+0 0,17 * * * cd /scripts && ts-node /scripts/jd_mofang.ts >> /scripts/logs/jd_mofang.log 2>&1
