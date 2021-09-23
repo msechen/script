@@ -50,6 +50,45 @@ if ($.isNode()) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
+  let res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/ddwj.json')
+  if (!res) {
+    $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ddwj.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
+    await $.wait(1000)
+    res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ddwj.json')
+  }
+  $.shareCodes = [...(res || []), ...$.shareCodes]
+  for(let i = 0; i < cookiesArr.length; i++){
+     cookie = cookiesArr[i];
+     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+     message = ''
+     $.isLogin = true;
+     $.canHelp = true;
+     $.index = i + 1;      
+     await TotalBean();
+     console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
+     if (!$.isLogin) {
+       $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+
+       if ($.isNode()) {
+         await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+       }
+       continue
+     }
+     if ($.shareCodes && $.shareCodes.length) {
+       console.log(`\n账号循环互助\n`);
+       for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
+         console.log(`账号${$.UserName} 去助力助力码 ${$.shareCodes[j]}`)
+         $.success = false
+         await getsecretp()
+         await dosupport($.shareCodes[j])
+         await $.wait(2000)
+         if ($.success) $.shareCodes[j].num++
+       }
+     }
+     //await getsecretp()
+     //await control()
+     //await userScore()
+}
   for (let i =0; i < cookiesArr.length; i++) {
       cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -74,34 +113,6 @@ if ($.isNode()) {
        await zy()
        await userScore()
    }
-   let res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/ddwj.json')
-   if (!res) {
-     $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ddwj.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
-     await $.wait(1000)
-     res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ddwj.json')
-   }
-   $.shareCodes = [...(res || []), ...$.shareCodes]
-   for(let i = 0; i < cookiesArr.length; i++){
-      cookie = cookiesArr[i];
-      $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-      message = ''
-      $.isLogin = true;
-      $.canHelp = true;
-      $.index = i + 1;
-      if ($.shareCodes && $.shareCodes.length) {
-        console.log(`\n账号循环互助\n`);
-        for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
-          console.log(`账号${$.UserName} 去助力助力码 ${$.shareCodes[j]}`)
-          $.success = false
-          await dosupport($.shareCodes[j])
-          await $.wait(2000)
-          if ($.success) $.shareCodes[j].num++
-        }
-      }
-      //await getsecretp()
-      //await control()
-      //await userScore()
-}
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
