@@ -49,8 +49,8 @@
 30 2,8,17 * * * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
 # jd_opencard19
 15 6,14,21 * * * node /scripts/jd_opencard19.js >> /scripts/logs/jd_opencard19.log 2>&1
-# jd_opencard21
-45 8,16,23 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
+# jd_opencard16
+30 3,9,16 * * * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
 # jd_opencard22
 0 1,5,16 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
 #京喜领88元红包
