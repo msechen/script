@@ -2,6 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
+const {replaceObjectMethod} = require('../../lib/common');
 
 let activityNotStart = false;
 
@@ -15,6 +16,7 @@ class Zoo extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static isWh5 = true;
+  static doneShareTask = true;
 
   static apiOptions = {
     options: {
@@ -34,12 +36,21 @@ class Zoo extends Template {
   static skipTaskIds = [2/*邀请好友助力*/, 14/*去开通甄选品牌会员*/];
   // 自动解锁
   static autoUnlock = true;
-  // 独立签到接口
-  static independentSign = true;
 
-  // TODO repalce api
-  static doFormBody(api, functionId, body) {
-    return api.doFormBody(`${this.functionIdPrefix}_${functionId}`, body);
+  static async logInfo(api) {
+    await api.doFormBody('getHomeData').then(data => {
+      api.log(`当前获取到的瓜分票数: ${_.property('data.result.homeMainInfo.raiseInfo.redNum')(data)}`);
+    });
+  }
+
+  // 获取解锁body
+  static async getRaiseBody(api) {}
+
+  // 签到
+  static async handleDoSign(api) {
+    if (!self.isFirstLoop()) return;
+    const todayStatus = await api.doFormBody('getSignHomeData').then(data => _.property('data.result.todayStatus')(data));
+    (todayStatus === 0) && await api.doFormBody('sign');
   }
 
   static initAllSS() {
@@ -57,14 +68,14 @@ class Zoo extends Template {
     const {
       activityInfo: {activityStartTime, activityEndTime, nowTime},
       homeMainInfo: {secretp},
-    } = await this.doFormBody(api, 'getHomeData').then(data => _.property('data.result')(data));
+    } = await api.doFormBody('getHomeData').then(data => _.property('data.result')(data));
     if (nowTime < activityStartTime || nowTime > activityEndTime) {
       return activityNotStart = true;
     }
     api.secretp = secretp;
     if (isInit && self.needEncrypt) {
       api.needLocalRun = true;
-      // await self.doFormBody(api, 'collectProduceScore', {ss: JSON.stringify({secretp})}).then(data => {
+      // await api.doFormBody( 'collectProduceScore', {ss: JSON.stringify({secretp})}).then(data => {
       //   if (!self.isSuccess(data)) {
       //     api.needLocalRun = true;
       //   }
@@ -88,41 +99,60 @@ class Zoo extends Template {
     }
   }
 
-  static async logInfo(api) {
+  static async beforeRequest(api) {
     const self = this;
-    await self.doFormBody(api, 'getHomeData').then(data => {
-      api.log(`当前获取到的瓜分票数: ${_.property('data.result.homeMainInfo.raiseInfo.redNum')(data)}`);
+    replaceObjectMethod(api, 'doFormBody', ([functionId, body, signData, options]) => {
+      const id = self.patchFunctionId(functionId);
+      return [id, body, signData, options];
     });
-  }
-
-  static async getRaiseBody(api) {}
-
-  static async doMain(api, shareCodes) {
-    const self = this;
 
     api.formatData = function (data) {
-      const {bizCode, bizMsg} = data.data;
-      if (bizCode === -1002 || bizMsg.match('火爆')) {
+      const {bizCode, bizMsg = ''} = data.data || {};
+      if (bizCode === -1002 || /火爆/.test(bizMsg)) {
         const msg = `bizCode: ${bizCode}, bizMsg: ${bizMsg}`;
         this.log(msg);
         throw new Error(msg);
       }
       return data;
     };
+    api.collectScore = async (data, waitDuration = 0) => {
+      const actionType = waitDuration ? '1' : '0';
+      const body = {...data, actionType, ss: await self.getSS(api)};
+      const result = await collect();
+      if (!waitDuration) return result;
+      await sleep(waitDuration);
+      body.actionType = '0';
+      body.ss = await self.getSS(api);
+      return collect();
+
+      function collect() {
+        return api.doFormBody('collectScore', body);
+      }
+    };
+  }
+
+  static patchFunctionId(functionId) {
+    return _.filter([this.functionIdPrefix, functionId]).join('_');
+  }
+
+  static async doMain(api, shareCodes) {
+    const self = this;
+
+    await self.beforeRequest(api);
 
     self.initShareCodeTaskList(shareCodes || []);
 
     await self.getSS(api, true);
     if (activityNotStart) return;
 
-    if (self.isFirstLoop() && self.independentSign) {
-      const todayStatus = await self.doFormBody(api, 'getSignHomeData').then(data => _.property('data.result.todayStatus')(data));
-      (todayStatus === 0) && await self.doFormBody(api, 'sign');
-    }
+    await self.handleDoSign(api);
+    await handleDoShare();
 
     await handleDoTask();
     // 小程序
     await handleDoTask({appSign: 2}, 1);
+
+    // 解锁和输出日志
     if (self.isLastLoop()) {
       if (api.needLocalRun) {
         api.log(`当前的sIndex: ${sIndex}, allSS总长度为: ${allSS.length}`);
@@ -136,34 +166,21 @@ class Zoo extends Template {
     async function handleDoTask(body, times = 0) {
       if (times >= 2) return;
       const {
-        inviteId,
         taskVos,
-      } = await self.doFormBody(api, 'getTaskDetail', body).then(data => _.property('data.result')(data) || {});
-
-      // 暂停互助, 因为有些账号会火爆
-      if (times === 0) {
-        self.updateShareCodeFn(inviteId);
-        for (const inviteId of self.getShareCodeFn()) {
-          await self.doFormBody(api, 'collectScore', {inviteId, ss: await self.getSS(api)}).then(data => {
-            if (!self.isSuccess(data)) return api.log(_.property('data.bizMsg')(data));
-            const {guestNickName} = _.property('data.result')(data);
-            api.log(`${guestNickName} 助力其他人成功`);
-          });
-        }
-      }
+      } = await api.doFormBody('getTaskDetail', body).then(_.property('data.result'));
 
       for (const task of taskVos) {
         let {taskId, status, times, maxTimes, waitDuration} = task;
         if (self.skipTaskIds.includes(taskId) || status === 2) continue;
         let list = getList(task);
         if (_.isEmpty(list)) {
-          const feedTask = await self.doFormBody(api, 'getFeedDetail', {taskId}).then(data => _.property('data.result.addProductVos[0]')(data));
+          const feedTask = await api.doFormBody('getFeedDetail', {taskId}).then(data => _.property('data.result.addProductVos[0]')(data));
           list = getList(feedTask);
         }
         list = list.filter(o => o['status'] === 1);
         for (const {taskToken} of list) {
           if (times === maxTimes) break;
-          await collectScore({taskId, taskToken}, waitDuration);
+          await api.collectScore({taskId, taskToken}, waitDuration);
           times++;
         }
       }
@@ -183,25 +200,23 @@ class Zoo extends Template {
       }
     }
 
-    async function collectScore(data, waitDuration = 0) {
-      const actionType = waitDuration ? '1' : '0';
-      const body = {...data, actionType, ss: await self.getSS(api)};
-      await collect();
-      if (!waitDuration) return;
-      await sleep(waitDuration);
-      body.actionType = '0';
-      body.ss = await self.getSS(api);
-      await collect();
-
-      function collect() {
-        return self.doFormBody(api, 'collectScore', body);
+    async function handleDoShare() {
+      if (self.doneShareTask) return;
+      const inviteId = await api.doFormBody('getTaskDetail').then(_.property('data.result.inviteId'));
+      self.updateShareCodeFn(inviteId);
+      for (const inviteId of self.getShareCodeFn()) {
+        await api.collectScore({inviteId}).then(data => {
+          if (!self.isSuccess(data)) return api.log(_.property('data.bizMsg')(data));
+          const {guestNickName} = _.property('data.result')(data);
+          api.log(`${guestNickName} 助力其他人成功`);
+        });
       }
     }
 
     async function handleRaise() {
       const body = await self.getRaiseBody(api);
       if (body === false) return;
-      await self.doFormBody(api, 'raise', body).then(async data => {
+      await api.doFormBody('raise', body).then(async data => {
         self.isSuccess(data) && await handleRaise();
       });
     }
@@ -210,9 +225,10 @@ class Zoo extends Template {
   static async doCron(api) {
     const self = this;
 
+    await self.beforeRequest(api);
     const ss = await self.getSS(api, true);
     if (activityNotStart) return;
-    await self.doFormBody(api, 'collectProduceScore', {ss}).then(data => {
+    await api.doFormBody('collectProduceScore', {ss}).then(data => {
       api.log(`定时获取到的金币为 ${_.property('data.result.produceScore')(data)}`);
     });
   }

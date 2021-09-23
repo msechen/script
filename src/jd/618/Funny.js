@@ -10,16 +10,16 @@ class Funny extends Zoo {
   static scriptName = 'Funny';
   static scriptNameDesc = '东东玩家';
   static shareCodeTaskList = [];
+  static doneShareTask = false;
 
   static needEncrypt = false;
   static functionIdPrefix = 'funny';
   static ssInitData = {extraData: {log: '', sceneid: 'HWJhPageh5'}, random: '43136926'};
   static skipTaskIds = [5/*邀请好友助力*/, 6/*开通会员*/];
-  static independentSign = false;
   static defaultShareCodes = [
     'T018v_h1QhgY81XeKR6b1AFjRWn627yB55awQ',
     'T0107a4gE0Ic8AFjRWn627yB55awQ',
-  ]
+  ];
 
   static needOriginH5 = true;
   static apiOptions = {
@@ -29,6 +29,10 @@ class Funny extends Zoo {
       },
     },
   };
+
+  static async getUserEarthInfo(api) {
+    return api.doFormBody('getHomeData').then(_.property('data.result.homeMainInfo.raiseInfo.userEarthInfo'));
+  }
 
   static async logInfo(api) {
     const self = this;
@@ -40,14 +44,6 @@ class Funny extends Zoo {
     api.log(`当前已解锁的个数为: ${userUnlockedPlaceNum}, 总数为: ${placeInfos.length}`);
   }
 
-  static async getUserEarthInfo(api) {
-    const self = this;
-    const {
-      userEarthInfo,
-    } = await self.doFormBody(api, 'getHomeData').then(_.property('data.result.homeMainInfo.raiseInfo'));
-    return userEarthInfo;
-  }
-
   static async getRaiseBody(api) {
     const self = this;
     const {
@@ -57,6 +53,13 @@ class Funny extends Zoo {
     const lockPlace = placeInfos.find(o => o.status === 1);
     if (!lockPlace) return false;
     return {..._.pick(lockPlace, 'id'), ss: await self.getSS(api)};
+  }
+
+  static async handleDoSign(api) {
+    const continuousSignInfo = await api.doFormBody('getHomeData').then(_.property('data.result.popupInfo.continuousSignInfo'));
+    if (!continuousSignInfo) return;
+    const {taskId, simpleRecordInfoVo: {taskToken}} = continuousSignInfo;
+    await api.collectScore({taskId, taskToken});
   }
 }
 
