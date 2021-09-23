@@ -79,6 +79,7 @@ if ($.isNode()) {
        for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
          console.log(`账号${$.UserName} 去助力助力码 ${$.shareCodes[j]}`)
          $.success = false
+         await getlist()
          await getsecretp()
          await dosupport($.shareCodes[j])
          await $.wait(2000)
