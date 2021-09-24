@@ -15,20 +15,44 @@ class SmashUtilsTemplate extends Template {
   static skipTaskIds = [];
   static doneShareTask = !this.firstTimeInTheDay();
 
-  // 需要更改的地方
+  // 活动地址
   static indexUrl = '';
+  // 自定义前缀
   static functionIdPrefix = '';
+  // FakerSmashUtils 传参
   static smashUtilData = {
     // scriptUrl: '',
     // smashInitData: {},
   };
+  // 需要加密的 functionId
   static needEncryptIds = [];
+  // 是否需要本地加密
   static needLocalEncryptBody = false;
   // 是否需要自身加密
   static needSelfEncryptBody = false;
+  // 是否做小程序任务
+  static enableDoAppletTask = true;
 
   // 活动火爆需要从本地获取ss来进行请求, 所以需要手动抓包
   static getCharlesForms() {}
+
+  static formatCharlesData(fileContent) {
+    return fileContent.filter(o => _.property('request.body.text')(o)).map(({request}) => {
+      const {body, header: {headers}} = request;
+      const searchParams = new URL(`http://test.cn?${body.text}`).searchParams;
+      const requestBodyJSON = _.fromPairs(Array.from(searchParams.entries()));
+      const ss = JSON.parse(requestBodyJSON.body).ss;
+      headers.forEach(o => {
+        o.name = o.name.toLowerCase();
+      });
+      const cookies = headers.filter(({
+        name,
+        value,
+      }) => name === 'cookie'/* && ['sid', 'joyytoken', 'pwdt_id'].some(key => value.startsWith(key))*/);
+      const userAgent = headers.find(o => o.name === 'user-agent').value;
+      return {ss, cookie: _.map(cookies, 'value').join('; '), userAgent};
+    });
+  }
 
   static getLocalDataJSONPath() {
     return this.getFilePath('./localData.json');
@@ -42,7 +66,7 @@ class SmashUtilsTemplate extends Template {
       throw new Error(msg);
     };
     const ssMaxTimes = 3;
-    const forms = self.getCharlesForms();
+    const forms = self.formatCharlesData(self.getCharlesForms());
     if (_.isEmpty(forms)) needLoadData();
     const allData = _.flatten((self.needSelfEncryptBody ? forms : forms.map(o => JSON.parse(o.body)))
     .map(ss => new Array(ssMaxTimes).fill(ss)));
@@ -135,6 +159,7 @@ class SmashUtilsTemplate extends Template {
       // 获取任务列表
       getTaskList: {
         name: 'getTaskDetail',
+        // 1=app, 2=小程序
         paramFn: () => ({appSign: '1'}),
         async successFn(data, api) {
           // writeFileJSON(data, `${self.patchFunctionId('getTaskDetail')}.json`, __dirname);
@@ -144,9 +169,10 @@ class SmashUtilsTemplate extends Template {
           const result = [];
 
           const {taskVos: taskList = [], inviteId} = _.get(data, 'data.result');
+          const appletTaskList = self.enableDoAppletTask ? await api.doFormBody(option.getTaskList.name, {appSign: '2'}).then(_.property('data.result.taskVos')) : [];
           await handleDoShare(inviteId);
 
-          for (let task of taskList) {
+          for (let task of _.concat(taskList, appletTaskList)) {
             let {
               status,
               taskId,

@@ -60,22 +60,7 @@ class Olympicgames extends Template {
   };
 
   static getCharlesForms() {
-    const fileContent = readFileJSON(`../../../charles/chlsj/jd/olympicgames_doTaskDetail/${this.currentCookieTimes}.chlsj`, __dirname);
-    return fileContent.filter(o => _.property('request.body.text')(o)).map(({request}) => {
-      const {body, header: {headers}} = request;
-      const searchParams = new URL(`http://test.cn?${body.text}`).searchParams;
-      const requestBodyJSON = _.fromPairs(Array.from(searchParams.entries()));
-      const ss = JSON.parse(requestBodyJSON.body).ss;
-      headers.forEach(o => {
-        o.name = o.name.toLowerCase();
-      });
-      const cookies = headers.filter(({
-        name,
-        value,
-      }) => name === 'cookie'/* && ['sid', 'joyytoken', 'pwdt_id'].some(key => value.startsWith(key))*/);
-      const userAgent = headers.find(o => o.name === 'user-agent').value;
-      return {ss, cookie: _.map(cookies, 'value').join('; '), userAgent};
-    });
+    return readFileJSON(`../../../charles/chlsj/jd/olympicgames_doTaskDetail/${this.currentCookieTimes}.chlsj`, __dirname);
   }
 
   static apiNamesOption() {
