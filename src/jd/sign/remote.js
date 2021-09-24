@@ -14,6 +14,7 @@ class SignRemote extends RemoteScript {
     // 新增签到
     const addSignList = [
       ['3X4HMWmUigG689ZUZAg3Yo8Wtqf5', '小家电福利社'],
+      ['c46tGzwvXueH7uKSjpXmPQP9Nod', '小家电1'],
     ];
     // 兼容remote脚本中的输出
     if (!cookie.endsWith(';')) {
