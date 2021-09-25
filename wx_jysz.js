@@ -84,8 +84,8 @@ apptz = $.getdata('apptz');//是否推送，默认true
 apptx = $.getdata('apptx');//默认提现假,需要自行修改变量
 appyq = $.getdata('appyq');//默认邀请,需要自行修改变量
     
-    let kzkcount = ($.getval('kzkcount') || '1');
-  for (let i = 2; i <= kzkcount; i++) {
+    let jyszcount = ($.getval('jyszcount') || '1');
+  for (let i = 2; i <= jyszcount; i++) {
     app_soy_wx_jysz_token.push($.getdata(`soy_wx_jysz_token${i}`))
    
 }
