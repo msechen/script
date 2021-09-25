@@ -1,13 +1,21 @@
 /*
 
 软件名称:养宠时代
+需要变量
+
+soy_ycsd_jwt
+(在链接http://api.ycshidai.com/chat/robredpacket?msgid=中就有)
+
+soy_ycsd_message
+(在链接https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/请求体中的message值,直接复制即可)
+
+没有v2p重写功能,都需要自行抓包
 
 */
 
 
 const $ = new Env('养宠时代');
 const notify = $.isNode() ? require('./sendNotify') : '';
-const logs = 0; //响应日志开关,默认关闭
 const app_soy_ycsd_jwt = [],app_soy_ycsd_message = []
 let subTitle = ``;
 let status;
@@ -87,8 +95,8 @@ appyq = $.getdata('appyq');
       
 for (i = 0; i < app_soy_ycsd_jwt.length; i++) {
     soy_ycsd_jwt=app_soy_ycsd_jwt[i]
-    soy_ycsd_message=app_soy_ycsd_message[i]
-    
+    //soy_ycsd_message=app_soy_ycsd_message[i]
+    soy_ycsd_message=soy_ycsd_message[i].replace(/\n/, "")
     soy_qmrd_headers={"Host": "api.ycshidai.com",
     "Accept-Encoding": "identity",
     "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 10; SKW-A0 MIUI/V11.0.4.0.JOYUI)",
@@ -138,7 +146,7 @@ function soy_ycsd_get_msgid(){
                 await soy_ycsd_reward_video()
                } 
             }else{
-               console.log(`\n【${$.name}---获取msgid】: ${result.errmsg}+"请重新提交 jwt"`) 
+               console.log(`\n【${$.name}---获取msgid】: ${result.errmsg} 请重新提交 jwt`) 
             }
             
             resolve()
@@ -162,7 +170,7 @@ function soy_ycsd_reward_video() {
                 console.log(`\n【${$.name}---获取数据】: 获取msgid ${msgid} 视频数据成功`)
                 await soy_ycsd_robredpacket()
             }else{
-                console.log(`\n【${$.name}---获取数据】: 失败`)
+                console.log(`\n【${$.name}---获取数据】: 失败,视频请求体 message 有问题`)
             }
              
             resolve()
@@ -183,7 +191,7 @@ function soy_ycsd_robredpacket() {
                 console.log(`\n【${$.name}---抢红包】: 获取 ${result.data.amount} 红包积分`)
                 await $.wait(Math.floor(Math.random()*(35000-30000+1000)+30000))
             }else{
-                console.log(`\n【${$.name}---抢红包】:  ${result.errmsg}`)
+                console.log(`\n【${$.name}---抢红包】:  ${result.errmsg},请尝试重新提交 jwt 试试`)
             }
              
             resolve()
