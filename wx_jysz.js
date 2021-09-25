@@ -78,6 +78,7 @@ appyq = process.env.appyq;
     await get_appdata()
   } else{
   app_soy_wx_jysz_token.push($.getdata('soy_wx_jysz_token'))
+  soy_wx_jysz_User_Agent.push($.getdata('soy_wx_jysz_User_Agent'))
   
   }
 apptz = $.getdata('apptz');//是否推送，默认true
