@@ -7,7 +7,7 @@ soy_ycsd_jwt
 (在链接http://api.ycshidai.com/chat/robredpacket?msgid=中就有)
 
 soy_ycsd_message
-(在链接https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/请求体中的message值,直接复制即可)
+(在链接https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/请求体全部复制)
 
 没有v2p重写功能,都需要自行抓包
 
@@ -52,8 +52,6 @@ appyq = process.env.appyq;
     
     if (process.env.soy_ycsd_message && process.env.soy_ycsd_message.indexOf('@') > -1) {
         soy_ycsd_message = process.env.soy_ycsd_message.split('@');
-    } else if(process.env.soy_ycsd_message && process.env.soy_ycsd_message.indexOf('#') > -1){
-        soy_ycsd_message = process.env.soy_ycsd_message.split('#');
     }else{
         soy_ycsd_message = process.env.soy_ycsd_message.split();
     };
@@ -70,18 +68,33 @@ appyq = process.env.appyq;
     await get_appdata()
   } else{
   app_soy_ycsd_jwt.push($.getdata('soy_ycsd_jwt'))
+  app_soy_ycsd_message.push($.getdata('soy_ycsd_message'))
   
   }
 apptz = $.getdata('apptz');
 apptx = $.getdata('apptx');
 appyq = $.getdata('appyq');
     
-    let kzkcount = ($.getval('kzkcount') || '1');
-  for (let i = 2; i <= kzkcount; i++) {
+    let ycsdcount = ($.getval('ycsdcount') || '1');
+  for (let i = 2; i <= ycsdcount; i++) {
     app_soy_ycsd_jwt.push($.getdata(`soy_ycsd_jwt${i}`))
+    app_soy_ycsd_message.push($.getdata(`soy_ycsd_message${i}`))
    
 }
 }
+
+Object.keys(soy_ycsd_message).forEach((item) => {
+        if (soy_ycsd_message[item]) {
+            app_soy_ycsd_message.push(soy_ycsd_message[item]);
+        };
+    })
+
+Object.keys(soy_ycsd_jwt).forEach((item) => {
+        if (soy_ycsd_jwt[item]) {
+            app_soy_ycsd_jwt.push(soy_ycsd_jwt[item]);
+        };
+    });
+    
     console.log(
         `=== 脚本执行 - 北京时间：${new Date(
         new Date().getTime() +
@@ -96,7 +109,8 @@ appyq = $.getdata('appyq');
 for (i = 0; i < app_soy_ycsd_jwt.length; i++) {
     soy_ycsd_jwt=app_soy_ycsd_jwt[i]
     //soy_ycsd_message=app_soy_ycsd_message[i]
-    soy_ycsd_message=soy_ycsd_message[i].replace(/\n/, "")
+    soy_ycsd_message=app_soy_ycsd_message[i].replace(/\n/, "")
+    
     soy_qmrd_headers={"Host": "api.ycshidai.com",
     "Accept-Encoding": "identity",
     "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 10; SKW-A0 MIUI/V11.0.4.0.JOYUI)",
@@ -105,6 +119,7 @@ for (i = 0; i < app_soy_ycsd_jwt.length; i++) {
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
+    
         await soy_ycsd_get_msgid()
         
 };
@@ -120,15 +135,22 @@ for (i = 0; i < app_soy_ycsd_jwt.length; i++) {
 
 //获取ck
 function get_appdata() {
-   if ($request.url.indexOf("user") > -1) {
-const soy_ycsd_jwt = $request.headers.authorization
-   if(soy_ycsd_jwt){
-       $.setdata(soy_ycsd_jwt,`soy_ycsd_jwt${status}`)
-       //$.log(soy_ycsd_jwt)
-   }
-
+   if ($request.url.indexOf("jwt") > -1) {
+       let str = $request.url
+       soy_ycsd_jwt=str.substring(str.indexOf('jwt=')+4, str.length)
+       
+       if(soy_ycsd_jwt){
+           $.setdata(soy_ycsd_jwt,`soy_ycsd_jwt${status}`)
+       }
+   } 
    
-  } 
+   if ($request.url.indexOf("reward_video") > -1) {
+       const soy_ycsd_message = $request.headers.body
+       if(soy_ycsd_message){
+           $.setdata(soy_ycsd_message,`soy_ycsd_message${status}`)
+       }
+   } 
+  
 }
 
 function soy_ycsd_get_msgid(){
@@ -162,7 +184,7 @@ function soy_ycsd_reward_video() {
         $.post({
             url : `https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/`,
             headers : {"user-agent": "VADNetAgent/0 okhttp/3.9.1","content-type": "application/json; charset=utf-8"},
-            body : `{"message":"${soy_ycsd_message}","cypher":2}`,
+            body : `${soy_ycsd_message}`,
         }, async(error, response, data) => {
             //console.log(data)
             let result = JSON.parse(data)
@@ -191,7 +213,7 @@ function soy_ycsd_robredpacket() {
                 console.log(`\n【${$.name}---抢红包】: 获取 ${result.data.amount} 红包积分`)
                 await $.wait(Math.floor(Math.random()*(35000-30000+1000)+30000))
             }else{
-                console.log(`\n【${$.name}---抢红包】:  ${result.errmsg},请尝试重新提交 jwt 试试`)
+                console.log(`\n【${$.name}---抢红包】:  ${result.errmsg}`)
             }
              
             resolve()
