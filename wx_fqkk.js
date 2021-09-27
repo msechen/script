@@ -213,13 +213,13 @@ function soy_wx_fqkk_fast_reada(){
             console.log(data)
             result = JSON.parse(data)
             //console.log(result)
-            
-            if(result.success_msg!==''){
-              console.log(`\n【${$.name}---阅读文章】: ${result.success_msg}`)
-              await $.wait(Math.floor(Math.random()*(10000-6000+1000)+6000))
-              await soy_wx_fqkk_fast_reada()
+            if(data.indexOf("jkey") > -1){
+                console.log(`\n【${$.name}---阅读文章】: ${result.success_msg}`)
+                await $.wait(Math.floor(Math.random()*(10000-6000+1000)+6000))
+                await soy_wx_fqkk_fast_reada()
             }else{
-              console.log(`\n【${$.name}---阅读文章】: ${result.success_msg}`)
+              //console.log(`\n【${$.name}---阅读文章】: ${result.success_msg}`)
+              await soy_wx_fqkk_finishTask()
             }
             
             
