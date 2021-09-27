@@ -25,7 +25,18 @@ soy_wx_fqkk_UA
 
 v2p配置如下：
 
-重写不了,域名不知道有多少个,也不固定的
+
+
+【REWRITE】
+匹配链接（正则表达式） http://m.*.shop/reada/finishTask
+
+对应重写目标   app_wx_fqkk.js
+
+【MITM】  
+m.*.shop
+
+
+cron 0 23 30 12 *
 
 手动执行,切记需要手动过鉴权,也就是每小时第1-3篇手动阅读后在执行脚本
 手动执行,切记需要手动过鉴权,也就是每小时第1-3篇手动阅读后在执行脚本
@@ -175,7 +186,7 @@ function soy_wx_fqkk_do_read(){
             headers : soy_wx_fqkk_headers,
             //body : "",
         }, async(error, response, data) => {
-            //console.log(data)
+            console.log(data)
             if(data.indexOf("jkey") > -1){
                result = JSON.parse(data)
                jkey=result.jkey
@@ -199,7 +210,7 @@ function soy_wx_fqkk_fast_reada(){
             headers : soy_wx_fqkk_headers,
             //body : "",
         }, async(error, response, data) => {
-            //console.log(data)
+            console.log(data)
             result = JSON.parse(data)
             //console.log(result)
             
@@ -207,7 +218,6 @@ function soy_wx_fqkk_fast_reada(){
               console.log(`\n【${$.name}---阅读文章】: ${result.success_msg}`)
               await $.wait(Math.floor(Math.random()*(10000-6000+1000)+6000))
               await soy_wx_fqkk_fast_reada()
-              soy_wx_fqkk_fast_reada()
             }else{
               console.log(`\n【${$.name}---阅读文章】: ${result.success_msg}`)
             }
@@ -226,7 +236,7 @@ function soy_wx_fqkk_finishTask(){
             headers : {"Host": "m.avava.shop","Origin": "http://m.avava.shop","X-Requested-With": "XMLHttpRequest","User-Agent": `${soy_wx_fqkk_UA}`,"Content-Type": "application/x-www-form-urlencoded","Referer": "http://m.avava.shop/fast_reada","cookie":`${soy_wx_fqkk_cookie}`},
             body : "readLastKey=",
         }, async(error, response, data) => {
-            //console.log(data)
+            console.log(data)
             result = JSON.parse(data)
             if(result.code==800){
               console.log(`\n【${$.name}---阅读状态】: \n---今日已阅读次数：${result.data.infoView.num}\n---今日获得总奖励：${result.data.infoView.score}`)
@@ -235,12 +245,22 @@ function soy_wx_fqkk_finishTask(){
                   console.log(`\n【${$.name}---阅读状态】: ${result.data.infoView.msg}`)
               }
               if(status==3){
+                  await soy_wx_fqkk_jq_reada()
                   await soy_wx_fqkk_do_read()
               }
               if(status==2){
                   console.log(`\n【${$.name}---阅读状态】: ${result.data.infoView.msg}`)
               }
               
+              if(status==1){
+                  if(data.indexOf('下一批')>-1){
+                      console.log(`\n【${$.name}---阅读状态】: ${result.data.infoView.msg}`)
+                  }else{
+                    await soy_wx_fqkk_jq_reada()
+                    await soy_wx_fqkk_do_read()  
+                  }
+                  
+              }
               
             }else{
               console.log(`\n【${$.name}---阅读状态】: ${result.msg}`)
@@ -253,7 +273,21 @@ function soy_wx_fqkk_finishTask(){
 
 }
 
+function soy_wx_fqkk_jq_reada(){
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `http://${soy_wx_fqkk_url}/fast_reada/read`,
+            headers : soy_wx_fqkk_headers,
+            //body : "",
+        }, async(error, response, data) => {
+            //console.log(data)
+            
+            
+            resolve()
+        })
+    })
 
+}
 
 
 function Env(t, e) {
