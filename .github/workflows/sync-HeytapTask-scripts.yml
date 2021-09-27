@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/hwkxk/HeytapTask.git"
+          source_repo: "https://github.com/Mashiro2000/HeyTapTask.git"
           source_branch: "main"
           destination_branch: "HeytapTask"
           github_token: ${{ secrets.PAT }}
