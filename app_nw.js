@@ -106,7 +106,7 @@ for (i = 0; i < app_soy_nw_authorization.length; i++) {
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
-        
+        hour = new Date().getHours()
         await soy_nw_sign()
         await soy_nw_everydaylist()
         await soy_nw_red_pack()
@@ -266,11 +266,10 @@ async function soy_nw_everydaylist() {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==1){
-                hour = new Date().getHours()
                 if(result.data[0].complete_percent=='100%'){
                     console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.data[0].title} 已完成`)
                 }else{
-                    if(hour<12){
+                    if(hour>=0 && hour<12){
                        for(let cs=0;cs<10;cs++){
                         await soy_nw_adv_id_4()
                         await $.wait(Math.floor(Math.random()*(40000-35000+1000)+35000))
@@ -280,12 +279,11 @@ async function soy_nw_everydaylist() {
                     }
                     
                 }
-                
                 if(result.data[1].complete_percent=='100%'){
                     console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.data[1].title} 已完成`)
                 }else{
-                    
-                    if(hour<12){
+                   
+                    if(hour>=12 && hour<23){
                        for(let cs=0;cs<10;cs++){
                         await soy_nw_adv_id_4()
                         await $.wait(Math.floor(Math.random()*(40000-35000+1000)+35000))
