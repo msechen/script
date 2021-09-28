@@ -70,7 +70,7 @@ appyq = process.env.appyq;
         };
     });
 
-    soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent
+    soy_wx_jysz_User_Agent = process.env.soy_wx_jysz_User_Agent.split
     
     
 }else{
