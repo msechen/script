@@ -61,7 +61,7 @@ appyq = process.env.appyq;
     } else if(process.env.soy_wx_jysz_token && process.env.soy_wx_jysz_token.indexOf('#') > -1){
         soy_wx_jysz_token = process.env.soy_wx_jysz_token.split('#');
     }else{
-        soy_wx_jysz_token = process.env.soy_wx_jysz_token.split();
+        soy_wx_jysz_token = process.env.soy_wx_jysz_token;
     };
     
     Object.keys(soy_wx_jysz_token).forEach((item) => {
