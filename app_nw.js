@@ -25,7 +25,7 @@ v2p配置如下：
 nw.xuancollege.com
 
 
-cron 0 11 18 22 * * *
+cron 0 1,10,13,15 * * *
 
 */
 
@@ -101,10 +101,7 @@ Object.keys(soy_nw_authorization).forEach((item) => {
 for (i = 0; i < app_soy_nw_authorization.length; i++) {
     soy_nw_authorization=app_soy_nw_authorization[i]
     
-    soy_nw_headers={"Host": "nw.xuancollege.com",
-    "Content-Type": "application/x-www-form-urlencoded",
-    "authorization": soy_nw_authorization,
-    };
+    soy_nw_headers={"Host": "nw.xuancollege.com","authorization": soy_nw_authorization,"User-Agent":"okhttp/4.5.0","Content-Type":"application/x-www-form-urlencoded"};
     
     $.index = i + 1;
     
@@ -113,7 +110,6 @@ for (i = 0; i < app_soy_nw_authorization.length; i++) {
         await soy_nw_sign()
         await soy_nw_everydaylist()
         await soy_nw_red_pack()
-        
         
 };
 
@@ -153,9 +149,9 @@ async function soy_nw_sign() {
         //console.log(result.data)
         //{ code: 1, message: '今日已签到', data: { list: 'error' }, sign: '' }
         if(result.data.code=1){
-            console.log(`\n【${$.name}---签到】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 签到】: ${result.data.message}`)
         }else{
-            console.log(`\n【${$.name}---签到】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 签到】: ${result.data.message}`)
         }
         
     })
@@ -174,9 +170,9 @@ async function soy_nw_adv_id_4() {
         }).then(function (result) {
         //console.log(result.data)
         if(result.data.code=1){
-            console.log(`\n【${$.name}---任务广告】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 任务广告】: ${result.data.message}`)
         }else{
-            console.log(`\n【${$.name}---任务广告】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 任务广告】: ${result.data.message}`)
         }
         
     })
@@ -195,9 +191,10 @@ async function soy_nw_adv_id_5() {
         }).then(function (result) {
         //console.log(result.data)
         if(result.data.code=1){
-            console.log(`\n【${$.name}---赚钱广告】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 赚钱广告】: ${result.data.message}`)
         }else{
-            console.log(`\n【${$.name}---赚钱广告】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 赚钱广告】: ${result.data.message}`)
+            
         }
         
     })
@@ -214,17 +211,20 @@ function soy_nw_red_pack() {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==1){
-                if(result.data.list.length==0){
-                    console.log(`\n【${$.name}---获取红包列表】: 没有可以领取的红包`)
-                }else{
+                pack_sl=result.data.total
+                if(pack_sl==0){
+                    console.log(`\n【${$.name}---账号 ${$.index} 红包列表】: 没有可以领取的红包`)
                     
-                   for(pack_list of result.data.data.list){
-                       packid=pack_list.red_id
-                       await soy_nw_up_pack()
-                   } 
+                }else{
+                    //console.log(pack_sl)
+                    console.log(`\n【${$.name}---账号 ${$.index} 红包列表】: 当前有 ${pack_sl} 个红包未领取`) 
+                    for(let sl=0;sl< pack_sl;sl++){
+                        packid=result.data.list[sl].red_id
+                        await soy_nw_up_pack()
+                        }
                 }
             }else{
-                console.log(`\n【${$.name}---红包列表】: ${result.message}`) 
+                console.log(`\n【${$.name}---账号 ${$.index} 红包列表】: ${result.message}`)
             }
             
             
@@ -247,10 +247,10 @@ async function soy_nw_up_pack() {
         }).then(function (result) {
         //console.log(result.data)
         if(result.data.code=1){
-            console.log(`\n【${$.name}---领取红包】: 红包 ${packid} ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 领取红包】: 红包 ${packid} ${result.data.message}`)
             
         }else{
-            console.log(`\n【${$.name}---领取红包】: ${result.data.message}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 领取红包】: ${result.data.message}`)
         }
         
     })
@@ -266,32 +266,48 @@ async function soy_nw_everydaylist() {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==1){
+                hour = new Date().getHours()
                 if(result.data[0].complete_percent=='100%'){
-                    console.log(`\n【${$.name}---任务列表】: ${result.data[0].title} 已完成`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.data[0].title} 已完成`)
                 }else{
-                    for(let cs=0;cs<10;cs++){
+                    if(hour<12){
+                       for(let cs=0;cs<10;cs++){
                         await soy_nw_adv_id_4()
                         await $.wait(Math.floor(Math.random()*(40000-35000+1000)+35000))
+                       } 
+                    }else{
+                        console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.data[0].title} 已超过有效时间`)
                     }
+                    
                 }
                 
                 if(result.data[1].complete_percent=='100%'){
-                    console.log(`\n【${$.name}---任务列表】: ${result.data[1].title} 已完成`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.data[1].title} 已完成`)
                 }else{
-                    for(let cs=0;cs<10;cs++){
+                    
+                    if(hour<12){
+                       for(let cs=0;cs<10;cs++){
                         await soy_nw_adv_id_4()
                         await $.wait(Math.floor(Math.random()*(40000-35000+1000)+35000))
+                       }
+                       
+                       for(let cs=0;cs<20;cs++){
+                           await soy_nw_adv_id_5()
+                           await $.wait(Math.floor(Math.random()*(40000-35000+1000)+35000))
+                           
+                       }
+                       
+                       await soy_nw_red_pack()
+                    
+                    }else{
+                        console.log(`\n【${$.name}---账号 ${$.index} 做任务】: ${result.data[1].title} 未到任务时间`)
                     }
+                    
                 }
-                
-                for(let cs=0;cs<20;cs++){
-                    await soy_nw_adv_id_5()
-                    await $.wait(Math.floor(Math.random()*(40000-35000+1000)+35000))
-                }
-                
                 
             }else{
-               console.log(`\n【${$.name}---任务列表】: ${result.message}`)  
+               console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.message}`)
+               
             }
             
              
@@ -303,43 +319,6 @@ async function soy_nw_everydaylist() {
 }
 
 
-
-// 获取指定范围内的随机数
-function randomAccess(min,max){
-	return Math.floor(Math.random() * (min - max) + max)
-}
-
-// 解码
-function decodeUnicode(str) {
-   //Unicode显示方式是\u4e00
-   str = "\\u"+str
-   str = str.replace(/\\/g, "%");
-    //转换中文
-   str = unescape(str);
-    //将其他受影响的转换回原来
-   str = str.replace(/%/g, "\\");
-   return str;
-}
-
-/*
-*NameLength 要获取的名字长度
-*/
-function getRandomName(NameLength){
-	let name = ""
-	for(let i = 0;i<NameLength;i++){
-		let unicodeNum  = ""
-		unicodeNum = randomAccess(0x4e00,0x9fa5).toString(16)
-		name += decodeUnicode(unicodeNum)
-	}
-	return name
-}
-
-
-
-//取范围随机数
-function delayed(S,L){
-return Math.floor(Math.random() * (L - S + 1)) + S;  
-}
 
 function Env(t, e) {
   class s {
