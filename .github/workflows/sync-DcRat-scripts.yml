@@ -1,4 +1,4 @@
-name: sync-jbot_diy-scripts
+name: sync-DcRat-scripts
 on:
   schedule:
   - cron: '* */5 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-jbot_diy-scripts
+    types: sync-DcRat-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-jbot_diy-scripts
+      - name: sync-DcRat-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/chiupam/JD_Diy.git"
-          source_branch: "master"
-          destination_branch: "jbot_diy"
+          source_repo: "https://github.com/qwqdanchun/DcRat.git"
+          source_branch: "main"
+          destination_branch: "DcRat"
           github_token: ${{ secrets.PAT }}
