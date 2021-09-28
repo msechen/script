@@ -94,6 +94,7 @@ appyq = process.env.appyq;
   app_soy_wx_fqkk_cookie.push($.getdata('soy_wx_fqkk_cookie'))
   app_soy_wx_fqkk_UA.push($.getdata(`soy_wx_fqkk_UA`))
   soy_wx_fqkk_url=$.getdata(`soy_wx_fqkk_url`)
+  soy_wx_fqkk_UA=$.getdata(`soy_wx_fqkk_UA`)
   
   }
 apptz = $.getdata('apptz');
@@ -274,13 +275,176 @@ function soy_wx_fqkk_finishTask(){
 }
 
 function soy_wx_fqkk_jq_reada(){
+    jq_body=`<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link data-type="checkvaildsign" rel="icon" href="data:image/ico;base64,aWNv">
+    <title>加载中</title>
+    <style>
+        #mask {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #sc {
+            width: 80%;
+            font-size: 4vw;
+            background-color: #fff;
+            margin-top: 40vh;
+            margin-left: 10vw;
+        }
+
+        .sm-txt {
+            font-size: 6vw;
+        }
+
+        .sm-ico {
+            transform: scale(1.5);
+            margin-left: 4vw !important;
+        }
+    </style>
+</head>
+<body>
+<div id="text">加载中，请稍后</div>
+<div id="text2"></div>
+<div id="mask">
+    <div id="sc">
+    </div>
+</div>
+<script>
+    // window.onerror = function (msg) {
+    //     alert(msg);
+    // }
+    var forstr = '';
+    var zs = '';
+    var url = '/fast_reada/do_read?for='+forstr+'&zs='+zs;
+    var _t = (navigator.userAgent.indexOf('MicroMessenger') > 0 ? '7' : '') + (new Date()).getTime().toString();
+    window.jumpUrl = url;
+
+    function get(url, fn) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
+                // console.log(xhr.responseText)
+                fn.call(this, xhr.responseText);
+            } else {
+                // window.location.replace(window.jumpUrl)
+            }
+        };
+        xhr.send();
+    }
+    var timer = null;
+    var point = 1;
+    var task_url = false;
+    window.addEventListener('pageshow', function (e) {
+        // task_url = false;
+        do_read();
+    });
+    var is_loading = false;
+    function do_read(){
+        console.log('do_read');
+        if(is_loading){
+            return;
+        }
+        is_loading = true;
+        var time = 3000;
+        var str = '';
+        var jkey = localStorage.getItem('jkey');
+        if (jkey) {
+            str = '&jkey=' + jkey;
+            setText('加载中，请稍等')
+            point = 1;
+            timer = setInterval(function(){
+                text = '加载中，请稍等';
+                point++;
+                for(var i = 0; i < (point % 3) + 1; i++){
+                    text += '。'
+                }
+                var second = 11-Math.floor(point/2);
+                if(second < 0){
+                    second = 0;
+                }
+                // text = '预计等待'+second+'秒，' + text
+                setText(text);
+            },500);
+            localStorage.removeItem('jkey');
+            time = 15000;
+        }
+        var loadingtimer = setTimeout(function(){
+            is_loading = false
+        },time)
+        setText2('');
+        get(window.jumpUrl + '&pageshow&r=' + Math.random() + str, function (res) {
+            is_loading = false;
+            clearTimeout(loadingtimer);
+            var resData = JSON.parse(res);
+            if(timer){
+                clearInterval(timer);
+                timer = null;
+                setText('加载中，请稍后')
+            }
+            if (!resData.jkey) {
+                // if (resData.check_finish) {
+                //     localStorage.removeItem('jkey');
+                // }
+            } else {
+                localStorage.setItem('jkey', resData.jkey);
+            }
+            if(resData.msg){
+                alert(resData.msg);
+            }
+            if(resData.success_msg){
+                setText2(resData.success_msg);
+            }
+
+            task_url = window.location.href = resData.url + (resData.url.indexOf('?') > 0 ? '&_t=' : '?_t=') + '799888';
+        });
+    }
+    function setText(text){
+        document.querySelector('#text').innerHTML = text
+    }
+    function setText2(text){
+        document.querySelector('#text2').innerHTML = text
+    }
+
+    history.pushState(null, null, document.URL);
+    history.pushState(null, null, document.URL);
+    history.pushState(null, null, document.URL);
+    history.pushState(null, null, document.URL);
+    window.addEventListener("popstate", function () {
+        history.pushState(null, null, document.URL);
+        history.pushState(null, null, document.URL);
+        history.pushState(null, null, document.URL);
+        history.pushState(null, null, document.URL);
+        // if (task_url) {
+        do_read()
+        // window.location.href = task_url;
+        // }
+    });
+    try {
+        window.tbsJs.onReady('{useCachedApi : "true"}', function (res) {
+        })
+    } catch (e) {
+    }
+</script>
+</body>
+</html>`
     return new Promise((resolve, reject) => {
         $.get({
             url : `http://${soy_wx_fqkk_url}/fast_reada/read`,
             headers : soy_wx_fqkk_headers,
-            //body : "",
+            body : jq_body,
         }, async(error, response, data) => {
-            //console.log(data)
+            console.log(data)
             
             
             resolve()
