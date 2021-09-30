@@ -1,4 +1,4 @@
-## Special statement:
+## 特别声明:本仓库脚本已内置助力码，介意请勿使用
 
 * Any unlocking and decryption analysis scripts involved in the Script project released by this warehouse are only used for testing, learning and research, and are forbidden to be used for commercial purposes. Their legality, accuracy, completeness and effectiveness cannot be guaranteed. Please make your own judgment based on the situation. .
 
