@@ -77,8 +77,6 @@
 30 0,4,13,22 * * * node /scripts/jd_young.js >> /scripts/logs/jd_young.log 2>&1
 #星系牧场
 45 0,6-23/4 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
-# 手机狂欢城(2021-9-16至2021-10-1)
-0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 # 京东小魔方
 10 2,8 * * * node /scripts/jd_mf.js >> /scripts/logs/jd_mf.log 2>&1
 #芥么签到
