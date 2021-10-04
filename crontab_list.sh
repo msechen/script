@@ -4,6 +4,9 @@
 # 收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
+#主要用于互助自爆通知，及时推送给不常上tg的
+0 0-23/1 * * * cd /scripts && ts-node /scripts/jd_important_notify.ts >> /scripts/logs/jd_important_notify.log 2>&1
+
 # 京东资产变动通知
 2 9 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1
 
