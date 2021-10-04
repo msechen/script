@@ -161,18 +161,21 @@ class SuperMarket extends Template {
   }
 }
 
-function receiveCoin(api) {
-  return api.doFormBody('smtg_receiveCoin', {type: 4}).then(async data => {
-    let {receivedBlue = 0} = _.property('data.result')(data);
-    return receivedBlue + await handleUpgradeBlue(api, data);
+async function receiveCoin(api) {
+  const shopId = await api.doFormBody('smtg_newHome').then(_.property('data.result.currentShopId'));
+  return api.doFormBody('smtg_receiveCoin', {type: 4, shopId}).then(async data => {
+    let {receivedTurnover = 0} = _.property('data.result')(data);
+    return receivedTurnover + await handleUpgradeBlue(api, data);
   });
 }
 
 async function handleUpgradeBlue(api, data) {
   let total = 0;
   const blueList = _.property('data.result.userUpgradeBlueVos')(data) || [];
+  if (_.isEmpty(blueList)) return;
+  const shopId = await api.doFormBody('smtg_newHome').then(_.property('data.result.currentShopId'));
   for (const {id, blueCoins} of blueList) {
-    await api.doFormBody('smtg_receiveCoin', {type: 5, id});
+    await api.doFormBody('smtg_receiveCoin', {type: 5, id, shopId});
     total += blueCoins;
   }
   return total;
