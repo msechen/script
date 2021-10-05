@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
 
 class Sign extends Template {
   static scriptName = 'Sign';
@@ -14,6 +15,7 @@ class Sign extends Template {
   static async doMain(api) {
     const self = this;
     const _ = this._;
+    const t = getMoment().valueOf();
 
     async function doTask({name, url, options, isSuccessFn, rewardOutputFn}) {
       await api.doUrl(url, options).then(data => {
@@ -132,10 +134,13 @@ class Sign extends Template {
       url: 'https://lop-proxy.jd.com/jiFenApi/signInAndGetReward',
       options: {
         headers: {
+          uuid: `${t}${t * 2}`,
+          'jexpress-report-time': t,
           origin: 'https://jingcai-h5.jd.com/',
           referer: 'https://jingcai-h5.jd.com/',
           'lop-dn': 'jingcai.jd.com',
           appparams: '{"appid":158,"ticket_type":"m"}',
+          'app-key': 'jexpress',
         },
         body: [{'userNo': '$cooMrdGatewayUid$'}],
       },
