@@ -67,8 +67,6 @@
 15 3,6 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
 # 母婴-跳跳乐
 1 0,11,21 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
-# young
-30 0,4,13,22 * * * node /scripts/jd_young.js >> /scripts/logs/jd_young.log 2>&1
 #星系牧场
 45 0,6-23/4 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1
 # 京东小魔方
