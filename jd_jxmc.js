@@ -33,6 +33,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //京喜APP的UA。领取助力任务奖励需要京喜APP的UA,环境变量：JX_USER_AGENT，有能力的可以填上自己的UA
 const JXUserAgent =  $.isNode() ? (process.env.JX_USER_AGENT ? process.env.JX_USER_AGENT : ``):``;
 $.inviteCodeList = [];
+$.codeList = [];
 let cookiesArr = [];
 let UA, token, UAInfo = {}
 $.appId = 10028;
@@ -52,6 +53,13 @@ if ($.isNode()) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
+  let res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/jxmc.json')
+  if (!res) {
+    $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jxmc.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
+    await $.wait(1000)
+    res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jxmc.json')
+  }
+  $.codeList = [...(res || [])];
   console.log('京喜牧场\n' +
       '更新时间：2021-8-20\n' +
       '活动入口：京喜APP-我的-京喜牧场\n' +
@@ -85,13 +93,12 @@ if ($.isNode()) {
   }
   for (let i = 0; i < newCookiesArr.length; i++) {
     let thisCookiesArr = newCookiesArr[i];
-    let codeList = [];
     for (let j = 0; j < thisCookiesArr.length; j++) {
       $.cookie = thisCookiesArr[j];
       $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
       for (let k = 0; k < $.inviteCodeList.length; k++) {
         if ($.UserName === $.inviteCodeList[k].use) {
-          codeList.push({
+          $.codeList.push({
             'name': $.UserName,
             'code': $.inviteCodeList[k].code
           });
@@ -103,12 +110,12 @@ if ($.isNode()) {
       $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
       UA = UAInfo[$.UserName]
       token = await getJxToken()
-      for (let k = 0; k < codeList.length; k++) {
-        $.oneCodeInfo = codeList[k];
-        if(codeList[k].name === $.UserName){
+      for (let k = 0; k < $.codeList.length; k++) {
+        $.oneCodeInfo = $.codeList[k];
+        if($.codeList[k].name === $.UserName){
           continue;
         } else {
-          console.log(`\n${$.UserName}去助力${codeList[k].name},助力码：${codeList[k].code}\n`);
+          console.log(`\n${$.UserName}去助力${$.codeList[k].name},助力码：${$.codeList[k].code}\n`);
           await takeGetRequest('help');
           await $.wait(2000);
         }
@@ -122,7 +129,7 @@ if ($.isNode()) {
   .finally(() => {
     $.done();
   })
-
+  
 async function pasture() {
   try {
     $.homeInfo = {};
@@ -590,6 +597,40 @@ function randomString(e) {
   for (let i = 0; i < e; i++)
     n += t.charAt(Math.floor(Math.random() * a));
   return n
+}
+
+function getAuthorShareCode(url) {
+  return new Promise(resolve => {
+    const options = {
+      url: `${url}?${new Date()}`, "timeout": 10000, headers: {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+      }
+    };
+    if ($.isNode() && process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
+      const tunnel = require("tunnel");
+      const agent = {
+        https: tunnel.httpsOverHttp({
+          proxy: {
+            host: process.env.TG_PROXY_HOST,
+            port: process.env.TG_PROXY_PORT * 1
+          }
+        })
+      }
+      Object.assign(options, { agent })
+    }
+    $.get(options, async (err, resp, data) => {
+      try {
+        if (err) {
+        } else {
+          if (data) data = JSON.parse(data)
+        }
+      } catch (e) {
+        // $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+  })
 }
 
 function decrypt(time, stk, type, url) {
