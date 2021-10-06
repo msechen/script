@@ -576,8 +576,8 @@ class BeautyMakeup extends Template {
 
     // 收取生产好的材料
     async function handleReceiveMaterial() {
-      for (const {position, procedure, valid_electric} of _.values(producePositionData)) {
-        if (_.isEmpty(procedure) || !position || valid_electric < 0) continue;
+      for (const {produce_num, position, procedure, valid_electric} of _.values(producePositionData)) {
+        if ((produce_num === 0) && _.isEmpty(procedure) || !position || valid_electric < 0) continue;
         wsMsg.material_fetch_v2.msg.args.position = position;
         await sendMessage(wsMsg.material_fetch_v2);
       }
