@@ -114,13 +114,9 @@ function get_data() {
        
        //取抓包数据对应链接访问的协议头
        const cs = JSON.stringify($request.headers)
-       if(cs){
-           //如果cs有数据
-           
-           //保存cs
-           $.setdata(cs,`cs${status}`)
+       if(cs) $.setdata(cs,`cs${status}`)
            console.log('获取并保存变量成功'); 
-       }
+       
    }else{
       console.log('【REWRITE】匹配链接（正则表达式）没有找到'); 
    }
