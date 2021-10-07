@@ -1,11 +1,14 @@
 /*
+
 京东多合一签到脚本
+
 更新时间: 2021.09.09 20:20 v2.1.3
 有效接口: 20+
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 电报频道: @NobyDa 
 问题反馈: @NobyDa_bot 
 如果转载: 请注明出处
+
 如需获取京东金融签到Body, 可进入"京东金融"APP (iOS), 在"首页"点击"签到"并签到一次, 返回抓包app搜索关键字 h5/m/appSign 复制请求体填入json串数据内即可
 */
 
@@ -637,7 +640,7 @@ function JDUserSignPre1(s, key, title, acData, ask) {
   }).then(data => {
     disable(key, title, 2)
     if (typeof(data) == "object") return JDUserSign1(s, key, title, encodeURIComponent(JSON.stringify(data)));
-    if (typeof(data) == "number") return JDUserSign2(s, key, title, data);
+    if (typeof(data) == "number") return JDUserSign2(s, key, title, data, acData);
     if (typeof(data) == "string") return JDUserSignPre1(s, key, title, acData, data);
   }, () => disable(key, title, 2))
 }
@@ -694,7 +697,7 @@ function JDUserSignPre2(s, key, title, acData) {
   }).then(data => {
     disable(key, title, 2)
     if (typeof(data) == "object") return JDUserSign1(s, key, title, encodeURIComponent(`{${data}}`));
-    if (typeof(data) == "number") return JDUserSign2(s, key, title, data)
+    if (typeof(data) == "number") return JDUserSign2(s, key, title, data, acData)
     if (typeof(data) == "string") return JDUserSignPre1(s, key, title, acData, data)
   }, () => disable(key, title, 2))
 }
@@ -748,7 +751,7 @@ function JDUserSign1(s, key, title, body) {
   });
 }
 
-async function JDUserSign2(s, key, title, tid) {
+async function JDUserSign2(s, key, title, tid, acData) {
   await new Promise(resolve => {
     let lkt = new Date().getTime()
     let lks = md5('' + 'JL1VTNRadM68cIMQ' + lkt).toString()
@@ -766,7 +769,7 @@ async function JDUserSign2(s, key, title, tid) {
           if (data.success && data.data) {
             data = data.data
             if (!data.hasSign) {
-              let ss = await Faker.getBody(`https://prodev.m.jd.com/mall/active/${tid}/index.html`)
+              let ss = await Faker.getBody(`https://prodev.m.jd.com/mall/active/${acData}/index.html`)
               fp = ss.fp
               await getEid(ss, title)
             }
