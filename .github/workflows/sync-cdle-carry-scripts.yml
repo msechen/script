@@ -1,4 +1,4 @@
-name: sync-JD_Script-scripts
+name: sync-cdle/carry-scripts
 on:
   schedule:
     - cron: '* */6 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ main ]
   repository_dispatch:
-    types: sync-JD_Script-scripts
+    types: sync-cdle/carry-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-JD_Script-scripts
+      - name: sync-cdle/carry-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/msewebchen/jdcookies.git"
+          source_repo: "https://github.com/cdle/carry.git"
           source_branch: "main"
-          destination_branch: "JD_Script"
+          destination_branch: "cdle/carry"
           github_token: ${{ secrets.PAT }}
