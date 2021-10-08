@@ -27,5 +27,5 @@ jobs:
         with:
           source_repo: "https://github.com/cdle/carry.git"
           source_branch: "main"
-          destination_branch: "cdle/carry"
+          destination_branch: "cdle-carry"
           github_token: ${{ secrets.PAT }}
