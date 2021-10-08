@@ -1,14 +1,14 @@
-name: sync-JSTOOL-scripts
+name: sync-DzPian-scripts
 on:
   schedule:
-    - cron: '1 */3 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-JSTOOL-scripts
+    types: sync-DzPian-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-JSTOOL-scripts
+      - name: sync-DzPian-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/lan-tianxiang/js_tool.git"
-          source_branch: "A1"
-          destination_branch: "JSTOOL"
+          source_repo: "https://github.com/DzPian/eastbro.git"
+          source_branch: "main"
+          destination_branch: "DzPian-eastbro"
           github_token: ${{ secrets.PAT }}
