@@ -4,8 +4,7 @@
 
 项目注册地址(微信扫码):https://gitee.com/soy-tool/app-script/raw/master/picture/wx_jysz.png
 
-(偷别人的)需要依赖 crypto-js.js ，请将该文件放在脚本同级目录即可
-crypto-js 文件地址：https://raw.githubusercontent.com/shaolin-kongfu/js_scripts/main/crypto-js.js
+(偷别人的,没有就拉下这个脚本)需要依赖 crypto-js.js ，文件地址：https://raw.githubusercontent.com/shaolin-kongfu/js_scripts/main/crypto-js.js
 
 变量抓取:
 
