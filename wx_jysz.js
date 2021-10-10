@@ -4,6 +4,9 @@
 
 项目注册地址(微信扫码):https://gitee.com/soy-tool/app-script/raw/master/picture/wx_jysz.png
 
+(偷别人的)需要依赖 crypto-js.js ，请将该文件放在脚本同级目录即可
+crypto-js 文件地址：https://raw.githubusercontent.com/shaolin-kongfu/js_scripts/main/crypto-js.js
+
 变量抓取:
 
 打开小黄鸟抓包,微信进金银手指界面 找有http://apponlie.sahaj.cn的连接
