@@ -78,7 +78,6 @@ appyq = process.env.appyq;
     await get_appdata()
   } else{
   app_soy_wx_jysz_token.push($.getdata('soy_wx_jysz_token'))
-  soy_wx_jysz_User_Agent.push($.getdata('soy_wx_jysz_User_Agent'))
   soy_wx_jysz_User_Agent = $.getdata('soy_wx_jysz_User_Agent')
   apptz = $.getdata('apptz');
 apptx = $.getdata('apptx');
