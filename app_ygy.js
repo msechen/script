@@ -120,14 +120,14 @@ for (i = 0; i < app_soy_ygy_phone.length; i++) {
     soy_ygy_phone=app_soy_ygy_phone[i]
     soy_ygy_password=app_soy_ygy_password[i]
     
-    soy_ygy_headers={"Host": "admin.yourunsocks.com",
+    soy_ygy_headers={"Host": "admin.yoo-woo.com",
     "accept": "application/json, text/plain, */*",
 "origin": "https://yourunsocks.com",
 "user-agent": "Mozilla/5.0 (Linux; Android 10; SKW-A0 Build/SKYW2103030CN00MQ5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/81.0.4044.138 Mobile Safari/537.36  XiaoMi/MiuiBrowser/10.8.1 LT-APP/44/104/YM-RT/",
 "sec-fetch-mode": "cors",
 "x-requested-with": "com.x0551jhw.app",
 "sec-fetch-site": "same-site",
-"referer": "https://yourunsocks.com/",
+"referer": "https://admin.yoo-woo.com/",
 "Content-Type": "application/json; charset=utf-8"};
 
 soy_ygy_body=`{"username":"${soy_ygy_phone}","password":"${soy_ygy_password}"}`
@@ -153,19 +153,21 @@ if(apptz){if ($.isNode() ){await notify.sendNotify($.name, subTitle)}};
 function soy_ygy_login() {
     return new Promise((resolve, reject) => {
         $.post({
-            url : `https://admin.yourunsocks.com/api/index/login`,
+            url : `https://admin.yoo-woo.com/api/index/login`,
             headers : soy_ygy_headers,
             body : soy_ygy_body,
         }, async(error, response, data) => {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==1){
-                console.log(`\n【${$.name}---观御果园登录】: ${result.info}`)
+                console.log(`\n【${$.name}---御果园登录】: ${result.info}`)
                 token=result.data.token
-                await $.wait(15000);
+                let ys=Math.floor(Math.random()*(20000-15000+1000)+15000)
+                console.log(`\n【${$.name}---开始任务】: 将延时${ys}秒开始答题`)
+                //await $.wait(Math.floor(Math.random()*(20000-15000+1000)+15000))
                 await soy_ygy_dt()
             }else{
-                console.log(`\n【${$.name}---观看广告】: ${result.message}`)
+                console.log(`\n【${$.name}---御果园登录】: ${result.message}`)
             }
             resolve()
         })
@@ -176,7 +178,7 @@ function soy_ygy_dt() {
 soy_ygy_body=`{"id":49,"key":4,"token":"${token}"}`
     return new Promise((resolve, reject) => {
         $.post({
-            url : `http://admin.yourunsocks.com/api/index/getask`,
+            url : `https://admin.yoo-woo.com/api/index/getask`,
             headers : soy_ygy_headers,
             body : soy_ygy_body,
         }, async(error, response, data) => {
@@ -185,7 +187,9 @@ soy_ygy_body=`{"id":49,"key":4,"token":"${token}"}`
             if(result.code==1){
                 console.log(`\n【${$.name}---御果园答题】: ${result.info}`)
                 //token=result.data.token
-                await $.wait(1000);
+                let ys=Math.floor(Math.random()*(10000-5000+1000)+5000)
+                console.log(`\n【${$.name}---开始任务】: 将延时${ys}秒开始继续答题`)
+                //await $.wait(Math.floor(Math.random()*(10000-5000+1000)+5000))
                 await soy_ygy_dt()
             }else{
                 console.log(`\n【${$.name}---御果园答题】: ${result.info}`)
