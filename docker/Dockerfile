@@ -60,7 +60,7 @@
         && rm -rf /root/.npm \
 	&& apk del .build \
         && rm -rf /root/.cache \
-	&&  npm i -g ttyd \
+	&& npm i -g ttyd \
 	&& npm i -S png-js \  
         && pip3 install requests
     WORKDIR ${JD_DIR}/app
