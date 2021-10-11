@@ -75,6 +75,8 @@
 30 3,10,22 * * * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
 15 5,12,23 * * * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
+#jd_opencard3
+45 7,14,20 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 
 
 ##############长期活动##############
