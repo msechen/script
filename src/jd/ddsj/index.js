@@ -10,7 +10,6 @@ class DDSJ extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static needInAppComplete = true;
-  static times = 1;
   static defaultShareCodes = [
     {taskToken: 'T018v_h1QhgY81XeKR6b1ACjRVmIaV5kRrbA', inviter_id: 'jPyoWhDsBth5Ez-4QNO6nneSq6SUrG--oE5Y04x95Vk'},
     {taskToken: 'T0107a4gE0Ic8ACjRVmIaV5kRrbA', inviter_id: 'RkGf_4-JATYY2sxzPH2tvrFSuvHy1HMS7GoN-ukE2s4'},
