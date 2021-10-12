@@ -217,6 +217,7 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
+          SuperBrandProduct,
         ]);
       },
     },

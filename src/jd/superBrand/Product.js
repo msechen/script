@@ -46,7 +46,7 @@ class SuperBrandProduct extends Template {
   static apiNamesFn() {
     const self = this;
 
-    return {
+    const result = {
       // 获取任务列表
       getTaskList: {
         name: 'superBrandTaskList',
@@ -108,26 +108,33 @@ class SuperBrandProduct extends Template {
         name: 'superBrandDoTask',
         paramFn: o => o,
       },
-      doRedeem: {
-        name: 'superBrandTaskLottery',
-        async successFn(data, api) {
-          const {bizCode, bizMsg, result} = data.data;
-          if (bizCode !== 'TK000') {
-            // api.log(bizMsg);
-            return false;
-          }
-          const {userAwardInfo} = result;
-          if (_.isEmpty(userAwardInfo)) return api.log('抽空了!');
-          const {awardType, awardName, beanNum, useRange} = userAwardInfo;
-          if (awardType === 3 || beanNum) {
-            api.log(`获得豆豆: ${beanNum}`);
-          } else if (awardName) {
-            api.log(`获得: ${awardName}(${useRange})(awardType: ${awardType})`);
-          }
-        },
-        repeat: true,
-      },
     };
+
+    if (self.getNowHour() >= 22) {
+      _.assign(result, {
+        doRedeem: {
+          name: 'superBrandTaskLottery',
+          async successFn(data, api) {
+            const {bizCode, bizMsg, result} = data.data;
+            if (bizCode !== 'TK000') {
+              // api.log(bizMsg);
+              return false;
+            }
+            const {userAwardInfo} = result;
+            if (_.isEmpty(userAwardInfo)) return api.log('抽空了!');
+            const {awardType, awardName, beanNum, useRange} = userAwardInfo;
+            if (awardType === 3 || beanNum) {
+              api.log(`获得豆豆: ${beanNum}`);
+            } else if (awardName) {
+              api.log(`获得: ${awardName}(${useRange})(awardType: ${awardType})`);
+            }
+          },
+          repeat: true,
+        },
+      });
+    }
+
+    return result;
   }
 }
 
