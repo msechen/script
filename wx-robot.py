@@ -93,6 +93,8 @@ def forward_to_kolly(msg):
     # 如果是群聊，但没有被@，则不回复
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
+    elif msg.sender.name == '##小号##' or msg.sender.name == '知乎好物 F4':
+        return sync_data.query_today_earnings_2() + '\n\n' + sync_data.query_today_data_2() + '\n\n' + sync_data.get_zhihu_like_2()
     elif msg.sender.name == '内测' or msg.sender.name == '「蓝猫」早起俱乐部':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
         if '#早起打卡' in msg.text:
@@ -148,6 +150,7 @@ def auto_reply(msg):
         return sync_data.query_article_rank(100)
 
     if 'unick=kollyQAQ' in msg.text:
+        txt = msg.text.replace("cookie: ","")
         zh_config_dao.update_config('jfck', msg.text)
         return '更新成功'
 

@@ -149,6 +149,19 @@ def query_zhihu_earnings():
     return top1 + mid1 + str(count1) + end1 + str(sum1/100), sum1/100, top2 + mid2 + str(count2) + end2 + str(sum2/100), sum2/100
 
 
+# 查询知乎今日佣金
+def query_zhihu_earnings_2():
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    top1 = "[知乎猫叔] "
+    mid1 = "订单量："
+    end1 = " 佣金："
+
+    count1, sum1 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('maoshu-ck').value)
+
+    return top1 + mid1 + str(count1) + end1 + str(sum1/100), sum1/100
+
+
 # 查询京粉今日佣金
 def query_jingfen_earnings():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -171,6 +184,17 @@ def query_zhijia_pay():
 
     return top + str(pay/100), pay/100
 
+
+# 查询知+今日消耗
+def query_zhijia_pay_2():
+    top = "[知+] "
+
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    result, pay = zhihu_spider.get_zhijia_pay_2(today, today, zh_config_dao.query_config('lanmao-zjck').value)
+
+    return top + result, pay/100
+
+
 # 查询今日总收入
 def query_today_earnings():
     zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
@@ -181,9 +205,22 @@ def query_today_earnings():
 
     return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings + "\n" + zhijia_pay
 
+# 查询今日总收入
+def query_today_earnings_2():
+    zhihu_earnings1, num1 = query_zhihu_earnings_2()
+    zhijia_pay, num4 = query_zhijia_pay_2()
+
+    total = int(num1 - num4)
+
+    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhijia_pay    
+
 # 查询今日阅读和点赞
 def query_today_data():
     return zhihu_spider.get_zhihu_card_data(zh_config_dao.query_config('dxck').value)
+
+# 查询今日阅读和点赞
+def query_today_data_2():
+    return zhihu_spider.get_zhihu_card_data(zh_config_dao.query_config('maoshu-ck').value)
 
 # 查询文章点赞数
 def get_zhihu_like(total):
@@ -221,5 +258,12 @@ def get_zhihu_like(total):
     return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")" + '\n' + txt4  + "(+" + str(inc4) + ")"  + "(+" + str(inc4_today) + ")"
 
 
+# 查询文章点赞数
+def get_zhihu_like_2():
+    txt1 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/420158303')
+
+    return txt1
+
+
 if __name__ == '__main__':
-    print(get_zhihu_like(False))
+    print(query_today_earnings_2() + '\n\n' + query_today_data_2() + '\n\n' + get_zhihu_like_2())

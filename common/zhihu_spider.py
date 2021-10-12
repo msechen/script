@@ -213,17 +213,15 @@ def get_jingfen_earnings(start, end, cookie):
     return json['result']['spreadReportInfoChatList'][0]['orderNum'], json['result']['spreadReportInfoChatList'][0][
         'cosFee']
 
-
-
 # 调知+ api 查询账户今日消耗
 def get_zhijia_pay(start, end, cookie):
     # 知+ API
     url = '''
-        https://xg.zhihu.com/api/v1/stat/overview?userId=39261&dataType=USER&groupUnit=BY_HOUR&stTms={}&endTms={}
+        https://xg.zhihu.com/api/v1/stat/overview?userId=504360&dataType=USER&groupUnit=BY_HOUR&stTms={}&endTms={}
     '''.format(start, end)
     header = {
         'cookie': cookie,
-        'referer': 'https://xg.zhihu.com/advertiser/39261/home',
+        'referer': 'https://xg.zhihu.com/advertiser/504360/home',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15'
     }
 
@@ -235,10 +233,30 @@ def get_zhijia_pay(start, end, cookie):
 
     json = res.json()
 
-    return json['total']['cost']
+    return format(json['total']['cost'],'.1f')
 
+# 调知+ api 查询账户今日消耗
+def get_zhijia_pay_2(start, end, cookie):
+    # 知+ API
+    url = '''
+        https://xg.zhihu.com/api/v1/stat/overview?userId=504360&dataType=USER&groupUnit=BY_HOUR&stTms={}&endTms={}
+    '''.format(start, end)
+    header = {
+        'cookie': cookie,
+        'referer': 'https://xg.zhihu.com/advertiser/504360/home',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        return "接口异常"
+
+    json = res.json()
+
+    return '花费:' + str(format(json['total']['cost']/100,'.1f')) + ' 点击：' + str(json['total']['click']) + ' 点击率：' + str(format(json['total']['clickRate']*100,'.1f')) + '%', json['total']['cost']
 
 if __name__ == "__main__":
-    zhihu_cookie = jingfen_cookie = zh_config_dao.query_config('dxck').value
 
-    print(get_zhihu_card_data(zhihu_cookie))
+    print(format(1234/100,'.1f'))
