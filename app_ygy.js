@@ -165,6 +165,7 @@ function soy_ygy_login() {
                 let ys=Math.floor(Math.random()*(20000-15000+1000)+15000)
                 console.log(`\n【${$.name}---开始任务】: 将延时${ys}秒开始答题`)
                 //await $.wait(Math.floor(Math.random()*(20000-15000+1000)+15000))
+                await $.wait(ys)
                 await soy_ygy_dt()
             }else{
                 console.log(`\n【${$.name}---御果园登录】: ${result.message}`)
@@ -190,6 +191,7 @@ soy_ygy_body=`{"id":49,"key":4,"token":"${token}"}`
                 let ys=Math.floor(Math.random()*(10000-5000+1000)+5000)
                 console.log(`\n【${$.name}---开始任务】: 将延时${ys}秒开始继续答题`)
                 //await $.wait(Math.floor(Math.random()*(10000-5000+1000)+5000))
+                await $.wait(ys)
                 await soy_ygy_dt()
             }else{
                 console.log(`\n【${$.name}---御果园答题】: ${result.info}`)
