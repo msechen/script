@@ -25,7 +25,7 @@ let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭�
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let uuid
-$.shareCodes = [], $.res=[];
+$.shareCodes = [];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -106,8 +106,8 @@ let allMessage = '';
 async function jdMofang() {
   console.log(`集魔方 赢大奖`)
   await getInteractionHomeInfo()
-  console.log(`\n集魔方 抽京豆 赢新品`)
-  await getInteractionInfo()
+  // console.log(`\n集魔方 抽京豆 赢新品`)
+  // await getInteractionInfo()
 }
 
 async function getInteractionHomeInfo() {
@@ -145,9 +145,9 @@ async function queryInteractiveInfo(encryptProjectId, sourceCode) {
               let vo = data.assignmentList[key]
               if (vo.ext.extraType === "sign1") {
                 console.log(`去做【${vo.assignmentName}】`)
-                let signDay = (vo.ext[vo.ext.extraType].signList && vo.ext[vo.ext.extraType].signList.length) || 0
-                $.type = vo.rewards[signDay].rewardType
                 if (vo.ext[vo.ext.extraType].status !== 2) {
+                  let signDay = (vo.ext[vo.ext.extraType].signList && vo.ext[vo.ext.extraType].signList.length) || 0
+                  $.type = vo.rewards[signDay].rewardType
                   await doInteractiveAssignment(vo.ext.extraType, encryptProjectId, sourceCode, vo.encryptAssignmentId, vo.ext[vo.ext.extraType].itemId)
                 } else {
                   console.log(`今日已签到`)
@@ -166,28 +166,30 @@ async function queryInteractiveInfo(encryptProjectId, sourceCode) {
                   console.log(`助力已满`)
                 }
               } else if (vo.ext.extraType !== "brandMemberList") {
-                console.log(`去做【${vo.assignmentName}】`)
-                if (vo.completionCnt < vo.assignmentTimesLimit) {
-                  $.type = vo.rewards[0].rewardType
-                  for (let key of Object.keys(vo.ext[vo.ext.extraType])) {
-                    let task = vo.ext[vo.ext.extraType][key]
-                    if (task.status !== 2) {
-                      if (vo.ext.extraType !== "productsInfo" && vo.ext.extraType !== "addCart") {
-                        await doInteractiveAssignment(vo.ext.extraType, encryptProjectId, sourceCode, vo.encryptAssignmentId, task.itemId, "1")
-                        await $.wait((vo.ext.waitDuration * 1000) || 2000)
-                      }
-                      if (vo.ext.extraType === "browseShop") {
-                        $.rewardmsg = `完成成功：获得${vo.rewards[0].rewardValue}${vo.rewards[0].rewardName}`
-                        await qryViewkitCallbackResult(encryptProjectId, vo.encryptAssignmentId, task.itemId)
-                      } else {
-                        $.complete = false
-                        await doInteractiveAssignment(vo.ext.extraType, encryptProjectId, sourceCode, vo.encryptAssignmentId, task.itemId, "0")
-                        if ($.complete) break
+                if (Object.keys(vo.ext).length && Object.keys(vo.ext[vo.ext.extraType]).length) {
+                  console.log(`去做【${vo.assignmentName}】`)
+                  if (vo.completionCnt < vo.assignmentTimesLimit) {
+                    $.type = vo.rewards[0].rewardType
+                    for (let key of Object.keys(vo.ext[vo.ext.extraType])) {
+                      let task = vo.ext[vo.ext.extraType][key]
+                      if (task.status !== 2) {
+                        if (vo.ext.extraType !== "productsInfo" && vo.ext.extraType !== "addCart") {
+                          await doInteractiveAssignment(vo.ext.extraType, encryptProjectId, sourceCode, vo.encryptAssignmentId, task.itemId, "1")
+                          await $.wait((vo.ext.waitDuration * 1000) || 2000)
+                        }
+                        if (vo.ext.extraType === "browseShop") {
+                          $.rewardmsg = `完成成功：获得${vo.rewards[0].rewardValue}${vo.rewards[0].rewardName}`
+                          await qryViewkitCallbackResult(encryptProjectId, vo.encryptAssignmentId, task.itemId)
+                        } else {
+                          $.complete = false
+                          await doInteractiveAssignment(vo.ext.extraType, encryptProjectId, sourceCode, vo.encryptAssignmentId, task.itemId, "0")
+                          if ($.complete) break
+                        }
                       }
                     }
+                  } else {
+                    console.log(`任务已完成`)
                   }
-                } else {
-                  console.log(`任务已完成`)
                 }
               }
             }
