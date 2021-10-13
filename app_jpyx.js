@@ -2,6 +2,8 @@
 
 软件名称:金派优选
 
+分红的,我也不知道啥用,看见就写而已
+
 项目注册地址:http://register.jinpai.info/#/?promotionCode=91831396
 
 变量需求
