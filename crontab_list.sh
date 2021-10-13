@@ -216,3 +216,6 @@
 
 # 京喜app->领88元红包
 5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
+
+# 极速版-发财大赢家
+0 0,8,20 * * * cd /scripts && ts-node /scripts/jd_speed_redEnvelope.ts >> /scripts/logs/jd_speed_redEnvelope.log 2>&1
