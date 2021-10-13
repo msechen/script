@@ -1,4 +1,4 @@
-name: sync-Wenmoux-scripts
+name: sync-cxk1991/js-scripts
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-Wenmoux-scripts
+    types: sync-cxk1991/js-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-Wenmoux-scripts
+      - name: sync-cxk1991/js-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/Wenmoux/scripts.git"
-          source_branch: "wen"
-          destination_branch: "Wenmoux"
+          source_repo: "https://github.com/cxk1991/js.git"
+          source_branch: "master"
+          destination_branch: "cxk1991-wxjsz"
           github_token: ${{ secrets.PAT }}
