@@ -35,7 +35,7 @@ soy_ysysp_headers
 
 关于v2p重写不知道
 [rewrite]
-https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd  对应脚本 
+https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd  对应脚本 https://gitee.com/soy-tool/app-script/raw/master/app_ysysp.js
 [MITM]
 api.ys7.com
 
