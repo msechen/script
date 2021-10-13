@@ -24,7 +24,8 @@ cron 0 11,20 * * *
 const $ = new Env('金派优选');
 //加载推送消息模块
 const notify = $.isNode() ? require('./sendNotify') : '';
-const axios = require("axios");
+
+const axios = $.isNode() ? require("axios") : '';
 const app_soy_jpyx_username=[],app_soy_jpyx_password=[]
 
 
@@ -59,7 +60,10 @@ const app_soy_jpyx_username=[],app_soy_jpyx_password=[]
     }else{
         soy_jpyx_password = process.env.soy_jpyx_password.split();
     };
-
+    
+    request=axios
+    
+    
     }else{
       if(!$.getdata('soy_jpyx_username')){
         console.log(`\n【${$.name}】：未提供登录账号`);
@@ -90,6 +94,8 @@ const app_soy_jpyx_username=[],app_soy_jpyx_password=[]
     }else{
         soy_jpyx_password = $.getdata('soy_jpyx_password').split();
     };
+    
+    request=$axios
     
     }
     
@@ -133,17 +139,14 @@ soy_jpyx_login_body=`{"username":"${soy_jpyx_username}","password":"${soy_jpyx_p
     state=0
         await soy_jysz_appLogin()
         
-        if(!token){
+        if(!token||token==''){
            console.log(`\n【${$.name}---账号 ${$.index} 登录】: 没有获取到token`) 
         }else{
             await soy_jpyx_list()
-        }
-        
-        //console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】 `)
-        
-        if(task1_residue!=0){
+            
+            if(task1_residue!=0&&state==1){
             console.log(`\n【${$.name}---账号 ${$.index} 开始${task1_title}任务】 `)
-            for(let cs=0;cs<task1_residue&&state==1;cs++){
+            for(let cs=0;cs<task1_residue;cs++){
                 let ys=Math.floor(Math.random()*(35000-20000+1000)+20000)
                 let watchTime = Math.round(ys/1000)
                 task1_body=`{"companyId":"${task1_companyId}","watchTime":${watchTime}}`
@@ -155,9 +158,9 @@ soy_jpyx_login_body=`{"username":"${soy_jpyx_username}","password":"${soy_jpyx_p
             }
         }
         
-        if(task2_residue!=0){
+        if(task2_residue!=0&&state==1){
             console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告${task2_title}任务】 `)
-            for(let cs=0;cs<task2_residue&&state==1;cs++){
+            for(let cs=0;cs<task2_residue;cs++){
                 let ys=Math.floor(Math.random()*(35000-20000+1000)+20000)
                 let watchTime = Math.round(ys/1000)
                 task2_body=`{"companyId":"${task2_companyId}","watchTime":${watchTime}}`
@@ -169,9 +172,9 @@ soy_jpyx_login_body=`{"username":"${soy_jpyx_username}","password":"${soy_jpyx_p
             }
         }
         
-        if(task3_residue!=0){
+        if(task3_residue!=0&&state==1){
             console.log(`\n【${$.name}---账号 ${$.index} 开始${task3_title}任务】 `)
-            for(let cs=0;cs<task3_residue&&state==1;cs++){
+            for(let cs=0;cs<task3_residue;cs++){
                 let ys=Math.floor(Math.random()*(35000-20000+1000)+20000)
                 let watchTime = Math.round(ys/1000)
                 task3_body=`{"companyId":"${task3_companyId}","watchTime":${watchTime}}`
@@ -182,6 +185,9 @@ soy_jpyx_login_body=`{"username":"${soy_jpyx_username}","password":"${soy_jpyx_p
                 
             }
         }
+        
+        }
+        
         
     
 };
@@ -197,7 +203,7 @@ soy_jpyx_login_body=`{"username":"${soy_jpyx_username}","password":"${soy_jpyx_p
 
 
 async function soy_jysz_appLogin() {
-    data = await axios({
+    await request({
         url:'http://jpapp.jinpai.info:8088/appLogin',
         headers:soy_jpyx_login_headers,
         method:"POST",
@@ -214,6 +220,7 @@ async function soy_jysz_appLogin() {
             token=result.data.token
         }else{
             console.log(`\n【${$.name}---账号 ${$.index} 登录】: ${result.data.msg}`)
+            token=''
         }
         
     })
@@ -235,27 +242,38 @@ function soy_jpyx_list() {
             if(result.code==200){
                 //result.rows.length
                 console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: 读取到当前任务状态:`)
+                state=1
                 for(let sl = 0; sl < result.rows.length; sl++){
-                    console.log(`---${result.rows[sl].taskName}：剩余次数 ${result.rows[sl].residueDegree} 次`)
+                    //console.log(`---${result.rows[sl].taskName}：剩余次数 ${result.rows[sl].residueDegree} 次`)
                     if(sl==0){
                        task1_residue = result.rows[0].residueDegree
                        task1_title=result.rows[0].taskName
                        task1_companyId=result.rows[0].companyId
+                       console.log(`---${task1_title}：剩余次数 ${task1_residue} 次`)
+                       
                     }
+                    
                     if(sl==1){
                        task2_residue = result.rows[1].residueDegree
                        task2_title=result.rows[1].taskName
                        task2_companyId=result.rows[1].companyId
+                       console.log(`---${task2_title}：剩余次数 ${task2_residue} 次`)
+                       
                     }
+                    
                     if(sl==2){
                        task3_residue = result.rows[2].residueDegree
                        task3_title=result.rows[2].taskName
                        task3_companyId=result.rows[2].companyId
+                       console.log(`---${task3_title}：剩余次数 ${task3_residue} 次`)
+                       
                     }
                     
                 }
                 
-                state=1
+                
+                
+                
                 
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.msg}`)
@@ -268,7 +286,7 @@ function soy_jpyx_list() {
 
 
 async function soy_jpyx_task(body,title) {
-    data = await axios({
+    await request({
         url:'http://jpapp.jinpai.info:8088/appRequest/jpApp/userAdvertisingRecord',
         headers:{"user-agent": "Dart/2.14 (dart:io)","content-type": "application/json","accept-encoding": "gzip","host": "jpapp.jinpai.info:8088","authorization":`Bearer ${token}`},
         method:"POST",
@@ -276,14 +294,14 @@ async function soy_jpyx_task(body,title) {
         }).catch(function (error) {
             //return error
             console.log('网络请求失败')
+            state=0
         }).then(function (result) {
             //console.log(result.data)
         //results=JSON.stringify(result.data)
         
         if(result.data.code==201){
-            console.log(`\n【${$.name}---账号 ${$.index} 任务:${title}】: ${result.data.msg}`)
             state=1
-
+            console.log(`\n【${$.name}---账号 ${$.index} 任务:${title}】: ${result.data.msg}`)
         }else{
             console.log(`\n【${$.name}---账号 ${$.index} 任务:${title}】: ${result.data.msg}`)
             state=0
