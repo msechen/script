@@ -35,7 +35,7 @@ soy_ysysp_headers
 
 关于v2p重写不知道
 [rewrite]
-https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd  对应脚本 https://gitee.com/soy-tool/app-script/raw/master/app_ysysp.js
+https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd  对应脚本 
 [MITM]
 api.ys7.com
 
@@ -65,12 +65,12 @@ let qd_state = 0,
 
         if ($.isNode()) {
             if (!process.env.soy_ysysp_sesionid) {
-                console.log(`\n【${$.name}】：未提供登录账号`);
+                console.log(`\n【${$.name}】：未提供变量 soy_ysysp_sesionid`);
                 return;
             }
 
             if (!process.env.soy_ysysp_cookie) {
-                console.log(`\n【${$.name}】：未提供登录密码`);
+                console.log(`\n【${$.name}】：未提供变量 soy_ysysp_cookie`);
                 return;
             }
 
@@ -147,12 +147,12 @@ let qd_state = 0,
             } else {
 
                 if (!$.getdata('soy_ysysp_sesionid')) {
-                    console.log(`\n【${$.name}】：未提供登录账号`);
+                    console.log(`\n【${$.name}】：未提供变量 soy_ysysp_sesionid`);
                     return;
                 }
 
                 if (!$.getdata('soy_ysysp_featurecode')) {
-                    console.log(`\n【${$.name}】：未提供登录密码`);
+                    console.log(`\n【${$.name}】：未提供变量 soy_ysysp_featurecode`);
                     return;
                 }
 
