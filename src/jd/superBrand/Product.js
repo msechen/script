@@ -66,7 +66,7 @@ class SuperBrandProduct extends Template {
             assignmentTimesLimit: maxTimes,
             completionCnt: times,
             waitDuration,
-            ext,
+            ext = {},
           } of taskList) {
             if ((times === maxTimes) || [30/*抽奖*/].includes(assignmentType) || assignmentName.match(/助力|开卡/)) continue;
 
