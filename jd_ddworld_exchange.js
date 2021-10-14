@@ -50,7 +50,7 @@ if ($.isNode()) {
                 }
               }
               try {
-                if (`${BeansCount}` !== '0') {
+                if (Number(BeansCount) !== '0') {
                   await main();
                 } else {
                   console.log('查询到您设置的是不兑换京豆选项，现在为您跳过兑换京豆。如需兑换，请去BoxJs设置或者修改脚本BeansCount或设置环境变量BeansCount\n')
@@ -101,7 +101,7 @@ async function task(function_id, body) {
                     switch (function_id) {
                         case 'get_exchange':
                             $.exchangeList = data;
-                            const exchange = $.exchangeList.filter(vo => vo['coins'] === BeansCount );
+                            const exchange = $.exchangeList.filter(vo => vo['coins'] === Number(BeansCount) );
                             if (exchange && exchange[0]) {
                                 $.exchangeName = exchange[0].name;
                                 $.id = exchange[0].id;
