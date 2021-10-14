@@ -42,7 +42,7 @@ const BASE_URL = 'https://m.jingxi.com/cubeactive/steprewardv3'
       '助力逻辑：先助力作者，剩余次数账户内互助\n' +
       '温馨提示：如提示助力火爆，可尝试寻找京东客服')
   let res = []
-  res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/jxhb.json')
+  res = await getAuthorShareCode('https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/jxhb.json')
   if (!res) {
     $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jxhb.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
     await $.wait(1000)
