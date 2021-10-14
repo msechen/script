@@ -120,7 +120,8 @@ for (i = 0; i < app_soy_wx_jysz_token.length; i++) {
     
         await soy_jysz_Info()
         await soy_jysz_fetchTask()
-        await soy_jysz_TX()
+        await soy_jysz_TX_state()
+        //await soy_jysz_TX()
     
     
 };
@@ -165,8 +166,11 @@ function soy_jysz_Info(){
             let result = JSON.parse(data)
             if(result.code==0){
                 gold=result.data.goldNow
-                txgold=gold/4000*0.35
-                console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: \n---用户昵称：${result.data.nameNick}\n---当前剩余金币：${gold}\n---可提现金额：${txgold.toFixed(1)}`)
+                credit = result.data.credit
+                txgold=gold/4000*0.4
+                //console.log(Math.floor(gold/4000*0.4))
+                console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: \n---用户昵称：${result.data.nameNick}\n---用户信用：${credit}\n---当前剩余金币：${gold}\n---可提现金额：${txgold.toFixed(1)}`)
+               
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: ${result.msg}`)
             }
@@ -191,21 +195,22 @@ function soy_jysz_fetchTask() {
                 TodayCount = result.data.completeTodayCount
                 TodayGold = result.data.completeTodayGold
                 console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】: \n---今日阅读次数:${TodayCount}\n---今日金币：${TodayGold}`)
-                if (TodayCount >= 25) {
+                if (TodayCount == 25) {
                     await soy_jysz_taskSeq(1)
                 }
-                if (TodayCount >= 70) {
+                if (TodayCount == 70) {
                     await soy_jysz_taskSeq(2)
                 }
                 if (taskId == null&&result.data.bizCode==30){
-                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:获取任务失败，下批文章将在24小时后到来`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:下批文章将在24小时后到来,请自行手动过检测在执行`)
                 }
                 if (taskId == null&&result.data.bizCode==11){
-                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:获取任务失败，当天达到上限`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:当天达到上限`)
                 }
                 if (taskId == null&&result.data.bizCode==10){
-                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:获取任务失败，下批文章将在60分钟后到达`)
+                    console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】:下批文章将在60分钟后到达`)
                 }
+                
                 if (taskId !== null) {
                     let key = CryptoJS.enc.Utf8.parse("5kosc7jy2w0fxx3s")
                     let plaintText = `{"taskId":${taskId}}`
@@ -233,7 +238,7 @@ function soy_jysz_taskSeq(type) {
         }, async(error, response, data) => {
             //console.log(data)
             let result = JSON.parse(data)
-            console.log(`\n【${$.name}---账号 ${$.index} 阅读状态】: ${result.msg}`)
+            console.log(`\n【${$.name}---账号 ${$.index} 每日任务】: ${result.msg}`)
 
             resolve()
         })
@@ -249,7 +254,7 @@ function soy_jysz_task(data) {
             },
             body : `${data}`,
         }, async(error, response, data) => {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
                 console.log(`\n【${$.name}---账号 ${$.index} 阅读第${TodayCount+1}次文章】: 获得 ${result.data.goldAward} 金币`)
@@ -264,7 +269,30 @@ function soy_jysz_task(data) {
     })
 }
 
-async function soy_jysz_TX() {
+
+function soy_jysz_TX(body) {
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `http://apponlie.sahaj.cn/task/completeTask`,
+            headers : {"Accept": "application/json","Content-Type": "application/json;charset=UTF-8","Host": "apponlie.sahaj.cn","Origin": "http://jjuuii.sahaj.cn","Referer": "http://jjuuii.sahaj.cn","token": soy_wx_jysz_token,"User-Agent": soy_wx_jysz_User_Agent,"X-Requested-With": "com.tencent.mm"},
+            body : `${body}`,
+        }, async(error, response, data) => {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==0){
+                console.log(`\n【${$.name}---账号 ${$.index} 提现】: 提现成功`)
+            }else{
+              console.log(`\n【${$.name}---账号 ${$.index} 提现】: ${result.msg}`)
+            }
+            
+            resolve()
+        })
+    })
+}
+
+
+
+async function soy_jysz_TX_state() {
     return new Promise((resolve, reject) => {
         $.get({
             url : `http://apponlie.sahaj.cn/user/myInfo`,
@@ -275,34 +303,20 @@ async function soy_jysz_TX() {
             let result = JSON.parse(data)
             if(result.code==0){
                 gold=result.data.goldNow
-                if (gold >= 5000){
-                    txgold=gold/4000*0.35
+                if (gold >= 4000){
+                    if(gold>=1.2/0.4*4000){
+                    txgold=1.2
+                }else if(gold>=0.8/0.4*4000){
+                    txgold=0.8
+                }else{
+                    txgold=0.4
+                }
+                    
                     let key = CryptoJS.enc.Utf8.parse("5kosc7jy2w0fxx3s")
                     let plaintText = `{"moneyPick":${txgold}}`
                     let jm = CryptoJS.AES.encrypt(plaintText, key, {mode: CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7})
-                    return new Promise((resolve, reject) => {
-                        $.post({
-                            url : `http://apponlie.sahaj.cn/user/pickAuto`,
-                            headers : {"Accept": "application/json","Content-Type": "application/json;charset=UTF-8","Host": "apponlie.sahaj.cn","Origin": "http://ppllmm.zhuwentao52.top","Referer": "http://ppllmm.zhuwentao52.top","token": soy_wx_jysz_token,"User-Agent": soy_wx_jysz_User_Agent,"X-Requested-With": "com.tencent.mm"
-                                
-                            },
-                            body : `${jm}`,
-                            
-                        }, async(error, response, data) => {
-                            //console.log(data)
-                            let result = JSON.parse(data)
-                            if (result.code == 0) {
-                                console.log(`\n【${$.name}---账号 ${$.index} 提现】: 提现成功`)
-                                
-                            } else {
-                                console.log(`\n【${$.name}---账号 ${$.index} 提现】: ${result.msg}`)
-                                
-                            }
-                            resolve()
-                            
-                        })
-                        
-                    })
+                    await soy_jysz_TX(jm)
+                    
                 }else{
                    console.log(`\n【${$.name}---账号 ${$.index} 提现】: 余额不足,无法提现`) 
                 }
