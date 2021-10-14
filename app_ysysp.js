@@ -119,7 +119,8 @@ let qd_state = 0,
 
             if (!process.env.soy_ysysp_headers) {
                 //soy_ysysp_featurecode='e336d512fd6a3a030e8d460de08454c2'
-                console.log(`\n【${$.name}】：未提供变量 soy_ysysp_featurecode ,将默认分配`);
+                soy_ysysp_headers=''
+                console.log(`\n【${$.name}】：未提供变量 soy_ysysp_headers ,将默认分配`);
             } else {
                 if (process.env.soy_ysysp_headers && process.env.soy_ysysp_headers.indexOf('@') > -1) {
                     soy_ysysp_headers = process.env.soy_ysysp_headers.split('@');
@@ -211,6 +212,7 @@ let qd_state = 0,
 
                 if (!$.getdata('soy_ysysp_headers')) {
                     //soy_ysysp_featurecode='e336d512fd6a3a030e8d460de08454c2'
+                    soy_ysysp_headers=''
                     console.log(`\n【${$.name}】：未提供变量 soy_ysysp_headers ,将默认分配`);
                 } else {
                     if ($.getdata('soy_ysysp_headers') && $.getdata('soy_ysysp_headers').indexOf('@') > -1) {
@@ -264,10 +266,22 @@ let qd_state = 0,
         8 * 60 * 60 * 1000
       ).toLocaleString()} ===\n`
         );
-        console.log(`===【共 ${app_soy_ysysp_sesionid.length} 个账号】===\n`);
+        //console.log(`===【共 ${app_soy_ysysp_sesionid.length} 个账号】===\n`);
+        if(app_soy_ysysp_sesionid.length==0){
+            if(!soy_ysysp_headers){
+               console.log(`\n【${$.name}】：未提供需要的变量`);
+            }else{
+              zhsl=app_soy_ysysp_headers.length
+              console.log(`===【共 ${zhsl} 个账号】===\n`);
+            }
+            
+        }else{
+            
+            zhsl=app_soy_ysysp_sesionid.length
+            console.log(`===【共 ${zhsl} 个账号】===\n`);
+        }
 
-
-        for (i = 0; i < app_soy_ysysp_sesionid.length; i++) {
+        for (i = 0; i < zhsl; i++) {
             soy_ysysp_sesionid = app_soy_ysysp_sesionid[i]
             soy_ysysp_cookie = app_soy_ysysp_cookie[i]
 
@@ -349,11 +363,7 @@ let qd_state = 0,
             }
 
             await soy_ysysp_BoxCd()
-
-            for (let cs = 0; cs < 10; cs++) {
-                await soy_ysysp_boxvideo()
-                await $.wait(Math.floor(Math.random() * (30000 - 20000 + 1000) + 20000))
-            }
+            await soy_ysysp_boxvideo()
         };
 
 
@@ -390,7 +400,6 @@ function soy_ysysp_BoxCd() {
             if (result.meta.code = 200) {
                 if (result.expireTime == 0) {
                     await soy_ysysp_openBox()
-
                 } else {
                     console.log(`\n【${$.name}---账号 ${$.index} 宝箱冷却时间】: 还剩下 ${result.expireTime} 秒后才能开启`)
                 }
@@ -414,17 +423,7 @@ function soy_ysysp_openBox() {
             //console.log(data)
             let result = JSON.parse(data)
             if (result.meta.code == 200) {
-
                 console.log(`\n【${$.name}---账号 ${$.index} 开宝箱】: ${result.meta.message},获得莹豆 ${result.ydValue} 个`)
-
-            } else if (result.meta.code == 10361) {
-                console.log(`\n【${$.name}---账号 ${$.index} 开宝箱】：${result.meta.message}\n`)
-                await soy_ysysp_boxvideo()
-
-            } else if (result.meta.code == 10362) {
-                console.log(`\n【${$.name}---账号 ${$.index} 开宝箱】：${result.meta.message}\n`)
-                await soy_ysysp_boxvideo()
-
             } else {
                 console.log(`\n【${$.name}---账号 ${$.index} 开宝箱】: ${result.meta.message}`)
             }
@@ -445,7 +444,14 @@ function soy_ysysp_boxvideo() {
             let result = JSON.parse(data)
             if (result.meta.code == 200) {
                 console.log(`\n【${$.name}---账号 ${$.index} 广告视频激励奖】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-
+                if(result.taskIntegral==0){
+                    console.log(`\n【${$.name}---账号 ${$.index} 广告视频激励奖】: 今天已上限`)
+                }else{
+                    await $.wait(Math.floor(Math.random() * (30000 - 20000 + 1000) + 20000))
+                    await soy_ysysp_boxvideo()
+                    
+                }
+                
 
             } else {
                 console.log(`\n【${$.name}---账号 ${$.index} 广告视频激励奖】: ${result.meta.message}`)
@@ -553,7 +559,7 @@ function soy_ysysp_list() {
 
                         } else {
                             console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-                            sc_state = result.taskList[sl].taskCompleteNum - result.taskList[sl].taskNum
+                            sc_state = result.taskList[sl].taskNum-result.taskList[sl].taskCompleteNum
 
                         }
 
@@ -565,7 +571,7 @@ function soy_ysysp_list() {
 
                         } else {
                             console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-                            pl_state = result.taskList[sl].taskCompleteNum - result.taskList[sl].taskNum
+                            pl_state = result.taskList[sl].taskNum-result.taskList[sl].taskCompleteNum 
 
                         }
 
