@@ -1,6 +1,6 @@
 软件名称:微信_金银手指 \
 项目注册地址(微信扫码):\
-<img src="https://raw.githubusercontent.com/msechen/script/master/photo_2021-09-26_22-41-18.jpg"></img>
+<img src="https://raw.githubusercontent.com/msechen/script/master/wxjsz.png"></img>
 
 变量抓取: \
 打开小黄鸟抓包,微信进金银手指界面 找有 http://apponlie.sahaj.cn 的连接 \
