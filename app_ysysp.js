@@ -56,7 +56,7 @@ cron 0 9,13,17,21 * * *
 
 const $ = new Env('莹石云视频');
 const notify = $.isNode() ? require('./sendNotify') : '';
-//const axios = $.isNode() ? require("./axios") : '';
+const axios = $.isNode() ? require("./axios") : '';
 const md5 = $.isNode() ? require("./md5") : '';
 let status;
 status = (status = ($.getval("ysysp_status") || "1")) > 1 ? `${status}` : "";
@@ -69,7 +69,7 @@ let qd_state='', sc_state='', pl_state='', bd_state='', yq_state='',kp_state
         await ysysp_getdata()
     } else {
         if ($.isNode()) {
-            //request=axios
+            request=axios
     
     if(!process.env.soy_ysysp_username){
         console.log(`\n【${$.name}】：未填写相应变量 soy_ysysp_username`);
@@ -135,7 +135,7 @@ let qd_state='', sc_state='', pl_state='', bd_state='', yq_state='',kp_state
     
     
 }else{
-    //request=$axios
+    request=$axios
     if(!$.getdata('soy_ysysp_username')){
         console.log(`\n【${$.name}】：未填写相应变量 soy_ysysp_username`);
         return;
