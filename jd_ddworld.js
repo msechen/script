@@ -63,7 +63,7 @@ let tokenInfo = {}, hotInfo = {}
       hotInfo[$.UserName] = $.hot
     }
   }
-  let res = await getAuthorShareCode('https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/ddworld.json')
+  let res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/ddworld.json')
   if (!res) {
     $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ddworld.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
     await $.wait(1000)
