@@ -2,7 +2,7 @@
 
 软件名称:微信_金银手指
 
-项目注册地址(微信扫码):https://raw.githubusercontent.com/msechen/script/master/photo_2021-09-26_22-41-18.jpg
+项目注册地址(微信扫码):https://raw.githubusercontent.com/msechen/script/master/wxjsz.png
 
 
 变量抓取:
