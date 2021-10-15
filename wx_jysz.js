@@ -37,7 +37,7 @@ cron 0 8-22/1 * * *
 
 const $ = new Env('微信_金银手指');
 const notify = $.isNode() ? require('./sendNotify') : '';
-const CryptoJS = require('crypto-js')
+const CryptoJS = $.isNode() ? require('./crypto-js'): ''
 const app_soy_wx_jysz_token = []
 let subTitle = ``;
 let status;
@@ -347,7 +347,6 @@ async function soy_jysz_TX_state() {
                 }*/
                    txgold = Math.floor(gold/4000)*0.4
                    txgold = txgold.toFixed(1)
-                    const CryptoJS = require('./crypto-js')
                     let key = CryptoJS.enc.Utf8.parse("5kosc7jy2w0fxx3s")
                     let plaintText = `{"moneyPick":${txgold}}`
                     let jm = CryptoJS.AES.encrypt(plaintText, key, {mode: CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7})
