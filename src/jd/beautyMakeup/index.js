@@ -273,6 +273,8 @@ class BeautyMakeup extends Template {
         await handleDoProduceTask();
       }
 
+      await handleExchange();
+
       api.log(`金币为: ${userData['coins']}`);
     }
 
@@ -659,6 +661,7 @@ class BeautyMakeup extends Template {
           await sleep(5);
         }
       }
+      benefitData = [];
     }
 
     async function sendMessage(data) {
