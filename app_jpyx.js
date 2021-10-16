@@ -6,6 +6,8 @@
 
 项目注册地址:http://register.jinpai.info/#/?promotionCode=91831396
 
+软件下载地址:http://download.jinpai.info/x82s
+
 变量需求
 
 soy_jpyx_username
@@ -16,16 +18,19 @@ soy_jpyx_password
 
 多号用 @ 或 # 或 换行 隔开
 
-cron 0 11,20 * * *
+cron 0 10,20 * * *
+#看平台波动
 
 */
 
 
 const $ = new Env('金派优选');
-//加载推送消息模块
-const notify = $.isNode() ? require('./sendNotify') : '';
 
+// 在脚本同级目录 加载sendNotify(推送消息)模块
+const notify = $.isNode() ? require('./sendNotify') : '';
+// 在isNodejs环境 加载axios模块
 const axios = $.isNode() ? require("axios") : '';
+
 const app_soy_jpyx_username=[],app_soy_jpyx_password=[]
 
 
@@ -136,58 +141,62 @@ soy_jpyx_login_body=`{"username":"${soy_jpyx_username}","password":"${soy_jpyx_p
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
-    state=0
+    
         await soy_jysz_appLogin()
         
         if(!token||token==''){
            console.log(`\n【${$.name}---账号 ${$.index} 登录】: 没有获取到token`) 
         }else{
             await soy_jpyx_list()
-            
-            if(task1_residue!=0&&state==1){
+//console.log(Math.floor(Math.floor(Math.random()*(35000-20000+1000)+20000)/1000))
+            if(task1_residue!=0){
             console.log(`\n【${$.name}---账号 ${$.index} 开始${task1_title}任务】 `)
+            //获取广告视频id
             for(let cs=0;cs<task1_residue;cs++){
                 let ys=Math.floor(Math.random()*(35000-20000+1000)+20000)
                 let watchTime = Math.round(ys/1000)
-                task1_body=`{"companyId":"${task1_companyId}","watchTime":${watchTime}}`
+                //task1_body=`{"companyId":"${task1_companyId}","watchTime":${watchTime}}`
                 //console.log(task1_body)
-                await soy_jpyx_task(task1_body,task1_title)
-                console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】: 延时 ${ys/1000} 秒继续...`)
-                await $.wait(ys)
+                 await soy_jpyx_taskID(task1_companyId,task1_title)
+                 console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】: 延时 ${ys/1000} 秒继续...`)
+                 await $.wait(ys)
+                 await soy_jpyx_task(task1_companyId,ys,task1_title)
                 
             }
         }
         
-        if(task2_residue!=0&&state==1){
+        if(task2_residue!=0){
             console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告${task2_title}任务】 `)
             for(let cs=0;cs<task2_residue;cs++){
                 let ys=Math.floor(Math.random()*(35000-20000+1000)+20000)
                 let watchTime = Math.round(ys/1000)
-                task2_body=`{"companyId":"${task2_companyId}","watchTime":${watchTime}}`
-                //console.log(task2_body)
-                await soy_jpyx_task(task2_body,task2_title)
-                console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】: 延时 ${ys/1000} 秒继续...`)
-                await $.wait(ys)
+                //task1_body=`{"companyId":"${task1_companyId}","watchTime":${watchTime}}`
+                //console.log(task1_body)
+                 await soy_jpyx_taskID(task2_companyId,task2_title)
+                 console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】: 延时 ${ys/1000} 秒继续...`)
+                 await $.wait(ys)
+                 await soy_jpyx_task(task2_companyId,ys,task2_title)
                 
             }
         }
         
-        if(task3_residue!=0&&state==1){
+        if(task3_residue!=0){
             console.log(`\n【${$.name}---账号 ${$.index} 开始${task3_title}任务】 `)
             for(let cs=0;cs<task3_residue;cs++){
                 let ys=Math.floor(Math.random()*(35000-20000+1000)+20000)
                 let watchTime = Math.round(ys/1000)
-                task3_body=`{"companyId":"${task3_companyId}","watchTime":${watchTime}}`
-                //console.log(task3_body)
-                await soy_jpyx_task(task3_body,task3_title)
-                console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】: 延时 ${ys/1000} 秒继续...`)
-                await $.wait(ys)
+                //task1_body=`{"companyId":"${task1_companyId}","watchTime":${watchTime}}`
+                //console.log(task1_body)
+                 await soy_jpyx_taskID(task3_companyId,task3_title)
+                 console.log(`\n【${$.name}---账号 ${$.index} 开始观看广告】: 延时 ${ys/1000} 秒继续...`)
+                 await $.wait(ys)
+                 await soy_jpyx_task(task3_companyId,ys,task3_title)
                 
             }
         }
         
-        }
         
+        }
         
     
 };
@@ -285,33 +294,63 @@ function soy_jpyx_list() {
 }
 
 
-async function soy_jpyx_task(body,title) {
+async function soy_jpyx_task(companyId,ys,title) {
+    //console.log(companyId,ys,task_adid)
     await request({
-        url:'http://jpapp.jinpai.info:8088/appRequest/jpApp/userAdvertisingRecord',
-        headers:{"user-agent": "Dart/2.14 (dart:io)","content-type": "application/json","accept-encoding": "gzip","host": "jpapp.jinpai.info:8088","authorization":`Bearer ${token}`},
-        method:"POST",
-        data:body,
+        url:'https://jpapp.jinpai.info/appRequest/jpApp/userAdvertisingRecord',
+        headers:{"user-agent": "Dart/2.14 (dart:io)","content-type": "application/json","accept-encoding": "gzip","host": "jpapp.jinpai.info","authorization":`Bearer ${token}`},
+        method:"PUT",
+        data:`{"companyId":"${companyId}","id":"${task_adid}","watchTime":${ys}}`,
         }).catch(function (error) {
             //return error
             console.log('网络请求失败')
-            state=0
         }).then(function (result) {
             //console.log(result.data)
-        //results=JSON.stringify(result.data)
-        
+        results=JSON.stringify(result.data)
         if(result.data.code==201){
-            state=1
             console.log(`\n【${$.name}---账号 ${$.index} 任务:${title}】: ${result.data.msg}`)
+            //soy_jpyx_taskID(task1_companyId,task1_title)
         }else{
             console.log(`\n【${$.name}---账号 ${$.index} 任务:${title}】: ${result.data.msg}`)
-            state=0
         }
+        
+
         
     })
 
 
 }
 
+async function soy_jpyx_taskID(companyid,title) {
+    await request({
+        url:'http://jpapp.jinpai.info/appRequest/jpApp/userAdvertisingRecord',
+        headers:{"user-agent": "Dart/2.14 (dart:io)","content-type": "application/json","accept-encoding": "gzip","host": "jpapp.jinpai.info","authorization":`Bearer ${token}`},
+        method:"POST",
+        data:`{"companyId":"${companyid}","id":null,"watchTime":1}`,
+        }).catch(function (error) {
+            //return error
+            console.log('网络请求失败')
+        }).then(function (result) {
+            //console.log(result.data)
+        results=JSON.stringify(result.data)
+        
+        if(result.data.code==200){
+            task_adid=result.data.data.id
+            console.log(`\n【${$.name}---账号 ${$.index} 获取: ${title} ID】: 操作成功,ID为 ${task_adid}`)
+            
+            //let ys = Math.floor(Math.floor(Math.random()*(3000-1000+1000)+10000)/3000)
+            
+            //$.wait(ys)
+
+        }else{
+            console.log(`\n【${$.name}---账号 ${$.index} 获取: ${title} ID】: ${result.data.msg}`)
+
+        }
+        
+    })
+
+
+}
 
 function Env(t, e) {
   class s {
