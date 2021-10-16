@@ -41,7 +41,7 @@ All变量适用
 */
 let guaopencard_addSku = "false"
 let guaopencard = "true"
-let guaopenwait = "0"
+let guaopenwait = "60"
 let guaopencard_draw = "0"
 
 const $ = new Env('10.15~10.31 惠聚京东 好物连连');
