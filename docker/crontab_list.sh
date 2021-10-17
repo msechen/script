@@ -33,8 +33,6 @@
 10 0,18 * * * node /scripts/jd_NewSign.js >> /scripts/logs/jd_NewSign.log 2>&1
 #送豆得豆
 30 0,12 * * * node /scripts/jd_sendBeans.js >> /scripts/logs/jd_sendBeans.log 2>&1
-# 翻翻乐(7.15-8.15)
-20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 # 京喜财富岛提现
 0 0,12 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1
 # 摇钱树助力
@@ -81,7 +79,8 @@
 5 0,7,15 * * * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
 #jd_ddworld_exchange
 0,45 0,9 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
-
+# 攒金币 赢大礼
+22 0,8 * * * node /scripts/jd_GoldcoinToGift.js >> /scripts/logs/jd_GoldcoinToGift.log 2>&1
 
 ##############长期活动##############
 # 签到
