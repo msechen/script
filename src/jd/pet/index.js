@@ -3,6 +3,8 @@ const {getMoment} = require('../../lib/moment');
 
 const {sleep} = require('../../lib/common');
 
+const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/WiXHzdNRVxmQQdEpLo4Z4yvsiFy/index.html';
+
 class Pet extends Template {
   static scriptName = 'Pet';
   static scriptNameDesc = '东东萌宠';
