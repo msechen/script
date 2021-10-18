@@ -134,6 +134,7 @@ class Pet extends Template {
 
     // 喂食
     async function handleFeed(feedTimes) {
+      if (process.env.JD_PET_FEED_DISABLE) return;
       let i = 0;
       for (; i < feedTimes; i++) {
         await sleep(2);

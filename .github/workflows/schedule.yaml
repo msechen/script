@@ -32,6 +32,7 @@ jobs:
           SEVER_CHAN_KEY: '${{ secrets.SEVER_CHAN_KEY }}'
           MAILER_TRANSPORTER_OPTION: '${{ secrets.MAILER_TRANSPORTER_OPTION }}'
           JD_FRUIT_WATER_DISABLE: '${{ secrets.JD_FRUIT_WATER_DISABLE }}'
+          JD_PET_FEED_DISABLE: '${{ secrets.JD_PET_FEED_DISABLE }}'
           JD_LIVE_RED_ENVELOPE_RAIN_STOP: '${{ secrets.JD_LIVE_RED_ENVELOPE_RAIN_STOP }}'
           JD_CRAZY_JOY_STOP_UPGRADE: '${{ secrets.JD_CRAZY_JOY_STOP_UPGRADE }}'
           JD_CRAZY_JOY_STOP_UPGRADE_1: '${{ secrets.JD_CRAZY_JOY_STOP_UPGRADE_1 }}'
