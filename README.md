@@ -1,4 +1,4 @@
-助力池（带自动提交）
+助力池（脚本自动提交互助码）
 
 1.下载jdshare.py  
 服务器运行 wget https://raw.githubusercontent.com/kuilei0926/JDSHARE/main/jdshare.py  
