@@ -69,14 +69,14 @@
 11 9,18 * * * node /scripts/jd_jmsign.js >> /scripts/logs/jd_jmsign.log 2>&1
 #芥么赚好礼
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
-#jd_opencard1
-30 3,10,22 * * * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
 15 5,12,23 * * * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
 #jd_opencard3
 45 7,14,20 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 #jd_opencard4
-5 0,7,15 * * * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
+5 0,7,16 * * * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
+#jd_opencard5
+15 0,12,15 * * * node /scripts/jd_opencard5.js >> /scripts/logs/jd_opencard5.log 2>&1
 #jd_ddworld_exchange
 0,45 0,9 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
 # 攒金币 赢大礼
