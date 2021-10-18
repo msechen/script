@@ -20,4 +20,4 @@ export JDSHAREURL="http://127.0.0.1:8000"
 
 
 可以自己把代码里的的助力池链接写死而不用添加环境变量  
-js里面搜索(process.env.JDSHAREURL+`) 复制括号里面的替换成 (`http://127.0.0.1:8000)
+js里面搜索(process.env.JDSHAREURL+\`) 复制括号里面的替换成 (\`http://127.0.0.1:8000)
