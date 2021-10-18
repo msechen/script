@@ -1,14 +1,14 @@
-name: sync-JD_Cookie_UPDATE_API-scripts
+name: sync-JDSHARE-scripts
 on:
   schedule:
-  - cron: '* * */20 * *'
+  - cron: '*/30 * * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-JD_Cookie_UPDATE_API-scripts
+    types: sync-JDSHARE-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-JD_Cookie_UPDATE_API-scripts
+      - name: sync-JDSHARE-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/zzw2016/api.git"
+          source_repo: "https://github.com/kuilei0926/JDSHARE.git"
           source_branch: "main"
-          destination_branch: "JD_Cookie_UPDATE_API"
+          destination_branch: "JDSHARE"
           github_token: ${{ secrets.PAT }}
