@@ -66,14 +66,15 @@ async function getSign() {
         }).then(res => {
             sign_params = res.data
         }).catch(e => {
-            notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
+            await notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
             process.exit(1)
         })
-    } else {
+    } 
+    if (!sign_params || !process.env.JD_WSKEY_SIGN_URL) {
         await axios.get('https://hellodns.coding.net/p/sign/d/jsign/git/raw/master/sign').then(res => {
             sign_params = res.data
         }).catch(e => {
-            notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
+            await notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
             process.exit(1)
         })
     }
