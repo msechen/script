@@ -17,7 +17,7 @@ ql repo https://ghproxy.com/https://github.com/kuilei0926/JDSHARE.git "" "jdshar
 5.设置环境变量  
 export JDSHAREURL="服务器地址（端口）"  
 例如：  
-export JDSHAREURL="http://127.0.0.1:8000"  
+export JDSHAREURL="127.0.0.1:8000"  
 
 
 可以自己fork把代码里的的助力池链接写死而不用添加环境变量  
