@@ -117,7 +117,7 @@ function interact_template_getHomeData(timeout = 0) {
 			  // ***************************
 			  // 报告运行次数
 			  $.get({
-				url: process.env.JDSHAREURL+`/api/runTimes?activityId=sgmh&sharecode=${data.data.result.taskVos[i].assistTaskDetailVo.taskToken}`,
+				url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=sgmh&sharecode=${data.data.result.taskVos[i].assistTaskDetailVo.taskToken}`,
 				timeout: 10000
 			  }, (err, resp, data) => {
 				if (err) {
@@ -327,7 +327,7 @@ function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
     $.get({
-      url: process.env.JDSHAREURL+`/api/sgmh/${randomCount}`,
+      url: `http://`+process.env.JDSHAREURL+`/api/sgmh/${randomCount}`,
       timeout: 10000
     }, (err, resp, data) => {
       try {
