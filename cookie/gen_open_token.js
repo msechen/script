@@ -14,6 +14,10 @@ let sign_params, tokenKey, pt_key, pt_pin, error_msg = '', username = ''
     if (wskeys.length) {
         console.log(wskeys)
         await getSign();
+        if (!sign_params) {
+            await notify.sendNotify('Update cookie', `获取签名参数错误：\n\n${e}`)
+            process.exit(1)
+        }
         console.log('签名参数：' + JSON.stringify(sign_params))
         for (let i = 0; i < wskeys.length; i++) {
             try {
@@ -66,16 +70,14 @@ async function getSign() {
         }).then(res => {
             sign_params = res.data
         }).catch(e => {
-            await notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
-            process.exit(1)
+            console.log(`获取签名参数错误: ${e}`)
         })
     } 
     if (!sign_params || !process.env.JD_WSKEY_SIGN_URL) {
         await axios.get('https://hellodns.coding.net/p/sign/d/jsign/git/raw/master/sign').then(res => {
             sign_params = res.data
         }).catch(e => {
-            await notify.sendNotify('获取 Open Token', `获取签名参数错误：\n\n${e}`)
-            process.exit(1)
+            console.log(`获取签名参数错误: ${e}`)
         })
     }
 }
