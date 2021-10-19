@@ -631,7 +631,7 @@ function showMsg() {
 
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: process.env.JDSHAREURL+`/api/cfd/20`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: process.env.JDSHAREURL+`/api/cfdmoon/20`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
