@@ -7,6 +7,7 @@ class Common extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 1;
+  static needInPhone = true;
 
   static apiOptions = {
     signData: {},

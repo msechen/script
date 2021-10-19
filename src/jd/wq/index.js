@@ -7,6 +7,7 @@ class WqBase extends Template {
   static scriptName = 'WqBase';
   static scriptNameDesc = 'wq.jd.com';
   static needInApp = false;
+  static needInPhone = true;
   static times = 1;
 
   static customApiOptions = {
