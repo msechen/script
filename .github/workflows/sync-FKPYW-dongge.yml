@@ -1,14 +1,14 @@
-name: sync-wx-robot-scripts
+name: sync-FKPYW-dongge-scripts
 on:
   schedule:
-    - cron: '5 */3 * * *'
+    - cron: '*/20 * * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-wx-robot-scripts
+    types: sync-FKPYW-dongge-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-wx-robot-scripts
+      - name: sync-FKPYW-dongge-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/kollyQAQ/wx-robot.git"
+          source_repo: "https://github.com/FKPYW/dongge.git"
           source_branch: "master"
-          destination_branch: "wx-robot"
+          destination_branch: "FKPYW-dongge"
           github_token: ${{ secrets.PAT }}
