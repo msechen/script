@@ -655,7 +655,7 @@ function userInfo() {
                 // ***************************
                 // 报告运行次数
                 $.get({
-                  url: process.env.JDSHAREURL+`/api/runTimes?activityId=jxfactory&sharecode=${data.user.encryptPin}`,
+                  url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=jxfactory&sharecode=${data.user.encryptPin}`,
                   timeout: 10000
                 }, (err, resp, data) => {
                   if (err) {
@@ -1370,7 +1370,7 @@ async function showMsg() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: process.env.JDSHAREURL+`/api/jxfactory/${randomCount}`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/jxfactory/${randomCount}`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
