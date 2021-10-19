@@ -1665,7 +1665,7 @@ function uploadShareCode(code) {
           console.log(`${$.name} uploadShareCode API请求失败，请检查网路重试`)
         } else {
           if (data) {
-            if (data === 'cfd') {
+            if (data === 'ok') {
               console.log(`已自动提交助力码\n`)
             }
           }
