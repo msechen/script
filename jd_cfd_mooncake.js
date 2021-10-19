@@ -485,6 +485,7 @@ function getUserInfo(showInvite = true) {
             console.log(`财富岛好友互助码每次运行都变化,旧的当天有效`);
             console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${strMyShareId}\n`);
             $.shareCodes.push(strMyShareId)
+            await uploadShareCode(strMyShareId)
           }
           $.info = {
             ...$.info,
@@ -628,7 +629,30 @@ function showMsg() {
     resolve();
   });
 }
-
+function uploadShareCode(code) {
+  return new Promise(async resolve => {
+    $.get({url: process.env.JDSHAREURL+`/api/runTimes?activityId=cfd&sharecode=${code}`, timeout: 10000}, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(JSON.stringify(err))
+          console.log(`${$.name} uploadShareCode API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            if (data === 'cfd') {
+              console.log(`已自动提交助力码\n`)
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+    await $.wait(10000);
+    resolve()
+  })
+}
 function readShareCode() {
   return new Promise(async resolve => {
     $.get({url: process.env.JDSHAREURL+`/api/cfdmoon/20`, timeout: 10000}, (err, resp, data) => {
