@@ -34,7 +34,7 @@ def getsharecode():
     c.execute("REPLACE INTO "+activityId+"(code,time) VALUES ('%s' ,date());" % (sharecode))
     conn.commit()
     conn.close()
-    return json.dumps({"code":200,"data":"ok"})
+    return "ok"
 
 if __name__ == '__main__':
     conn = sqlite3.connect('jdcode.db')
@@ -47,6 +47,7 @@ if __name__ == '__main__':
         conn.execute("CREATE TABLE health(code TEXT PRIMARY KEY NOT NULL,time TIME NOT NULL);")
         conn.execute("CREATE TABLE jxdfactory(code TEXT PRIMARY KEY NOT NULL,time TIME NOT NULL);")
         conn.execute("CREATE TABLE ddfactory(code TEXT PRIMARY KEY NOT NULL,time TIME NOT NULL);")
+        conn.execute("CREATE TABLE cfdmoon(code TEXT PRIMARY KEY NOT NULL,time TIME NOT NULL);")
     except:
         print ("Create table failed")
     conn.commit()
