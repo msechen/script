@@ -217,7 +217,7 @@ def get_jingfen_earnings(start, end, cookie):
 def get_zhijia_pay(start, end, cookie):
     # 知+ API
     url = '''
-        https://xg.zhihu.com/api/v1/stat/overview?userId=504360&dataType=USER&groupUnit=BY_HOUR&stTms={}&endTms={}
+        https://xg.zhihu.com/api/v1/stat/overview?userId=39261&dataType=USER&groupUnit=BY_HOUR&stTms={}&endTms={}
     '''.format(start, end)
     header = {
         'cookie': cookie,
@@ -233,7 +233,7 @@ def get_zhijia_pay(start, end, cookie):
 
     json = res.json()
 
-    return format(json['total']['cost'],'.1f')
+    return json['total']['cost']
 
 # 调知+ api 查询账户今日消耗
 def get_zhijia_pay_2(start, end, cookie):

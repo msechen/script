@@ -92,8 +92,8 @@ def init_scheduler(bot_var):
                       hour='23', minute='59', second='00')
 
     # 知乎文章排名
-    scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='45', second='30')
+    # scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*', minute='45', second='30')
 
     # JD订单轮训
     scheduler.add_job(get_jd_order, 'cron', year='*', month='*', day='*', day_of_week='*',
@@ -252,4 +252,5 @@ def send_service_info(service_id, info, *images):
 
 
 if __name__ == '__main__':
-    print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False))
+    # print(sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False))
+    print(sync_data.query_today_earnings_2() + '\n\n' + sync_data.query_today_data_2() + '\n\n' + sync_data.get_zhihu_like_2())
