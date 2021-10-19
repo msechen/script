@@ -108,7 +108,7 @@ async function jdPlantBean() {
       // ***************************
       // 报告运行次数
       $.get({
-        url: process.env.JDSHAREURL+`/api/runTimes?activityId=bean&sharecode=${$.myPlantUuid}`,
+        url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=bean&sharecode=${$.myPlantUuid}`,
         timeout: 10000
       }, (err, resp, data) => {
         if (err) {
@@ -558,7 +558,7 @@ async function plantBeanIndex() {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: process.env.JDSHAREURL+`/api/bean/${randomCount}`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/bean/${randomCount}`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
