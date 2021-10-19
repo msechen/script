@@ -81,6 +81,8 @@
 0,45 0,9 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
 # 攒金币 赢大礼
 22 0,8 * * * node /scripts/jd_GoldcoinToGift.js >> /scripts/logs/jd_GoldcoinToGift.log 2>&1
+# 城城分现金
+45 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 
 ##############长期活动##############
 # 签到
