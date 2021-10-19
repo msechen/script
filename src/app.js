@@ -39,7 +39,6 @@ const StatisticsBean = require('./jd/statistics/bean');
 const StatisticsRedEnvelope = require('./jd/statistics/RedEnvelope');
 const Ssjj = TemporarilyOffline || require('./jd/ssjj'); // 没什么收益, 所以进行移除
 const Trump = require('./jd/trump');
-const Smfe = require('./jd/smfe');
 const IsvShopSign = require('./jd/isv/shopSign');
 const CrazyJoy = TemporarilyOffline || require('./jd/crazyJoy');
 const Necklace = TemporarilyOffline || require('./jd/necklace');
@@ -135,7 +134,6 @@ async function main() {
           [jdFactory, getCookieData(jdFactory.scriptName)[0]],
           [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
 
-          Smfe,
           GoldCreator,
           Trump,
           // TODO 确认活动有效性
