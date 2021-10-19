@@ -92,7 +92,7 @@ async function jdFruit() {
       // ***************************
       // 报告运行次数
       $.get({
-        url: process.env.JDSHAREURL+`/api/runTimes?activityId=farm&sharecode=${$.farmInfo.farmUserPro.shareCode}`,
+        url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=farm&sharecode=${$.farmInfo.farmUserPro.shareCode}`,
         timeout: 10000
       }, (err, resp, data) => {
         if (err) {
@@ -1274,7 +1274,7 @@ function timeFormat(time) {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: process.env.JDSHAREURL+`/api/farm/${randomCount}`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/farm/${randomCount}`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
