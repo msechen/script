@@ -631,7 +631,7 @@ function showMsg() {
 }
 function uploadShareCode(code) {
   return new Promise(async resolve => {
-    $.get({url: process.env.JDSHAREURL+`/api/runTimes?activityId=cfdmoon&sharecode=${code}`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=cfdmoon&sharecode=${code}`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
@@ -655,7 +655,7 @@ function uploadShareCode(code) {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: process.env.JDSHAREURL+`/api/cfdmoon/20`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/cfdmoon/20`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
