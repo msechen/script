@@ -1188,6 +1188,9 @@ function helpByStage(shareCodes) {
           } else if (data.iRet === 9999 || data.sErrMsg === '您还没有登录，请先登录哦~') {
             console.log(`助力失败：${data.sErrMsg}`)
             $.canHelp = false
+          } else if (data.iRet === 2232 || data.sErrMsg === '分享链接已过期') {
+            console.log(`助力失败：${data.sErrMsg}`)
+            $.delcode = true
           } else if (data.iRet === 2229 || data.sErrMsg === '助力失败啦~') {
             console.log(`助力失败：您的账号或被助力的账号可能已黑，请联系客服`)
             num++
