@@ -19,7 +19,7 @@ let ckPath = './jdCookie.js';//ck路径,环境变量:JDDJ_CKPATH
 const $ = new API("jddj_fruit");
 try {
     //https://ghproxy.com/https://raw.githubusercontent.com/passerby-b/Script/master/jddj_fruit_code.js
-    $.http.get({ url: 'https://raw.githubusercontent.com/kuilei0926/JDSHARE/main/jddj_fruit_code.js' }).then(response => {
+    $.http.get({ url: 'https://ghproxy.com/https://raw.githubusercontent.com/kuilei0926/JDSHARE/main/jddj_fruit_code.js' }).then(response => {
         if (!!response.body) eval(response.body);
     });
 } catch (error) {
