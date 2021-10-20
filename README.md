@@ -1,15 +1,13 @@
 助力池（脚本自动提交互助码）  
 适合少数用户自用，不适合高并发场景
 
-1.下载jdshare.py  
-服务器运行 wget https://raw.githubusercontent.com/kuilei0926/JDSHARE/main/jdshare.py  
-打开文件修改最后一行，把80改成自己想要的端口  
-
-2.安装依赖  
-pip3 install flask  
-
-3.运行  
-nohup python3 jdshare.py &  
+1.
+docker run -dit \
+-p 5702:5702 \
+--name jdshare \
+--hostname jdshare \
+--restart always \
+kuilei/jdshare:latest
 
 4.青龙拉库  
 ql repo https://ghproxy.com/https://github.com/kuilei0926/JDSHARE.git "" "jdshare.py"  
@@ -17,7 +15,7 @@ ql repo https://ghproxy.com/https://github.com/kuilei0926/JDSHARE.git "" "jdshar
 5.设置环境变量  
 export JDSHAREURL="服务器地址（端口）"  
 例如：  
-export JDSHAREURL="127.0.0.1:8000"  
+export JDSHAREURL="127.0.0.1:5702"  
 
 
 可以自己fork把代码里的的助力池链接写死而不用添加环境变量  
