@@ -2,11 +2,11 @@
 适合少数用户自用，不适合高并发场景
 
 1.  
-docker run -dit \\
--p 5702:5702 \\
---name jdshare \\
---hostname jdshare \\
---restart always \\
+docker run -dit \\  
+-p 5702:5702 \\  
+--name jdshare \\  
+--hostname jdshare \\  
+--restart always \\  
 kuilei/jdshare:latest
 
 2.青龙拉库  
