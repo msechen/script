@@ -95,7 +95,7 @@ let inviteCodes = [
           }
         }
       } else {
-        //默认6.2开启抽奖
+        //默认10.29开启抽奖
         if ((new Date().getMonth()  + 1) === 10 && new Date().getDate() >= 29) {
           const res = await city_lotteryAward();//抽奖
           if (res && res > 0) {
