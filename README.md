@@ -1,7 +1,7 @@
 助力池（脚本自动提交互助码）  
 适合少数用户自用，不适合高并发场景
 
-1.
+1.  
 docker run -dit \
 -p 5702:5702 \
 --name jdshare \
@@ -9,10 +9,10 @@ docker run -dit \
 --restart always \
 kuilei/jdshare:latest
 
-4.青龙拉库  
+2.青龙拉库  
 ql repo https://ghproxy.com/https://github.com/kuilei0926/JDSHARE.git "" "jdshare.py"  
 
-5.设置环境变量  
+3.设置环境变量  
 export JDSHAREURL="服务器地址（端口）"  
 例如：  
 export JDSHAREURL="127.0.0.1:5702"  
