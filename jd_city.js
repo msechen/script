@@ -96,7 +96,7 @@ let inviteCodes = [
         }
       } else {
         //默认6.2开启抽奖
-        if ((new Date().getMonth()  + 1) === 6 && new Date().getDate() >= 2) {
+        if ((new Date().getMonth()  + 1) === 10 && new Date().getDate() >= 29) {
           const res = await city_lotteryAward();//抽奖
           if (res && res > 0) {
             for (let i = 0; i < new Array(res).fill('').length; i++) {
