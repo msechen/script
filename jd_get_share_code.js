@@ -706,6 +706,66 @@ function getJDHealth(){
         })
   })
 }
+//城城分现金
+function getJdCity(inviteId, flag = false) {
+  let body = {"lbsCity":"19","realLbsCity":"1601","inviteId":inviteId,"headImg":"","userName":""}
+  return new Promise((resolve) => {
+    $.post(CitytaskPostUrl("city_getHomeData",body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (safeGet(data)) {
+            // if (inviteId) $.log(`\n助力结果:\n${data}\n`)
+            data = JSON.parse(data);
+            if (data.code === 0) {
+              if (data.data && data['data']['bizCode'] === 0) {
+                if (flag) console.log(`【京东账号${$.index}（${$.UserName}）城城分现金】${data.data && data.data.result.userActBaseInfo.inviteId}`);
+                for(let vo of data.data.result && data.data.result.mainInfos || []){
+                  if (vo && vo.remaingAssistNum === 0 && vo.status === "1") {
+                    console.log(vo.roundNum)
+                    await receiveCash(vo.roundNum)
+                    await $.wait(2*1000)
+                  }
+                }
+              } else {
+                console.log(`\n\n${inviteId ? '助力好友' : '获取邀请码'}失败:${data.data.bizMsg}`)
+                if (flag) {
+                  if (data.data && !data.data.result.userActBaseInfo.inviteId) {
+                    console.log(`账号已黑，看不到邀请码\n`);
+                  }
+                }
+              }
+            } else {
+              console.log(`\n\ncity_getHomeData失败:${JSON.stringify(data)}\n`)
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+  })
+}
+
+function CitytaskPostUrl(functionId,body) {
+  return {
+    url: `${JD_API_HOST}`,
+    body: `functionId=${functionId}&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=1.0.0`,
+    headers: {
+      'Cookie': cookie,
+      'Host': 'api.m.jd.com',
+      'Connection': 'keep-alive',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      'Accept-Language': 'zh-cn',
+      'Accept-Encoding': 'gzip, deflate, br',
+    }
+  }
+}
 
 async function getShareCode() {
   console.log(`======账号${$.index}开始======`)
@@ -721,6 +781,7 @@ async function getShareCode() {
 //   await getCFD()
 //   await getJdCash()
   await getJDHealth()
+  await getJdCity('',true);
   console.log(`======账号${$.index}结束======\n`)
 }
 
