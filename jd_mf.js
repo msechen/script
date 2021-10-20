@@ -25,7 +25,8 @@ let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭�
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let uuid
-$.shareCodes = [];
+$.shareCodes = []
+let hotInfo = {}
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -67,15 +68,17 @@ let allMessage = '';
         continue
       }
       $.sku = []
+      $.hot = false
       uuid = randomString(40)
       await jdMofang()
+      hotInfo[$.UserName] = $.hot
     }
   }
-  console.log(`\n助力逻辑：优先内部互助，有剩余次数助力ZFeng1005\n`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
     $.canHelp = true
+    if (hotInfo[$.UserName]) continue
     if ($.shareCodes && $.shareCodes.length) {
       console.log(`\n开始助力`)
       for (let j = 0; j < $.shareCodes.length && $.canHelp; j++) {
@@ -106,8 +109,8 @@ let allMessage = '';
 async function jdMofang() {
   console.log(`集魔方 赢大奖`)
   await getInteractionHomeInfo()
-  // console.log(`\n集魔方 抽京豆 赢新品`)
-  // await getInteractionInfo()
+  console.log(`\n集魔方 抽京豆 赢新品`)
+  await getInteractionInfo()
 }
 
 async function getInteractionHomeInfo() {
@@ -149,6 +152,7 @@ async function queryInteractiveInfo(encryptProjectId, sourceCode) {
                   let signDay = (vo.ext[vo.ext.extraType].signList && vo.ext[vo.ext.extraType].signList.length) || 0
                   $.type = vo.rewards[signDay].rewardType
                   await doInteractiveAssignment(vo.ext.extraType, encryptProjectId, sourceCode, vo.encryptAssignmentId, vo.ext[vo.ext.extraType].itemId)
+                  if ($.hot) return
                 } else {
                   console.log(`今日已签到`)
                 }
@@ -241,6 +245,11 @@ function doInteractiveAssignment(extraType, encryptProjectId, sourceCode, encryp
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data)
+            if (data.subCode === "1403") {
+              $.hot = true
+              console.log(`活动太火爆了，还是去买买买吧！！！`)
+              return
+            }
             if (extraType === "assistTaskDetail") {
               if (data.msg === "已达助力上限" || data.subCode === "108") {
                 $.canHelp = false
@@ -335,7 +344,7 @@ async function getInteractionInfo(type = true) {
 }
 function queryPanamaPage(groupId) {
   return new Promise((resolve) => {
-    $.post(taskPostUrl("queryPanamaPage", {"activityId":"2umkvbpZCUtyN6gcymN88ew8WLeU","dynamicParam":{},"geo":{"lng":"","lat":""},"previewTime":""}), (err, resp, data) => {
+    $.post(taskPostUrl("queryPanamaPage", {"activityId":"3v2Wu9KsgwzW92931wj7sYCRjueP","dynamicParam":{},"geo":{"lng":"","lat":""},"previewTime":""}), (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
