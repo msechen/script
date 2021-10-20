@@ -62,7 +62,7 @@ class RubikSCube extends Template {
           } of taskList) {
             const isShareTask = /助力/.test(assignmentName);
             const {waitDuration, extraType} = ext || {};
-            if (!encryptAssignmentId || !extraType || completionFlag && !isShareTask || ['成为店铺会员'].includes(assignmentName)) continue;
+            if (!encryptAssignmentId || !extraType || completionFlag && !isShareTask/* || ['成为店铺会员'].includes(assignmentName)*/) continue;
 
             let extData = ext[extraType];
             if (isShareTask) {
