@@ -146,7 +146,7 @@ async function main() {
           Health,
           Health1,
           // Harmony1,
-          Harmony2,
+          // Harmony2,
           Harmony3,
         ]);
       },
