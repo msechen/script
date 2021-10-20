@@ -71,6 +71,7 @@ const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
+const RubikSCube = require('./jd/rubikSCube');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -134,6 +135,7 @@ async function main() {
           [jdFactory, getCookieData(jdFactory.scriptName)[0]],
           [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
 
+          RubikSCube,
           GoldCreator,
           Trump,
           // TODO 确认活动有效性
