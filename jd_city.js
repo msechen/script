@@ -1,21 +1,19 @@
 /*
 城城领现金
-活动时间：2021-10-20到2021-10-30
+活动时间：2021-05-25到2021-06-03
+更新时间：2021-05-24 014:55
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 =================================Quantumultx=========================
 [task_local]
 #城城领现金
-0 0-23/1 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_city.js, tag=城城领现金, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
-
+0 0-23/1 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_city.js, tag=城城领现金, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "0 0-23/1 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_city.js,tag=城城领现金
-
+cron "0 0-23/1 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_city.js,tag=城城领现金
 ===================================Surge================================
-城城领现金 = type=cron,cronexp="0 0-23/1 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_city.js
-
+城城领现金 = type=cron,cronexp="0 0-23/1 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_city.js
 ====================================小火箭=============================
-城城领现金 = type=cron,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_city.js, cronexpr="0 0-23/1 * * *", timeout=3600, enable=true
+城城领现金 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_city.js, cronexpr="0 0-23/1 * * *", timeout=3600, enable=true
  */
 const $ = new Env('城城领现金');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -26,7 +24,7 @@ let exchangeFlag = $.isNode() ? (process.env.JD_CITY_EXCHANGE === "true" ? true 
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let uuid;
-$.shareCodes = []
+
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -103,26 +101,22 @@ let inviteCodes = [
     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
     $.index = i + 1;
     uuid = randomString(40)
-      for (let j = 0; j < $.newShareCodes.length; j++) {
-        console.log(`\n${$.UserName} 开始助力 【${$.newShareCodes[j]}】`)
-        await $.wait(1000)
-        let res = await getInfo($.newShareCodes[j])
-        if (res && res['data'] && res['data']['bizCode'] === 0) {
-          if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0] && res['data']['result']['toasts'][0]['status'] === '3') {
-            console.log(`助力次数已耗尽，跳出`)
-            break
-          }
-          if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0]) {
-            console.log(`助力 【${$.readShareCode[j]}】:${res.data.result.toasts[0].msg}`)
-          } else {
-            console.log(`未知错误，跳出`)
-            break
-          }
-        }
-        if ((res && res['status'] && res['status'] === '3') || (res && res.data && res.data.bizCode === -11)) {
-          // 助力次数耗尽 || 黑号
+    for (let i = 0; i < $.newShareCodes.length; ++i) {
+      console.log(`\n${$.UserName} 开始助力 【${$.newShareCodes[i]}】`)
+      let res = await getInfo($.newShareCodes[i])
+      if (res && res['data'] && res['data']['bizCode'] === 0) {
+        if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0] && res['data']['result']['toasts'][0]['status'] === '3') {
+          console.log(`助力次数已耗尽，跳出`)
           break
         }
+        if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0]) {
+          console.log(`助力 【${$.newShareCodes[i]}】:${res.data.result.toasts[0].msg}`)
+        }
+      }
+      if ((res && res['status'] && res['status'] === '3') || (res && res.data && res.data.bizCode === -11)) {
+        // 助力次数耗尽 || 黑号
+        break
+      }
     }
   }
 })()
@@ -171,13 +165,8 @@ function getInfo(inviteId, flag = false) {
             data = JSON.parse(data);
             if (data.code === 0) {
               if (data.data && data['data']['bizCode'] === 0) {
-                if (flag) {
-                  console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${data.data && data.data.result.userActBaseInfo.inviteId}\n`);
-                  if (data.data && data.data.result.userActBaseInfo.inviteId) {
-                    $.shareCodes.push(data.data.result.userActBaseInfo.inviteId)
-                  }
-                }
-                for (let vo of data.data.result && data.data.result.mainInfos || []) {
+                if (flag) console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${data.data && data.data.result.userActBaseInfo.inviteId}\n`);
+                for(let vo of data.data.result && data.data.result.mainInfos || []){
                   if (vo && vo.remaingAssistNum === 0 && vo.status === "1") {
                     console.log(vo.roundNum)
                     await receiveCash(vo.roundNum)
@@ -313,6 +302,7 @@ function city_lotteryAward() {
   })
 }
 function readShareCode() {
+  console.log(`开始`)
   return new Promise(async resolve => {
     $.get({url: `https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/city.json`, 'timeout': 10000}, (err, resp, data) => {
       try {
@@ -341,7 +331,7 @@ function shareCodesFormat() {
     $.newShareCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
-    } else if(inviteCodes){
+    } else {
       console.log(`由于您第${$.index}个京东账号未提供shareCode,将采纳本脚本自带的助力码\n`)
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
@@ -350,7 +340,7 @@ function shareCodesFormat() {
     if (readShareCodeRes) {
       $.newShareCodes = [...new Set([...(readShareCodeRes || []), ...$.newShareCodes])];
     }
-    console.log(`\n您将要助力的好友${JSON.stringify($.newShareCodes)}`)
+    console.log(`您将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
 }
