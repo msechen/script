@@ -36,10 +36,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let inviteCodes = [
-  '',
-  ''
-]
+let inviteCodes = []
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
@@ -112,16 +109,11 @@ let inviteCodes = [
             console.log(`助力次数已耗尽，跳出`)
             break
           }
-          if (res['data']['result']['toasts']) {
-            if (!Object.keys(res['data']['result']['toasts']).length) {
-              console.log(`未知错误，跳出`)
-              break
-            }
-          } else {
-            console.log(`助力失败：不能助力自己`)
-          }
           if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0]) {
-            console.log(`助力 【${$.newShareCodes[j]}】:${res.data.result.toasts[0].msg}`)
+            console.log(`助力 【${$.readShareCode[j]}】:${res.data.result.toasts[0].msg}`)
+          } else {
+            console.log(`未知错误，跳出`)
+            break
           }
         }
         if ((res && res['status'] && res['status'] === '3') || (res && res.data && res.data.bizCode === -11)) {
@@ -176,8 +168,13 @@ function getInfo(inviteId, flag = false) {
             data = JSON.parse(data);
             if (data.code === 0) {
               if (data.data && data['data']['bizCode'] === 0) {
-                if (flag) console.log(`\n【京东账号${$.index}（${$.nickName || $.UserName}）的${$.name}好友互助码】${data.data && data.data.result.userActBaseInfo.inviteId}\n`);
-                for(let vo of data.data.result && data.data.result.mainInfos || []){
+                if (flag) {
+                  console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${data.data && data.data.result.userActBaseInfo.inviteId}\n`);
+                  if (data.data && data.data.result.userActBaseInfo.inviteId) {
+                    $.shareCodes.push(data.data.result.userActBaseInfo.inviteId)
+                  }
+                }
+                for (let vo of data.data.result && data.data.result.mainInfos || []) {
                   if (vo && vo.remaingAssistNum === 0 && vo.status === "1") {
                     console.log(vo.roundNum)
                     await receiveCash(vo.roundNum)
@@ -270,7 +267,7 @@ function getInviteInfo() {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-            if (data.code === 0 && data.data.bizCode ===0) {
+            if (data && (data.code === 0 && data.data.bizCode === 0)) {
               if (data.data.result.masterData.actStatus === 2) {
                 await receiveCash('', 2)
                 await $.wait(2000)
@@ -350,7 +347,7 @@ function shareCodesFormat() {
     if (readShareCodeRes) {
       $.newShareCodes = [...new Set([...(readShareCodeRes || []), ...$.newShareCodes])];
     }
-    console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
+    console.log(`\n您将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
 }
