@@ -33,7 +33,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata("CookieJD"), $.getdata("CookieJD2"), ...$.toObj($.getdata("CookiesJD") || "[]").map((item) => item.cookie)].filter((item) => !!item);
 }
 $.packetIdArr = [];
-$.activeId = '489177';
+$.activeId = '525597';
 const BASE_URL = 'https://m.jingxi.com/cubeactive/steprewardv3'
 !(async () => {
   if (!cookiesArr[0]) {
@@ -51,7 +51,7 @@ const BASE_URL = 'https://m.jingxi.com/cubeactive/steprewardv3'
     res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jxhb.json')
   }
   if (res && res.activeId) $.activeId = res.activeId;
-  $.authorMyShareIds = [...(res || [])];
+  $.authorMyShareIds = [...(res.code || [])];
   //开启红包,获取互助码
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -86,9 +86,9 @@ const BASE_URL = 'https://m.jingxi.com/cubeactive/steprewardv3'
    if ($.authorMyShareIds && $.authorMyShareIds.length) {
       console.log(`\n【${$.UserName}】开始助力作者\n`)
       for (let j = 0; j < $.authorMyShareIds.length && $.canHelp; j++) {
-        console.log(`【${$.UserName}】去助力作者【${$.authorMyShareIds[j].userName}】的邀请码：${$.authorMyShareIds[j].strUserPin}`);
+        console.log(`【${$.UserName}】去助力作者的邀请码：${$.authorMyShareIds[j]}`);
         $.max = false;
-        await enrollFriend($.authorMyShareIds[j].strUserPin);
+        await enrollFriend($.authorMyShareIds[j]);
         await $.wait(5000);
         if ($.max) {
           $.authorMyShareIds.splice(j, 1)
