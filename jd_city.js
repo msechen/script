@@ -67,11 +67,26 @@ let inviteCodes = [
         }
         continue
       }
-      uuid = randomString(40)
       await getInfo('',true);
-      await $.wait(1000)
+      await shareCodesFormat()
+      for (let i = 0; i < $.newShareCodes.length; ++i) {
+        console.log(`\n开始助力 【${$.newShareCodes[i]}】`)
+        let res = await getInfo($.newShareCodes[i])
+        if (res && res['data'] && res['data']['bizCode'] === 0) {
+          if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0] && res['data']['result']['toasts'][0]['status'] === '3') {
+            console.log(`助力次数已耗尽，跳出`)
+            break
+          }
+          if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0]) {
+            console.log(`助力 【${$.newShareCodes[i]}】:${res.data.result.toasts[0].msg}`)
+          }
+        }
+        if ((res && res['status'] && res['status'] === '3') || (res && res.data && res.data.bizCode === -11)) {
+          // 助力次数耗尽 || 黑号
+          break
+        }
+      }
       await getInviteInfo();//雇佣
-      await $.wait(1000)
       if (exchangeFlag) {
         const res = await city_lotteryAward();//抽奖
         if (res && res > 0) {
@@ -93,30 +108,6 @@ let inviteCodes = [
         }
       }
       await $.wait(1000)
-    }
-  }
-  await shareCodesFormat()
-  for (let i = 0; i < cookiesArr.length; i++) {
-    cookie = cookiesArr[i];
-    $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-    $.index = i + 1;
-    uuid = randomString(40)
-    for (let i = 0; i < $.newShareCodes.length; ++i) {
-      console.log(`\n${$.UserName} 开始助力 【${$.newShareCodes[i]}】`)
-      let res = await getInfo($.newShareCodes[i])
-      if (res && res['data'] && res['data']['bizCode'] === 0) {
-        if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0] && res['data']['result']['toasts'][0]['status'] === '3') {
-          console.log(`助力次数已耗尽，跳出`)
-          break
-        }
-        if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0]) {
-          console.log(`助力 【${$.newShareCodes[i]}】:${res.data.result.toasts[0].msg}`)
-        }
-      }
-      if ((res && res['status'] && res['status'] === '3') || (res && res.data && res.data.bizCode === -11)) {
-        // 助力次数耗尽 || 黑号
-        break
-      }
     }
   }
 })()
@@ -302,7 +293,6 @@ function city_lotteryAward() {
   })
 }
 function readShareCode() {
-  console.log(`开始`)
   return new Promise(async resolve => {
     $.get({url: `https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/city.json`, 'timeout': 10000}, (err, resp, data) => {
       try {
@@ -340,7 +330,7 @@ function shareCodesFormat() {
     if (readShareCodeRes) {
       $.newShareCodes = [...new Set([...(readShareCodeRes || []), ...$.newShareCodes])];
     }
-    console.log(`您将要助力的好友${JSON.stringify($.newShareCodes)}`)
+    console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
 }
