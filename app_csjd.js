@@ -1,17 +1,9 @@
 /*
 
 软件名称:创视节点
-http://cs.clrcle.cn/api/webapp/register.html?code=ZNOBH8
-项目注册地址:各大应用商城搜索 创视节点 再不会就百度下载
 
-变量需求,有可能抓不到,我v2p代理都抓百度东西,不知道证书问题还是啥,反正v2p重写很不友好
+项目注册地址:http://cs.clrcle.cn/api/webapp/register.html?code=ZNOBH8
 
-需要依赖()
-axios库，可自行用ssh工具连接服务器进入容器安装(或自行百度解决) npm install axios
-或拉此脚本:https://gitee.com/soy-tool/app-script/raw/master/axios.js
-
-md5库，可自行用ssh工具连接服务器进入容器安装(或自行百度解决) npm install js-md5
-或拉此脚本:https://gitee.com/soy-tool/app-script/raw/master/md5.js
 
 
 必要变量:
@@ -19,37 +11,19 @@ md5库，可自行用ssh工具连接服务器进入容器安装(或自行百度�
 soy_csjd_Name
 #手机号/登录账号
 
-soy_csjd_Code
-#属于绑定的设备信息..
-#登录后必须抓包获取,抓包时在请求头里面的 fwaturecode 值,域名为 api.ys7.com 脚本都可以
-
 soy_csjd_password
 #登录密码
+
+选填变量
+soy_csjd_UA
+#属于网页UA..
+#通过抓包获取,不提交默认分配一个
 
 多个号用 @ 或 # 或 换行 隔开
 
 
-v2p配置如下(只抓取保存fwaturecode)：
-##结算不行,可能v2p是不行的
-【REWRITE】
-匹配链接（正则表达式） https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd
 
-对应重写目标  https://gitee.com/soy-tool/app-script/raw/master/app_csjd.js
-
-【MITM】  
-api.ys7.com
-
-##定时任务,有大佬说评论有时正常有时不正常,所以可以设置一小时一次
-
-cron 0 8-22/1 * * *
-#(8点到22点每隔一小时)
-
-或
-
-cron 0 9,13,17,21 * * *
-#(9、13、17、21点执行一次)
-
-
+cron 8 0,12,20 * * *
 
 */
 
