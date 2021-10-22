@@ -1,7 +1,7 @@
 /*
 
 软件名称:创视节点
-
+http://cs.clrcle.cn/api/webapp/register.html?code=ZNOBH8
 项目注册地址:各大应用商城搜索 创视节点 再不会就百度下载
 
 变量需求,有可能抓不到,我v2p代理都抓百度东西,不知道证书问题还是啥,反正v2p重写很不友好
