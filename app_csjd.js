@@ -4,8 +4,6 @@
 
 项目注册地址:http://cs.clrcle.cn/api/webapp/register.html?code=ZNOBH8
 
-
-
 必要变量:
 
 soy_csjd_Name
@@ -21,8 +19,6 @@ soy_csjd_UA
 
 多个号用 @ 或 # 或 换行 隔开
 
-
-
 cron 8 0,12,20 * * *
 
 */
@@ -31,7 +27,7 @@ cron 8 0,12,20 * * *
 const $ = new Env('创视节点');
 const notify = $.isNode() ? require('./sendNotify') : '';
 
-let csjd_count = '',app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_Code=[],statue=''
+let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],subTitle=''
 
 
 !(async () => {
@@ -83,62 +79,16 @@ let csjd_count = '',app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_C
     }else{
         soy_csjd_UA = process.env.soy_csjd_UA.split();
     };
+    Object.keys(soy_csjd_UA).forEach((item) => {
+        if (soy_csjd_UA[item]) {
+            app_soy_csjd_UA.push(soy_csjd_UA[item]);
+        };
+    }); 
+    
 	}
     
-
-	
     
-}else{
-    if(!$.getdata('soy_csjd_Name')){
-        console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_Name`);
-        return;
-    }
-    if(!$.getdata('soy_csjd_password')){
-        console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_password`);
-        return;
-    }
-    
-    soy_csjd_Name.push($.getdata('soy_csjd_Name'))
-    soy_csjd_password.push($.getdata('soy_csjd_password'))
-	
-	if (soy_csjd_Name.push($.getdata('soy_csjd_Name')) && soy_csjd_Name.push($.getdata('soy_csjd_Name')).indexOf('@') > -1) {
-        soy_csjd_Name = soy_csjd_Name.push($.getdata('soy_csjd_Name')).split('@');
-    } else if (soy_csjd_Name.push($.getdata('soy_csjd_Name')) && soy_csjd_Name.push($.getdata('soy_csjd_Name')).indexOf('\n') > -1) {
-        soy_csjd_Name = soy_csjd_Name.push($.getdata('soy_csjd_Name')).split('\n');
-    } else if(soy_csjd_Name.push($.getdata('soy_csjd_Name')) && soy_csjd_Name.push($.getdata('soy_csjd_Name')).indexOf('#') > -1){
-        soy_csjd_Name = soy_csjd_Name.push($.getdata('soy_csjd_Name')).split('#');
-    }else{
-        soy_csjd_Name = soy_csjd_Name.push($.getdata('soy_csjd_Name')).split();
-    };
-	
-	if (soy_csjd_password.push($.getdata('soy_csjd_password')) && soy_csjd_password.push($.getdata('soy_csjd_password')).indexOf('@') > -1) {
-        soy_csjd_password = soy_csjd_password.push($.getdata('soy_csjd_password')).split('@');
-    } else if (soy_csjd_password.push($.getdata('soy_csjd_password')) && soy_csjd_password.push($.getdata('soy_csjd_password')).indexOf('\n') > -1) {
-        soy_csjd_password = soy_csjd_password.push($.getdata('soy_csjd_password')).split('\n');
-    } else if(soy_csjd_password.push($.getdata('soy_csjd_password')) && soy_csjd_password.push($.getdata('soy_csjd_password')).indexOf('#') > -1){
-        soy_csjd_password = soy_csjd_password.push($.getdata('soy_csjd_password')).split('#');
-    }else{
-        soy_csjd_password = soy_csjd_password.push($.getdata('soy_csjd_password')).split();
-    };
-	
-	
-    if(!$.getdata('soy_csjd_UA')){
-		console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_UA ,将默认分配`);
-	}else{
-		if (soy_csjd_UA.push($.getdata('soy_csjd_UA')) && soy_csjd_UA.push($.getdata('soy_csjd_UA')).indexOf('@') > -1) {
-        soy_csjd_UA = soy_csjd_UA.push($.getdata('soy_csjd_UA')).split('@');
-    } else if (soy_csjd_UA.push($.getdata('soy_csjd_UA')) && soy_csjd_UA.push($.getdata('soy_csjd_UA')).indexOf('\n') > -1) {
-        soy_csjd_UA = soy_csjd_UA.push($.getdata('soy_csjd_UA')).split('\n');
-    } else if(soy_csjd_UA.push($.getdata('soy_csjd_UA')) && soy_csjd_UA.push($.getdata('soy_csjd_UA')).indexOf('#') > -1){
-        soy_csjd_UA = soy_csjd_UA.push($.getdata('soy_csjd_UA')).split('#');
-    }else{
-        soy_csjd_UA = soy_csjd_UA.push($.getdata('soy_csjd_UA')).split();
-    };
-	}
-
-}
-
-Object.keys(soy_csjd_password).forEach((item) => {
+    Object.keys(soy_csjd_password).forEach((item) => {
         if (soy_csjd_password[item]) {
             app_soy_csjd_password.push(soy_csjd_password[item]);
         };
@@ -150,11 +100,12 @@ Object.keys(soy_csjd_Name).forEach((item) => {
         };
     });	
 
-Object.keys(soy_csjd_UA).forEach((item) => {
-        if (soy_csjd_UA[item]) {
-            app_soy_csjd_UA.push(soy_csjd_UA[item]);
-        };
-    });
+	
+    
+}else{
+    console.log(`\n【${$.name}---账号 ${$.index} 提示】: 暂不支持V2P,圈X等环境`)
+
+}
 
 
     console.log(
@@ -169,28 +120,25 @@ Object.keys(soy_csjd_UA).forEach((item) => {
 for (i = 0; i < app_soy_csjd_Name.length; i++) {
     soy_csjd_Name=app_soy_csjd_Name[i]
     soy_csjd_password=app_soy_csjd_password[i]
-	if(app_soy_csjd_UA.length==0 || !soy_csjd_UA||!app_soy_csjd_UA[i]){
+    soy_csjd_UA=app_soy_csjd_UA[i]
+	if(app_soy_csjd_UA.length==0 || !soy_csjd_UA){
 		soy_csjd_UA='Redmi Note 5(Android/8.1.0) (com.cs.csjd/1.0.2) Weex/0.26.0 1080x2210'
-	}else{
-		soy_csjd_UA=app_soy_csjd_UA[i]
 	}
     
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
     await soy_csjd_login()
-    if(!sessionid){
-        console.log(`\n【${$.name}---账号 ${$.index} 登录】: 无法获取到需要参数,请重试`)
-    }else{
-        await soy_csjd_list()
-        
-          
-    }
+    await soy_csjd_logoutt()
+    
     
 };
 
+if(notify){
+   await notify.sendNotify($.name, subTitle) 
+}
 
-//if(apptz){if ($.isNode() ){await notify.sendNotify($.name, subTitle)}};
+
 
 
 })()
@@ -208,16 +156,18 @@ function soy_csjd_login(){
             body : `password=${soy_csjd_password}&loginName=${soy_csjd_Name}`,
         }, async(error, response, data) => {
            try {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data)
-            if(result.meta.code==200){
-                sessionid=result.sessionInfo.sessionId
-                soy_csjd_headers= {"Host": "api.ys7.com","sessionid": sessionid,"clienttype": "3","clientversion": "6.1.0.210927","nettype": "WIFI","clientno": "undefined","featurecode": soy_csjd_Code,"language": "undefined","appid": "ys","content-type": "application/x-www-form-urlencoded","accept-encoding": "gzip","user-agent": "okhttp/3.14.7"}
-                console.log(`\n【${$.name}---账号 ${$.index} 登录】: 登录成功`)
+            if(result.code==0){
+                token=result.data
+                console.log(`\n【${$.name}---账号 ${$.index} 登录】: 获取token成功`)
+                //app_csjd_headers=
+                await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
                 
-               
+                await soy_csjd_receiveIncome()
+                await soy_csjd_personalDetails()
             }else{
-                console.log(`\n【${$.name}---账号 ${$.index} 登录】: ${result.meta.message}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 登录】: ${result.msg}`)
             }
             
                
@@ -232,312 +182,142 @@ function soy_csjd_login(){
 
 }
 
-function soy_csjd_list() {
+function soy_csjd_receiveIncome(){
     return new Promise((resolve, reject) => {
         $.post({
-            url: `https://api.ys7.com/v3/integral/task/list`,
-            headers: soy_csjd_headers,
-            body: "pageNum=0&pageSize=20&vipId=5832bb930b104af09cc3986e923d2519",
-        }, async (error, response, data) => {
+            url : `https://cs.clrcle.cn/api/app/api/income/receiveIncome`,
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            body : '',
+        }, async(error, response, data) => {
+           try {
             //console.log(data)
             let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-                console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: 读取到当前任务状态:`)
-                task_sl = result.taskList.length
-                for (let sl = 0; sl < task_sl; sl++) {
-
-                    if (sl == 0) {
-                        if (result.taskList[sl].taskCompleteNum == 0) {
-                            console.log(`${result.taskList[sl].taskName}：今天未签到`)
-                            qd_state = 1
-
-                        } else {
-                            console.log(`${result.taskList[sl].taskName}：今天已签到`)
-
-                        }
-
-                    }
-
-                    if (sl == 1) {
-                        if (result.taskList[sl].taskCompleteNum == 3) {
-                            console.log(`${result.taskList[sl].taskName}：已完成`)
-
-                        } else {
-                            console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-                            sc_state = result.taskList[sl].taskNum-result.taskList[sl].taskCompleteNum
-
-                        }
-
-                    }
-
-                    if (sl == 2) {
-                        if (result.taskList[sl].taskCompleteNum == 6) {
-                            console.log(`${result.taskList[sl].taskName}：已完成`)
-
-                        } else {
-                            console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-                            pl_state = result.taskList[sl].taskNum-result.taskList[sl].taskCompleteNum 
-
-                        }
-
-                    }
-                    /*
-                    if(sl==3){
-					   if(result.taskList[sl].taskCompleteNum==1){
-					    console.log(`${result.taskList[sl].taskName}：已完成`)
-					    
-					}else{
-					    console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-					    ad_state=result.taskList[sl].taskNum
-					    
-					}
-                        
-                    }
-                    */
-                    if(sl==4){
-					   if(result.taskList[sl].taskCompleteNum==1){
-					    console.log(`${result.taskList[sl].taskName}：已完成`)
-					    
-					}else{
-					    console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-					    yq_state=result.taskList[sl].taskNum
-					    
-					}  
-					    
-					}
-					/*
-					if(sl==5){
-					   if(result.taskList[sl].taskCompleteNum==1){
-					    console.log(`${result.taskList[sl].taskName}：已完成`)
-					    
-					}else{
-					    console.log(`${result.taskList[sl].taskName}：${result.taskList[sl].taskCompleteNum}/${result.taskList[sl].taskNum}`)
-					    bd_state=result.taskList[sl].taskNum
-					    
-					}  
-					    
-					}
-					*/
-
-
-
-                }
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.meta.message}`)
+            if(result.code==0){
+                
+                console.log(`\n【${$.name}---账号 ${$.index} 每日收益】: 获取成功`)
+                
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 每日收益】: ${result.msg}`)
             }
-
-            resolve()
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
         })
     })
+
 }
 
-function soy_csjd_BoxCd() {
+function soy_csjd_personalDetails(){
     return new Promise((resolve, reject) => {
         $.get({
-            url: `https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd`,
-            headers: soy_csjd_headers,
-            //body : "",
-        }, async (error, response, data) => {
+            url : `https://cs.clrcle.cn/api/app/api/customer_ext/personalDetails`,
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            //body : '',
+        }, async(error, response, data) => {
+           try {
             //console.log(data)
             let result = JSON.parse(data)
-            if (result.meta.code = 200) {
-                if (result.expireTime == 0) {
-                    await soy_csjd_openBox()
-                } else {
-                    console.log(`\n【${$.name}---账号 ${$.index} 宝箱冷却时间】: 还剩下 ${result.expireTime} 秒后才能开启`)
-                }
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 宝箱冷却时间】: ${result.meta.message}`)
-            }
-
-
-            resolve()
-        })
-    })
-}
-
-function soy_csjd_openBox() {
-    return new Promise((resolve, reject) => {
-        $.post({
-            url: `https://api.ys7.com/v3/integral/yd/openYdBox`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
-            //console.log(data)
-            let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-                console.log(`\n【${$.name}---账号 ${$.index} 开宝箱】: ${result.meta.message},获得莹豆 ${result.ydValue} 个`)
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 开宝箱】: ${result.meta.message}`)
-            }
-
-            resolve()
-        })
-    })
-}
-
-function soy_csjd_ADvideo() {
-    return new Promise((resolve, reject) => {
-        $.post({
-            url: `https://api.ys7.com/v3/integral/task/complete`,
-            headers: soy_csjd_headers,
-            body: `eventkey=1013&filterParam=12345`,
-        }, async (error, response, data) => {
-            //console.log(data)
-            let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-                console.log(`\n【${$.name}---账号 ${$.index} 广告视频激励奖】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-                if(result.taskIntegral==0){
-                    console.log(`\n【${$.name}---账号 ${$.index} 广告视频激励奖】: 哎呀,没有获取到豆豆了,先停了`)
+            if(result.code==0){
+                console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`)
+                subTitle+=`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`
+                if(result.data.advertDayCount==3){
+                    console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 观看广告】: 今日已完成任务`)
+                    subTitle+=`\n----------\n\n【${$.name}---账号 ${$.index} 观看广告】: 今日已完成任务`
                 }else{
-                    await $.wait(Math.floor(Math.random() * (30000 - 20000 + 1000) + 20000))
-                    await soy_csjd_ADvideo()
-                    
+                    console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 做任务】: 观看广告`)
+                    await soy_csjd_addAdvertDayCount()
                 }
                 
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 广告视频激励奖】: ${result.meta.message}`)
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: ${result.msg}`)
             }
-
-            resolve()
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
         })
     })
+
 }
 
-function soy_csjd_plvideo() {
+function soy_csjd_addAdvertDayCount(){
     return new Promise((resolve, reject) => {
         $.post({
-            url: `https://api.ys7.com/v3/integral/task/complete?eventkey=1008&filterParam=video`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
-            //console.log(data)
+            url : `https://cs.clrcle.cn/api/app/api/customer_ext/addAdvertDayCount`,
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            body : '',
+        }, async(error, response, data) => {
+           try {
+            console.log(data)
             let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-
-                console.log(`\n【${$.name}---账号 ${$.index} 评论短视频】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 评论短视频】: ${result.meta.message}`)
+            if(result.code==0){
+                if(result.msg=='操作成功'){
+                    console.log(`\n【${$.name}---账号 ${$.index} 观看广告】: 操作成功`)
+                    await $.wait(Math.floor(Math.random() * (35000 - 28000 + 1000) + 28000))
+                    await soy_csjd_addAdvertDayCount()
+                    subTitle+=`\n【${$.name}---账号 ${$.index} 观看广告】: 操作成功`
+                }else{
+                    console.log(`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`)
+                    subTitle+=`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`
+                }
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`)
+                subTitle+=`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`
             }
-
-            resolve()
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
         })
     })
+
 }
 
-function soy_csjd_scvideo() {
+function soy_csjd_logoutt(){
     return new Promise((resolve, reject) => {
         $.post({
-            url: `https://api.ys7.com/v3/integral/task/complete?eventkey=1007&filterParam=video`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
+            url : `https://cs.clrcle.cn/api/app/authentication/logout`,
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            body : '',
+        }, async(error, response, data) => {
+           try {
             //console.log(data)
             let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-
-                console.log(`\n【${$.name}---账号 ${$.index} 上传短视频】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 上传短视频】: ${result.meta.message}`)
+            if(result.code==0){
+                console.log(`\n【${$.name}---账号 ${$.index} 退出登录】: ${result.msg}`)
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 退出登录】: ${result.msg}`)
             }
-
-            resolve()
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
         })
     })
+
 }
 
-function soy_csjd_check_in() {
-    return new Promise((resolve, reject) => {
-        $.post({
-            url: `https://api.ys7.com/v3/videoclips/user/check_in`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
-            //console.log(data)
-            let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-                console.log(`\n【${$.name}---账号 ${$.index} 签到】: ${result.meta.message},获得莹豆 ${result.data.score} 个`)
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 签到】: ${result.meta.message}`)
-            }
-
-            resolve()
-        })
-    })
-}
-
-/*
-function soy_csjd_open_AD() {
-    return new Promise((resolve, reject) => {
-        $.post({
-            url: `https://api.ys7.com/v3/integral/task/complete?eventkey=1010`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
-            //console.log(data)
-            let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-
-                console.log(`\n【${$.name}---账号 ${$.index} 看广告赚萤豆】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 看广告赚萤豆】: ${result.meta.message}`)
-            }
-
-            resolve()
-        })
-    })
-}
-*/
-function soy_csjd_invitation() {
-    return new Promise((resolve, reject) => {
-        $.post({
-            url: `https://api.ys7.com/v3/integral/task/complete?eventkey=1011`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
-            //console.log(data)
-            let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-
-                console.log(`\n【${$.name}---账号 ${$.index} 邀请好友助力得萤豆】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 邀请好友助力得萤豆】: ${result.meta.message}`)
-            }
-
-            resolve()
-        })
-    })
-}
-
-/*
-function soy_csjd_binding() {
-    return new Promise((resolve, reject) => {
-        $.post({
-            url: `https://api.ys7.com/v3/integral/task/complete?eventkey=1012`,
-            headers: soy_csjd_headers,
-            body: "",
-        }, async (error, response, data) => {
-            //console.log(data)
-            let result = JSON.parse(data)
-            if (result.meta.code == 200) {
-
-                console.log(`\n【${$.name}---账号 ${$.index} 邀好友注册并绑定设备】: ${result.meta.message},获得莹豆 ${result.taskIntegral} 个`)
-
-            } else {
-                console.log(`\n【${$.name}---账号 ${$.index} 邀好友注册并绑定设备】: ${result.meta.message}`)
-            }
-
-            resolve()
-        })
-    })
-}*/
 
 function Env(t, e) {
   class s {
