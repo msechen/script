@@ -19,8 +19,6 @@ soy_csjd_UA
 
 多个号用 @ 或 # 或 换行 隔开
 
-cron 8 0,12,20 * * *
-
 */
 
 
@@ -103,8 +101,53 @@ Object.keys(soy_csjd_Name).forEach((item) => {
 	
     
 }else{
-    console.log(`\n【${$.name}---账号 ${$.index} 提示】: 暂不支持V2P,圈X等环境`)
-
+    
+    
+    if(!$.getdata('soy_csjd_Name')){
+        console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_Name`);
+        return;
+    }
+    if(!$.getdata('soy_csjd_password')){
+        console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_password`);
+        return;
+    }
+    
+    if ($.getdata('soy_csjd_password') && $.getdata('soy_csjd_password').indexOf('@') > -1) {
+        app_soy_csjd_password = $.getdata('soy_csjd_password').split('@');
+    } else if ($.getdata('soy_csjd_password') && $.getdata('soy_csjd_password').indexOf('\n') > -1) {
+        app_soy_csjd_password = $.getdata('soy_csjd_password').split('\n');
+    } else if($.getdata('soy_csjd_password') && $.getdata('soy_csjd_password').indexOf('#') > -1){
+        app_soy_csjd_password = $.getdata('soy_csjd_password').split('#');
+    }else{
+        app_soy_csjd_password = $.getdata('soy_csjd_password').split();
+    };
+    
+    
+    if ($.getdata('soy_csjd_Name') && $.getdata('soy_csjd_Name').indexOf('@') > -1) {
+        app_soy_csjd_Name = $.getdata('soy_csjd_Name').split('@');
+    } else if ($.getdata('soy_csjd_Name') && $.getdata('soy_csjd_Name').indexOf('\n') > -1) {
+        app_soy_csjd_Name = $.getdata('soy_csjd_Name').split('\n');
+    } else if($.getdata('soy_csjd_Name') && $.getdata('soy_csjd_Name').indexOf('#') > -1){
+        app_soy_csjd_Name = $.getdata('soy_csjd_Name').split('#');
+    }else{
+        app_soy_csjd_Name = $.getdata('soy_csjd_Name').split();
+    };
+    
+    if(!$.getdata('soy_csjd_UA')){
+        console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_UA ,将默认分配`);
+    }else{
+       if ($.getdata('soy_csjd_UA') && $.getdata('soy_csjd_UA').indexOf('@') > -1) {
+        app_soy_csjd_UA = $.getdata('soy_csjd_UA').split('@');
+    } else if ($.getdata('soy_csjd_UA') && $.getdata('soy_csjd_UA').indexOf('\n') > -1) {
+        app_soy_csjd_UA = $.getdata('soy_csjd_UA').split('\n');
+    } else if($.getdata('soy_csjd_UA') && $.getdata('soy_csjd_UA').indexOf('#') > -1){
+        app_soy_csjd_UA = $.getdata('soy_csjd_UA').split('#');
+    }else{
+        app_soy_csjd_UA = $.getdata('soy_csjd_UA').split();
+    }; 
+    }
+    
+    
 }
 
 
@@ -122,6 +165,7 @@ for (i = 0; i < app_soy_csjd_Name.length; i++) {
     soy_csjd_password=app_soy_csjd_password[i]
     soy_csjd_UA=app_soy_csjd_UA[i]
 	if(app_soy_csjd_UA.length==0 || !soy_csjd_UA){
+	    console.log(`\n【${$.name}】：开始默认分配 soy_csjd_UA`);
 		soy_csjd_UA='Redmi Note 5(Android/8.1.0) (com.cs.csjd/1.0.2) Weex/0.26.0 1080x2210'
 	}
     
@@ -129,7 +173,6 @@ for (i = 0; i < app_soy_csjd_Name.length; i++) {
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
     await soy_csjd_login()
-    await soy_csjd_logoutt()
     
     
 };
@@ -166,6 +209,8 @@ function soy_csjd_login(){
                 
                 await soy_csjd_receiveIncome()
                 await soy_csjd_personalDetails()
+                
+                await soy_csjd_logoutt()
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 登录】: ${result.msg}`)
             }
