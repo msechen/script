@@ -2,7 +2,9 @@
 
 软件名称:盲盒农场
 
-项目注册地址:http://cs.clrcle.cn/api/webapp/register.html?code=ZNOBH8
+项目注册地址:http://reg.starlct.com?spread=u0lnpq
+
+说明：0撸周期很长，靠签到和转盘随机有几率获得钻石,需要100钻石才能买种子,50（500钻石）起提
 
 必要变量:
 
@@ -12,10 +14,6 @@ soy_mhnc_username
 soy_mhnc_password
 #登录密码
 
-选填变量
-soy_mhnc_UA
-#属于网页UA..
-#通过抓包获取,不提交默认分配一个
 
 多个号用 @ 或 # 或 换行 隔开
 
