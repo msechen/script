@@ -79,6 +79,8 @@
 0 1,9,23 * * * node /scripts/jd_opencard6.js >> /scripts/logs/jd_opencard6.log 2>&1
 #jd_opencard7
 15 1,13,22 * * * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
+#东东世界
+25 2,10 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
 #jd_ddworld_exchange
 0,45 0,9 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
 # 攒金币 赢大礼
@@ -193,5 +195,3 @@
 # 48 */8 * * * node /scripts/jd_work_price.js >> /scripts/logs/jd_work_price.log 2>&1
 # 惊喜红包返现助力
 # 48 20 * * * node /scripts/jx_aid_cashback.js >> /scripts/logs/jx_aid_cashback.log 2>&1
-# 东东世界
-#25 2,10 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
