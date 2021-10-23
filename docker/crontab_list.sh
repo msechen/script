@@ -87,6 +87,10 @@
 45 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 # 预售福利机
 5 0,2 * * * node /scripts/jd_ys.js >> /scripts/logs/jd_ys.log 2>&1
+# 手机狂欢城
+0 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
+# 手机狂欢城助力
+10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 
 ##############长期活动##############
 # 签到
