@@ -81,7 +81,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
       $.canHelp = true;//能否助力
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       if (!isLoginInfo[$.UserName]) continue
-      if ($.canHelp && ($.newShareCodes && $.updatePkActivityIdRes.length)) {
+      if ($.canHelp && ($.updatePkActivityIdRes && $.updatePkActivityIdRes.length)) {
         console.log(`\n\n助力ZFeng1005`)
         for (let j = 0; j < $.updatePkActivityIdRes.length && $.canHelp; j++) {
           console.log(`\n${$.UserName} 去助力 ${$.updatePkActivityIdRes[j]}`);
@@ -344,13 +344,15 @@ function taskUrl(body = {}) {
   return {
     url: `${JD_API_HOST}?appid=guardian-starjd&functionId=carnivalcity_jd_prod&body=${JSON.stringify(body)}&t=${Date.now()}&loginType=2`,
     headers: {
-      "accept": "application/json, text/plain, */*",
-      "accept-encoding": "gzip, deflate, br",
-      "accept-language": "zh-cn",
-      "referer": "https://carnivalcity.m.jd.com/",
-      "origin": "https://carnivalcity.m.jd.com",
-      "Cookie": cookie,
-      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+      "Host": "api.m.jd.com",
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Origin": "https://carnivalcity.m.jd.com",
+      "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      "Referer": "https://carnivalcity.m.jd.com/",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Cookie": cookie
     }
   }
 }
