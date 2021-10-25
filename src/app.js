@@ -72,6 +72,7 @@ const SuperBrandDay = require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
 const RubikSCube = require('./jd/rubikSCube');
+const Kmg = require('./jd/kmg');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -136,6 +137,7 @@ async function main() {
           [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
 
           RubikSCube,
+          Kmg,
           GoldCreator,
           Trump,
           // TODO 确认活动有效性
