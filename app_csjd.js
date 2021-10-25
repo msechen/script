@@ -214,20 +214,21 @@ if(notify){
 
 
 function soy_csjd_login(){
+    login_body=`password=${soy_csjd_password}&loginName=${soy_csjd_Name}&verifyId=${soy_csjd_VerifyId}`
     return new Promise((resolve, reject) => {
         $.post({
-            url : `https://cs.clrcle.cn/api/app/authentication/login`,
-            headers : {"Authorization": "","user-agent": soy_csjd_UA,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": (`loginName=${soy_csjd_Name}&password=${soy_csjd_password}`).length,"Host": "cs.clrcle.cn"},
+            url : `http://cs.clrcle.cn/api/app/authentication/login`,
+            headers : {"Authorization": "","user-agent": soy_csjd_UA,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": login_body.length,"Host": "cs.clrcle.cn"},
             body : `password=${soy_csjd_password}&loginName=${soy_csjd_Name}&verifyId=${soy_csjd_VerifyId}`,
         }, async(error, response, data) => {
            try {
-            //console.log(data)
+            console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
                 token=result.data
                 console.log(`\n【${$.name}---账号 ${$.index} 登录】: 获取token成功`)
                 //app_csjd_headers=
-                await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
+                //await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
                 
                 await soy_csjd_receiveIncome()
                 await soy_csjd_personalDetails()
@@ -252,7 +253,7 @@ function soy_csjd_login(){
 function soy_csjd_receiveIncome(){
     return new Promise((resolve, reject) => {
         $.post({
-            url : `https://cs.clrcle.cn/api/app/api/income/receiveIncome`,
+            url : `http://cs.clrcle.cn/api/app/api/income/receiveIncome`,
             headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
             body : '',
         }, async(error, response, data) => {
@@ -283,7 +284,7 @@ function soy_csjd_receiveIncome(){
 function soy_csjd_personalDetails(){
     return new Promise((resolve, reject) => {
         $.get({
-            url : `https://cs.clrcle.cn/api/app/api/customer_ext/personalDetails`,
+            url : `http://cs.clrcle.cn/api/app/api/customer_ext/personalDetails`,
             headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
             //body : '',
         }, async(error, response, data) => {
@@ -321,7 +322,7 @@ function soy_csjd_personalDetails(){
 function soy_csjd_addAdvertDayCount(){
     return new Promise((resolve, reject) => {
         $.post({
-            url : `https://cs.clrcle.cn/api/app/api/customer_ext/addAdvertDayCount`,
+            url : `http://cs.clrcle.cn/api/app/api/customer_ext/addAdvertDayCount`,
             headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
             body : '',
         }, async(error, response, data) => {
@@ -359,7 +360,7 @@ function soy_csjd_addAdvertDayCount(){
 function soy_csjd_logoutt(){
     return new Promise((resolve, reject) => {
         $.post({
-            url : `https://cs.clrcle.cn/api/app/authentication/logout`,
+            url : `http://cs.clrcle.cn/api/app/authentication/logout`,
             headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
             body : '',
         }, async(error, response, data) => {
