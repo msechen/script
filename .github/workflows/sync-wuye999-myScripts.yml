@@ -1,14 +1,14 @@
-name: sync-DcRat-scripts
+name: sync-wuye999-myScripts
 on:
   schedule:
-  - cron: '* */5 * * *'
+  - cron: '*/30 * * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-DcRat-scripts
+    types: sync-wuye999-myScripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-DcRat-scripts
+      - name: sync-wuye999-myScripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/qwqdanchun/DcRat.git"
+          source_repo: "https://github.com/wuye999/myScripts.git"
           source_branch: "main"
-          destination_branch: "DcRat"
+          destination_branch: "wuye999-myScripts"
           github_token: ${{ secrets.PAT }}
