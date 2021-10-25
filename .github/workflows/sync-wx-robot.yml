@@ -1,4 +1,4 @@
-name: sync-youfou-wxpy
+name: sync-wx-robot
 on:
   schedule:
     - cron: '1 */5 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-youfou-wxpy
+    types: sync-wx-robot
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-youfou-wxpy
+      - name: sync-wx-robot
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/youfou/wxpy.git"
+          source_repo: "https://github.com/kollyQAQ/wx-robot.git"
           source_branch: "master"
-          destination_branch: "youfou-wxpy"
+          destination_branch: "wx-robot"
           github_token: ${{ secrets.PAT }}
