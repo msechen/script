@@ -1,14 +1,14 @@
-name: sync-AwakeYouwskey-scripts
+name: sync-youfou-wxpy
 on:
   schedule:
-    - cron: '1 */30 * * *'
+    - cron: '1 */5 * * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-AwakeYouwskey-scripts
+    types: sync-youfou-wxpy
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-AwakeYouwskey-scripts
+      - name: sync-youfou-wxpy
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/AwakeYou/wskey.git"
-          source_branch: "main"
-          destination_branch: "AwakeYouwskey"
+          source_repo: "https://github.com/youfou/wxpy.git"
+          source_branch: "master"
+          destination_branch: "youfou-wxpy"
           github_token: ${{ secrets.PAT }}
