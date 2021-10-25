@@ -1,14 +1,14 @@
-name: sync-UPDATE_API-scripts
+name: sync-youxiang-Itchat
 on:
   schedule:
-  - cron: '* * */20 * *'
+  - cron: '* * */3 * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-UPDATE_API-scripts
+    types: sync-youxiang-Itchat
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-UPDATE_API-scripts
+      - name: sync-youxiang-Itchat
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/atpx4869/docker.git"
-          source_branch: "main"
-          destination_branch: "UPDATE_API"
+          source_repo: "https://github.com/why2lyj/youxiang-Itchat.git"
+          source_branch: "master"
+          destination_branch: "youxiang-Itchat"
           github_token: ${{ secrets.PAT }}
