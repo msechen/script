@@ -12,6 +12,9 @@ soy_csjd_Name
 soy_csjd_password
 #登录密码
 
+soy_csjd_VerifyId
+#登录验证,需要抓包获取
+
 选填变量
 soy_csjd_UA
 #属于网页UA..
@@ -19,13 +22,15 @@ soy_csjd_UA
 
 多个号用 @ 或 # 或 换行 隔开
 
+cron 0 0,11 * * *
+
 */
 
 
 const $ = new Env('创视节点');
 const notify = $.isNode() ? require('./sendNotify') : '';
 
-let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],subTitle=''
+let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],app_soy_csjd_VerifyId=[],subTitle=''
 
 
 !(async () => {
@@ -84,6 +89,22 @@ let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],subTitle=''
     }); 
     
 	}
+    
+    
+	if (process.env.soy_csjd_VerifyId && process.env.soy_csjd_VerifyId.indexOf('@') > -1) {
+        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split('@');
+    } else if (process.env.soy_csjd_VerifyId && process.env.soy_csjd_VerifyId.indexOf('\n') > -1) {
+        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split('\n');
+    } else if(process.env.soy_csjd_VerifyId && process.env.soy_csjd_VerifyId.indexOf('#') > -1){
+        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split('#');
+    }else{
+        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split();
+    };
+    Object.keys(soy_csjd_VerifyId).forEach((item) => {
+        if (soy_csjd_VerifyId[item]) {
+            app_soy_csjd_VerifyId.push(soy_csjd_VerifyId[item]);
+        };
+    }); 
     
     
     Object.keys(soy_csjd_password).forEach((item) => {
@@ -163,6 +184,7 @@ Object.keys(soy_csjd_Name).forEach((item) => {
 for (i = 0; i < app_soy_csjd_Name.length; i++) {
     soy_csjd_Name=app_soy_csjd_Name[i]
     soy_csjd_password=app_soy_csjd_password[i]
+    soy_csjd_VerifyId=app_soy_csjd_VerifyId[i]
     soy_csjd_UA=app_soy_csjd_UA[i]
 	if(app_soy_csjd_UA.length==0 || !soy_csjd_UA){
 	    console.log(`\n【${$.name}】：开始默认分配 soy_csjd_UA`);
@@ -196,7 +218,7 @@ function soy_csjd_login(){
         $.post({
             url : `https://cs.clrcle.cn/api/app/authentication/login`,
             headers : {"Authorization": "","user-agent": soy_csjd_UA,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": (`loginName=${soy_csjd_Name}&password=${soy_csjd_password}`).length,"Host": "cs.clrcle.cn"},
-            body : `password=${soy_csjd_password}&loginName=${soy_csjd_Name}`,
+            body : `password=${soy_csjd_password}&loginName=${soy_csjd_Name}&verifyId=${soy_csjd_VerifyId}`,
         }, async(error, response, data) => {
            try {
             //console.log(data)
