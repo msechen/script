@@ -11,7 +11,7 @@ const {sleepTime} = require('../../lib/cron');
 global._ = _;
 
 // [app,client,clientVersion,uuid;wifi;...]
-const appCompleteUserAgent = 'jdapp;iPhone;10.0.6;14.6;c6993893af46e44aa14818543914768cf2509fbf;network/wifi;model/iPhone13,3;addressid/682688717;appBuild/167724;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1';
+const appCompleteUserAgent = 'jdapp;iPhone;10.1.6;14.8;c6993893af46e44aa14818543914768cf2509fbf;network/wifi;model/iPhone13,3;addressid/682688717;appBuild/167841;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1';
 
 class Base {
   static _ = _;
