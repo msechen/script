@@ -39,7 +39,8 @@ class GoldCreator extends Template {
         detailTaskList = _.property('result.taskList')(detailData);
         if (hasVoted === '1') continue;
         // writeFileJSON(detailData, 'goldCreatorDetail.json', __dirname);
-        const {rankId, skuId} = _.maxBy(_.property('result.skuList')(detailData) || [], o => +o['voteCount']);
+        const skuList = _.property('result.skuList')(detailData) || [];
+        const {rankId, skuId} = _.maxBy(skuList, o => +o['voteCount']) || skuList[0];
         await api.doFormBody('goldCreatorDoTask', {
           stageId,
           subTitleId,
