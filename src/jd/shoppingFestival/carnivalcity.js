@@ -59,14 +59,16 @@ class Carnivalcity extends Template {
     async function handleTask() {
       return doGetPath('index/indexInfo').then(async data => {
         const {brandList, hotProductList} = data;
-        for (const {id, status} of hotProductList) {
-          if (status === '4') continue;
-          await handleDoBrowseTask({
-            id,
-            taskMark: 'hot',
-            type: 'browse',
-            logMark: 'browseHotSku',
-          });
+        if (hotProductList) {
+          for (const {id, status} of hotProductList) {
+            if (status === '4') continue;
+            await handleDoBrowseTask({
+              id,
+              taskMark: 'hot',
+              type: 'browse',
+              logMark: 'browseHotSku',
+            });
+          }
         }
         for (const {brandId} of brandList) {
           const {
