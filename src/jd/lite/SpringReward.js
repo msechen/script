@@ -4,7 +4,7 @@ const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common
 const _ = require('lodash');
 
 const appid = 'activities_platform';
-const linkId = '9wdf1YTT2L59Vr-meKskLA';
+let linkId = '9wdf1YTT2L59Vr-meKskLA';
 const indexUrl = 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html';
 
 class SpringReward extends Template {
@@ -44,7 +44,7 @@ class SpringReward extends Template {
     }).then(data => {
       const newLinkId = matchMiddle(data, {reg: /"linkId":"([^"']*)",/});
       if (newLinkId === linkId) return;
-      api.options.qs.body.linkId = newLinkId;
+      linkId = api.options.qs.body.linkId = newLinkId;
     });
 
     await api.doGet('spring_reward_query').then(async data => {
