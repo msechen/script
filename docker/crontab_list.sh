@@ -95,6 +95,8 @@
 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 # 推一推
 0 6-23/4 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
+# 省钱大赢家翻翻乐
+20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 
 ##############长期活动##############
 # 签到
