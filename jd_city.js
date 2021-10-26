@@ -23,7 +23,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let exchangeFlag = $.isNode() ? (process.env.JD_CITY_EXCHANGE === "true" ? true : false) : ($.getdata('jdJxdExchange') === "true" ? true : false)  //是否开启自动抽奖，建议活动快结束开启，默认关闭
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
-let uuid;
+let uuid, UA;
 
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -54,6 +54,8 @@ let inviteCodes = [
       cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = i + 1;
+      UA = `jdapp;iPhone;10.2.0;13.1.2;${randomString(40)};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167853;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
+      uuid = UA.split(';')[4]
       $.isLogin = true;
       $.nickName = '';
       message = '';
@@ -67,6 +69,8 @@ let inviteCodes = [
         }
         continue
       }
+      UA = `jdapp;iPhone;10.2.0;13.1.2;${randomString(40)};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167853;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
+      uuid = UA.split(';')[4]
       await getInfo('',true);
       await shareCodesFormat()
       for (let i = 0; i < $.newShareCodes.length; ++i) {
@@ -128,7 +132,7 @@ function taskPostUrl(functionId, body) {
       "Content-Type": "application/x-www-form-urlencoded",
       "Origin": "https://bunearth.m.jd.com",
       "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      "User-Agent": UA,
       "Referer": "https://bunearth.m.jd.com/",
       "Accept-Encoding": "gzip, deflate, br",
       "Cookie": cookie
@@ -144,7 +148,7 @@ function randomString(e) {
 }
 
 function getInfo(inviteId, flag = false) {
-  let body = {"lbsCity":"19","realLbsCity":"1601","inviteId":inviteId,"headImg":"","userName":""}
+  let body = {"lbsCity":"1","realLbsCity":"2953","inviteId":inviteId,"headImg":"","userName":"","taskChannel":"1"}
   return new Promise((resolve) => {
     $.post(taskPostUrl("city_getHomeData",body), async (err, resp, data) => {
       try {
