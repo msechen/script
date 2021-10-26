@@ -233,4 +233,4 @@
 0 0-23/1 * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 
 # 极速版-发财大赢家
-0 0,17 * * * cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
+0 0,17 * * * sh /scripts/docker/shareCode/xtg.sh && cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
