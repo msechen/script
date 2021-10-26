@@ -1,14 +1,14 @@
-name: sync-Tsukasa007-scripts
+name: sync-EverydayWechat
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '* * */5 * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-Tsukasa007-scripts
+    types: sync-EverydayWechat
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-Tsukasa007-scripts
+      - name: sync-EverydayWechat
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/Tsukasa007/my_script.git"
+          source_repo: "https://github.com/sfyc23/EverydayWechat.git"
           source_branch: "master"
-          destination_branch: "Tsukasa007"
+          destination_branch: "EverydayWechat"
           github_token: ${{ secrets.PAT }}
