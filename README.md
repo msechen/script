@@ -1,4 +1,4 @@
-软件名称:微信_金银手指 \
+软件名称:微信_金银手指 已经失效 \
 项目注册地址(微信扫码):\
 <img src="https://raw.githubusercontent.com/msechen/script/master/wxjsz.png"></img>
 
