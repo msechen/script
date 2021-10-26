@@ -83,6 +83,7 @@ let inviteCodes = [
           }
           if (res['data']['result']['toasts'] && res['data']['result']['toasts'][0]) {
             console.log(`助力 【${$.newShareCodes[i]}】:${res.data.result.toasts[0].msg}`)
+            await $.wait(3000);
           }
         }
         if ((res && res['status'] && res['status'] === '3') || (res && res.data && res.data.bizCode === -11)) {
