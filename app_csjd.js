@@ -1,6 +1,6 @@
 /*
 
-软件名称:创视节点
+项目名称:创视节点
 
 项目注册地址:http://cs.clrcle.cn/api/webapp/register.html?code=ZNOBH8
 
@@ -12,8 +12,6 @@ soy_csjd_Name
 soy_csjd_password
 #登录密码
 
-soy_csjd_VerifyId
-#登录验证,需要抓包获取
 
 选填变量
 soy_csjd_UA
@@ -23,6 +21,8 @@ soy_csjd_UA
 多个号用 @ 或 # 或 换行 隔开
 
 cron 0 0,11 * * *
+
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_csjd.js
 
 */
 
@@ -56,7 +56,11 @@ let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],app_soy_csj
     }else{
         soy_csjd_password = process.env.soy_csjd_password.split();
     };
-    
+    Object.keys(soy_csjd_password).forEach((item) => {
+        if (soy_csjd_password[item]) {
+            app_soy_csjd_password.push(soy_csjd_password[item]);
+        };
+    });
 
     
     if (process.env.soy_csjd_Name && process.env.soy_csjd_Name.indexOf('@') > -1) {
@@ -68,7 +72,11 @@ let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],app_soy_csj
     }else{
         soy_csjd_Name = process.env.soy_csjd_Name.split();
     };
-    
+    Object.keys(soy_csjd_Name).forEach((item) => {
+        if (soy_csjd_Name[item]) {
+            app_soy_csjd_Name.push(soy_csjd_Name[item]);
+        };
+    });
 
 	if(!process.env.soy_csjd_UA){
 		console.log(`\n【${$.name}】：未填写相应变量 soy_csjd_UA ,将默认分配`);
@@ -89,37 +97,6 @@ let app_soy_csjd_Name=[],app_soy_csjd_password=[],app_soy_csjd_UA=[],app_soy_csj
     }); 
     
 	}
-    
-    
-	if (process.env.soy_csjd_VerifyId && process.env.soy_csjd_VerifyId.indexOf('@') > -1) {
-        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split('@');
-    } else if (process.env.soy_csjd_VerifyId && process.env.soy_csjd_VerifyId.indexOf('\n') > -1) {
-        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split('\n');
-    } else if(process.env.soy_csjd_VerifyId && process.env.soy_csjd_VerifyId.indexOf('#') > -1){
-        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split('#');
-    }else{
-        soy_csjd_VerifyId = process.env.soy_csjd_VerifyId.split();
-    };
-    Object.keys(soy_csjd_VerifyId).forEach((item) => {
-        if (soy_csjd_VerifyId[item]) {
-            app_soy_csjd_VerifyId.push(soy_csjd_VerifyId[item]);
-        };
-    }); 
-    
-    
-    Object.keys(soy_csjd_password).forEach((item) => {
-        if (soy_csjd_password[item]) {
-            app_soy_csjd_password.push(soy_csjd_password[item]);
-        };
-    });
-	
-Object.keys(soy_csjd_Name).forEach((item) => {
-        if (soy_csjd_Name[item]) {
-            app_soy_csjd_Name.push(soy_csjd_Name[item]);
-        };
-    });	
-
-	
     
 }else{
     
@@ -184,24 +161,25 @@ Object.keys(soy_csjd_Name).forEach((item) => {
 for (i = 0; i < app_soy_csjd_Name.length; i++) {
     soy_csjd_Name=app_soy_csjd_Name[i]
     soy_csjd_password=app_soy_csjd_password[i]
-    soy_csjd_VerifyId=app_soy_csjd_VerifyId[i]
     soy_csjd_UA=app_soy_csjd_UA[i]
-	if(app_soy_csjd_UA.length==0 || !soy_csjd_UA){
-	    console.log(`\n【${$.name}】：开始默认分配 soy_csjd_UA`);
+	if(!soy_csjd_UA){
+	    //console.log(`\n【${$.name}】：开始默认分配 soy_csjd_UA`);
 		soy_csjd_UA='Redmi Note 5(Android/8.1.0) (com.cs.csjd/1.0.2) Weex/0.26.0 1080x2210'
 	}
     
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
+    console.log(`\n开始【第 ${$.index} 个账号---开始随机分配VerifyId】`);
     await soy_csjd_login()
+    await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
     
     
 };
 
-if(notify){
+/*if(notify){
    await notify.sendNotify($.name, subTitle) 
-}
+}*/
 
 
 
@@ -210,30 +188,46 @@ if(notify){
 .catch((e) => $.logErr(e))
 .finally(() => $.done());
 
+function Id() {
+  let random = 'ABCabc123DEFde456fGHJghj789KMNkmnO012PQopq345RSTrst678UVWuvw90XYZxyz123';
+  let max=random.length
+  let VerifyId = '';
+  for (let i = 0; i < 32; i++) {
+    VerifyId += random.charAt(Math.floor(Math.random() * max));
+  }
+  return VerifyId
+}
 
-
-
+//登录
 function soy_csjd_login(){
-    login_body=`password=${soy_csjd_password}&loginName=${soy_csjd_Name}&verifyId=${soy_csjd_VerifyId}`
     return new Promise((resolve, reject) => {
         $.post({
             url : `http://cs.clrcle.cn/api/app/authentication/login`,
-            headers : {"Authorization": "","user-agent": soy_csjd_UA,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": login_body.length,"Host": "cs.clrcle.cn"},
-            body : `password=${soy_csjd_password}&loginName=${soy_csjd_Name}&verifyId=${soy_csjd_VerifyId}`,
+            headers : {"Authorization": "","Content-Type":"application/x-www-form-urlencoded;charset=UTF-8","User-Agent":soy_csjd_UA,"Connection":"keep-alive"},
+            body : `loginName=${soy_csjd_Name}&password=${soy_csjd_password}&verifyId=${Id()}`,
         }, async(error, response, data) => {
            try {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
+                
                 token=result.data
                 console.log(`\n【${$.name}---账号 ${$.index} 登录】: 获取token成功`)
-                //app_csjd_headers=
                 //await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
                 
                 await soy_csjd_receiveIncome()
+                await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
                 await soy_csjd_personalDetails()
+                await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
+                if(ad_state==1){
+                    console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 观看广告】: 今日已完成任务`)
+                    
+                }else{
+                    console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 做任务】: 观看广告`)
+                    await soy_csjd_addAdvertDayCount()
+                }
                 
-                await soy_csjd_logoutt()
+                //await soy_csjd_logoutt()
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 登录】: ${result.msg}`)
             }
@@ -249,12 +243,12 @@ function soy_csjd_login(){
     })
 
 }
-
+//领取收益
 function soy_csjd_receiveIncome(){
     return new Promise((resolve, reject) => {
         $.post({
             url : `http://cs.clrcle.cn/api/app/api/income/receiveIncome`,
-            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Connection":"keep-alive"},
             body : '',
         }, async(error, response, data) => {
            try {
@@ -280,27 +274,28 @@ function soy_csjd_receiveIncome(){
     })
 
 }
-
+//当前信息
 function soy_csjd_personalDetails(){
     return new Promise((resolve, reject) => {
         $.get({
             url : `http://cs.clrcle.cn/api/app/api/customer_ext/personalDetails`,
-            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Connection":"keep-alive",},
             //body : '',
         }, async(error, response, data) => {
            try {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
+                ad_state=result.data.isDailyAdvert
                 console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`)
-                subTitle+=`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`
-                if(result.data.advertDayCount==3){
+                
+                /*if(ad_state==1){
                     console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 观看广告】: 今日已完成任务`)
-                    subTitle+=`\n----------\n\n【${$.name}---账号 ${$.index} 观看广告】: 今日已完成任务`
+                    
                 }else{
                     console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 做任务】: 观看广告`)
                     await soy_csjd_addAdvertDayCount()
-                }
+                }*/
                 
                 
             }else{
@@ -318,31 +313,28 @@ function soy_csjd_personalDetails(){
     })
 
 }
-
+//看广告
 function soy_csjd_addAdvertDayCount(){
     return new Promise((resolve, reject) => {
         $.post({
             url : `http://cs.clrcle.cn/api/app/api/customer_ext/addAdvertDayCount`,
-            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
-            body : '',
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Connection":"keep-alive",},
+            body : 'verifyId=',
         }, async(error, response, data) => {
            try {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
                 if(result.msg=='操作成功'){
                     console.log(`\n【${$.name}---账号 ${$.index} 观看广告】: 操作成功`)
                     await $.wait(Math.floor(Math.random() * (35000 - 28000 + 1000) + 28000))
                     await soy_csjd_addAdvertDayCount()
-                    subTitle+=`\n【${$.name}---账号 ${$.index} 观看广告】: 操作成功`
                 }else{
                     console.log(`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`)
-                    subTitle+=`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`
                 }
                 
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`)
-                subTitle+=`\n【${$.name}---账号 ${$.index} 观看广告】: ${result.msg}`
             }
             
                
@@ -361,7 +353,7 @@ function soy_csjd_logoutt(){
     return new Promise((resolve, reject) => {
         $.post({
             url : `http://cs.clrcle.cn/api/app/authentication/logout`,
-            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Content-Length": 0,"Host": "cs.clrcle.cn","Connection": "Keep-Alive","Accept-Encoding": "gzip"},
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Connection":"keep-alive",},
             body : '',
         }, async(error, response, data) => {
            try {
