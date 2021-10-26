@@ -1,14 +1,14 @@
-name: sync-DzPian-scripts
+name: sync-Dachuizi-6-hahaha
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '* * */3 * *'
   workflow_dispatch:
   watch:
     types: started
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-DzPian-scripts
+    types: sync-Dachuizi-6-hahaha
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-DzPian-scripts
+      - name: sync-Dachuizi-6-hahaha
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/DzPian/eastbro.git"
-          source_branch: "main"
-          destination_branch: "DzPian-eastbro"
+          source_repo: "https://github.com/Dachuizi-6/hahaha.git"
+          source_branch: "master"
+          destination_branch: "Dachuizi-6-hahaha"
           github_token: ${{ secrets.PAT }}
