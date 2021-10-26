@@ -161,6 +161,7 @@ function getInfo(inviteId, flag = false) {
                   if (data.data && data.data.result.userActBaseInfo.inviteId) {
                     $.shareCodes.push(data.data.result.userActBaseInfo.inviteId)
                   }
+                  await uploadShareCode(data.data && data.data.result.userActBaseInfo.inviteId)
                   console.log(`剩余金额：${data.data.result.userActBaseInfo.poolMoney}`)
                   for (let pop of data.data.result.popWindows || []) {
                     if (pop.data.cash && (pop.data.cash !== data.data.result.userActBaseInfo.poolMoney)) {
@@ -365,6 +366,30 @@ function readShareCode() {
         } else {
           if (data) {
             data = JSON.parse(data);
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+    await $.wait(10000);
+    resolve()
+  })
+}
+function uploadShareCode(code) {
+  return new Promise(async resolve => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=city&sharecode=${code}`, timeout: 10000}, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(JSON.stringify(err))
+          console.log(`${$.name} uploadShareCode API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            if (data === 'ok') {
+              console.log(`已自动提交助力码\n`)
+            }
           }
         }
       } catch (e) {
