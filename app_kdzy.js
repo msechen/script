@@ -23,6 +23,8 @@ soy_kdzy_UA
 
 cron 35 0 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_kdzy.js
+
 */
 
 
