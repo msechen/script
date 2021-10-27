@@ -236,4 +236,4 @@
 0 0,17 * * * sh /scripts/docker/shareCode/xtg.sh && cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
 
 # xxxx
-59 17 29 10 * node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
+59 17 29 10 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
