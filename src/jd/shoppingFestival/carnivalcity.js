@@ -41,6 +41,7 @@ class Carnivalcity extends Template {
 
   static async doMain(api) {
     const self = this;
+    api.stopTaskMaxTimes = 5;
 
     const doFormBody = (path, body = {}, form = {}) => {
       const apiMapping = `/khc/${path}`;
@@ -124,9 +125,12 @@ class Carnivalcity extends Template {
     function afterTaskOutput(data) {
       const {jingBean, integral} = data;
       if (+jingBean === 0) {
-        const msg = '目前没豆, 停止任务';
-        api.log(msg);
-        throw msg;
+        --api.stopTaskMaxTimes;
+        if (api.stopTaskMaxTimes < 0) {
+          const msg = '目前没豆, 停止任务';
+          api.log(msg);
+          throw msg;
+        }
       }
       api.log(`获得豆豆: ${jingBean}, 获得分数: ${integral}`);
     }
