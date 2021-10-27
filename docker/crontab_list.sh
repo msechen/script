@@ -69,16 +69,16 @@
 11 9,18 * * * node /scripts/jd_jmsign.js >> /scripts/logs/jd_jmsign.log 2>&1
 #芥么赚好礼
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
-#jd_opencard3
-45 7,14,20 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 #jd_opencard4
 5 0,7,16 * * * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
 #jd_opencard8
 15 0,12,15 * * * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
-#jd_opencard6
-0 1,9,23 * * * node /scripts/jd_opencard6.js >> /scripts/logs/jd_opencard6.log 2>&1
-#jd_opencard7
-15 1,13,22 * * * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
+#jd_opencard9
+0 1,9,23 * * * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
+#jd_opencard10
+15 1,13,22 * * * node /scripts/jd_opencard10.js >> /scripts/logs/jd_opencard10.log 2>&1
+#jd_opencard11
+45 7,14,20 * * * node /scripts/jd_opencard11.js >> /scripts/logs/jd_opencard11.log 2>&1
 #东东世界
 25 2,10 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
 #jd_ddworld_exchange
