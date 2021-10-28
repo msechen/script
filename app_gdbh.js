@@ -25,8 +25,6 @@ https://proxy.guodongbaohe.com/income/mymoney
 主机名
 proxy.guodongbaohe.com
 
-脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_gdbh.js
-
 */
 
 
