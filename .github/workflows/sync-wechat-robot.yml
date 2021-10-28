@@ -1,4 +1,4 @@
-name: sync-Dachuizi-6-hahaha
+name: sync-wechat-robot
 on:
   schedule:
     - cron: '* * */3 * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-Dachuizi-6-hahaha
+    types: sync-wechat-robot
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-Dachuizi-6-hahaha
+      - name: sync-wechat-robot
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/Dachuizi-6/hahaha.git"
+          source_repo: "https://github.com/isnl/wechat-robot.git"
           source_branch: "master"
-          destination_branch: "Dachuizi-6-hahaha"
+          destination_branch: "wechat-robot"
           github_token: ${{ secrets.PAT }}
