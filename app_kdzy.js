@@ -6,6 +6,8 @@
 
 项目注册地址:http://kdzhy.mlyougame.com:82/web/page/qr.html?c=114069
 
+别人说尽量去个人中心绑定收款支付宝
+
 必要变量:
 
 soy_kdzy_mobile
@@ -22,8 +24,6 @@ soy_kdzy_UA
 多个号用 @ 或 # 或 换行 隔开
 
 cron 35 0 * * *
-
-脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_kdzy.js
 
 */
 
@@ -216,6 +216,7 @@ function soy_kdzy_login(){
             if(result.code==1){
                 console.log(`\n【${$.mobile}---账号 ${$.index} 登录】: ${result.msg}`)
                 token=result.token
+                ID=result.data.id
                 await soy_kdzy_DaySign()
                 
             }else{
@@ -240,7 +241,7 @@ function soy_kdzy_DaySign(){
     return new Promise((resolve, reject) => {
         $.post({
             url : `http://kdzhy.mlyougame.com:82//home/user/everyDaySignIn`,
-            headers : {"Host": "kdzhy.mlyougame.com:82","User-Agent": soy_kdzy_UA,"Content-Type": "application/x-www-form-urlencoded","Origin": "http://kdzhy.mlyougame.com:82","X-Requested-With": "w2a.W2Akdzy.mlyougame.com","Referer": "http://kdzhy.mlyougame.com:82/web/page/home.html","TC-Id":"14069","TC-Token":token},
+            headers : {"Host": "kdzhy.mlyougame.com:82","User-Agent": soy_kdzy_UA,"Content-Type": "application/x-www-form-urlencoded","Origin": "http://kdzhy.mlyougame.com:82","X-Requested-With": "w2a.W2Akdzy.mlyougame.com","Referer": "http://kdzhy.mlyougame.com:82/web/page/home.html","TC-Id":ID,"TC-Token":token},
             body : `appKey=5ded368547b86b33&mobile=${soy_kdzy_mobile}&password=${soy_kdzy_password}`,
         }, async(error, response, data) => {
            try {
