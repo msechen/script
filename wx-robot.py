@@ -151,7 +151,12 @@ def auto_reply(msg):
 
     if 'unick=kollyQAQ' in msg.text:
         txt = msg.text.replace("cookie: ","")
-        zh_config_dao.update_config('jfck', msg.text)
+        zh_config_dao.update_config('jfck1', msg.text)
+        return '更新成功'
+
+    if 'unick=lijunchao233' in msg.text:
+        txt = msg.text.replace("cookie: ","")
+        zh_config_dao.update_config('jfck2', msg.text)
         return '更新成功'
 
     if 'd_c0' in msg.text:

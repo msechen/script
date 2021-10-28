@@ -28,4 +28,4 @@ def query_config(config_key):
 
 
 if __name__ == "__main__":
-    print(query_config('jfck').value)
+    print(query_config('jfck1').value)
