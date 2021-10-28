@@ -181,6 +181,19 @@ def query_jingfen_earnings():
     return top1 + mid1 + str(count1) + end1 + str(sum1), sum1, top2 + mid2 + str(count2) + end2 + str(sum2), sum2
 
 
+# 查询红包发放数
+def query_jingfen_redpacket():
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    top2 = "[京粉-2] "
+    mid2 = "红包点击："
+    end2 = " 红包发放："
+
+    show, give = zhihu_spider.get_jingfen_redpacket(today, today, zh_config_dao.query_config('jfck2').value)
+
+    return top2 + mid2 + str(show) + end2 + str(give)
+
+
 # 查询知+今日消耗
 def query_zhijia_pay():
     top = "[知+消耗] "
@@ -205,11 +218,12 @@ def query_zhijia_pay_2():
 def query_today_earnings():
     zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
     jingfen_earnings1, num3, jingfen_earnings2, num4 = query_jingfen_earnings()
+    redpacket = query_jingfen_redpacket()
     zhijia_pay, num5 = query_zhijia_pay()
 
     total = int(num1 + num2 + num3 + num4 - num5)
 
-    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + zhijia_pay
+    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + redpacket + "\n" + zhijia_pay
 
 # 查询今日总收入
 def query_today_earnings_2():

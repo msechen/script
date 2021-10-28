@@ -213,6 +213,36 @@ def get_jingfen_earnings(start, end, cookie):
     return json['result']['spreadReportInfoChatList'][0]['orderNum'], json['result']['spreadReportInfoChatList'][0][
         'cosFee']
 
+
+# 调京粉 api 查询账户今日红包发放
+def get_jingfen_redpacket(start, end, cookie):
+    # 知乎 API
+    url = '''
+        https://api.m.jd.com/api?appid=unionpc&body=%7B%22funName%22:%22queryJXRedPacketSumData%22,%22param%22:%7B%22startDate%22:%22{}%22,%22endDate%22:%22{}%22,%22mediaId%22:%22%22,%22proCont%22:%22%22,%22promotionId%22:%22%22,%22sourceEmt%22:%22%22,%22pageNo%22:1,%22pageSize%22:20%7D%7D&functionId=union_report&loginType=3
+    '''.format(start, end)
+
+    url = '''
+        https://api.m.jd.com/api?appid=unionpc&body=%7B%22funName%22:%22queryJXRedPacketSumData%22,%22param%22:%7B%22actId%22:%22%22,%22promotionId%22:%22%22,%22endTime%22:%22{}%22,%22startTime%22:%22{}%22%7D%7D&functionId=union_report&loginType=3
+    '''.format(start, end)
+    header = {
+        'cookie': cookie,
+        'referer': 'https://union.jd.com/',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        return "接口异常"
+
+    if 'login' in res.text:
+        return 0, -10000
+
+    json = res.json()
+
+    return json['result']['jxRedPacketActOrderDetail']['showNum'], json['result']['jxRedPacketActOrderDetail']['giveNum']
+
 # 调知+ api 查询账户今日消耗
 def get_zhijia_pay(start, end, cookie):
     # 知+ API
