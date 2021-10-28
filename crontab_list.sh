@@ -237,3 +237,6 @@
 
 # xxxx
 59 17 29 10 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
+
+# 京享红包
+0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
