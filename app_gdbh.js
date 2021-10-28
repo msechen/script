@@ -14,7 +14,18 @@ soy_gdbh_member_id
 soy_gdbh_token
 在请求头上有x-token
 
+注意:如果是ios系统需要自行另外添加如下变量
+
+soy_gdbh_device
+#请求头上的 x-platform
+soy_gdbh_appid
+#请求头上的 x-appid
+soy_gdbh_UA
+#请求头上的 x-agent
+
 V2P使用方法
+模板是大佬的模板未做修改,只适合重写,不适合手动添加变量,手动添加请使用青龙面板
+
 代理后
 获取ck：点击我的  即可获取ck 
 
@@ -90,6 +101,16 @@ $.message = ''
         };
     });
     
+    if(!process.env.soy_gdbh_device){
+        soy_gdbh_device='android'
+        soy_gdbh_appid='2102202714'
+        soy_gdbh_UA='JellyBox/3.8.4 (Android, Redmi K20 Pro, 11)'
+    }else{
+       soy_gdbh_device=process.env.soy_gdbh_device
+       soy_gdbh_appid=process.env.soy_gdbh_appid
+       soy_gdbh_UA=process.env.soy_gdbh_UA
+    }
+    
     console.log(`\n\n=== 脚本执行 - 北京时间(UTC+8)：${new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 +
         8 * 60 * 60 * 1000).toLocaleString()} ===\n`);
         
@@ -98,8 +119,7 @@ $.message = ''
                 if (app_soy_gdbh_member_id[i]) {
                     id = app_soy_gdbh_member_id[i];
                     token=app_soy_gdbh_token[i]
-                    pp = 'android'
-                    gdbhhd={"Host":"proxy.guodongbaohe.com","x-userid":id,"x-appid":"2102202714","x-devid":"No-dev","x-nettype":"WIFI","x-agent":'JellyBox/3.8.4 (Android, Redmi K20 Pro, 11)',"x-platform":'android',"x-devtype":"no","x-token":token,"accept-encoding":"gzip","user-agent":"okhttp/3.14.9"}
+                    gdbhhd={"Host":"proxy.guodongbaohe.com","x-userid":id,"x-appid":soy_gdbh_appid,"x-devid":"No-dev","x-nettype":"WIFI","x-agent":soy_gdbh_UA,"x-platform":soy_gdbh_device,"x-devtype":"no","x-token":token,"accept-encoding":"gzip","user-agent":"okhttp/3.14.9"}
                     $.index = i + 1;
                     console.log(`\n【 果冻宝盒 账号${$.index} 】`)
 
@@ -123,6 +143,7 @@ $.message = ''
             } else {
                 gdbhhdArr.push($.getdata('gdbhhd'))
                 gdbhurlArr.push($.getdata('gdbhurl'))
+                
                 let gdbhcount = ($.getval('gdbhcount') || '1');
                 for (let i = 2; i <= gdbhcount; i++) {
                     gdbhhdArr.push($.getdata(`gdbhhd${i}`))
@@ -142,7 +163,7 @@ $.message = ''
                     gdbhhd = gdbhhdArr[i];
                     gdbhurl = gdbhurlArr[i];
                     id = gdbhurl.split('member_id=')[1].split('&')[0]
-                    pp = gdbhurl.split('platform=')[1].split('&')[0]
+                    soy_gdbh_device = gdbhurl.split('platform=')[1].split('&')[0]
                     gdbhhd=JSON.parse(gdbhhd)
                     $.index = i + 1;
                     console.log(`\n【 果冻宝盒 账号${$.index} 】`)
@@ -190,13 +211,13 @@ function gdbhqd(timeout = 0) {
     return new Promise((resolve) => {
         times = Math.round(new Date().getTime()/1000).toString();
         
-        sign = MD5_Encrypt(`member_id=${id}&platform=${pp}&timestamp=${times}&${mm}`)
+        sign = MD5_Encrypt(`member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&${mm}`)
         
         //url = gdbhurl.replace(/timestamp=\d+&signature=\w+/g,`timestamp=${times}&signature=${sign}`) 
         
 
         let url = {
-            url: `https://proxy.guodongbaohe.com/coins/checkin?member_id=${id}&platform=${pp}&timestamp=${times}&signature=${sign}&`,
+            url: `https://proxy.guodongbaohe.com/coins/checkin?member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
             headers: gdbhhd,
            
         }
@@ -232,10 +253,10 @@ function gdbhsp(timeout = 0) {
     return new Promise((resolve) => {
         times = Math.round(new Date().getTime()/1000).toString();
 
-        sign = MD5_Encrypt(`member_id=${id}&platform=${pp}&timestamp=${times}&${mm}`)
+        sign = MD5_Encrypt(`member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&${mm}`)
 
         let url = {
-            url: `https://proxy.guodongbaohe.com/coins/award?member_id=${id}&platform=${pp}&timestamp=${times}&signature=${sign}&`,
+            url: `https://proxy.guodongbaohe.com/coins/award?member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
             headers: gdbhhd,
            
         }
