@@ -97,8 +97,6 @@
 0 6-23/4 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
 # 省钱大赢家翻翻乐
 20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
-# 双十一红包
-1 0,12,18 * * * node /scripts/jd_doubleEleven.js >> /scripts/logs/jd_doubleEleven.log 2>&1
 
 ##############长期活动##############
 # 签到
