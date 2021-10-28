@@ -37,6 +37,7 @@
     "start:StatisticsRedEnvelope": "node src/jd/statistics/RedEnvelope.js start",
     "start:SuperMarketRedeem": "node src/jd/superMarket/redeem.js start",
     "start:EarnCoinsRedeem": "node src/jd/lite/EarnCoinsRedeem.js start",
+    "start:Combination": "node src/jd/combination start",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
     "loop:BeautyMakeup": "node src/jd/beautyMakeup loop",
     "test": "echo \"Error: no test specified\" && exit 1"
