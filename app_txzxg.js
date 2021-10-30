@@ -23,6 +23,8 @@ v2p没有写
 
 cron 0 11,18,22 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_txzxg.js
+
 */
 
 
@@ -325,7 +327,7 @@ for (i = 0; i < app_soy_txzxg_openid.length; i++) {
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
     await soy_txzxg_task_list()
-    
+    await soy_txzxg_task_sign()
     console.log(`\n【${$.name}---开始做未完成任务】`)
     
     //查看今日大盘行情
@@ -440,6 +442,28 @@ function get_appdata() {
      console.log(`\n【${$.name}---获取数据】: 自动抓包没有找到对应链接`)
      subTitle+=`\n【${$.name}---获取数据】: 自动抓包没有找到对应链接`
    }
+}
+
+function soy_txzxg_task_sign() {
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=2002&action=signdone&date=20211030&_=1635598552980&openid=${soy_txzxg_openid}&fskey=${soy_txzxg_fskey}&channel=1&access_token=${变量soy_txzxg_token}&_appName=android&_appver=9.4.1&_osVer=10&_devId=${soy_txzxg_devid}`,
+            headers : soy_txzxg_headers,
+            //body : ``,
+        }, async(error, response, data) => {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.retcode==0){
+                console.log(`\n【${$.name}---签到】: 获得${result.amount}金币`)
+  
+                
+            }else{
+               console.log(`\n【${$.name}---签到】: ${result.retmsg}`)  
+            }
+                
+            resolve()
+        })
+    })
 }
 
 //任务列表
