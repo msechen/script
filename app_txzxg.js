@@ -5,6 +5,7 @@
 注意:这个是跑app的,不是跑微信公众号的
 
 自行抓包变量填写:
+
 soy_txzxg_openid
 soy_txzxg_token
 soy_txzxg_fskey
@@ -14,8 +15,9 @@ soy_txzxg_md5mid
 soy_txzxg_devid
 
 抓包时找带有这个 https://wzq.tenpay.com 的链接
-
-在连接中找需要变量,自行找关键词
+在连接中找需要变量最后的词就是关键词
+在连接中找需要变量最后的词就是关键词
+在连接中找需要变量最后的词就是关键词
 
 v2p没有写
 
@@ -447,7 +449,7 @@ function get_appdata() {
 function soy_txzxg_task_sign() {
     return new Promise((resolve, reject) => {
         $.get({
-            url : `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=2002&action=signdone&date=20211030&_=1635598552980&openid=${soy_txzxg_openid}&fskey=${soy_txzxg_fskey}&channel=1&access_token=${变量soy_txzxg_token}&_appName=android&_appver=9.4.1&_osVer=10&_devId=${soy_txzxg_devid}`,
+            url : `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=2002&action=signdone&date=20211030&_=1635598552980&openid=${soy_txzxg_openid}&fskey=${soy_txzxg_fskey}&channel=1&access_token=${soy_txzxg_token}&_appName=android&_appver=9.4.1&_osVer=10&_devId=${soy_txzxg_devid}`,
             headers : soy_txzxg_headers,
             //body : ``,
         }, async(error, response, data) => {
