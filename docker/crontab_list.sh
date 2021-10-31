@@ -91,6 +91,8 @@
 20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 # 双十一红包
 1 0,12,18 * * * node /scripts/jd_doubleEleven.js >> /scripts/logs/jd_doubleEleven.log 2>&1
+# 极速版-发财寻宝
+20 1,9,16 * * * node /scripts/jd_fcxb.js >> /scripts/logs/jd_fcxb.log 2>&1
 
 ##############长期活动##############
 # 签到
