@@ -223,8 +223,8 @@ function home() {
                             console.log('第' + curRound + '关')
                         }
                         // console.log(`请前往环境变量添加下方变量：'`)
-                        console.log(`fcwbinviteCode='${data.data.inviteCode}'`)
-                        console.log(`fcwbinviter='${data.data.markedPin}'`)
+                        console.log(`fcwbinviteCode：${data.data.inviteCode}`)
+                        console.log(`fcwbinviter：${data.data.markedPin}`)
                         $.shareCodes.push({
                             'inviter':data.data.markedPin,
                             'inviteCode':data.data.inviteCode
@@ -293,12 +293,12 @@ function help(inviter, inviteCode) {
                     console.log(`${$.name} API请求失败，请检查网路重试`)
                 } else {
                     if (safeGet(data)) {
-                        data = JSON.parse(data);
-                        //console.log(data)
+                        //data = JSON.parse(data);
+                        console.log(data)
                         if (data.success == true) {
                             console.log('助力结果：' + data.errMsg)
                         } else if (data.success == false) {
-                            if(data.code === 16144){
+                            if(data.code === 16144 || 16149){
                                 console.log('助力结果：' + data.errMsg)
                                 $.canHelp=false;
                             }else{
