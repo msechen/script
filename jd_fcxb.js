@@ -59,14 +59,11 @@ if ($.isNode()) {
     }
     if(res && res.code===200){$.shareCodes=[...(res.data || []),...$.shareCodes];}
     for (let i = 0; i < cookiesArr.length; i++) {
-        if (!cookiesArr[i]) {
-            continue
-        }
+        if (cookiesArr[i]) {
         cookie = cookiesArr[i];
         $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
         $.index = i + 1;
         $.isLogin = true;
-        $.isBlank = true;//白号
         $.nickName = '';
         message = '';
         await TotalBean();
@@ -98,6 +95,7 @@ if ($.isNode()) {
 //             console.log('第' + curRound + '关')
 //         }
     }
+ }
     console.log(`\n*********开始互助*********\n`);
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
@@ -301,6 +299,9 @@ function help(inviter, inviteCode) {
                                 console.log('助力结果：' + data.errMsg)
                                 $.canHelp=false;
                             }else if(data.code === 16149){
+                                console.log('助力结果：' + data.errMsg)
+                                $.canHelp = false;
+                            }else if(data.code === 1000){
                                 console.log('助力结果：' + data.errMsg)
                                 $.canHelp = false;
                             }else{
