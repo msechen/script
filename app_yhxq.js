@@ -2,7 +2,8 @@
 
 项目名称:源火星球
 
-每天收益不知道,100火源=1元,体现好像0.5起
+每天收益不知道
+100火源=1元
 
 项目注册地址:http://reg.yuanhuoxingqiu.com/#/?code=W6ESZO
 
@@ -25,8 +26,6 @@ soy_yhxq_UA
 支持v2p手动添加变量,不支持v2p重写
 
 cron 27 0-23/1 * * *
-
-脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_yhxq.js
 
 */
 
@@ -153,6 +152,7 @@ for (i = 0; i < app_soy_yhxq_Authorization.length; i++) {
     await yhxq_steal()
     await yhxq_feed_state()
     await yhxq_expedition()
+    await yhxq_power()
     
     
 };
