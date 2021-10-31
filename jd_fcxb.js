@@ -293,14 +293,16 @@ function help(inviter, inviteCode) {
                     console.log(`${$.name} API请求失败，请检查网路重试`)
                 } else {
                     if (safeGet(data)) {
-                        //data = JSON.parse(data);
-                        console.log(data)
+                        data = JSON.parse(data);
                         if (data.success == true) {
                             console.log('助力结果：' + data.errMsg)
                         } else if (data.success == false) {
-                            if(data.code === 16144 || 16149){
+                            if(data.code === 16144){
                                 console.log('助力结果：' + data.errMsg)
                                 $.canHelp=false;
+                            }else if(data.code === 16149){
+                                console.log('助力结果：' + data.errMsg)
+                                $.canHelp = false;
                             }else{
                                 console.log('助力结果：' + data.errMsg)
                             }
