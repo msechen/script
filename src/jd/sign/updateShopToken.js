@@ -12,7 +12,7 @@ async function main() {
 
 function updateTokenFromLog() {
   const logPath = path.resolve(__dirname, 'shop.log');
-  const data = getOriginDataFromFile(logPath);
+  const data = getOriginDataFromFile(logPath).filter(str => /\s\[0]\s/.test(str || ''));
   const signedReg = /已签到\w+天/;
   const notGiftData = data.filter(v => v.match(signedReg) && !v.match('奖品'));
   const expiredData = data.filter(v => v.match('402'));

@@ -37,12 +37,11 @@ class SignShop extends Template {
     let signSucceedTokens = [];
     // token, venderId, id
     let shopInfos = [
-      '71FB1DDD060FA8D1828008B96DD86A8D',
-      '72683B8552BE5573D7C66BF946406D16',
-      'FEF758DCA9C06F2CEB236D1197C152B3',
-      '957B01C38A13E7183382DFED1A60D7F5',
-      'F766CEFF9A1A4D75623CB5728E58AB69',
-      'D2005C4EFABA7C39545B27D31A59A3AC',
+      '1017844A381C5FDB479D618D94A3D1EF',
+      '8E1F992FEE7111EDCC8140FE23FFBCB3',
+      'B34DA330AAD0C05861F4A19BDEBBBFAD',
+      'DA6120F833327F4FEAA6271353B68A96',
+      'A2E1FC8ED97A76D0932959E0AB34DFFF',
       // 脚本新增插入位置
     ];
 
@@ -92,7 +91,7 @@ class SignShop extends Template {
       return getActivityInfo(token).then(data => {
         if (!self.isSuccess(data)) return;
         // TODO 待修正每日签到是否有获得的逻辑
-        const allPrizeRuleList = _.concat(/*_.property('data.prizeRuleList')(data), */_.property('data.continuePrizeRuleList')(data));
+        const allPrizeRuleList = _.concat(_.property('data.prizeRuleList')(data), _.property('data.continuePrizeRuleList')(data));
         const prizeTypes = {
           4: '豆',
           10: 'E卡(元)',
