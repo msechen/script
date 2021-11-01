@@ -286,14 +286,14 @@ async function pasture() {
     }
     await $.wait(2000);
     await takeGetRequest('GetUserLoveInfo');
-    for (let key of Object.keys($.GetUserLoveInfo)) {
-      let vo = $.GetUserLoveInfo[key]
-      if (vo.drawstatus === 1) {
-        await $.wait(2000);
-        $.lovevalue = vo.lovevalue;
-        await takeGetRequest('DrawLoveHongBao');
-      }
-    }
+    //for (let key of Object.keys($.GetUserLoveInfo)) {
+    //  let vo = $.GetUserLoveInfo[key]
+    //  if (vo.drawstatus === 1) {
+    //    await $.wait(2000);
+    //    $.lovevalue = vo.lovevalue;
+    //    await takeGetRequest('DrawLoveHongBao');
+    //  }
+    //}
     $.taskList = [];
     $.dateType = ``;
     $.source = `jxmc`;
@@ -818,6 +818,7 @@ function dealReturn(type, data) {
       break;
     case 'GetUserLoveInfo':
       data = JSON.parse(data.match(new RegExp(/jsonpCBK.?\((.*);*/))[1]);
+      console.log(JSON.stringify(data))
       if (data.ret === 0) {
         $.GetUserLoveInfo = data.data.lovelevel
       }
