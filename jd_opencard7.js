@@ -156,7 +156,7 @@ async function run() {
       console.log('活动结束')
       return
     }
-    console.log($.actorUuid)
+    // console.log($.actorUuid)
     // return
     await takePostRequest('drawContent');
     await $.wait(1000)
