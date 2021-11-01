@@ -10,12 +10,12 @@ const configCodes = [
 
 class Joy20210805 extends Template {
   static scriptName = 'Joy20210805';
-  static scriptNameDesc = '七夕告白季';
+  static scriptNameDesc = '电脑配件节';
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static needInAppComplete = true;
   static configCode = '';
-  static maxTaskDoneTimes = Infinity;
+  static maxTaskDoneTimes = 10;
   static times = 4;
   static commonParamFn = data => _.assign(data || {}, {
     configCode: this.configCode,
@@ -44,7 +44,7 @@ class Joy20210805 extends Template {
 
   static beforeRequest(api) {
     api.getTaskListTimes = 0;
-    this.configCode = configCodes[this.currentTimes % 2];
+    this.configCode = configCodes[this.currentTimes % 2] || configCodes[0];
   }
 
   static apiNamesFn() {
