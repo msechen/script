@@ -79,6 +79,10 @@
 40 4,17,23 * * * node /scripts/jd_opencard10.js >> /scripts/logs/jd_opencard10.log 2>&1
 #jd_opencard11
 45 7,14,20 * * * node /scripts/jd_opencard11.js >> /scripts/logs/jd_opencard11.log 2>&1
+#jd_opencard12
+8 9,15,19 * * * node /scripts/jd_opencard12.js >> /scripts/logs/jd_opencard12.log 2>&1
+#jd_opencard13
+39 10,13,23 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
 #东东世界
 25 2,10 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
 #jd_ddworld_exchange
