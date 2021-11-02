@@ -2,8 +2,6 @@
 
 软件名称:口袋庄园
 
-还没上线,提示是11月2好说线,不过现在可以签到,具体玩啥不知道
-
 项目注册地址:http://kdzhy.mlyougame.com:82/web/page/qr.html?c=114069
 
 别人说尽量去个人中心绑定收款支付宝
@@ -218,6 +216,7 @@ function soy_kdzy_login(){
                 token=result.token
                 ID=result.data.id
                 await soy_kdzy_DaySign()
+                await soy_kdzy_getBonusMoney()
                 
             }else{
                 console.log(`\n【${$.mobile}---账号 ${$.index} 登录】: ${result.msg}`)
@@ -252,6 +251,36 @@ function soy_kdzy_DaySign(){
                 
             }else{
                 console.log(`\n【${$.mobile}---账号 ${$.index} 签到】: ${result.msg}`)
+            }
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
+        })
+    })
+
+}
+
+function soy_kdzy_getBonusMoney(){
+
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `http://kdzhy.mlyougame.com:82//home/user/getBonusMoney`,
+            headers : {"Host": "kdzhy.mlyougame.com:82","User-Agent": soy_kdzy_UA,"Content-Type": "application/x-www-form-urlencoded","Origin": "http://kdzhy.mlyougame.com:82","X-Requested-With": "w2a.W2Akdzy.mlyougame.com","Referer": "http://kdzhy.mlyougame.com:82/web/page/home.html","TC-Id":ID,"TC-Token":token},
+            body : `appKey=5ded368547b86b33&mobile=${soy_kdzy_mobile}&password=${soy_kdzy_password}`,
+        }, async(error, response, data) => {
+           try {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==1){
+                console.log(`\n【${$.mobile}---账号 ${$.index} 领取水晶分红】: ${result.msg}`)
+                
+            }else{
+                console.log(`\n【${$.mobile}---账号 ${$.index} 领取水晶分红】: ${result.msg}`)
             }
             
                
