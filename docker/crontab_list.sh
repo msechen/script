@@ -83,6 +83,10 @@
 8 9,15,19 * * * node /scripts/jd_opencard12.js >> /scripts/logs/jd_opencard12.log 2>&1
 #jd_opencard13
 39 10,13,23 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
+#jd_opencard14
+7 6,14,22 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
+#jd_opencard15
+18 9,15,19 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
 #东东世界
 25 2,10 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
 #jd_ddworld_exchange
@@ -175,8 +179,6 @@
 30 * * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
 # 京东极速版
 48 0,12,18 * * *  node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1
-# 京东抽奖机
-22 0,12,18 * * *  node /scripts/jd_lotteryMachine.js >> /scripts/logs/jd_lotteryMachine.log 2>&1
 # 宠汪汪
 45 */2,23 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
 # 宠汪汪积分兑换京豆
