@@ -1,12 +1,29 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
-const configCodes = [
-  'abe6bafe2f6b4efca6ba5b429daf5f26',
-  'c8240993509a49da9b53645084a69e12',
-];
+const qsOption = [];
+const updateQsOption = (eid, fp, configCode) => {
+  qsOption.push({configCode, eid, fp});
+};
+
+[
+  // 已过期的活动
+  // 'abe6bafe2f6b4efca6ba5b429daf5f26',
+  // 'c8240993509a49da9b53645084a69e12',
+].forEach(updateQsOption.bind(0,
+  'M7UO6SRTFR5GQS7SPKPOGT7ZZB6KH2I7CUXZGVFSPJ5773VII5RHNSVRM4FK4RSLDCBRG3QQUS4WNC5PZ2767E6D3Q',
+  '4c6528b058b4220620f77f4700aeb97c'));
+
+[
+  '40c2d87a71ec40cf96badb810818bb92',
+  'b3cc4f6e5e924c3d82b10404f91740ce',
+  '1d43119d79ba4fc3a254c449c6aea1d2',
+].forEach(updateQsOption.bind(0,
+  'G37CAEULUZLTRDCUURES5BDFX73WXBLRSG3LIKN6JTL75T5BUG7YYLPPOV2ZUS55SF7BAJEA36WVJSJSMUHUESY27M',
+  'f9b97a78ead44f94e6d3308f30454c2e'));
 
 class Joy20210805 extends Template {
   static scriptName = 'Joy20210805';
@@ -15,13 +32,11 @@ class Joy20210805 extends Template {
   static shareCodeTaskList = [];
   static needInAppComplete = true;
   static configCode = '';
-  static maxTaskDoneTimes = 10;
-  static times = 4;
-  static commonParamFn = data => _.assign(data || {}, {
-    configCode: this.configCode,
-    'eid': 'M7UO6SRTFR5GQS7SPKPOGT7ZZB6KH2I7CUXZGVFSPJ5773VII5RHNSVRM4FK4RSLDCBRG3QQUS4WNC5PZ2767E6D3Q',
-    'fp': '4c6528b058b4220620f77f4700aeb97c',
-  });
+  static maxTaskDoneTimes = Infinity;
+  static times = qsOption.length;
+  static concurrent = true;
+  static concurrentOnceDelay = 2;
+  static commonParamFn = data => (data || {});
 
   static apiOptions = {
     options: {
@@ -31,6 +46,7 @@ class Joy20210805 extends Template {
         referer: 'https://prodev.m.jd.com/mall/active/4TUq5NiJL2QnGsbnCemJ2UUsaa9R/index.html',
         'content-type': 'application/json;charset=utf-8',
       },
+      qs: {},
     },
   };
 
@@ -44,7 +60,13 @@ class Joy20210805 extends Template {
 
   static beforeRequest(api) {
     api.getTaskListTimes = 0;
-    this.configCode = configCodes[this.currentTimes % 2] || configCodes[0];
+    // 仅在第一次更新configCode
+    if (api.currentCookieTimes === 0) {
+      const configCode = api.options.qs.configCode;
+      const index = qsOption.findIndex(o => o.configCode === configCode);
+      const target = qsOption[index + 1] || qsOption[0];
+      _.merge(api.options.qs, target);
+    }
   }
 
   static apiNamesFn() {
@@ -59,6 +81,12 @@ class Joy20210805 extends Template {
           // writeFileJSON(data, 'getActivity.json', __dirname);
 
           if (!self.isSuccess(data)) return [];
+
+          const {data: {moduleBaseInfo: {beginTime, endTime}}} = data;
+          if (getMoment().isBefore(beginTime) || getMoment().isAfter(endTime)) {
+            api.log(`${api.options.qs.configCode} 活动已结束`);
+            return [];
+          }
 
           const result = [];
 
@@ -99,7 +127,7 @@ class Joy20210805 extends Template {
 
           if (_.isEmpty(result)) {
             const {moduleBaseInfo} = data.data;
-            if (moduleBaseInfo['rewardStatus'] === 1) {
+            if (moduleBaseInfo && moduleBaseInfo['rewardStatus'] === 1) {
               await api.doBodyPath('getReward', self.commonParamFn({
                 groupType: 5,
                 itemId: 1,
