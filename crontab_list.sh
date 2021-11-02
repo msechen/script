@@ -242,7 +242,7 @@
 0,30 * * * * cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
 
 # 京东-下拉
-0 9,13,16,19,23 * * * cd /scripts && ts-node /scripts/jd_tw.ts >> /scripts/logs/jd_tw.log 2>&1
+0 9,13,16,19,23 * * * cd /scripts && ts-node /scripts/jd_homepageTW.ts >> /scripts/logs/jd_homepageTW.log 2>&1
 
 # cfd 100
 0 0 * * * node /scripts/jd_cfd_hb.js >> /scripts/logs/jd_cfd_hb.log 2>&1
