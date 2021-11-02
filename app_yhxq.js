@@ -2,8 +2,7 @@
 
 项目名称:源火星球
 
-每天收益不知道
-100火源=1元
+每天静态收益:一天约0.36元,可能不一定,100火源=1元
 
 项目注册地址:http://reg.yuanhuoxingqiu.com/#/?code=W6ESZO
 
@@ -25,7 +24,9 @@ soy_yhxq_UA
 
 支持v2p手动添加变量,不支持v2p重写
 
-cron 27 0-23/1 * * *
+cron 13 0-23/2 * * *
+
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_yhxq.js
 
 */
 
@@ -149,6 +150,7 @@ for (i = 0; i < app_soy_yhxq_Authorization.length; i++) {
     }
     await yhxq_sign_state()
     await yhxq_petAll()
+    await yhxq_adv()
     await yhxq_steal()
     await yhxq_feed_state()
     await yhxq_expedition()
@@ -242,6 +244,35 @@ function yhxq_petAll() {
                 console.log(`\n【${$.name}---领取】: 获得火源${result.data.fireGoldSumGet}，兽币${result.data.petGoldSumGet}`);
             }else{
                 console.log(`\n【${$.name}---领取】: ${result.msg}`) 
+            }
+            
+          
+        }
+      } catch (e) {
+        $.logErr(e, resp);
+      } finally {
+        resolve();
+      }
+    });
+  });
+}
+
+function yhxq_adv() {
+  return new Promise((resolve) => {
+      let request = get_request(`http://api.yuanhuoxingqiu.com/user/replenish/energy/adv`,"numCount=962C66843030FB65&advLength=962C66843030FB65");
+    $.post(request, async (err, resp, data) => {
+      try {
+        if (err) {
+        console.log(`\n【${$.name}---偷取提示】: API查询请求失败`) 
+          console.log(JSON.stringify(err));
+        } else {
+            //$.log(data)
+            let result = JSON.parse(data);
+            if(result.code==200){
+                console.log(`\n【${$.name}---广告补告能量】: ${result.msg}`);
+                await yhxq_steal()
+            }else{
+                console.log(`\n【${$.name}---广告补告能量】: ${result.msg}`) 
             }
             
           
