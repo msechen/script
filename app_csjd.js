@@ -162,14 +162,14 @@ for (i = 0; i < app_soy_csjd_Name.length; i++) {
     soy_csjd_Name=app_soy_csjd_Name[i]
     soy_csjd_password=app_soy_csjd_password[i]
     soy_csjd_UA=app_soy_csjd_UA[i]
-	if(!soy_csjd_UA){
-	    //console.log(`\n【${$.name}】：开始默认分配 soy_csjd_UA`);
-		soy_csjd_UA='Redmi Note 5(Android/8.1.0) (com.cs.csjd/1.0.2) Weex/0.26.0 1080x2210'
-	}
     
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
+    if(!soy_csjd_UA){
+	    //console.log(`\n【${$.name}】：开始默认分配 soy_csjd_UA`);
+		soy_csjd_UA='Redmi Note 5(Android/8.1.0) (com.cs.csjd/1.0.2) Weex/0.26.0 1080x2210'
+	}
     console.log(`\n开始【第 ${$.index} 个账号---开始随机分配VerifyId】`);
     await soy_csjd_login()
     await $.wait(Math.floor(Math.random() * (2000 - 1000 + 1000) + 1000))
@@ -287,15 +287,33 @@ function soy_csjd_personalDetails(){
             let result = JSON.parse(data)
             if(result.code==0){
                 ad_state=result.data.isDailyAdvert
-                console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`)
+                money=Math.trunc(result.data.cny)
                 
-                /*if(ad_state==1){
+                //console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`)
+                
+                if(ad_state==1){
                     console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 观看广告】: 今日已完成任务`)
+                    
+                    //if(is_Withdrawal){
+                        //console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`)
+                    //}else{
+                        if(money>=10){
+                            await $.wait(Math.floor(Math.random() * (3000 - 2000 + 1000) + 2000))
+                            await soy_csjd_rawAlipay()
+                        }else{
+                           console.log(`\n【${$.name}---账号 ${$.index} 个人信息】: \n---用户昵称：${result.data.nickName}\n---当前节点：${result.data.customerNode}\n---今日收益：${result.data.dailyIncome}\n---累计收益：${result.data.totalIncome}\n---剩余余额：${result.data.cny}\n---今日看广告：${result.data.advertDayCount} 条`) 
+                        }
+                        
+                    //}
+                    
+                    //
                     
                 }else{
                     console.log(`\n----------\n\n【${$.name}---账号 ${$.index} 做任务】: 观看广告`)
                     await soy_csjd_addAdvertDayCount()
-                }*/
+                    await $.wait(Math.floor(Math.random() * (35000 - 28000 + 1000) + 28000))
+                    await soy_csjd_personalDetails()
+                }
                 
                 
             }else{
@@ -364,6 +382,35 @@ function soy_csjd_logoutt(){
                 
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 退出登录】: ${result.msg}`)
+            }
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
+        })
+    })
+}
+
+function soy_csjd_rawAlipay(){
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `http://cs.clrcle.cn/api/app/api/withdrawLog/drawAlipay`,
+            headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Connection":"keep-alive",},
+            body : `amount=${money}&securityPassword=`,
+        }, async(error, response, data) => {
+           try {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==0){
+                console.log(`\n【${$.name}---账号 ${$.index} 提现】: 提现 ${money}元, ${result.msg}`)
+                await soy_csjd_personalDetails()
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 提现】: ${result.msg}`)
             }
             
                
