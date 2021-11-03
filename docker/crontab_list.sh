@@ -89,6 +89,16 @@
 18 9,15,19 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
 #jd_opencard16
 23 5,16,20 * * * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
+#jd_opencard17
+17 1,17,23 * * * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
+#jd_opencard18
+29 2,15,18 * * * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
+#jd_opencard19
+35 3,14,19 * * * node /scripts/jd_opencard19.js >> /scripts/logs/jd_opencard19.log 2>&1
+#jd_opencard20
+41 4,20,22 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
+#jd_opencard21
+53 8,13,21 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
 #东东世界
 25 2,10 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
 #jd_ddworld_exchange
