@@ -205,6 +205,7 @@ if ($.isNode()) {
                  }else{
                      console.log(data.errMsg)
                      code = data.code;
+                     return
                  }
                 } else {
                   console.log(`京东服务器返回空数据`)
@@ -296,7 +297,8 @@ if ($.isNode()) {
                     console.log(`浏览成功，获得热爱值：10`)
                   }else{
                     console.log(data.errMsg)
-                    code = data.code; 
+                    code = data.code;
+                    return
                 }
                 } else {
                   console.log(`京东服务器返回空数据`)
