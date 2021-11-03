@@ -25,7 +25,6 @@ const Pet = require('./jd/pet');
 const Fruit = require('./jd/fruit');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
-const jdFactory = require('./jd/jdFactory');
 const Health = require('./jd/wfh/Health');
 const Health1 = require('./jd/wfh/Health1');
 const HealthSign = require('./jd/wfh/HealthSign');
@@ -38,14 +37,11 @@ const CashShare = require('./jd/cash/share');
 const StatisticsBean = require('./jd/statistics/bean');
 const StatisticsRedEnvelope = require('./jd/statistics/RedEnvelope');
 const Ssjj = TemporarilyOffline || require('./jd/ssjj'); // 没什么收益, 所以进行移除
-const Trump = require('./jd/trump');
 const IsvShopSign = require('./jd/isv/shopSign');
 const CrazyJoy = TemporarilyOffline || require('./jd/crazyJoy');
-const Necklace = TemporarilyOffline || require('./jd/necklace');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = TemporarilyOffline || require('./jd/dreamFactory');
 const JxCfd = TemporarilyOffline || require('./jd/jxCfd');
-const Car = require('./jd/car');
 const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = require('./jd/koiRedPacket');
 const Joy = require('./jd/joy');
@@ -54,7 +50,7 @@ const Family = TemporarilyOffline || require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const JxHongBao = require('./jd/family/jxHongBao');
 const JxFarm = require('./jd/wq/JxFarm');
-const WomenBlindBox = require('./jd/family/WomenBlindBox');
+const WomenBlindBox = TemporarilyOffline || require('./jd/family/WomenBlindBox');
 const LuckyToHitTheGoldenEgg = require('./jd/family/LuckyToHitTheGoldenEgg');
 const Live = require('./jd/live');
 const LiveRedEnvelopeRain = TemporarilyOffline || require('./jd/live/RedEnvelopeRain');
@@ -62,7 +58,6 @@ const SignBeanHome = require('./jd/sign/beanHome');
 const GlobalChallenge = TemporarilyOffline || require('./jd/globalMart/challenge');
 const Singjd = require('./jd/wq/singjd');
 const Isp5G = require('./jd/isp5g');
-const EarnJingDou = require('./jd/earnJingDou');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
@@ -96,52 +91,52 @@ async function main() {
     console.log('不执行脚本');
     return;
   }
+
+  // 统计
+  const statistics = [
+    StatisticsBean,
+    StatisticsRedEnvelope,
+  ];
+  // 常驻活动
+  const longTermActivity = [
+    SignBeanHome, SignRemote, Sign,
+    Fruit, Pet, TurnTableFarm,
+    Cash,
+    BeanSmallBean,
+    PlantBean,
+    Family,
+    Live,
+    SecondKillRedPacket,
+    VipClubShake,
+    SuperMarket,
+    [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
+    SuperBrandDay,
+    GoldCreator,
+  ];
+  // 极速版
+  const lites = [
+    LiteSign, SpringReward, LiteCashSign, EarnCoins,
+  ];
+  // 短期活动
+  const shortTermActivity = [
+    DDSJ,
+    RubikSCube,
+    Kmg,
+  ];
   const scheduleOptions = [
     {
       valid: 0,
       run: async () => {
         await serialRun([
           KoiRedPacket,
-          // Carnivalcity,
-
           // 23点后的活动补充
           IsvShopSign,
           SignShop,
-          EarnJingDou,
 
-          // 统计
-          StatisticsBean,
-          StatisticsRedEnvelope,
-
-          // 常驻活动
-          SignBeanHome, SignRemote, Sign,
-          Fruit, Pet, TurnTableFarm,
-          Cash,
-          BeanSmallBean,
-          PlantBean,
-          Family,
-          Live,
-          Necklace,
-          SecondKillRedPacket,
-          VipClubShake,
-          SuperMarket,
-
-          // 偶尔会有的活动
-          SuperBrandDay,
-          DDSJ,
-
-          // 极速版
-          LiteSign, SpringReward, LiteCashSign, EarnCoins,
-
-          [jdFactory, getCookieData(jdFactory.scriptName)[0]],
-          [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
-
-          RubikSCube,
-          Kmg,
-          GoldCreator,
-          Trump,
-          // TODO 确认活动有效性
-          Car,
+          ...statistics,
+          ...longTermActivity,
+          ...lites,
+          ...shortTermActivity,
         ]);
         await multipleRun([
           HealthSign,
@@ -186,7 +181,6 @@ async function main() {
     {
       valid: 10,
       run: async () => {
-        await doRun(jdFactory, getCookieData()[0]);
       },
     },
     {
@@ -238,9 +232,7 @@ async function main() {
       run: async () => {
         await serialRun([
           SuperBrandProduct,
-          [jdFactory, getCookieData()[0]],
           Fruit, Pet,
-          Necklace,
           EarnCoins,
           SuperMarket,
           StatisticsRedEnvelope,
@@ -266,7 +258,7 @@ async function main() {
           // JoyRedeem,
         ]);
         await multipleRun([
-          EarnJingDou, IsvShopSign,
+          IsvShopSign,
           // 做任务抽奖
           WomenBlindBox,
         ], 0);
@@ -284,7 +276,6 @@ async function main() {
 
   // 定时循环
   async function cronLoop() {
-    await doCron(jdFactory, getCookieData()[0]);
     await doCron(CrazyJoy);
 
     if (nowHour % 2 === 0) {

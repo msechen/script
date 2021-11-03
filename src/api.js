@@ -33,13 +33,16 @@ async function serialRun(targets, runFn = doRun) {
 }
 
 async function doRun(target, cookieData = getCookieData(target.scriptName), method = 'start') {
-  const timeLabel = `[${getMoment().format('YYYY-MM-DD HH:mm:ss.SSS')}] [${target.getName()}] do ${method}`;
+  const name = target.getName();
+  const timeLabel = `[${getMoment().format('YYYY-MM-DD HH:mm:ss.SSS')}] [${name}] do ${method}`;
   console.time(timeLabel);
   let result;
   try {
     result = await target[method](cookieData);
   } catch (e) {
-    errorOutput.push(e);
+    errorOutput.push(`[${name}] error:`);
+    errorOutput.push(e.stack);
+    errorOutput.push('----------------------');
     console.error(e);
   }
   console.timeEnd(timeLabel);

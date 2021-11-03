@@ -13,6 +13,7 @@ function findFormData(allBody, allForm) {
 
 class Cash extends Template {
   static scriptName = 'Cash';
+  static scriptNameDesc = '领现金';
   static shareCodeTaskList = [];
   static maxTaskDoneTimes = 2;
   static times = 2;
