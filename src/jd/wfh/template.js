@@ -106,6 +106,10 @@ class HarmonyTemplate extends Template {
       doTask: {
         name: self.getApiNames().doTask,
         paramFn: o => o,
+        successFn(data, api) {
+          // 增加点延迟
+          return sleep(2);
+        },
       },
       doWaitTask: {
         name: self.getApiNames().doWaitTask,

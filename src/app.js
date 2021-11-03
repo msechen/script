@@ -25,12 +25,11 @@ const Pet = require('./jd/pet');
 const Fruit = require('./jd/fruit');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const Wfh = require('./jd/wfh');
-const Health = require('./jd/wfh/Health');
-const Health1 = require('./jd/wfh/Health1');
-const HealthSign = require('./jd/wfh/HealthSign');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
 const Harmony3 = require('./jd/wfh/harmony3');
+const Harmony4 = require('./jd/wfh/harmony4');
+const Harmony5 = require('./jd/wfh/harmony5');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
@@ -139,12 +138,11 @@ async function main() {
           ...shortTermActivity,
         ]);
         await multipleRun([
-          HealthSign,
-          Health,
-          Health1,
-          // Harmony1,
-          // Harmony2,
+          Harmony1,
+          Harmony2,
           Harmony3,
+          Harmony4,
+          Harmony5,
         ]);
       },
     },
@@ -284,7 +282,6 @@ async function main() {
 
     if (nowHour % 5 === 0) {
       await serialRun(Joy, doCron);
-      await doCron(Health);
     }
 
     if (nowHour % 6 === 0) {
