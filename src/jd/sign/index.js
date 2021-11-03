@@ -29,22 +29,6 @@ class Sign extends Template {
       });
     }
 
-    const getLuckDraw = {
-      name: '天天优惠大乐透',
-      times: 2,
-      url: 'https://api.m.jd.com/client.action?functionId=getLuckDrawEntrance&body=%7B%22platformType%22%3A%221%22%7D&appid=couponPackDetail&client=m&clientVersion=1.0.0&area=19_1601_3634_63217&geo=%5Bobject%20Object%5D&uuid=c6993893af46e44aa14818543914768cf2509fbf',
-      options: {
-        headers: {
-          origin: 'https://h5.m.jd.com',
-        },
-      },
-      isSuccessFn: data => _.property('result.luckyDrawData.checkWinOrNot')(data),
-      rewardOutputFn: data => {
-        const luckyDrawData = _.property('result.luckyDrawData')(data);
-        if (luckyDrawData) return `${luckyDrawData.prizeName}: 可抵扣${luckyDrawData.discountDesc}(${luckyDrawData.quotaDesc})`;
-      },
-    };
-
     const jrSign = {
       name: '金融签到',
       url: 'https://ms.jr.jd.com/gw/generic/hy/h5/m/signIn1',
@@ -69,66 +53,7 @@ class Sign extends Template {
       isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
     };
 
-    const meetingPlaceSign = {
-      name: '源头好物',
-      url: 'https://api.m.jd.com/client.action',
-      options: {
-        headers: {
-          origin: 'https://h5.m.jd.com',
-        },
-        form: {
-          functionId: 'noahHaveFunLottery',
-          appid: 'publicUseApi',
-          body: '{"actId":"RRD3eTfD2HFgPsg7GU68GL7Yqhseveh"}',
-          client: 'wh5',
-          clientVersion: '1.0.0',
-        },
-      },
-      isSuccessFn: data => _.property('subCode')(data) === '0',
-      rewardOutputFn: data => {
-        return _.property('lotteryResult.hongBaoList[0].prizeName')(data);
-      },
-    };
-
-    const jrSign12 = {
-      name: '金融12月天天打卡',
-      url: 'https://ms.jr.jd.com/gw/generic/hy/h5/m/signIn12',
-      options: {
-        form: {
-          reqData: '{"channelLv":"syfc","site":"JD_JR_APP"}',
-        },
-      },
-      isSuccessFn: data => _.property('resultCode')(data) === 0,
-      rewardOutputFn: data => _.property('resultData.message')(data),
-    };
-
-    // TODO 待确认是否生效
-    const jrBean = {
-      name: '金融豆豆',
-      url: 'https://nu.jr.jd.com/gw/generic/jrm/h5/m/process',
-      options: {
-        form: {
-          reqData: JSON.stringify({
-            'actCode': '1D06AA3B0F',
-            'type': 3,
-            'riskDeviceParam': JSON.stringify({
-              'fp': 'd83856dcb12631cf271cf14d98a0da11',
-              // 'eid': 'JKP6TAIXZT7VIVQPXRSYSCOFYEP6CTXBHMRKONH6STFNUUD6N44NPWZUPMFJCDQ5E3ITR7S5E6COFPQOEQOQJ27QFQ',
-              // 'appId': 'com.jd.jinrong',
-              // 'openUUID': '6d664c1875cbf8d8c804a6f543b1bce5fc973834',
-              // 'clientVersion': '6.0.52',
-              // 'startNo': 155,
-              // 'token': 'LU3Z7HBCUPHJ5UV2UECAW4WYJCES576HJCDWKQUXRC2J6B6V7TB6GXPF3LKK5WR6PP2GMAMHLKUOW',
-              // 'terminalType': '02',
-              // 'appType': 1,
-              // 'sdkToken': 'jdd01NNECYT355RKVDKSOV7W4DZUSGSJBN2OJRZZNM2UAQNCK57FXTZKAA4UJGLQ44HQU7TN4C7TMVAW6CEYNHH57FVTWDPIAM2LLY7THVGA01234567',
-            }),
-          }),
-        },
-      },
-      isSuccessFn: data => _.property('resultData.resBusiCode')(data) === 0,
-    };
-
+    // 签到得积分, 积分可以换豆, 但是容易过期
     const expressSign = {
       name: '快递签到',
       url: 'https://lop-proxy.jd.com/jiFenApi/signInAndGetReward',
@@ -219,21 +144,7 @@ class Sign extends Template {
     const taskOptions = [
       // signRemote脚本已经实现, 已不需要
       // jrSign,
-      getLuckDraw,
       expressSign,
-      {
-        name: '京喜签到',
-        url: 'https://m.jingxi.com/pgcenter/sign/UserSignOpr',
-        options: {
-          headers: {
-            'Referer': 'https://jddx.jd.com/m/jddnew/money/index.html',
-          },
-          qs: {
-            sceneval: 2,
-          },
-        },
-        isSuccessFn: data => _.property('retCode')(data) === 0 && (_.property('data.signStatus')(data) === 0),
-      },
       {
         name: '京东汽车领券签到',
         url: 'https://cgame-stadium.jd.com/api/v1/sign',
@@ -241,13 +152,25 @@ class Sign extends Template {
           headers: {
             origin: 'https://pro.m.jd.com',
             referer: 'https://pro.m.jd.com/mall/active/dj6us2JJRLMMBb4iDaSK4wxvBMt/index.html',
-            activityid: '12c912a824654a1c8590e4d46e4d3be2',
+            activityid: 'a54e9a0a1b6044189753e7eba51aab19', // TODO 从页面中获取
           },
         },
         isSuccessFn: data => data.status,
       },
-      jinTieSign,
-      jinTieDraw,
+      // TODO 待更新
+      // jinTieSign,
+      // jinTieDraw,
+      {
+        name: '金榜签到',
+        url: `https://api.m.jd.com/client.action?functionId=goldCenterDoTask&body=%7B%22type%22%3A1%7D&appid=content_ecology&clientVersion=10.1.6&client=wh5&ext=%7B%22prstate%22%3A%220%22%7D&uuid=${self.getUUid()}`,
+        options: {
+          headers: {
+            referer: 'https://h5.m.jd.com/babelDiy/Zeus/32xRoXWmepbBVHfDMoHMw2kGfHdF/index.html',
+          },
+        },
+        isSuccessFn: data => _.get(data, 'result.taskCode') === '0',
+        rewardOutputFn: _.property('result.lotteryScore'),
+      },
     ];
 
     const cashSign = [
