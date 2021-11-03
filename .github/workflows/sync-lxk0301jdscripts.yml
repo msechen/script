@@ -1,4 +1,4 @@
-name: sync-xdd-scripts
+name: sync-lxk0301jdscripts
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-xdd-scripts
+    types: sync-lxk0301jdscripts
 jobs:
   repo-sync:
     env:
@@ -22,11 +22,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-xdd-scripts
+      - name: sync-lxk0301jdscripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/U188/pk.git"
-          source_branch: "main"
-          destination_branch: "xdd"
+          source_repo: "https://github.com/Janualy/JDscripts.git"
+          source_branch: "master-origin2"
+          destination_branch: "lxk0301jdscripts"
           github_token: ${{ secrets.PAT }}
