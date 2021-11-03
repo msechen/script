@@ -2,6 +2,7 @@ const rp = require('request-promise');
 const _ = require('lodash');
 const Cookie = require('../lib/cookie');
 const {printLog, sleep, objectValuesStringify} = require('../lib/common');
+const {getMoment} = require('../lib/moment');
 
 const requestURI = 'https://api.m.jd.com/client.action';
 const DEFAULT_OPTION = {
@@ -155,6 +156,17 @@ class Api {
       },
       method: 'GET',
     }, options));
+  }
+
+  doApiMapping(apiMapping, body, options) {
+    return this.doFormBody(void 0, {apiMapping, ...body}, void 0, {
+      uri: 'https://api.m.jd.com/api',
+      form: {
+        t: getMoment().valueOf(),
+        loginType: 2,
+      },
+      ...options,
+    });
   }
 }
 
