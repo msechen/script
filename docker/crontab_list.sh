@@ -117,6 +117,8 @@
 1 0,12,18 * * * node /scripts/jd_doubleEleven.js >> /scripts/logs/jd_doubleEleven.log 2>&1
 # 极速版-发财寻宝
 20 1,9,16 * * * node /scripts/jd_fcxb.js >> /scripts/logs/jd_fcxb.log 2>&1
+# 星店长
+45 9,16 * * * node /scripts/jd_star.js >> /scripts/logs/jd_star.log 2>&1
 
 ##############长期活动##############
 # 签到
