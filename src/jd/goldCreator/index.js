@@ -36,7 +36,7 @@ class GoldCreator extends Template {
           batchId,
           taskId,
         }) || {};
-        detailTaskList = _.property('result.taskList')(detailData);
+        detailTaskList = _.property('result.taskList')(detailData).concat([_.get(detailData, 'result.signTask')]);
         if (hasVoted === '1') continue;
         // writeFileJSON(detailData, 'goldCreatorDetail.json', __dirname);
         const skuList = _.property('result.skuList')(detailData) || [];
@@ -53,7 +53,7 @@ class GoldCreator extends Template {
         }).then(log);
       }
 
-      for (const [{taskId, taskItemInfo: {itemId}, taskType, taskStatus}] of detailTaskList) {
+      for (const {taskId, taskItemInfo: {itemId}, taskType, taskStatus} of _.flatten(detailTaskList)) {
         if (taskStatus === 2) continue;
         await api.doFormBody('goldCreatorDoTask', {taskId, itemId, taskType, 'batchId': '1'}).then(log);
       }
