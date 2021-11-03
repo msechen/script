@@ -221,7 +221,7 @@
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_mofang.ts >> /scripts/logs/jd_mofang.log 2>&1
 
 # 京喜app->领88元红包
-5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jxhb.ts >> /scripts/logs/jd_jxhb.log 2>&1
+5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
 
 # 极速版-发财大赢家
 1 0,8,18 * * * cd /scripts && ts-node /scripts/jd_speed_redEnvelope.ts >> /scripts/logs/jd_speed_redEnvelope.log 2>&1
