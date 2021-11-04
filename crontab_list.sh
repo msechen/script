@@ -233,7 +233,7 @@
 0 0,17 * * * sh /scripts/docker/shareCode/xtg.sh && cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
 
 # xxxx
-59 11 1 11 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
+59 23 4 11 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
 
 # 京享红包
 0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
@@ -242,7 +242,10 @@
 0,30 * * * * cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
 
 # 京东-下拉
-0 * * * * cd /scripts && ts-node /scripts/jd_homepageTW.ts >> /scripts/logs/jd_homepageTW.log 2>&1
+0 9-20/* * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
 
 # cfd 100
 0 0 * * * node /scripts/jd_cfd_hb.js >> /scripts/logs/jd_cfd_hb.log 2>&1
+
+# 賺京豆
+5 0,7,22 * * * node /scripts/jd_zjd.js >> /scripts/logs/jd_zjd.log 2>&1
