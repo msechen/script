@@ -121,6 +121,7 @@ async function main() {
     DDSJ,
     RubikSCube,
     Kmg,
+    SuperBrandProduct,
   ];
   const scheduleOptions = [
     {
@@ -211,7 +212,6 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
-          SuperBrandProduct,
         ]);
       },
     },
@@ -229,7 +229,6 @@ async function main() {
       valid: 22,
       run: async () => {
         await serialRun([
-          SuperBrandProduct,
           Fruit, Pet,
           EarnCoins,
           SuperMarket,
