@@ -58,7 +58,7 @@ const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
     }
   }
   await PrizeIndex();
-  //await msgShow();
+  await msgShow();
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
