@@ -312,7 +312,7 @@ function soy_kdzy_getUserInfo(){
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==1){
-                if(Math.round(result.data.money)>=1){
+                if(Math.floor(result.data.money)>=1){
                      await soy_kdzy_withdrawal()
                 }else{
                      console.log(`\n【${$.mobile}---账号 ${$.index} 用户信息】:\n---用户ID：${result.data.id}\n---水晶数量：${result.data.crystal}\n---游戏余额：${result.data.game_money}\n---水晶数量：${result.data.money}`)
@@ -347,18 +347,9 @@ function soy_kdzy_withdrawal(){
            try {
             //console.log(data)
             let result = JSON.parse(data)
-            if(result.code==1){
-                if(Math.round(result.data.money)>=1){
-                    
-                }
-                
-                //console.log(`\n【${$.mobile}---账号 ${$.index} 用户信息】: ${result.msg}`)
-                
-            }else{
-                console.log(`\n【${$.mobile}---账号 ${$.index} 体现】: ${result.msg}`)
-            }
-            
-               
+
+                console.log(`\n【${$.mobile}---账号 ${$.index} 提现】: ${result.msg}`)
+
            }catch(e){
                //$.logErr(e, response);
                console.log(e, response)
