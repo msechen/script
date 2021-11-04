@@ -140,7 +140,7 @@ Object.keys(soy_kdzy_mobile).forEach((item) => {
         app_soy_kdzy_mobile = $.getdata('soy_kdzy_mobile').split();
     };
     
-    if(!$.getdata('soy_kdzy_UA'){
+    if(!$.getdata('soy_kdzy_UA')){
 		console.log(`\n【${$.mobile}】：未填写相应变量 soy_kdzy_UA ,将默认分配`);
 	}else{
 	   if ($.getdata('soy_kdzy_UA') && $.getdata('soy_kdzy_UA').indexOf('@') > -1) {
