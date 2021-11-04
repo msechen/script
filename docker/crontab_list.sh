@@ -71,8 +71,6 @@
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
 #jd_opencard7
 5 0,7,16 * * * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
-#jd_opencard8
-15 0,12,18 * * * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
 #jd_opencard9
 30 2,8,21 * * * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
 #jd_opencard10
@@ -91,8 +89,6 @@
 23 5,16,20 * * * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
 #jd_opencard17
 17 1,17,23 * * * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
-#jd_opencard18
-29 2,15,18 * * * node /scripts/jd_opencard18.js >> /scripts/logs/jd_opencard18.log 2>&1
 #jd_opencard19
 35 3,14,19 * * * node /scripts/jd_opencard19.js >> /scripts/logs/jd_opencard19.log 2>&1
 #jd_opencard20
