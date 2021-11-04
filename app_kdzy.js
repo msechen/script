@@ -237,7 +237,7 @@ function soy_kdzy_login(){
 
 }
 
-/*
+
 function soy_kdzy_DaySign(){
 
     return new Promise((resolve, reject) => {
@@ -267,7 +267,7 @@ function soy_kdzy_DaySign(){
     })
 
 }
-*/
+
 
 function soy_kdzy_getBonusMoney(){
 
@@ -317,6 +317,12 @@ function soy_kdzy_getUserInfo(){
                 }else{
                      console.log(`\n【${$.mobile}---账号 ${$.index} 用户信息】:\n---用户ID：${result.data.id}\n---水晶数量：${result.data.crystal}\n---游戏余额：${result.data.game_money}\n---水晶数量：${result.data.money}`)
                 }
+                
+                if(result.data.sign_days!=7){
+                    await soy_kdzy_DaySign()
+                }
+                
+                
                 
                 //console.log(`\n【${$.mobile}---账号 ${$.index} 用户信息】: ${result.msg}`)
                 
