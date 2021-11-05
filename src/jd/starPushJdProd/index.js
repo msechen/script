@@ -25,10 +25,6 @@ class StarPushJdProd extends MappingTemplate {
     };
   };
 
-  static isSuccess(data) {
-    return data.code === 200;
-  }
-
   static async doMain(api, shareCodes) {
     const self = this;
 
