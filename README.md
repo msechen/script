@@ -15,7 +15,7 @@ v2p不会写重写，所以脚本需要变量都自行抓包添加
 
 青龙拉库:
 
-ql repo https://gitee.com/soy-tool/app-script "app_|wx_|wy_" "" "axios|md5" ""
+ql repo https://gitee.com/soy-tool/app-script "app_|wx_|wy_" "" "axios|md5|axios"
 
 青龙单拉脚本:
 ql raw 发布的脚本地址
