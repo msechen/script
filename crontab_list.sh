@@ -202,8 +202,8 @@
 # 京东种豆得豆
 1 7-21/2 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
 
-# 京喜签到
-0 0,17 * * * cd /scripts && ts-node /scripts/jx_sign.ts >> /scripts/logs/jx_sign.log 2>&1
+# 京喜-88红包-宝箱
+5 0,6,12 * * * cd /scripts && ts-node /scripts/jx_box.ts >> /scripts/logs/jx_box.log 2>&1
 
 # 京东手机狂欢城
 5 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
@@ -215,7 +215,7 @@
 35 1,23 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 
 # ddWorld
-0 0,17 * * * cd /scripts && ts-node /scripts/jd_ddWorld.ts >> /scripts/logs/jd_ddWorld.log 2>&1
+5 0,8,20 * * * cd /scripts && ts-node /scripts/jd_ddWorld.ts >> /scripts/logs/jd_ddWorld.log 2>&1
 
 # 京东魔方
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_mofang.ts >> /scripts/logs/jd_mofang.log 2>&1
