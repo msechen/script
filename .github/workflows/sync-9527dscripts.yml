@@ -1,4 +1,4 @@
-name: sync-lxk0301jdscripts
+name: sync-9527dscripts
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-lxk0301jdscripts
+    types: sync-9527dscripts
 jobs:
   repo-sync:
     env:
@@ -22,11 +22,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-lxk0301jdscripts
+      - name: sync-9527dscripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
           source_repo: "https://github.com/Janualy/JDscripts.git"
           source_branch: "master-origin2"
-          destination_branch: "lxk0301jdscripts"
+          destination_branch: "9527dscripts"
           github_token: ${{ secrets.PAT }}
