@@ -16,7 +16,7 @@ class StatisticsRedEnvelope extends Template {
   static async doMain(api, shareCodes) {
     const self = this;
 
-    const {useRedInfo: {redList}} = await api.doGetUrl('https://m.jingxi.com/user/info/QueryUserRedEnvelopesV2?type=1&orgFlag=JD_PinGou_New&page=1&cashRedType=1&redBalanceFlag=1&channel=1&sceneval=2&g_login_type=1&g_ty=ls', {
+    let {useRedInfo: {redList}} = await api.doGetUrl('https://m.jingxi.com/user/info/QueryUserRedEnvelopesV2?type=1&orgFlag=JD_PinGou_New&page=1&cashRedType=1&redBalanceFlag=1&channel=1&sceneval=2&g_login_type=1&g_ty=ls', {
       qs: {
         _: getMoment().valueOf(),
       },
@@ -24,6 +24,7 @@ class StatisticsRedEnvelope extends Template {
         referer: 'https://st.jingxi.com/my/redpacket.shtml',
       },
     }).then(data => data.data);
+    redList = redList || [];
     const redSorted = {
       jd: {
         limitName: '京东商城',
