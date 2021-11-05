@@ -2,7 +2,8 @@
 
 项目名称:源火星球
 
-每天静态收益:一天约0.36元,可能不一定,100火源=1元
+每天收益不知道
+100火源=1元
 
 项目注册地址:http://reg.yuanhuoxingqiu.com/#/?code=W6ESZO
 
@@ -26,15 +27,13 @@ soy_yhxq_UA
 
 cron 13 0-23/2 * * *
 
-脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_yhxq.js
-
 */
 
 
 const $ = new Env('源火星球');
 const notify = $.isNode() ? require('./sendNotify') : '';
 
-let app_soy_yhxq_Authorization=[],app_soy_yhxq_UA=[],subTitle=''
+let app_soy_yhxq_Authorization=[],app_soy_yhxq_UA=[],subTitle='',withdrawal=false
 
 
 !(async () => {
@@ -148,13 +147,15 @@ for (i = 0; i < app_soy_yhxq_Authorization.length; i++) {
         console.log(`\n【${$.name}}提示】：未提供变量 soy_yhxq_UA ,将默认分配`);
         soy_yhxq_UA='Mozilla/5.0 (Linux; Android 8.1; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 Authorization Safari/537.36'
     }
+    
     await yhxq_sign_state()
     await yhxq_petAll()
     await yhxq_adv()
     await yhxq_steal()
     await yhxq_feed_state()
     await yhxq_expedition()
-    await yhxq_power()
+    //await yhxq_power()
+    await yhxq_account()
     
     
 };
@@ -495,6 +496,75 @@ function yhxq_power() {
   });
 }
 
+
+function yhxq_withdrawal() {
+  return new Promise((resolve) => {
+      let request ={
+          url: `http://api.yuanhuoxingqiu.com/user/withdrawal`,
+          headers: {"Accept-Language": "zh-CN,zh;q=0.8","YhxqSecurity": "815B5F22258D17EA78637C6966C6D6DE","User-Agent":`${soy_yhxq_UA}`,"Authorization": `Bearer ${soy_yhxq_Authorization}`,"Content-Type": "application/x-www-form-urlencoded","Host": "api.yuanhuoxingqiu.com","Connection": "Keep-Alive","Accept-Encoding": "gzip","Cache-Control": "no-cache"},
+          body : `withdrawalMoney=${money}&withdrawalType=1`}
+      
+    $.post(request, async (err, resp, data) => {
+      try {
+        if (err) {
+        console.log(`\n【${$.name}---提现提示】: API查询请求失败`) 
+          console.log(JSON.stringify(err));
+        } else {
+            $.log(data)
+            let result = JSON.parse(data);
+            if(result.code==200){
+                console.log(`\n【${$.name}---提现】: ${result.msg}`)
+                await yhxq_account()
+            }else{
+                console.log(`\n【${$.name}---提现】: ${result.msg}`) 
+            }
+
+          
+        }
+      } catch (e) {
+        $.logErr(e, resp);
+      } finally {
+        resolve();
+      }
+    });
+  });
+}
+
+function yhxq_account() {
+  return new Promise((resolve) => {
+      let request = get_request(`http://api.yuanhuoxingqiu.com/user/account`);
+    $.get(request, async (err, resp, data) => {
+      try {
+        if (err) {
+        console.log(`\n【${$.name}---用户信息提示】: API查询请求失败`) 
+          console.log(JSON.stringify(err));
+        } else {
+            //$.log(data)
+            let result = JSON.parse(data);
+            if(result.code==200){
+                //console.log(Math.round(result.data.curFireGold))
+                money=result.data.curFireGold
+                if(Math.round(money)>=50){
+                       await yhxq_withdrawal()
+                    
+                }else{
+                   console.log(`\n【${$.name}---用户信息】: \n---用户昵称：${result.data.nikeName}\n---当前火源：${result.data.curFireGold}\n---当前兽币：${result.data.curPetGold}`)  
+                }
+                
+            }else{
+                console.log(`\n【${$.name}---用户信息】: ${result.msg}`) 
+            }
+            
+          
+        }
+      } catch (e) {
+        $.logErr(e, resp);
+      } finally {
+        resolve();
+      }
+    });
+  });
+}
 
 function get_request(url,body) {
   return {
