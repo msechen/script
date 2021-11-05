@@ -68,7 +68,9 @@
 #财富岛热气球接待
 30 * * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
 #jd_opencard7
-5 0,7,16 * * * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
+5 1,7,16 * * * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
+#jd_opencard8
+18 3,12,20 * * * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
 #jd_opencard9
 30 2,8,21 * * * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
 #jd_opencard10
