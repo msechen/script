@@ -6,12 +6,10 @@
 
 看广告获得分红币,分红模式,目前微信授权即可,不需要实名(11/06)
 
-
 必要变量:
 
 soy_daw_token
 #抓包时的请求头上的token
-
 
 选填变量
 soy_daw_UA
@@ -26,7 +24,7 @@ REWRITE 中的 匹配链接（正则表达式）
 https://v3.sdk.haowusong.com/api/box/wallet/info 
 
 REWRITE 中的 重写方式
-app_daw.js
+https://gitee.com/soy-tool/app-script/blob/master/app_daw.js 或 app_daw.js
 
 MITM 中的 解析域名
 v3.sdk.haowusong.com
@@ -170,6 +168,10 @@ function Get_data() {
         }else{
             if (soy_daw_token) $.setdata(soy_daw_token, `${local_token}#soy_daw_token`)
         }
+        
+        const soy_daw_UA = $request.headers['user-agent']
+        if (soy_daw_UA) $.setdata(soy_daw_UA, `soy_daw_UA`)
+
 
     }
 }
