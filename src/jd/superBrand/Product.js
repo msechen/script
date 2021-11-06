@@ -71,7 +71,7 @@ class SuperBrandProduct extends Template {
             waitDuration,
             ext = {},
           } of taskList) {
-            if ((times === maxTimes) || [].includes(assignmentType) || assignmentName.match(/邀请/)) continue;
+            if ([].includes(assignmentType) || assignmentName.match(/邀请/)) continue;
 
             let list = [];
 

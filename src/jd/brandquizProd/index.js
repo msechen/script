@@ -9,7 +9,7 @@ class BrandquizProd extends MappingTemplate {
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static times = 1;
+  static times = 2;
 
   static apiCustomOption() {
     return {
@@ -29,19 +29,38 @@ class BrandquizProd extends MappingTemplate {
   static async doMain(api, shareCodes) {
     const self = this;
 
-    const {data: {quizId, firstQuiz}} = await api.doApiMapping('/api/index/indexInfo');
-    // 只提交一次竞猜
-    // if (firstQuiz) return;
-    // 获取销量排行
-    const brandRankList = await api.doApiMapping('/api/index/brandRank', {quizId}).then(_.property('data')) || [];
-    const submitList = brandRankList.filter((o, index) => index < 5);
-    await handleSubmit(_.map(submitList, 'id').join(',')).then(data => {
-      api.log(`已提交竞猜, 排名为: ${_.map(submitList, 'name')}, 下一场次为 ${data.data.nextQuizDate}`);
-    });
+    const {data: {quizId, firstQuiz, supportInfo}} = await api.doApiMapping('/api/index/indexInfo');
+    const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
+    self.updateShareCodeFn(shareId);
+    !self.doneShareTask && await handleDoShare();
+
+    if (self.isLastLoop()) {
+      // 只提交一次竞猜
+      // if (firstQuiz) return;
+      // 获取销量排行
+      const brandRankList = await api.doApiMapping('/api/index/brandRank', {quizId}).then(_.property('data')) || [];
+      const submitList = brandRankList.filter((o, index) => index < 5);
+      await handleSubmit(_.map(submitList, 'id').join(',')).then(data => {
+        api.log(`已提交竞猜, 排名为: ${_.map(submitList, 'name')}, 下一场次为 ${data.data.nextQuizDate}`);
+      });
+
+      // 获取竞猜助力豆豆
+      for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
+        if (beanStatus === 1) {
+          await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
+        }
+      }
+    }
 
     // 提交竞猜
     async function handleSubmit(quizStr) {
       return api.doApiMapping('/api/index/quiz', {quizId, quizStr, predictId: ''});
+    }
+
+    async function handleDoShare() {
+      for (const shareId of self.getShareCodeFn()) {
+        await api.doApiMapping('/api/support/doSupport', {shareId});
+      }
     }
   }
 }
