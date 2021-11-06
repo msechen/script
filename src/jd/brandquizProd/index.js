@@ -30,9 +30,12 @@ class BrandquizProd extends MappingTemplate {
     const self = this;
 
     const {data: {quizId, firstQuiz, supportInfo}} = await api.doApiMapping('/api/index/indexInfo');
-    const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
-    self.updateShareCodeFn(shareId);
-    !self.doneShareTask && await handleDoShare();
+
+    if (firstQuiz) {
+      const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
+      self.updateShareCodeFn(shareId);
+      await handleDoShare();
+    }
 
     if (self.isLastLoop()) {
       // 只提交一次竞猜
@@ -44,10 +47,12 @@ class BrandquizProd extends MappingTemplate {
         api.log(`已提交竞猜, 排名为: ${_.map(submitList, 'name')}, 下一场次为 ${data.data.nextQuizDate}`);
       });
 
-      // 获取竞猜助力豆豆
-      for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
-        if (beanStatus === 1) {
-          await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
+      if (firstQuiz) {
+        // 获取竞猜助力豆豆
+        for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
+          if (beanStatus === 1) {
+            await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
+          }
         }
       }
     }
