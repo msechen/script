@@ -249,6 +249,3 @@
 
 # 賺京豆
 5 0,7,22 * * * node /scripts/jd_zjd.js >> /scripts/logs/jd_zjd.log 2>&1
-
-# 发财大赢家助力火爆
-5 0,7,22 * * * node /scripts/jd_facai.js >> /scripts/logs/jd_facai.log 2>&1
