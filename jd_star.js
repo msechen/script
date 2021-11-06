@@ -104,6 +104,7 @@ if ($.isNode()) {
         await $.wait(1000);
         console.log(`\n开始做浏览品牌小店任务`)
         await doTask2();
+        console.log(`\n去瓜分红包🎈`)
         await starShopDraw();
     }
 
