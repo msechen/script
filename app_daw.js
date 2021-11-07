@@ -6,10 +6,12 @@
 
 看广告获得分红币,分红模式,目前微信授权即可,不需要实名(11/06)
 
+
 必要变量:
 
 soy_daw_token
 #抓包时的请求头上的token
+
 
 选填变量
 soy_daw_UA
@@ -24,7 +26,7 @@ REWRITE 中的 匹配链接（正则表达式）
 https://v3.sdk.haowusong.com/api/box/wallet/info 
 
 REWRITE 中的 重写方式
-https://gitee.com/soy-tool/app-script/blob/master/app_daw.js 或 app_daw.js
+app_daw.js
 
 MITM 中的 解析域名
 v3.sdk.haowusong.com
@@ -148,7 +150,7 @@ for (i = 0; i < app_soy_daw_token.length; i++) {
 };
 
 if(notify){
-   await notify.sendNotify($.name, subTitle) 
+    if(subTitle){await notify.sendNotify($.name, subTitle)}
 }
 
 
@@ -193,17 +195,23 @@ function soy_daw_poollist(){
                 can_num=result.data.player['can_num'];
                 integral_num=result.data.pool['integral_min_put_num'];
                 if(ad_num==10){
-                    console.log(`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}`);
-                    subTitle+=`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}`
-                }else{
-                    await soy_daw_receive();
-                };
-                
-                if(can_num==1){
+                    if(can_num==1){
                     let mun=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
                     await soy_daw_put(mun)
-                    
+                        
+                    };
+                    console.log(`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}\n---已投DBA数量：${result.data.player['use_integral_num']}`);
+                    subTitle+=`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}\n---已投DBA数量：${result.data.player['use_integral_num']}`
+                }else{
+                    await soy_daw_receive();
+                    if(can_num==1){
+                    let mun=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
+                    await soy_daw_put(mun)
+                        
+                    };
                 };
+                
+                
                     
                 
             }else{
@@ -232,7 +240,7 @@ function soy_daw_receive(){
             let result = JSON.parse(data)
             if(result.code==200){
                 console.log(`\n【${$.name}---账号 ${$.index} 视频广告】: 观看广告成功~`)
-                let delay=Math.floor(Math.random()*(630000-60000+1000)+60000)
+                let delay=Math.floor(Math.random()*(63000-60000+1000)+60000)
                 console.log(`\n【${$.name}---账号 ${$.index} 继续观看广告】: 随机延时 ${delay} 毫秒...`)
                 
                 await $.wait(delay)
