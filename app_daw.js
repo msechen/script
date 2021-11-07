@@ -196,8 +196,8 @@ function soy_daw_poollist(){
                 integral_num=result.data.pool['integral_min_put_num'];
                 if(ad_num==10){
                     if(can_num==1){
-                    let mun=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
-                    await soy_daw_put(mun)
+                    let num=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
+                    await soy_daw_put(num)
                         
                     };
                     console.log(`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}\n---已投DBA数量：${result.data.player['use_integral_num']}`);
@@ -260,6 +260,7 @@ function soy_daw_receive(){
 }
 
 function soy_daw_put(num){
+    console.log(nun)
     return new Promise((resolve, reject) => {
         $.post({
             url : `https://v3.sdk.haowusong.com/api/channel/integral/put?channel=dawbox-android&num=${num}`,
