@@ -206,7 +206,7 @@ function soy_daw_poollist(){
                     await soy_daw_receive();
                     if(can_num==1){
                     let mun=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
-                    await soy_daw_put(mun)
+                    await soy_daw_put(num)
                         
                     };
                 };
@@ -271,8 +271,8 @@ function soy_daw_put(num){
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==200){
-                console.log(`\n【${$.name}---账号 ${$.index} 投分红币】: 投入 ${mun} DAB币成功~`)
-                subTitle+=`\n【${$.name}---账号 ${$.index} 投分红币】: 投入 ${mun} DAB币成功~`
+                console.log(`\n【${$.name}---账号 ${$.index} 投分红币】: 投入 ${num} DAB币成功~`)
+                subTitle+=`\n【${$.name}---账号 ${$.index} 投分红币】: 投入 ${num} DAB币成功~`
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 投分红币】: ${result.error}`)
             }
