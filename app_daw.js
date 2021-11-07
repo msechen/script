@@ -129,7 +129,7 @@ let app_soy_daw_token=[],app_soy_daw_UA=[]
       ).toLocaleString()} ===\n`
     );
     console.log(`===【共 ${app_soy_daw_token.length} 个账号】===\n`);
-      
+subTitle=''
 for (i = 0; i < app_soy_daw_token.length; i++) {
     soy_daw_token = app_soy_daw_token[i].split('#')[0]
     
@@ -142,7 +142,6 @@ for (i = 0; i < app_soy_daw_token.length; i++) {
     soy_daw_headers={"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"}
     
     $.index = i + 1;
-    subTitle=''
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
     await soy_daw_poollist()
     
