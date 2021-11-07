@@ -112,9 +112,9 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
 
 async function redPacket() {
   try {
-    await doLuckDrawFun();//券后9.9抽奖
-    await taskHomePage();//查询任务列表
-    await doTask();//领取任务，做任务，领取红包奖励
+    //await doLuckDrawFun();//券后9.9抽奖
+    //await taskHomePage();//查询任务列表
+    //await doTask();//领取任务，做任务，领取红包奖励
     await h5activityIndex();//查询红包基础信息
     await red();//红包任务(发起助力红包,领取助力红包等)
     await h5activityIndex();
@@ -400,7 +400,7 @@ function receiveTaskRedpacket(taskType) {
 //助力API
 function jinli_h5assist(redPacketId) {
   //一个人一天只能助力两次，助力码redPacketId 每天都变
-  const body = {"clientInfo":{},redPacketId,"followShop":0,"promUserState":""};
+  const body = {"redPacketId":redPacketId,"followShop":0,"random":"56589911","log":"1635956140883~1~8,1~81BE9EF0A1C27ADB226049DF9C26D3989C48A944~115flmu~C~ThFCXBZZbW0bQ0JeWRMOahRWDB1UAhlwbh0FWwUcVk1CEhgTUAYbBAkcIWoZAg94GAIaRBU8GhJTQ1oTDAMVEhFBFwkUAAJQAwkCVwcDDQMABA4BCwJAHhdEU1UWWRREQxVCRFJEUhMaEE5VAxAPEVBXQBdCREIAFBwWQVBfFAhiBk4HDQEaAAVPBwAbUBpeQV1YbBoQU1pACAQfFFJHQQwSVFYCCVBTAwQEVggGVFRXB1UEBwBTVgBUDlJXCAUIDwUbHEBcRREME10zXl9ZBBQcFkUWCwcECgVbBwMCAgEMWwUcFQtdEg4TAQcBVg8FVgRQCwcDA1FUAwRSBwlWAgMHDwoIAgMHBgMPUgZXAgZTUhQcFldEUxQIGwBaAwFXBldVVFQEDlYFVQxTBVMBBg0AWwIEA1BVAFtXVQ5RA1JSBgADBFYOAAFUA1EDUwABDlMDVVQSGBNaRxQIG3ESQllWFnJbDkZFQwREHBR4WlIYEBUSDFNDEQwTBVUBCAFSFBwWQldDFAhiBlQFGQABBGlPFEJYQwxrFlhkWVlcXAhOAxcfFFh7MBQcFVAEHgYTGBMHAhcCTAAXHxQAAlQOBgRDGhIBBwNVAAcNBgcKBAEBA1ZQBQMGWFQDAwcNCQcAWAVRAgxQBAUAVVIDFU0UURZsGBNfXVgSWBBTVVBXUgVCRBVNFFFeEw4TQxAVEgFbFwkURgdNBB4DQxoSV1drRxQIGwBTEBkRVFUWWRRCVg9SX1kMAQcDCgAJUwMXHxRcXkEMawZNBhwEbBgTVF5WV0AIFwIAAgFaAwYGUg4DBAZKAHljUmIpBE14D3h5J3BjYApkSVFldUl4cwQNTGsHSwVjBCFYUgQremNZf0BSQUpyc1BFTHReAQQod2Z1I09iBmFYBGJUVENUYHRXXHtwIld9XwpfdE5VZGF0WQpyCHdQflhkXypkcQ8jYFtefGNJRHRoRw5+XH5nd2UmQ31jWQFqWV1Gdl5BDHYVCk9icXwGJVx9GCR1Qwd+ZmRHd3pTE31fUEBwdhRhYHAOHWEEQk5oX1pdfjZRdHVyYH05ckRBI2NiQnt1DAscXQUDUAEHD1RKGhoBSR9IckpiXH9iZUF1LndZXHd2UyZleGUnZXdTWmBmZHNfdVNKdHZ3WmAmXmVlMHR1f3RDQnVxeGE2endxZ2cGVnF1dgpicXVWZnZ0dHp1FVlhdF4JYDRjcWUiTn11eVN8dHN4WzB1d3VkdEMIYndcVQtOBFoEBkxVVhJOEFhAURMOQRRN~0s79bv8","sceneid":"JLHBhPageh5"};
   const options = taskUrl(arguments.callee.name.toString(), body)
   return new Promise((resolve) => {
     $.post(options, (err, resp, data) => {
@@ -455,7 +455,7 @@ function h5receiveRedpacketAll() {
 }
 //发起助力红包API
 function h5launch() {
-  const body = {"clientInfo":{},"followShop":0,"promUserState":""};
+  const body = {"isjdapp":1,"random":"33235811","log":"4817e3a2~8,~1wsv3ig","sceneid":"JLHBhPageh5"};
   const options = taskUrl(arguments.callee.name.toString(), body)
   return new Promise((resolve) => {
     $.post(options, (err, resp, data) => {
@@ -485,7 +485,7 @@ function h5launch() {
   })
 }
 function h5activityIndex() {
-  const body = {"clientInfo":{},"isjdapp":1};
+  const body = {"isjdapp":1,"random":"33235811","log":"4817e3a2~8,~1wsv3ig","sceneid":"JLHBhPageh5"};
   const options = taskUrl(arguments.callee.name.toString(), body);
   return new Promise((resolve) => {
     $.post(options, async (err, resp, data) => {
