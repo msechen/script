@@ -235,6 +235,9 @@
 # xxxx
 59 21 5 11 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
 
+# xxxx
+59 7,15,23 * * * cd /scripts/logs && node /scripts/logs/joy_bean.js >> /scripts/logs/joy_bean.log 2>&1
+
 # 京享红包
 0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
 
