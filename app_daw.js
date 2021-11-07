@@ -205,7 +205,7 @@ function soy_daw_poollist(){
                 }else{
                     await soy_daw_receive();
                     if(can_num==1){
-                    let mun=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
+                    let num=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
                     await soy_daw_put(num)
                         
                     };
