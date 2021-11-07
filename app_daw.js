@@ -187,7 +187,7 @@ function soy_daw_poollist(){
             //body : ``,
         }, async(error, response, data) => {
            try {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data);
             if(result.code==200){
                 //console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.msg}`)
@@ -260,7 +260,7 @@ function soy_daw_receive(){
 }
 
 function soy_daw_put(num){
-    console.log(nun)
+    //console.log(nun)
     return new Promise((resolve, reject) => {
         $.post({
             url : `https://v3.sdk.haowusong.com/api/channel/integral/put?channel=dawbox-android&num=${num}`,
