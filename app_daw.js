@@ -187,7 +187,7 @@ function soy_daw_poollist(){
             //body : ``,
         }, async(error, response, data) => {
            try {
-            //console.log(data)
+            console.log(data)
             let result = JSON.parse(data);
             if(result.code==200){
                 //console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.msg}`)
