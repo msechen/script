@@ -11,23 +11,14 @@ class BrandquizProd extends MappingTemplate {
   static commonParamFn = () => ({});
   static times = 2;
 
-  static apiCustomOption() {
-    return {
-      options: {
-        headers: {
-          origin: 'https://electricsuper.jd.com',
-          referrer: 'https://electricsuper.jd.com/',
-        },
-        form: {
-          appid: 'apple-jd-aggregate',
-          functionId: 'brandquiz_prod',
-        },
-      },
-    };
-  };
+  static indexUrl = 'https://electricsuper.jd.com';
+  static appid = 'apple-jd-aggregate';
+  static functionId = 'brandquiz_prod';
 
   static async doMain(api, shareCodes) {
     const self = this;
+    //shareId: a6026da4-9586-4989-ac51-7866f7dfdfed
+    // return api.doApiMapping('/api/support/doSupport', {shareId: 'a6026da4-9586-4989-ac51-7866f7dfdfed'});
 
     const {data: {quizId, firstQuiz, supportInfo}} = await api.doApiMapping('/api/index/indexInfo');
 
@@ -35,6 +26,13 @@ class BrandquizProd extends MappingTemplate {
       const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
       self.updateShareCodeFn(shareId);
       await handleDoShare();
+
+      // 获取竞猜助力豆豆
+      for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
+        if (beanStatus === 1) {
+          await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
+        }
+      }
     }
 
     if (self.isLastLoop()) {
@@ -46,15 +44,6 @@ class BrandquizProd extends MappingTemplate {
       await handleSubmit(_.map(submitList, 'id').join(',')).then(data => {
         api.log(`已提交竞猜, 排名为: ${_.map(submitList, 'name')}, 下一场次为 ${data.data.nextQuizDate}`);
       });
-
-      if (firstQuiz) {
-        // 获取竞猜助力豆豆
-        for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
-          if (beanStatus === 1) {
-            await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
-          }
-        }
-      }
     }
 
     // 提交竞猜

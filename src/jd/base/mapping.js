@@ -9,15 +9,23 @@ class MappingTemplate extends Template {
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
+  static times = 1;
+
+  static indexUrl;
+  static appid = 'china-joy';
+  static functionId = 'champion_game_prod';
 
   static apiCustomOption() {};
 
   static apiOptions() {
+    const {indexUrl, appid, functionId} = this;
     return _.merge({
       options: {
-        form: {
-          appid: 'china-joy',
+        headers: {
+          origin: indexUrl,
+          referrer: indexUrl ? `${indexUrl}/` : '',
         },
+        form: {appid, functionId},
       },
     }, this.apiCustomOption());
   };

@@ -9,21 +9,9 @@ class StarPushJdProd extends MappingTemplate {
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static times = 1;
 
-  static apiCustomOption() {
-    return {
-      options: {
-        headers: {
-          origin: 'https://starintroducer.jd.com',
-          referrer: 'https://starintroducer.jd.com',
-        },
-        form: {
-          functionId: 'star_push_jd_prod',
-        },
-      },
-    };
-  };
+  static indexUrl = 'https://starintroducer.jd.com';
+  static functionId = 'star_push_jd_prod';
 
   static async doMain(api, shareCodes) {
     const self = this;
