@@ -16,7 +16,7 @@ ABP规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules
 
 Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/yhosts.txt
 
-Fanboy规则：hhttps://raw.githubusercontents.com/project-lede/koolproxy/main/rules/fanboy.txt
+Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/fanboy.txt
 
 Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/antiad.txt
 
