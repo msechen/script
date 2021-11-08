@@ -17,43 +17,46 @@ class BrandquizProd extends MappingTemplate {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    //shareId: a6026da4-9586-4989-ac51-7866f7dfdfed
-    // return api.doApiMapping('/api/support/doSupport', {shareId: 'a6026da4-9586-4989-ac51-7866f7dfdfed'});
 
-    const {data: {quizId, firstQuiz, supportInfo}} = await api.doApiMapping('/api/index/indexInfo');
+    // const shareId = 'efed8e76-634a-41fc-948a-ae74689b6b8a';
+    // return api.doApiMapping('/api/support/doSupport', {shareId});
 
-    if (firstQuiz) {
-      const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
-      self.updateShareCodeFn(shareId);
-      await handleDoShare();
+    let {data: {quizId, firstQuiz, supportInfo}} = await api.doApiMapping('/api/index/indexInfo');
+    await handleSubmit();
 
-      // 获取竞猜助力豆豆
-      for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
-        if (beanStatus === 1) {
-          await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
-        }
-      }
-    }
+    const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
+    self.updateShareCodeFn(shareId);
+    await handleDoShare();
+    await getSupportReward();
 
-    if (self.isLastLoop()) {
-      // 只提交一次竞猜
-      // if (firstQuiz) return;
+    async function handleSubmit() {
+      if (!self.isFirstLoop()) return;
       // 获取销量排行
       const brandRankList = await api.doApiMapping('/api/index/brandRank', {quizId}).then(_.property('data')) || [];
       const submitList = brandRankList.filter((o, index) => index < 5);
-      await handleSubmit(_.map(submitList, 'id').join(',')).then(data => {
+      await indexQuiz(_.map(submitList, 'id').join(',')).then(data => {
         api.log(`已提交竞猜, 排名为: ${_.map(submitList, 'name')}, 下一场次为 ${data.data.nextQuizDate}`);
       });
     }
 
     // 提交竞猜
-    async function handleSubmit(quizStr) {
+    async function indexQuiz(quizStr) {
       return api.doApiMapping('/api/index/quiz', {quizId, quizStr, predictId: ''});
     }
 
     async function handleDoShare() {
       for (const shareId of self.getShareCodeFn()) {
         await api.doApiMapping('/api/support/doSupport', {shareId});
+      }
+    }
+
+    // 获取竞猜助力豆豆
+    async function getSupportReward() {
+      if (!self.isLastLoop()) return;
+      for (const [supporterIndex, {beanStatus}] of supportInfo.entries()) {
+        if (beanStatus === 1) {
+          await api.doApiMapping('/api/support/getSupportReward', {supporterIndex, shareId});
+        }
       }
     }
   }
