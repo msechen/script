@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: oQIfK0H6jQqzeNut3AYJVw
-! Version: 202111080542
+! Checksum: 0eHUi8xvp0G03YQCSJ7fwg
+! Version: 202111080722
 ! Title: EasyList China+EasyList
-! Last modified: 08 Nov 2021 05:42 UTC
+! Last modified: 08 Nov 2021 07:22 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -4846,6 +4846,7 @@
 ||https://zzsky.cn/images/a_d_
 ||https://zzz4.com/JS_AD/
 ||https://zzzyk.com/js/
+||https://rsdown.cn/statics/images/rs-banner.jpg
 ||https://17ce.com^*_$image
 ||https://69t49.com/floating/layer.js
 ||https://alicdn.com/img/ibank/*_!!2210231227621-0-cib.
@@ -17758,6 +17759,8 @@
 ||http://zzsky.cn/images/a_d_
 ||http://zzz4.com/JS_AD/
 ||http://zzzyk.com/js/
+||http://rsdown.cn/statics/images/rs-banner.jpg
+||http://360buyimg.com^$domain=12580sky.com
 ||http://17ce.com^*_$image
 ||http://3336672.com^
 ||http://3337729.com^
@@ -18662,6 +18665,7 @@
 ||http://quqianlai.cn^
 ||http://tccb71h.cn^
 ||http://benwfw.cn^
+||http://bjymall.cn^
 ||http://000123456789.online^
 ||http://01tn.cn^
 ||http://027whht.com^
@@ -42461,6 +42465,7 @@
 https://ubmcmm.baidustatic.com
 https://hxsame.hexun.com$domain=~quote.hexun.com
 https://szxx.com.cn###A0
+https://rsdown.cn##.cq-tips
 https://boce.com##.adNewBox
 https://szxx.com.cn###A1
 https://szxx.com.cn###A2
@@ -52537,6 +52542,7 @@ https://dhzw8.com,hkslg8.com,konlan.org,lewxs.com,snwx3.com,sqsxs.com,xtmetb.com
 http://ubmcmm.baidustatic.com
 http://hxsame.hexun.com$domain=~quote.hexun.com
 http://szxx.com.cn###A0
+http://rsdown.cn##.cq-tips
 http://boce.com##.adNewBox
 http://szxx.com.cn###A1
 http://szxx.com.cn###A2
