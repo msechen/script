@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: vqVYrsD2fSMEKx7WHmSwNA
-! Version: 202111080150
+! Checksum: eiEE1AFMy+3wg7wbKJA+eA
+! Version: 202111080200
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-08 01:50 UTC
+! Last modified: 2021-11-08 02:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -9782,6 +9782,7 @@ https://tunnelmb.net##._23LkM
 https://911tabs.com##._29v-t
 https://dreamhack.com##._2IIiex-CsxtuW7QGZ_oO5z
 https://cnn.com##._2dc7d020
+https://wolframalpha.com##._3PyB2
 https://reddit.com##._3q-XSJ2vokDQrvdG6mR__k
 https://nytimes.com##.abe45aa6
 https://sunweb.co.uk##.absolute-dialog
@@ -10109,7 +10110,6 @@ https://nowness.com##.ns-info-bar
 https://bestlivecamsites.com##.ntfc-bar
 https://castrol.com##.nv-notification-header
 https://decider.com,nypost.com,pagesix.com##.nyp-sitewide-notice
-https://wolframalpha.com##.oaDryNmq
 https://norma-ammunition.com##.on-screen-messages
 https://suncorp.com.au##.one-pixel-margin-bottom.sg-Box
 https://wpengine.com##.opt-in-modal
@@ -21292,6 +21292,7 @@ http://tunnelmb.net##._23LkM
 http://911tabs.com##._29v-t
 http://dreamhack.com##._2IIiex-CsxtuW7QGZ_oO5z
 http://cnn.com##._2dc7d020
+http://wolframalpha.com##._3PyB2
 http://reddit.com##._3q-XSJ2vokDQrvdG6mR__k
 http://nytimes.com##.abe45aa6
 http://sunweb.co.uk##.absolute-dialog
@@ -21619,7 +21620,6 @@ http://nowness.com##.ns-info-bar
 http://bestlivecamsites.com##.ntfc-bar
 http://castrol.com##.nv-notification-header
 http://decider.com,nypost.com,pagesix.com##.nyp-sitewide-notice
-http://wolframalpha.com##.oaDryNmq
 http://norma-ammunition.com##.on-screen-messages
 http://suncorp.com.au##.one-pixel-margin-bottom.sg-Box
 http://wpengine.com##.opt-in-modal
