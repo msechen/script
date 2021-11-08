@@ -1,17 +1,3 @@
-[Adblock Plus 2.0]
-! Checksum: 0g3caU/kQF/gpg62R+x0wg
-! Version: 202111080500
-! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-08 05:00 UTC
-! Expires: 9 days (update frequency)
-! Homepage: https://easylist.to/
-! License: http://creativecommons.org/licenses/by/3.0/
-!
-! Please report any unblocked content or problems by email or in our forums
-! Email: easylist@protonmail.com
-! Forums: https://forums.lanik.us/
-!
-!--------------------------General blocking rules-----------------------------!
 ||https://123cursors.com^$third-party
 ||https://1worldonline.com^$third-party
 ||https://24smi.org^$third-party
@@ -43,6 +29,7 @@
 ||https://appboy.eu^$third-party
 ||https://assets.simplifydigital.co.uk^$third-party
 ||https://asterilivestream.com^$third-party
+||https://autolinkmaker.itunes.apple.com^$third-party
 ||https://badges.alltop.com^$third-party
 ||https://badgeville.com^$third-party
 ||https://banana-splash.com^$third-party
@@ -51,6 +38,7 @@
 ||https://beopinion.com^$third-party
 ||https://bibblio.org^$third-party
 ||https://bigdoor.com^$third-party
+||https://bing.com*/bootstrap.js$third-party
 ||https://bing.com/widget/render/$third-party
 ||https://blockmetrics.com^$third-party
 ||https://blogcatalog.com^$third-party
@@ -372,6 +360,7 @@
 ||https://widget.trustpilot.com^$third-party
 ||https://widget.zoorate.com^$third-party
 ||https://widgets.dzone.com^$third-party
+||https://widgets.itunes.apple.com^$third-party
 ||https://widgets.tapcdn.com^$third-party
 ||https://widgetsplus.com^$third-party
 ||https://wisepops.com^$third-party
@@ -731,6 +720,7 @@
 ||https://softwebzone.com^$third-party
 ||https://spiceworks.com/share/$third-party
 ||https://spotify.com/follow/$third-party
+||https://static*.linkedin.com/scds/common/$image,third-party
 ||https://statigr.am/widget.php$third-party
 ||https://statigr.am^*/follow/$third-party
 ||https://stipple.cachefly.net^$third-party
@@ -841,6 +831,7 @@
 ||https://legalmonster.com^$third-party
 ||https://marfeel.mgr.consensu.org^$third-party
 ||https://mgr.consensu.org/iframe.html
+||https://microsoft.com/mscc/
 ||https://mycookies.it^$third-party
 ||https://myprivacy.dpgmedia.net/consent.js
 ||https://ogury.mgr.consensu.org^$third-party
@@ -908,6 +899,7 @@
 ||https://intoday.in^*/dailyo3_img1.
 ||https://jobs.newscientist.com^$subdocument
 ||https://js.dhresource.com/survey/
+||https://l.yimg.com/zz/combo?pv*/promo-banner_$script
 ||https://l.yimg.com^*/img/badge-
 ||https://mediafire.com/images/backgrounds/download/*promo
 ||https://mg.co.za^*/iabsa_
@@ -1085,6 +1077,7 @@
 ||https://crowdin.com/images/soc-btns/
 ||https://csgoreportbot.net/jquery.fancybox.min.js
 ||https://dailykostv.com/digg.html
+||https://deusm.com/informationweek/editor-*.png
 ||https://di.fm/_papi/v1/di/timed_alerts$xmlhttprequest
 ||https://enjin.com/images/layout/footer-icons.png
 ||https://eurotrucksimulator2.com/images/logo_blog.png
@@ -1110,6 +1103,7 @@
 ||https://livescience.com/social.php
 ||https://marketingsherpa.com/Zlatko/facebook.jpg
 ||https://marketingsherpa.com/Zlatko/in.jpg
+||https://media-imdb.com/images*/facebook-
 ||https://moltenusa.com/images/com_connecton.gif
 ||https://mybetting.co.uk/facebook.png
 ||https://mybetting.co.uk/twitter.png
@@ -1384,6 +1378,7 @@
 ||https://cmp.lemonde.fr/js/lemonde.min.js
 ||https://docteurclic.com/ajax/ajax_get_disc.aspx
 ||https://gmx.fr/uim/bidding/consent.js
+||https://googletagmanager.com/gtm.js$script
 ||https://jeu.video^*/partners.js
 ||https://thesiteoueb.net/js/cm-head.js
 ||https://var.uicdn.net/shopsshort/privacy/v1/bundle.
@@ -1472,6 +1467,7 @@
 ||http://appboy.eu^$third-party
 ||http://assets.simplifydigital.co.uk^$third-party
 ||http://asterilivestream.com^$third-party
+||http://autolinkmaker.itunes.apple.com^$third-party
 ||http://badges.alltop.com^$third-party
 ||http://badgeville.com^$third-party
 ||http://banana-splash.com^$third-party
@@ -1811,6 +1807,7 @@
 ||http://widget.trustpilot.com^$third-party
 ||http://widget.zoorate.com^$third-party
 ||http://widgets.dzone.com^$third-party
+||http://widgets.itunes.apple.com^$third-party
 ||http://widgets.recruitology.com^
 ||http://widgets.sprinkletxt.com^
 ||http://widgets.tapcdn.com^$third-party
@@ -2299,6 +2296,7 @@
 ||http://legalmonster.com^$third-party
 ||http://marfeel.mgr.consensu.org^$third-party
 ||http://mgr.consensu.org/iframe.html
+||http://microsoft.com/mscc/
 ||http://mycookies.it^$third-party
 ||http://myprivacy.dpgmedia.net/consent.js
 ||http://ogury.mgr.consensu.org^$third-party
@@ -2892,6 +2890,7 @@
 ||http://cookies.leadplace.fr^
 ||http://docteurclic.com/ajax/ajax_get_disc.aspx
 ||http://gmx.fr/uim/bidding/consent.js
+||http://googletagmanager.com/gtm.js$script,domain=stihl.fr
 ||http://jeu.video^*/partners.js
 ||http://thesiteoueb.net/js/cm-head.js
 ||http://var.uicdn.net/shopsshort/privacy/v1/bundle.
@@ -3318,6 +3317,7 @@ https://hollywoodnews.com###constant-contact-3
 https://videodetective.com###contactable_inner
 https://dailydisruption.com,freshtechweb.com###contactme_tab
 https://pstc.ca###contactme_tabc
+https://phoronix.com###content > [type="text/javascript"] + *
 https://tweaktown.com###content-alertbar2
 https://eugenedailynews.com###content-dock
 https://tnr.com###content-gating-key
@@ -3613,6 +3613,7 @@ https://visual.ly###graphic_prev_arrow
 https://itthing.com###greet_block
 https://thumbzilla.com###greeting
 https://grist.org###grist-flyout-box
+https://microsoft.com###gsfx_brnd_corpflyoutad_inner
 https://translate.google.com###gt-bbar
 https://healthcentral.com###hb
 https://bing.com###hc_opalinst
@@ -4258,6 +4259,7 @@ https://softpedia.com###spsbtns
 https://cultofmac.com###ss_dealOfTheDayButton
 https://realitypod.com###ss_sidebar
 https://slashdot.org###stackcommerce-adwrap
+https://microsoft.com###standardRating
 https://appstechnews.com,cloudcomputing-news.net,developer-tech.com,marketingtechnews.net,telecomstechnews.com,wearabletechnology-news.com###statement
 https://natureworldnews.com###static_menu[style="position: fixed; z-index: 100; top: 0px; width: 100%; left: 0px;"]
 https://1up.com###status-bar
@@ -5973,6 +5975,7 @@ https://w24.co.za##.subscribe_wrapper
 https://pokernews.com##.suggestion
 https://nzherald.co.nz##.supportingBanner
 https://businessinsider.com,businessinsider.com.au##.survey
+https://microsoft.com##.survey-background
 https://insightcrime.org##.suscribe
 https://theoatmeal.com##.swatch2_links
 https://mirror.co.uk##.swipe-prompt
@@ -6184,6 +6187,7 @@ https://itwire.com##a[href="http://www.itwire.com/subscribe-now"]
 https://threatpost.com##a[href="https://threatpost.com/survey/"]
 https://lifeslittlemysteries.com##a[href^="http://click.linksynergy.com/"]
 https://realitytvworld.com##a[href^="http://websurvey.burstmedia.com/"]
+https://thestar.com##a[href^="https://itunes.apple.com/"]
 https://amp-reddit-com.cdn.ampproject.org##a[href^="https://reddit.app.link"]
 https://csmonitor.com,details.com##a[href^="https://w1.buysub.com/"]
 https://watchseries-online.ch##a[title="Go Up"]
@@ -9235,6 +9239,8 @@ https://engadget.com##a[data-engadget-popname="engadget_share"]
 https://time.com##a[href*="social-share-article"]
 https://fijisun.com.fj,thecable.ng##a[href="#share"]
 https://hartpury.ac.uk##a[href="http://www.youtube.com/user/HartpuryUWE"]
+https://office.microsoft.com##a[href="redir/XT103954461.aspx"]
+https://office.microsoft.com##a[href="redir/XT103954465.aspx"]
 https://yourcityoffice.com##a[href^="http://pinterest.com/"]
 https://yourcityoffice.com##a[href^="http://www.linkedin.com"]
 https://buzzfeed.com##a[href^="https://apple.news/"]
@@ -9286,6 +9292,7 @@ https://goal.com##div[id^="shareicon-"]
 https://pcb.cc##div[skinpart="imageItem"]
 https://dailytelegraph.com.au##div[style="background-color: #0879cc"]
 https://virginballoonflights.co.uk##div[style="background-color:#fff; width:310px; height:55px; margin-top:10px; float:left; overflow:hidden;"]
+https://websense.com##div[style="background: transparent url(http://www.websense.com/assets/imgs/2011/mkto-unsubscribe-bg.png) no-repeat left top; width: 351px; height: 43px; padding: 5px 10px; *padding-top: 7px;"]
 https://allkpop.com##div[style="border:2px solid #d8d4d4;width:100%;margin-top:-16px;white-space: nowrap;padding:7px;"]
 https://askmefast.com##div[style="clear:both;position:absolute;top:20px;left:0px"]
 https://mdconnects.com##div[style="clear:right; float:right; width:250px; margin-left:15px;"]
@@ -9526,6 +9533,7 @@ https://ebu.ch###disclamerContainer
 https://morningstar.co.uk###divAudienceConfirmation
 https://newser.com###divCM
 https://goccl.co.uk###divMessage
+https://microsoft.com###divNRMain
 https://giftsandcare.com###divbottom
 https://tenerife-guided-walks.com###dmPopup
 https://tenerife-guided-walks.com###dmPopupMask
@@ -9536,6 +9544,7 @@ https://hetzner.com###dpi-banner
 https://drupal.org###drupalorg-crosssite-gdpr
 https://overunity.com###ecl_outer
 https://tor.com###entry-content__footer-popup
+https://live.com,microsoft.com,office.com,skype.com,visualstudio.com,windows.com,xbox.com###epb
 https://complex.com###eucn
 https://abetterrouteplanner.com###eula-div
 https://tartybikes.co.uk###eureg
@@ -9733,6 +9742,7 @@ https://toughnickel.com###tos_update_band
 https://ergonbike.com###tracking-modal
 https://stingray.com###tracking-popup
 https://skylinewebcams.com###trigCookie
+https://netflix.com###uma > div > .message
 https://censor.net###usage_notice
 https://busybeeblog.com###user_disclaimer
 https://iboysoft.com###user_popup
@@ -9937,6 +9947,7 @@ https://gtalfh.com##.fadeInDown.alert
 https://avid.com##.fancybox-opened
 https://avid.com,editus.lu##.fancybox-overlay
 https://editus.lu##.fancybox-wrap
+https://microsoft.com##.feedback-visible
 https://thebodyshop.com##.first-time-visitor
 https://privacysavvy.com##.fixed
 https://autotrader.com,g2g.com,jsonquerytool.com,remove.bg##.fixed-bottom
@@ -10372,6 +10383,7 @@ https://play.google.com#?#.gb_g:-abp-contains(cookie)
 https://msi.com###ccc
 https://thefreedictionary.com###cmpBanner
 https://smallseotools.com###cookie-bar
+https://netflix.com###cookie-disclosure
 https://eteknix.com###cookie-law-info-bar
 https://depositfiles.com,dfiles.eu,dfiles.ru###cookie_popup
 https://adblockplus.org###cookiebar
@@ -12078,6 +12090,7 @@ https://tvrus.eu##.menu-icons
 https://kommersant.ru##.network
 https://avtoradio.ru##.ok
 https://autoline-az.com,autoline-eu.kz,autoline-eu.ru,autoline-ge.com,autoline-ru.ee,autoline-ru.lt,autoline-ru.lv,autoline-tm.com,autoline.by,autoline.com.ua,autoline.kg,autoline.md,autoline.tj,autoline.ua,autoline.uz,landrover.ru,landroverkz.com,mail.ru,ria.ru,wikiway.com##.share
+https://rambler.ru##.share__list > *
 https://forbes.ru##.shares
 https://caravan.kz##.sm-list
 https://academic.ru##.smm
@@ -13648,6 +13661,7 @@ https://cnn.com#@##outbrain_widget_0
 https://mozilla.org,thunderbird.net,usps.com#@##privacy-policy
 https://onecallinsurance.co.uk#@##scroll-to-top
 https://aval.ua,easytcd.com,finanzen100.de,hostiq.ua#@##scroll-top:not(body)
+https://microsoft.com#@##scrollToTop
 https://catchconnect.com.au#@##scrollTop
 https://catchconnect.com.au,hotel.de#@##scrollTop:not(body):not(html)
 https://thehunt.com#@##signup-popup
@@ -13732,6 +13746,7 @@ https://asbclassic.co.nz,envirowaste.co.nz,harmoney.co.nz,harmoney.com.au,rocket
 https://arabbank.com.au,operon.pl#@#.push-wrapper:not(body):not(html)
 https://mobi24.net#@#a[href^="http://www.mobi24.net/"]
 https://mobi24.net#@#a[href^="https://www.mobi24.net/"]
+https://answers.microsoft.com#@##SocialIcons
 https://beautifulplanet4u.com#@##advancedsocialwidget
 https://api.oneall.com#@##button_facebook
 https://api.oneall.com,lanik.us#@##button_twitter
@@ -14098,6 +14113,7 @@ https://tomshardware.com#@#.socialButton
 https://keepa.com,mousehuntgame.com#@#.socialButtons
 https://joemonster.org#@#.socialContainer
 https://oculus.com#@#.socialFacebook
+https://answers.microsoft.com#@#.socialIcon
 https://pbs.org#@#.socialList
 https://welt.de#@#.socialMedia
 https://wweek.com#@#.socialRight
@@ -14208,6 +14224,7 @@ https://bing.com#@##cc_container
 https://datakauppa.fi#@##cliSettingsPopup
 https://youtube.com#@##consent-bump
 https://dnb.no#@##consent-modal
+https://appleid.apple.com,consent.yahoo.com,paypal.com#@##consent.consent
 https://dnb.no#@##consentContainer
 https://sandisk.ae,sandisk.cn,sandisk.co.jp,sandisk.co.kr,sandisk.co.uk,sandisk.com,sandisk.com.au,sandisk.com.br,sandisk.com.tr,sandisk.com.tw,sandisk.de,sandisk.es,sandisk.fr,sandisk.hk,sandisk.id,sandisk.in,sandisk.it,sandisk.nl,sandisk.sg,wacom.com#@##consent_blackbar
 https://roussillhotel.com#@##cookie-banner
@@ -14228,6 +14245,7 @@ https://bk.com,burgerking.co.nz,defencediscountservice.co.uk###cookie-popup:not(
 https://danskebank.fi#@##cookie-text
 https://gamer.nl#@##cookie-wall
 https://lauritz.com,qxl.de,qxl.dk,qxl.fi,qxl.no,qxl.se#@##cookie-wrapper
+https://media.netflix.com#@##cookieAlert
 https://blog.google#@##cookieBar
 https://ad.win.nl,dehn.de,techopital.com#@##cookieConsent
 https://ad.win.nl#@##cookieConsentBox
@@ -14273,6 +14291,7 @@ https://imoradar24.ro#@##modal-cookies
 https://17track.net#@##modal-gdpr
 https://faberkabel.de#@##modalCookie
 https://imobiliare.ro#@##modalCookies
+https://microsoft.com#@##ms-cookie-banner
 https://thesocialmedwork.com#@##notice-cookie-block
 https://gq-magazine.co.uk,mail.com,mtvuutiset.fi,rockpapershotgun.com,uefa.com,zdnet.com#@##onetrust-banner-sdk
 https://eurogamer.it,eurogamer.pl,eurogamer.pt,gq-magazine.co.uk,mail.com,mtvuutiset.fi,rockpapershotgun.com,uefa.com,usgamer.net,zdnet.com#@##onetrust-consent-sdk
@@ -14442,6 +14461,7 @@ https://api.newsguardtech.com,rockpapershotgun.com#@#.optanon-alert-box-wrapper
 https://pieseauto.ro#@#.page-cookies
 https://idolmaster.jp#@#.policy-box
 https://gamersgate.com#@#.popup-gdpr
+https://apple.com#@#.privacy-consent
 https://spotify.com#@#.privacy-modal
 https://google.ac,google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.by,google.com.bz,google.com.cn,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.jo,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.ru,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tn,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.ve,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hk,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.it.ao,google.je,google.jo,google.jp,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.ne.jp,google.ng,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tl,google.tm,google.tn,google.to,google.tt,google.us,google.vg,google.vu,google.ws#@#.privacyBar
 https://metallica.com#@#.privacy_policy_message_box
@@ -14463,6 +14483,7 @@ https://fantasyfootballgeek.co.uk#@#.wt-cli-cookie-bar-container
 https://timeout.com#@#.xs-fixed[data-module="cookie_banner"]
 https://fantasyfootballgeek.co.uk,openfiber.it#@#[aria-label="cookieconsent"]
 https://atutszkola.pl,meethue.com,mydziewczyny.pl,philips-hue.com,philips.ae,philips.am,philips.at,philips.az,philips.be,philips.bg,philips.by,philips.ca,philips.ch,philips.cl,philips.co.id,philips.co.il,philips.co.in,philips.co.jp,philips.co.ke,philips.co.kr,philips.co.nz,philips.co.th,philips.co.uk,philips.co.za,philips.com,philips.com.ar,philips.com.au,philips.com.bh,philips.com.br,philips.com.cn,philips.com.co,philips.com.eg,philips.com.ge,philips.com.gh,philips.com.hk,philips.com.kw,philips.com.lb,philips.com.mx,philips.com.my,philips.com.om,philips.com.pe,philips.com.ph,philips.com.pk,philips.com.qa,philips.com.sg,philips.com.tr,philips.com.tw,philips.com.uy,philips.com.vn,philips.cz,philips.de,philips.dk,philips.ee,philips.es,philips.fi,philips.fr,philips.gr,philips.hr,philips.hu,philips.ie,philips.iq,philips.it,philips.jo,philips.kz,philips.lt,philips.lv,philips.ma,philips.ng,philips.nl,philips.no,philips.pl,philips.pt,philips.ro,philips.rs,philips.ru,philips.sa,philips.se,philips.si,philips.sk,philips.ua,philips.uz#@#[data-cookie-id]
+https://apple.com#@#consent.consent
 https://mymuesli.com#@#cookies_consent
 https://litebit.eu,vr.fi#@#div[class*="CookieConsent"]
 https://telenor.se#@#div[class*="cookie-consent-modal_"]
@@ -15122,6 +15143,7 @@ http://visual.ly###graphic_prev_arrow
 http://itthing.com###greet_block
 http://thumbzilla.com###greeting
 http://grist.org###grist-flyout-box
+http://microsoft.com###gsfx_brnd_corpflyoutad_inner
 http://translate.google.com###gt-bbar
 http://healthcentral.com###hb
 http://bing.com###hc_opalinst
@@ -15767,6 +15789,7 @@ http://softpedia.com###spsbtns
 http://cultofmac.com###ss_dealOfTheDayButton
 http://realitypod.com###ss_sidebar
 http://slashdot.org###stackcommerce-adwrap
+http://microsoft.com###standardRating
 http://appstechnews.com,cloudcomputing-news.net,developer-tech.com,marketingtechnews.net,telecomstechnews.com,wearabletechnology-news.com###statement
 http://natureworldnews.com###static_menu[style="position: fixed; z-index: 100; top: 0px; width: 100%; left: 0px;"]
 http://1up.com###status-bar
@@ -17482,6 +17505,7 @@ http://w24.co.za##.subscribe_wrapper
 http://pokernews.com##.suggestion
 http://nzherald.co.nz##.supportingBanner
 http://businessinsider.com,businessinsider.com.au##.survey
+http://microsoft.com##.survey-background
 http://insightcrime.org##.suscribe
 http://theoatmeal.com##.swatch2_links
 http://mirror.co.uk##.swipe-prompt
@@ -17693,6 +17717,7 @@ http://itwire.com##a[href="http://www.itwire.com/subscribe-now"]
 http://threatpost.com##a[href="https://threatpost.com/survey/"]
 http://lifeslittlemysteries.com##a[href^="http://click.linksynergy.com/"]
 http://realitytvworld.com##a[href^="http://websurvey.burstmedia.com/"]
+http://thestar.com##a[href^="https://itunes.apple.com/"]
 http://amp-reddit-com.cdn.ampproject.org##a[href^="https://reddit.app.link"]
 http://csmonitor.com,details.com##a[href^="https://w1.buysub.com/"]
 http://watchseries-online.ch##a[title="Go Up"]
@@ -20744,6 +20769,8 @@ http://engadget.com##a[data-engadget-popname="engadget_share"]
 http://time.com##a[href*="social-share-article"]
 http://fijisun.com.fj,thecable.ng##a[href="#share"]
 http://hartpury.ac.uk##a[href="http://www.youtube.com/user/HartpuryUWE"]
+http://office.microsoft.com##a[href="redir/XT103954461.aspx"]
+http://office.microsoft.com##a[href="redir/XT103954465.aspx"]
 http://yourcityoffice.com##a[href^="http://pinterest.com/"]
 http://yourcityoffice.com##a[href^="http://www.linkedin.com"]
 http://buzzfeed.com##a[href^="https://apple.news/"]
@@ -21036,6 +21063,7 @@ http://ebu.ch###disclamerContainer
 http://morningstar.co.uk###divAudienceConfirmation
 http://newser.com###divCM
 http://goccl.co.uk###divMessage
+http://microsoft.com###divNRMain
 http://giftsandcare.com###divbottom
 http://tenerife-guided-walks.com###dmPopup
 http://tenerife-guided-walks.com###dmPopupMask
@@ -21046,6 +21074,7 @@ http://hetzner.com###dpi-banner
 http://drupal.org###drupalorg-crosssite-gdpr
 http://overunity.com###ecl_outer
 http://tor.com###entry-content__footer-popup
+http://live.com,microsoft.com,office.com,skype.com,visualstudio.com,windows.com,xbox.com###epb
 http://complex.com###eucn
 http://abetterrouteplanner.com###eula-div
 http://tartybikes.co.uk###eureg
@@ -21243,6 +21272,7 @@ http://toughnickel.com###tos_update_band
 http://ergonbike.com###tracking-modal
 http://stingray.com###tracking-popup
 http://skylinewebcams.com###trigCookie
+http://netflix.com###uma > div > .message
 http://censor.net###usage_notice
 http://busybeeblog.com###user_disclaimer
 http://iboysoft.com###user_popup
@@ -21447,6 +21477,7 @@ http://gtalfh.com##.fadeInDown.alert
 http://avid.com##.fancybox-opened
 http://avid.com,editus.lu##.fancybox-overlay
 http://editus.lu##.fancybox-wrap
+http://microsoft.com##.feedback-visible
 http://thebodyshop.com##.first-time-visitor
 http://privacysavvy.com##.fixed
 http://autotrader.com,g2g.com,jsonquerytool.com,remove.bg##.fixed-bottom
@@ -21882,6 +21913,7 @@ http://play.google.com#?#.gb_g:-abp-contains(cookie)
 http://msi.com###ccc
 http://thefreedictionary.com###cmpBanner
 http://smallseotools.com###cookie-bar
+http://netflix.com###cookie-disclosure
 http://eteknix.com###cookie-law-info-bar
 http://depositfiles.com,dfiles.eu,dfiles.ru###cookie_popup
 http://adblockplus.org###cookiebar
@@ -25159,6 +25191,7 @@ http://cnn.com#@##outbrain_widget_0
 http://mozilla.org,thunderbird.net,usps.com#@##privacy-policy
 http://onecallinsurance.co.uk#@##scroll-to-top
 http://aval.ua,easytcd.com,finanzen100.de,hostiq.ua#@##scroll-top:not(body)
+http://microsoft.com#@##scrollToTop
 http://catchconnect.com.au#@##scrollTop
 http://catchconnect.com.au,hotel.de#@##scrollTop:not(body):not(html)
 http://thehunt.com#@##signup-popup
@@ -25243,6 +25276,7 @@ http://asbclassic.co.nz,envirowaste.co.nz,harmoney.co.nz,harmoney.com.au,rocketl
 http://arabbank.com.au,operon.pl#@#.push-wrapper:not(body):not(html)
 http://mobi24.net#@#a[href^="http://www.mobi24.net/"]
 http://mobi24.net#@#a[href^="https://www.mobi24.net/"]
+http://answers.microsoft.com#@##SocialIcons
 http://beautifulplanet4u.com#@##advancedsocialwidget
 http://api.oneall.com#@##button_facebook
 http://api.oneall.com,lanik.us#@##button_twitter
@@ -25609,6 +25643,7 @@ http://tomshardware.com#@#.socialButton
 http://keepa.com,mousehuntgame.com#@#.socialButtons
 http://joemonster.org#@#.socialContainer
 http://oculus.com#@#.socialFacebook
+http://answers.microsoft.com#@#.socialIcon
 http://pbs.org#@#.socialList
 http://welt.de#@#.socialMedia
 http://wweek.com#@#.socialRight
@@ -25719,6 +25754,7 @@ http://bing.com#@##cc_container
 http://datakauppa.fi#@##cliSettingsPopup
 http://youtube.com#@##consent-bump
 http://dnb.no#@##consent-modal
+http://appleid.apple.com,consent.yahoo.com,paypal.com#@##consent.consent
 http://dnb.no#@##consentContainer
 http://sandisk.ae,sandisk.cn,sandisk.co.jp,sandisk.co.kr,sandisk.co.uk,sandisk.com,sandisk.com.au,sandisk.com.br,sandisk.com.tr,sandisk.com.tw,sandisk.de,sandisk.es,sandisk.fr,sandisk.hk,sandisk.id,sandisk.in,sandisk.it,sandisk.nl,sandisk.sg,wacom.com#@##consent_blackbar
 http://roussillhotel.com#@##cookie-banner
@@ -25739,6 +25775,7 @@ http://bk.com,burgerking.co.nz,defencediscountservice.co.uk###cookie-popup:not(h
 http://danskebank.fi#@##cookie-text
 http://gamer.nl#@##cookie-wall
 http://lauritz.com,qxl.de,qxl.dk,qxl.fi,qxl.no,qxl.se#@##cookie-wrapper
+http://media.netflix.com#@##cookieAlert
 http://blog.google#@##cookieBar
 http://ad.win.nl,dehn.de,techopital.com#@##cookieConsent
 http://ad.win.nl#@##cookieConsentBox
@@ -25784,6 +25821,7 @@ http://imoradar24.ro#@##modal-cookies
 http://17track.net#@##modal-gdpr
 http://faberkabel.de#@##modalCookie
 http://imobiliare.ro#@##modalCookies
+http://microsoft.com#@##ms-cookie-banner
 http://thesocialmedwork.com#@##notice-cookie-block
 http://gq-magazine.co.uk,mail.com,mtvuutiset.fi,rockpapershotgun.com,uefa.com,zdnet.com#@##onetrust-banner-sdk
 http://eurogamer.it,eurogamer.pl,eurogamer.pt,gq-magazine.co.uk,mail.com,mtvuutiset.fi,rockpapershotgun.com,uefa.com,usgamer.net,zdnet.com#@##onetrust-consent-sdk
@@ -25953,6 +25991,7 @@ http://api.newsguardtech.com,rockpapershotgun.com#@#.optanon-alert-box-wrapper
 http://pieseauto.ro#@#.page-cookies
 http://idolmaster.jp#@#.policy-box
 http://gamersgate.com#@#.popup-gdpr
+http://apple.com#@#.privacy-consent
 http://spotify.com#@#.privacy-modal
 http://google.ac,google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.by,google.com.bz,google.com.cn,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.jo,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.ru,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tn,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.ve,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hk,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.it.ao,google.je,google.jo,google.jp,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.ne.jp,google.ng,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tl,google.tm,google.tn,google.to,google.tt,google.us,google.vg,google.vu,google.ws#@#.privacyBar
 http://metallica.com#@#.privacy_policy_message_box
@@ -25974,6 +26013,7 @@ http://fantasyfootballgeek.co.uk#@#.wt-cli-cookie-bar-container
 http://timeout.com#@#.xs-fixed[data-module="cookie_banner"]
 http://fantasyfootballgeek.co.uk,openfiber.it#@#[aria-label="cookieconsent"]
 http://atutszkola.pl,meethue.com,mydziewczyny.pl,philips-hue.com,philips.ae,philips.am,philips.at,philips.az,philips.be,philips.bg,philips.by,philips.ca,philips.ch,philips.cl,philips.co.id,philips.co.il,philips.co.in,philips.co.jp,philips.co.ke,philips.co.kr,philips.co.nz,philips.co.th,philips.co.uk,philips.co.za,philips.com,philips.com.ar,philips.com.au,philips.com.bh,philips.com.br,philips.com.cn,philips.com.co,philips.com.eg,philips.com.ge,philips.com.gh,philips.com.hk,philips.com.kw,philips.com.lb,philips.com.mx,philips.com.my,philips.com.om,philips.com.pe,philips.com.ph,philips.com.pk,philips.com.qa,philips.com.sg,philips.com.tr,philips.com.tw,philips.com.uy,philips.com.vn,philips.cz,philips.de,philips.dk,philips.ee,philips.es,philips.fi,philips.fr,philips.gr,philips.hr,philips.hu,philips.ie,philips.iq,philips.it,philips.jo,philips.kz,philips.lt,philips.lv,philips.ma,philips.ng,philips.nl,philips.no,philips.pl,philips.pt,philips.ro,philips.rs,philips.ru,philips.sa,philips.se,philips.si,philips.sk,philips.ua,philips.uz#@#[data-cookie-id]
+http://apple.com#@#consent.consent
 http://mymuesli.com#@#cookies_consent
 http://litebit.eu,vr.fi#@#div[class*="CookieConsent"]
 http://telenor.se#@#div[class*="cookie-consent-modal_"]
