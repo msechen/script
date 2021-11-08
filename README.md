@@ -1,7 +1,7 @@
 # # KoolProxy规则
 
 #### 介绍
-转换ABP规则(EasyList+ Easylist China  + CJX's Annoyance List + CJX's chinese)、Fanboy规则、AntiAd规则、Yhost规则优化成koolproxy规则
+转换ABP规则(EasyList+ Easylist China  + CJX's Annoyance List + CJX's chinese)、Fanboy规则、AntiAd规则、Andorid规则、Yhost规则优化成koolproxy规则
 
 
 #### 规则地址
