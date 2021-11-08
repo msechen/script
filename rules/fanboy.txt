@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: PMxHWDrSqOm+Pdue19nv5Q
-! Version: 202111071300
+! Checksum: yzd85nuI5UueUCcYuNeBhA
+! Version: 202111080100
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-07 13:00 UTC
+! Last modified: 2021-11-08 01:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -2334,8 +2334,8 @@
 ||http://widget.clym-sdk.net^$third-party
 ||http://wpcc.io^$third-party
 ||http://opencmp.net^$script,third-party
-||http://privacy-mgmt.com^$third-party,domain=~11freunde.de|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~derstandard.at|~dilbert.com|~edelblech.de|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gofeminin.de|~heise.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~onmeda.de|~politico.eu|~rollingstone.de|~sportbild.de|~stylebook.de|~techbook.de|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~utopia.de|~vip.de|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
-||http://sp-prod.net^$third-party,domain=~11freunde.de|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~edelblech.de|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gofeminin.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~onmeda.de|~politico.eu|~rollingstone.de|~sportbild.de|~stylebook.de|~techbook.de|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~vip.de|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
+||http://privacy-mgmt.com^$third-party,domain=~11freunde.de|~ad.nl|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~bold.dk|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~derstandard.at|~dilbert.com|~edelblech.de|~ekstrabladet.dk|esgentside.com|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gentside.de|~giga.de|~gofeminin.de|~heise.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~manager-magazin.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~ohmymag.com|~onmeda.de|~politico.eu|~rollingstone.de|~spiegel.de|~sport1.de|~sportbild.de|~stylebook.de|~techbook.de|~telegraph.co.uk|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~utopia.de|~vip.de|~vtm.begmt.com|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
+||http://sp-prod.net^$third-party,domain=~11freunde.de|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~bold.dk|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~edelblech.de|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gofeminin.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~onmeda.de|~politico.eu|~rollingstone.de|~sportbild.de|~stylebook.de|~techbook.de|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~vip.de|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
 ||http://4chan.org/b/*.swf
 ||http://anews.com/s/js/widget.js
 ||http://api.qwant.com/*/homepage/trends?
@@ -12449,6 +12449,7 @@ https://aiseesoft.de##.usernotice_pop
 https://oeaw.ac.at##.warning-popup
 https://regupedia.de##.wr_regupedia-header-cookie
 https://tfa-dostmann.de,visomat.de##.xcb
+https://nebenan.de##[class^="goodhood-components_"]
 https://alltours.de##div[class^="CookieNotificationBox_"]
 https://geo.de##div[class^="sp_message_container"]
 https://aboutyou.de##div[class^="styles__container-"]
@@ -13015,6 +13016,7 @@ https://infiniti.it##.c_128
 https://timgate.it##.cao
 https://hyle.appspot.com##.cc
 https://dbplanet.net##.cc-banner
+https://pennyacasa.it##.cc_css_reboot
 https://regione.lombardia.it##.cdk-overlay-backdrop
 https://mivoq.it##.check-policy
 https://iosi.nexi.it##.cl-banner-body
@@ -13426,6 +13428,7 @@ https://aliexpress.ru##.PrivacyPolicyBanner-styles_wrapper__1qbIl
 https://drweb.ru##.SHOWIT-msg_showed
 https://ngnovoros.ru##._1TNYbgH
 https://sberbank.ru##._3KWyaRBN-Zc2EeT_YjLEUV
+https://voka.tv##._3u9jqhQV
 https://2gis.ru##._nlniiu
 https://oreluniver.ru##.accept
 https://volia.com##.agreeCookie\.component__cookieWrapper
@@ -23957,6 +23960,7 @@ http://aiseesoft.de##.usernotice_pop
 http://oeaw.ac.at##.warning-popup
 http://regupedia.de##.wr_regupedia-header-cookie
 http://tfa-dostmann.de,visomat.de##.xcb
+http://nebenan.de##[class^="goodhood-components_"]
 http://alltours.de##div[class^="CookieNotificationBox_"]
 http://geo.de##div[class^="sp_message_container"]
 http://aboutyou.de##div[class^="styles__container-"]
@@ -24523,6 +24527,7 @@ http://infiniti.it##.c_128
 http://timgate.it##.cao
 http://hyle.appspot.com##.cc
 http://dbplanet.net##.cc-banner
+http://pennyacasa.it##.cc_css_reboot
 http://regione.lombardia.it##.cdk-overlay-backdrop
 http://mivoq.it##.check-policy
 http://iosi.nexi.it##.cl-banner-body
@@ -24934,6 +24939,7 @@ http://aliexpress.ru##.PrivacyPolicyBanner-styles_wrapper__1qbIl
 http://drweb.ru##.SHOWIT-msg_showed
 http://ngnovoros.ru##._1TNYbgH
 http://sberbank.ru##._3KWyaRBN-Zc2EeT_YjLEUV
+http://voka.tv##._3u9jqhQV
 http://2gis.ru##._nlniiu
 http://oreluniver.ru##.accept
 http://volia.com##.agreeCookie\.component__cookieWrapper
