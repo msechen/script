@@ -150,6 +150,14 @@ async function singleRun(target, method = 'start', runFn = null) {
   const dirName = path.basename(filePath.replace(`/${fileName}`, ''));
   // 必须是当前执行的文件, 避免被继承的类被执行
   const scriptName = target.scriptName;
+  let envCookieName;
+  if ([
+    'Earn',
+    'EarnAdvertPlugin',
+  ].includes(scriptName)) {
+    // TODO 更改 getCookieData
+    envCookieName = 'JD_EARN_COOKIE';
+  }
   const isCurrentFile = eq(scriptName, scriptName1) || eq(scriptName, `${dirName}${scriptName1 === 'index' ? '' : scriptName1}`);
 
   let promise;
@@ -157,7 +165,7 @@ async function singleRun(target, method = 'start', runFn = null) {
   for (const m of _.concat(method)) {
     if (command1 === m && isCurrentFile) {
       updateProcessEnv();
-      promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData()));
+      promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData(void 0, envCookieName)));
     }
   }
 

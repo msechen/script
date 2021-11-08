@@ -1,0 +1,87 @@
+const Earn = require('./index');
+
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const _ = require('lodash');
+const urlData = require('./patchAdverPluginUrl');
+const {getEnv} = require('../../lib/env');
+
+class EarnAdvertPlugin extends Earn {
+  static scriptName = 'EarnAdvertPlugin';
+  static scriptNameDesc = '三人红包团';
+  static dirname = __dirname;
+  static shareCodeTaskList = [];
+  static commonParamFn = () => ({});
+  static concurrent = true;
+
+  static apiOptions = {
+    options: {
+      uri: 'https://api.m.jd.com/',
+      form: {
+        appid: 'wx_ad',
+        loginType: 1,
+        loginWQBiz: 'advert-plugin',
+        body: {'lt': 'wq', 'an': 'advert-activity'},
+      },
+      headers: {
+        origin: 'https://prodev.m.jd.com',
+        'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.16(0x18001028) NetType/WIFI Language/zh_CN miniProgram',
+      },
+    },
+  };
+
+  static async doMain(api, shareCodes) {
+    const self = this;
+    await self.beforeRequest(api);
+
+    const dayStart = self.getNowHour() === 12;
+    const inviteId = getEnv('JD_EARNADVERTPLUGIN_INVITEID', api.currentCookieTimes) || 'Sv_h1QhgY81XeKR6b1A';
+    let failUrlData = [];
+
+    if (!dayStart) {
+      return handleDo(urlData);
+    }
+
+    // 避免助力不上, 循环多次
+    for (let i = 0; i < 2; i++) {
+      handleDo(urlData);
+      await sleep(60);
+    }
+
+    async function handleDo(list, loopMaxTimes = 3) {
+      if (loopMaxTimes < 0) return;
+      failUrlData = [];
+      for (const item of list) {
+        const {activityId, taskId} = item;
+        if (!activityId) continue;
+        const {resultCode} = await handleDoShare(activityId, taskId);
+        // {"message":"服务内部错误","resultCode":"A000","success":false}
+        // 活动火爆, 需要重新助力
+        if (resultCode === 'A000') {
+          failUrlData.push(item);
+        }
+        await sleep(2);
+      }
+      if (!_.isEmpty(failUrlData)) {
+        await handleDo(_.concat(failUrlData), --loopMaxTimes);
+      }
+    }
+
+
+    async function handleDoShare(activityId, taskId) {
+      return api.doFormBody('advertPlugin_taskAssist', {activityId, taskId, inviteId}).then(data => {
+        const {message, result} = data;
+        if (result) {
+          const {friend, msg} = result;
+          api.log(`助力 ${friend}(${activityId}), 结果为: ${msg}`);
+        } else {
+          api.log(message);
+        }
+        return data;
+      });
+    }
+  }
+}
+
+singleRun(EarnAdvertPlugin).then();
+
+module.exports = EarnAdvertPlugin;
