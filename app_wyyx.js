@@ -26,6 +26,8 @@ v2p配置
 
 cron "5 6,17 * * *"
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_wyyx.js
+
 */
 const $ = new Env('网易严选');
 // @grant require
