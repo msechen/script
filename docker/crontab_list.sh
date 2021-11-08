@@ -113,6 +113,8 @@
 5 7,12,20 * * * node /scripts/jd_star.js >> /scripts/logs/jd_star.log 2>&1
 # 京东超市奖品查询
 30 1,23 * * * node /scripts/jd_cscx.js >> /scripts/logs/jd_cscx.log 2>&1
+# 赚京豆(微信小程序)
+12 * * * * node /scripts/jd_syj.js >> /scripts/logs/jd_syj.log 2>&1
 
 ##############长期活动##############
 # 签到
