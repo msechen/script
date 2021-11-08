@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: gUClpUSiuTZOsIfep4dLXQ
-! Version: 202111080421
+! Checksum: bJI6iDtAmIZPkpecxQT3iw
+! Version: 202111080441
 ! Title: EasyList China+EasyList
-! Last modified: 08 Nov 2021 04:21 UTC
+! Last modified: 08 Nov 2021 04:41 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -49409,6 +49409,7 @@ https://irishtimes.com##.cs-teaser
 https://c-span.org##.cspan-ad-still-wrapper
 https://healthline.com##.css-0 + div:not([class]):last-of-type
 https://healthline.com##.css-12efcmn
+https://ladbible.com##.css-1dgm0zi-Advert
 https://stylist.co.uk##.css-1fz837r
 https://infowars.com##.css-1upmbem
 https://healthline.com##.css-1vcjrad
@@ -49418,6 +49419,7 @@ https://healthline.com##.css-1y1s420
 https://businessnewsdaily.com##.css-5d7ylg-AdContainer
 https://stylist.co.uk##.css-8me5ln
 https://healthline.com##.css-rjh5b
+https://ladbible.com##.css-salf17-margin-Advert
 https://izismile.com##.css-widget-item-wrap
 https://comparitech.com##.ct_popup_modal
 https://androidcentral.com,techspot.com##.cta
@@ -50600,7 +50602,6 @@ https://osbot.org##custom > a[href]
 https://healthline.com##div.css-0 > div[class]:not([id])
 https://guru99.com##div.custom > .hidden-phone
 https://nexusradio.com##div[align=center]
-https://ladbible.com##div[class$="-Advert"]
 https://pcgamer.com,tomsguide.com,tomshardware.com##div[class*="ad-unit"]
 https://issuu.com##div[class*="adPlacement"]
 https://issuu.com##div[class*="adSkyscraper"]
@@ -59488,6 +59489,7 @@ http://irishtimes.com##.cs-teaser
 http://c-span.org##.cspan-ad-still-wrapper
 http://healthline.com##.css-0 + div:not([class]):last-of-type
 http://healthline.com##.css-12efcmn
+http://ladbible.com##.css-1dgm0zi-Advert
 http://stylist.co.uk##.css-1fz837r
 http://infowars.com##.css-1upmbem
 http://healthline.com##.css-1vcjrad
@@ -59497,6 +59499,7 @@ http://healthline.com##.css-1y1s420
 http://businessnewsdaily.com##.css-5d7ylg-AdContainer
 http://stylist.co.uk##.css-8me5ln
 http://healthline.com##.css-rjh5b
+http://ladbible.com##.css-salf17-margin-Advert
 http://izismile.com##.css-widget-item-wrap
 http://comparitech.com##.ct_popup_modal
 http://androidcentral.com,techspot.com##.cta
@@ -60679,7 +60682,6 @@ http://osbot.org##custom > a[href]
 http://healthline.com##div.css-0 > div[class]:not([id])
 http://guru99.com##div.custom > .hidden-phone
 http://nexusradio.com##div[align=center]
-http://ladbible.com##div[class$="-Advert"]
 http://pcgamer.com,tomsguide.com,tomshardware.com##div[class*="ad-unit"]
 http://issuu.com##div[class*="adPlacement"]
 http://issuu.com##div[class*="adSkyscraper"]
