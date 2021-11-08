@@ -15,7 +15,7 @@ class Fruit extends Template {
         appid: 'wh5',
       },
       form: {
-        body: {'version': 14, 'channel': 1, 'babelChannel': 0},
+        body: {'version': 14, 'channel': 1, 'babelChannel': '120'},
       },
       headers: {
         referer: indexUrl,
@@ -23,6 +23,7 @@ class Fruit extends Template {
     },
     formatDataFn(data) {
       const amountLog = data => {
+        if ('assistFriendList' in data) return;
         _.pick(data, ['amount', 'addEnergy', 'addWater']);
         const amount = _.first(_.values(_.pick(data, ['amount', 'addEnergy', 'addWater'])));
         amount && this.log(`获取的水滴数: ${amount}`);
@@ -96,10 +97,14 @@ class Fruit extends Template {
 
     // 获取助力人数满的奖励
     async function handleGetShareFinished() {
-      const {masterGotFinal, masterHelpPeoples} = await api.doFormBody('masterHelpTaskInitForFarm');
-      if (!masterGotFinal && (masterHelpPeoples.length === 5)) {
-        await api.doFormBody('masterGotFinishedTaskForFarm');
+      const {amount = 0} = await api.doFormBody('farmAssistInit');
+      if (amount > 0) {
+        await api.doFormBody('receiveStageEnergy');
       }
+      // const {masterGotFinal, masterHelpPeoples} = await api.doFormBody('masterHelpTaskInitForFarm');
+      // if (!masterGotFinal && (masterHelpPeoples.length === 5)) {
+      //   await api.doFormBody('masterGotFinishedTaskForFarm');
+      // }
     }
 
     // 任务列表
