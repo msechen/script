@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: pc/KvAmpmMoSTOU05anQog
-! Version: 202111081532
+! Checksum: ZRT4Z8sKTVEK8fC6J8NLSQ
+! Version: 202111081552
 ! Title: EasyList China+EasyList
-! Last modified: 08 Nov 2021 15:31 UTC
+! Last modified: 08 Nov 2021 15:51 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -8624,6 +8624,7 @@
 ||https://adextrem.com^$popup
 ||https://adultadworld.com^$popup,third-party
 ||https://alobby-x.eu^$popup
+||https://axp9.com^$popup
 ||https://banners.cams.com^$popup
 ||https://bxgjpocfz1g1jiwb.pro^$popup
 ||https://c4tracking01.com^$popup
@@ -8644,6 +8645,7 @@
 ||https://cpng.lol.^$popup
 ||https://cpng.lol^$popup
 ||https://crentexgate.com^$popup
+||https://crjpingate.com^$popup
 ||https://crlcw.link^$popup
 ||https://crptentry.com^$popup
 ||https://crptgate.com^$popup
@@ -8735,6 +8737,7 @@
 ||https://soadvr.com^$popup
 ||https://socialsex.biz^$popup,third-party
 ||https://socialsex.com^$popup
+||https://spklmis.com^$popup
 ||https://targetingnow.com^$popup
 ||https://trackvoluum.com^$popup
 ||https://traffic.club^$popup
@@ -8744,6 +8747,7 @@
 ||https://trkbc.com^$popup
 ||https://trkinator.com^$popup
 ||https://trvtrk.com^$popup
+||https://twinrdsrv.com^$popup
 ||https://viensvoircesite.com^$popup
 ||https://vlexokrako.com^$popup
 ||https://watchmygf.com^$popup
@@ -9775,6 +9779,7 @@
 ||https://cams.imagetwist.com/in/?track=$subdocument
 ||https://camvideos.tv/tpd.png
 ||https://camvideos.tv^$subdocument
+||https://camwhores.tv/t6e6d2454fa5.js
 ||https://celeb.gate.cc/assets/bilder/bann
 ||https://celebritynakeds.com/nb/
 ||https://cherrynudes.com/t33638ba5008.js
@@ -23479,6 +23484,7 @@
 ||http://axhntisudyhmxjd.xyz^
 ||http://axill.com^
 ||http://axioux.com^
+||http://axp9.com^
 ||http://ay.delivery^
 ||http://ayads.co^
 ||http://ayahtyros.com^
@@ -24227,6 +24233,7 @@
 ||http://buytieposer.com^
 ||http://buzzvids-direct.com^
 ||http://bvahezakk.com^
+||http://bviehlvfp.xyz^
 ||http://bvnjgjfh.com^
 ||http://bvsxquec.xyz^
 ||http://bvtuuewvwi.com^
@@ -25138,6 +25145,7 @@
 ||http://critariatele.pro^
 ||http://criticbrass.com^
 ||http://criticismvillagegun.com^
+||http://crjpingate.com^
 ||http://crm4d.com^
 ||http://croakflabbyconsume.com^
 ||http://crocoads.com^
@@ -34384,6 +34392,7 @@
 ||http://tmrjmp.com^
 ||http://tncomg.com^
 ||http://tncred.com^
+||http://tnnpkperngdhtv.xyz^
 ||http://tnvilqncje.com^
 ||http://tnwyjsgypjpc.com^
 ||http://tnzjsphdird.com^
@@ -39929,6 +39938,7 @@
 ||http://adextrem.com^$popup
 ||http://adultadworld.com^$popup,third-party
 ||http://alobby-x.eu^$popup
+||http://axp9.com^$popup
 ||http://banners.cams.com^$popup
 ||http://bxgjpocfz1g1jiwb.pro^$popup
 ||http://c4tracking01.com^$popup
@@ -39949,6 +39959,7 @@
 ||http://cpng.lol.^$popup
 ||http://cpng.lol^$popup
 ||http://crentexgate.com^$popup
+||http://crjpingate.com^$popup
 ||http://crlcw.link^$popup
 ||http://crptentry.com^$popup
 ||http://crptgate.com^$popup
@@ -40040,6 +40051,7 @@
 ||http://soadvr.com^$popup
 ||http://socialsex.biz^$popup,third-party
 ||http://socialsex.com^$popup
+||http://spklmis.com^$popup
 ||http://targetingnow.com^$popup
 ||http://trackvoluum.com^$popup
 ||http://traffic.club^$popup
@@ -40049,6 +40061,7 @@
 ||http://trkbc.com^$popup
 ||http://trkinator.com^$popup
 ||http://trvtrk.com^$popup
+||http://twinrdsrv.com^$popup
 ||http://viensvoircesite.com^$popup
 ||http://vlexokrako.com^$popup
 ||http://watchmygf.com^$popup
@@ -41641,6 +41654,7 @@
 ||http://cams.imgtaxi.com^
 ||http://camvideos.tv/tpd.png
 ||http://camvideos.tv^$subdocument
+||http://camwhores.tv/t6e6d2454fa5.js
 ||http://celeb.gate.cc/assets/bilder/bann
 ||http://celebritynakeds.com/nb/
 ||http://cherrynudes.com/t33638ba5008.js
