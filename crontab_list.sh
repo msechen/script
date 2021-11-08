@@ -253,8 +253,8 @@
 # 賺京豆
 5 0,7,22 * * * node /scripts/jd_zjd.js >> /scripts/logs/jd_zjd.log 2>&1
 
-# 返利
-0 9-20/1 * * * cd /scripts && ts-node /scripts/fanli.ts >> /scripts/logs/fanli.log 2>&1
+# 京东饭粒
+0 * * * * cd /scripts && ts-node /scripts/fanli.ts >> /scripts/logs/fanli.log 2>&1
 
 # 牛牛福利
 1 0,9,19,23 * * * cd /scripts && ts-node /scripts/jx_nnfls.ts >> /scripts/logs/jx_nnfls.log 2>&1
