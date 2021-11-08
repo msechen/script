@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: 9635gn1PXx/LnlcZz7tpiA
-! Version: 202111080132
+! Checksum: wDoxWy+eLprRAnAK4/Wu6Q
+! Version: 202111080151
 ! Title: EasyList China+EasyList
-! Last modified: 08 Nov 2021 01:32 UTC
+! Last modified: 08 Nov 2021 01:51 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -48231,7 +48231,7 @@ https://shop.asobistore.jp#@#.block-sponsor
 https://ixbtlabs.com#@#.bottom_ad_block
 https://wired.com#@#.box-radvert
 https://9l.pl#@#.boxAds
-https://8field.net,deployhappiness.com,dmitrysotnikov.wordpress.com,faravirusi.com,freedom-shift.net,kotan.link,markekaizen.jp,netafull.net,photopoint.com.ua#@#.category-ad:not(html):not(body)
+https://8field.net,deployhappiness.com,dmitrysotnikov.wordpress.com,faravirusi.com,freedom-shift.net,kotan.link,lovepanky.com,markekaizen.jp,netafull.net,photopoint.com.ua#@#.category-ad:not(html):not(body)
 https://business-hack.net,clip.m-boso.net,iine-tachikawa.net,meihong.work#@#.category-ads:not(html):not(body)
 https://blog.notebooksbilliger.de#@#.category-advertorial
 https://studio55.fi#@#.column-ad
@@ -49555,6 +49555,7 @@ https://theiphoneappreview.com##.frame
 https://moviemistakes.com##.freestarad
 https://alphr.com##.fs-pushdown-sticky
 https://ghacks.net##.ftd-item.home-posts
+https://lovepanky.com##.full-width.row > .medium-12:first-child
 https://ptinews.com##.fullstorydivright
 https://ferrarichat.com##.funzone
 https://aurn.com,borneobulletin.com.bn,chicagodefender.com,dallasvoice.com,gematsu.com,moviemaker.com,nondoc.com,one.com.mt,sammobile.com,thegolfnewsnet.com##.g
@@ -50092,6 +50093,7 @@ https://resetera.com##.samCodeUnit
 https://beermoneyforum.com##.samTextUnit
 https://teamfortress.tv##.sau
 https://animehub.ac##.sb-subs
+https://scotsman.com##.sc-igwadP
 https://distractify.com##.sc-jcwofb
 https://independent.co.uk##.sc-pscky.kBPJSk.sc-qQYBZ
 https://independent.co.uk##.sc-qZtCU.wIkUb.sc-qQYBZ
@@ -58307,7 +58309,7 @@ http://shop.asobistore.jp#@#.block-sponsor
 http://ixbtlabs.com#@#.bottom_ad_block
 http://wired.com#@#.box-radvert
 http://9l.pl#@#.boxAds
-http://8field.net,deployhappiness.com,dmitrysotnikov.wordpress.com,faravirusi.com,freedom-shift.net,kotan.link,markekaizen.jp,netafull.net,photopoint.com.ua#@#.category-ad:not(html):not(body)
+http://8field.net,deployhappiness.com,dmitrysotnikov.wordpress.com,faravirusi.com,freedom-shift.net,kotan.link,lovepanky.com,markekaizen.jp,netafull.net,photopoint.com.ua#@#.category-ad:not(html):not(body)
 http://business-hack.net,clip.m-boso.net,iine-tachikawa.net,meihong.work#@#.category-ads:not(html):not(body)
 http://blog.notebooksbilliger.de#@#.category-advertorial
 http://studio55.fi#@#.column-ad
@@ -59631,6 +59633,7 @@ http://theiphoneappreview.com##.frame
 http://moviemistakes.com##.freestarad
 http://alphr.com##.fs-pushdown-sticky
 http://ghacks.net##.ftd-item.home-posts
+http://lovepanky.com##.full-width.row > .medium-12:first-child
 http://ptinews.com##.fullstorydivright
 http://ferrarichat.com##.funzone
 http://aurn.com,borneobulletin.com.bn,chicagodefender.com,dallasvoice.com,gematsu.com,moviemaker.com,nondoc.com,one.com.mt,sammobile.com,thegolfnewsnet.com##.g
@@ -60168,6 +60171,7 @@ http://resetera.com##.samCodeUnit
 http://beermoneyforum.com##.samTextUnit
 http://teamfortress.tv##.sau
 http://animehub.ac##.sb-subs
+http://scotsman.com##.sc-igwadP
 http://distractify.com##.sc-jcwofb
 http://independent.co.uk##.sc-pscky.kBPJSk.sc-qQYBZ
 http://independent.co.uk##.sc-qZtCU.wIkUb.sc-qQYBZ
