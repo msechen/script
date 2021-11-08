@@ -16,9 +16,11 @@ ABP规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules
 
 Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/yhosts.txt
 
-Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/fanboy.txt
+Fanboy规则：hhttps://raw.githubusercontents.com/project-lede/koolproxy/main/rules/fanboy.txt
 
 Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/antiad.txt
+
+StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/steven.txt
 
 Android规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/android.txt
 
@@ -39,6 +41,8 @@ Yhosts规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/y
 Fanboy规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/fanboy.txt
 
 Anti-AD规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/antiad.txt
+
+StevenBlack规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/steven.txt
 
 Android规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/android.txt
 
