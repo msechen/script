@@ -7,14 +7,11 @@
 # 收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
-#主要用于互助自爆通知，及时推送给不常上tg的
-0 0-23/1 * * * cd /scripts && ts-node /scripts/jd_important_notify.ts >> /scripts/logs/jd_important_notify.log 2>&1
-
 # 京东资产变动通知
 2 9 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1
 
 # 领京豆额外奖励
-10 7 * * * node /scripts/jd_bean_home.js >> /scripts/logs/jd_bean_home.log 2>&1
+10 0,12,22 * * * node /scripts/jd_bean_home.js >> /scripts/logs/jd_bean_home.log 2>&1
 
 # 东东超市兑换京豆包
 0 0 * * * node /scripts/jd_blueCoin.js >> /scripts/logs/jd_blueCoin.log 2>&1
@@ -26,7 +23,7 @@
 7 0,17 * * * cd /scripts && ts-node /scripts/jd_bean_sign.ts >> /scripts/logs/jd_bean_sign_ts.log 2>&1
 
 # 京东双签
-0 9,12 * * * cd /scripts && ts-node /scripts/jd_bean_box.ts >> /scripts/logs/jd_bean_box.log 2>&1
+1 0,9,12 * * * cd /scripts && ts-node /scripts/jd_bean_box.ts >> /scripts/logs/jd_bean_box.log 2>&1
 
 # 美丽研究院
 34 9,14,21 * * * node /scripts/jd_beauty.js >> /scripts/logs/jd_beauty.log 2>&1
@@ -122,7 +119,7 @@
 30 0-23/3 * * * cd /scripts && ts-node /scripts/jd_qq_pasture.ts >> /scripts/logs/jd_qq_pasture.log 2>&1
 
 # 惊喜牧场
-10 0,12,18 * * * cd /scripts && ts-node /scripts/jd_jxmc.ts >> /scripts/logs/jd_jxmc.log 2>&1
+5 0,6,12,18 * * * cd /scripts && ts-node /scripts/jd_jxmc.ts >> /scripts/logs/jd_jxmc.log 2>&1
 
 # 京喜农场
 0 9,12,18 * * * node /scripts/jd_jxnc.js >> /scripts/logs/jd_jxnc.log 2>&1
@@ -205,8 +202,8 @@
 # 京东种豆得豆
 1 7-21/2 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
 
-# 京喜签到
-0 0,17 * * * cd /scripts && ts-node /scripts/jx_sign.ts >> /scripts/logs/jx_sign.log 2>&1
+# 京喜-88红包-宝箱
+5 0,6,12 * * * cd /scripts && ts-node /scripts/jx_box.ts >> /scripts/logs/jx_box.log 2>&1
 
 # 京东手机狂欢城
 5 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
@@ -218,7 +215,7 @@
 35 1,23 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 
 # ddWorld
-0 0,17 * * * cd /scripts && ts-node /scripts/jd_ddWorld.ts >> /scripts/logs/jd_ddWorld.log 2>&1
+5 0,8,20 * * * cd /scripts && ts-node /scripts/jd_ddWorld.ts >> /scripts/logs/jd_ddWorld.log 2>&1
 
 # 京东魔方
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_mofang.ts >> /scripts/logs/jd_mofang.log 2>&1
@@ -234,3 +231,30 @@
 
 # 极速版-发财大赢家
 0 0,17 * * * sh /scripts/docker/shareCode/xtg.sh && cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
+
+# xxxx
+59 21 5 11 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
+
+# xxxx
+59 7,15,23 * * * cd /scripts/logs && node /scripts/logs/joy_bean.js >> /scripts/logs/joy_bean.log 2>&1
+
+# 京享红包
+0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
+
+# 单独收牛牛
+0,30 * * * * cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
+
+# 京东-下拉
+0 9-20/1 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
+
+# cfd 100
+0 0 * * * node /scripts/jd_cfd_hb.js >> /scripts/logs/jd_cfd_hb.log 2>&1
+
+# 賺京豆
+5 0,7,22 * * * node /scripts/jd_zjd.js >> /scripts/logs/jd_zjd.log 2>&1
+
+# 京东饭粒
+5 0,12,22 * * * cd /scripts && ts-node /scripts/fanli.ts >> /scripts/logs/fanli.log 2>&1
+
+# 牛牛福利
+1 0,9,19,23 * * * cd /scripts && ts-node /scripts/jx_nnfls.ts >> /scripts/logs/jx_nnfls.log 2>&1

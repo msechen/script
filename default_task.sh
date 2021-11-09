@@ -254,4 +254,5 @@ pm2 start /scripts/docker/cookie/http.js
 
 echo "发送通知"
 export NOTIFY_CONTENT=""
+cd /scripts/docker
 node notify_docker_user.js
