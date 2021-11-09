@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: RLefs67Qn7nZX2khgh6v6A
-! Version: 202111090531
+! Checksum: 6AZQnxNRzX79kquidXb3XQ
+! Version: 202111090542
 ! Title: EasyList China+EasyList
-! Last modified: 09 Nov 2021 05:31 UTC
+! Last modified: 09 Nov 2021 05:42 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -18671,6 +18671,7 @@
 ||http://xiaofashi.top^
 ||http://baowf.com^
 ||http://lingquan.vip^
+||http://zdzk0371.cn^
 ||http://000123456789.online^
 ||http://01tn.cn^
 ||http://027whht.com^
@@ -42495,6 +42496,7 @@
 https://ubmcmm.baidustatic.com
 https://hxsame.hexun.com$domain=~quote.hexun.com
 https://szxx.com.cn###A0
+https://360kuai.com###cangbao_redbags
 https://szxx.com.cn###A1
 https://szxx.com.cn###A2
 https://gpcxw.com###AA2
@@ -52581,6 +52583,7 @@ https://dhzw8.com,hkslg8.com,konlan.org,lewxs.com,snwx3.com,sqsxs.com,xtmetb.com
 http://ubmcmm.baidustatic.com
 http://hxsame.hexun.com$domain=~quote.hexun.com
 http://szxx.com.cn###A0
+http://360kuai.com###cangbao_redbags
 http://szxx.com.cn###A1
 http://szxx.com.cn###A2
 http://gpcxw.com###AA2
