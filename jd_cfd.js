@@ -1564,7 +1564,7 @@ function readShareCode() {
 }
 function uploadShareCode(code) {
   return new Promise(async resolve => {
-    $.post({url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=cfd&sharecode=${code}`, timeout: 30 * 1000}, (err, resp, data) => {
+    $.get({url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=cfd&sharecode=${code}`, timeout: 30 * 1000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
