@@ -9,7 +9,7 @@ else
 fi
 
 sed -i 's/node \/scripts\// node \/scripts\/logs\/other_scripts\/Annyoo2021\//g' ${customListFile}
-sed -i 's/\/scripts\/logs\// \/scripts\/logs\/other_logs\/Annyoo2021\//g' ${customListFile}
+sed -i 's/>> \/scripts\/logs\// >> \/scripts\/logs\/other_logs\/Annyoo2021\//g' ${customListFile}
 
 echo -e "" >>$mergedListFile
 cat $customListFile >>$mergedListFile
