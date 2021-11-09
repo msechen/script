@@ -601,6 +601,10 @@ function taskUrl(function_path, body = '', dwEnv = 7) {
     }
   };
 }
+function getStk(url) {
+  let arr = url.split('&').map(x => x.replace(/.*\?/, "").replace(/=.*/, ""))
+  return encodeURIComponent(arr.filter(x => x).sort().join(','))
+}
 function randomString(e) {
   e = e || 32;
   let t = "0123456789abcdef", a = t.length, n = "";
@@ -630,6 +634,7 @@ function showMsg() {
     resolve();
   });
 }
+
 function uploadShareCode(code) {
   return new Promise(async resolve => {
     $.get({url: `http://`+process.env.JDSHAREURL+`/api/runTimes?activityId=cfdmoon&sharecode=${code}`, timeout: 10000}, (err, resp, data) => {
