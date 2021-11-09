@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: ZRT4Z8sKTVEK8fC6J8NLSQ
-! Version: 202111081552
+! Checksum: w27EKzkaIPIPPfSr6XmB+w
+! Version: 202111090441
 ! Title: EasyList China+EasyList
-! Last modified: 08 Nov 2021 15:51 UTC
+! Last modified: 09 Nov 2021 04:41 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -3783,6 +3783,7 @@
 ||https://rouman5.com/cps/*.gif
 ||https://rouman5.com/hlw.jpg
 ||https://rryy99.com/statics/js/stat.js
+||https://rsdown.cn/statics/images/rs-banner.jpg
 ||https://rtbs.cn/bi.js
 ||https://ruanyifeng.com/9he/
 ||https://rugao35.com/Public/config/Couplet/Index
@@ -4846,7 +4847,6 @@
 ||https://zzsky.cn/images/a_d_
 ||https://zzz4.com/JS_AD/
 ||https://zzzyk.com/js/
-||https://rsdown.cn/statics/images/rs-banner.jpg
 ||https://17ce.com^*_$image
 ||https://69t49.com/floating/layer.js
 ||https://alicdn.com/img/ibank/*_!!2210231227621-0-cib.
@@ -13306,7 +13306,7 @@
 ||http://360.cn/int/getadurls?
 ||http://360.cn/popup/popinfo/
 ||http://360buyimg.com/jzt/temp/js/
-||http://360buyimg.com^$domain=1024wc.com|qianggou5.com
+||http://360buyimg.com^$domain=1024wc.com|12580sky.com|qianggou5.com
 ||http://360doc.com^*.html?t=
 ||http://360kan.com/special/
 ||http://365kl.net/data/attachment/portal/
@@ -16601,6 +16601,7 @@
 ||http://rouman5.com/cps/*.gif
 ||http://rouman5.com/hlw.jpg
 ||http://rryy99.com/statics/js/stat.js
+||http://rsdown.cn/statics/images/rs-banner.jpg
 ||http://rtbs.cn/bi.js
 ||http://ruanyifeng.com/9he/
 ||http://rugao35.com/Public/config/Couplet/Index
@@ -17766,8 +17767,6 @@
 ||http://zzsky.cn/images/a_d_
 ||http://zzz4.com/JS_AD/
 ||http://zzzyk.com/js/
-||http://rsdown.cn/statics/images/rs-banner.jpg
-||http://360buyimg.com^$domain=12580sky.com
 ||http://17ce.com^*_$image
 ||http://3336672.com^
 ||http://3337729.com^
@@ -18283,7 +18282,7 @@
 ||http://ixiunv.com^$third-party
 ||http://iy.com.cn^$third-party
 ||http://j.9136.com^
-||http://j.98158.com^
+||http://98158.com^
 ||http://j.baminw.cn^
 ||http://j.diangon.com^
 ||http://j.imdb.cn^
@@ -18665,19 +18664,13 @@
 ||http://hboav.com/guga/
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
-||http://sg01.top^
-||http://tzjovzs.cn^
-||http://awleo.cn^
-||http://sunmartkj.cn^
-||http://quqianlai.cn^
-||http://tccb71h.cn^
-||http://benwfw.cn^
-||http://bjymall.cn^
-||http://idmee.cn^
-||http://ki47.com^
-||http://a9324.cn^
-||http://pflhnpu.cn^
-||http://qibalmm.com^
+||http://bk485.cn^
+||http://7750o.cn^
+||http://qgfdqjf.cn^
+||http://benybw.cn^
+||http://xiaofashi.top^
+||http://baowf.com^
+||http://lingquan.vip^
 ||http://000123456789.online^
 ||http://01tn.cn^
 ||http://027whht.com^
@@ -18881,6 +18874,7 @@
 ||http://a3vy69.cn^
 ||http://a7lrf.xyz^
 ||http://a8cd.com^
+||http://a9324.cn^
 ||http://aa.wenxue6.com^
 ||http://aaan.xyz^
 ||http://aaaw.xyz^
@@ -19007,6 +19001,7 @@
 ||http://atuehome.cn^
 ||http://austinareahomeschoolers.com^
 ||http://autobedo.com.cn^
+||http://awleo.cn^
 ||http://awtks.com^
 ||http://awyys.com^
 ||http://axcdt.cn^
@@ -19063,6 +19058,7 @@
 ||http://beifmu.com^
 ||http://beizhoujt.cn^
 ||http://bentengcn.com^
+||http://benwfw.cn^
 ||http://betohomeall.com^
 ||http://better-better.com.cn^
 ||http://bgtrtv.top^
@@ -19100,6 +19096,7 @@
 ||http://bjtengda.cn^
 ||http://bjxfinance.cn^
 ||http://bjygfd.com^
+||http://bjymall.cn^
 ||http://bjyyxywjm.cn^
 ||http://bjzcbx.com^
 ||http://bjzshy.cn^
@@ -19490,6 +19487,7 @@
 ||http://hypnos04.com^
 ||http://hzghyt.cc^
 ||http://hzzydb.cn^
+||http://idmee.cn^
 ||http://ifc-edu.cn^
 ||http://ih740.cn^
 ||http://intell.work^
@@ -19512,6 +19510,7 @@
 ||http://kbtsogi.cn^
 ||http://ke94.com^
 ||http://khuokpj.cn^
+||http://ki47.com^
 ||http://ki74.com^
 ||http://kjhzwvq.cn^
 ||http://kjtol.cn^
@@ -19537,16 +19536,19 @@
 ||http://oajxkah.cn^
 ||http://owdfxgc.cn^
 ||http://pcshijie.cn^
+||http://pflhnpu.cn^
 ||http://pj16t.cn^
 ||http://poedlov.cn^
 ||http://powerchase.online^
 ||http://pzsq.xyz^
 ||http://qiaobaba.top^
+||http://qibalmm.com^
 ||http://qingyulin.top^
 ||http://qmdllqv.cn^
 ||http://qorosmall.com^
 ||http://qq163com.cn^
 ||http://qqxsnew.com/js/wodenew
+||http://quqianlai.cn^
 ||http://qzgs99.cn^
 ||http://rcjww9.xyz^
 ||http://remehealth.net^
@@ -19555,6 +19557,7 @@
 ||http://rt354.cn^
 ||http://rylcbwg.cn^
 ||http://sanwukeji.xyz^
+||http://sg01.top^
 ||http://sgaga.xyz^
 ||http://shareman.xyz^
 ||http://sherrycha.cn^
@@ -19564,6 +19567,7 @@
 ||http://sqmydhk.cn^
 ||http://sssyao.cn^
 ||http://sthyhj.cn^
+||http://sunmartkj.cn^
 ||http://sxgbwlkjkj.xyz^
 ||http://sxzchs.cn^
 ||http://syxwj.cn^
@@ -19571,6 +19575,7 @@
 ||http://tba4.cn^
 ||http://tbi7.cn^
 ||http://tbl1.cn^
+||http://tccb71h.cn^
 ||http://tework.cn^
 ||http://tg745.cn^
 ||http://thechosen1.cn^
@@ -19582,6 +19587,7 @@
 ||http://tsia1114.top^
 ||http://tszhongtianshiji.com^
 ||http://tw5k2vc.cn^
+||http://tzjovzs.cn^
 ||http://u5274.cn^
 ||http://umis.top^
 ||http://uqbmzwv.cn^
@@ -30085,6 +30091,7 @@
 ||http://mrelko.com^
 ||http://mrjb7hvcks.com^
 ||http://mrnpwuere.com^
+||http://mrqls.to^
 ||http://mrvio.com^
 ||http://mrzfjsbjj.com^
 ||http://mrzikj.com^
@@ -42488,8 +42495,6 @@
 https://ubmcmm.baidustatic.com
 https://hxsame.hexun.com$domain=~quote.hexun.com
 https://szxx.com.cn###A0
-https://rsdown.cn##.cq-tips
-https://boce.com##.adNewBox
 https://szxx.com.cn###A1
 https://szxx.com.cn###A2
 https://gpcxw.com###AA2
@@ -44155,6 +44160,7 @@ https://niaogebiji.com##.adImgBox
 https://baidu.com##.adLog
 https://2345.com##.adMainBg
 https://hao123.com##.adMainMiddle-box
+https://boce.com##.adNewBox
 https://cnblogs.com##.adPopup
 https://ifeng.com##.adR01
 https://chinaz.com##.adSpon
@@ -44782,6 +44788,7 @@ https://makepolo.com##.cpc_tgs
 https://zuoye.baidu.com,zybang.com##.cpro
 https://docin.com##.cpro_mod
 https://1111.baidu.com,bdimg.com,tieba.baidu.com,tieba.com,xingqu.baidu.com##.cps_wrap
+https://rsdown.cn##.cq-tips
 https://51credit.com##.credit-box
 https://nfuwow.com##.crightbtad
 https://bkill.com##.cross-ad
@@ -48284,6 +48291,7 @@ https://freenet.de#@#.frn_contAdHead
 https://guloggratis.dk#@#.gallery-ad
 https://davidsilverspares.co.uk#@#.greyAd
 https://forums.digitalspy.com,marketwatch.com#@#.has-ad
+https://infosecurity-magazine.com#@#.header-ad-row
 https://mobiili.fi#@#.header_ad
 https://iedrc.org#@#.home-ad
 https://economist.com,flightcentre.co.uk,payback.pl,ripley.cl,ripley.com.pe,wsj.com#@#.img_ad
@@ -48591,6 +48599,14 @@ https://mozillazine.org###gootop
 https://malaysiakini.com###gpt-layout-top-container
 https://sourceforge.jp###gpt-sf_dev_300
 https://indianexpress.com###gpt_ad_IE_ROS_BUDGET_BAND
+https://gptoday.net###gptoday_ros_alpha_rectangle-halfpage
+https://gptoday.net###gptoday_ros_bravo_leaderboard-billboard
+https://gptoday.net###gptoday_ros_bravo_rectangle-halfpage
+https://gptoday.net###gptoday_ros_charlie_rectangle-halfpage
+https://gptoday.net###gptoday_ros_delta_leaderboard-billboard
+https://gptoday.net###gptoday_ros_delta_rectangle-halfpage
+https://gptoday.net###gptoday_ros_echo_leaderboard-billboard
+https://gptoday.net###gptoday_ros_echo_rectangle-halfpage
 https://proboards.com###gravity-stories-1
 https://spellcheck.net###grmrl_one
 https://streamingrant.com###hb-strip
@@ -49031,7 +49047,7 @@ https://roblox.com##.abp
 https://manualslib.com##.abp_adv_b
 https://manualslib.com##.abp_adv_s-title
 https://searchenginejournal.com##.absolute-banner
-https://11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,abovethelaw.com,adelaidenow.com.au,adtmag.com,aero-news.net,airportia.com,americanprofile.com,appleinsider.com,arstechnica.com,articlealley.com,asianwiki.com,associationsnow.com,autoevolution.com,autoguide.com,autotrader.com.au,bab.la,bdnews24.com,beinsports.com,boats.com,bobvila.com,bostonglobe.com,bradleybraves.com,breitbart.com,businessdailyafrica.com,businessinsider.com,businesstech.co.za,c21media.net,cbs19.tv,cd1025.com,celebdigs.com,celebified.com,ch-aviation.com,cheboygannews.com,chinahush.com,citysearch.com,cnn.com,cnnphilippines.com,colourlovers.com,comicbookmovie.com,computerworld.com,couriermail.com.au,cpuboss.com,createtv.com,crossmap.com,crosswalk.com,csoonline.com,cxpress.co.za,dailycaller.com,dailylobo.com,dailyparent.com,dailytarheel.com,dawn.com,dealnews.com,defenseone.com,downdetector.co.nz,downdetector.co.uk,downdetector.co.za,downdetector.com,downdetector.in,downdetector.sg,dpreview.com,drinksmixer.com,earlygame.com,edmontonjournal.com,emoji.gg,excellence-mag.com,familydoctor.org,fanpop.com,federalnewsnetwork.com,femalefirst.co.uk,firstcoastnews.com,foodandwine.com,fool.com,footyheadlines.com,fox6now.com,foxafrica.com,foxbusiness.com,foxnews.com,fxnowcanada.ca,gayvegas.com,gcn.com,geelongadvertiser.com.au,go.com,golfweather.com,gpuboss.com,greenbot.com,gtplanet.net,heraldsun.com.au,hodinkee.com,indiewire.com,infoworld.com,inhabitat.com,insider.com,instyle.com,interfax.com.ua,investsmart.com.au,jscompress.com,kagstv.com,kare11.com,kcentv.com,kedglobal.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,koreabang.com,krem.com,ksdk.com,ktvb.com,kusports.com,kvue.com,lagom.nl,lawrence.com,leaderpost.com,lifezette.com,looktothestars.org,mangarockteam.com,marketwatch.com,maxpreps.com,mcpmag.com,mirror.co.uk,monitor.co.ug,motherjones.com,motorcycle.com,movieweb.com,mprnews.org,msn.com,mybroadband.co.za,myfitnesspal.com,myfox8.com,myfoxzone.com,mygaming.co.za,myrecipes.com,namibtimes.net,nejm.org,networkworld.com,newbeauty.com,news.com.au,news.sky.com,newscentermaine.com,newsday.com,newstimes.com,ny1.com,nymag.com,nytco.com,nytimes.com,nytimes3xbfgragh.onion,odometer.com,offbeat.com,onmsft.com,ovationtv.com,patch.com,patheos.com,perthnow.com.au,planelogger.com,playtictactoe.org,politico.com,politico.eu,popsugar.com,popsugar.com.au,prepperwebsite.com,quackit.com,quibblo.com,ranker.com,ratemds.com,ratemyprofessors.com,redmondmag.com,refinery29.com,roadsideamerica.com,salisburypost.com,sbs.com.au,seattletimes.com,shtfplan.com,simpledesktops.com,slickdeals.net,smartcompany.com.au,smsfi.com,softpedia.com,soranews24.com,spot.im,spryliving.com,statenews.com,statscrop.com,stocktwits.com,streetinsider.com,stv.tv,stylenest.co.uk,talkandroid.com,techdirt.com,thecitizen.co.tz,thecut.com,thedp.com,theeastafrican.co.ke,thefader.com,thefirearmblog.com,thegrocer.co.uk,thejournal.co.uk,themercury.com.au,thenation.com,thestarphoenix.com,thv11.com,time.com,today.com,topgear.com,townhall.com,travelocity.com,tribalfootball.com,tribecafilm.com,triblive.com,tripadvisor.ca,tripadvisor.co.uk,tripadvisor.co.za,tripadvisor.com,tripadvisor.ie,tripadvisor.in,trucktrend.com,truecar.com,tvmaze.com,tweaktown.com,ultimatespecs.com,uptodown.com,userstyles.org,usmagazine.com,usnews.com,vancouversun.com,vid.gg,vogue.in,vulture.com,wamu.org,washingtontimes.com,watzatsong.com,wbir.com,wcnc.com,weathernationtv.com,weatheronline.co.uk,webestools.com,webmd.com,weeklytimesnow.com.au,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgnt.com,wgntv.com,wgrz.com,whas11.com,wildcat.arizona.edu,windsorstar.com,wkyc.com,wltx.com,wnep.com,worthplaying.com,wqad.com,wral.com,wrif.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com,x17online.com,yorkpress.co.uk##.ad
+https://11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,abovethelaw.com,adelaidenow.com.au,adtmag.com,aero-news.net,airportia.com,americanprofile.com,appleinsider.com,arstechnica.com,articlealley.com,asianwiki.com,associationsnow.com,autoevolution.com,autoguide.com,autotrader.com.au,bab.la,bdnews24.com,beinsports.com,boats.com,bobvila.com,bostonglobe.com,bradleybraves.com,breitbart.com,businessdailyafrica.com,businessinsider.com,businesstech.co.za,c21media.net,cbs19.tv,cd1025.com,celebdigs.com,celebified.com,ch-aviation.com,cheboygannews.com,chinahush.com,citysearch.com,cnn.com,cnnphilippines.com,colourlovers.com,comicbookmovie.com,computerworld.com,couriermail.com.au,cpuboss.com,createtv.com,crossmap.com,crosswalk.com,csoonline.com,cxpress.co.za,dailycaller.com,dailylobo.com,dailyparent.com,dailytarheel.com,dawn.com,dealnews.com,defenseone.com,downdetector.co.nz,downdetector.co.uk,downdetector.co.za,downdetector.com,downdetector.in,downdetector.sg,dpreview.com,drinksmixer.com,earlygame.com,edmontonjournal.com,emoji.gg,excellence-mag.com,familydoctor.org,fanpop.com,federalnewsnetwork.com,femalefirst.co.uk,firstcoastnews.com,foodandwine.com,fool.com,footyheadlines.com,forvo.com,fox6now.com,foxafrica.com,foxbusiness.com,foxnews.com,fxnowcanada.ca,gayvegas.com,gcn.com,geelongadvertiser.com.au,go.com,golfweather.com,gpuboss.com,greenbot.com,gtplanet.net,heraldsun.com.au,hodinkee.com,indiewire.com,infoworld.com,inhabitat.com,insider.com,instyle.com,interfax.com.ua,investsmart.com.au,jscompress.com,kagstv.com,kare11.com,kcentv.com,kedglobal.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,koreabang.com,krem.com,ksdk.com,ktvb.com,kusports.com,kvue.com,lagom.nl,lawrence.com,leaderpost.com,lifezette.com,looktothestars.org,mangarockteam.com,marketwatch.com,maxpreps.com,mcpmag.com,mirror.co.uk,monitor.co.ug,motherjones.com,motorcycle.com,movieweb.com,mprnews.org,msn.com,mybroadband.co.za,myfitnesspal.com,myfox8.com,myfoxzone.com,mygaming.co.za,myrecipes.com,namibtimes.net,nejm.org,networkworld.com,newbeauty.com,news.com.au,news.sky.com,newscentermaine.com,newsday.com,newstimes.com,ny1.com,nymag.com,nytco.com,nytimes.com,nytimes3xbfgragh.onion,odometer.com,offbeat.com,onmsft.com,ovationtv.com,patch.com,patheos.com,perthnow.com.au,planelogger.com,playtictactoe.org,politico.com,politico.eu,popsugar.com,popsugar.com.au,prepperwebsite.com,quackit.com,quibblo.com,ranker.com,ratemds.com,ratemyprofessors.com,redmondmag.com,refinery29.com,roadsideamerica.com,salisburypost.com,sbs.com.au,seattletimes.com,shtfplan.com,simpledesktops.com,slickdeals.net,smartcompany.com.au,smsfi.com,softpedia.com,soranews24.com,spot.im,spryliving.com,statenews.com,statscrop.com,stocktwits.com,streetinsider.com,stv.tv,stylenest.co.uk,talkandroid.com,techdirt.com,thecitizen.co.tz,thecut.com,thedp.com,theeastafrican.co.ke,thefader.com,thefirearmblog.com,thegrocer.co.uk,thejournal.co.uk,themercury.com.au,thenation.com,thestarphoenix.com,thv11.com,time.com,today.com,topgear.com,townhall.com,travelocity.com,tribalfootball.com,tribecafilm.com,triblive.com,tripadvisor.ca,tripadvisor.co.uk,tripadvisor.co.za,tripadvisor.com,tripadvisor.ie,tripadvisor.in,trucktrend.com,truecar.com,tvmaze.com,tweaktown.com,ultimatespecs.com,uptodown.com,userstyles.org,usmagazine.com,usnews.com,vancouversun.com,vid.gg,vogue.in,vulture.com,wamu.org,washingtontimes.com,watzatsong.com,wbir.com,wcnc.com,weathernationtv.com,weatheronline.co.uk,webestools.com,webmd.com,weeklytimesnow.com.au,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgnt.com,wgntv.com,wgrz.com,whas11.com,wildcat.arizona.edu,windsorstar.com,wkyc.com,wltx.com,wnep.com,worthplaying.com,wqad.com,wral.com,wrif.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com,x17online.com,yorkpress.co.uk##.ad
 https://techrepublic.com##.ad-active
 https://9to5google.com,9to5mac.com,beeradvocate.com,bizjournals.com,biznews.com,businessinsider.com,computerworld.com,driven.co.nz,ecr.co.za,electrek.co,engineeringnews.co.za,etcanada.com,fox10phoenix.com,fox13news.com,fox26houston.com,fox29.com,fox2detroit.com,fox32chicago.com,fox35orlando.com,fox4news.com,fox5atlanta.com,fox5dc.com,fox5ny.com,fox7austin.com,fox9.com,foxbusiness.com,foxla.com,foxnews.com,funkidslive.com,gfinityesports.com,gmanetwork.com,hbr.org,insidehook.com,intouchweekly.com,ktvu.com,macstories.net,metro.us,miningweekly.com,mobilesyrup.com,modernhealthcare.com,my9nj.com,myfitnesspal.com,nbcnews.com,nzherald.co.nz,opb.org,realsport101.com,scroll.in,seattletimes.com,sportskeeda.com,thelocal.at,thelocal.ch,thelocal.de,thelocal.dk,thelocal.es,thelocal.fr,thelocal.it,thelocal.no,thelocal.se,toofab.com,wogx.com##.ad-container
 https://mobilesyrup.com##.ad-goes-here
@@ -52565,8 +52581,6 @@ https://dhzw8.com,hkslg8.com,konlan.org,lewxs.com,snwx3.com,sqsxs.com,xtmetb.com
 http://ubmcmm.baidustatic.com
 http://hxsame.hexun.com$domain=~quote.hexun.com
 http://szxx.com.cn###A0
-http://rsdown.cn##.cq-tips
-http://boce.com##.adNewBox
 http://szxx.com.cn###A1
 http://szxx.com.cn###A2
 http://gpcxw.com###AA2
@@ -54232,6 +54246,7 @@ http://niaogebiji.com##.adImgBox
 http://baidu.com##.adLog
 http://2345.com##.adMainBg
 http://hao123.com##.adMainMiddle-box
+http://boce.com##.adNewBox
 http://cnblogs.com##.adPopup
 http://ifeng.com##.adR01
 http://chinaz.com##.adSpon
@@ -54859,6 +54874,7 @@ http://makepolo.com##.cpc_tgs
 http://zuoye.baidu.com,zybang.com##.cpro
 http://docin.com##.cpro_mod
 http://1111.baidu.com,bdimg.com,tieba.baidu.com,tieba.com,xingqu.baidu.com##.cps_wrap
+http://rsdown.cn##.cq-tips
 http://51credit.com##.credit-box
 http://nfuwow.com##.crightbtad
 http://bkill.com##.cross-ad
@@ -58365,6 +58381,7 @@ http://freenet.de#@#.frn_contAdHead
 http://guloggratis.dk#@#.gallery-ad
 http://davidsilverspares.co.uk#@#.greyAd
 http://forums.digitalspy.com,marketwatch.com#@#.has-ad
+http://infosecurity-magazine.com#@#.header-ad-row
 http://mobiili.fi#@#.header_ad
 http://iedrc.org#@#.home-ad
 http://economist.com,flightcentre.co.uk,payback.pl,ripley.cl,ripley.com.pe,wsj.com#@#.img_ad
@@ -58672,6 +58689,14 @@ http://mozillazine.org###gootop
 http://malaysiakini.com###gpt-layout-top-container
 http://sourceforge.jp###gpt-sf_dev_300
 http://indianexpress.com###gpt_ad_IE_ROS_BUDGET_BAND
+http://gptoday.net###gptoday_ros_alpha_rectangle-halfpage
+http://gptoday.net###gptoday_ros_bravo_leaderboard-billboard
+http://gptoday.net###gptoday_ros_bravo_rectangle-halfpage
+http://gptoday.net###gptoday_ros_charlie_rectangle-halfpage
+http://gptoday.net###gptoday_ros_delta_leaderboard-billboard
+http://gptoday.net###gptoday_ros_delta_rectangle-halfpage
+http://gptoday.net###gptoday_ros_echo_leaderboard-billboard
+http://gptoday.net###gptoday_ros_echo_rectangle-halfpage
 http://proboards.com###gravity-stories-1
 http://spellcheck.net###grmrl_one
 http://streamingrant.com###hb-strip
@@ -59112,7 +59137,7 @@ http://roblox.com##.abp
 http://manualslib.com##.abp_adv_b
 http://manualslib.com##.abp_adv_s-title
 http://searchenginejournal.com##.absolute-banner
-http://11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,abovethelaw.com,adelaidenow.com.au,adtmag.com,aero-news.net,airportia.com,americanprofile.com,appleinsider.com,arstechnica.com,articlealley.com,asianwiki.com,associationsnow.com,autoevolution.com,autoguide.com,autotrader.com.au,bab.la,bdnews24.com,beinsports.com,boats.com,bobvila.com,bostonglobe.com,bradleybraves.com,breitbart.com,businessdailyafrica.com,businessinsider.com,businesstech.co.za,c21media.net,cbs19.tv,cd1025.com,celebdigs.com,celebified.com,ch-aviation.com,cheboygannews.com,chinahush.com,citysearch.com,cnn.com,cnnphilippines.com,colourlovers.com,comicbookmovie.com,computerworld.com,couriermail.com.au,cpuboss.com,createtv.com,crossmap.com,crosswalk.com,csoonline.com,cxpress.co.za,dailycaller.com,dailylobo.com,dailyparent.com,dailytarheel.com,dawn.com,dealnews.com,defenseone.com,downdetector.co.nz,downdetector.co.uk,downdetector.co.za,downdetector.com,downdetector.in,downdetector.sg,dpreview.com,drinksmixer.com,earlygame.com,edmontonjournal.com,emoji.gg,excellence-mag.com,familydoctor.org,fanpop.com,federalnewsnetwork.com,femalefirst.co.uk,firstcoastnews.com,foodandwine.com,fool.com,footyheadlines.com,fox6now.com,foxafrica.com,foxbusiness.com,foxnews.com,fxnowcanada.ca,gayvegas.com,gcn.com,geelongadvertiser.com.au,go.com,golfweather.com,gpuboss.com,greenbot.com,gtplanet.net,heraldsun.com.au,hodinkee.com,indiewire.com,infoworld.com,inhabitat.com,insider.com,instyle.com,interfax.com.ua,investsmart.com.au,jscompress.com,kagstv.com,kare11.com,kcentv.com,kedglobal.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,koreabang.com,krem.com,ksdk.com,ktvb.com,kusports.com,kvue.com,lagom.nl,lawrence.com,leaderpost.com,lifezette.com,looktothestars.org,mangarockteam.com,marketwatch.com,maxpreps.com,mcpmag.com,mirror.co.uk,monitor.co.ug,motherjones.com,motorcycle.com,movieweb.com,mprnews.org,msn.com,mybroadband.co.za,myfitnesspal.com,myfox8.com,myfoxzone.com,mygaming.co.za,myrecipes.com,namibtimes.net,nejm.org,networkworld.com,newbeauty.com,news.com.au,news.sky.com,newscentermaine.com,newsday.com,newstimes.com,ny1.com,nymag.com,nytco.com,nytimes.com,nytimes3xbfgragh.onion,odometer.com,offbeat.com,onmsft.com,ovationtv.com,patch.com,patheos.com,perthnow.com.au,planelogger.com,playtictactoe.org,politico.com,politico.eu,popsugar.com,popsugar.com.au,prepperwebsite.com,quackit.com,quibblo.com,ranker.com,ratemds.com,ratemyprofessors.com,redmondmag.com,refinery29.com,roadsideamerica.com,salisburypost.com,sbs.com.au,seattletimes.com,shtfplan.com,simpledesktops.com,slickdeals.net,smartcompany.com.au,smsfi.com,softpedia.com,soranews24.com,spot.im,spryliving.com,statenews.com,statscrop.com,stocktwits.com,streetinsider.com,stv.tv,stylenest.co.uk,talkandroid.com,techdirt.com,thecitizen.co.tz,thecut.com,thedp.com,theeastafrican.co.ke,thefader.com,thefirearmblog.com,thegrocer.co.uk,thejournal.co.uk,themercury.com.au,thenation.com,thestarphoenix.com,thv11.com,time.com,today.com,topgear.com,townhall.com,travelocity.com,tribalfootball.com,tribecafilm.com,triblive.com,tripadvisor.ca,tripadvisor.co.uk,tripadvisor.co.za,tripadvisor.com,tripadvisor.ie,tripadvisor.in,trucktrend.com,truecar.com,tvmaze.com,tweaktown.com,ultimatespecs.com,uptodown.com,userstyles.org,usmagazine.com,usnews.com,vancouversun.com,vid.gg,vogue.in,vulture.com,wamu.org,washingtontimes.com,watzatsong.com,wbir.com,wcnc.com,weathernationtv.com,weatheronline.co.uk,webestools.com,webmd.com,weeklytimesnow.com.au,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgnt.com,wgntv.com,wgrz.com,whas11.com,wildcat.arizona.edu,windsorstar.com,wkyc.com,wltx.com,wnep.com,worthplaying.com,wqad.com,wral.com,wrif.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com,x17online.com,yorkpress.co.uk##.ad
+http://11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,abovethelaw.com,adelaidenow.com.au,adtmag.com,aero-news.net,airportia.com,americanprofile.com,appleinsider.com,arstechnica.com,articlealley.com,asianwiki.com,associationsnow.com,autoevolution.com,autoguide.com,autotrader.com.au,bab.la,bdnews24.com,beinsports.com,boats.com,bobvila.com,bostonglobe.com,bradleybraves.com,breitbart.com,businessdailyafrica.com,businessinsider.com,businesstech.co.za,c21media.net,cbs19.tv,cd1025.com,celebdigs.com,celebified.com,ch-aviation.com,cheboygannews.com,chinahush.com,citysearch.com,cnn.com,cnnphilippines.com,colourlovers.com,comicbookmovie.com,computerworld.com,couriermail.com.au,cpuboss.com,createtv.com,crossmap.com,crosswalk.com,csoonline.com,cxpress.co.za,dailycaller.com,dailylobo.com,dailyparent.com,dailytarheel.com,dawn.com,dealnews.com,defenseone.com,downdetector.co.nz,downdetector.co.uk,downdetector.co.za,downdetector.com,downdetector.in,downdetector.sg,dpreview.com,drinksmixer.com,earlygame.com,edmontonjournal.com,emoji.gg,excellence-mag.com,familydoctor.org,fanpop.com,federalnewsnetwork.com,femalefirst.co.uk,firstcoastnews.com,foodandwine.com,fool.com,footyheadlines.com,forvo.com,fox6now.com,foxafrica.com,foxbusiness.com,foxnews.com,fxnowcanada.ca,gayvegas.com,gcn.com,geelongadvertiser.com.au,go.com,golfweather.com,gpuboss.com,greenbot.com,gtplanet.net,heraldsun.com.au,hodinkee.com,indiewire.com,infoworld.com,inhabitat.com,insider.com,instyle.com,interfax.com.ua,investsmart.com.au,jscompress.com,kagstv.com,kare11.com,kcentv.com,kedglobal.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,koreabang.com,krem.com,ksdk.com,ktvb.com,kusports.com,kvue.com,lagom.nl,lawrence.com,leaderpost.com,lifezette.com,looktothestars.org,mangarockteam.com,marketwatch.com,maxpreps.com,mcpmag.com,mirror.co.uk,monitor.co.ug,motherjones.com,motorcycle.com,movieweb.com,mprnews.org,msn.com,mybroadband.co.za,myfitnesspal.com,myfox8.com,myfoxzone.com,mygaming.co.za,myrecipes.com,namibtimes.net,nejm.org,networkworld.com,newbeauty.com,news.com.au,news.sky.com,newscentermaine.com,newsday.com,newstimes.com,ny1.com,nymag.com,nytco.com,nytimes.com,nytimes3xbfgragh.onion,odometer.com,offbeat.com,onmsft.com,ovationtv.com,patch.com,patheos.com,perthnow.com.au,planelogger.com,playtictactoe.org,politico.com,politico.eu,popsugar.com,popsugar.com.au,prepperwebsite.com,quackit.com,quibblo.com,ranker.com,ratemds.com,ratemyprofessors.com,redmondmag.com,refinery29.com,roadsideamerica.com,salisburypost.com,sbs.com.au,seattletimes.com,shtfplan.com,simpledesktops.com,slickdeals.net,smartcompany.com.au,smsfi.com,softpedia.com,soranews24.com,spot.im,spryliving.com,statenews.com,statscrop.com,stocktwits.com,streetinsider.com,stv.tv,stylenest.co.uk,talkandroid.com,techdirt.com,thecitizen.co.tz,thecut.com,thedp.com,theeastafrican.co.ke,thefader.com,thefirearmblog.com,thegrocer.co.uk,thejournal.co.uk,themercury.com.au,thenation.com,thestarphoenix.com,thv11.com,time.com,today.com,topgear.com,townhall.com,travelocity.com,tribalfootball.com,tribecafilm.com,triblive.com,tripadvisor.ca,tripadvisor.co.uk,tripadvisor.co.za,tripadvisor.com,tripadvisor.ie,tripadvisor.in,trucktrend.com,truecar.com,tvmaze.com,tweaktown.com,ultimatespecs.com,uptodown.com,userstyles.org,usmagazine.com,usnews.com,vancouversun.com,vid.gg,vogue.in,vulture.com,wamu.org,washingtontimes.com,watzatsong.com,wbir.com,wcnc.com,weathernationtv.com,weatheronline.co.uk,webestools.com,webmd.com,weeklytimesnow.com.au,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgnt.com,wgntv.com,wgrz.com,whas11.com,wildcat.arizona.edu,windsorstar.com,wkyc.com,wltx.com,wnep.com,worthplaying.com,wqad.com,wral.com,wrif.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com,x17online.com,yorkpress.co.uk##.ad
 http://techrepublic.com##.ad-active
 http://9to5google.com,9to5mac.com,beeradvocate.com,bizjournals.com,biznews.com,businessinsider.com,computerworld.com,driven.co.nz,ecr.co.za,electrek.co,engineeringnews.co.za,etcanada.com,fox10phoenix.com,fox13news.com,fox26houston.com,fox29.com,fox2detroit.com,fox32chicago.com,fox35orlando.com,fox4news.com,fox5atlanta.com,fox5dc.com,fox5ny.com,fox7austin.com,fox9.com,foxbusiness.com,foxla.com,foxnews.com,funkidslive.com,gfinityesports.com,gmanetwork.com,hbr.org,insidehook.com,intouchweekly.com,ktvu.com,macstories.net,metro.us,miningweekly.com,mobilesyrup.com,modernhealthcare.com,my9nj.com,myfitnesspal.com,nbcnews.com,nzherald.co.nz,opb.org,realsport101.com,scroll.in,seattletimes.com,sportskeeda.com,thelocal.at,thelocal.ch,thelocal.de,thelocal.dk,thelocal.es,thelocal.fr,thelocal.it,thelocal.no,thelocal.se,toofab.com,wogx.com##.ad-container
 http://mobilesyrup.com##.ad-goes-here

@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: Du/bA5so5pp0r6FQ2HdkVQ
-! Version: 202111081600
+! Checksum: g8QFsauhCBKRcB7Ufh71gA
+! Version: 202111090400
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-08 16:00 UTC
+! Last modified: 2021-11-09 04:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -5250,6 +5250,7 @@ https://inspire.com##.joinpopupnewtwo
 https://bitchmagazine.org,debka.com,esetindia.com,gizmag.com,mediamatters.org,ncregister.com##.jqmOverlay
 https://bitchmagazine.org,esetindia.com##.jqmWindow
 https://treehugger.com##.jquery-modal
+https://mims.com##.jquery-modal.blocker
 https://ecosia.org##.js-activate-install-box
 https://wired.com##.js-annotation
 https://dn.se##.js-article-preview
@@ -5983,6 +5984,7 @@ https://appeggs.com##.t_scrollsecondbar
 https://dallasobserver.com##.tab
 https://cbsnews.com##.tabbedPromoUnit
 https://dlife.com##.tabbedSynechronPanel
+https://gpfans.com##.taboonews
 https://businessinsider.com,insider.com##.targeted-recommended
 https://theandroidsoul.com##.tasConnect
 https://ebay.com##.tb-rs
@@ -10248,6 +10250,7 @@ https://e-lawresources.co.uk,mabknives.co.uk##.topbarBox
 https://untappd.com##.tos-banner
 https://thomsonreuters.com##.tr-DismissibleBanner
 https://troax.com##.troax-messages
+https://jigsawplanet.com##.ts-msg
 https://nfumutual.co.uk##.u-bg-padd
 https://head-fi.org##.u-bottomFixer
 https://asendiausa.com##.ui-alert
@@ -10478,6 +10481,7 @@ https://weinkenner.de##.sib_signup_form
 https://kostenlose-urteile.de##.simplemodal-container
 https://kostenlose-urteile.de##.simplemodal-overlay
 https://sportnews.bz##.social
+https://supermarkt-inside.de##.spu-bg
 https://spiegel.de##.sticky-home-link
 https://spiegel.de##.sticky-overlay
 https://netzwelt.de##.subscribeboard
@@ -11710,6 +11714,7 @@ https://100p.nl##.holder-social
 https://iexprofs.nl,participaties.nl##.linkbar
 https://at5.nl,autoline-nl.be,autoline.nl,diningcity.nl,epochtimes.nl,gettyimages.nl,gids.tv,landrover.nl,nieuwsblad.be,nos.nl##.share
 https://europages.nl,knack.be,rtlnieuws.nl,voetbal24.be,voetbalnieuws.be##.social
+https://az.nl##.socials
 https://knack.be##.toolbar
 https://epochtimes.nl##.tools
 https://iexprofs.nl##.twitter
@@ -14467,6 +14472,7 @@ https://atutszkola.pl,meethue.com,mydziewczyny.pl,philips-hue.com,philips.ae,phi
 https://mymuesli.com#@#cookies_consent
 https://litebit.eu,vr.fi#@#div[class*="CookieConsent"]
 https://telenor.se#@#div[class*="cookie-consent-modal_"]
+https://justeat.it#@#div[class^="CookieBanner_"]
 https://what3words.com#@#div[class^="CookieNotice"]
 https://ee.co.uk,monese.com,ukvcas.co.uk#@#div[class^="cookie-banner"]
 https://berliner-volksbank.de,dovoba.de#@#div[class^="cookie-consent_"]
@@ -16760,6 +16766,7 @@ http://inspire.com##.joinpopupnewtwo
 http://bitchmagazine.org,debka.com,esetindia.com,gizmag.com,mediamatters.org,ncregister.com##.jqmOverlay
 http://bitchmagazine.org,esetindia.com##.jqmWindow
 http://treehugger.com##.jquery-modal
+http://mims.com##.jquery-modal.blocker
 http://ecosia.org##.js-activate-install-box
 http://wired.com##.js-annotation
 http://dn.se##.js-article-preview
@@ -17493,6 +17500,7 @@ http://appeggs.com##.t_scrollsecondbar
 http://dallasobserver.com##.tab
 http://cbsnews.com##.tabbedPromoUnit
 http://dlife.com##.tabbedSynechronPanel
+http://gpfans.com##.taboonews
 http://businessinsider.com,insider.com##.targeted-recommended
 http://theandroidsoul.com##.tasConnect
 http://ebay.com##.tb-rs
@@ -21759,6 +21767,7 @@ http://e-lawresources.co.uk,mabknives.co.uk##.topbarBox
 http://untappd.com##.tos-banner
 http://thomsonreuters.com##.tr-DismissibleBanner
 http://troax.com##.troax-messages
+http://jigsawplanet.com##.ts-msg
 http://nfumutual.co.uk##.u-bg-padd
 http://head-fi.org##.u-bottomFixer
 http://asendiausa.com##.ui-alert
@@ -21989,6 +21998,7 @@ http://weinkenner.de##.sib_signup_form
 http://kostenlose-urteile.de##.simplemodal-container
 http://kostenlose-urteile.de##.simplemodal-overlay
 http://sportnews.bz##.social
+http://supermarkt-inside.de##.spu-bg
 http://spiegel.de##.sticky-home-link
 http://spiegel.de##.sticky-overlay
 http://netzwelt.de##.subscribeboard
@@ -23221,6 +23231,7 @@ http://100p.nl##.holder-social
 http://iexprofs.nl,participaties.nl##.linkbar
 http://at5.nl,autoline-nl.be,autoline.nl,diningcity.nl,epochtimes.nl,gettyimages.nl,gids.tv,landrover.nl,nieuwsblad.be,nos.nl##.share
 http://europages.nl,knack.be,rtlnieuws.nl,voetbal24.be,voetbalnieuws.be##.social
+http://az.nl##.socials
 http://knack.be##.toolbar
 http://epochtimes.nl##.tools
 http://iexprofs.nl##.twitter
@@ -25979,6 +25990,7 @@ http://atutszkola.pl,meethue.com,mydziewczyny.pl,philips-hue.com,philips.ae,phil
 http://mymuesli.com#@#cookies_consent
 http://litebit.eu,vr.fi#@#div[class*="CookieConsent"]
 http://telenor.se#@#div[class*="cookie-consent-modal_"]
+http://justeat.it#@#div[class^="CookieBanner_"]
 http://what3words.com#@#div[class^="CookieNotice"]
 http://ee.co.uk,monese.com,ukvcas.co.uk#@#div[class^="cookie-banner"]
 http://berliner-volksbank.de,dovoba.de#@#div[class^="cookie-consent_"]
