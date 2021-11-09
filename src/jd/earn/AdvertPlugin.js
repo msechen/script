@@ -12,6 +12,7 @@ class EarnAdvertPlugin extends Earn {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static concurrent = true;
+  static concurrentOnceDelay = 0;
 
   static apiOptions = {
     options: {
@@ -42,8 +43,8 @@ class EarnAdvertPlugin extends Earn {
     }
 
     // 避免助力不上, 循环多次
-    for (let i = 0; i < 2; i++) {
-      handleDo(urlData);
+    for (let i = 0; i < 4; i++) {
+      handleDo(i > 2 ? failUrlData : urlData);
       await sleep(60);
     }
 
@@ -55,11 +56,11 @@ class EarnAdvertPlugin extends Earn {
         if (!activityId) continue;
         const {resultCode} = await handleDoShare(activityId, taskId);
         // {"message":"服务内部错误","resultCode":"A000","success":false}
+        // {"message": "依赖上游错误","resultCode": "A002","success": false}
         // 活动火爆, 需要重新助力
-        if (resultCode === 'A000') {
+        if (['A000', 'A002'].includes(resultCode)) {
           failUrlData.push(item);
         }
-        await sleep(2);
       }
       if (!_.isEmpty(failUrlData)) {
         await handleDo(_.concat(failUrlData), --loopMaxTimes);
