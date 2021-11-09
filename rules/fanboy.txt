@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: 7GtbNx7XjEhnmNOScfobog
-! Version: 202111090550
+! Checksum: DSc9qhCKqcuvI3K+dOfEsg
+! Version: 202111091550
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-09 05:50 UTC
+! Last modified: 2021-11-09 15:50 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -1205,6 +1205,7 @@
 ||https://jsdelivr.net/gh/huang545/huang1111@1.0/bottom.png
 ||https://pcbeta.com/data/cache/blstGHLORZ.js
 ||https://s1.hdslb.com/bfs/seed/jinkela/short/auto-append-spmid.js
+||https://static.iqiyi.com/js/common/mars_v.js
 ||https://linker.hr^$third-party
 ||https://inn.co.il/push.js
 ||https://24o.it^*/ias/
@@ -2696,6 +2697,7 @@
 ||http://jsdelivr.net/gh/huang545/huang1111@1.0/bottom.png
 ||http://pcbeta.com/data/cache/blstGHLORZ.js
 ||http://s1.hdslb.com/bfs/seed/jinkela/short/auto-append-spmid.js
+||http://static.iqiyi.com/js/common/mars_v.js
 ||http://ds-recommender.styria.hr^
 ||http://linker.hr^$third-party
 ||http://traffic.styria.hr^
@@ -7509,6 +7511,7 @@ https://time.com##.time-newsletters
 https://gomechanicalkeyboard.com##.tl-state-root
 https://thenewdaily.com.au##.tnd-subscribe-modal
 https://viamichelin.at,viamichelin.be,viamichelin.ch,viamichelin.co.uk,viamichelin.com,viamichelin.de,viamichelin.es,viamichelin.fr,viamichelin.ie,viamichelin.it,viamichelin.pl,viamichelin.pt##.toaster-newsletter
+https://todayonline.com##.today-news-subscription-v2__content
 https://billboard.com##.top-cover-image
 https://thrillist.com##.top-header
 https://counterpunch.org##.topfixedtrailer-color
@@ -7525,6 +7528,7 @@ https://baltimoresun.com,chicagotribune.com,citypaper.com,courant.com,dailypress
 https://newsweek.com##.trial-link
 https://gomechanicalkeyboard.com##.tve-leads-widget
 https://nzherald.co.nz##.tw-Desktop
+https://todayonline.com##.tw-pl-8.form
 https://fortune.com##.two_ad
 https://goldenstate.is,newengland.com##.ub-emb-overlay
 https://iclg.co.uk,nutritioninsight.com,ptitchef.com##.ui-dialog
@@ -8389,6 +8393,7 @@ https://moneycontrol.com##.arti_icn
 https://thedenverchannel.com,wxyz.com##.article-action
 https://townhall.com##.article-actions
 https://townhall.com##.article-actions-footer
+https://todayonline.com##.article-detail-telegram__telegram
 https://texasmonthly.com##.article-end__section
 https://upworthy.com##.article-facebook-like
 https://revizoronline.com##.article-footer
@@ -9110,6 +9115,7 @@ https://medicaldaily.com##.tm_square
 https://telegraph.co.uk##.tmg-amp-follow-platforms
 https://thenextweb.com##.tnwg2-header-follow
 https://moviesdbz.com##.toPopup
+https://todayonline.com##.today-news-subscription-v2__telegram
 https://xbiz.com##.tool-list
 https://audioprointernational.com,chicagobusiness.com,crainsnewyork.com,mcvuk.com,pcr-online.biz##.toolbar
 https://techpp.com##.toolbar-fixed
@@ -10717,6 +10723,7 @@ https://weiyun.com##.modal-show
 https://cyberctm.com##.news-control
 https://am730.com.hk##.news-pagination
 https://699pic.com##.qiye-pop
+https://qq.com##.qm_toolbarSubTitle
 https://699pic.com##.recharge
 https://juejin.cn##.recommend-box
 https://bilibili.com##.rocket-con
@@ -10730,6 +10737,7 @@ https://baidu.com##.super-layer-promote
 https://tieba.baidu.com##.tbui_fbar_top
 https://meijumi.net##.tools_top
 https://baidu.com##.topA
+https://qq.com##.top_announce
 https://mtime.com##.topbar
 https://am730.com.hk##.topic-pagination
 https://699pic.com##.viewLimit
@@ -11699,6 +11707,7 @@ https://linghit.com##.weChat
 https://ettoday.net,linghit.com##.weibo
 https://mtime.com##.weixin
 https://vapee.com##a[href^="http://e.weibo.com/"]
+https://vapee.com##a[href^="http://t.qq.com/"]
 https://ifeng.com##div[class^="share_box"]
 https://twreporter.org##div[class^="tools__ShareIconBlock"]
 https://politikenhistorie.dk##.article__pagetools
@@ -19025,6 +19034,7 @@ http://time.com##.time-newsletters
 http://gomechanicalkeyboard.com##.tl-state-root
 http://thenewdaily.com.au##.tnd-subscribe-modal
 http://viamichelin.at,viamichelin.be,viamichelin.ch,viamichelin.co.uk,viamichelin.com,viamichelin.de,viamichelin.es,viamichelin.fr,viamichelin.ie,viamichelin.it,viamichelin.pl,viamichelin.pt##.toaster-newsletter
+http://todayonline.com##.today-news-subscription-v2__content
 http://billboard.com##.top-cover-image
 http://thrillist.com##.top-header
 http://counterpunch.org##.topfixedtrailer-color
@@ -19041,6 +19051,7 @@ http://baltimoresun.com,chicagotribune.com,citypaper.com,courant.com,dailypress.
 http://newsweek.com##.trial-link
 http://gomechanicalkeyboard.com##.tve-leads-widget
 http://nzherald.co.nz##.tw-Desktop
+http://todayonline.com##.tw-pl-8.form
 http://fortune.com##.two_ad
 http://goldenstate.is,newengland.com##.ub-emb-overlay
 http://iclg.co.uk,nutritioninsight.com,ptitchef.com##.ui-dialog
@@ -19905,6 +19916,7 @@ http://moneycontrol.com##.arti_icn
 http://thedenverchannel.com,wxyz.com##.article-action
 http://townhall.com##.article-actions
 http://townhall.com##.article-actions-footer
+http://todayonline.com##.article-detail-telegram__telegram
 http://texasmonthly.com##.article-end__section
 http://upworthy.com##.article-facebook-like
 http://revizoronline.com##.article-footer
@@ -20626,6 +20638,7 @@ http://medicaldaily.com##.tm_square
 http://telegraph.co.uk##.tmg-amp-follow-platforms
 http://thenextweb.com##.tnwg2-header-follow
 http://moviesdbz.com##.toPopup
+http://todayonline.com##.today-news-subscription-v2__telegram
 http://xbiz.com##.tool-list
 http://audioprointernational.com,chicagobusiness.com,crainsnewyork.com,mcvuk.com,pcr-online.biz##.toolbar
 http://techpp.com##.toolbar-fixed
@@ -22234,6 +22247,7 @@ http://weiyun.com##.modal-show
 http://cyberctm.com##.news-control
 http://am730.com.hk##.news-pagination
 http://699pic.com##.qiye-pop
+http://qq.com##.qm_toolbarSubTitle
 http://699pic.com##.recharge
 http://juejin.cn##.recommend-box
 http://bilibili.com##.rocket-con
@@ -22247,6 +22261,7 @@ http://baidu.com##.super-layer-promote
 http://tieba.baidu.com##.tbui_fbar_top
 http://meijumi.net##.tools_top
 http://baidu.com##.topA
+http://qq.com##.top_announce
 http://mtime.com##.topbar
 http://am730.com.hk##.topic-pagination
 http://699pic.com##.viewLimit
@@ -23216,6 +23231,7 @@ http://linghit.com##.weChat
 http://ettoday.net,linghit.com##.weibo
 http://mtime.com##.weixin
 http://vapee.com##a[href^="http://e.weibo.com/"]
+http://vapee.com##a[href^="http://t.qq.com/"]
 http://ifeng.com##div[class^="share_box"]
 http://twreporter.org##div[class^="tools__ShareIconBlock"]
 http://politikenhistorie.dk##.article__pagetools
