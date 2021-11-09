@@ -93,6 +93,10 @@
 41 4,20,22 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
 #jd_opencard21
 53 8,13,21 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
+#jd_opencard22
+17 5,13,23 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
+#jd_opencard23
+22 6,13,17 * * * node /scripts/jd_opencard23.js >> /scripts/logs/jd_opencard23.log 2>&1
 # 手机狂欢城
 0 0,3 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 # 手机狂欢城help
