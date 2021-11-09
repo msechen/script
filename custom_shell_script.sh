@@ -8,7 +8,9 @@ else
   git clone https://github.com/Annyoo2021/scripts.git /scripts/logs/other_scripts/Annyoo2021
 fi
 
-sed -i 's/\/scripts\// \/scripts\/logs\/other_scripts\/Annyoo2021\//g' ${customListFile}
+sed -i 's/node \/scripts\// node \/scripts\/logs\/other_scripts\/Annyoo2021\//g' ${customListFile}
+sed -i 's/\/scripts\/logs\// \/scripts\/logs\/other_logs\/Annyoo2021\//g' ${customListFile}
+
 echo -e "" >>$mergedListFile
 cat $customListFile >>$mergedListFile
 
