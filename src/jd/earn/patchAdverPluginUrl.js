@@ -32,7 +32,8 @@ https://prodev.m.jd.com/wq/active/2MasrG2y9ZHehqm9ZygLYQyTu1DK/index.html?isMini
 https://prodev.m.jd.com/wq/active/93ipJZXDgnVN1NFfJtsvuiQ9UJR/index.html?isMiniProgram=1&taskId=2Sh3CKRH6VnBdaTzGThLpTect1F6&inviteId=Sv_h1QhgY81XeKR6b1A&activityId=4JNuVbQVMxvcyvc9Lp7ZYn6ktHfX&cookie=%7B%22wxapp_type%22%3A%2214%22%7D
 https://prodev.m.jd.com/wq/active/38gvTMGdkz5mzz4WutdTDiQdbALN/index.html?isMiniProgram=1&taskId=4AoZB7huNV3umiHP8MnxDn9XeDEo&inviteId=Sv_h1QhgY81XeKR6b1A&activityId=rMXP46uctoGcm6RDQmVRTPt5YHZ&cookie=%7B%22wxapp_type%22%3A%2214%22%7D
 https://prodev.m.jd.com/wq/active/2oduPXfoApjYeEsxLLmd2edjS29o/index.html?isMiniProgram=1&taskId=4UTJaox8NNWqfwUYKMnjexrvPgp4&inviteId=Sv_h1QhgY81XeKR6b1A&activityId=gydkCGAG2Nk128oSo83VBAKXLoH&cookie=%7B%22wxapp_type%22%3A%2214%22%7D
-https://prodev.m.jd.com/wq/active/2am5NYXc2j35HVPCTTx52DPMXhbJ/index.html?isMiniProgram=1&taskId=4EfHdrVtZywWhQyFmdqC3hwsABeU&inviteId=Sv_h1QhgY81XeKR6b1A&activityId=iLyQKx899dRCCRQW4cqEhktKFmz&cookie=%7B%22wxapp_type%22%3A%2214%22%7D
+https://prodev.m.jd.com/wq/active/3qSQit28iinmtH7NN1uRniBbXEws/index.html?isMiniProgram=1&taskId=L6u6YUY3WntrNzFc5C2SnPQCW5s&inviteId=Sv_h1QhgY81XeKR6b1A&activityId=48NkzPANbR68QZtX4VfToCQ9E8bW&cookie=%7B%22wxapp_type%22%3A%2214%22%7D
+https://prodev.m.jd.com/wq/active/2am5NYXc2j35HVPCTTx52DPMXhbJ/index.html?isMiniProgram=1&taskId=3gdvVQ3pVGcogc2THodDEiHy8Urv&inviteId=Sv_h1QhgY81XeKR6b1A&activityId=4DJJxbwD2MjWG8qWHMRC66C9dfNM&cookie=%7B%22wxapp_type%22%3A%2214%22%7D
 `;
 
 // // 非12点抢的团(SK-11)

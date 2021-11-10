@@ -7,7 +7,7 @@ const {getEnv} = require('../../lib/env');
 
 class EarnAdvertPlugin extends Earn {
   static scriptName = 'EarnAdvertPlugin';
-  static scriptNameDesc = '三人红包团';
+  static scriptNameDesc = '快来一起领红包吧(3人)';
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
@@ -71,12 +71,15 @@ class EarnAdvertPlugin extends Earn {
     async function handleDoShare(activityId, taskId) {
       return api.doFormBody('advertPlugin_taskAssist', {activityId, taskId, inviteId}).then(data => {
         const {message, result} = data;
+        const msgs = [
+          `[${activityId}]`,
+          message,
+        ];
         if (result) {
           const {friend, msg} = result;
-          api.log(`助力 ${friend}(${activityId}), 结果为: ${msg}`);
-        } else {
-          api.log(message);
+          msgs.push(`助力 ${friend}, 结果为: ${msg}`);
         }
+        api.log(msgs.join(' '));
         return data;
       });
     }
