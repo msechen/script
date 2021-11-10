@@ -254,7 +254,7 @@
 5 0,7,22 * * * node /scripts/jd_zjd.js >> /scripts/logs/jd_zjd.log 2>&1
 
 # 京东饭粒
-5 0,12,22 * * * cd /scripts && ts-node /scripts/fanli.ts >> /scripts/logs/fanli.log 2>&1
+5 0,12,22 * * * cd /scripts && ts-node /scripts/jd_ifanli.ts >> /scripts/logs/jd_ifanli.log 2>&1
 
 # 牛牛福利
 1 0,9,19,23 * * * cd /scripts && ts-node /scripts/jx_nnfls.ts >> /scripts/logs/jx_nnfls.log 2>&1
