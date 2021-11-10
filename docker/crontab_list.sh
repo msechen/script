@@ -114,7 +114,7 @@
 # 发财挖宝
 20 1,9,16 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1
 # 星店长
-5 7,12,20 * * * node /scripts/jd_star.js >> /scripts/logs/jd_star.log 2>&1
+0 7,12,20 * * * node /scripts/jd_star.js >> /scripts/logs/jd_star.log 2>&1
 # 京东超市奖品查询
 30 1,23 * * * node /scripts/jd_cscx.js >> /scripts/logs/jd_cscx.log 2>&1
 # 赚京豆(微信小程序)
