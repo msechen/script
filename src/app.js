@@ -72,7 +72,7 @@ const Kmg = require('./jd/kmg');
 const LiteSign = require('./jd/lite/Sign');
 const SpringReward = require('./jd/lite/SpringReward');
 const EarnCoins = require('./jd/lite/EarnCoins');
-const LiteCashSign = TemporarilyOffline || require('./jd/lite/CashSign');
+const LiteCashSign = require('./jd/lite/CashSign');
 
 /* 本地执行 */
 const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');

@@ -80,7 +80,7 @@ class Base {
   // helpers
   static log(output, fileName, currentCookieTimes = this.currentCookieTimes) {
     // 应该输出 Cookie Name TODO 格式化
-    output = `[${currentCookieTimes}] ${output}`;
+    output = `[${currentCookieTimes}] ${_.isPlainObject(output) ? JSON.stringify(output) : output}`;
     printLog(this.getName(), fileName, output);
   }
 
