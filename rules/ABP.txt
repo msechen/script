@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: ce7suMzf3uObeNbZ+h65lg
-! Version: 202111091602
+! Checksum: KHanuyUyzMZ0b3f+yFhPiA
+! Version: 202111100441
 ! Title: EasyList China+EasyList
-! Last modified: 09 Nov 2021 16:02 UTC
+! Last modified: 10 Nov 2021 04:41 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -8963,7 +8963,7 @@
 ||https://jwpcdn.com/player/plugins/googima/
 ||https://keep2share.cc/images/i/$third-party
 ||https://kontera.com/javascript/lib/KonaLibInline.js
-||https://lawdepot.com/affiliate/
+||https://lawdepot.com/affiliate/$third-party
 ||https://leadfamly.com/campaign/sdk/popup.min.js
 ||https://leadsleap.com/widget/
 ||https://leanpub.com^*/embed$subdocument,third-party
@@ -9708,7 +9708,7 @@
 ||https://avantisvideo.com/avm/js/video-loader.js$script,third-party
 ||https://channelexco.com/player/$third-party
 ||https://connatix.com^$script,third-party
-||https://embed.sendtonews.com^$script,third-party
+||https://embed.sendtonews.com^$third-party
 ||https://fwcdn1.com/js/fwn.js
 ||https://fwcdn1.com/js/storyblock.js
 ||https://fwcdn2.com^$third-party
@@ -10356,6 +10356,7 @@
 ||https://cnki.com.cn/cnki/js/adrightdetail.js
 ||https://mydrivers.com^*/xianshitehui.png
 ||https://mydrivers.com/m/images/v1/kkjapp_down.gif
+||https://ydstatic.com/fanyi/fanyi-ad-place/
 ||https://3158.cn^*_analyser.
 ||https://cdn-data-cloud.com/history/
 ||https://s.ssl.qhres2.com/ssl/
@@ -10514,6 +10515,7 @@
 ||https://cibntv.net/youku/$media,rewrite=abp-resource:blank-mp3
 ||https://alicdn.com^*yksdk/*sdk.js$script
 ||https://5278.cc/js/c.js
+||http://tyjnwa.top^
 ||http://00-gov.cn^
 ||http://000123456789.site^
 ||http://0024aaaa.com^
@@ -17876,7 +17878,6 @@
 ||http://avgle.topgirlsdating.com^$domain=avgle.com
 ||http://jads.co^$domain=avgle.com
 ||http://olmsoneenh.info^$domain=avgle.com
-||http://a.qunzou.com^
 ||http://003store.com^
 ||http://0512s.com^$third-party
 ||http://1.01fy.cn^
@@ -18015,6 +18016,7 @@
 ||http://a.qncye.net^
 ||http://a.qsjiajiao.com^
 ||http://a.quangushi.com^
+||http://a.qunzou.com^
 ||http://a.rensheng5.com^
 ||http://a.shenchuang.com^
 ||http://a.thn21.com^
@@ -18747,6 +18749,14 @@
 ||http://hboav.com/guga/
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
+||http://xjjkxcg.cn^
+||http://jl1130.com^
+||http://mhtky.cn^
+||http://cz0758.cn^
+||http://djiybut.cn^
+||http://yaznkj.cn^
+||http://baowt.com^
+||http://benfkw.cn^
 ||http://000123456789.online^
 ||http://01tn.cn^
 ||http://027whht.com^
@@ -40435,7 +40445,7 @@
 ||http://karma.mdpcdn.com^
 ||http://keep2share.cc/images/i/$third-party
 ||http://kontera.com/javascript/lib/KonaLibInline.js
-||http://lawdepot.com/affiliate/
+||http://lawdepot.com/affiliate/$third-party
 ||http://leadfamly.com/campaign/sdk/popup.min.js
 ||http://leadsleap.com/widget/
 ||http://leanpub.com^*/embed$subdocument,third-party
@@ -41623,7 +41633,7 @@
 ||http://avantisvideo.com/avm/js/video-loader.js$script,third-party
 ||http://channelexco.com/player/$third-party
 ||http://connatix.com^$script,third-party
-||http://embed.sendtonews.com^$script,third-party
+||http://embed.sendtonews.com^$third-party
 ||http://fwcdn1.com/js/fwn.js
 ||http://fwcdn1.com/js/storyblock.js
 ||http://fwcdn2.com^$third-party
@@ -42352,6 +42362,7 @@
 ||http://cnki.com.cn/cnki/js/adrightdetail.js
 ||http://mydrivers.com^*/xianshitehui.png
 ||http://mydrivers.com/m/images/v1/kkjapp_down.gif
+||http://ydstatic.com/fanyi/fanyi-ad-place/
 ||http://3158.cn^*_analyser.
 ||http://cdn-data-cloud.com/history/
 ||http://s.ssl.qhres2.com/ssl/
@@ -42627,10 +42638,10 @@
 https://ubmcmm.baidustatic.com
 https://hxsame.hexun.com$domain=~quote.hexun.com
 https://szxx.com.cn###A0
-https://fuliba2021.net##.widget_ui_slider
-https://fuliba2021.net##.orbui-post-footer
-https://hualongxiang.com##.khd_b
-https://hualongxiang.com##.wheelplayer
+https://1kkk.com###lb-win
+https://lenovo.com.cn##.ad-calender
+https://coderutil.com##.head-recommend-adv
+https://coderutil.com##.search-module + a
 https://szxx.com.cn###A1
 https://szxx.com.cn###A2
 https://gpcxw.com###AA2
@@ -45654,6 +45665,7 @@ https://13mv.com,csai.cn##.keifu
 https://iqilu.com##.kejie_ad
 https://v.ifeng.com##.keyword
 https://99tianji.com##.kf1
+https://hualongxiang.com##.khd_b
 https://iqiyi.com##.khzqBox
 https://1kkk.com##.kk2.cc
 https://0597kk.com##.kk_ad
@@ -45995,6 +46007,7 @@ https://iqiyi.com##.oppo
 https://baidu.com##.optimus
 https://66huacai.com,kuaihou.com##.orange
 https://fuliba2021.net##.orbui
+https://fuliba2021.net##.orbui-post-footer
 https://1111.baidu.com,bdimg.com,tieba.baidu.com,tieba.com,xingqu.baidu.com##.order_repost_wrap
 https://jdwx.info,motobuy.com.tw##.other
 https://6parknews.com##.other_list_ad
@@ -46787,6 +46800,7 @@ https://baidu.com##.wgt-bottom-ask
 https://baidu.com##.wgt-bottom-union
 https://muzhi.baidu.com##.wgt-container
 https://baidu.com##.wgt-union
+https://hualongxiang.com##.wheelplayer
 https://whnews.cn##.whnews_a_dv
 https://cnfol.com##.wid325AdBox
 https://cnfol.com##.wid390AdBox
@@ -46818,6 +46832,7 @@ https://py91.net##.widget_textads
 https://jsphp.net##.widget_tuijian
 https://aeink.com##.widget_ui_adsf
 https://hit180.com##.widget_ui_orbui:nth-child(-n+2)
+https://fuliba2021.net##.widget_ui_slider
 https://aeink.com##.widget_ui_textads
 https://so.com##.windisplayCell
 https://163.com##.with-bot-ad > .arrow_down
@@ -48225,23 +48240,23 @@ https://hpjav.tv##body > div[style^="position: fixed;"]
 https://verystream.com#@#.adsbox
 https://googleads.g.doubleclick.net###mys-wrapper
 https://xhtml?%22+$script,third-party
-https://520tingshu.com##iframe[style*="position:fixed"]
-https://52biquge.com##[onclick*="app"]
-https://52biquge.com##a[href^="http://html.350.com/"]
-https://55shuba.com###botDiv
-https://ah123z.com##script + div[style]
-https://biqugee.com##div[style="width:976px;"]
-https://bisowu.com##.a-row
-https://bixia.org##dd[style*="bottom:"]
-https://bookrb.com##a[href="/rmtj.html"]
 https://bxwx333.org###addiv3
 https://bxwx333.org###bdstatic
+https://55shuba.com###botDiv
+https://bisowu.com##.a-row
+https://yemancomic.com##.ncl_img > :not(#cp_img)
 https://duanwenxue.com##.qgzdwx
 https://jx.la##[onclick*="apk"]
-https://piaotian5.net##script + div[style="padding:15px;"]
-https://smjb.net##div[style*="height: 50%"]
+https://52biquge.com##[onclick*="app"]
+https://bookrb.com##a[href="/rmtj.html"]
+https://52biquge.com##a[href^="http://html.350.com/"]
+https://bixia.org##dd[style*="bottom:"]
 https://xuehongxs.com##div[id^="cs_DIV_cscpvrich"]
-https://yemancomic.com##.ncl_img > :not(#cp_img)
+https://smjb.net##div[style*="height: 50%"]
+https://biqugee.com##div[style="width:976px;"]
+https://520tingshu.com##iframe[style*="position:fixed"]
+https://piaotian5.net##script + div[style="padding:15px;"]
+https://ah123z.com##script + div[style]
 https://cocomanga.com,cocomanhua.com##iframe[style*="important"]
 https://cocomanga.com,cocomanhua.com#@#.gg430
 https://getrelax.cc,sexylove.club##.loaded-popup-wrapper
@@ -49119,6 +49134,7 @@ https://2smsupernetwork.com,times.co.zm###text-6
 https://yugatech.com###text-69
 https://playco-opgame.com###text-8
 https://nanoreview.net###the-app > .mb
+https://standard.co.uk###thirdparty_03_parent
 https://mma-core.com###tlbrd
 https://technewsworld.com###tnavad
 https://accuweather.com,iconeye.com,phonescoop.com###top
@@ -49863,6 +49879,7 @@ https://themarknews.com##.h-section1
 https://lyricsmode.com##.h113
 https://superiorpics.com##.h250
 https://lyricsmode.com##.h253
+https://standard.co.uk##.hafZUG
 https://runtastic.com##.halfpage
 https://ausbt.com.au##.halfpage-homepage
 https://whistleout.com.au##.has-hover
@@ -49905,6 +49922,7 @@ https://carmag.co.za##.homepage-300x250-banner
 https://smallbusiness.co.uk##.homepage-banner-container
 https://designspiration.com##.homepageBanner
 https://lushstories.com##.horizhide
+https://dailyrecord.co.uk##.hotjobs
 https://nameberry.com##.htlad-InContent_Flex
 https://nameberry.com##.htlad-Leaderboard_Flex
 https://extremetech.com##.hybrid-bar + div
@@ -49945,6 +49963,7 @@ https://kfm.co.za##.itunes-sml
 https://itweb.co.za##.itw-content-zone
 https://ownedcore.com##.iv-note
 https://tumblr.com##.j3_kY
+https://standard.co.uk##.jJXrdR.sc-gKdbTG
 https://distractify.com##.jRAIxB.sc-1o6mqs2-0
 https://psypost.org##.jeg_midbar
 https://romania-insider.com##.job-item
@@ -49963,6 +49982,7 @@ https://offerup.com##.jss301
 https://calorieking.com##.jss356
 https://essentiallysports.com##.jsx-4249843366
 https://aiscore.com##.justify-center.w100
+https://standard.co.uk##.keAOyd
 https://trustedreviews.com##.keystone-single-widget
 https://wantedinafrica.com##.kn-widget-banner
 https://wwe.com##.l-hybrid-col-frame_rail-wrap
@@ -50326,6 +50346,8 @@ https://rocket-league.com##.rlg-footer-ads-container
 https://rocket-league.com##.rlg-trading-ad
 https://rocket-league.com##.rlg-trading-spacer
 https://indiatimes.com##.rmfp
+https://rebelnews.com##.rn-article-ad
+https://rebelnews.com##.rn-sidebar-ad
 https://realitytea.com##.roadblock
 https://surinenglish.com##.roba
 https://roblox.com##.roblox-skyscraper
@@ -50338,6 +50360,7 @@ https://newstrackindia.com##.rt-add336x280
 https://nextofwindows.com##.rtsidebar-cm
 https://itweb.co.za##.s-logos
 https://hope1032.com.au##.s-supported-by
+https://nydailynews.com##.s2nPlayer
 https://aniwatcher.com##.sa
 https://nodejs.libhunt.com##.saashub-ad
 https://9gag.com##.salt-container
@@ -50848,6 +50871,7 @@ https://psycom.net##center > .vh-quiz-qborder
 https://osbot.org##custom > a[href]
 https://healthline.com##div.css-0 > div[class]:not([id])
 https://guru99.com##div.custom > .hidden-phone
+https://windows10forums.com##div.message--post.message
 https://nexusradio.com##div[align=center]
 https://pcgamer.com,tomsguide.com,tomshardware.com##div[class*="ad-unit"]
 https://issuu.com##div[class*="adPlacement"]
@@ -52800,10 +52824,10 @@ https://dhzw8.com,hkslg8.com,konlan.org,lewxs.com,snwx3.com,sqsxs.com,xtmetb.com
 http://ubmcmm.baidustatic.com
 http://hxsame.hexun.com$domain=~quote.hexun.com
 http://szxx.com.cn###A0
-http://fuliba2021.net##.widget_ui_slider
-http://fuliba2021.net##.orbui-post-footer
-http://hualongxiang.com##.khd_b
-http://hualongxiang.com##.wheelplayer
+http://1kkk.com###lb-win
+http://lenovo.com.cn##.ad-calender
+http://coderutil.com##.head-recommend-adv
+http://coderutil.com##.search-module + a
 http://szxx.com.cn###A1
 http://szxx.com.cn###A2
 http://gpcxw.com###AA2
@@ -55827,6 +55851,7 @@ http://13mv.com,csai.cn##.keifu
 http://iqilu.com##.kejie_ad
 http://v.ifeng.com##.keyword
 http://99tianji.com##.kf1
+http://hualongxiang.com##.khd_b
 http://iqiyi.com##.khzqBox
 http://1kkk.com##.kk2.cc
 http://0597kk.com##.kk_ad
@@ -56168,6 +56193,7 @@ http://iqiyi.com##.oppo
 http://baidu.com##.optimus
 http://66huacai.com,kuaihou.com##.orange
 http://fuliba2021.net##.orbui
+http://fuliba2021.net##.orbui-post-footer
 http://1111.baidu.com,bdimg.com,tieba.baidu.com,tieba.com,xingqu.baidu.com##.order_repost_wrap
 http://jdwx.info,motobuy.com.tw##.other
 http://6parknews.com##.other_list_ad
@@ -56961,6 +56987,7 @@ http://baidu.com##.wgt-bottom-ask
 http://baidu.com##.wgt-bottom-union
 http://muzhi.baidu.com##.wgt-container
 http://baidu.com##.wgt-union
+http://hualongxiang.com##.wheelplayer
 http://whnews.cn##.whnews_a_dv
 http://cnfol.com##.wid325AdBox
 http://cnfol.com##.wid390AdBox
@@ -56992,6 +57019,7 @@ http://py91.net##.widget_textads
 http://jsphp.net##.widget_tuijian
 http://aeink.com##.widget_ui_adsf
 http://hit180.com##.widget_ui_orbui:nth-child(-n+2)
+http://fuliba2021.net##.widget_ui_slider
 http://aeink.com##.widget_ui_textads
 http://so.com##.windisplayCell
 http://163.com##.with-bot-ad > .arrow_down
@@ -58401,23 +58429,23 @@ http://verystream.com#@#.adsbox
 http://googleads.g.doubleclick.net###mys-wrapper
 http://MoBi*.baidu.js$script,third-party
 http://xhtml?%22+$script,third-party
-http://520tingshu.com##iframe[style*="position:fixed"]
-http://52biquge.com##[onclick*="app"]
-http://52biquge.com##a[href^="http://html.350.com/"]
-http://55shuba.com###botDiv
-http://ah123z.com##script + div[style]
-http://biqugee.com##div[style="width:976px;"]
-http://bisowu.com##.a-row
-http://bixia.org##dd[style*="bottom:"]
-http://bookrb.com##a[href="/rmtj.html"]
 http://bxwx333.org###addiv3
 http://bxwx333.org###bdstatic
+http://55shuba.com###botDiv
+http://bisowu.com##.a-row
+http://yemancomic.com##.ncl_img > :not(#cp_img)
 http://duanwenxue.com##.qgzdwx
 http://jx.la##[onclick*="apk"]
-http://piaotian5.net##script + div[style="padding:15px;"]
-http://smjb.net##div[style*="height: 50%"]
+http://52biquge.com##[onclick*="app"]
+http://bookrb.com##a[href="/rmtj.html"]
+http://52biquge.com##a[href^="http://html.350.com/"]
+http://bixia.org##dd[style*="bottom:"]
 http://xuehongxs.com##div[id^="cs_DIV_cscpvrich"]
-http://yemancomic.com##.ncl_img > :not(#cp_img)
+http://smjb.net##div[style*="height: 50%"]
+http://biqugee.com##div[style="width:976px;"]
+http://520tingshu.com##iframe[style*="position:fixed"]
+http://piaotian5.net##script + div[style="padding:15px;"]
+http://ah123z.com##script + div[style]
 http://cocomanga.com,cocomanhua.com##iframe[style*="important"]
 http://cocomanga.com,cocomanhua.com#@#.gg430
 http://getrelax.cc,sexylove.club##.loaded-popup-wrapper
@@ -59296,6 +59324,7 @@ http://2smsupernetwork.com,times.co.zm###text-6
 http://yugatech.com###text-69
 http://playco-opgame.com###text-8
 http://nanoreview.net###the-app > .mb
+http://standard.co.uk###thirdparty_03_parent
 http://mma-core.com###tlbrd
 http://technewsworld.com###tnavad
 http://accuweather.com,iconeye.com,phonescoop.com###top
@@ -60040,6 +60069,7 @@ http://themarknews.com##.h-section1
 http://lyricsmode.com##.h113
 http://superiorpics.com##.h250
 http://lyricsmode.com##.h253
+http://standard.co.uk##.hafZUG
 http://runtastic.com##.halfpage
 http://ausbt.com.au##.halfpage-homepage
 http://whistleout.com.au##.has-hover
@@ -60082,6 +60112,7 @@ http://carmag.co.za##.homepage-300x250-banner
 http://smallbusiness.co.uk##.homepage-banner-container
 http://designspiration.com##.homepageBanner
 http://lushstories.com##.horizhide
+http://dailyrecord.co.uk##.hotjobs
 http://nameberry.com##.htlad-InContent_Flex
 http://nameberry.com##.htlad-Leaderboard_Flex
 http://extremetech.com##.hybrid-bar + div
@@ -60122,6 +60153,7 @@ http://kfm.co.za##.itunes-sml
 http://itweb.co.za##.itw-content-zone
 http://ownedcore.com##.iv-note
 http://tumblr.com##.j3_kY
+http://standard.co.uk##.jJXrdR.sc-gKdbTG
 http://distractify.com##.jRAIxB.sc-1o6mqs2-0
 http://psypost.org##.jeg_midbar
 http://romania-insider.com##.job-item
@@ -60140,6 +60172,7 @@ http://offerup.com##.jss301
 http://calorieking.com##.jss356
 http://essentiallysports.com##.jsx-4249843366
 http://aiscore.com##.justify-center.w100
+http://standard.co.uk##.keAOyd
 http://trustedreviews.com##.keystone-single-widget
 http://wantedinafrica.com##.kn-widget-banner
 http://wwe.com##.l-hybrid-col-frame_rail-wrap
@@ -60503,6 +60536,8 @@ http://rocket-league.com##.rlg-footer-ads-container
 http://rocket-league.com##.rlg-trading-ad
 http://rocket-league.com##.rlg-trading-spacer
 http://indiatimes.com##.rmfp
+http://rebelnews.com##.rn-article-ad
+http://rebelnews.com##.rn-sidebar-ad
 http://realitytea.com##.roadblock
 http://surinenglish.com##.roba
 http://roblox.com##.roblox-skyscraper
@@ -60515,6 +60550,7 @@ http://newstrackindia.com##.rt-add336x280
 http://nextofwindows.com##.rtsidebar-cm
 http://itweb.co.za##.s-logos
 http://hope1032.com.au##.s-supported-by
+http://nydailynews.com##.s2nPlayer
 http://aniwatcher.com##.sa
 http://nodejs.libhunt.com##.saashub-ad
 http://9gag.com##.salt-container
@@ -61025,6 +61061,7 @@ http://psycom.net##center > .vh-quiz-qborder
 http://osbot.org##custom > a[href]
 http://healthline.com##div.css-0 > div[class]:not([id])
 http://guru99.com##div.custom > .hidden-phone
+http://windows10forums.com##div.message--post.message
 http://nexusradio.com##div[align=center]
 http://pcgamer.com,tomsguide.com,tomshardware.com##div[class*="ad-unit"]
 http://issuu.com##div[class*="adPlacement"]

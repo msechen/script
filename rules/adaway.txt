@@ -445,7 +445,6 @@
 ||https://banners.adfox.net
 
 ! [adfox.ru]
-||https://adfox.ru
 ||https://ads.adfox.ru
 ||https://banners.adfox.ru
 
@@ -551,28 +550,8 @@
 ||https://prod.adjoe.zone
 
 ! [adjust.com]
-||https://adjust.com
-||https://app.adjust.com
 ||https://s2s.adjust.com
 ||https://ulink.adjust.com
-||https://39810146b3f05dad26eec7ad4727361a.ulink.adjust.com
-||https://53ac365e91086e608ae1345e075105e3.ulink.adjust.com
-||https://658473abd74bd979afcfe472c595ce93.ulink.adjust.com
-||https://a2c57fd7998a2d67d16e7bda91c7fd06.ulink.adjust.com
-||https://a94828c6a08d914296a1d178d1de5102.ulink.adjust.com
-||https://ac7aa69d96b75a55c5e0fe8035f45bce.ulink.adjust.com
-||https://e3e85fbda0b93c236cc70b01a5c0a393.ulink.adjust.com
-||https://view.adjust.com
-
-! [adjust.io]
-||https://adjust.io
-||https://app.adjust.io
-
-! [adjust.net.in]
-||https://app.adjust.net.in
-
-! [adjust.world]
-||https://app.adjust.world
 
 ! [adkernel.com]
 ||https://dsp-uswest.adkernel.com
@@ -1059,41 +1038,6 @@
 ||https://adsunflower.com
 ||https://folder.adsunflower.com
 ||https://rebootv5.adsunflower.com
-
-! [adswizz.com]
-||https://adswizz.com
-||https://cdn.adswizz.com
-||https://cdn1-creatives.adswizz.com
-||https://delivery-cdn-cf.adswizz.com
-||https://deliveryengine.adswizz.com
-||https://accuradio.deliveryengine.adswizz.com
-||https://clearchannel.deliveryengine.adswizz.com
-||https://cox.deliveryengine.adswizz.com
-||https://deezer.deliveryengine.adswizz.com
-||https://di.deliveryengine.adswizz.com
-||https://ec2eu-de-1.deliveryengine.adswizz.com
-||https://ec2eu-de-1-vpc-20170223.deliveryengine.adswizz.com
-||https://ec2eu-de-2.deliveryengine.adswizz.com
-||https://npr.deliveryengine.adswizz.com
-||https://radioactive.deliveryengine.adswizz.com
-||https://reporting.deliveryengine.adswizz.com
-||https://streamguys.deliveryengine.adswizz.com
-||https://synchroscript.deliveryengine.adswizz.com
-||https://tunein.deliveryengine.adswizz.com
-||https://ec2eu.adswizz.com
-||https://pixelg.ec2eu.adswizz.com
-||https://synchrobox.ec2eu.adswizz.com
-||https://pixel.adswizz.com
-||https://pixelg.adswizz.com
-||https://randi.adswizz.com
-||https://pixelb.randi.adswizz.com
-||https://secondscreenindexer.adswizz.com
-||https://sonar.adswizz.com
-||https://streaming.adswizz.com
-||https://sdk.streaming.adswizz.com
-||https://synchrobox.adswizz.com
-||https://tunein.adswizz.com
-||https://zc.adswizz.com
 
 ! [adsymptotic.com]
 ||https://adsymptotic.com
@@ -1883,7 +1827,6 @@
 ||https://signals.ampiri.com
 
 ! [amplitude.com]
-||https://analytics.amplitude.com
 ||https://api.amplitude.com
 ||https://api2.amplitude.com
 ||https://cdn.amplitude.com
@@ -2269,18 +2212,6 @@
 ||https://app-icons.apptentive.com
 ||https://sdk.apptentive.com
 
-! [apptimize.com]
-||https://brahe.apptimize.com
-||https://gcp-prod-md.apptimize.com
-||https://mapi.apptimize.com
-||https://md-a-c.apptimize.com
-||https://md-a-s.apptimize.com
-||https://md-hl.apptimize.com
-||https://md-i-c.apptimize.com
-||https://md-i-s.apptimize.com
-||https://md-ll.apptimize.com
-||https://tycho.apptimize.com
-
 ! [apptornado.com]
 ||https://apptornado.com
 ||https://applift-a.apptornado.com
@@ -2411,9 +2342,6 @@
 
 ! [audioeye.com]
 ||https://ws.audioeye.com
-
-! [auditude.com]
-||https://auditude.com
 
 ! [augur.io]
 ||https://augur.io
@@ -2614,9 +2542,6 @@
 ||https://sandbox.bidswitch.net
 ||https://x.bidswitch.net
 
-! [bing.com]
-||https://bat.bing.com
-
 ! [bitmango.com]
 ||https://a.bitmango.com
 ||https://api.bitmango.com
@@ -2718,9 +2643,6 @@
 ||https://em.bm23.com
 ||https://hosting-source.bm23.com
 ||https://incoming.bm23.com
-
-! [bnc.lt]
-||https://bnc.lt
 
 ! [bnmla.com]
 ||https://bnmla.com
@@ -3456,21 +3378,6 @@
 
 ! [conviva.com]
 ||https://conviva.com
-||https://cws.conviva.com
-||https://133446f3fa16c4a2f02e9f45a1d9d640705b7b62.cws.conviva.com
-||https://268a2000018370f5f35b29272d1942aa2ff7b6a9.cws.conviva.com
-||https://28bbf0a3decf6d1165032bfd835d6e1844c5d44d.cws.conviva.com
-||https://47e224be59415ec068b94bca857581bd7dde7fb6.cws.conviva.com
-||https://4ae1981d8d1a370d08bf3d24f50f5baf47ef1b62.cws.conviva.com
-||https://7ba3f64df98de730df38846b54ecfbdf7f61f80f.cws.conviva.com
-||https://87a6b28bc7823e67a5bb2a0a6728c702afcae78d.cws.conviva.com
-||https://a1521dca917ff0e871c935c9253afc0626587b2d.cws.conviva.com
-||https://a6709203f34992a5095d2bc7ceaf2ec504f651a8.cws.conviva.com
-||https://ad16a8c8b860d62e9d55b11a66f20c9e32f3e887.cws.conviva.com
-||https://d14bd151e5e8a2a2551514106f790db76ce3fa35.cws.conviva.com
-||https://e12872de91aaca7a39095801bdf5f168d87912fa.cws.conviva.com
-||https://fc8dbfdc5da519f576628f619306a357f31bd006.cws.conviva.com
-||https://ff84ae928c3b33064b76dec08f12500465e59a6f.cws.conviva.com
 ||https://cws-cctv.conviva.com
 ||https://cws-eu.conviva.com
 ||https://cws-hulu.conviva.com
@@ -4037,177 +3944,6 @@
 ! [dotmetrics.net]
 ||https://uk-script.dotmetrics.net
 
-! [dotomi.com]
-||https://dotomi.com
-||https://33across-match.dotomi.com
-||https://adobe-sync.dotomi.com
-||https://ads.dotomi.com
-||https://afp.dotomi.com
-||https://amazon-tam-match.dotomi.com
-||https://ams-usadmm.dotomi.com
-||https://ams01-convex.dotomi.com
-||https://ams01-login.dotomi.com
-||https://ams01-login-ds.dotomi.com
-||https://ams01-usadmm.dotomi.com
-||https://ams01-usadmm-ds.dotomi.com
-||https://ams02-convex.dotomi.com
-||https://ams02-login.dotomi.com
-||https://ams02-login-ds.dotomi.com
-||https://ams02-usadmm.dotomi.com
-||https://ams02-usadmm-ds.dotomi.com
-||https://ams03-convex.dotomi.com
-||https://ams03-login-ds.dotomi.com
-||https://ams03-usadmm-ds.dotomi.com
-||https://aol-match.dotomi.com
-||https://apnx-match.dotomi.com
-||https://bluekai-sync.dotomi.com
-||https://casale-match.dotomi.com
-||https://cj.dotomi.com
-||https://font.cj.dotomi.com
-||https://cpe.dotomi.com
-||https://ad.cpe.dotomi.com
-||https://direct.ad.cpe.dotomi.com
-||https://event.ad.cpe.dotomi.com
-||https://hb.ad.cpe.dotomi.com
-||https://web.hb.ad.cpe.dotomi.com
-||https://proc.ad.cpe.dotomi.com
-||https://sync.ad.cpe.dotomi.com
-||https://cookie.sync.ad.cpe.dotomi.com
-||https://match.sync.ad.cpe.dotomi.com
-||https://dclk-match.dotomi.com
-||https://districtm-match.dotomi.com
-||https://dp-sync.dotomi.com
-||https://ds-sync.dotomi.com
-||https://eyeota-match.dotomi.com
-||https://iad-usadmm.dotomi.com
-||https://iad-usadmm-ds.dotomi.com
-||https://iad01-convex.dotomi.com
-||https://iad01-login.dotomi.com
-||https://iad01-login-ds.dotomi.com
-||https://iad01-usadmm.dotomi.com
-||https://iad01-usadmm-ds.dotomi.com
-||https://iad02-convex.dotomi.com
-||https://iad02-login.dotomi.com
-||https://iad02-login-ds.dotomi.com
-||https://iad02-usadmm.dotomi.com
-||https://iad02-usadmm-ds.dotomi.com
-||https://iad03-convex.dotomi.com
-||https://iad03-login.dotomi.com
-||https://iad03-login-ds.dotomi.com
-||https://iad03-usadmm.dotomi.com
-||https://iad03-usadmm-ds.dotomi.com
-||https://iad04-convex.dotomi.com
-||https://iad04-login.dotomi.com
-||https://iad04-login-ds.dotomi.com
-||https://iad04-usadmm.dotomi.com
-||https://iad04-usadmm-ds.dotomi.com
-||https://iad05-convex.dotomi.com
-||https://iad05-login.dotomi.com
-||https://iad05-login-ds.dotomi.com
-||https://iad05-usadmm.dotomi.com
-||https://iad05-usadmm-ds.dotomi.com
-||https://iad06-convex.dotomi.com
-||https://iad06-login.dotomi.com
-||https://iad06-login-ds.dotomi.com
-||https://iad06-usadmm.dotomi.com
-||https://iad06-usadmm-ds.dotomi.com
-||https://iad07-convex.dotomi.com
-||https://iad07-login.dotomi.com
-||https://iad07-login-ds.dotomi.com
-||https://iad07-usadmm.dotomi.com
-||https://iad07-usadmm-ds.dotomi.com
-||https://iad08-convex.dotomi.com
-||https://iad08-login.dotomi.com
-||https://iad08-usadmm.dotomi.com
-||https://iad08-usadmm-ds.dotomi.com
-||https://iad09-convex.dotomi.com
-||https://iad09-login.dotomi.com
-||https://iad09-login-ds.dotomi.com
-||https://iad09-usadmm.dotomi.com
-||https://iad09-usadmm-ds.dotomi.com
-||https://iad10-convex.dotomi.com
-||https://iad10-login.dotomi.com
-||https://iad10-login-ds.dotomi.com
-||https://iad10-usadmm.dotomi.com
-||https://iad10-usadmm-ds.dotomi.com
-||https://iad11-convex.dotomi.com
-||https://iad11-login.dotomi.com
-||https://iad11-login-ds.dotomi.com
-||https://iad11-usadmm.dotomi.com
-||https://iad11-usadmm-ds.dotomi.com
-||https://iad12-convex.dotomi.com
-||https://iad12-login.dotomi.com
-||https://iad12-login-ds.dotomi.com
-||https://iad12-usadmm.dotomi.com
-||https://iad12-usadmm-ds.dotomi.com
-||https://iad13-convex.dotomi.com
-||https://iad13-usadmm.dotomi.com
-||https://iad13-usadmm-ds.dotomi.com
-||https://kargo-match.dotomi.com
-||https://login.dotomi.com
-||https://login-ds.dotomi.com
-||https://medianet-match.dotomi.com
-||https://mediaplex-match.dotomi.com
-||https://msg.dotomi.com
-||https://media.msg.dotomi.com
-||https://secure-media.msg.dotomi.com
-||https://openx2-match.dotomi.com
-||https://prebid-match.dotomi.com
-||https://pubmatic-match.dotomi.com
-||https://pulsepoint-match.dotomi.com
-||https://purch-match.dotomi.com
-||https://rubicon-match.dotomi.com
-||https://s-usweb.dotomi.com
-||https://sjc-usadmm.dotomi.com
-||https://sjc-usadmm-ds.dotomi.com
-||https://sjc01-convex.dotomi.com
-||https://sjc01-login.dotomi.com
-||https://sjc01-login-ds.dotomi.com
-||https://sjc01-usadmm.dotomi.com
-||https://sjc01-usadmm-ds.dotomi.com
-||https://sjc02-convex.dotomi.com
-||https://sjc02-login.dotomi.com
-||https://sjc02-login-ds.dotomi.com
-||https://sjc02-usadmm.dotomi.com
-||https://sjc02-usadmm-ds.dotomi.com
-||https://sjc03-convex.dotomi.com
-||https://sjc03-login.dotomi.com
-||https://sjc03-login-ds.dotomi.com
-||https://sjc03-usadmm.dotomi.com
-||https://sjc03-usadmm-ds.dotomi.com
-||https://sjc04-convex.dotomi.com
-||https://sjc04-login.dotomi.com
-||https://sjc04-login-ds.dotomi.com
-||https://sjc04-usadmm.dotomi.com
-||https://sjc04-usadmm-ds.dotomi.com
-||https://sjc05-convex.dotomi.com
-||https://sjc05-login.dotomi.com
-||https://sjc05-login-ds.dotomi.com
-||https://sjc05-usadmm.dotomi.com
-||https://sjc05-usadmm-ds.dotomi.com
-||https://sjc06-convex.dotomi.com
-||https://sjc06-login.dotomi.com
-||https://sjc06-login-ds.dotomi.com
-||https://sjc06-usadmm.dotomi.com
-||https://sjc06-usadmm-ds.dotomi.com
-||https://sjc07-convex.dotomi.com
-||https://sjc07-login.dotomi.com
-||https://sjc07-login-ds.dotomi.com
-||https://sjc07-usadmm.dotomi.com
-||https://sjc07-usadmm-ds.dotomi.com
-||https://smaato-match.dotomi.com
-||https://sortable-match.dotomi.com
-||https://spotx-match.dotomi.com
-||https://stx-match.dotomi.com
-||https://synacor-match.dotomi.com
-||https://tpt.dotomi.com
-||https://tremor-match.dotomi.com
-||https://triplelift-match.dotomi.com
-||https://tubemogul-sync.dotomi.com
-||https://usadmm.dotomi.com
-||https://usadmm-ds.dotomi.com
-||https://usweb.dotomi.com
-
 ! [doubleclick.net]
 ||https://accounts.doubleclick.net
 ||https://ad.doubleclick.net
@@ -4350,7 +4086,6 @@
 ||https://metrics.dynad.net
 
 ! [dynamicyield.com]
-||https://dynamicyield.com
 ||https://async-px.dynamicyield.com
 ||https://async-px-eu.dynamicyield.com
 ||https://cdn.dynamicyield.com
@@ -4482,9 +4217,6 @@
 ||https://moatads.com.edgekey.net
 ||https://wildcard.moatads.com.edgekey.net
 ||https://mookie1.com.edgekey.net
-||https://optimizely.com.edgekey.net
-||https://cdn.optimizely.com.edgekey.net
-||https://wildcard.cdn.optimizely.com.edgekey.net
 ||https://outbrain.com.edgekey.net
 ||https://wildcard.outbrain.com.edgekey.net
 ||https://outbrainimg.com.edgekey.net
@@ -4492,8 +4224,6 @@
 ||https://rubiconproject.com.edgekey.net
 ||https://digicertwc.rubiconproject.com.edgekey.net
 ||https://eus.rubiconproject.com.edgekey.net
-||https://scorecardresearch.com.edgekey.net
-||https://beacon.scorecardresearch.com.edgekey.net
 ||https://serving-sys.com.edgekey.net
 ||https://secure-ds.serving-sys.com.edgekey.net
 ||https://sgsnssdk.com.edgekey.net
@@ -4720,34 +4450,6 @@
 
 ! [exactag.com]
 ||https://tp-emea.exactag.com
-
-! [exacttarget.com]
-||https://inbox.exacttarget.com
-||https://pixel.inbox.exacttarget.com
-||https://mc.exacttarget.com
-||https://mta.exacttarget.com
-||https://s1.exacttarget.com
-||https://pub.s1.exacttarget.com
-||https://s10.exacttarget.com
-||https://image.s10.exacttarget.com
-||https://mc.s10.exacttarget.com
-||https://pub.s10.exacttarget.com
-||https://virt.s10.exacttarget.com
-||https://click.virt.s10.exacttarget.com
-||https://s11.exacttarget.com
-||https://s4.exacttarget.com
-||https://pub.s4.exacttarget.com
-||https://s6.exacttarget.com
-||https://pub.s6.exacttarget.com
-||https://virt.s6.exacttarget.com
-||https://click.virt.s6.exacttarget.com
-||https://s7.exacttarget.com
-||https://image.s7.exacttarget.com
-||https://mc.s7.exacttarget.com
-||https://pub.s7.exacttarget.com
-||https://virt.s7.exacttarget.com
-||https://click.virt.s7.exacttarget.com
-||https://virt.exacttarget.com
 
 ! [exacttargetapis.com]
 ||https://exacttargetapis.com
@@ -4985,9 +4687,6 @@
 ||https://query.fqtag.com
 ||https://s.fqtag.com
 
-! [freegeoip.net]
-||https://freegeoip.net
-
 ! [ftstats.com]
 ||https://c.ftstats.com
 
@@ -5005,7 +4704,6 @@
 ||https://leanmobi.fusetracking.com
 
 ! [fwmrm.net]
-||https://fwmrm.net
 ||https://adm.fwmrm.net
 ||https://ads.aws.fwmrm.net
 ||https://prd.ads.aws.fwmrm.net
@@ -5238,54 +4936,14 @@
 ! [gooddata.com]
 ||https://secure.gooddata.com
 
-! [google-analytics.com]
-||https://ssl.google-analytics.com
-||https://www.google-analytics.com
-
 ! [google.com]
 ||https://ads.google.com
 ||https://adservice.google.com
-||https://ampcid.google.com
-||https://fundingchoices.google.com
 ||https://crashlytics2.l.google.com
-||https://pagead-googlehosted.l.google.com
 ||https://s0-2mdn-net.l.google.com
-
-! [google.com.tr]
-||https://adservice.google.com.tr
-
-! [google.com.ua]
-||https://adservice.google.com.ua
-
-! [google.com.vn]
-||https://adservice.google.com.vn
-
-! [google.de]
-||https://adservice.google.de
-
-! [google.ie]
-||https://adservice.google.ie
-
-! [google.nl]
-||https://adservice.google.nl
-
-! [googleadservices.com]
-||https://googleadservices.com
-||https://pagead2.googleadservices.com
-||https://partner.googleadservices.com
-||https://www.googleadservices.com
 
 ! [googleadsserving.cn]
 ||https://static.googleadsserving.cn
-
-! [androidtvwatsonfe-pa.googleapis.com]
-||https://androidtvwatsonfe-pa.googleapis.com
-
-! [googlesyndication.com]
-||https://ade.googlesyndication.com
-||https://buttons.googlesyndication.com
-||https://pagead2.googlesyndication.com
-||https://tpc.googlesyndication.com
 
 ! [googleusercontent.com]
 ||https://displayads-formats.googleusercontent.com
@@ -6387,34 +6045,8 @@
 ||https://usermatch.krxd.net
 ||https://wpp.krxd.net
 
-! [kryptosmobile.com]
-||https://kryptosda.kryptosmobile.com
-
-! [ksapisrv.com]
-||https://apissl.ksapisrv.com
-||https://gdfp.ksapisrv.com
-||https://live.ksapisrv.com
-||https://push.ksapisrv.com
-||https://ulog.ksapisrv.com
-||https://upload.ksapisrv.com
-
 ! [kshwtj.com]
 ||https://andmlb.kshwtj.com
-
-! [ksmobile.com]
-||https://beha.ksmobile.com
-||https://cb.ksmobile.com
-||https://dl.cm.ksmobile.com
-||https://cmdts.ksmobile.com
-||https://cfg.cml.ksmobile.com
-||https://gcm.ksmobile.com
-
-! [ksmobile.net]
-||https://batsavcdn.ksmobile.net
-||https://behacdn.ksmobile.net
-||https://p-behacdn.ksmobile.net
-||https://ups.ksmobile.net
-||https://ws.ksmobile.net
 
 ! [kt.com]
 ||https://freesam.kt.com
@@ -6676,10 +6308,6 @@
 ! [listhub.net]
 ||https://tracking.listhub.net
 
-! [litix.io]
-||https://litix.io
-||https://18lus0524edvcif1pa0hruc0e.litix.io
-
 ! [live-video.net]
 ||https://player.stats.live-video.net
 
@@ -6832,12 +6460,6 @@
 
 ! [m2appmonitor.com]
 ||https://ingest.m2appmonitor.com
-
-! [macromill.com]
-||https://macromill.com
-
-! [macys.net]
-||https://metrics.macys.net
 
 ! [madadsmedia.com]
 ||https://madadsmedia.com
@@ -8044,9 +7666,6 @@
 ! [nextclick.pl]
 ||https://nextclick.pl
 
-! [ngtv.io]
-||https://geo.ngtv.io
-
 ! [nicovideo.jp]
 ||https://ads.nicovideo.jp
 
@@ -8175,7 +7794,6 @@
 ||https://upload.omnivirt.com
 
 ! [omtrdc.net]
-||https://omtrdc.net
 ||https://espn.hb.omtrdc.net
 ||https://foxnews.hb.omtrdc.net
 ||https://gannett.hb.omtrdc.net
@@ -8213,7 +7831,6 @@
 ||https://tracking.onefeed.co.uk
 
 ! [onelink.me]
-||https://onelink.me
 ||https://snssdk1233.onelink.me
 
 ! [onelnk.com]
@@ -8231,7 +7848,6 @@
 ||https://click.oneplus.com
 
 ! [onesignal.com]
-||https://onesignal.com
 ||https://api.onesignal.com
 ||https://cdn.onesignal.com
 
@@ -8279,287 +7895,6 @@
 ||https://update.openx.com
 ||https://s.update.openx.com
 
-! [openx.net]
-||https://openx.net
-||https://33across-d.openx.net
-||https://accuradio-d.openx.net
-||https://adasia-d.openx.net
-||https://addkt-d.openx.net
-||https://adinplay-d.openx.net
-||https://adnimation-d.openx.net
-||https://adnimation1-d.openx.net
-||https://adnimation2-d.openx.net
-||https://adomega-d.openx.net
-||https://adopkorea-d.openx.net
-||https://adpone-d.openx.net
-||https://adpushup-d.openx.net
-||https://adtelligent-d.openx.net
-||https://amu-d.openx.net
-||https://aniview-d.openx.net
-||https://answers-d.openx.net
-||https://anyclip-d.openx.net
-||https://aol-bidout-d.openx.net
-||https://apacdigital-d.openx.net
-||https://apester-d.openx.net
-||https://arkadium-d.openx.net
-||https://ascendeum-d.openx.net
-||https://ask-d.openx.net
-||https://ask-media-group-d.openx.net
-||https://askfm-usd-d.openx.net
-||https://associatedpress-d.openx.net
-||https://automatad-d.openx.net
-||https://axel-springer-d.openx.net
-||https://bcm-d.openx.net
-||https://bizjournals-d.openx.net
-||https://bloggernetwork-d.openx.net
-||https://boldwin-d.openx.net
-||https://boredpanda-d.openx.net
-||https://boston-d.openx.net
-||https://brainyquote-d.openx.net
-||https://brandigic-d.openx.net
-||https://brightcom-d.openx.net
-||https://business-insider-d.openx.net
-||https://buysellads-d.openx.net
-||https://cafemedia-d.openx.net
-||https://carambola-d.openx.net
-||https://cbsi-d.openx.net
-||https://coed-d.openx.net
-||https://comcast-d.openx.net
-||https://concourse-d.openx.net
-||https://condenastus-d.openx.net
-||https://connatix-d.openx.net
-||https://cordlessmedia-d.openx.net
-||https://coxauto-d.openx.net
-||https://coxmediagroup-d.openx.net
-||https://cpmstar-d.openx.net
-||https://crunchmind-d.openx.net
-||https://dailymotionbo-d.openx.net
-||https://demandmedia-d.openx.net
-||https://didna-d.openx.net
-||https://digikulture-d.openx.net
-||https://digitalthrottle-d.openx.net
-||https://diply-d.openx.net
-||https://discovery-d.openx.net
-||https://disqus-d.openx.net
-||https://distractify-d.openx.net
-||https://distroscale-d.openx.net
-||https://dmv-org-d.openx.net
-||https://doodle-d.openx.net
-||https://dowjones-d.openx.net
-||https://dtnads-d.openx.net
-||https://durationmedia-d.openx.net
-||https://ebert-digital-d.openx.net
-||https://egami-tv-d.openx.net
-||https://egraffiti-d.openx.net
-||https://entercom-d.openx.net
-||https://enthusiast-gaming-d.openx.net
-||https://entravision-d.openx.net
-||https://epoch-times-d.openx.net
-||https://equibase-company-d.openx.net
-||https://eu-u.openx.net
-||https://exceljet-d.openx.net
-||https://ezoic-d.openx.net
-||https://farlex-d.openx.net
-||https://firstimpression-d.openx.net
-||https://forumcomm-d.openx.net
-||https://foxnews-d.openx.net
-||https://fptadtrue-d.openx.net
-||https://freepik-d.openx.net
-||https://freestar-d.openx.net
-||https://funtomic-d.openx.net
-||https://futurenet-d.openx.net
-||https://gannett-d.openx.net
-||https://gatewaymedia-d.openx.net
-||https://genieeintl-d.openx.net
-||https://ggsoftware-d.openx.net
-||https://gift-connect-d.openx.net
-||https://granite-cubed-d.openx.net
-||https://guardian-d.openx.net
-||https://hashtaglabs-d.openx.net
-||https://healthline-d.openx.net
-||https://hive-d.openx.net
-||https://hometalk-d.openx.net
-||https://hornet-d.openx.net
-||https://hsw-d.openx.net
-||https://ibt-d.openx.net
-||https://idm-d.openx.net
-||https://imonomy-d.openx.net
-||https://innity-d.openx.net
-||https://inquirer-interactive-d.openx.net
-||https://insticator-d.openx.net
-||https://internetinnovation-d.openx.net
-||https://investing-channel-d.openx.net
-||https://ironsource-d.openx.net
-||https://jp-u.openx.net
-||https://justpremium-d.openx.net
-||https://kijiji-d.openx.net
-||https://kompascybermedia-d.openx.net
-||https://koreaboo2-d.openx.net
-||https://ksl-d.openx.net
-||https://latimes-d.openx.net
-||https://legacycst-d.openx.net
-||https://linewebtoon-d.openx.net
-||https://lovetk-d.openx.net
-||https://mansueto-d.openx.net
-||https://marfeel-d.openx.net
-||https://match-d.openx.net
-||https://mcclatchy-d.openx.net
-||https://mediadojo-d.openx.net
-||https://mediafire-d.openx.net
-||https://meredith-d.openx.net
-||https://meredithlocal-d.openx.net
-||https://merriamwebster-d.openx.net
-||https://microad-d.openx.net
-||https://mindtank-d.openx.net
-||https://minutemedia-d.openx.net
-||https://mobile-de-d.openx.net
-||https://mobile01-d.openx.net
-||https://mobileposse-d.openx.net
-||https://monetizemore-d.openx.net
-||https://motleyfool-d.openx.net
-||https://nascardm-d.openx.net
-||https://networkn-d.openx.net
-||https://ninegag-d.openx.net
-||https://nineto5mac-d.openx.net
-||https://oao-d.openx.net
-||https://ocmdigitalmedia-d.openx.net
-||https://olxpl-d.openx.net
-||https://omg-studio-d.openx.net
-||https://one-india-d.openx.net
-||https://oneadvertising-d.openx.net
-||https://onscroll-d.openx.net
-||https://ookla-d.openx.net
-||https://os4m-d.openx.net
-||https://outbrain-d.openx.net
-||https://patch-d.openx.net
-||https://pch-d.openx.net
-||https://pelmorex-d.openx.net
-||https://phone-arena-d.openx.net
-||https://pittpostgazette-d.openx.net
-||https://pixfuture-d.openx.net
-||https://pixfuture2-d.openx.net
-||https://playbuzzltd-d.openx.net
-||https://playwire-d.openx.net
-||https://pmc-d.openx.net
-||https://poki-d.openx.net
-||https://politico-d.openx.net
-||https://postmedia-d.openx.net
-||https://prebid.openx.net
-||https://prime-d.openx.net
-||https://primis-d.openx.net
-||https://projectagora-d.openx.net
-||https://propermedia-d.openx.net
-||https://proprofs-d.openx.net
-||https://pubgalaxy-d.openx.net
-||https://publift-d.openx.net
-||https://publir-d.openx.net
-||https://publisherdesk-d.openx.net
-||https://pubnative-d.openx.net
-||https://pubwise-d.openx.net
-||https://qaamgo-d.openx.net
-||https://quizlet-d.openx.net
-||https://ranker-d.openx.net
-||https://realtor-d.openx.net
-||https://researchgate-d.openx.net
-||https://retailmenot-d.openx.net
-||https://rock-you-d.openx.net
-||https://rogers-digital-media-d.openx.net
-||https://rtb.openx.net
-||https://rtb-asia-southeast1.openx.net
-||https://rtb-ca.openx.net
-||https://rtb-europe-west1.openx.net
-||https://rtbdemand-d.openx.net
-||https://rtkio-d.openx.net
-||https://ruptly-d.openx.net
-||https://salemwebnetworks-d.openx.net
-||https://saymedia-d.openx.net
-||https://sbnationbidder-d.openx.net
-||https://scmp-d.openx.net
-||https://sea-u.openx.net
-||https://seattle-times-d.openx.net
-||https://seccosquared-d.openx.net
-||https://select-d.openx.net
-||https://setupad-d.openx.net
-||https://sfg-d.openx.net
-||https://shareably-d.openx.net
-||https://shinez-u-d.openx.net
-||https://slickdeals-d.openx.net
-||https://sltrib-d.openx.net
-||https://smartermobi-d.openx.net
-||https://smartlify-d.openx.net
-||https://snapsort-d.openx.net
-||https://snigel-d.openx.net
-||https://spanishdict-d.openx.net
-||https://spiceworks-d.openx.net
-||https://spikemedia-d.openx.net
-||https://spinemedia-d.openx.net
-||https://spot-im-d.openx.net
-||https://stands4-d.openx.net
-||https://streamamp-d.openx.net
-||https://streamlyn-d.openx.net
-||https://studybreakmedia-d.openx.net
-||https://tabforacause-d.openx.net
-||https://taboola-d.openx.net
-||https://takoomi-d.openx.net
-||https://talkingpointsmemo-d.openx.net
-||https://teachingaids-d.openx.net
-||https://telegraph-d.openx.net
-||https://the-eighth-d.openx.net
-||https://theblaze2-d.openx.net
-||https://thedrive-d.openx.net
-||https://thehill-d.openx.net
-||https://timesinternet-d.openx.net
-||https://townhallmedia-d.openx.net
-||https://townsquaremedia-d.openx.net
-||https://traffective-d.openx.net
-||https://tribune-d.openx.net
-||https://tunein-d.openx.net
-||https://u.openx.net
-||https://u-us.openx.net
-||https://udn-usd-d.openx.net
-||https://uk-ads.openx.net
-||https://ultimate-guitar-d.openx.net
-||https://underarmour-d.openx.net
-||https://underdogmedia-d.openx.net
-||https://uol-d.openx.net
-||https://upi-d.openx.net
-||https://ureka-d.openx.net
-||https://us-ads.openx.net
-||https://us-u.openx.net
-||https://usatodaysports-d.openx.net
-||https://usnews-d.openx.net
-||https://vdoai-d.openx.net
-||https://venatusmedia-d.openx.net
-||https://verticalscope-d.openx.net
-||https://vidazoo-d.openx.net
-||https://vidcrunch-d.openx.net
-||https://videointelligence-d.openx.net
-||https://vidoomy-d.openx.net
-||https://viralize-d.openx.net
-||https://viumbe-d.openx.net
-||https://vuukle-d.openx.net
-||https://warnerbros-d.openx.net
-||https://washingtonpost-d.openx.net
-||https://waytogrow-d.openx.net
-||https://wazimo-d.openx.net
-||https://weatherus-d.openx.net
-||https://webfg-d.openx.net
-||https://wirtualn-d.openx.net
-||https://wordreference-d.openx.net
-||https://wuxiaworld-d.openx.net
-||https://yieldbird-d.openx.net
-||https://yieldlove-d.openx.net
-||https://yormedia-isr-gbp-d.openx.net
-||https://yoto-d.openx.net
-||https://zedo-d.openx.net
-||https://zergnet-d.openx.net
-||https://zerohedge-d.openx.net
-||https://ziffdavis-d.openx.net
-||https://zlifestyle-d.openx.net
-||https://zoopla-d.openx.net
-||https://zulily-d.openx.net
-||https://zynga-d.openx.net
-
 ! [oppomobile.com]
 ||https://adx.ads.oppomobile.com
 ||https://bdapi.ads.oppomobile.com
@@ -8588,72 +7923,7 @@
 ! [optimizely.com]
 ||https://api.optimizely.com
 ||https://app.optimizely.com
-||https://cdn.optimizely.com
-||https://a10453949094.cdn.optimizely.com
-||https://a10681260716.cdn.optimizely.com
-||https://a10829270344.cdn.optimizely.com
-||https://a1096093.cdn.optimizely.com
-||https://a11000223989.cdn.optimizely.com
-||https://a11085769837.cdn.optimizely.com
-||https://a11179690159.cdn.optimizely.com
-||https://a11347113422.cdn.optimizely.com
-||https://a11391265293.cdn.optimizely.com
-||https://a125375509.cdn.optimizely.com
-||https://a12600010354.cdn.optimizely.com
-||https://a14069890047.cdn.optimizely.com
-||https://a14738960062.cdn.optimizely.com
-||https://a14932920627.cdn.optimizely.com
-||https://a16180790160.cdn.optimizely.com
-||https://a16488430484.cdn.optimizely.com
-||https://a166211981.cdn.optimizely.com
-||https://a166688199.cdn.optimizely.com
-||https://a1706490390.cdn.optimizely.com
-||https://a17126690382.cdn.optimizely.com
-||https://a1719570453.cdn.optimizely.com
-||https://a17571560121.cdn.optimizely.com
-||https://a17957420003.cdn.optimizely.com
-||https://a1859010085.cdn.optimizely.com
-||https://a2129670914.cdn.optimizely.com
-||https://a234628017.cdn.optimizely.com
-||https://a275532918.cdn.optimizely.com
-||https://a277026128.cdn.optimizely.com
-||https://a2972860641.cdn.optimizely.com
-||https://a3013110282.cdn.optimizely.com
-||https://a304207300.cdn.optimizely.com
-||https://a3567930175.cdn.optimizely.com
-||https://a3580442334.cdn.optimizely.com
-||https://a3698060313.cdn.optimizely.com
-||https://a400912536.cdn.optimizely.com
-||https://a4621041136.cdn.optimizely.com
-||https://a5090114122.cdn.optimizely.com
-||https://a523170811.cdn.optimizely.com
-||https://a553480116.cdn.optimizely.com
-||https://a6529002483.cdn.optimizely.com
-||https://a745050198.cdn.optimizely.com
-||https://a752092193.cdn.optimizely.com
-||https://a7544042.cdn.optimizely.com
-||https://a7871036.cdn.optimizely.com
-||https://a8209871389.cdn.optimizely.com
-||https://a8507201684.cdn.optimizely.com
-||https://a8571253058.cdn.optimizely.com
-||https://a989617545.cdn.optimizely.com
-||https://cdn-a2-ncl.optimizely.com
-||https://cdn-pci.optimizely.com
-||https://a11701662245.cdn-pci.optimizely.com
-||https://a8447843426.cdn-pci.optimizely.com
-||https://cdn-s-optional.optimizely.com
-||https://cdn3.optimizely.com
-||https://client.optimizely.com
-||https://errors.client.optimizely.com
-||https://log.optimizely.com
-||https://log3.optimizely.com
-||https://logx.optimizely.com
 ||https://events.mobile.optimizely.com
-||https://odds.optimizely.com
-||https://rum.optimizely.com
-||https://tapi.optimizely.com
-||https://teams.optimizely.com
-||https://vis.optimizely.com
 
 ! [optimost.io]
 ||https://origin.optimost.io
@@ -8938,7 +8208,6 @@
 ! [pinterest.com]
 ||https://ads.pinterest.com
 ||https://analytics.pinterest.com
-||https://ct.pinterest.com
 ||https://log.pinterest.com
 ||https://trk.pinterest.com
 
@@ -9752,9 +9021,7 @@
 ||https://execution-use.ci360.sas.com
 
 ! [sascdn.com]
-||https://sascdn.com
 ||https://ak-ns.sascdn.com
-||https://ced.sascdn.com
 
 ! [saygames.io]
 ||https://track.saygames.io
@@ -9790,7 +9057,6 @@
 ||https://config.sdk.scopely.io
 
 ! [scorecardresearch.com]
-||https://scorecardresearch.com
 ||https://b.scorecardresearch.com
 ||https://bs.scorecardresearch.com
 ||https://end.scorecardresearch.com
@@ -11297,9 +10563,6 @@
 ||https://preferences.truste.com
 ||https://privacy-policy.truste.com
 
-! [trustwave.com]
-||https://sealserver.trustwave.com
-
 ! [trustx.org]
 ||https://sofia.trustx.org
 
@@ -11772,9 +11035,6 @@
 ||https://kinja-com.videoplayerhub.com
 ||https://pmc-com.videoplayerhub.com
 
-! [videoplaza.tv]
-||https://videoplaza.tv
-
 ! [videosecrets.com]
 ||https://banners.videosecrets.com
 
@@ -12129,9 +11389,6 @@
 ! [wrating.com]
 ||https://wrating.com
 
-! [wsj.com]
-||https://optimizely.wsj.com
-
 ! [wsod.com]
 ||https://wsod.com
 
@@ -12204,11 +11461,6 @@
 ! [ximalaya.com]
 ||https://xdcs-collector.ximalaya.com
 
-! [xiti.com]
-||https://xiti.com
-||https://logs.xiti.com
-||https://logs1202.xiti.com
-
 ! [xtify.com]
 ||https://sdk.ibm.xtify.com
 ||https://sdk1.ibm.xtify.com
@@ -12251,29 +11503,6 @@
 ||https://m.yap.yahoo.com
 ||https://pr-bh.ybp.yahoo.com
 ||https://partnerads.ysm.yahoo.com
-
-! [yandex.com]
-||https://appmetrica.yandex.com
-||https://redirect.appmetrica.yandex.com
-
-! [yandex.net]
-||https://report.appmetrica.yandex.net
-||https://startup.mobile.yandex.net
-
-! [yandex.ru]
-||https://adfox.yandex.ru
-||https://matchid.adfox.yandex.ru
-||https://an.yandex.ru
-||https://redirect.appmetrica.yandex.ru
-||https://awaps.yandex.ru
-||https://bs.yandex.ru
-||https://clck.yandex.ru
-||https://informer.yandex.ru
-||https://kiks.yandex.ru
-||https://grade.market.yandex.ru
-||https://mc.yandex.ru
-||https://metrika.yandex.ru
-||https://share.yandex.ru
 
 ! [yandexadexchange.net]
 ||https://yandexadexchange.net
@@ -12979,7 +12208,6 @@
 ||http://banners.adfox.net
 
 ! [adfox.ru]
-||http://adfox.ru
 ||http://ads.adfox.ru
 ||http://banners.adfox.ru
 
@@ -13085,28 +12313,8 @@
 ||http://prod.adjoe.zone
 
 ! [adjust.com]
-||http://adjust.com
-||http://app.adjust.com
 ||http://s2s.adjust.com
 ||http://ulink.adjust.com
-||http://39810146b3f05dad26eec7ad4727361a.ulink.adjust.com
-||http://53ac365e91086e608ae1345e075105e3.ulink.adjust.com
-||http://658473abd74bd979afcfe472c595ce93.ulink.adjust.com
-||http://a2c57fd7998a2d67d16e7bda91c7fd06.ulink.adjust.com
-||http://a94828c6a08d914296a1d178d1de5102.ulink.adjust.com
-||http://ac7aa69d96b75a55c5e0fe8035f45bce.ulink.adjust.com
-||http://e3e85fbda0b93c236cc70b01a5c0a393.ulink.adjust.com
-||http://view.adjust.com
-
-! [adjust.io]
-||http://adjust.io
-||http://app.adjust.io
-
-! [adjust.net.in]
-||http://app.adjust.net.in
-
-! [adjust.world]
-||http://app.adjust.world
 
 ! [adkernel.com]
 ||http://dsp-uswest.adkernel.com
@@ -13593,41 +12801,6 @@
 ||http://adsunflower.com
 ||http://folder.adsunflower.com
 ||http://rebootv5.adsunflower.com
-
-! [adswizz.com]
-||http://adswizz.com
-||http://cdn.adswizz.com
-||http://cdn1-creatives.adswizz.com
-||http://delivery-cdn-cf.adswizz.com
-||http://deliveryengine.adswizz.com
-||http://accuradio.deliveryengine.adswizz.com
-||http://clearchannel.deliveryengine.adswizz.com
-||http://cox.deliveryengine.adswizz.com
-||http://deezer.deliveryengine.adswizz.com
-||http://di.deliveryengine.adswizz.com
-||http://ec2eu-de-1.deliveryengine.adswizz.com
-||http://ec2eu-de-1-vpc-20170223.deliveryengine.adswizz.com
-||http://ec2eu-de-2.deliveryengine.adswizz.com
-||http://npr.deliveryengine.adswizz.com
-||http://radioactive.deliveryengine.adswizz.com
-||http://reporting.deliveryengine.adswizz.com
-||http://streamguys.deliveryengine.adswizz.com
-||http://synchroscript.deliveryengine.adswizz.com
-||http://tunein.deliveryengine.adswizz.com
-||http://ec2eu.adswizz.com
-||http://pixelg.ec2eu.adswizz.com
-||http://synchrobox.ec2eu.adswizz.com
-||http://pixel.adswizz.com
-||http://pixelg.adswizz.com
-||http://randi.adswizz.com
-||http://pixelb.randi.adswizz.com
-||http://secondscreenindexer.adswizz.com
-||http://sonar.adswizz.com
-||http://streaming.adswizz.com
-||http://sdk.streaming.adswizz.com
-||http://synchrobox.adswizz.com
-||http://tunein.adswizz.com
-||http://zc.adswizz.com
 
 ! [adsymptotic.com]
 ||http://adsymptotic.com
@@ -14417,7 +13590,6 @@
 ||http://signals.ampiri.com
 
 ! [amplitude.com]
-||http://analytics.amplitude.com
 ||http://api.amplitude.com
 ||http://api2.amplitude.com
 ||http://cdn.amplitude.com
@@ -14803,18 +13975,6 @@
 ||http://app-icons.apptentive.com
 ||http://sdk.apptentive.com
 
-! [apptimize.com]
-||http://brahe.apptimize.com
-||http://gcp-prod-md.apptimize.com
-||http://mapi.apptimize.com
-||http://md-a-c.apptimize.com
-||http://md-a-s.apptimize.com
-||http://md-hl.apptimize.com
-||http://md-i-c.apptimize.com
-||http://md-i-s.apptimize.com
-||http://md-ll.apptimize.com
-||http://tycho.apptimize.com
-
 ! [apptornado.com]
 ||http://apptornado.com
 ||http://applift-a.apptornado.com
@@ -14945,9 +14105,6 @@
 
 ! [audioeye.com]
 ||http://ws.audioeye.com
-
-! [auditude.com]
-||http://auditude.com
 
 ! [augur.io]
 ||http://augur.io
@@ -15148,9 +14305,6 @@
 ||http://sandbox.bidswitch.net
 ||http://x.bidswitch.net
 
-! [bing.com]
-||http://bat.bing.com
-
 ! [bitmango.com]
 ||http://a.bitmango.com
 ||http://api.bitmango.com
@@ -15252,9 +14406,6 @@
 ||http://em.bm23.com
 ||http://hosting-source.bm23.com
 ||http://incoming.bm23.com
-
-! [bnc.lt]
-||http://bnc.lt
 
 ! [bnmla.com]
 ||http://bnmla.com
@@ -15990,21 +15141,6 @@
 
 ! [conviva.com]
 ||http://conviva.com
-||http://cws.conviva.com
-||http://133446f3fa16c4a2f02e9f45a1d9d640705b7b62.cws.conviva.com
-||http://268a2000018370f5f35b29272d1942aa2ff7b6a9.cws.conviva.com
-||http://28bbf0a3decf6d1165032bfd835d6e1844c5d44d.cws.conviva.com
-||http://47e224be59415ec068b94bca857581bd7dde7fb6.cws.conviva.com
-||http://4ae1981d8d1a370d08bf3d24f50f5baf47ef1b62.cws.conviva.com
-||http://7ba3f64df98de730df38846b54ecfbdf7f61f80f.cws.conviva.com
-||http://87a6b28bc7823e67a5bb2a0a6728c702afcae78d.cws.conviva.com
-||http://a1521dca917ff0e871c935c9253afc0626587b2d.cws.conviva.com
-||http://a6709203f34992a5095d2bc7ceaf2ec504f651a8.cws.conviva.com
-||http://ad16a8c8b860d62e9d55b11a66f20c9e32f3e887.cws.conviva.com
-||http://d14bd151e5e8a2a2551514106f790db76ce3fa35.cws.conviva.com
-||http://e12872de91aaca7a39095801bdf5f168d87912fa.cws.conviva.com
-||http://fc8dbfdc5da519f576628f619306a357f31bd006.cws.conviva.com
-||http://ff84ae928c3b33064b76dec08f12500465e59a6f.cws.conviva.com
 ||http://cws-cctv.conviva.com
 ||http://cws-eu.conviva.com
 ||http://cws-hulu.conviva.com
@@ -16571,177 +15707,6 @@
 ! [dotmetrics.net]
 ||http://uk-script.dotmetrics.net
 
-! [dotomi.com]
-||http://dotomi.com
-||http://33across-match.dotomi.com
-||http://adobe-sync.dotomi.com
-||http://ads.dotomi.com
-||http://afp.dotomi.com
-||http://amazon-tam-match.dotomi.com
-||http://ams-usadmm.dotomi.com
-||http://ams01-convex.dotomi.com
-||http://ams01-login.dotomi.com
-||http://ams01-login-ds.dotomi.com
-||http://ams01-usadmm.dotomi.com
-||http://ams01-usadmm-ds.dotomi.com
-||http://ams02-convex.dotomi.com
-||http://ams02-login.dotomi.com
-||http://ams02-login-ds.dotomi.com
-||http://ams02-usadmm.dotomi.com
-||http://ams02-usadmm-ds.dotomi.com
-||http://ams03-convex.dotomi.com
-||http://ams03-login-ds.dotomi.com
-||http://ams03-usadmm-ds.dotomi.com
-||http://aol-match.dotomi.com
-||http://apnx-match.dotomi.com
-||http://bluekai-sync.dotomi.com
-||http://casale-match.dotomi.com
-||http://cj.dotomi.com
-||http://font.cj.dotomi.com
-||http://cpe.dotomi.com
-||http://ad.cpe.dotomi.com
-||http://direct.ad.cpe.dotomi.com
-||http://event.ad.cpe.dotomi.com
-||http://hb.ad.cpe.dotomi.com
-||http://web.hb.ad.cpe.dotomi.com
-||http://proc.ad.cpe.dotomi.com
-||http://sync.ad.cpe.dotomi.com
-||http://cookie.sync.ad.cpe.dotomi.com
-||http://match.sync.ad.cpe.dotomi.com
-||http://dclk-match.dotomi.com
-||http://districtm-match.dotomi.com
-||http://dp-sync.dotomi.com
-||http://ds-sync.dotomi.com
-||http://eyeota-match.dotomi.com
-||http://iad-usadmm.dotomi.com
-||http://iad-usadmm-ds.dotomi.com
-||http://iad01-convex.dotomi.com
-||http://iad01-login.dotomi.com
-||http://iad01-login-ds.dotomi.com
-||http://iad01-usadmm.dotomi.com
-||http://iad01-usadmm-ds.dotomi.com
-||http://iad02-convex.dotomi.com
-||http://iad02-login.dotomi.com
-||http://iad02-login-ds.dotomi.com
-||http://iad02-usadmm.dotomi.com
-||http://iad02-usadmm-ds.dotomi.com
-||http://iad03-convex.dotomi.com
-||http://iad03-login.dotomi.com
-||http://iad03-login-ds.dotomi.com
-||http://iad03-usadmm.dotomi.com
-||http://iad03-usadmm-ds.dotomi.com
-||http://iad04-convex.dotomi.com
-||http://iad04-login.dotomi.com
-||http://iad04-login-ds.dotomi.com
-||http://iad04-usadmm.dotomi.com
-||http://iad04-usadmm-ds.dotomi.com
-||http://iad05-convex.dotomi.com
-||http://iad05-login.dotomi.com
-||http://iad05-login-ds.dotomi.com
-||http://iad05-usadmm.dotomi.com
-||http://iad05-usadmm-ds.dotomi.com
-||http://iad06-convex.dotomi.com
-||http://iad06-login.dotomi.com
-||http://iad06-login-ds.dotomi.com
-||http://iad06-usadmm.dotomi.com
-||http://iad06-usadmm-ds.dotomi.com
-||http://iad07-convex.dotomi.com
-||http://iad07-login.dotomi.com
-||http://iad07-login-ds.dotomi.com
-||http://iad07-usadmm.dotomi.com
-||http://iad07-usadmm-ds.dotomi.com
-||http://iad08-convex.dotomi.com
-||http://iad08-login.dotomi.com
-||http://iad08-usadmm.dotomi.com
-||http://iad08-usadmm-ds.dotomi.com
-||http://iad09-convex.dotomi.com
-||http://iad09-login.dotomi.com
-||http://iad09-login-ds.dotomi.com
-||http://iad09-usadmm.dotomi.com
-||http://iad09-usadmm-ds.dotomi.com
-||http://iad10-convex.dotomi.com
-||http://iad10-login.dotomi.com
-||http://iad10-login-ds.dotomi.com
-||http://iad10-usadmm.dotomi.com
-||http://iad10-usadmm-ds.dotomi.com
-||http://iad11-convex.dotomi.com
-||http://iad11-login.dotomi.com
-||http://iad11-login-ds.dotomi.com
-||http://iad11-usadmm.dotomi.com
-||http://iad11-usadmm-ds.dotomi.com
-||http://iad12-convex.dotomi.com
-||http://iad12-login.dotomi.com
-||http://iad12-login-ds.dotomi.com
-||http://iad12-usadmm.dotomi.com
-||http://iad12-usadmm-ds.dotomi.com
-||http://iad13-convex.dotomi.com
-||http://iad13-usadmm.dotomi.com
-||http://iad13-usadmm-ds.dotomi.com
-||http://kargo-match.dotomi.com
-||http://login.dotomi.com
-||http://login-ds.dotomi.com
-||http://medianet-match.dotomi.com
-||http://mediaplex-match.dotomi.com
-||http://msg.dotomi.com
-||http://media.msg.dotomi.com
-||http://secure-media.msg.dotomi.com
-||http://openx2-match.dotomi.com
-||http://prebid-match.dotomi.com
-||http://pubmatic-match.dotomi.com
-||http://pulsepoint-match.dotomi.com
-||http://purch-match.dotomi.com
-||http://rubicon-match.dotomi.com
-||http://s-usweb.dotomi.com
-||http://sjc-usadmm.dotomi.com
-||http://sjc-usadmm-ds.dotomi.com
-||http://sjc01-convex.dotomi.com
-||http://sjc01-login.dotomi.com
-||http://sjc01-login-ds.dotomi.com
-||http://sjc01-usadmm.dotomi.com
-||http://sjc01-usadmm-ds.dotomi.com
-||http://sjc02-convex.dotomi.com
-||http://sjc02-login.dotomi.com
-||http://sjc02-login-ds.dotomi.com
-||http://sjc02-usadmm.dotomi.com
-||http://sjc02-usadmm-ds.dotomi.com
-||http://sjc03-convex.dotomi.com
-||http://sjc03-login.dotomi.com
-||http://sjc03-login-ds.dotomi.com
-||http://sjc03-usadmm.dotomi.com
-||http://sjc03-usadmm-ds.dotomi.com
-||http://sjc04-convex.dotomi.com
-||http://sjc04-login.dotomi.com
-||http://sjc04-login-ds.dotomi.com
-||http://sjc04-usadmm.dotomi.com
-||http://sjc04-usadmm-ds.dotomi.com
-||http://sjc05-convex.dotomi.com
-||http://sjc05-login.dotomi.com
-||http://sjc05-login-ds.dotomi.com
-||http://sjc05-usadmm.dotomi.com
-||http://sjc05-usadmm-ds.dotomi.com
-||http://sjc06-convex.dotomi.com
-||http://sjc06-login.dotomi.com
-||http://sjc06-login-ds.dotomi.com
-||http://sjc06-usadmm.dotomi.com
-||http://sjc06-usadmm-ds.dotomi.com
-||http://sjc07-convex.dotomi.com
-||http://sjc07-login.dotomi.com
-||http://sjc07-login-ds.dotomi.com
-||http://sjc07-usadmm.dotomi.com
-||http://sjc07-usadmm-ds.dotomi.com
-||http://smaato-match.dotomi.com
-||http://sortable-match.dotomi.com
-||http://spotx-match.dotomi.com
-||http://stx-match.dotomi.com
-||http://synacor-match.dotomi.com
-||http://tpt.dotomi.com
-||http://tremor-match.dotomi.com
-||http://triplelift-match.dotomi.com
-||http://tubemogul-sync.dotomi.com
-||http://usadmm.dotomi.com
-||http://usadmm-ds.dotomi.com
-||http://usweb.dotomi.com
-
 ! [doubleclick.net]
 ||http://accounts.doubleclick.net
 ||http://ad.doubleclick.net
@@ -16884,7 +15849,6 @@
 ||http://metrics.dynad.net
 
 ! [dynamicyield.com]
-||http://dynamicyield.com
 ||http://async-px.dynamicyield.com
 ||http://async-px-eu.dynamicyield.com
 ||http://cdn.dynamicyield.com
@@ -17016,9 +15980,6 @@
 ||http://moatads.com.edgekey.net
 ||http://wildcard.moatads.com.edgekey.net
 ||http://mookie1.com.edgekey.net
-||http://optimizely.com.edgekey.net
-||http://cdn.optimizely.com.edgekey.net
-||http://wildcard.cdn.optimizely.com.edgekey.net
 ||http://outbrain.com.edgekey.net
 ||http://wildcard.outbrain.com.edgekey.net
 ||http://outbrainimg.com.edgekey.net
@@ -17026,8 +15987,6 @@
 ||http://rubiconproject.com.edgekey.net
 ||http://digicertwc.rubiconproject.com.edgekey.net
 ||http://eus.rubiconproject.com.edgekey.net
-||http://scorecardresearch.com.edgekey.net
-||http://beacon.scorecardresearch.com.edgekey.net
 ||http://serving-sys.com.edgekey.net
 ||http://secure-ds.serving-sys.com.edgekey.net
 ||http://sgsnssdk.com.edgekey.net
@@ -17254,34 +16213,6 @@
 
 ! [exactag.com]
 ||http://tp-emea.exactag.com
-
-! [exacttarget.com]
-||http://inbox.exacttarget.com
-||http://pixel.inbox.exacttarget.com
-||http://mc.exacttarget.com
-||http://mta.exacttarget.com
-||http://s1.exacttarget.com
-||http://pub.s1.exacttarget.com
-||http://s10.exacttarget.com
-||http://image.s10.exacttarget.com
-||http://mc.s10.exacttarget.com
-||http://pub.s10.exacttarget.com
-||http://virt.s10.exacttarget.com
-||http://click.virt.s10.exacttarget.com
-||http://s11.exacttarget.com
-||http://s4.exacttarget.com
-||http://pub.s4.exacttarget.com
-||http://s6.exacttarget.com
-||http://pub.s6.exacttarget.com
-||http://virt.s6.exacttarget.com
-||http://click.virt.s6.exacttarget.com
-||http://s7.exacttarget.com
-||http://image.s7.exacttarget.com
-||http://mc.s7.exacttarget.com
-||http://pub.s7.exacttarget.com
-||http://virt.s7.exacttarget.com
-||http://click.virt.s7.exacttarget.com
-||http://virt.exacttarget.com
 
 ! [exacttargetapis.com]
 ||http://exacttargetapis.com
@@ -17519,9 +16450,6 @@
 ||http://query.fqtag.com
 ||http://s.fqtag.com
 
-! [freegeoip.net]
-||http://freegeoip.net
-
 ! [ftstats.com]
 ||http://c.ftstats.com
 
@@ -17539,7 +16467,6 @@
 ||http://leanmobi.fusetracking.com
 
 ! [fwmrm.net]
-||http://fwmrm.net
 ||http://adm.fwmrm.net
 ||http://ads.aws.fwmrm.net
 ||http://prd.ads.aws.fwmrm.net
@@ -17772,54 +16699,14 @@
 ! [gooddata.com]
 ||http://secure.gooddata.com
 
-! [google-analytics.com]
-||http://ssl.google-analytics.com
-||http://www.google-analytics.com
-
 ! [google.com]
 ||http://ads.google.com
 ||http://adservice.google.com
-||http://ampcid.google.com
-||http://fundingchoices.google.com
 ||http://crashlytics2.l.google.com
-||http://pagead-googlehosted.l.google.com
 ||http://s0-2mdn-net.l.google.com
-
-! [google.com.tr]
-||http://adservice.google.com.tr
-
-! [google.com.ua]
-||http://adservice.google.com.ua
-
-! [google.com.vn]
-||http://adservice.google.com.vn
-
-! [google.de]
-||http://adservice.google.de
-
-! [google.ie]
-||http://adservice.google.ie
-
-! [google.nl]
-||http://adservice.google.nl
-
-! [googleadservices.com]
-||http://googleadservices.com
-||http://pagead2.googleadservices.com
-||http://partner.googleadservices.com
-||http://www.googleadservices.com
 
 ! [googleadsserving.cn]
 ||http://static.googleadsserving.cn
-
-! [androidtvwatsonfe-pa.googleapis.com]
-||http://androidtvwatsonfe-pa.googleapis.com
-
-! [googlesyndication.com]
-||http://ade.googlesyndication.com
-||http://buttons.googlesyndication.com
-||http://pagead2.googlesyndication.com
-||http://tpc.googlesyndication.com
 
 ! [googleusercontent.com]
 ||http://displayads-formats.googleusercontent.com
@@ -18921,34 +17808,8 @@
 ||http://usermatch.krxd.net
 ||http://wpp.krxd.net
 
-! [kryptosmobile.com]
-||http://kryptosda.kryptosmobile.com
-
-! [ksapisrv.com]
-||http://apissl.ksapisrv.com
-||http://gdfp.ksapisrv.com
-||http://live.ksapisrv.com
-||http://push.ksapisrv.com
-||http://ulog.ksapisrv.com
-||http://upload.ksapisrv.com
-
 ! [kshwtj.com]
 ||http://andmlb.kshwtj.com
-
-! [ksmobile.com]
-||http://beha.ksmobile.com
-||http://cb.ksmobile.com
-||http://dl.cm.ksmobile.com
-||http://cmdts.ksmobile.com
-||http://cfg.cml.ksmobile.com
-||http://gcm.ksmobile.com
-
-! [ksmobile.net]
-||http://batsavcdn.ksmobile.net
-||http://behacdn.ksmobile.net
-||http://p-behacdn.ksmobile.net
-||http://ups.ksmobile.net
-||http://ws.ksmobile.net
 
 ! [kt.com]
 ||http://freesam.kt.com
@@ -19210,10 +18071,6 @@
 ! [listhub.net]
 ||http://tracking.listhub.net
 
-! [litix.io]
-||http://litix.io
-||http://18lus0524edvcif1pa0hruc0e.litix.io
-
 ! [live-video.net]
 ||http://player.stats.live-video.net
 
@@ -19366,12 +18223,6 @@
 
 ! [m2appmonitor.com]
 ||http://ingest.m2appmonitor.com
-
-! [macromill.com]
-||http://macromill.com
-
-! [macys.net]
-||http://metrics.macys.net
 
 ! [madadsmedia.com]
 ||http://madadsmedia.com
@@ -20578,9 +19429,6 @@
 ! [nextclick.pl]
 ||http://nextclick.pl
 
-! [ngtv.io]
-||http://geo.ngtv.io
-
 ! [nicovideo.jp]
 ||http://ads.nicovideo.jp
 
@@ -20709,7 +19557,6 @@
 ||http://upload.omnivirt.com
 
 ! [omtrdc.net]
-||http://omtrdc.net
 ||http://espn.hb.omtrdc.net
 ||http://foxnews.hb.omtrdc.net
 ||http://gannett.hb.omtrdc.net
@@ -20747,7 +19594,6 @@
 ||http://tracking.onefeed.co.uk
 
 ! [onelink.me]
-||http://onelink.me
 ||http://snssdk1233.onelink.me
 
 ! [onelnk.com]
@@ -20765,7 +19611,6 @@
 ||http://click.oneplus.com
 
 ! [onesignal.com]
-||http://onesignal.com
 ||http://api.onesignal.com
 ||http://cdn.onesignal.com
 
@@ -20813,287 +19658,6 @@
 ||http://update.openx.com
 ||http://s.update.openx.com
 
-! [openx.net]
-||http://openx.net
-||http://33across-d.openx.net
-||http://accuradio-d.openx.net
-||http://adasia-d.openx.net
-||http://addkt-d.openx.net
-||http://adinplay-d.openx.net
-||http://adnimation-d.openx.net
-||http://adnimation1-d.openx.net
-||http://adnimation2-d.openx.net
-||http://adomega-d.openx.net
-||http://adopkorea-d.openx.net
-||http://adpone-d.openx.net
-||http://adpushup-d.openx.net
-||http://adtelligent-d.openx.net
-||http://amu-d.openx.net
-||http://aniview-d.openx.net
-||http://answers-d.openx.net
-||http://anyclip-d.openx.net
-||http://aol-bidout-d.openx.net
-||http://apacdigital-d.openx.net
-||http://apester-d.openx.net
-||http://arkadium-d.openx.net
-||http://ascendeum-d.openx.net
-||http://ask-d.openx.net
-||http://ask-media-group-d.openx.net
-||http://askfm-usd-d.openx.net
-||http://associatedpress-d.openx.net
-||http://automatad-d.openx.net
-||http://axel-springer-d.openx.net
-||http://bcm-d.openx.net
-||http://bizjournals-d.openx.net
-||http://bloggernetwork-d.openx.net
-||http://boldwin-d.openx.net
-||http://boredpanda-d.openx.net
-||http://boston-d.openx.net
-||http://brainyquote-d.openx.net
-||http://brandigic-d.openx.net
-||http://brightcom-d.openx.net
-||http://business-insider-d.openx.net
-||http://buysellads-d.openx.net
-||http://cafemedia-d.openx.net
-||http://carambola-d.openx.net
-||http://cbsi-d.openx.net
-||http://coed-d.openx.net
-||http://comcast-d.openx.net
-||http://concourse-d.openx.net
-||http://condenastus-d.openx.net
-||http://connatix-d.openx.net
-||http://cordlessmedia-d.openx.net
-||http://coxauto-d.openx.net
-||http://coxmediagroup-d.openx.net
-||http://cpmstar-d.openx.net
-||http://crunchmind-d.openx.net
-||http://dailymotionbo-d.openx.net
-||http://demandmedia-d.openx.net
-||http://didna-d.openx.net
-||http://digikulture-d.openx.net
-||http://digitalthrottle-d.openx.net
-||http://diply-d.openx.net
-||http://discovery-d.openx.net
-||http://disqus-d.openx.net
-||http://distractify-d.openx.net
-||http://distroscale-d.openx.net
-||http://dmv-org-d.openx.net
-||http://doodle-d.openx.net
-||http://dowjones-d.openx.net
-||http://dtnads-d.openx.net
-||http://durationmedia-d.openx.net
-||http://ebert-digital-d.openx.net
-||http://egami-tv-d.openx.net
-||http://egraffiti-d.openx.net
-||http://entercom-d.openx.net
-||http://enthusiast-gaming-d.openx.net
-||http://entravision-d.openx.net
-||http://epoch-times-d.openx.net
-||http://equibase-company-d.openx.net
-||http://eu-u.openx.net
-||http://exceljet-d.openx.net
-||http://ezoic-d.openx.net
-||http://farlex-d.openx.net
-||http://firstimpression-d.openx.net
-||http://forumcomm-d.openx.net
-||http://foxnews-d.openx.net
-||http://fptadtrue-d.openx.net
-||http://freepik-d.openx.net
-||http://freestar-d.openx.net
-||http://funtomic-d.openx.net
-||http://futurenet-d.openx.net
-||http://gannett-d.openx.net
-||http://gatewaymedia-d.openx.net
-||http://genieeintl-d.openx.net
-||http://ggsoftware-d.openx.net
-||http://gift-connect-d.openx.net
-||http://granite-cubed-d.openx.net
-||http://guardian-d.openx.net
-||http://hashtaglabs-d.openx.net
-||http://healthline-d.openx.net
-||http://hive-d.openx.net
-||http://hometalk-d.openx.net
-||http://hornet-d.openx.net
-||http://hsw-d.openx.net
-||http://ibt-d.openx.net
-||http://idm-d.openx.net
-||http://imonomy-d.openx.net
-||http://innity-d.openx.net
-||http://inquirer-interactive-d.openx.net
-||http://insticator-d.openx.net
-||http://internetinnovation-d.openx.net
-||http://investing-channel-d.openx.net
-||http://ironsource-d.openx.net
-||http://jp-u.openx.net
-||http://justpremium-d.openx.net
-||http://kijiji-d.openx.net
-||http://kompascybermedia-d.openx.net
-||http://koreaboo2-d.openx.net
-||http://ksl-d.openx.net
-||http://latimes-d.openx.net
-||http://legacycst-d.openx.net
-||http://linewebtoon-d.openx.net
-||http://lovetk-d.openx.net
-||http://mansueto-d.openx.net
-||http://marfeel-d.openx.net
-||http://match-d.openx.net
-||http://mcclatchy-d.openx.net
-||http://mediadojo-d.openx.net
-||http://mediafire-d.openx.net
-||http://meredith-d.openx.net
-||http://meredithlocal-d.openx.net
-||http://merriamwebster-d.openx.net
-||http://microad-d.openx.net
-||http://mindtank-d.openx.net
-||http://minutemedia-d.openx.net
-||http://mobile-de-d.openx.net
-||http://mobile01-d.openx.net
-||http://mobileposse-d.openx.net
-||http://monetizemore-d.openx.net
-||http://motleyfool-d.openx.net
-||http://nascardm-d.openx.net
-||http://networkn-d.openx.net
-||http://ninegag-d.openx.net
-||http://nineto5mac-d.openx.net
-||http://oao-d.openx.net
-||http://ocmdigitalmedia-d.openx.net
-||http://olxpl-d.openx.net
-||http://omg-studio-d.openx.net
-||http://one-india-d.openx.net
-||http://oneadvertising-d.openx.net
-||http://onscroll-d.openx.net
-||http://ookla-d.openx.net
-||http://os4m-d.openx.net
-||http://outbrain-d.openx.net
-||http://patch-d.openx.net
-||http://pch-d.openx.net
-||http://pelmorex-d.openx.net
-||http://phone-arena-d.openx.net
-||http://pittpostgazette-d.openx.net
-||http://pixfuture-d.openx.net
-||http://pixfuture2-d.openx.net
-||http://playbuzzltd-d.openx.net
-||http://playwire-d.openx.net
-||http://pmc-d.openx.net
-||http://poki-d.openx.net
-||http://politico-d.openx.net
-||http://postmedia-d.openx.net
-||http://prebid.openx.net
-||http://prime-d.openx.net
-||http://primis-d.openx.net
-||http://projectagora-d.openx.net
-||http://propermedia-d.openx.net
-||http://proprofs-d.openx.net
-||http://pubgalaxy-d.openx.net
-||http://publift-d.openx.net
-||http://publir-d.openx.net
-||http://publisherdesk-d.openx.net
-||http://pubnative-d.openx.net
-||http://pubwise-d.openx.net
-||http://qaamgo-d.openx.net
-||http://quizlet-d.openx.net
-||http://ranker-d.openx.net
-||http://realtor-d.openx.net
-||http://researchgate-d.openx.net
-||http://retailmenot-d.openx.net
-||http://rock-you-d.openx.net
-||http://rogers-digital-media-d.openx.net
-||http://rtb.openx.net
-||http://rtb-asia-southeast1.openx.net
-||http://rtb-ca.openx.net
-||http://rtb-europe-west1.openx.net
-||http://rtbdemand-d.openx.net
-||http://rtkio-d.openx.net
-||http://ruptly-d.openx.net
-||http://salemwebnetworks-d.openx.net
-||http://saymedia-d.openx.net
-||http://sbnationbidder-d.openx.net
-||http://scmp-d.openx.net
-||http://sea-u.openx.net
-||http://seattle-times-d.openx.net
-||http://seccosquared-d.openx.net
-||http://select-d.openx.net
-||http://setupad-d.openx.net
-||http://sfg-d.openx.net
-||http://shareably-d.openx.net
-||http://shinez-u-d.openx.net
-||http://slickdeals-d.openx.net
-||http://sltrib-d.openx.net
-||http://smartermobi-d.openx.net
-||http://smartlify-d.openx.net
-||http://snapsort-d.openx.net
-||http://snigel-d.openx.net
-||http://spanishdict-d.openx.net
-||http://spiceworks-d.openx.net
-||http://spikemedia-d.openx.net
-||http://spinemedia-d.openx.net
-||http://spot-im-d.openx.net
-||http://stands4-d.openx.net
-||http://streamamp-d.openx.net
-||http://streamlyn-d.openx.net
-||http://studybreakmedia-d.openx.net
-||http://tabforacause-d.openx.net
-||http://taboola-d.openx.net
-||http://takoomi-d.openx.net
-||http://talkingpointsmemo-d.openx.net
-||http://teachingaids-d.openx.net
-||http://telegraph-d.openx.net
-||http://the-eighth-d.openx.net
-||http://theblaze2-d.openx.net
-||http://thedrive-d.openx.net
-||http://thehill-d.openx.net
-||http://timesinternet-d.openx.net
-||http://townhallmedia-d.openx.net
-||http://townsquaremedia-d.openx.net
-||http://traffective-d.openx.net
-||http://tribune-d.openx.net
-||http://tunein-d.openx.net
-||http://u.openx.net
-||http://u-us.openx.net
-||http://udn-usd-d.openx.net
-||http://uk-ads.openx.net
-||http://ultimate-guitar-d.openx.net
-||http://underarmour-d.openx.net
-||http://underdogmedia-d.openx.net
-||http://uol-d.openx.net
-||http://upi-d.openx.net
-||http://ureka-d.openx.net
-||http://us-ads.openx.net
-||http://us-u.openx.net
-||http://usatodaysports-d.openx.net
-||http://usnews-d.openx.net
-||http://vdoai-d.openx.net
-||http://venatusmedia-d.openx.net
-||http://verticalscope-d.openx.net
-||http://vidazoo-d.openx.net
-||http://vidcrunch-d.openx.net
-||http://videointelligence-d.openx.net
-||http://vidoomy-d.openx.net
-||http://viralize-d.openx.net
-||http://viumbe-d.openx.net
-||http://vuukle-d.openx.net
-||http://warnerbros-d.openx.net
-||http://washingtonpost-d.openx.net
-||http://waytogrow-d.openx.net
-||http://wazimo-d.openx.net
-||http://weatherus-d.openx.net
-||http://webfg-d.openx.net
-||http://wirtualn-d.openx.net
-||http://wordreference-d.openx.net
-||http://wuxiaworld-d.openx.net
-||http://yieldbird-d.openx.net
-||http://yieldlove-d.openx.net
-||http://yormedia-isr-gbp-d.openx.net
-||http://yoto-d.openx.net
-||http://zedo-d.openx.net
-||http://zergnet-d.openx.net
-||http://zerohedge-d.openx.net
-||http://ziffdavis-d.openx.net
-||http://zlifestyle-d.openx.net
-||http://zoopla-d.openx.net
-||http://zulily-d.openx.net
-||http://zynga-d.openx.net
-
 ! [oppomobile.com]
 ||http://adx.ads.oppomobile.com
 ||http://bdapi.ads.oppomobile.com
@@ -21122,72 +19686,7 @@
 ! [optimizely.com]
 ||http://api.optimizely.com
 ||http://app.optimizely.com
-||http://cdn.optimizely.com
-||http://a10453949094.cdn.optimizely.com
-||http://a10681260716.cdn.optimizely.com
-||http://a10829270344.cdn.optimizely.com
-||http://a1096093.cdn.optimizely.com
-||http://a11000223989.cdn.optimizely.com
-||http://a11085769837.cdn.optimizely.com
-||http://a11179690159.cdn.optimizely.com
-||http://a11347113422.cdn.optimizely.com
-||http://a11391265293.cdn.optimizely.com
-||http://a125375509.cdn.optimizely.com
-||http://a12600010354.cdn.optimizely.com
-||http://a14069890047.cdn.optimizely.com
-||http://a14738960062.cdn.optimizely.com
-||http://a14932920627.cdn.optimizely.com
-||http://a16180790160.cdn.optimizely.com
-||http://a16488430484.cdn.optimizely.com
-||http://a166211981.cdn.optimizely.com
-||http://a166688199.cdn.optimizely.com
-||http://a1706490390.cdn.optimizely.com
-||http://a17126690382.cdn.optimizely.com
-||http://a1719570453.cdn.optimizely.com
-||http://a17571560121.cdn.optimizely.com
-||http://a17957420003.cdn.optimizely.com
-||http://a1859010085.cdn.optimizely.com
-||http://a2129670914.cdn.optimizely.com
-||http://a234628017.cdn.optimizely.com
-||http://a275532918.cdn.optimizely.com
-||http://a277026128.cdn.optimizely.com
-||http://a2972860641.cdn.optimizely.com
-||http://a3013110282.cdn.optimizely.com
-||http://a304207300.cdn.optimizely.com
-||http://a3567930175.cdn.optimizely.com
-||http://a3580442334.cdn.optimizely.com
-||http://a3698060313.cdn.optimizely.com
-||http://a400912536.cdn.optimizely.com
-||http://a4621041136.cdn.optimizely.com
-||http://a5090114122.cdn.optimizely.com
-||http://a523170811.cdn.optimizely.com
-||http://a553480116.cdn.optimizely.com
-||http://a6529002483.cdn.optimizely.com
-||http://a745050198.cdn.optimizely.com
-||http://a752092193.cdn.optimizely.com
-||http://a7544042.cdn.optimizely.com
-||http://a7871036.cdn.optimizely.com
-||http://a8209871389.cdn.optimizely.com
-||http://a8507201684.cdn.optimizely.com
-||http://a8571253058.cdn.optimizely.com
-||http://a989617545.cdn.optimizely.com
-||http://cdn-a2-ncl.optimizely.com
-||http://cdn-pci.optimizely.com
-||http://a11701662245.cdn-pci.optimizely.com
-||http://a8447843426.cdn-pci.optimizely.com
-||http://cdn-s-optional.optimizely.com
-||http://cdn3.optimizely.com
-||http://client.optimizely.com
-||http://errors.client.optimizely.com
-||http://log.optimizely.com
-||http://log3.optimizely.com
-||http://logx.optimizely.com
 ||http://events.mobile.optimizely.com
-||http://odds.optimizely.com
-||http://rum.optimizely.com
-||http://tapi.optimizely.com
-||http://teams.optimizely.com
-||http://vis.optimizely.com
 
 ! [optimost.io]
 ||http://origin.optimost.io
@@ -21472,7 +19971,6 @@
 ! [pinterest.com]
 ||http://ads.pinterest.com
 ||http://analytics.pinterest.com
-||http://ct.pinterest.com
 ||http://log.pinterest.com
 ||http://trk.pinterest.com
 
@@ -22286,9 +20784,7 @@
 ||http://execution-use.ci360.sas.com
 
 ! [sascdn.com]
-||http://sascdn.com
 ||http://ak-ns.sascdn.com
-||http://ced.sascdn.com
 
 ! [saygames.io]
 ||http://track.saygames.io
@@ -22324,7 +20820,6 @@
 ||http://config.sdk.scopely.io
 
 ! [scorecardresearch.com]
-||http://scorecardresearch.com
 ||http://b.scorecardresearch.com
 ||http://bs.scorecardresearch.com
 ||http://end.scorecardresearch.com
@@ -23831,9 +22326,6 @@
 ||http://preferences.truste.com
 ||http://privacy-policy.truste.com
 
-! [trustwave.com]
-||http://sealserver.trustwave.com
-
 ! [trustx.org]
 ||http://sofia.trustx.org
 
@@ -24306,9 +22798,6 @@
 ||http://kinja-com.videoplayerhub.com
 ||http://pmc-com.videoplayerhub.com
 
-! [videoplaza.tv]
-||http://videoplaza.tv
-
 ! [videosecrets.com]
 ||http://banners.videosecrets.com
 
@@ -24663,9 +23152,6 @@
 ! [wrating.com]
 ||http://wrating.com
 
-! [wsj.com]
-||http://optimizely.wsj.com
-
 ! [wsod.com]
 ||http://wsod.com
 
@@ -24738,11 +23224,6 @@
 ! [ximalaya.com]
 ||http://xdcs-collector.ximalaya.com
 
-! [xiti.com]
-||http://xiti.com
-||http://logs.xiti.com
-||http://logs1202.xiti.com
-
 ! [xtify.com]
 ||http://sdk.ibm.xtify.com
 ||http://sdk1.ibm.xtify.com
@@ -24785,29 +23266,6 @@
 ||http://m.yap.yahoo.com
 ||http://pr-bh.ybp.yahoo.com
 ||http://partnerads.ysm.yahoo.com
-
-! [yandex.com]
-||http://appmetrica.yandex.com
-||http://redirect.appmetrica.yandex.com
-
-! [yandex.net]
-||http://report.appmetrica.yandex.net
-||http://startup.mobile.yandex.net
-
-! [yandex.ru]
-||http://adfox.yandex.ru
-||http://matchid.adfox.yandex.ru
-||http://an.yandex.ru
-||http://redirect.appmetrica.yandex.ru
-||http://awaps.yandex.ru
-||http://bs.yandex.ru
-||http://clck.yandex.ru
-||http://informer.yandex.ru
-||http://kiks.yandex.ru
-||http://grade.market.yandex.ru
-||http://mc.yandex.ru
-||http://metrika.yandex.ru
-||http://share.yandex.ru
 
 ! [yandexadexchange.net]
 ||http://yandexadexchange.net

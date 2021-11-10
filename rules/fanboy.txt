@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: T1oJr9WxmiLtNZZWqPaxWw
-! Version: 202111091600
+! Checksum: eOb7Fn0iuAv4b76L5tZhdA
+! Version: 202111100400
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-09 16:00 UTC
+! Last modified: 2021-11-10 04:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -1180,6 +1180,7 @@
 ||https://purevpn.com/loadGdprView
 ||https://sheinsz.ltwebstatic.com/she_dist/assets/backup-onetrust.$script
 ||https://stromnetz-hamburg.de/matomo/js/
+||https://tags.tiqcdn.com^$script
 ||https://vandalism-sounds.com^*/notices.min.js
 ||https://windguru.cz/forms/consent.php
 ||https://yimg.com^*/guce.js
@@ -2668,6 +2669,7 @@
 ||http://sp.knowyourmeme.com^
 ||http://stromnetz-hamburg.de/matomo/js/
 ||http://t13.9to5google.com^
+||http://tags.tiqcdn.com^$script,domain=firstdirect.com
 ||http://vandalism-sounds.com^*/notices.min.js
 ||http://windguru.cz/forms/consent.php
 ||http://yimg.com^*/guce.js
@@ -7038,6 +7040,7 @@ https://onlymyhealth.com##.footer_top
 https://ftleavenworthlamp.com##.footerdeal
 https://cnbctv18.com##.footerlinks-rhs
 https://mygaming.co.za##.form-container
+https://rebelnews.com##.form-wrap
 https://hellomagazine.com##.formNewsletter
 https://cinemablend.com##.form_mailchimp
 https://algemeiner.com##.formnews
@@ -7622,6 +7625,7 @@ https://engadget.com##div[data-component="NewsletterCard"]
 https://fastcompany.com##div[id$="newsletter"]
 https://dailycaller.com##div[id^="dc_morning_email"]
 https://thenation.com##div[id^="inline_cta_"]
+https://standard.co.uk##div[id^="offer_"]
 https://churchpop.com##div[id^="popup-embedded-"]
 https://theblaze.com##div[id^="sWidget_-_Newsletter_"]
 https://usnews.com##div[id^="signup-"]
@@ -8004,6 +8008,7 @@ https://square-enix.com###block-home-seeweb
 https://gardenlines.co.uk###block-menu-menu-footer-icons
 https://ncronline.org###block-ncr-blocks-article-share-links
 https://thomsonsport.com###block-service-links-service-links-not-node
+https://pocketnow.com###block-subscription
 https://wikomobile.com###block_reseaux
 https://thepostgame.com###block_sfl_core_magazine_social
 https://mydorpie.com###bltw
@@ -8742,6 +8747,7 @@ https://yahoo.com##.interest-bar
 https://insidethegames.biz##.inverse.btn-icon
 https://bestgamingmouse.online##.iqs
 https://viralnova.com##.is-sticky
+https://pocketnow.com##.is-subscription
 https://earnthenecklace.com##.ism_wrap
 https://barryanddistrictnews.co.uk##.itemGoogle
 https://islamweb.net##.iteminfo
@@ -13709,6 +13715,7 @@ https://scribol.com#@#.scribol
 https://advids.co,cbdoilreview.org,fashiola.fr,galerieslafayette.com,mortgageguy.com.au,paperless-insurance.com,thepage.com.ua,thepage.ua#@#.scroll-to-top:not(body)
 https://channelnewsasia.com,dreamhost.com,kitacon.org,lampade.it,polskikoszyk.pl,posti.fi,redislabs.com#@#.scroll-top:not(body):not(html)
 https://aklinizikesfedin.com,bancobpm.it,channelnewsasia.com,ew.com,indiatimes.com,letyshops.com,msn.com,people.com,southernliving.com,steptohealth.com,tele2.ru,wiemy.to#@#.scroll-up:not(body):not(html)
+https://tandfonline.com#@#.scrollToTop
 https://krasnodar.ru#@#.scrollTop
 https://hyperoptic.com,playtech.co.nz,porozmawiajmyoit.pl,scan.co.uk#@#.scroll_top:not(body):not(html)
 https://ltn.com.tw,theuptake.org#@#.scrolltop:not(body):not(html)
@@ -14034,6 +14041,7 @@ https://ezhikezhik.ru#@#.share_content
 https://radiolodz.pl#@#.share_icons
 https://gomiso.com#@#.share_panel
 https://wsj.com#@#.share_tools
+https://vecernji.hr#@#.share_wrap
 https://infoworld.com#@#.share_wrapper
 https://mozillamessaging.com,thebrowser.com,wired.it#@#.sharebox
 https://join.me#@#.sharebutton
@@ -18561,6 +18569,7 @@ http://onlymyhealth.com##.footer_top
 http://ftleavenworthlamp.com##.footerdeal
 http://cnbctv18.com##.footerlinks-rhs
 http://mygaming.co.za##.form-container
+http://rebelnews.com##.form-wrap
 http://hellomagazine.com##.formNewsletter
 http://cinemablend.com##.form_mailchimp
 http://algemeiner.com##.formnews
@@ -19145,6 +19154,7 @@ http://engadget.com##div[data-component="NewsletterCard"]
 http://fastcompany.com##div[id$="newsletter"]
 http://dailycaller.com##div[id^="dc_morning_email"]
 http://thenation.com##div[id^="inline_cta_"]
+http://standard.co.uk##div[id^="offer_"]
 http://churchpop.com##div[id^="popup-embedded-"]
 http://theblaze.com##div[id^="sWidget_-_Newsletter_"]
 http://usnews.com##div[id^="signup-"]
@@ -19527,6 +19537,7 @@ http://square-enix.com###block-home-seeweb
 http://gardenlines.co.uk###block-menu-menu-footer-icons
 http://ncronline.org###block-ncr-blocks-article-share-links
 http://thomsonsport.com###block-service-links-service-links-not-node
+http://pocketnow.com###block-subscription
 http://wikomobile.com###block_reseaux
 http://thepostgame.com###block_sfl_core_magazine_social
 http://mydorpie.com###bltw
@@ -20265,6 +20276,7 @@ http://yahoo.com##.interest-bar
 http://insidethegames.biz##.inverse.btn-icon
 http://bestgamingmouse.online##.iqs
 http://viralnova.com##.is-sticky
+http://pocketnow.com##.is-subscription
 http://earnthenecklace.com##.ism_wrap
 http://barryanddistrictnews.co.uk##.itemGoogle
 http://islamweb.net##.iteminfo
@@ -25234,6 +25246,7 @@ http://scribol.com#@#.scribol
 http://advids.co,cbdoilreview.org,fashiola.fr,galerieslafayette.com,mortgageguy.com.au,paperless-insurance.com,thepage.com.ua,thepage.ua#@#.scroll-to-top:not(body)
 http://channelnewsasia.com,dreamhost.com,kitacon.org,lampade.it,polskikoszyk.pl,posti.fi,redislabs.com#@#.scroll-top:not(body):not(html)
 http://aklinizikesfedin.com,bancobpm.it,channelnewsasia.com,ew.com,indiatimes.com,letyshops.com,msn.com,people.com,southernliving.com,steptohealth.com,tele2.ru,wiemy.to#@#.scroll-up:not(body):not(html)
+http://tandfonline.com#@#.scrollToTop
 http://krasnodar.ru#@#.scrollTop
 http://hyperoptic.com,playtech.co.nz,porozmawiajmyoit.pl,scan.co.uk#@#.scroll_top:not(body):not(html)
 http://ltn.com.tw,theuptake.org#@#.scrolltop:not(body):not(html)
@@ -25559,6 +25572,7 @@ http://ezhikezhik.ru#@#.share_content
 http://radiolodz.pl#@#.share_icons
 http://gomiso.com#@#.share_panel
 http://wsj.com#@#.share_tools
+http://vecernji.hr#@#.share_wrap
 http://infoworld.com#@#.share_wrapper
 http://mozillamessaging.com,thebrowser.com,wired.it#@#.sharebox
 http://join.me#@#.sharebutton
