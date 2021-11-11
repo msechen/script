@@ -1,12 +1,13 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 const TASK_DO = 1;
 const TASK_DONE = 2;
 
 class TurntableFarm extends Template {
-  static scriptName = '天天红包';
+  static scriptName = 'TurntableFarm';
+  static scriptNameDesc = '东东农场-天天红包';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
 
@@ -88,35 +89,29 @@ class TurntableFarm extends Template {
       doRedeem: {
         name: 'lotteryForTurntableFarm',
         paramFn: () => _.assign({type: 1}, self.commonParamFn()),
-        successFn: async data => {
-          const {addWater, remainLotteryTimes} = data;
+        successFn: async (data, api) => {
+          const {addWater, remainLotteryTimes, beanCount} = data;
           if (!self.isSuccess(data) || remainLotteryTimes === 0) return false;
           await sleep(5);
-
-          addWater && self.log(`获取的水滴数: ${addWater}`);
+          const number = addWater || beanCount;
+          if (number) {
+            api.log(`获得${addWater ? '水滴' : '豆豆'}: ${number}`);
+          }
         },
         repeat: true,
       },
     };
   };
 
-  static initShareCodeTaskList(shareCodes) {
-    // 处理
-  }
-
   static async doCron(api) {
     const self = this;
     const _ = this._;
 
     await api.doFormBody('timingAwardForTurntableFarm');
-    await api.doFormBody('lotteryForTurntableFarm', {type: 1}).then(async data => {
-      const {addWater, remainLotteryTimes} = data;
-      if (!self.isSuccess(data) || remainLotteryTimes === 0) return false;
-      await sleep(5);
-
-      addWater && self.log(`获取的水滴数: ${addWater}`);
-    });
+    await self.doApi(api, 'doRedeem');
   }
 }
+
+singleRun(TurntableFarm).then();
 
 module.exports = TurntableFarm;
