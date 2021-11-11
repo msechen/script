@@ -12,7 +12,6 @@ class EarnBean extends Template {
   static times = 1;
   static needInPhone = true;
   static concurrent = true;
-  static concurrentOnceDelay = 2;
 
   static apiOptions = {
     options: {
@@ -39,7 +38,14 @@ class EarnBean extends Template {
       const taskList = await api.doGetPath('getTaskList').then(getContent) || [];
 
       for (const {taskId, taskType, watchTime: waitDuration, statusName} of taskList) {
-        if (!['去赚钱'].includes(statusName)) continue;
+        if (!['去赚钱'].includes(statusName) || !taskId) continue;
+
+        // 检查任务是否需要继续做
+        const {finishCount, maxTaskCount} = await api.doGetPath('getTaskFinishCount').then(_.property('content'));
+        if (finishCount >= maxTaskCount) {
+          needLoop = false;
+          break;
+        }
 
         const {uid, tt} = await api.doBodyPath('saveTaskRecord', {taskId, taskType}).then(getContent) || {};
         if (!uid) continue;
@@ -48,8 +54,6 @@ class EarnBean extends Template {
         await api.doBodyPath('saveTaskRecord', {taskId, taskType, uid, tt}).then(data => {
           api.log(_.get(data, 'content.msg'));
         });
-        // 暂时无用, 跟原来保持一致
-        await api.doGetPath('getTaskFinishCount');
       }
 
       needLoop && await handleDoTask();
