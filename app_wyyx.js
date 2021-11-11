@@ -476,7 +476,7 @@ function RewardList(identification) {
               console.log("奖励列表,API查询请求失败，请检查自身设备网络情况");
               $.message += "奖励列表,API查询请求失败，请检查自身设备网络情况";
           }else{
-              console.log(data)
+              //console.log(data)
               let result = JSON.parse(data);
               if(result.code==200){
                   if(result.data.length==0){
