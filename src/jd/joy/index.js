@@ -121,11 +121,16 @@ class Joy extends Template {
 
           const taskList = _.property('datas')(data) || [];
           if (!_.isEmpty(deskGoods)) {
-            const list = deskGoods.filter(o => !o.status).map(o => ({
+            const deskGoodList = deskGoods.filter(o => !o.status).map(o => ({
               taskType: 'ScanDeskGood',
               sku: o.sku,
             }));
-            result.push({list, option: {maxTimes: list.length}});
+            taskList.push({
+              joinedCount: 0,
+              taskType: 'ScanDeskGood',
+              deskGoodList: deskGoodList,
+              taskChance: deskGoodList.length,
+            });
           }
           for (let {
             taskChance: maxTimes,
@@ -137,6 +142,7 @@ class Joy extends Template {
             followShops,
             followChannelList,
             followGoodList,
+            deskGoodList,
           } of taskList) {
             // 收集狗粮
             // 包含三餐签到
@@ -145,7 +151,7 @@ class Joy extends Template {
               continue;
             }
 
-            if (!['ViewVideo', 'race', 'ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood'/*, 'HelpFeed'*/].includes(taskType)) continue;
+            if (!['ScanDeskGood', 'ViewVideo', 'race', 'ScanMarket', 'FollowShop', 'FollowChannel', 'FollowGood'/*, 'HelpFeed'*/].includes(taskType)) continue;
 
             if (taskType === 'HelpFeed') {
               if (receiveStatus === 'chance_left') {
@@ -172,14 +178,14 @@ class Joy extends Template {
             times = times || void 0;
             maxTimes = maxTimes || void 0;
 
-            let list = (scanMarketList || followShops || followChannelList || followGoodList || []).filter(o => !o.status).map(o => {
+            let list = (scanMarketList || followShops || followChannelList || followGoodList || deskGoodList || []).filter(o => !o.status).map(o => {
               return _.assign({}, scanMarketList ? {
                 marketLink: o.marketLinkH5,
                 taskType,
               } : (followChannelList ? {
                 channelId: o.channelId,
                 taskType,
-              } : (followGoodList ? {sku: o.sku} : {shopId: o.shopId})));
+              } : (followGoodList ? {sku: o.sku} : (deskGoodList ? o : {shopId: o.shopId}))));
             });
 
             if (taskType === 'ViewVideo') {
@@ -197,10 +203,11 @@ class Joy extends Template {
                 const newO = _.assign({}, o);
                 delete newO.taskType;
                 if (!_.isEmpty(newO)) {
-                  await handleIconClick(_.snakeCase(taskType), _.values(newO)[0]);
+                  await handleIconClick(taskType === 'ScanDeskGood' ? 'follow_good_desk' : _.snakeCase(taskType), _.values(newO)[0]);
                 }
                 const notScan = ['FollowShop', 'FollowGood'].includes(taskType);
                 const functionId = notScan ? _.camelCase(taskType) : 'scan';
+                await sleep(5);
                 return api[notScan ? 'doPath' : 'doBodyPath'](functionId, o);
               },
             });
