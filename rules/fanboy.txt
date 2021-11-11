@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: eOb7Fn0iuAv4b76L5tZhdA
-! Version: 202111100400
+! Checksum: eXHgQiAWwb+L0OU/Gl4yaA
+! Version: 202111110400
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-10 04:00 UTC
+! Last modified: 2021-11-11 04:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -198,7 +198,6 @@
 ||https://madmimi.com/signups/$third-party
 ||https://magimg.com/random?$third-party
 ||https://mail.bonnier-subscriptions.com^$subdocument
-||https://mailerlite.com^$third-party
 ||https://mailjet.com/statics/js/widget.modal.js$third-party
 ||https://mailjet.com/widget/$third-party
 ||https://manychat.com^$third-party
@@ -401,6 +400,7 @@
 ||https://chatango.com/pcache/sounds/
 ||https://cleversite.ru/client/default/sound/
 ||https://cliengo.com^$media
+||https://cloudfront.net/prod/media/
 ||https://collectcdn.com^$media
 ||https://driftqa.com/conductor/assets/media/
 ||https://echatsys.com/sounds/
@@ -1636,7 +1636,6 @@
 ||http://madmimi.com/signups/$third-party
 ||http://magimg.com/random?$third-party
 ||http://mail.bonnier-subscriptions.com^$subdocument
-||http://mailerlite.com^$third-party
 ||http://mailjet.com/statics/js/widget.modal.js$third-party
 ||http://mailjet.com/widget/$third-party
 ||http://mailmunch.s3.amazonaws.com^
@@ -1844,6 +1843,7 @@
 ||http://chatango.com/pcache/sounds/
 ||http://cleversite.ru/client/default/sound/
 ||http://cliengo.com^$media
+||http://cloudfront.net/prod/media/$domain=birdeye.com
 ||http://collectcdn.com^$media
 ||http://driftqa.com/conductor/assets/media/
 ||http://echatsys.com/sounds/
@@ -9477,6 +9477,7 @@ https://zien.tv###cbar
 https://ubs.com###cboxContent
 https://evaair.com,play.tv,ubs.com###cboxOverlay
 https://ipaddress.com###cc
+https://boardgamegeek.com###cc--main
 https://armorgames.com###cc-alert
 https://yellow.place###cc-bar
 https://waterfall-d-mannose.com###cc-cont
@@ -10200,6 +10201,7 @@ https://totalserversolutions.com##.rplm-alert
 https://birramenabrea.com##.rstbox
 https://jeffs.com,scandinaviansoul.com##.rstboxes
 https://welcometothejungle.co##.s1u7oiza-0
+https://sanitas.com##.sanitas-cookie-alert-container
 https://scaleway.com##.sc-AxjAm.pdqDT.sc-kcRExk.dhjYCX
 https://paladins.com,realmroyale.com,smitegame.com##.sc-bdVaJa
 https://live365.com##.sc-csuQGl
@@ -13481,7 +13483,7 @@ https://sbis.ru##.sbisru-CookieAgreement
 https://tutu.ru##.style__disclaimer
 https://lada.ru##.styles_container__1obM5
 https://aliexpress.ru##.styles_wrapper__3isR2
-https://66.ru##.t-i-agree
+https://66.ru,gorodvo.ru##.t-i-agree
 https://obozrevatel.com##.t657__wrapper
 https://vega-protect.ru##.t886
 https://shop.philips.ru##.test-mode
@@ -13645,6 +13647,7 @@ https://hyser.ua,politeka.net,ukrainci.com.ua,znaj.ua##.privacy-policy
 https://yaizakon.com.ua##.spu-bg
 https://papadon.com.ua##.t886
 https://forklog.com##.terms_popup
+https://changeua.com##.warning
 https://infiniti-vietnam.com.vn##.c_128
 https://360.cymru###negesCaniatad
 https://nasa.gov#@##BackToTop
@@ -13652,7 +13655,7 @@ https://billabong.com#@##NewsletterSignup
 https://autotrader.com,brydge.com,controllergear.com,enbridgegas.com,liputan6.com,rejuvenation.com#@##back-to-top
 https://archeda.eu,arredamento.it#@##back-top
 https://engie.fr,gaz-tarif-reglemente.fr,happ-e.fr,nasa.gov#@##backToTop
-https://rmf24.pl#@##backTop
+https://rmf24.pl#@##backTop:not(html):not(body)
 https://nasa.gov#@##backtoTop
 https://aqa-shop.ru,megalight18.net,mk-78.ru,stp-shop.ru#@##backtop
 https://gcnlive.com,guildwars2.com,iosysos.com,nasa.gov#@##backtotop
@@ -13671,6 +13674,7 @@ https://onecallinsurance.co.uk#@##scroll-to-top
 https://aval.ua,easytcd.com,finanzen100.de,hostiq.ua#@##scroll-top:not(body)
 https://catchconnect.com.au#@##scrollTop
 https://catchconnect.com.au,hotel.de#@##scrollTop:not(body):not(html)
+https://temaretik.com#@##scroll_to_top
 https://thehunt.com#@##signup-popup
 https://wecollect.ch#@##subscribe_email
 https://techopedia.com,vivoplay.net#@##subscriptionModal
@@ -21007,6 +21011,7 @@ http://zien.tv###cbar
 http://ubs.com###cboxContent
 http://evaair.com,play.tv,ubs.com###cboxOverlay
 http://ipaddress.com###cc
+http://boardgamegeek.com###cc--main
 http://armorgames.com###cc-alert
 http://yellow.place###cc-bar
 http://waterfall-d-mannose.com###cc-cont
@@ -21730,6 +21735,7 @@ http://totalserversolutions.com##.rplm-alert
 http://birramenabrea.com##.rstbox
 http://jeffs.com,scandinaviansoul.com##.rstboxes
 http://welcometothejungle.co##.s1u7oiza-0
+http://sanitas.com##.sanitas-cookie-alert-container
 http://scaleway.com##.sc-AxjAm.pdqDT.sc-kcRExk.dhjYCX
 http://paladins.com,realmroyale.com,smitegame.com##.sc-bdVaJa
 http://live365.com##.sc-csuQGl
@@ -25012,7 +25018,7 @@ http://sbis.ru##.sbisru-CookieAgreement
 http://tutu.ru##.style__disclaimer
 http://lada.ru##.styles_container__1obM5
 http://aliexpress.ru##.styles_wrapper__3isR2
-http://66.ru##.t-i-agree
+http://66.ru,gorodvo.ru##.t-i-agree
 http://obozrevatel.com##.t657__wrapper
 http://vega-protect.ru##.t886
 http://shop.philips.ru##.test-mode
@@ -25176,6 +25182,7 @@ http://hyser.ua,politeka.net,ukrainci.com.ua,znaj.ua##.privacy-policy
 http://yaizakon.com.ua##.spu-bg
 http://papadon.com.ua##.t886
 http://forklog.com##.terms_popup
+http://changeua.com##.warning
 http://infiniti-vietnam.com.vn##.c_128
 http://360.cymru###negesCaniatad
 http://nasa.gov#@##BackToTop
@@ -25183,7 +25190,7 @@ http://billabong.com#@##NewsletterSignup
 http://autotrader.com,brydge.com,controllergear.com,enbridgegas.com,liputan6.com,rejuvenation.com#@##back-to-top
 http://archeda.eu,arredamento.it#@##back-top
 http://engie.fr,gaz-tarif-reglemente.fr,happ-e.fr,nasa.gov#@##backToTop
-http://rmf24.pl#@##backTop
+http://rmf24.pl#@##backTop:not(html):not(body)
 http://nasa.gov#@##backtoTop
 http://aqa-shop.ru,megalight18.net,mk-78.ru,stp-shop.ru#@##backtop
 http://gcnlive.com,guildwars2.com,iosysos.com,nasa.gov#@##backtotop
@@ -25202,6 +25209,7 @@ http://onecallinsurance.co.uk#@##scroll-to-top
 http://aval.ua,easytcd.com,finanzen100.de,hostiq.ua#@##scroll-top:not(body)
 http://catchconnect.com.au#@##scrollTop
 http://catchconnect.com.au,hotel.de#@##scrollTop:not(body):not(html)
+http://temaretik.com#@##scroll_to_top
 http://thehunt.com#@##signup-popup
 http://wecollect.ch#@##subscribe_email
 http://techopedia.com,vivoplay.net#@##subscriptionModal
