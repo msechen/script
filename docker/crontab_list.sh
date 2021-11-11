@@ -67,32 +67,18 @@
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
 #财富岛热气球接待
 30 * * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
-#jd_opencard8
-18 3,12,20 * * * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
 #jd_opencard9
 30 2,8,21 * * * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
-#jd_opencard10
-40 4,17,23 * * * node /scripts/jd_opencard10.js >> /scripts/logs/jd_opencard10.log 2>&1
 #jd_opencard11
 45 7,14,20 * * * node /scripts/jd_opencard11.js >> /scripts/logs/jd_opencard11.log 2>&1
 #jd_opencard12
 8 9,15,19 * * * node /scripts/jd_opencard12.js >> /scripts/logs/jd_opencard12.log 2>&1
-#jd_opencard13
-39 10,13,23 * * * node /scripts/jd_opencard13.js >> /scripts/logs/jd_opencard13.log 2>&1
 #jd_opencard14
 7 6,14,22 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
-#jd_opencard15
-18 9,15,19 * * * node /scripts/jd_opencard15.js >> /scripts/logs/jd_opencard15.log 2>&1
-#jd_opencard16
-23 5,16,20 * * * node /scripts/jd_opencard16.js >> /scripts/logs/jd_opencard16.log 2>&1
-#jd_opencard17
-17 1,17,23 * * * node /scripts/jd_opencard17.js >> /scripts/logs/jd_opencard17.log 2>&1
 #jd_opencard19
 35 3,14,19 * * * node /scripts/jd_opencard19.js >> /scripts/logs/jd_opencard19.log 2>&1
 #jd_opencard20
 41 4,20,22 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
-#jd_opencard21
-53 8,13,21 * * * node /scripts/jd_opencard21.js >> /scripts/logs/jd_opencard21.log 2>&1
 #jd_opencard22
 17 5,13,23 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
 #jd_opencard23
