@@ -34,12 +34,14 @@ class SignBeanHome extends Template {
           const result = [];
 
           const taskList = _.property('data.floorList')(data) || [];
+          const {awardStatus} = data.data;
           for (let {
             type,
             maxTimes,
             stageList,
+            viewed,
           } of taskList) {
-            if (!['3', '4'].includes(type)) continue;
+            if (!['3', '4'].includes(type) || viewed || awardStatus) continue;
 
             let list = [];
             if (type === '3') {
@@ -53,6 +55,7 @@ class SignBeanHome extends Template {
           }
 
           await api.doFormBody('homeFeedsList', {page: 1}).then(async data => {
+            if (_.get(data, 'data.awardStatus')) return;
             for (const {skuId} of _.property('data.feedsList')(data) || []) {
               const {taskProgress, taskThreshold} = await api.doFormBody('beanHomeTask', {
                 'awardFlag': false,
