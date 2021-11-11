@@ -28,7 +28,6 @@ class CrazyJoy extends Template {
 
   static logBean(data) {
     const self = this;
-    const _ = this._;
 
     const beans = _.property('data.beans')(data);
     if (beans) self.log(`获取到豆豆: ${beans}`);
@@ -36,7 +35,6 @@ class CrazyJoy extends Template {
 
   static async doMain(api) {
     const self = this;
-    const _ = this._;
     const logBean = self.logBean.bind(self);
 
     await doDayTask();

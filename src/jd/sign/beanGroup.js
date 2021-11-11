@@ -23,7 +23,6 @@ class SignBeanGroup extends Template {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = self._;
 
     self.isFirstLoop() && await api.doFormBody('signGroupHit', {activeType: 2});
     const {groupCode, shareCode, jklInfo} = await api.doFormBody('signBeanGroupStageIndex').then(data => data.data) || {};

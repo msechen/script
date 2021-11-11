@@ -28,7 +28,6 @@ class Adf extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     const taskParamFn = o => _.pick(o, ['skuId']);
     return {

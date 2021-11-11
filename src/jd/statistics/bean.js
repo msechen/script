@@ -15,7 +15,6 @@ class StatisticsBean extends Template {
 
   static async doMain(api) {
     const self = this;
-    const _ = this._;
 
     // 需等待, 避免接口报错
     if (self.currentCookieTimes === 0) await sleep(15);

@@ -33,7 +33,6 @@ class JxCfd extends Template {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     const {SceneList, dwIsNewUser} = await api.doPath('jxcfd/user/QueryUserInfo');
     const dwSceneId = Object.keys(SceneList || {})[0] || 1001;

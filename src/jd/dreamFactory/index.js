@@ -19,7 +19,6 @@ class DreamFactory extends Template {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     const tuanId = process.env.JD_DREAMFACTORY_TUAN_ID;
     const activeId = process.env.JD_DREAMFACTORY_TUAN_ACTIVE_ID;

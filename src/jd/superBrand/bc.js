@@ -30,7 +30,6 @@ class Bc extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     // 坐标, 需要手动抓包获取
     const position = {lat: process.env.JD_BC_POSITION_LAT, lng: process.env.JD_BC_POSITION_LNG};

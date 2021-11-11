@@ -30,7 +30,6 @@ class HarmonyTemplate extends Template {
 
   static logAfterRedeem(data) {
     const self = this;
-    const _ = this._;
 
     // 豆豆
     const beanInfo = _.property('data.result.userAwardsCacheDto.jBeanAwardVo.prizeName')(data);
@@ -42,7 +41,6 @@ class HarmonyTemplate extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     const result = {
       // 获取任务列表

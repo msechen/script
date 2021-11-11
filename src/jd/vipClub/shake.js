@@ -33,7 +33,6 @@ class VipClubShake extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     const getTaskFn = (info) => JSON.stringify({info, withItem: true});
     return {

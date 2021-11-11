@@ -27,7 +27,6 @@ class jdFactory extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     const isSuccess = data => _.property('data.bizCode')(data) === 0;
 
@@ -146,7 +145,6 @@ class jdFactory extends Base {
 
   static async doCron(api) {
     const self = this;
-    const _ = this._;
 
     const userScore = await api.jdfactory_getTaskDetail({}).then(async data => +_.property('data.result.userScore')(data));
     if (userScore >= 3000000) {

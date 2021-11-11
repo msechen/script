@@ -91,7 +91,6 @@ class Joy extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       // 获取任务列表

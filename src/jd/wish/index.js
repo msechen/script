@@ -16,7 +16,6 @@ class Wish extends Template {
 
   static async doMain(api) {
     const self = this;
-    const _ = this._;
 
     async function getTaskList(roomId) {
       return api.doFormBody('getWishOrderRankingList', {

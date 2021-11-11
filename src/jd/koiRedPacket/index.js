@@ -32,7 +32,6 @@ class KoiRedPacket extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     async function receiveTaskRedPacket(api, taskType) {
       return api.doFormBody('receiveTaskRedpacket', {taskType});
@@ -127,7 +126,6 @@ class KoiRedPacket extends Template {
 
   static async beforeRequest(api) {
     const self = this;
-    const _ = this._;
 
     const index = self.currentCookieTimes === 0 ? 1 : 0;
     if (self.isFirstLoop()) {

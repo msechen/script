@@ -26,7 +26,6 @@ class Car extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     const doTaskOptions = body => ({
       headers: {

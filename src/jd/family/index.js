@@ -93,7 +93,6 @@ class Family extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     const result = {
       // 获取任务列表

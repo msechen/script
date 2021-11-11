@@ -28,7 +28,6 @@ class starMall extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     const token = 'jd6df03bd53f0f292f';
 

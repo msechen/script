@@ -17,7 +17,6 @@ class SplitHongbao extends HarmonyTemplate {
 
   static async afterDoWaitTask(data, api) {
     const self = this;
-    const _ = self._;
 
     const {maxTimes, times, taskId} = _.property('data.result')(data);
     if (!maxTimes) return;

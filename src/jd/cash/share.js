@@ -26,7 +26,6 @@ class CashShare extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = self._;
 
     await getHome();
 

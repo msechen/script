@@ -33,7 +33,6 @@ class Ssjj extends Template {
 
   static async beforeInit() {
     const self = this;
-    const _ = this._;
     _.merge(self.apiOptions, {
       options: {
         headers: {
@@ -45,7 +44,6 @@ class Ssjj extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       beforeGetTaskList: {

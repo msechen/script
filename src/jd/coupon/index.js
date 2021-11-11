@@ -32,7 +32,6 @@ class Coupon extends Template {
 
   static async doMain(api) {
     const self = this;
-    const _ = this._;
 
     const unionActId = '31125';
 

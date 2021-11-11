@@ -50,7 +50,6 @@ class stall extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     shareCodes && (shareCodeCaches = shareCodeCaches.concat(shareCodes.map(taskToken => ({taskToken}))));
 
@@ -174,7 +173,6 @@ class stall extends Base {
 
   static async doCron(api) {
     const self = this;
-    const _ = this._;
 
     await api.stall_collectProduceScore({ss: self.getSS('JD_STALL_CRON_SS')}).then(data => {
       this.log(`定时获取到的金币为 ${_.property('data.result.produceScore')(data)}`);

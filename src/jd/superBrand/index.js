@@ -27,7 +27,6 @@ class superBrand extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = this._;
 
     shareCodes && (shareCodeCaches = shareCodeCaches.concat(shareCodes));
 

@@ -14,7 +14,6 @@ class Sign extends Template {
 
   static async doMain(api) {
     const self = this;
-    const _ = this._;
     const t = getMoment().valueOf();
 
     async function doTask({name, url, options, isSuccessFn, rewardOutputFn}) {

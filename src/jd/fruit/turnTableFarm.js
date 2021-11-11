@@ -22,7 +22,6 @@ class TurntableFarm extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       // 获取任务列表
@@ -105,7 +104,6 @@ class TurntableFarm extends Template {
 
   static async doCron(api) {
     const self = this;
-    const _ = this._;
 
     await api.doFormBody('timingAwardForTurntableFarm');
     await self.doApi(api, 'doRedeem');

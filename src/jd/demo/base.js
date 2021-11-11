@@ -16,7 +16,6 @@ class Demo extends Base {
 
   static async doMain(api, shareCodes) {
     const self = this;
-    const _ = self._;
 
     await api.apiName().then(async data => {
       // writeFileJSON(data, 'apiName.json', __dirname);

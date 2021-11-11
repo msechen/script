@@ -15,7 +15,6 @@ class Nian extends Template {
 
   static apiNamesFn() {
     const self = this;
-    const _ = this._;
 
     return {
       // 获取任务列表
@@ -125,7 +124,6 @@ class Nian extends Template {
 
   static async getSS(api) {
     const self = this;
-    const _ = this._;
 
     const {secretp} = await this.getHomeData(api).then(data => _.property('data.result.homeMainInfo')(data) || {});
     if (api._data) return api._data;
@@ -134,7 +132,6 @@ class Nian extends Template {
 
   static async doCron(api) {
     const self = this;
-    const _ = this._;
 
     await api.doFormBody('nian_collectProduceScore', await self.getSS(api)).then(data => {
       this.log(`获取到 ${_.property('data.result.produceScore')(data)}`);
