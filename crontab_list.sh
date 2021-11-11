@@ -49,11 +49,11 @@
 # 京喜财富岛提现
 0 * * * * cd /scripts && npx tsc jd_cfd_withdraw.ts && node /scripts/jd_cfd_withdraw.js >> /scripts/logs/jd_cfd_withdraw.log 2>&1
 
-# 京喜财富岛提现
-10 0 * * * cd /scripts && npx tsc jd_cfd_withdraw.ts && node /scripts/jd_cfd_shell.ts >> /scripts/logs/jd_cfd_shell.log 2>&1
+# 京喜财富岛捡贝壳
+10 * * * * cd /scripts && node /scripts/jd_cfd_shell.ts >> /scripts/logs/jd_cfd_shell.log 2>&1
 
 # 京喜财富岛提现
-10 0 * * * cd /scripts && npx tsc jd_cfd_withdraw.ts && node /scripts/jd_cfd_balloon.ts >> /scripts/logs/jd_cfd_balloon.log 2>&1
+# 10 0 * * * cd /scripts && node /scripts/jd_cfd_balloon.ts >> /scripts/logs/jd_cfd_balloon.log 2>&1
 
 # 摇京豆
 5 0,23 * * * node /scripts/jd_club_lottery.js >> /scripts/logs/jd_club_lottery.log 2>&1
