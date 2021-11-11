@@ -6,25 +6,25 @@
 
 #### 规则地址
 
-静态规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/koolproxy.txt
+静态规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/koolproxy.txt
 
-每日规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/daily.txt
+每日规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/daily.txt
 
-视频规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/kp.dat
+视频规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/kp.dat
 
-ABP规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/ABP.txt 
+ABP规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/ABP.txt 
 
-Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/yhosts.txt
+Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/yhosts.txt
 
-Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/fanboy.txt
+Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/fanboy.txt
 
-Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/antiad.txt
+Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/antiad.txt
 
-StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/steven.txt
+StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/steven.txt
 
-Android规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/android.txt
+Android规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/android.txt
 
-乘风视频：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/mv.txt
+乘风视频：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/mv.txt
 
 #### 备用地址
 
