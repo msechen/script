@@ -10,7 +10,7 @@ docker run -dit \\
 kuilei/jdshare:latest
 
 2.青龙拉库  
-ql repo https://ghproxy.com/https://github.com/kuilei0926/JDSHARE.git "" "jdshare.py"  
+ql repo https://ghproxy.com/https://github.com/kuilei0926/JDSHARE.git "jd_" "jdcode"
 
 3.设置环境变量  
 export JDSHAREURL="服务器地址（端口）"  
