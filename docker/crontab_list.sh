@@ -67,12 +67,6 @@
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
 #财富岛热气球接待
 30 * * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
-#jd_opencard9
-30 2,8,21 * * * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
-#jd_opencard11
-45 7,14,20 * * * node /scripts/jd_opencard11.js >> /scripts/logs/jd_opencard11.log 2>&1
-#jd_opencard12
-8 9,15,19 * * * node /scripts/jd_opencard12.js >> /scripts/logs/jd_opencard12.log 2>&1
 #jd_opencard14
 7 6,14,22 * * * node /scripts/jd_opencard14.js >> /scripts/logs/jd_opencard14.log 2>&1
 #jd_opencard19
@@ -81,8 +75,6 @@
 41 4,20,22 * * * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
 #jd_opencard22
 17 5,13,23 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
-#jd_opencard23
-22 6,13,17 * * * node /scripts/jd_opencard23.js >> /scripts/logs/jd_opencard23.log 2>&1
 # 推一推
 20 3,13 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
 # 省钱大赢家翻翻乐
@@ -95,6 +87,10 @@
 30 1,23 * * * node /scripts/jd_cscx.js >> /scripts/logs/jd_cscx.log 2>&1
 # 赚京豆(微信小程序)
 12 * * * * node /scripts/jd_syj.js >> /scripts/logs/jd_syj.log 2>&1
+# 饭粒
+20 2,18 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1
+#选品官
+21 2,11 1-13 11 * node /scripts/jd_xpg.js >> /scripts/logs/jd_xpg.log 2>&1
 
 ##############长期活动##############
 # 签到
