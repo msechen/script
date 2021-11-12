@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: 8dUA8YDQX7QQ4kEKPe3u9w
-! Version: 202111120501
+! Checksum: 3W5Pev1hV9HnaPk0VpHYFQ
+! Version: 202111120511
 ! Title: EasyList China+EasyList
-! Last modified: 12 Nov 2021 05:01 UTC
+! Last modified: 12 Nov 2021 05:11 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
