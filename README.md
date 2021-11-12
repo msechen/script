@@ -22,7 +22,9 @@ Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/master
 
 StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/steven.txt
 
-Android规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/android.txt
+AdAway规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/adaway.txt
+
+Adwars规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/adwars.txt
 
 乘风视频：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/mv.txt
 
@@ -44,12 +46,14 @@ Anti-AD规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/
 
 StevenBlack规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/steven.txt
 
-Android规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/android.txt
+AdAway规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/adaway.txt
+
+Adwars规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/adwars.txt
 
 乘风视频：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/mv.txt
 
 
 #### 订阅规则
 订阅规则：
-https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/kpr_our_rule.txt 或者
-https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/kpr_our_rule.txt
+https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/ikprule.txt 或者
+https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/ikprule.txt
