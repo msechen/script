@@ -83,18 +83,12 @@
 17 5,13,23 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
 #jd_opencard23
 22 6,13,17 * * * node /scripts/jd_opencard23.js >> /scripts/logs/jd_opencard23.log 2>&1
-# 手机狂欢城
-0 0,3 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
-# 手机狂欢城help
-20 1,3 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 # 推一推
 20 3,13 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
 # 省钱大赢家翻翻乐
 20 * * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 # 签到免单
 1 0,12,18 * * * node /scripts/jd_speed_signfree.js >> /scripts/logs/jd_speed_signfree.log 2>&1
-# 超级盒子
-24 3,13 * * * node /scripts/jd_superbox.js >> /scripts/logs/jd_superbox.log 2>&1
 # 发财挖宝
 20 1,9,16 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1
 # 京东超市奖品查询
