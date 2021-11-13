@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: vxMw/RcfZOthdWvQrD1npA
-! Version: 202111130446
+! Checksum: FQ9g9LM1L32BmglSvGhAfQ
+! Version: 202111131556
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw^$third-party
@@ -4871,8 +4871,8 @@
 ||https://zx590.com/assets/style/js/paigu.js
 ||https://zxdy777.com/myimg/
 ||https://zxip.com/2013_ad/
-||https://zxzj.me/slade
-||https://zxzj.me/t.js
+||https://zxzj.fun/slade
+||https://zxzj.fun/t.js
 ||https://zywlyy.cn/JS/
 ||https://zzbaike.com/main/*-20
 ||https://zzbaike.com/main/arvixe
@@ -4884,6 +4884,8 @@
 ||https://zzsky.cn/images/a_d_
 ||https://zzz4.com/JS_AD/
 ||https://zzzyk.com/js/
+||https://lovek01.com/gif/97-
+||https://yinghuacd.com/bar/
 ||https://17ce.com^*_$image
 ||https://69t49.com/floating/layer.js
 ||https://alicdn.com/img/ibank/*_!!2210231227621-0-cib.
@@ -4895,7 +4897,6 @@
 ||https://0512s.com^$third-party
 ||https://100669.com^$third-party
 ||https://15tianqi.com^$third-party
-||https://166sh.com^$third-party
 ||https://200218.com^$third-party
 ||https://51yhzp.com^$third-party
 ||https://91friend.com^$third-party
@@ -17873,8 +17874,8 @@
 ||http://zx590.com/assets/style/js/paigu.js
 ||http://zxdy777.com/myimg/
 ||http://zxip.com/2013_ad/
-||http://zxzj.me/slade
-||http://zxzj.me/t.js
+||http://zxzj.fun/slade
+||http://zxzj.fun/t.js
 ||http://zywlyy.cn/JS/
 ||http://zzbaike.com/main/*-20
 ||http://zzbaike.com/main/arvixe
@@ -17886,6 +17887,8 @@
 ||http://zzsky.cn/images/a_d_
 ||http://zzz4.com/JS_AD/
 ||http://zzzyk.com/js/
+||http://lovek01.com/gif/97-
+||http://yinghuacd.com/bar/
 ||http://17ce.com^*_$image
 ||http://3336672.com^
 ||http://3337729.com^
@@ -17913,6 +17916,7 @@
 ||http://avgle.topgirlsdating.com^$domain=avgle.com
 ||http://jads.co^$domain=avgle.com
 ||http://olmsoneenh.info^$domain=avgle.com
+||http://pc768.com^
 ||http://dm.17xuexiba.com^
 ||http://003store.com^
 ||http://0512s.com^$third-party
@@ -17984,7 +17988,6 @@
 ||http://12.cookcai.com^
 ||http://123456.asia^
 ||http://15tianqi.com^$third-party
-||http://166sh.com^$third-party
 ||http://17.huanqiu.com^
 ||http://177o.com^
 ||http://1999019.com^
@@ -18003,7 +18006,6 @@
 ||http://321.jintang114.org^
 ||http://360640.com^
 ||http://39jz.com^
-||http://5.douben8.com^
 ||http://5.gzfenda.com^
 ||http://51dengshan.cn^
 ||http://51ertong.com^
@@ -18785,6 +18787,18 @@
 ||http://hboav.com/guga/
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
+||http://ibdtjqn.cn^
+||http://freeyue.xyz^
+||http://lxtxhxt.com^
+||http://baihz.com^
+||http://baixk.com^
+||http://7ebzw9v.cn^
+||http://8563p.cn^
+||http://65zjp.cn^
+||http://siikzd1.cn^
+||http://oxmun.com^
+||http://scenegame.cn^
+||http://mjywk.cn^
 ||http://000123456789.online^
 ||http://000123456789.space^
 ||http://01tn.cn^
@@ -22975,6 +22989,7 @@
 ||http://aelick.com^
 ||http://aellod.com^
 ||http://aelphotog.pro^
+||http://aenaux.com^
 ||http://aentafmxkmhea.com^
 ||http://aepxgapw.xyz^
 ||http://aetejxolo.com^
@@ -23522,6 +23537,7 @@
 ||http://atas.io^
 ||http://atdmt.com^
 ||http://ateddiscr.top^
+||http://atedquali.one^
 ||http://ateletswitoto.com^
 ||http://atemda.com^
 ||http://atgafl.com^
@@ -23972,6 +23988,7 @@
 ||http://beparaspr.com^
 ||http://bephamema.com^
 ||http://bepiletussar.casa^
+||http://beqyexeqof.com^
 ||http://berningbegi.club^
 ||http://berryborrowing.com^
 ||http://bertekoa.net^
@@ -26556,6 +26573,7 @@
 ||http://eruptneuroticstealing.com^
 ||http://eruvpdymynpjw.xyz^
 ||http://ervicoren.online^
+||http://ervladdep.xyz^
 ||http://es54i9g7p7xh.com^
 ||http://esauwoan.com^
 ||http://escalatenetwork.com^
@@ -28677,6 +28695,7 @@
 ||http://ixqfughrynmfh.com^
 ||http://iyfnz.com^
 ||http://iyfnzgb.com^
+||http://iytafcpbnyauogj.xyz^
 ||http://izzzovhvisnxgy.com^
 ||http://j7rzxe098g5m.com^
 ||http://jackao.net^
@@ -28786,6 +28805,7 @@
 ||http://jistvotestabl.space^
 ||http://jisyzysy.com^
 ||http://jitdknclhdpfzyvkio.bid^
+||http://jiusty.com^
 ||http://jivomtuz.com^
 ||http://jiwire.com^
 ||http://jjdtjvydmy.xyz^
@@ -28850,6 +28870,7 @@
 ||http://joyhaftsyears.com^
 ||http://joyschema13.live^
 ||http://joyvowdig.com^
+||http://jpdniuaaqt.xyz^
 ||http://jpjmpqaupc.com^
 ||http://jppbyrkkgpgo.com^
 ||http://jpyjdpal.xyz^
@@ -32264,6 +32285,7 @@
 ||http://pubnation.com^
 ||http://pubrain.com^
 ||http://pubted.com^
+||http://pubtm.com^
 ||http://pubwes.com^
 ||http://puddingreluctantly.com^
 ||http://puddlebooty.com^
@@ -34896,6 +34918,7 @@
 ||http://twtad.com^
 ||http://txcmjo.com^
 ||http://txgakrasgns.com^
+||http://txmboigodejgj.xyz^
 ||http://txpodqjhabos.com^
 ||http://txrzhshxdtn.com^
 ||http://txyhadai.com^
@@ -36146,6 +36169,7 @@
 ||http://xtow.xyz^
 ||http://xtrackme.com^
 ||http://xtremeserve.xyz^
+||http://xtroyfwcmn.xyz^
 ||http://xts7fgss.com^
 ||http://xu5ctufltn.com^
 ||http://xuakak.com^
@@ -42734,6 +42758,13 @@
 https://ubmcmm.baidustatic.com
 https://hxsame.hexun.com$domain=~quote.hexun.com
 https://szxx.com.cn###A0
+https://3dmgame.com##div[class$=" downl_list"]
+https://nfmovies.com##[onclick^="openurl()"]
+https://mydowndown.com#?#.bs-component:-abp-has(>a[href*="97jez.com"])
+https://ctwant.com##.l-ad__wrapper
+https://ctwant.com##.l-ad__article
+https://ctwant.com##.m-adpopup
+https://ipv6.baidu.com,www.baidu.com,www1.baidu.com,xueshu.baidu.com##.result-op[tpl="game-page-platform"]
 https://szxx.com.cn###A1
 https://szxx.com.cn###A2
 https://gpcxw.com###AA2
@@ -45001,7 +45032,7 @@ https://ifeng.com##.cont_bottom_YySmall
 https://u-car.com.tw##.contad
 https://u-car.com.tw##.contad_text
 https://dragon-guide.net##.container > .gutter:first-child
-https://zxzj.me##.container > .none
+https://zxzj.fun##.container > .none
 https://ygdy8.cc##.container > a[href^="/"]
 https://rijutv.co##.container > div[style="height: 128px;"]
 https://vpsdx.com##.container-fluid > .gsfha3 > .gsfha3
@@ -52945,6 +52976,13 @@ https://dhzw8.com,hkslg8.com,konlan.org,lewxs.com,snwx3.com,sqsxs.com,xtmetb.com
 http://ubmcmm.baidustatic.com
 http://hxsame.hexun.com$domain=~quote.hexun.com
 http://szxx.com.cn###A0
+http://3dmgame.com##div[class$=" downl_list"]
+http://nfmovies.com##[onclick^="openurl()"]
+http://mydowndown.com#?#.bs-component:-abp-has(>a[href*="97jez.com"])
+http://ctwant.com##.l-ad__wrapper
+http://ctwant.com##.l-ad__article
+http://ctwant.com##.m-adpopup
+http://ipv6.baidu.com,www.baidu.com,www1.baidu.com,xueshu.baidu.com##.result-op[tpl="game-page-platform"]
 http://szxx.com.cn###A1
 http://szxx.com.cn###A2
 http://gpcxw.com###AA2
@@ -55212,7 +55250,7 @@ http://ifeng.com##.cont_bottom_YySmall
 http://u-car.com.tw##.contad
 http://u-car.com.tw##.contad_text
 http://dragon-guide.net##.container > .gutter:first-child
-http://zxzj.me##.container > .none
+http://zxzj.fun##.container > .none
 http://ygdy8.cc##.container > a[href^="/"]
 http://rijutv.co##.container > div[style="height: 128px;"]
 http://vpsdx.com##.container-fluid > .gsfha3 > .gsfha3
