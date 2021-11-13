@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: gKnE4VVP1+LVJAeEw/R44A
-! Version: 202111120500
+! Checksum: fRHtorRMepa3PqPKF5HA/A
+! Version: 202111130000
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-12 05:00 UTC
+! Last modified: 2021-11-13 00:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -8920,6 +8920,7 @@ https://absoluteradio.co.uk##.recommended
 https://extraimago.com##.red
 https://dailylife.com.au,smh.com.au,teamcoco.com,tomshardware.com##.reddit
 https://fusion.net,onegreenplanet.org,ryot.org##.reveal-modal-bg
+https://indiatoday.in##.rhs-fixwhtsapp
 https://gdnonline.com##.right
 https://thehindubusinessline.com##.right-promo
 https://ehow.com##.right-rail-promo
@@ -13446,6 +13447,7 @@ https://forum-windows.net###ntf
 https://cmoto.ru###oct-policy
 https://rgs.ru###rgs-main-context-bar
 https://linux-info.ru###trumpet_message
+https://smpbank.ru##.E_KUV0ozvj
 https://adrenalinecyber.ru,gamefuelmasters.ru##.H5Cmzb7vlc1Q28uw4l-Bv
 https://aliexpress.ru##.PrivacyPolicyBanner-styles_wrapper__1qbIl
 https://drweb.ru##.SHOWIT-msg_showed
@@ -20453,6 +20455,7 @@ http://absoluteradio.co.uk##.recommended
 http://extraimago.com##.red
 http://dailylife.com.au,smh.com.au,teamcoco.com,tomshardware.com##.reddit
 http://fusion.net,onegreenplanet.org,ryot.org##.reveal-modal-bg
+http://indiatoday.in##.rhs-fixwhtsapp
 http://gdnonline.com##.right
 http://thehindubusinessline.com##.right-promo
 http://ehow.com##.right-rail-promo
@@ -24981,6 +24984,7 @@ http://forum-windows.net###ntf
 http://cmoto.ru###oct-policy
 http://rgs.ru###rgs-main-context-bar
 http://linux-info.ru###trumpet_message
+http://smpbank.ru##.E_KUV0ozvj
 http://adrenalinecyber.ru,gamefuelmasters.ru##.H5Cmzb7vlc1Q28uw4l-Bv
 http://aliexpress.ru##.PrivacyPolicyBanner-styles_wrapper__1qbIl
 http://drweb.ru##.SHOWIT-msg_showed

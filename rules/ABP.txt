@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: 3W5Pev1hV9HnaPk0VpHYFQ
-! Version: 202111120511
+! Checksum: MRqho84slI/By/OjGfZFng
+! Version: 202111130022
 ! Title: EasyList China+EasyList
-! Last modified: 12 Nov 2021 05:11 UTC
+! Last modified: 13 Nov 2021 00:22 UTC
 ||https://012.tw^$third-party
 ||https://033.com^$third-party
 ||https://0591101.com^$third-party
@@ -680,7 +680,6 @@
 ||https://119xiazai.com^$subdocument
 ||https://11img.com/ad/
 ||https://11kkzz.com/se/wf/
-||https://11px.cn/Style/ag/
 ||https://120askimages.com/ask/js/askfrom.js
 ||https://120askimages.com/ask/js/q
 ||https://120askimages.com/ask/zhenshi/templates/pub/js/loadPart.js
@@ -3432,6 +3431,7 @@
 ||https://mydrivers.com/images/hongbao
 ||https://mydrivers.com/images/icon/gg_
 ||https://mydrivers.com/m/apptuijian.
+||https://mydrivers.com/news/*/aly
 ||https://mydrivers.com/news/*843x80.
 ||https://mydrivers.com/news/*jd.png
 ||https://mydrivers.com/news/2017/db_
@@ -3591,6 +3591,7 @@
 ||https://pcstore.com.tw/css/myacc_init.js
 ||https://pcvideoyf.titan.mgtv.com/pb/*.mp4
 ||https://pdfbook.cn/wp-content/uploads/2017/11/049.jpg
+||https://peise.net/Skin/js/global.
 ||https://pengwei168.com/addons/321.gif
 ||https://pengwei168.com/template/stui_tpl/html/vod/f.js
 ||https://people.com.cn/adv/
@@ -6711,7 +6712,6 @@
 ||https://6198399e4910e66-ovc.com^$popup
 ||https://6kup12tgxx.com^$popup
 ||https://72b8869dfc34690.com^$popup
-||https://7news.site^$popup
 ||https://87159d7b62fc885.com^$popup
 ||https://888games.com^$popup,third-party
 ||https://888media.net^$popup,third-party
@@ -6953,6 +6953,7 @@
 ||https://brucelead.com^$popup
 ||https://bst-offers.com^$popup
 ||https://btpnav.com^$popup
+||https://buikolered.com^$popup
 ||https://bullads.net^$popup
 ||https://bumogipte.com^$popup
 ||https://buncoswosh.com^$popup
@@ -7040,6 +7041,7 @@
 ||https://content.ad^$popup
 ||https://contentabc.com^$popup,third-party
 ||https://coostuni.com^$popup
+||https://cor8ni3shwerex.com^$popup
 ||https://correry.com^$popup
 ||https://cpa-offer.com^$popup
 ||https://cpayard.com^$popup,third-party
@@ -7397,7 +7399,6 @@
 ||https://kotikinar2ko8tiki09.com^$popup
 ||https://ladsreds.com^$popup
 ||https://large-format.net^$popup
-||https://latest-news.life^$popup
 ||https://latheendsmoo.com^$popup
 ||https://lavender64369.com^$popup
 ||https://lcentntel.com^$popup
@@ -7447,6 +7448,7 @@
 ||https://mashionalkov.info^$popup
 ||https://masklink.org^$popup
 ||https://materialisticinformal.com^$popup
+||https://matevictim.com^$popup
 ||https://mathafuda.pro^$popup
 ||https://mattoadbayed.icu^$popup
 ||https://mb01.com^$popup
@@ -7463,7 +7465,6 @@
 ||https://mediasama.com^$popup
 ||https://mediaseeding.com^$popup
 ||https://mediaserf.net^$popup
-||https://mediatechbuzz.com^$popup
 ||https://meetingking.club^$popup
 ||https://meetradar.com^$popup
 ||https://meetsexygirls.org^$popup
@@ -7615,6 +7616,7 @@
 ||https://performancetrustednetwork.com^$popup
 ||https://performpreciseheavilythefile.vip^$popup
 ||https://pertersacstyli.com^$popup
+||https://pettybitternessablebodied.com^$popup
 ||https://pexu.com^$popup
 ||https://pgmediaserve.com^$popup
 ||https://phaurtuh.net^$popup
@@ -7720,7 +7722,6 @@
 ||https://reacheffectsp.work^$popup
 ||https://realsrv.com^$popup
 ||https://realtime-bid.com^$popup
-||https://recheriend.top^$popup
 ||https://recyclingbees.com^$popup
 ||https://red-direct-n.com^$popup
 ||https://redeemcodes.me^$popup
@@ -8057,6 +8058,7 @@
 ||https://wheglulyto.pro^$popup
 ||https://whoeverfrecklessfrecklesssupper.com^$popup
 ||https://wholefreshposts.com^$popup
+||https://wholehori.com^$popup
 ||https://whowhipi.net^$popup
 ||https://widow5blackfr.com^$popup
 ||https://wigetmedia.com^$popup
@@ -9350,6 +9352,7 @@
 ||https://porngames.adult^*=$popup,third-party
 ||https://pornoh.info^$popup
 ||https://prelanding3.cuntempire.com/?utm_$popup
+||https://tm-offers.gamingadult.com^$popup
 ||https://tour.mrskin.com^$popup,third-party
 ||https://2ca.com.au/images/banners/
 ||https://2merkato.com/images/banners/
@@ -9483,6 +9486,8 @@
 ||https://hearstapps.com/moapt/moapt-hdm.latest.js
 ||https://herzeleid.com/files/images/banners/
 ||https://hltv.org//images/retina2/
+||https://hltv.org/img/backgrounds/
+||https://hltv.org/img/banners/
 ||https://hltv.org/img/static/widgets/$image
 ||https://holyfamilyradio.org/banners/
 ||https://homeschoolmath.net/a/
@@ -9714,6 +9719,7 @@
 ||https://jwplatform.com/libraries/tdeymorh.js
 ||https://wsj.net/pb/pb.js
 ||https://avantisvideo.com/avm/js/video-loader.js$script,third-party
+||https://c.jsrdn.com^$script
 ||https://channelexco.com/player/$third-party
 ||https://connatix.com^$script,third-party
 ||https://embed.sendtonews.com^$third-party
@@ -10528,11 +10534,6 @@
 ||https://cibntv.net/youku/$media,rewrite=abp-resource:blank-mp3
 ||https://alicdn.com^*yksdk/*sdk.js$script
 ||https://5278.cc/js/c.js
-||http://duoquyouhui.cn^
-||http://czshenyue.cn^
-||http://zzkangyuan.cn^
-||http://cqwzjx.cn^
-||http://govhechi.cn^
 ||http://00-gov.cn^
 ||http://000123456789.site^
 ||http://0024aaaa.com^
@@ -11240,6 +11241,7 @@
 ||http://cqftonline.com^
 ||http://cqjjlsy.com^
 ||http://cqtnfs.com^$domain=~agefans.tv
+||http://cqwzjx.cn^
 ||http://cqyhd.com^
 ||http://cr-nielsen.com^$third-party
 ||http://crdrjs.info^
@@ -11272,6 +11274,7 @@
 ||http://czgjhotel.com^
 ||http://czpush.com^
 ||http://czpwm.com^
+||http://czshenyue.cn^
 ||http://cztanchao.com^
 ||http://d15cjcet1djbmv.cloudfront.net^
 ||http://d1ad.com^$third-party
@@ -11348,6 +11351,7 @@
 ||http://duiwai.baidu.com^
 ||http://duobaoqj.com^
 ||http://duomai.com^$third-party
+||http://duoquyouhui.cn^
 ||http://dushiken.cn^
 ||http://duusuu.com^
 ||http://dvr8.com^
@@ -11502,6 +11506,7 @@
 ||http://govgaungzhou.cn^
 ||http://govgift.com^
 ||http://govguilin.cn^
+||http://govhechi.cn^
 ||http://govhunan.cn^
 ||http://govjiangsu.cn^
 ||http://govkunming.cn^
@@ -13045,6 +13050,7 @@
 ||http://zz123.com^$third-party
 ||http://zzad.com^$third-party
 ||http://zzbaowen.com^
+||http://zzkangyuan.cn^
 ||http://zzkoubei.com^
 ||http://zzpzero.com^
 ||http://zzsssy.com^
@@ -13180,7 +13186,6 @@
 ||http://119xiazai.com^$subdocument
 ||http://11img.com/ad/
 ||http://11kkzz.com/se/wf/
-||http://11px.cn/Style/ag/
 ||http://120.27.*.html
 ||http://120.27.34.156^
 ||http://120askimages.com/ask/js/askfrom.js
@@ -16278,6 +16283,7 @@
 ||http://mydrivers.com/images/hongbao
 ||http://mydrivers.com/images/icon/gg_
 ||http://mydrivers.com/m/apptuijian.
+||http://mydrivers.com/news/*/aly
 ||http://mydrivers.com/news/*843x80.
 ||http://mydrivers.com/news/*jd.png
 ||http://mydrivers.com/news/2017/db_
@@ -16451,6 +16457,7 @@
 ||http://pcstore.com.tw/css/myacc_init.js
 ||http://pcvideoyf.titan.mgtv.com/pb/*.mp4
 ||http://pdfbook.cn/wp-content/uploads/2017/11/049.jpg
+||http://peise.net/Skin/js/global.
 ||http://pekingpk10.com^
 ||http://pengwei168.com/addons/321.gif
 ||http://pengwei168.com/template/stui_tpl/html/vod/f.js
@@ -18775,17 +18782,8 @@
 ||http://hboav.com/guga/
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com^
-||http://zhouziwang.cn^
-||http://p09diw3.cn^
-||http://000123456789.space^
-||http://jiameiyin.cn^
-||http://y7k68pq.cn^
-||http://lnwhh.com^
-||http://baiwb.com^
-||http://toolgirl.cn^
-||http://lsebez.cn^
-||http://kszhmzp.cn^
 ||http://000123456789.online^
+||http://000123456789.space^
 ||http://01tn.cn^
 ||http://027whht.com^
 ||http://029mxhs.cn^
@@ -19145,10 +19143,13 @@
 ||http://bailequan.net.cn^
 ||http://bailinghealth.cn^
 ||http://bairentou.com.cn^
+||http://baisb.com^
 ||http://baitaoidc.com^
+||http://baiwb.com^
 ||http://baiyangzs.com^
 ||http://baiyaqin.xyz^
 ||http://baiyongbei.xyz^
+||http://baizb.com^
 ||http://bangdu2.com^
 ||http://bangxin.xyz^
 ||http://banma51.cn^
@@ -19176,7 +19177,7 @@
 ||http://bd2fbnfg.com^
 ||http://bdcanef.cn^
 ||http://bdcouc.xyz^
-||http://bdxiguaimg.com^
+||http://bdxiguaimg.com^$domain=feisucn.net
 ||http://bdxnc.com^
 ||http://beautylamp.cn^
 ||http://bei7.clewx.com^
@@ -19578,6 +19579,7 @@
 ||http://ejd3q.life^
 ||http://engpeng.cn^
 ||http://enihongo.cn^
+||http://ens-sh.cn^
 ||http://eq984.cn^
 ||http://etfuxd.cn^
 ||http://etongxs.com/mb/meng/
@@ -19630,6 +19632,7 @@
 ||http://jdiaveu.cn^
 ||http://jgrkjp.cn^
 ||http://jiajiann.cn^
+||http://jiameiyin.cn^
 ||http://jinyihui.vip^
 ||http://jiuji.ltd^
 ||http://jiujiinc.top^
@@ -19651,13 +19654,17 @@
 ||http://kjhzwvq.cn^
 ||http://kjtol.cn^
 ||http://koooa.net^
+||http://kszhmzp.cn^
 ||http://kukulm.com^
 ||http://laiyangalibaba.cn^
 ||http://lbts.ltd^
+||http://leqfgnb.cn^
 ||http://lingquan.vip^
+||http://lnwhh.com^
 ||http://lofe.shop^
 ||http://log57.top^
 ||http://lppwnue.cn^
+||http://lsebez.cn^
 ||http://lzjc.shop^
 ||http://m5xy0v.cn^
 ||http://maclwangluokeji.cn^
@@ -19671,12 +19678,16 @@
 ||http://msiqhvl.cn^
 ||http://myyuye.club^
 ||http://n258.cc^
+||http://nh738.cn^
 ||http://nmgpd.com^
 ||http://none-test.com^
 ||http://nvrkw.cn^
+||http://nxums.cn^
 ||http://nylynp.top^
 ||http://oajxkah.cn^
+||http://ovdolnb.cn^
 ||http://owdfxgc.cn^
+||http://p09diw3.cn^
 ||http://pcshijie.cn^
 ||http://pflhnpu.cn^
 ||http://pj16t.cn^
@@ -19728,6 +19739,7 @@
 ||http://thechosen1.cn^
 ||http://tianlule.cn^
 ||http://to335.cn^
+||http://toolgirl.cn^
 ||http://topdoctor.vip^
 ||http://tp992.top^
 ||http://tpd4.cn^
@@ -19766,6 +19778,7 @@
 ||http://xxw777.cn^
 ||http://xzcvfdwe.cn^
 ||http://y0764.cn^
+||http://y7k68pq.cn^
 ||http://ya-yue.xyz^
 ||http://ya1vg3w.cn^
 ||http://yanliang.vip^
@@ -19782,6 +19795,7 @@
 ||http://zdzk0371.cn^
 ||http://zgystsd.com^
 ||http://zhongte62802.cn^
+||http://zhouziwang.cn^
 ||http://zhpfl.cn^
 ||http://zhuozhongfangshui.cn^
 ||http://zjwldq.cn^
@@ -23212,6 +23226,7 @@
 ||http://amata-syb.com^
 ||http://amateurcouplewebcam.com^
 ||http://amaumomt.com^
+||http://amaurt.com^
 ||http://amavirgin.pro^
 ||http://amazestronghold.com^
 ||http://amazon-adsystem.com^
@@ -24011,6 +24026,7 @@
 ||http://bfe4e6d364be199.com^
 ||http://bftrlhesrlfjp.com^
 ||http://bfts.xyz^
+||http://bfypvmnytobqyn.xyz^
 ||http://bg6s0.com^
 ||http://bgaxgjre.xyz^
 ||http://bgkrbh.com^
@@ -24161,6 +24177,7 @@
 ||http://bnrslks.com^
 ||http://bnserving.com^
 ||http://bnster.com^
+||http://bnuieugbkirom.xyz^
 ||http://boafabie.com^
 ||http://boahwswzuebmmg.com^
 ||http://boajagoar.com^
@@ -24254,6 +24271,7 @@
 ||http://boyalebut.site^
 ||http://boylesportsreklame.com^
 ||http://boyughaye.com^
+||http://bplnskyetroo.xyz^
 ||http://bpqqccopjuat.com^
 ||http://bptracking.com^
 ||http://bqcgrwahvuapq.com^
@@ -24365,6 +24383,7 @@
 ||http://bugputrescentdeliberately.com
 ||http://bugsphnhl.com^
 ||http://buhatfjrk9dje10eme.com^
+||http://buikolered.com^
 ||http://buildhoodpip.club^
 ||http://buildingdoodlesquare.com^
 ||http://buipovexhav.com^
@@ -25208,6 +25227,7 @@
 ||http://copyrightmournfulsalon.com^
 ||http://copysign.link^
 ||http://coqnaoubj.xyz^
+||http://cor8ni3shwerex.com^
 ||http://corateencountry.pro^
 ||http://corebelbyrri.com^
 ||http://cornerbut.com^
@@ -25300,6 +25320,7 @@
 ||http://crazybanan.com^
 ||http://crazyhell.com^
 ||http://crazylead.com^
+||http://crcrzqiedhur.com^
 ||http://creamssicsite.com^
 ||http://creasureeffe.club^
 ||http://create2fear.com^
@@ -25383,6 +25404,7 @@
 ||http://cupmidnithe.com^
 ||http://cupsanotherdole.com^
 ||http://cupseedu.net^
+||http://curategeis.xyz^
 ||http://curedonswab.com^
 ||http://curiosityprobablyarbitrary.com^
 ||http://curledvolleyballexpense.com^
@@ -25418,6 +25440,7 @@
 ||http://cyneburg-yam.com^
 ||http://cyrasi.com^
 ||http://cyruqdmagde.xyz^
+||http://cyteed.com^
 ||http://cyulewkqz.com^
 ||http://cyxvtitmydfg.com^
 ||http://cyzdyiccpwx.com^
@@ -25494,6 +25517,7 @@
 ||http://dallavel.com^
 ||http://daltauth.net^
 ||http://daltondescendent.com^
+||http://damedamehoy.xyz^
 ||http://damsoloist.com^
 ||http://dana123.com^
 ||http://danamivi.com^
@@ -25675,7 +25699,6 @@
 ||http://desigactinific.pro^
 ||http://designedamenityslot.com^
 ||http://designergumsobituary.com^
-||http://designsevere.com^
 ||http://deslncsiq.com^
 ||http://desolatethings.com^
 ||http://despisenoughtshit.com^
@@ -25796,7 +25819,6 @@
 ||http://disapprovalhardwareenvy.com^
 ||http://disarrayanticipatedversion.com^
 ||http://disavowmigration.com^
-||http://disavowtwelve.com^
 ||http://disbandcrumena.com^
 ||http://disconnectedabsolutionjudged.com^
 ||http://discoreafr.fun^
@@ -25812,6 +25834,7 @@
 ||http://disguisemayhem.com^
 ||http://disguisesirrational.com^
 ||http://disguisesunattractive.com^
+||http://disgustedmanipulation.com^
 ||http://dishesha.net^
 ||http://disillusionworn.com^
 ||http://disinheritacquaintancechop.com^
@@ -25821,7 +25844,6 @@
 ||http://disloquerent.website^
 ||http://disloyalmeddling.com^
 ||http://dismantlepenantiterrorist.com^
-||http://disobeystewhit.com^
 ||http://disorderpoking.com^
 ||http://disorganizedsweatymash.com^
 ||http://disparagethence.com^
@@ -26422,7 +26444,6 @@
 ||http://encumberbloom.com
 ||http://encyclopaediaapplaudawfully.com^
 ||http://endovmwy.com^
-||http://endsensura.top^
 ||http://enemiesfiris.com^
 ||http://enerableoffi.club^
 ||http://enfvikirzwt.com^
@@ -26430,7 +26451,6 @@
 ||http://enginedriverhaw.com^
 ||http://engineeringsixteensixpence.com^
 ||http://engineseeker.com^
-||http://engingalon.top^
 ||http://enginsquawks.cam^
 ||http://englingedrxa.club^
 ||http://englishheadlight.com^
@@ -26741,6 +26761,7 @@
 ||http://failbroken.com^
 ||http://failsubjective.com^
 ||http://faindianship.club^
+||http://faipeeji.com^
 ||http://fairadsnetwork.com^
 ||http://fairieflame.com^
 ||http://fairnessels.com^
@@ -26857,6 +26878,7 @@
 ||http://fejla.com^
 ||http://felicitysupermarketmounted.com^
 ||http://felinessynonym.com^
+||http://felixstown.one^
 ||http://feljack.com^
 ||http://felliescrackle.com^
 ||http://femininefurrow.com^
@@ -27067,6 +27089,7 @@
 ||http://forcefuldirect.com^
 ||http://fordpeculiarity.com^
 ||http://foregroundheirloom.com^
+||http://foreignsentiment.com^
 ||http://foremaneasierperiods.com^
 ||http://foremangreek.com^
 ||http://forepresently.com^
@@ -27085,6 +27108,7 @@
 ||http://forlumineontor.com^
 ||http://formationconservation.com^
 ||http://formationdenehurt.com^
+||http://formattortoise.com^
 ||http://formerdrearybiopsy.com^
 ||http://formsgenuineendorse.com^
 ||http://forrestersurveys.com^
@@ -27108,6 +27132,7 @@
 ||http://foxrevenue.com^
 ||http://foxypp.com^
 ||http://fpbnmoise.com^
+||http://fpeiatypfcsthka.xyz^
 ||http://fpyacdna.com^
 ||http://fqbucxkfcya.com^
 ||http://fqjgxtyaqftpt.com^
@@ -27417,7 +27442,6 @@
 ||http://gigacpmserv.com^
 ||http://giglucrative.com^
 ||http://gilarditus.com^
-||http://gillheapsyears.icu^
 ||http://gimpybedderump.com^
 ||http://girlend.com^
 ||http://girnedsline.cam^
@@ -27461,7 +27485,6 @@
 ||http://glathycapto.com^
 ||http://glauptan.net^
 ||http://glauvoob.com^
-||http://glawheejoushpush.com^
 ||http://glazegha.com^
 ||http://glbtrk.com^
 ||http://gld35wndkn.com^
@@ -27741,6 +27764,7 @@
 ||http://gsvyjunccsw.com^
 ||http://gtherequ.club^
 ||http://gtrd.xyz^
+||http://gtructinde.xyz^
 ||http://gtsads.com^
 ||http://guardedfebruaryenclosed.com^
 ||http://guardiandigitalcomparison.co.uk^
@@ -27926,7 +27950,6 @@
 ||http://hegrem.com^
 ||http://hehraybryciyls.com^
 ||http://heighthouseworklizard.com^
-||http://heighttrumpetaccordingly.com^
 ||http://heiressplane.com^
 ||http://heirloomouterminus.com^
 ||http://heirloomsupervisemanager.com^
@@ -27940,6 +27963,7 @@
 ||http://heratheacle.com^
 ||http://herbaijansob.club^
 ||http://herbalcircumstantial.com^
+||http://herdthan.com^
 ||http://herebyquasipolite.com^
 ||http://heredeithere.club^
 ||http://hereditaryductserum.com^
@@ -28164,6 +28188,7 @@
 ||http://hstpnetwork.com^
 ||http://htalizer.com^
 ||http://htamaster.com^
+||http://htblcwhrnvwhs.xyz^
 ||http://htdvt.com^
 ||http://htexamplerri.top^
 ||http://htibgrbonwdjj.com^
@@ -28872,6 +28897,7 @@
 ||http://jupozbjmq.com^
 ||http://jurehi.com^
 ||http://juricts.xyz^
+||http://jurjgajux.xyz^
 ||http://juroptyne.com^
 ||http://juroudaw.com^
 ||http://jursp.com^
@@ -28971,6 +28997,7 @@
 ||http://kegsandremembrance.com^
 ||http://kehalim.com^
 ||http://kejebbirmaxmwhv.xyz^
+||http://kelectricbill.com^
 ||http://kellyfight.com^
 ||http://kelpmetorealiu.xyz^
 ||http://kelt-195b.com^
@@ -29267,7 +29294,6 @@
 ||http://layer-ad.org^
 ||http://layerloop.com^
 ||http://layoutovuleads.casa^
-||http://layouttransparent.com^
 ||http://layshyjar.com^
 ||http://lazyovertime.com^
 ||http://lbgchljyhjmev.com^
@@ -29519,6 +29545,7 @@
 ||http://loptyinterva.xyz^
 ||http://lopzitpup.com^
 ||http://lorajety.com^
+||http://lorenfreeman.xyz^
 ||http://loricalreach.info^
 ||http://lorimertoned.com^
 ||http://lornardchr.club^
@@ -29881,6 +29908,7 @@
 ||http://mehebborc.com^
 ||http://meinlist.com^
 ||http://melinaeability.casa^
+||http://melindahicks.xyz^
 ||http://mellodur.net^
 ||http://mellowtin.com^
 ||http://melongnaw.com^
@@ -30305,6 +30333,7 @@
 ||http://muyoozrkkyr.com^
 ||http://muzzlelacking.com^
 ||http://mv3kosrrlxa7.com^
+||http://mwbiwypvprg.com^
 ||http://mwprotected.com^
 ||http://mwquick.com^
 ||http://mxjptfrxqaavdc.com^
@@ -30407,7 +30436,6 @@
 ||http://nboc.xyz^
 ||http://nbstatic.com^
 ||http://nbullrusma.top^
-||http://nbxiwktuvymecs.com^
 ||http://ncalie.com^
 ||http://ncdnunc.com^
 ||http://ncediscou.fun^
@@ -30538,6 +30566,7 @@
 ||http://ngumyydbupv.com^
 ||http://ngxdyxhdkx.xyz^
 ||http://nhdfbupcbfnmue.com^
+||http://nhesekiqgoifti.com^
 ||http://nhnuofzjh.com^
 ||http://nhpfvdlbjg.com^
 ||http://nhqxzqvkj.com^
@@ -30763,6 +30792,7 @@
 ||http://numberium.com^
 ||http://numberspenguinveto.com^
 ||http://numbertrck.com^
+||http://numbgradualassertive.com^
 ||http://nunailsum.com^
 ||http://nunhoefey.com^
 ||http://nuninz.com^
@@ -31244,6 +31274,7 @@
 ||http://oxybe.com^
 ||http://oxydend2r5umarb8oreum.com^
 ||http://oxygenpurpleairtight.com^
+||http://oxyphilsebkha.com^
 ||http://oygohusvggaurod.xyz^
 ||http://oyi9f1kbaj.com^
 ||http://oylewasb.club^
@@ -31564,7 +31595,6 @@
 ||http://philation.club^
 ||http://philbardre.com^
 ||http://philosophere.com^
-||http://philosophicalregardlesssetback.com^
 ||http://phipobywhy.com^
 ||http://phirgese.com^
 ||http://phloxsub73ulata.com^
@@ -31574,6 +31604,7 @@
 ||http://phoapsoo.com^
 ||http://phoaptee.net^
 ||http://phoaraut.com^
+||http://phoaxevu.net^
 ||http://phokukse.com^
 ||http://phoneboothslender.com^
 ||http://phonefilamentembarrassment.com^
@@ -31606,6 +31637,7 @@
 ||http://picturesquebutcompassionate.com^
 ||http://piecefireworks.com^
 ||http://pierlinks.com^
+||http://pierrottease.com^
 ||http://pignuwoa.com^
 ||http://pigtisetdilqsi.com^
 ||http://pigtre.com^
@@ -31650,6 +31682,7 @@
 ||http://pkldqklnhvulsp.xyz^
 ||http://pkldrgupis.com^
 ||http://pktqcr.com^
+||http://placquecatella.com^
 ||http://plaguealacritytwitter.com^
 ||http://plaicecaught.com^
 ||http://plaicenaive.com^
@@ -31888,6 +31921,7 @@
 ||http://pqtiqpfyeeayjk.com^
 ||http://pqvnjgeimffiu.com^
 ||http://pqxadekhqotwkv.com^
+||http://pqztggmplviyxy.com^
 ||http://practeddagek.club^
 ||http://practicableperiodicabrupt.com^
 ||http://practimplete.club^
@@ -31920,7 +31954,6 @@
 ||http://preferablycompletion.com^
 ||http://preferenceshackdeduction.com^
 ||http://preferredain.com^
-||http://preferredwhatknew.com^
 ||http://pregnancyintuition.com^
 ||http://pregnantstrictlygot.com^
 ||http://pregnantvillager.com^
@@ -32002,6 +32035,7 @@
 ||http://producingdestroyer.com^
 ||http://producingsavourestablish.com^
 ||http://producthub.info^
+||http://productionconceitedbosom.com^
 ||http://productorsy.pro^
 ||http://prodwaves.pro^
 ||http://proeminez.xyz^
@@ -32511,13 +32545,13 @@
 ||http://radiusmarketing.com^
 ||http://radiusproceedings.com^
 ||http://raenfh9tkuka.com^
+||http://rafflereticence.com^
 ||http://raftcomposuremeals.com^
 ||http://rag3ca7t5amubr8eedffin.com^
 ||http://ragapa.com^
 ||http://ragenessed.top^
 ||http://ragsaved.com^
 ||http://raigluce.net^
-||http://railroadheroicgold.com^
 ||http://railroadtomato.com^
 ||http://railwaymanicurewhoop.com^
 ||http://railwaysupper.com^
@@ -32563,6 +32597,7 @@
 ||http://razuphyju.com^
 ||http://rbnt.org^
 ||http://rbnwacsf.com^
+||http://rboundgypster.com^
 ||http://rcblkkhfvrxyn.com^
 ||http://rconand.club^
 ||http://rcptik.ru^
@@ -32646,6 +32681,7 @@
 ||http://redads.biz^
 ||http://redewdit.pro^
 ||http://redfunlob.casa^
+||http://redirect-ads.com^
 ||http://redirect2719.ws^
 ||http://redlele.com^
 ||http://redresseducatedage.com^
@@ -32856,6 +32892,7 @@
 ||http://rfihub.com^
 ||http://rfihub.net^
 ||http://rfity.com^
+||http://rggtysyp.com^
 ||http://rgttoipdr.com^
 ||http://rgvqcsxqge.com^
 ||http://rh1hilm7j0ae.com^
@@ -32898,7 +32935,6 @@
 ||http://rightfullyanatomyseries.com^
 ||http://rightiescolled.club^
 ||http://rightnativecontent.com^
-||http://rightstaredstun.com^
 ||http://rigourcrispblaspheme.com^
 ||http://rigourflickmarketing.com^
 ||http://rikobisti.com^
@@ -33122,6 +33158,7 @@
 ||http://runtnc.net^
 ||http://rusenov.com^
 ||http://rushcostscomparison.com^
+||http://russedpriv.one^
 ||http://russianemasculateincident.com^
 ||http://rustleobtainedflute.com^
 ||http://ruthlessbuyer.com^
@@ -33197,6 +33234,7 @@
 ||http://safestsniffingconfessed.com^
 ||http://safestteacherwaiting.com^
 ||http://safesync.com^
+||http://safwjxsqvm.com^
 ||http://sagroagh.com^
 ||http://sailcovertend.com^
 ||http://sailif.com^
@@ -33260,6 +33298,7 @@
 ||http://sbroughhig.info^
 ||http://scalewalkrequests.com^
 ||http://scamblefeedman.com^
+||http://scammerbrawl.com^
 ||http://scandalhands.com^
 ||http://scarcelysorrow.com^
 ||http://scarecrowdelight.com^
@@ -33614,7 +33653,6 @@
 ||http://skinnyfinnishhi.com^
 ||http://sknkwpvrkz.com^
 ||http://skreighphotic.cam^
-||http://skullimpact.com^
 ||http://skxgvqcgefyy.com^
 ||http://skynightmidm.com^
 ||http://sl1me.com^
@@ -33667,6 +33705,7 @@
 ||http://smigro.info^
 ||http://smilingpilgrim.com^
 ||http://smjdkmvhar.com^
+||http://smjhzmln.com^
 ||http://smokedenforcementranch.com^
 ||http://smokerforestallinsane.com^
 ||http://smokingpetty.com^
@@ -33798,7 +33837,6 @@
 ||http://sparkstudios.com^
 ||http://sparktrailerabonnement.com^
 ||http://spasbatwit.icu^
-||http://spattermutiny.com^
 ||http://spearimaginary.com^
 ||http://speciadnessing.pro^
 ||http://special-offers.online^
@@ -34171,6 +34209,7 @@
 ||http://swithaccura.club^
 ||http://swoodlander.site^
 ||http://swoopclusterbeasts.com^
+||http://swoste.com^
 ||http://swqpfcet.com^
 ||http://swwpush.com^
 ||http://sxcwycsbhte.com^
@@ -34242,6 +34281,7 @@
 ||http://tathitch.net^
 ||http://tattepush.com^
 ||http://tauntdoctrineestablishment.com^
+||http://taxmartbrevity.com^
 ||http://taxodiu2m2dis7tichum.com^
 ||http://taxzcqghel.com^
 ||http://tbkjttmdcjduhs.com^
@@ -34322,6 +34362,7 @@
 ||http://terrapsps.com^
 ||http://terrapush.com^
 ||http://terriblekindlypeter.com^
+||http://terytelevel.xyz^
 ||http://tescellowin.top^
 ||http://tesdwpsdxcgsoj.com^
 ||http://testamentfendsounding.com^
@@ -34396,6 +34437,7 @@
 ||http://thewheelof.com^
 ||http://thewhizmarketing.com^
 ||http://thfrrszqfhepv.com^
+||http://thickbabysittinghandled.com^
 ||http://thidrump.net^
 ||http://thifinyfi.com^
 ||http://thigeeph.com^
@@ -34596,6 +34638,7 @@
 ||http://topssluedbunged.com^
 ||http://topswp.com^
 ||http://toptavi.com^
+||http://torgochthroat.com^
 ||http://tororango.com^
 ||http://torpsol.com^
 ||http://torrango.com^
@@ -34631,6 +34674,7 @@
 ||http://tqxdhokpeigv.com^
 ||http://tr563.com^
 ||http://tracepath.cc^
+||http://tracespore.com^
 ||http://track-victoriadates.com^
 ||http://trackad2.com^
 ||http://trackapi.net^
@@ -34674,10 +34718,8 @@
 ||http://transmitterremember.com^
 ||http://traost.com^
 ||http://trapasol.com^
-||http://trappist-1d.com^
 ||http://trapsaminohut.com^
 ||http://trasholita.com^
-||http://tratefirearly.top^
 ||http://traumaticnoiseless.com^
 ||http://traveladvertising.com^
 ||http://travelingoutcomeautomatic.com^
@@ -35413,6 +35455,7 @@
 ||http://voradu.com^
 ||http://voredi.com^
 ||http://vorrireer.com^
+||http://vorseh.com^
 ||http://voteyapgrade.com^
 ||http://vothaiwi.com^
 ||http://vouceeco.com^
@@ -35477,6 +35520,7 @@
 ||http://vth05dse.com^
 ||http://vtlahjkbd.com^
 ||http://vubihasdtbadiq.com^
+||http://vuclmvrq.xyz^
 ||http://vudoutch.com^
 ||http://vukhhjzd.com^
 ||http://vukhnosiexl.com^
@@ -35752,7 +35796,6 @@
 ||http://wigetmedia.com^
 ||http://wigglebriefing.com^
 ||http://wigglecrisis.com^
-||http://wiglogsbathos.cam^
 ||http://wignewsee.club^
 ||http://wildernesssigntolerance.com^
 ||http://wildhookups.com^
@@ -35821,12 +35864,14 @@
 ||http://wlzohrpjbuq.com^
 ||http://wm-abms.com^
 ||http://wma.io^
+||http://wmbdevcydmthac.xyz^
 ||http://wmnejndvberrd.com^
 ||http://wmonthsaft.biz^
 ||http://wmruzfvtg.com^
 ||http://wnbeiskivkkmpy.xyz^
 ||http://wndhsykmbe.com^
 ||http://wndlkj.com^
+||http://wnhlsqfxnn.com^
 ||http://wnllmofqxsziio.com^
 ||http://wnmalshuld.com^
 ||http://wnp.com^
@@ -36066,6 +36111,7 @@
 ||http://xpctraffic.com^
 ||http://xpicvrubu.xyz^
 ||http://xpollo.com^
+||http://xppedfqlro.xyz^
 ||http://xpsurtfhsllozy.com^
 ||http://xpx7heciz9.com^
 ||http://xqgzvsjmnmgv.com^
@@ -36075,6 +36121,7 @@
 ||http://xqzlgbbe.com^
 ||http://xr117.xyz^
 ||http://xrdatsuclxrvpx.com^
+||http://xrfabakydcwngov.xyz^
 ||http://xrhobrrgwhtlu.com^
 ||http://xroynaxvqvouy.com^
 ||http://xsrs.com^
@@ -36114,7 +36161,6 @@
 ||http://xxlargepop.com^
 ||http://xxltr.com^
 ||http://xxssyndic.com^
-||http://xxutoyreg.com^
 ||http://xxxadu.com^
 ||http://xxxadv.com^
 ||http://xxxallaccesspass.com^
@@ -38141,7 +38187,6 @@
 ||http://6198399e4910e66-ovc.com^$popup
 ||http://6kup12tgxx.com^$popup
 ||http://72b8869dfc34690.com^$popup
-||http://7news.site^$popup
 ||http://87159d7b62fc885.com^$popup
 ||http://888games.com^$popup,third-party
 ||http://888media.net^$popup,third-party
@@ -38383,6 +38428,7 @@
 ||http://brucelead.com^$popup
 ||http://bst-offers.com^$popup
 ||http://btpnav.com^$popup
+||http://buikolered.com^$popup
 ||http://bullads.net^$popup
 ||http://bumogipte.com^$popup
 ||http://buncoswosh.com^$popup
@@ -38470,6 +38516,7 @@
 ||http://content.ad^$popup
 ||http://contentabc.com^$popup,third-party
 ||http://coostuni.com^$popup
+||http://cor8ni3shwerex.com^$popup
 ||http://correry.com^$popup
 ||http://cpa-offer.com^$popup
 ||http://cpayard.com^$popup,third-party
@@ -38827,7 +38874,6 @@
 ||http://kotikinar2ko8tiki09.com^$popup
 ||http://ladsreds.com^$popup
 ||http://large-format.net^$popup
-||http://latest-news.life^$popup
 ||http://latheendsmoo.com^$popup
 ||http://lavender64369.com^$popup
 ||http://lcentntel.com^$popup
@@ -38877,6 +38923,7 @@
 ||http://mashionalkov.info^$popup
 ||http://masklink.org^$popup
 ||http://materialisticinformal.com^$popup
+||http://matevictim.com^$popup
 ||http://mathafuda.pro^$popup
 ||http://mattoadbayed.icu^$popup
 ||http://mb01.com^$popup
@@ -38893,7 +38940,6 @@
 ||http://mediasama.com^$popup
 ||http://mediaseeding.com^$popup
 ||http://mediaserf.net^$popup
-||http://mediatechbuzz.com^$popup
 ||http://meetingking.club^$popup
 ||http://meetradar.com^$popup
 ||http://meetsexygirls.org^$popup
@@ -39045,6 +39091,7 @@
 ||http://performancetrustednetwork.com^$popup
 ||http://performpreciseheavilythefile.vip^$popup
 ||http://pertersacstyli.com^$popup
+||http://pettybitternessablebodied.com^$popup
 ||http://pexu.com^$popup
 ||http://pgmediaserve.com^$popup
 ||http://phaurtuh.net^$popup
@@ -39150,7 +39197,6 @@
 ||http://reacheffectsp.work^$popup
 ||http://realsrv.com^$popup
 ||http://realtime-bid.com^$popup
-||http://recheriend.top^$popup
 ||http://recyclingbees.com^$popup
 ||http://red-direct-n.com^$popup
 ||http://redeemcodes.me^$popup
@@ -39487,6 +39533,7 @@
 ||http://wheglulyto.pro^$popup
 ||http://whoeverfrecklessfrecklesssupper.com^$popup
 ||http://wholefreshposts.com^$popup
+||http://wholehori.com^$popup
 ||http://whowhipi.net^$popup
 ||http://widow5blackfr.com^$popup
 ||http://wigetmedia.com^$popup
@@ -40270,7 +40317,7 @@
 ||http://ak.imgaft.com^
 ||http://alpsat.com/banner/
 ||http://amazonaws.com/mailcache.appinthestore.com/
-||http://amazonaws.com^$script,subdocument,xmlhttprequest,domain=downloadpirate.com|s2dfree.cc|s2dfree.de|s2dfree.is|s2dfree.nl|s2dfree.to|soap2day.ac|soap2day.cx|soap2day.sh|soap2day.to|torrentmac.net|vshare.eu|yify-movies.net
+||http://amazonaws.com^$script,subdocument,xmlhttprequest,domain=downloadpirate.com|s2dfree.cc|s2dfree.de|s2dfree.is|s2dfree.nl|s2dfree.to|soap2day.ac|soap2day.cc|soap2day.cx|soap2day.sh|soap2day.to|torrentmac.net|vshare.eu|yify-movies.net
 ||http://an.yandex.ru^$domain=~e.mail.ru
 ||http://any.gs/visitScript/
 ||http://api.140proof.com^
@@ -40765,6 +40812,7 @@
 ||http://d2d8qsxiai9qwj.cloudfront.net^
 ||http://d2e30rravz97d4.cloudfront.net^
 ||http://d2edfzx4ay42og.cloudfront.net^
+||http://d2enprlhqqv4jf.cloudfront.net^
 ||http://d2fbkzyicji7c4.cloudfront.net^
 ||http://d2fbvay81k4ji3.cloudfront.net^
 ||http://d2focgxak1cn74.cloudfront.net^
@@ -41242,6 +41290,7 @@
 ||http://porngames.adult^*=$popup,third-party
 ||http://pornoh.info^$popup
 ||http://prelanding3.cuntempire.com/?utm_$popup
+||http://tm-offers.gamingadult.com^$popup
 ||http://tour.mrskin.com^$popup,third-party
 ||http://2ca.com.au/images/banners/
 ||http://2merkato.com/images/banners/
@@ -41403,6 +41452,8 @@
 ||http://hearstapps.com/moapt/moapt-hdm.latest.js
 ||http://herzeleid.com/files/images/banners/
 ||http://hltv.org//images/retina2/
+||http://hltv.org/img/backgrounds/
+||http://hltv.org/img/banners/
 ||http://hltv.org/img/static/widgets/$image
 ||http://holyfamilyradio.org/banners/
 ||http://homeschoolmath.net/a/
@@ -41656,6 +41707,7 @@
 ||http://wsj.net/pb/pb.js
 ||http://api.fw.tv^
 ||http://avantisvideo.com/avm/js/video-loader.js$script,third-party
+||http://c.jsrdn.com^$script,domain=muscleandfitness.com
 ||http://channelexco.com/player/$third-party
 ||http://connatix.com^$script,third-party
 ||http://embed.sendtonews.com^$third-party
@@ -44439,7 +44491,6 @@ https://duba.com,uu114.cn##.adfixed
 https://1kkk.com,dm5.com,dm5.hk##.adform_1
 https://1kkk.com,dm5.com,dm5.hk##.adform_2
 https://xineurope.com##.adft
-https://11px.cn##.adg
 https://92wy.com##.adhengfu
 https://jxdbg.com##.adindex
 https://huanqiu.com##.adindexList
@@ -44538,7 +44589,6 @@ https://dav01.com##.adwraper
 https://gamme.com.tw##.adwrpt
 https://jdbbs.com##.adyihifi
 https://baidu.com##.afd-item
-https://11px.cn##.ag
 https://weiyun001.com##.agency-list
 https://13mv.com##.aggd
 https://33lc.org##.ags
@@ -45019,8 +45069,6 @@ https://bbs.it168.com##.daoh2 + .bor8
 https://1111.baidu.com,bdimg.com,tieba.baidu.com,tieba.com,xingqu.baidu.com##.dasense
 https://newxue.com##.dashuggtop
 https://newxue.com##.dashuggtop1
-https://11px.cn##.date
-https://11px.cn##.date_nr
 https://qinbing.cn##.day
 https://ggcj.com##.dbxf
 https://33lc.org##.ddnew
@@ -45188,7 +45236,7 @@ https://uzzf.com##.f-uzzf-down
 https://nwell.net##.f14hui[width="25%"]
 https://xiaobaipan.com##.f_ad
 https://tpy888.cn##.f_ad1
-https://smallpopo.com##.fabox
+https://17gameworld.com,smallpopo.com##.fabox
 https://sgcn.com,wangjing.cn##.fad
 https://mobile01.com##.fast-ad
 https://duote.com,soft-down.net##.fast-down-btn
@@ -46967,7 +47015,9 @@ https://tuliu.com##.zx-advertising-box
 https://19lou.com##.zx-link
 https://wanyx.com##.zx_box
 https://17house.com##.zx_xrhb
+https://11px.cn##.zz
 https://iqiyi.com##.zzVideo
+https://11px.cn##.zz_nr
 https://12580sky.com,xg3q.com#?#li[class]:-abp-has(> .mark > h3 > a:-abp-contains(/广告|推荐/))
 https://159i.com#?#.style15:-abp-has(> img[src="//159i.com/images/arrow3.gif"])
 https://159i.com#?#:-abp-has(> img[src*="gif"])
@@ -48711,6 +48761,7 @@ https://cryptofeeds.news###block-8
 https://wionews.com###block-adv
 https://webosnation.com###block-block-21
 https://slideme.org###block-block-31
+https://indiatoday.in###block-block-64
 https://infoplease.com###block-ipabovethefold
 https://infoplease.com###block-ipbtfad
 https://infoplease.com###block-ipleaderboardad
@@ -48751,6 +48802,8 @@ https://whocallsme.com###cnt_btm
 https://linuxinsider.com###colorbox
 https://smbc-comics.com###comicright > div[style]
 https://cpuid.com###console_log
+https://gearspace.com###container__DesktopFDAdBanner
+https://gearspace.com###container__DesktopForumdisplayHalfway
 https://modshost.com###content > .ast-container > .ast-row
 https://scanboat.com###content > .margin-tb-25
 https://allnewspipeline.com###content > [href]
@@ -48981,6 +49034,7 @@ https://myabandonware.com###myabandonware_medrec_left_atf
 https://myabandonware.com###myabandonware_medrec_right_atf
 https://myabandonware.com###myabandonware_medrec_right_btf
 https://mediaupdate.co.za###mycarousel
+https://gearspace.com###navbar_notice_617
 https://nbcsports.com###nbcsports-leaderboard
 https://my.juno.com###newsCarousel
 https://livelaw.in###news_on_exit
@@ -49288,6 +49342,7 @@ https://opensubtitles.org##.a_1.a.p
 https://informer.com##.aa-728
 https://ncomputers.org,servertest.online##.ab
 https://slickdeals.net##.abc
+https://cq-esports.com##.abcdd
 https://merriam-webster.com##.abl
 https://learnersdictionary.com##.abl-m0-t160-d160
 https://learnersdictionary.com##.abl-m0-t300-d300
@@ -49296,6 +49351,7 @@ https://roblox.com##.abp
 https://manualslib.com##.abp_adv_b
 https://manualslib.com##.abp_adv_s-title
 https://searchenginejournal.com##.absolute-banner
+https://cq-esports.com##.acace
 https://11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,abovethelaw.com,adelaidenow.com.au,adtmag.com,aero-news.net,airportia.com,americanprofile.com,appleinsider.com,arstechnica.com,articlealley.com,asianwiki.com,associationsnow.com,autoevolution.com,autoguide.com,autotrader.com.au,bab.la,bdnews24.com,beinsports.com,boats.com,bobvila.com,bostonglobe.com,bradleybraves.com,breitbart.com,businessdailyafrica.com,businessinsider.com,businesstech.co.za,c21media.net,cbs19.tv,cd1025.com,celebdigs.com,celebified.com,ch-aviation.com,cheboygannews.com,chinahush.com,citysearch.com,cnn.com,cnnphilippines.com,colourlovers.com,comicbookmovie.com,computerworld.com,couriermail.com.au,cpuboss.com,createtv.com,crossmap.com,crosswalk.com,csoonline.com,cxpress.co.za,dailycaller.com,dailylobo.com,dailyparent.com,dailytarheel.com,dawn.com,dealnews.com,defenseone.com,downdetector.co.nz,downdetector.co.uk,downdetector.co.za,downdetector.com,downdetector.in,downdetector.sg,dpreview.com,drinksmixer.com,earlygame.com,edmontonjournal.com,emoji.gg,excellence-mag.com,familydoctor.org,fanpop.com,federalnewsnetwork.com,femalefirst.co.uk,firstcoastnews.com,foodandwine.com,fool.com,footyheadlines.com,forvo.com,fox6now.com,foxafrica.com,foxbusiness.com,foxnews.com,fxnowcanada.ca,gayvegas.com,gcn.com,geelongadvertiser.com.au,go.com,golfweather.com,gpuboss.com,greenbot.com,gtplanet.net,heraldsun.com.au,hodinkee.com,indiewire.com,infoworld.com,inhabitat.com,insider.com,instyle.com,interfax.com.ua,investsmart.com.au,jscompress.com,kagstv.com,kare11.com,kcentv.com,kedglobal.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,koreabang.com,krem.com,ksdk.com,ktvb.com,kusports.com,kvue.com,lagom.nl,lawrence.com,leaderpost.com,lifezette.com,looktothestars.org,mangarockteam.com,marketwatch.com,maxpreps.com,mcpmag.com,mirror.co.uk,monitor.co.ug,motherjones.com,motorcycle.com,movieweb.com,mprnews.org,msn.com,mybroadband.co.za,myfitnesspal.com,myfox8.com,myfoxzone.com,mygaming.co.za,myrecipes.com,namibtimes.net,nejm.org,networkworld.com,newbeauty.com,news.com.au,news.sky.com,newscentermaine.com,newsday.com,newstimes.com,ny1.com,nymag.com,nytco.com,nytimes.com,nytimes3xbfgragh.onion,odometer.com,offbeat.com,onmsft.com,ovationtv.com,patch.com,patheos.com,perthnow.com.au,planelogger.com,playtictactoe.org,politico.com,politico.eu,popsugar.com,popsugar.com.au,prepperwebsite.com,quackit.com,quibblo.com,ranker.com,ratemds.com,ratemyprofessors.com,redmondmag.com,refinery29.com,roadsideamerica.com,salisburypost.com,sbs.com.au,seattletimes.com,segmentnext.com,shtfplan.com,simpledesktops.com,slickdeals.net,smartcompany.com.au,smsfi.com,softpedia.com,soranews24.com,spot.im,spryliving.com,statenews.com,statscrop.com,stocktwits.com,streetinsider.com,stv.tv,stylenest.co.uk,talkandroid.com,techdirt.com,thecitizen.co.tz,thecut.com,thedp.com,theeastafrican.co.ke,thefader.com,thefirearmblog.com,thegrocer.co.uk,thejournal.co.uk,themercury.com.au,thenation.com,thestarphoenix.com,thv11.com,time.com,today.com,topgear.com,townhall.com,travelocity.com,tribalfootball.com,tribecafilm.com,triblive.com,tripadvisor.ca,tripadvisor.co.uk,tripadvisor.co.za,tripadvisor.com,tripadvisor.ie,tripadvisor.in,trucktrend.com,truecar.com,tvmaze.com,tweaktown.com,ultimatespecs.com,uptodown.com,userstyles.org,usmagazine.com,usnews.com,vancouversun.com,vid.gg,vogue.in,vulture.com,wamu.org,washingtontimes.com,watzatsong.com,wbir.com,wcnc.com,weathernationtv.com,weatheronline.co.uk,webestools.com,webmd.com,weeklytimesnow.com.au,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgnt.com,wgntv.com,wgrz.com,whas11.com,wildcat.arizona.edu,windsorstar.com,wkyc.com,wltx.com,wnep.com,worthplaying.com,wqad.com,wral.com,wrif.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com,x17online.com,yorkpress.co.uk##.ad
 https://techrepublic.com##.ad-active
 https://9to5google.com,9to5mac.com,beeradvocate.com,bizjournals.com,biznews.com,businessinsider.com,computerworld.com,driven.co.nz,ecr.co.za,electrek.co,engineeringnews.co.za,etcanada.com,fox10phoenix.com,fox13news.com,fox26houston.com,fox29.com,fox2detroit.com,fox32chicago.com,fox35orlando.com,fox4news.com,fox5atlanta.com,fox5dc.com,fox5ny.com,fox7austin.com,fox9.com,foxbusiness.com,foxla.com,foxnews.com,funkidslive.com,gfinityesports.com,gmanetwork.com,hbr.org,insidehook.com,intouchweekly.com,ktvu.com,macstories.net,metro.us,miningweekly.com,mobilesyrup.com,modernhealthcare.com,my9nj.com,myfitnesspal.com,nbcnews.com,nzherald.co.nz,opb.org,realsport101.com,scroll.in,seattletimes.com,sportskeeda.com,thelocal.at,thelocal.ch,thelocal.de,thelocal.dk,thelocal.es,thelocal.fr,thelocal.it,thelocal.no,thelocal.se,toofab.com,wogx.com##.ad-container
@@ -49356,7 +49412,7 @@ https://yesasia.com##.advHr
 https://98online.com,airgunshooting.co.uk,airmalta.com,allghananews.com,anews.com.tr,angliaafloat.co.uk,arabianindustry.com,barkinganddagenhampost.co.uk,becclesandbungayjournal.co.uk,burymercury.co.uk,cambstimes.co.uk,canalboat.co.uk,cardealermagazine.co.uk,caribbeancinemas.com,completefrance.com,countrysmallholding.com,crimemagazine.com,dailyedge.ie,derehamtimes.co.uk,dissmercury.co.uk,dunmowbroadcast.co.uk,eadt.co.uk,eastlondonadvertiser.co.uk,economist.com,edp24.co.uk,ee.co.za,elystandard.co.uk,eos.org,etf.com,eveningnews24.co.uk,exmouthjournal.co.uk,fakenhamtimes.co.uk,farmprogress.com,football.co.uk,ft.com,games.co.uk,gamesgames.com,greatyarmouthmercury.co.uk,hackneygazette.co.uk,hamhigh.co.uk,hertsad.co.uk,huntspost.co.uk,icaew.com,ilfordrecorder.co.uk,iol.co.za,ipswichstar.co.uk,islingtongazette.co.uk,kentonline.co.uk,lgr.co.uk,lowestoftjournal.co.uk,maltapark.com,midweekherald.co.uk,momjunction.com,morningstar.co.uk,mousebreaker.com,newhamrecorder.co.uk,newstalkzb.co.nz,northdevongazette.co.uk,northnorfolknews.co.uk,northsomersettimes.co.uk,pilotweb.aero,pinkun.com,raidforums.com,romfordrecorder.co.uk,royston-crow.co.uk,saffronwaldenreporter.co.uk,sidmouthherald.co.uk,sportingshooter.co.uk,sportspromedia.com,stowmarketmercury.co.uk,sudburymercury.co.uk,tbivision.com,the42.ie,thecomet.net,thejournal.ie,theneweuropean.co.uk,thewestonmercury.co.uk,trucksplanet.com,videogamer.com,wattonandswaffhamtimes.co.uk,whtimes.co.uk,wisbechstandard.co.uk,wymondhamandattleboroughmercury.co.uk,yourchickens.co.uk##.advert
 https://zimbabwesituation.com##.advertise
 https://gpfans.com##.advertise-panel
-https://000webhost.com,aarp.org,al-monitor.com,animax-asia.com,apkcombo.com,apkforpc.com,araratadvertiser.com.au,areanews.com.au,armidaleexpress.com.au,axn-asia.com,batemansbaypost.com.au,begadistrictnews.com.au,bendigoadvertiser.com.au,benfergusonshow.com,blayneychronicle.com.au,bluemountainsgazette.com.au,boorowanewsonline.com.au,bordermail.com.au,braidwoodtimes.com.au,bravotv.com,bunburymail.com.au,busseltonmail.com.au,camdenadvertiser.com.au,camdencourier.com.au,canowindranews.com.au,centralwesterndaily.com.au,cessnockadvertiser.com.au,conservativeradio.com,controleng.com,cootamundraherald.com.au,cowraguardian.com.au,dailyadvertiser.com.au,dailyliberal.com.au,dungogchronicle.com.au,easternriverinachronicle.com.au,edenmagnet.com.au,esperanceexpress.com.au,examiner.com.au,fairfieldchampion.com.au,forbesadvocate.com.au,gemtvasia.com,gleninnesexaminer.com.au,gloucesteradvocate.com.au,goondiwindiargus.com.au,goulburnpost.com.au,greatlakesadvocate.com.au,grenfellrecord.com.au,hardenexpress.com.au,hawkesburygazette.com.au,hcn.org,hepburnadvocate.com.au,huffingtonpost.co.uk,huntervalleynews.net.au,inqld.com.au,inverelltimes.com.au,jewishworldreview.com,juneesoutherncross.com.au,katherinetimes.com.au,legion.org,lifezette.com,lithgowmercury.com.au,liverpoolchampion.com.au,macarthuradvertiser.com.au,macleayargus.com.au,magtheweekly.com,mailtimes.com.au,maitlandmercury.com.au,mandurahmail.com.au,manningrivertimes.com.au,margaretrivermail.com.au,martechadvisor.com,moreechampion.com.au,mudgeeguardian.com.au,murrayvalleystandard.com.au,muswellbrookchronicle.com.au,naroomanewsonline.com.au,narrominenewsonline.com.au,northerndailyleader.com.au,northweststar.com.au,nvi.com.au,oann.com,oberonreview.com.au,onetvasia.com,oxygen.com,parkeschampionpost.com.au,pch.com,portlincolntimes.com.au,portnews.com.au,portpirierecorder.com.au,portstephensexaminer.com.au,readamericanfootball.com,readarsenal.com,readastonvilla.com,readbasketball.com,readbetting.com,readbournemouth.com,readboxing.com,readbrighton.com,readbundesliga.com,readburnley.com,readcars.co,readceltic.com,readchampionship.com,readchelsea.com,readcricket.com,readcrystalpalace.com,readeverton.com,readeverything.co,readfashion.co,readfilm.co,readfood.co,readfootball.co,readgaming.co,readgolf.com,readhorseracing.com,readhuddersfield.com,readhull.com,readinternationalfootball.com,readlaliga.com,readleicester.com,readliverpoolfc.com,readmancity.com,readmanutd.com,readmiddlesbrough.com,readmma.com,readmotorsport.com,readmusic.co,readnewcastle.com,readnorwich.com,readnottinghamforest.com,readolympics.com,readpl.com,readrangers.com,readrugbyunion.com,readseriea.com,readshowbiz.co,readsouthampton.com,readsport.co,readstoke.com,readsunderland.com,readswansea.com,readtech.co,readtennis.co,readtottenham.com,readtv.co,readussoccer.com,readwatford.com,readwestbrom.com,readwestham.com,readwsl.com,salife.com.au,sconeadvocate.com.au,sify.com,singletonargus.com.au,southcoastregister.com.au,southernhighlandnews.com.au,standard.net.au,stawelltimes.com.au,stockandland.com.au,streamingmedia.com,tenterfieldstar.com.au,the-scientist.com,theadvocate.com.au,thecatholicthing.org,thecourier.com.au,thecurrent.org,theflindersnews.com.au,theislanderonline.com.au,theland.com.au,theleader.com.au,therural.com.au,townandcountrymagazine.com.au,transcontinental.com.au,ulladullatimes.com.au,victorharbortimes.com.au,wellingtontimes.com.au,westernadvocate.com.au,westernmagazine.com.au,whyallanewsonline.com.au,wollondillyadvertiser.com.au,woot.com,yasstribune.com.au,youngwitness.com.au##.advertisement
+https://000webhost.com,aarp.org,al-monitor.com,animax-asia.com,apkcombo.com,apkforpc.com,araratadvertiser.com.au,areanews.com.au,armidaleexpress.com.au,audioxpress.com,axn-asia.com,batemansbaypost.com.au,begadistrictnews.com.au,bendigoadvertiser.com.au,benfergusonshow.com,blayneychronicle.com.au,bluemountainsgazette.com.au,boorowanewsonline.com.au,bordermail.com.au,braidwoodtimes.com.au,bravotv.com,bunburymail.com.au,busseltonmail.com.au,camdenadvertiser.com.au,camdencourier.com.au,canowindranews.com.au,centralwesterndaily.com.au,cessnockadvertiser.com.au,conservativeradio.com,controleng.com,cootamundraherald.com.au,cowraguardian.com.au,dailyadvertiser.com.au,dailyliberal.com.au,dungogchronicle.com.au,easternriverinachronicle.com.au,edenmagnet.com.au,esperanceexpress.com.au,examiner.com.au,fairfieldchampion.com.au,forbesadvocate.com.au,gemtvasia.com,gleninnesexaminer.com.au,gloucesteradvocate.com.au,goondiwindiargus.com.au,goulburnpost.com.au,greatlakesadvocate.com.au,grenfellrecord.com.au,hardenexpress.com.au,hawkesburygazette.com.au,hcn.org,hepburnadvocate.com.au,huffingtonpost.co.uk,huntervalleynews.net.au,inqld.com.au,inverelltimes.com.au,jewishworldreview.com,juneesoutherncross.com.au,katherinetimes.com.au,legion.org,lifezette.com,lithgowmercury.com.au,liverpoolchampion.com.au,macarthuradvertiser.com.au,macleayargus.com.au,magtheweekly.com,mailtimes.com.au,maitlandmercury.com.au,mandurahmail.com.au,manningrivertimes.com.au,margaretrivermail.com.au,martechadvisor.com,moreechampion.com.au,mudgeeguardian.com.au,murrayvalleystandard.com.au,muswellbrookchronicle.com.au,naroomanewsonline.com.au,narrominenewsonline.com.au,northerndailyleader.com.au,northweststar.com.au,nvi.com.au,oann.com,oberonreview.com.au,onetvasia.com,oxygen.com,parkeschampionpost.com.au,pch.com,portlincolntimes.com.au,portnews.com.au,portpirierecorder.com.au,portstephensexaminer.com.au,readamericanfootball.com,readarsenal.com,readastonvilla.com,readbasketball.com,readbetting.com,readbournemouth.com,readboxing.com,readbrighton.com,readbundesliga.com,readburnley.com,readcars.co,readceltic.com,readchampionship.com,readchelsea.com,readcricket.com,readcrystalpalace.com,readeverton.com,readeverything.co,readfashion.co,readfilm.co,readfood.co,readfootball.co,readgaming.co,readgolf.com,readhorseracing.com,readhuddersfield.com,readhull.com,readinternationalfootball.com,readlaliga.com,readleicester.com,readliverpoolfc.com,readmancity.com,readmanutd.com,readmiddlesbrough.com,readmma.com,readmotorsport.com,readmusic.co,readnewcastle.com,readnorwich.com,readnottinghamforest.com,readolympics.com,readpl.com,readrangers.com,readrugbyunion.com,readseriea.com,readshowbiz.co,readsouthampton.com,readsport.co,readstoke.com,readsunderland.com,readswansea.com,readtech.co,readtennis.co,readtottenham.com,readtv.co,readussoccer.com,readwatford.com,readwestbrom.com,readwestham.com,readwsl.com,salife.com.au,sconeadvocate.com.au,sify.com,singletonargus.com.au,southcoastregister.com.au,southernhighlandnews.com.au,standard.net.au,stawelltimes.com.au,stockandland.com.au,streamingmedia.com,tenterfieldstar.com.au,the-scientist.com,theadvocate.com.au,thecatholicthing.org,thecourier.com.au,thecurrent.org,theflindersnews.com.au,theislanderonline.com.au,theland.com.au,theleader.com.au,therural.com.au,townandcountrymagazine.com.au,transcontinental.com.au,ulladullatimes.com.au,victorharbortimes.com.au,wellingtontimes.com.au,westernadvocate.com.au,westernmagazine.com.au,whyallanewsonline.com.au,wollondillyadvertiser.com.au,woot.com,yasstribune.com.au,youngwitness.com.au##.advertisement
 https://structurae.net##.advertisements
 https://afrsmartinvestor.com.au,afternoondc.in,allmovie.com,allmusic.com,brw.com.au,cio.co.ke,gq.co.za,ocregister.com,orangecounty.com,premier.org.uk,premierchristianity.com,premierchristianradio.com,premiergospel.org.uk,radio.com,sidereel.com,yourdictionary.com##.advertising
 https://satdl.com##.advertizement
@@ -49536,6 +49592,7 @@ https://gametracker.com##.blocknewnopad
 https://simkl.com##.blockplacecente
 https://wowway.net##.blocks_container-size_containerSize
 https://weather-forecast.com##.bn-placeholder
+https://gearspace.com##.bnb--inline
 https://bnonews.com##.bnone-widget
 https://mediamanager.co.za##.bnr
 https://armenpress.am##.bnrcontainer
@@ -50566,6 +50623,7 @@ https://dailyherald.com##.stnContainer
 https://6abc.com,abc11.com,abc13.com,abc30.com,abc7.com,abc7chicago.com,abc7news.com,abc7ny.com##.story > .placeholderWrapper
 https://politico.com##.story-continued
 https://climbingbusinessjournal.com##.strack_bnr
+https://indiatoday.in##.stradds
 https://siasat.com##.stream-item-below-post-content
 https://twitter.com##.stream-item-group-start[label="promoted"]
 https://siasat.com##.stream-item-inline-post
@@ -51339,6 +51397,7 @@ https://toppixxx.com###bottom
 https://xxxdan.com###bottom-line
 https://eporner.com###btasd
 https://celebritymovieblog.com,interracial-girls.com###custom_html-2
+https://hotcelebshome.com###custom_html-4
 https://eporner.com###deskadmiddle
 https://hentai-cosplays.com###display_image_detail > span
 https://thehun.net###dyk_right
@@ -51751,6 +51810,7 @@ https://hothag.com##.wdiget-below-image
 https://porntube.com##.webcam-shelve
 https://imagearn.com##.wide_banner
 https://rpclip.com##.widget-item-wrap
+https://hotcelebshome.com##.widget_custom_html
 https://gifsauce.com##.widget_live
 https://totsantcugat.info##.widget_meta.widget.col-sm-3
 https://hentaiblue.com##.widget_text
@@ -54640,7 +54700,6 @@ http://duba.com,uu114.cn##.adfixed
 http://1kkk.com,dm5.com,dm5.hk##.adform_1
 http://1kkk.com,dm5.com,dm5.hk##.adform_2
 http://xineurope.com##.adft
-http://11px.cn##.adg
 http://92wy.com##.adhengfu
 http://jxdbg.com##.adindex
 http://huanqiu.com##.adindexList
@@ -54739,7 +54798,6 @@ http://dav01.com##.adwraper
 http://gamme.com.tw##.adwrpt
 http://jdbbs.com##.adyihifi
 http://baidu.com##.afd-item
-http://11px.cn##.ag
 http://weiyun001.com##.agency-list
 http://13mv.com##.aggd
 http://33lc.org##.ags
@@ -55220,8 +55278,6 @@ http://bbs.it168.com##.daoh2 + .bor8
 http://1111.baidu.com,bdimg.com,tieba.baidu.com,tieba.com,xingqu.baidu.com##.dasense
 http://newxue.com##.dashuggtop
 http://newxue.com##.dashuggtop1
-http://11px.cn##.date
-http://11px.cn##.date_nr
 http://qinbing.cn##.day
 http://ggcj.com##.dbxf
 http://33lc.org##.ddnew
@@ -55389,7 +55445,7 @@ http://uzzf.com##.f-uzzf-down
 http://nwell.net##.f14hui[width="25%"]
 http://xiaobaipan.com##.f_ad
 http://tpy888.cn##.f_ad1
-http://smallpopo.com##.fabox
+http://17gameworld.com,smallpopo.com##.fabox
 http://sgcn.com,wangjing.cn##.fad
 http://mobile01.com##.fast-ad
 http://duote.com,soft-down.net##.fast-down-btn
@@ -57169,7 +57225,9 @@ http://tuliu.com##.zx-advertising-box
 http://19lou.com##.zx-link
 http://wanyx.com##.zx_box
 http://17house.com##.zx_xrhb
+http://11px.cn##.zz
 http://iqiyi.com##.zzVideo
+http://11px.cn##.zz_nr
 http://12580sky.com,xg3q.com#?#li[class]:-abp-has(> .mark > h3 > a:-abp-contains(/广告|推荐/))
 http://159i.com#?#.style15:-abp-has(> img[src="//159i.com/images/arrow3.gif"])
 http://159i.com#?#:-abp-has(> img[src*="gif"])
@@ -58916,6 +58974,7 @@ http://cryptofeeds.news###block-8
 http://wionews.com###block-adv
 http://webosnation.com###block-block-21
 http://slideme.org###block-block-31
+http://indiatoday.in###block-block-64
 http://infoplease.com###block-ipabovethefold
 http://infoplease.com###block-ipbtfad
 http://infoplease.com###block-ipleaderboardad
@@ -58956,6 +59015,8 @@ http://whocallsme.com###cnt_btm
 http://linuxinsider.com###colorbox
 http://smbc-comics.com###comicright > div[style]
 http://cpuid.com###console_log
+http://gearspace.com###container__DesktopFDAdBanner
+http://gearspace.com###container__DesktopForumdisplayHalfway
 http://modshost.com###content > .ast-container > .ast-row
 http://scanboat.com###content > .margin-tb-25
 http://allnewspipeline.com###content > [href]
@@ -59186,6 +59247,7 @@ http://myabandonware.com###myabandonware_medrec_left_atf
 http://myabandonware.com###myabandonware_medrec_right_atf
 http://myabandonware.com###myabandonware_medrec_right_btf
 http://mediaupdate.co.za###mycarousel
+http://gearspace.com###navbar_notice_617
 http://nbcsports.com###nbcsports-leaderboard
 http://my.juno.com###newsCarousel
 http://livelaw.in###news_on_exit
@@ -59493,6 +59555,7 @@ http://opensubtitles.org##.a_1.a.p
 http://informer.com##.aa-728
 http://ncomputers.org,servertest.online##.ab
 http://slickdeals.net##.abc
+http://cq-esports.com##.abcdd
 http://merriam-webster.com##.abl
 http://learnersdictionary.com##.abl-m0-t160-d160
 http://learnersdictionary.com##.abl-m0-t300-d300
@@ -59501,6 +59564,7 @@ http://roblox.com##.abp
 http://manualslib.com##.abp_adv_b
 http://manualslib.com##.abp_adv_s-title
 http://searchenginejournal.com##.absolute-banner
+http://cq-esports.com##.acace
 http://11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,abovethelaw.com,adelaidenow.com.au,adtmag.com,aero-news.net,airportia.com,americanprofile.com,appleinsider.com,arstechnica.com,articlealley.com,asianwiki.com,associationsnow.com,autoevolution.com,autoguide.com,autotrader.com.au,bab.la,bdnews24.com,beinsports.com,boats.com,bobvila.com,bostonglobe.com,bradleybraves.com,breitbart.com,businessdailyafrica.com,businessinsider.com,businesstech.co.za,c21media.net,cbs19.tv,cd1025.com,celebdigs.com,celebified.com,ch-aviation.com,cheboygannews.com,chinahush.com,citysearch.com,cnn.com,cnnphilippines.com,colourlovers.com,comicbookmovie.com,computerworld.com,couriermail.com.au,cpuboss.com,createtv.com,crossmap.com,crosswalk.com,csoonline.com,cxpress.co.za,dailycaller.com,dailylobo.com,dailyparent.com,dailytarheel.com,dawn.com,dealnews.com,defenseone.com,downdetector.co.nz,downdetector.co.uk,downdetector.co.za,downdetector.com,downdetector.in,downdetector.sg,dpreview.com,drinksmixer.com,earlygame.com,edmontonjournal.com,emoji.gg,excellence-mag.com,familydoctor.org,fanpop.com,federalnewsnetwork.com,femalefirst.co.uk,firstcoastnews.com,foodandwine.com,fool.com,footyheadlines.com,forvo.com,fox6now.com,foxafrica.com,foxbusiness.com,foxnews.com,fxnowcanada.ca,gayvegas.com,gcn.com,geelongadvertiser.com.au,go.com,golfweather.com,gpuboss.com,greenbot.com,gtplanet.net,heraldsun.com.au,hodinkee.com,indiewire.com,infoworld.com,inhabitat.com,insider.com,instyle.com,interfax.com.ua,investsmart.com.au,jscompress.com,kagstv.com,kare11.com,kcentv.com,kedglobal.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,koreabang.com,krem.com,ksdk.com,ktvb.com,kusports.com,kvue.com,lagom.nl,lawrence.com,leaderpost.com,lifezette.com,looktothestars.org,mangarockteam.com,marketwatch.com,maxpreps.com,mcpmag.com,mirror.co.uk,monitor.co.ug,motherjones.com,motorcycle.com,movieweb.com,mprnews.org,msn.com,mybroadband.co.za,myfitnesspal.com,myfox8.com,myfoxzone.com,mygaming.co.za,myrecipes.com,namibtimes.net,nejm.org,networkworld.com,newbeauty.com,news.com.au,news.sky.com,newscentermaine.com,newsday.com,newstimes.com,ny1.com,nymag.com,nytco.com,nytimes.com,nytimes3xbfgragh.onion,odometer.com,offbeat.com,onmsft.com,ovationtv.com,patch.com,patheos.com,perthnow.com.au,planelogger.com,playtictactoe.org,politico.com,politico.eu,popsugar.com,popsugar.com.au,prepperwebsite.com,quackit.com,quibblo.com,ranker.com,ratemds.com,ratemyprofessors.com,redmondmag.com,refinery29.com,roadsideamerica.com,salisburypost.com,sbs.com.au,seattletimes.com,segmentnext.com,shtfplan.com,simpledesktops.com,slickdeals.net,smartcompany.com.au,smsfi.com,softpedia.com,soranews24.com,spot.im,spryliving.com,statenews.com,statscrop.com,stocktwits.com,streetinsider.com,stv.tv,stylenest.co.uk,talkandroid.com,techdirt.com,thecitizen.co.tz,thecut.com,thedp.com,theeastafrican.co.ke,thefader.com,thefirearmblog.com,thegrocer.co.uk,thejournal.co.uk,themercury.com.au,thenation.com,thestarphoenix.com,thv11.com,time.com,today.com,topgear.com,townhall.com,travelocity.com,tribalfootball.com,tribecafilm.com,triblive.com,tripadvisor.ca,tripadvisor.co.uk,tripadvisor.co.za,tripadvisor.com,tripadvisor.ie,tripadvisor.in,trucktrend.com,truecar.com,tvmaze.com,tweaktown.com,ultimatespecs.com,uptodown.com,userstyles.org,usmagazine.com,usnews.com,vancouversun.com,vid.gg,vogue.in,vulture.com,wamu.org,washingtontimes.com,watzatsong.com,wbir.com,wcnc.com,weathernationtv.com,weatheronline.co.uk,webestools.com,webmd.com,weeklytimesnow.com.au,wegotthiscovered.com,wfaa.com,wfmynews2.com,wgnt.com,wgntv.com,wgrz.com,whas11.com,wildcat.arizona.edu,windsorstar.com,wkyc.com,wltx.com,wnep.com,worthplaying.com,wqad.com,wral.com,wrif.com,wtsp.com,wusa9.com,wwltv.com,wzzm13.com,x17online.com,yorkpress.co.uk##.ad
 http://techrepublic.com##.ad-active
 http://9to5google.com,9to5mac.com,beeradvocate.com,bizjournals.com,biznews.com,businessinsider.com,computerworld.com,driven.co.nz,ecr.co.za,electrek.co,engineeringnews.co.za,etcanada.com,fox10phoenix.com,fox13news.com,fox26houston.com,fox29.com,fox2detroit.com,fox32chicago.com,fox35orlando.com,fox4news.com,fox5atlanta.com,fox5dc.com,fox5ny.com,fox7austin.com,fox9.com,foxbusiness.com,foxla.com,foxnews.com,funkidslive.com,gfinityesports.com,gmanetwork.com,hbr.org,insidehook.com,intouchweekly.com,ktvu.com,macstories.net,metro.us,miningweekly.com,mobilesyrup.com,modernhealthcare.com,my9nj.com,myfitnesspal.com,nbcnews.com,nzherald.co.nz,opb.org,realsport101.com,scroll.in,seattletimes.com,sportskeeda.com,thelocal.at,thelocal.ch,thelocal.de,thelocal.dk,thelocal.es,thelocal.fr,thelocal.it,thelocal.no,thelocal.se,toofab.com,wogx.com##.ad-container
@@ -59561,7 +59625,7 @@ http://yesasia.com##.advHr
 http://98online.com,airgunshooting.co.uk,airmalta.com,allghananews.com,anews.com.tr,angliaafloat.co.uk,arabianindustry.com,barkinganddagenhampost.co.uk,becclesandbungayjournal.co.uk,burymercury.co.uk,cambstimes.co.uk,canalboat.co.uk,cardealermagazine.co.uk,caribbeancinemas.com,completefrance.com,countrysmallholding.com,crimemagazine.com,dailyedge.ie,derehamtimes.co.uk,dissmercury.co.uk,dunmowbroadcast.co.uk,eadt.co.uk,eastlondonadvertiser.co.uk,economist.com,edp24.co.uk,ee.co.za,elystandard.co.uk,eos.org,etf.com,eveningnews24.co.uk,exmouthjournal.co.uk,fakenhamtimes.co.uk,farmprogress.com,football.co.uk,ft.com,games.co.uk,gamesgames.com,greatyarmouthmercury.co.uk,hackneygazette.co.uk,hamhigh.co.uk,hertsad.co.uk,huntspost.co.uk,icaew.com,ilfordrecorder.co.uk,iol.co.za,ipswichstar.co.uk,islingtongazette.co.uk,kentonline.co.uk,lgr.co.uk,lowestoftjournal.co.uk,maltapark.com,midweekherald.co.uk,momjunction.com,morningstar.co.uk,mousebreaker.com,newhamrecorder.co.uk,newstalkzb.co.nz,northdevongazette.co.uk,northnorfolknews.co.uk,northsomersettimes.co.uk,pilotweb.aero,pinkun.com,raidforums.com,romfordrecorder.co.uk,royston-crow.co.uk,saffronwaldenreporter.co.uk,sidmouthherald.co.uk,sportingshooter.co.uk,sportspromedia.com,stowmarketmercury.co.uk,sudburymercury.co.uk,tbivision.com,the42.ie,thecomet.net,thejournal.ie,theneweuropean.co.uk,thewestonmercury.co.uk,trucksplanet.com,videogamer.com,wattonandswaffhamtimes.co.uk,whtimes.co.uk,wisbechstandard.co.uk,wymondhamandattleboroughmercury.co.uk,yourchickens.co.uk##.advert
 http://zimbabwesituation.com##.advertise
 http://gpfans.com##.advertise-panel
-http://000webhost.com,aarp.org,al-monitor.com,animax-asia.com,apkcombo.com,apkforpc.com,araratadvertiser.com.au,areanews.com.au,armidaleexpress.com.au,axn-asia.com,batemansbaypost.com.au,begadistrictnews.com.au,bendigoadvertiser.com.au,benfergusonshow.com,blayneychronicle.com.au,bluemountainsgazette.com.au,boorowanewsonline.com.au,bordermail.com.au,braidwoodtimes.com.au,bravotv.com,bunburymail.com.au,busseltonmail.com.au,camdenadvertiser.com.au,camdencourier.com.au,canowindranews.com.au,centralwesterndaily.com.au,cessnockadvertiser.com.au,conservativeradio.com,controleng.com,cootamundraherald.com.au,cowraguardian.com.au,dailyadvertiser.com.au,dailyliberal.com.au,dungogchronicle.com.au,easternriverinachronicle.com.au,edenmagnet.com.au,esperanceexpress.com.au,examiner.com.au,fairfieldchampion.com.au,forbesadvocate.com.au,gemtvasia.com,gleninnesexaminer.com.au,gloucesteradvocate.com.au,goondiwindiargus.com.au,goulburnpost.com.au,greatlakesadvocate.com.au,grenfellrecord.com.au,hardenexpress.com.au,hawkesburygazette.com.au,hcn.org,hepburnadvocate.com.au,huffingtonpost.co.uk,huntervalleynews.net.au,inqld.com.au,inverelltimes.com.au,jewishworldreview.com,juneesoutherncross.com.au,katherinetimes.com.au,legion.org,lifezette.com,lithgowmercury.com.au,liverpoolchampion.com.au,macarthuradvertiser.com.au,macleayargus.com.au,magtheweekly.com,mailtimes.com.au,maitlandmercury.com.au,mandurahmail.com.au,manningrivertimes.com.au,margaretrivermail.com.au,martechadvisor.com,moreechampion.com.au,mudgeeguardian.com.au,murrayvalleystandard.com.au,muswellbrookchronicle.com.au,naroomanewsonline.com.au,narrominenewsonline.com.au,northerndailyleader.com.au,northweststar.com.au,nvi.com.au,oann.com,oberonreview.com.au,onetvasia.com,oxygen.com,parkeschampionpost.com.au,pch.com,portlincolntimes.com.au,portnews.com.au,portpirierecorder.com.au,portstephensexaminer.com.au,readamericanfootball.com,readarsenal.com,readastonvilla.com,readbasketball.com,readbetting.com,readbournemouth.com,readboxing.com,readbrighton.com,readbundesliga.com,readburnley.com,readcars.co,readceltic.com,readchampionship.com,readchelsea.com,readcricket.com,readcrystalpalace.com,readeverton.com,readeverything.co,readfashion.co,readfilm.co,readfood.co,readfootball.co,readgaming.co,readgolf.com,readhorseracing.com,readhuddersfield.com,readhull.com,readinternationalfootball.com,readlaliga.com,readleicester.com,readliverpoolfc.com,readmancity.com,readmanutd.com,readmiddlesbrough.com,readmma.com,readmotorsport.com,readmusic.co,readnewcastle.com,readnorwich.com,readnottinghamforest.com,readolympics.com,readpl.com,readrangers.com,readrugbyunion.com,readseriea.com,readshowbiz.co,readsouthampton.com,readsport.co,readstoke.com,readsunderland.com,readswansea.com,readtech.co,readtennis.co,readtottenham.com,readtv.co,readussoccer.com,readwatford.com,readwestbrom.com,readwestham.com,readwsl.com,salife.com.au,sconeadvocate.com.au,sify.com,singletonargus.com.au,southcoastregister.com.au,southernhighlandnews.com.au,standard.net.au,stawelltimes.com.au,stockandland.com.au,streamingmedia.com,tenterfieldstar.com.au,the-scientist.com,theadvocate.com.au,thecatholicthing.org,thecourier.com.au,thecurrent.org,theflindersnews.com.au,theislanderonline.com.au,theland.com.au,theleader.com.au,therural.com.au,townandcountrymagazine.com.au,transcontinental.com.au,ulladullatimes.com.au,victorharbortimes.com.au,wellingtontimes.com.au,westernadvocate.com.au,westernmagazine.com.au,whyallanewsonline.com.au,wollondillyadvertiser.com.au,woot.com,yasstribune.com.au,youngwitness.com.au##.advertisement
+http://000webhost.com,aarp.org,al-monitor.com,animax-asia.com,apkcombo.com,apkforpc.com,araratadvertiser.com.au,areanews.com.au,armidaleexpress.com.au,audioxpress.com,axn-asia.com,batemansbaypost.com.au,begadistrictnews.com.au,bendigoadvertiser.com.au,benfergusonshow.com,blayneychronicle.com.au,bluemountainsgazette.com.au,boorowanewsonline.com.au,bordermail.com.au,braidwoodtimes.com.au,bravotv.com,bunburymail.com.au,busseltonmail.com.au,camdenadvertiser.com.au,camdencourier.com.au,canowindranews.com.au,centralwesterndaily.com.au,cessnockadvertiser.com.au,conservativeradio.com,controleng.com,cootamundraherald.com.au,cowraguardian.com.au,dailyadvertiser.com.au,dailyliberal.com.au,dungogchronicle.com.au,easternriverinachronicle.com.au,edenmagnet.com.au,esperanceexpress.com.au,examiner.com.au,fairfieldchampion.com.au,forbesadvocate.com.au,gemtvasia.com,gleninnesexaminer.com.au,gloucesteradvocate.com.au,goondiwindiargus.com.au,goulburnpost.com.au,greatlakesadvocate.com.au,grenfellrecord.com.au,hardenexpress.com.au,hawkesburygazette.com.au,hcn.org,hepburnadvocate.com.au,huffingtonpost.co.uk,huntervalleynews.net.au,inqld.com.au,inverelltimes.com.au,jewishworldreview.com,juneesoutherncross.com.au,katherinetimes.com.au,legion.org,lifezette.com,lithgowmercury.com.au,liverpoolchampion.com.au,macarthuradvertiser.com.au,macleayargus.com.au,magtheweekly.com,mailtimes.com.au,maitlandmercury.com.au,mandurahmail.com.au,manningrivertimes.com.au,margaretrivermail.com.au,martechadvisor.com,moreechampion.com.au,mudgeeguardian.com.au,murrayvalleystandard.com.au,muswellbrookchronicle.com.au,naroomanewsonline.com.au,narrominenewsonline.com.au,northerndailyleader.com.au,northweststar.com.au,nvi.com.au,oann.com,oberonreview.com.au,onetvasia.com,oxygen.com,parkeschampionpost.com.au,pch.com,portlincolntimes.com.au,portnews.com.au,portpirierecorder.com.au,portstephensexaminer.com.au,readamericanfootball.com,readarsenal.com,readastonvilla.com,readbasketball.com,readbetting.com,readbournemouth.com,readboxing.com,readbrighton.com,readbundesliga.com,readburnley.com,readcars.co,readceltic.com,readchampionship.com,readchelsea.com,readcricket.com,readcrystalpalace.com,readeverton.com,readeverything.co,readfashion.co,readfilm.co,readfood.co,readfootball.co,readgaming.co,readgolf.com,readhorseracing.com,readhuddersfield.com,readhull.com,readinternationalfootball.com,readlaliga.com,readleicester.com,readliverpoolfc.com,readmancity.com,readmanutd.com,readmiddlesbrough.com,readmma.com,readmotorsport.com,readmusic.co,readnewcastle.com,readnorwich.com,readnottinghamforest.com,readolympics.com,readpl.com,readrangers.com,readrugbyunion.com,readseriea.com,readshowbiz.co,readsouthampton.com,readsport.co,readstoke.com,readsunderland.com,readswansea.com,readtech.co,readtennis.co,readtottenham.com,readtv.co,readussoccer.com,readwatford.com,readwestbrom.com,readwestham.com,readwsl.com,salife.com.au,sconeadvocate.com.au,sify.com,singletonargus.com.au,southcoastregister.com.au,southernhighlandnews.com.au,standard.net.au,stawelltimes.com.au,stockandland.com.au,streamingmedia.com,tenterfieldstar.com.au,the-scientist.com,theadvocate.com.au,thecatholicthing.org,thecourier.com.au,thecurrent.org,theflindersnews.com.au,theislanderonline.com.au,theland.com.au,theleader.com.au,therural.com.au,townandcountrymagazine.com.au,transcontinental.com.au,ulladullatimes.com.au,victorharbortimes.com.au,wellingtontimes.com.au,westernadvocate.com.au,westernmagazine.com.au,whyallanewsonline.com.au,wollondillyadvertiser.com.au,woot.com,yasstribune.com.au,youngwitness.com.au##.advertisement
 http://structurae.net##.advertisements
 http://afrsmartinvestor.com.au,afternoondc.in,allmovie.com,allmusic.com,brw.com.au,cio.co.ke,gq.co.za,ocregister.com,orangecounty.com,premier.org.uk,premierchristianity.com,premierchristianradio.com,premiergospel.org.uk,radio.com,sidereel.com,yourdictionary.com##.advertising
 http://satdl.com##.advertizement
@@ -59741,6 +59805,7 @@ http://gametracker.com##.blocknewnopad
 http://simkl.com##.blockplacecente
 http://wowway.net##.blocks_container-size_containerSize
 http://weather-forecast.com##.bn-placeholder
+http://gearspace.com##.bnb--inline
 http://bnonews.com##.bnone-widget
 http://mediamanager.co.za##.bnr
 http://armenpress.am##.bnrcontainer
@@ -60771,6 +60836,7 @@ http://dailyherald.com##.stnContainer
 http://6abc.com,abc11.com,abc13.com,abc30.com,abc7.com,abc7chicago.com,abc7news.com,abc7ny.com##.story > .placeholderWrapper
 http://politico.com##.story-continued
 http://climbingbusinessjournal.com##.strack_bnr
+http://indiatoday.in##.stradds
 http://siasat.com##.stream-item-below-post-content
 http://twitter.com##.stream-item-group-start[label="promoted"]
 http://siasat.com##.stream-item-inline-post
@@ -61544,6 +61610,7 @@ http://toppixxx.com###bottom
 http://xxxdan.com###bottom-line
 http://eporner.com###btasd
 http://celebritymovieblog.com,interracial-girls.com###custom_html-2
+http://hotcelebshome.com###custom_html-4
 http://eporner.com###deskadmiddle
 http://hentai-cosplays.com###display_image_detail > span
 http://thehun.net###dyk_right
@@ -61956,6 +62023,7 @@ http://hothag.com##.wdiget-below-image
 http://porntube.com##.webcam-shelve
 http://imagearn.com##.wide_banner
 http://rpclip.com##.widget-item-wrap
+http://hotcelebshome.com##.widget_custom_html
 http://gifsauce.com##.widget_live
 http://totsantcugat.info##.widget_meta.widget.col-sm-3
 http://hentaiblue.com##.widget_text
