@@ -400,13 +400,13 @@ function soy_csjd_rawAlipay(){
         $.post({
             url : `http://cs.clrcle.cn/api/app/api/withdrawLog/drawAlipay`,
             headers : {"Authorization": `${token}`,"user-agent": `${soy_csjd_UA}`,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8","Connection":"keep-alive",},
-            body : `amount=${money}&securityPassword=`,
+            body : `amount=10&securityPassword=`,
         }, async(error, response, data) => {
            try {
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==0){
-                console.log(`\n【${$.name}---账号 ${$.index} 提现】: 提现 ${money}元, ${result.msg}`)
+                console.log(`\n【${$.name}---账号 ${$.index} 提现】: 提现10元, ${result.msg}`)
                 await soy_csjd_personalDetails()
                 
             }else{
