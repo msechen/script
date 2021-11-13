@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: fRHtorRMepa3PqPKF5HA/A
-! Version: 202111130000
+! Checksum: kati3aidp9w7T2P2JF34qw
+! Version: 202111130450
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-13 00:00 UTC
+! Last modified: 2021-11-13 04:50 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -842,7 +842,6 @@
 ||https://marfeel.mgr.consensu.org^$third-party
 ||https://mgr.consensu.org/iframe.html
 ||https://mycookies.it^$third-party
-||https://myprivacy.dpgmedia.net/consent.js
 ||https://ogury.mgr.consensu.org^$third-party
 ||https://oil.axelspringer.com^$third-party
 ||https://onetag.mgr.consensu.org^$third-party
@@ -2302,7 +2301,6 @@
 ||http://marfeel.mgr.consensu.org^$third-party
 ||http://mgr.consensu.org/iframe.html
 ||http://mycookies.it^$third-party
-||http://myprivacy.dpgmedia.net/consent.js
 ||http://ogury.mgr.consensu.org^$third-party
 ||http://oil.axelspringer.com^$third-party
 ||http://onetag.mgr.consensu.org^$third-party
@@ -9927,7 +9925,6 @@ https://wizards.com##.css-3wNos.css-1CyK8
 https://argent.xyz##.css-fnrkut
 https://quixel.com##.css-wzviqn
 https://tannoy.com##.cv2-wrapper
-https://ratemyprofessors.com##.dQpRnT
 https://chess24.com##.dataConsentModal
 https://tensorflow.org##.devsite-footer-utility
 https://dhl.com##.dhl-cgk
@@ -9979,6 +9976,7 @@ https://palmbeachpost.com##.footer-wrapper
 https://crello.com##.footerNotificationWrapper___18I_O
 https://msn.com##.fpCdm
 https://f-secure.com##.fs-consent
+https://ratemyprofessors.com##.fyxlwo__overlay
 https://cgtn.com##.g-dialog
 https://scaleway.com##.gLLeaT
 https://themeflood.com##.gatewayContainer
@@ -10278,7 +10276,6 @@ https://etletstalk.com##.ulp-overlay
 https://etletstalk.com##.ulp-window-top-center
 https://tcm.com##.universal-footer__ribbon
 https://anisearch.com##.urgent-msg
-https://unique-top.online##.use-cookie
 https://cnn.com,liveuamap.com##.user-msg
 https://shine.cn##.user-terms-hint
 https://fxsolver.com##.userMessage
@@ -21463,7 +21460,6 @@ http://wizards.com##.css-3wNos.css-1CyK8
 http://argent.xyz##.css-fnrkut
 http://quixel.com##.css-wzviqn
 http://tannoy.com##.cv2-wrapper
-http://ratemyprofessors.com##.dQpRnT
 http://chess24.com##.dataConsentModal
 http://tensorflow.org##.devsite-footer-utility
 http://dhl.com##.dhl-cgk
@@ -21515,6 +21511,7 @@ http://palmbeachpost.com##.footer-wrapper
 http://crello.com##.footerNotificationWrapper___18I_O
 http://msn.com##.fpCdm
 http://f-secure.com##.fs-consent
+http://ratemyprofessors.com##.fyxlwo__overlay
 http://cgtn.com##.g-dialog
 http://scaleway.com##.gLLeaT
 http://themeflood.com##.gatewayContainer
@@ -21814,7 +21811,6 @@ http://etletstalk.com##.ulp-overlay
 http://etletstalk.com##.ulp-window-top-center
 http://tcm.com##.universal-footer__ribbon
 http://anisearch.com##.urgent-msg
-http://unique-top.online##.use-cookie
 http://cnn.com,liveuamap.com##.user-msg
 http://shine.cn##.user-terms-hint
 http://fxsolver.com##.userMessage
