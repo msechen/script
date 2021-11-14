@@ -1,12 +1,12 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
-const qsOption = [];
+const configDataList = [];
 const updateQsOption = (eid, fp, configCode) => {
-  qsOption.push({configCode, eid, fp});
+  configDataList.push({configCode, eid, fp});
 };
 
 [
@@ -18,12 +18,19 @@ const updateQsOption = (eid, fp, configCode) => {
   '4c6528b058b4220620f77f4700aeb97c'));
 
 [
-  '40c2d87a71ec40cf96badb810818bb92',
-  'b3cc4f6e5e924c3d82b10404f91740ce',
-  '1d43119d79ba4fc3a254c449c6aea1d2',
+  // 已过期的活动
+  // '40c2d87a71ec40cf96badb810818bb92',
+  // 'b3cc4f6e5e924c3d82b10404f91740ce',
+  // '1d43119d79ba4fc3a254c449c6aea1d2',
 ].forEach(updateQsOption.bind(0,
   'G37CAEULUZLTRDCUURES5BDFX73WXBLRSG3LIKN6JTL75T5BUG7YYLPPOV2ZUS55SF7BAJEA36WVJSJSMUHUESY27M',
   'f9b97a78ead44f94e6d3308f30454c2e'));
+
+[
+  '9fdb6cdb7e974b22994ea774ea566470',
+].forEach(updateQsOption.bind(0,
+  '2CE5CIUVPRYAFGD6L6PD2FBCU3DKNUH537GU4DPDOV4F5JV5AWWX3KDXWDV2K4CVD62ZBPAHZV6ZLHU6TPQ5HWLVNU',
+  '8324292268138617d7719f7d211f67ef'));
 
 class Joy20210805 extends Template {
   static scriptName = 'Joy20210805';
@@ -33,7 +40,7 @@ class Joy20210805 extends Template {
   static needInAppComplete = true;
   static configCode = '';
   static maxTaskDoneTimes = Infinity;
-  static times = qsOption.length;
+  static times = configDataList.length;
   static concurrent = true;
   static concurrentOnceDelay = 2;
   static commonParamFn = data => (data || {});
@@ -62,11 +69,20 @@ class Joy20210805 extends Template {
     api.getTaskListTimes = 0;
     // 仅在第一次更新configCode
     if (api.currentCookieTimes === 0) {
-      const configCode = api.options.qs.configCode;
-      const index = qsOption.findIndex(o => o.configCode === configCode);
-      const target = qsOption[index + 1] || qsOption[0];
-      _.merge(api.options.qs, target);
+      const {configCode} = api.configData || {};
+      const index = configDataList.findIndex(o => o.configCode === configCode);
+      api.configData = configDataList[index + 1] || configDataList[0];
     }
+
+    replaceObjectMethod(api, 'doGetPath', ([functionId, qs, options]) => {
+      _.assign(qs, api.configData);
+      return [functionId, qs, options];
+    });
+
+    replaceObjectMethod(api, 'doBodyPath', ([functionId, body]) => {
+      _.assign(body, api.configData);
+      return [functionId, body];
+    });
   }
 
   static apiNamesFn() {
