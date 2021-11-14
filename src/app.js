@@ -98,7 +98,7 @@ async function main() {
   ];
   // 常驻活动
   const longTermActivity = [
-    SignBeanHome, SignRemote, Sign,
+    SignBeanHome, Sign,
     Fruit, Pet, TurnTableFarm,
     Cash,
     BeanSmallBean,

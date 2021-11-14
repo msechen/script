@@ -29,6 +29,21 @@ class Sign extends Template {
       });
     }
 
+    const beanSign = {
+      name: 'app京豆签到',
+      url: 'https://api.m.jd.com/client.action',
+      options: {
+        qs: {
+          functionId: 'signBeanIndex',
+        },
+        form: {
+          appid: 'ld',
+        },
+      },
+      isSuccessFn: data => _.get(data, 'data.status') === '1',
+      rewardOutputFn: data => `${_.get(data, 'data.dailyAward.beanAward.beanCount') || 0} 豆豆`,
+    };
+
     const jrSign = {
       name: '金融签到',
       url: 'https://ms.jr.jd.com/gw/generic/hy/h5/m/signIn1',
@@ -144,6 +159,7 @@ class Sign extends Template {
     const taskOptions = [
       // signRemote脚本已经实现, 已不需要
       // jrSign,
+      beanSign,
       expressSign,
       {
         name: '京东汽车领券签到',
