@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: vUq8/7qkqus3wlt8kENzzQ
-! Version: 202111131600
+! Checksum: mo4MMf5jYq8aiCV5cGlxTg
+! Version: 202111140500
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-13 16:00 UTC
+! Last modified: 2021-11-14 05:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -12346,7 +12346,7 @@ https://diebayerische.de,fanbike.de,speicherguide.de##.consent
 https://usz.ch##.consentManagement
 https://dbna.com##.consentbar
 https://andinet.de##.coo
-https://borgware.de,buffalo.de,daparto.de,del.org,donaukurier.de,matratzen-concord.de,model-kartei.de,pyur.com,signal-iduna.de,spartanien.de,starcar.de,thegap.at,unumotors.com##.cookie
+https://appuio.ch,borgware.de,buffalo.de,daparto.de,del.org,donaukurier.de,matratzen-concord.de,model-kartei.de,pyur.com,signal-iduna.de,spartanien.de,starcar.de,thegap.at,unumotors.com##.cookie
 https://capcom-germany.de,dtstudyclub.de,insel-sylt.de,medela.de,parfumsclub.de,reifenlehmann.de,selfhost.de,spie.de,svww.de##.cookies
 https://stadtwerke-luebz.de##.data-consent
 https://theater-essen.de##.dataprotection
@@ -23882,7 +23882,7 @@ http://diebayerische.de,fanbike.de,speicherguide.de##.consent
 http://usz.ch##.consentManagement
 http://dbna.com##.consentbar
 http://andinet.de##.coo
-http://borgware.de,buffalo.de,daparto.de,del.org,donaukurier.de,matratzen-concord.de,model-kartei.de,pyur.com,signal-iduna.de,spartanien.de,starcar.de,thegap.at,unumotors.com##.cookie
+http://appuio.ch,borgware.de,buffalo.de,daparto.de,del.org,donaukurier.de,matratzen-concord.de,model-kartei.de,pyur.com,signal-iduna.de,spartanien.de,starcar.de,thegap.at,unumotors.com##.cookie
 http://capcom-germany.de,dtstudyclub.de,insel-sylt.de,medela.de,parfumsclub.de,reifenlehmann.de,selfhost.de,spie.de,svww.de##.cookies
 http://stadtwerke-luebz.de##.data-consent
 http://theater-essen.de##.dataprotection
