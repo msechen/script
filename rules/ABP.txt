@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: qUQ/Mrz2KzfFpAtFBODYwA
-! Version: 202111140535
+! Checksum: l/hCMrnGjqwaXF8Rj7mX9A
+! Version: 202111140556
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw^$third-party
@@ -18798,6 +18798,9 @@
 ||http://oofsg.cn^
 ||http://nvxin.in^
 ||http://i-gp1pqs6f1.cn^
+||http://dltenjy.cn^
+||http://ndfdwrg.cn^
+||http://beitd.com^
 ||http://000123456789.online^
 ||http://000123456789.space^
 ||http://01tn.cn^
