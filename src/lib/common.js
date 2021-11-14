@@ -147,7 +147,7 @@ async function singleRun(target, method = 'start', runFn = null) {
   const [nodePath, filePath, command1] = process.argv;
   const fileName = path.basename(filePath);
   let scriptName1 = fileName.replace(/\.js$/, '');
-  const dirName = path.basename(filePath.replace(`/${fileName}`, ''));
+  const fileParentDirName = path.basename(path.dirname(filePath));
   // 必须是当前执行的文件, 避免被继承的类被执行
   const scriptName = target.scriptName;
   let envCookieName;
@@ -158,7 +158,7 @@ async function singleRun(target, method = 'start', runFn = null) {
     // TODO 更改 getCookieData
     envCookieName = 'JD_EARN_COOKIE';
   }
-  const isCurrentFile = eq(scriptName, scriptName1) || eq(scriptName, `${dirName}${scriptName1 === 'index' ? '' : scriptName1}`);
+  const isCurrentFile = eq(scriptName, scriptName1) || eq(scriptName, `${fileParentDirName}${scriptName1 === 'index' ? '' : scriptName1}`);
 
   let promise;
 
