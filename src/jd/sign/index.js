@@ -88,14 +88,15 @@ class Sign extends Template {
       rewardOutputFn: data => _.property('content[0].title')(data),
     };
 
-    const signInAtTheVoucherCenter = {
+    const necklaceSignForm = require('../../../charles/api').necklace.ccSignInNecklace.find(o => JSON.parse(o.body).pin === self.getCurrentEnv('JD_NECKLACE_SIGN_PIN'));
+    const necklaceSign = {
       name: '领券中心签到',
       url: 'https://api.m.jd.com/client.action',
       options: {
         // 这里需要自己的signData
-        form: require('../../../charles/api').necklace.ccSignInNew[api.currentCookieTimes],
+        form: necklaceSignForm,
         qs: {
-          functionId: 'ccSignInNew',
+          functionId: 'ccSignInNecklace',
         },
         headers: {
           'User-Agent': 'jdapp',
@@ -236,8 +237,9 @@ class Sign extends Template {
       rewardOutputFn: data => _.get(data, 'data.bizMsg'),
     };
 
-    if (self.getCurrentEnv('JD_SIGN_IN_AT_THE_VOUCHER_CENTER_ENABLE')) {
-      taskOptions.push(signInAtTheVoucherCenter);
+    // TODO 接口调用有问题, 先屏蔽
+    if (necklaceSignForm && false) {
+      taskOptions.push(necklaceSign);
     }
 
     const nowHour = self.getNowHour();

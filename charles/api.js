@@ -74,11 +74,11 @@ const smallBean = {
   beanDoTask: [],
 };
 const necklace = {
-  functionIds: ['reportCcTask', 'getCcTaskList', 'receiveNecklaceCoupon', 'ccSignInNew', 'getCcFeedInfo'],
+  functionIds: ['reportCcTask', 'getCcTaskList', 'receiveNecklaceCoupon', 'ccSignInNecklace', 'getCcFeedInfo'],
   reportCcTask: [],
   getCcTaskList: [],
   receiveNecklaceCoupon: [],
-  ccSignInNew: [],
+  ccSignInNecklace: [],
   getCcFeedInfo: [],
 };
 const olympicgames = {
