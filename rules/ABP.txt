@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: e1hoUyUMV0Y2RolxezG1lA
-! Version: 202111151326
+! Checksum: K7Muzmi2m55hZz/w8ZbYTA
+! Version: 202111151536
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw^$third-
@@ -4888,6 +4888,7 @@
 ||https://zzsky.cn/images/a_d_
 ||https://zzz4.com/JS_AD/
 ||https://zzzyk.com/js/
+||https://dymmt.com/skin/mzitu/js/foot.
 ||https://17ce.com^*_$image
 ||https://69t49.com/floating/layer.js
 ||https://alicdn.com/img/ibank/*_!!2210231227621-0-cib.
@@ -10540,6 +10541,7 @@
 ||https://cibntv.net/youku/$media,rewrite=abp-resource:blank-mp3
 ||https://alicdn.com^*yksdk/*sdk.js$script
 ||https://5278.cc/js/c.js
+||http://mltp.com^
 ||http://00-gov.cn^
 ||http://000123456789.site^
 ||http://0024aaaa.com^
@@ -17896,6 +17898,7 @@
 ||http://zzsky.cn/images/a_d_
 ||http://zzz4.com/JS_AD/
 ||http://zzzyk.com/js/
+||http://dymmt.com/skin/mzitu/js/foot.
 ||http://17ce.com^*_$image
 ||http://3336672.com^
 ||http://3337729.com^
@@ -18800,6 +18803,11 @@
 ||http://epzpzmg.cn^
 ||http://yougouquanqiu.xyz^
 ||http://banfz.com^
+||http://beiwm.com^
+||http://betylife.com^
+||http://mcix.cn^
+||http://kershop.ren^
+||http://ngogmbe.cn^
 ||http://000123456789.online^
 ||http://000123456789.space^
 ||http://01tn.cn^
