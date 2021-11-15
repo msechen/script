@@ -32,6 +32,9 @@ class EarnAdvertPlugin extends Earn {
 
   static async doMain(api, shareCodes) {
     const self = this;
+
+    if (_.isEmpty(urlData)) return api.log('没有可用的urlData');
+
     await self.beforeRequest(api);
 
     const dayStart = self.getNowHour() === 12;
