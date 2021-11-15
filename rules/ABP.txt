@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Checksum: mxgTNelB5hMfTaCV9n7N9A
-! Version: 202111151626
+! Checksum: Wb2W3U1mpdGFZhyxzu41Ow
+! Version: 202111152246
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
 ||https://012.tw
@@ -20,8 +20,8 @@
 ||https://12291.com
 ||https://139site.com
 ||https://1503.net/code/
-||https://189.cn^*/push/
-||https://189.gd^*.html
+||https://189.cn^*/push/$third-party
+||https://189.gd^*.html$third-party
 ||https://1qwe3r.com
 ||https://1v7.cn
 ||https://1x3x.com
@@ -38,7 +38,7 @@
 ||https://321tui.com
 ||https://32414.com
 ||https://3324.cn
-||https://3399.com/act/
+||https://3399.com/act/$third-party
 ||https://360doo.com
 ||https://36500.com
 ||https://36500.net
@@ -150,7 +150,7 @@
 ||https://aimato.com
 ||https://alimama.cn 
 ||https://alllget.com
-||https://allyes.
+||https://allyes.$third-party
 ||https://andmejs.com
 ||https://aomeng.net
 ||https://aoparking.com
@@ -170,7 +170,7 @@
 ||https://bloggerads.net
 ||https://bmw100.cn
 ||https://bnuni.com
-||https://books.com.tw/exep/ap/
+||https://books.com.tw/exep/ap/$third-party
 ||https://bozhihua.com
 ||https://bs777.net
 ||https://bskchina.cn/js/
@@ -238,7 +238,7 @@
 ||https://gamecps.com
 ||https://gameone.com
 ||https://gclick.cn
-||https://gd.189.cn^*.htm?SP=
+||https://gd.189.cn^*.htm?SP=$third-party
 ||https://gdxxb.com
 ||https://geotmt.com
 ||https://ggmm777.com
@@ -311,7 +311,7 @@
 ||https://kakayy.com
 ||https://kdly.net
 ||https://kefeng56.com
-||https://kejet.
+||https://kejet.$third-party
 ||https://keydot.net
 ||https://keyrun.cn
 ||https://khgj.cn
@@ -404,7 +404,7 @@
 ||https://scize.com
 ||https://sexy-more.com
 ||https://shangjiabiao.com
-||https://shaqm.com^*.js
+||https://shaqm.com^*.js$third-party
 ||https://sharele.cn
 ||https://sho9wbox.com
 ||https://shuihulu.com
@@ -534,7 +534,7 @@
 ||https://yingshidaquan.cc
 ||https://yinoo.cn
 ||https://yiqifa.com^$subdocument
-||https://yiqifa.com^*.js
+||https://yiqifa.com^*.js$third-party
 ||https://yiqiv.com
 ||https://yiwad.com
 ||https://yixige.com
@@ -1762,7 +1762,7 @@
 ||https://buy.sina.com.tw/js/sina_popup.php
 ||https://buzzhand.com/images/$subdocument
 ||https://bvlang.com/ad/
-||https://bvmqkla.de/files/photo/
+||https://bvmqkla.de/files/photo/$third-party
 ||https://bw66.cn/template/default_pc/bbs/
 ||https://bxw666.com/storage/*.gif
 ||https://by4d.com/dh/
@@ -6677,8 +6677,8 @@
 ||https://youlamedia.com
 ||https://ypaletdevelspe.info
 ||https://zampad.com
-||https://zanox-affiliate.de/ppv/
-||https://zanox.com/ppv/
+||https://zanox-affiliate.de/ppv/$third-party
+||https://zanox.com/ppv/$third-party
 ||https://zap.buzz
 ||https://zedo.com
 ||https://zemanta.com
@@ -8817,22 +8817,22 @@
 ||https://adf.ly/js/display.js
 ||https://adf.ly/js/link-converter.js
 ||https://adfoc.us^$script,third-party
-||https://adform.net/banners/
-||https://adform.net/serving/
+||https://adform.net/banners/$third-party
+||https://adform.net/serving/$third-party
 ||https://ads.linkedin.com
 ||https://alpsat.com/banner/
 ||https://amazonaws.com/mailcache.appinthestore.com/
 ||https://amazonaws.com^$script,subdocument,xmlhttprequest
 ||https://any.gs/visitScript/
 ||https://apihotels.net/onestream/events/
-||https://apkmaza.net/wp-content/uploads/
+||https://apkmaza.net/wp-content/uploads/$third-party
 ||https://appdevsecrets.com/images/nuts/
 ||https://assets.sheetmusicplus.com
 ||https://autodealer.co.za/inc/widget/
 ||https://autotrader.ca/result/AutosAvailableListings.aspx?
 ||https://autotrader.co.za/partners/
-||https://awin1.com/cawshow.php
-||https://awin1.com/cshow.php
+||https://awin1.com/cawshow.php$third-party
+||https://awin1.com/cshow.php$third-party
 ||https://axandra.com/affiliates/
 ||https://azureedge.net/cdn/js/rad.js
 ||https://b.marfeelcache.com/statics/marfeel/gardac-sync.js
@@ -8840,7 +8840,7 @@
 ||https://bc.vc/js/link-converter.js
 ||https://beauties-of-ukraine.com/export.js
 ||https://besthosting.ua/banner/
-||https://bet365.com/favicon.ico
+||https://bet365.com/favicon.ico$third-party
 ||https://betting.betfair.com
 ||https://bharatmatrimony.com/matrimoney/matrimoneybanners/
 ||https://bidorbuy.co.za/jsp/system/referral.jsp?
@@ -8851,7 +8851,7 @@
 ||https://bit.ly^$subdocument
 ||https://bitbond.com/affiliate-program/
 ||https://blacklistednews.com/contentrotator/
-||https://blogatus.com/images/banner/
+||https://blogatus.com/images/banner/$third-party
 ||https://bloodstock.uk.com/affiliates/
 ||https://bluehost-cdn.com/media/partner/images/
 ||https://bluehost.com/web-hosting/domaincheckapi/?affiliate=
@@ -8859,7 +8859,7 @@
 ||https://bluesattv.net/bluesattvnet.gif
 ||https://bluesattv.net/gif.gif
 ||https://bookingdragon.com^$subdocument,third-party
-||https://bordernode.com/images/
+||https://bordernode.com/images/$third-party
 ||https://borrowlenses.com/affiliate/
 ||https://bplaced.net/pub/
 ||https://bravenet.com/cserv.php
@@ -8879,7 +8879,7 @@
 ||https://coinmama.com/assets/img/banners/
 ||https://cpmstar.com/cached/
 ||https://cpmstar.com/view.aspx
-||https://credible.com/sdk.js
+||https://credible.com/sdk.js$third-party
 ||https://crowdsavings.com/r/banner/
 ||https://crunchyroll.com/awidget/
 ||https://customer.heartinternet.co.uk
@@ -8887,7 +8887,7 @@
 ||https://cuteonly.com/banners.php
 ||https://datafeedfile.com/widget/readywidget/
 ||https://dawanda.com/widget/
-||https://ddownload.com/images/promo/
+||https://ddownload.com/images/promo/$third-party
 ||https://dealextreme.com/affiliate_upload/
 ||https://deals.macupdate.com
 ||https://dealspure.com
@@ -8896,7 +8896,7 @@
 ||https://desperateseller.co.uk/affiliates/
 ||https://disqus.com/listPromoted?
 ||https://disqusservice.com/iframe/fallback/
-||https://djicdn.com/uploads/ad_image_
+||https://djicdn.com/uploads/ad_image_$third-party
 ||https://dunhilltraveldeals.com
 ||https://dx.com/affiliate/
 ||https://e-tailwebstores.com/accounts/default1/banners/
@@ -8910,7 +8910,7 @@
 ||https://fapturbo.com/testoid/
 ||https://fcdn.stream/asset/bann.js
 ||https://feedburner.com/~a/
-||https://fileboom.me/images/i/
+||https://fileboom.me/images/i/$third-party
 ||https://filterforge.com/images/banners/
 ||https://flower.com/img/lsh/
 ||https://footymad.net/partners/
@@ -8951,8 +8951,8 @@
 ||https://hide-my-ip.com/promo/
 ||https://highepcoffer.com/images/banners/
 ||https://hitleap.com/assets/banner
-||https://hostmonster.com/src/js/
-||https://hoteltravel.com/partner/
+||https://hostmonster.com/src/js/$third-party
+||https://hoteltravel.com/partner/$third-party
 ||https://hotlink.cc/promo/
 ||https://httpslink.com/EdgeOfTheFire
 ||https://ibvpn.com/img/banners/
@@ -8975,16 +8975,16 @@
 ||https://jvzoo.com/assets/widget/
 ||https://jwpcdn.com/player/plugins/bidding/
 ||https://jwpcdn.com/player/plugins/googima/
-||https://keep2share.cc/images/i/
+||https://keep2share.cc/images/i/$third-party
 ||https://kontera.com/javascript/lib/KonaLibInline.js
-||https://lawdepot.com/affiliate/
+||https://lawdepot.com/affiliate/$third-party
 ||https://leadfamly.com/campaign/sdk/popup.min.js
 ||https://leadsleap.com/widget/
 ||https://leanpub.com^*/embed$subdocument,third-party
-||https://legitonlinejobs.com/images/
+||https://legitonlinejobs.com/images/$third-party
 ||https://lesmeilleurs-jeux.net/images/ban/
 ||https://lessemf.com/images/banner-
-||https://libs.sphere.com/video/outbrain-player/
+||https://libs.sphere.com/video/outbrain-player/$third-party
 ||https://lijit.com/adif_px.php
 ||https://lijit.com/delivery/
 ||https://link.link.ru
@@ -9001,14 +9001,14 @@
 ||https://mantisadnetwork.com/mantodea.min.js
 ||https://marketools.plus500.com/feeds/
 ||https://marketools.plus500.com/Widgets/
-||https://matrixmails.com/images/
+||https://matrixmails.com/images/$third-party
 ||https://mcc.godaddy.com/park/
-||https://media.librabet.com/renderimage.aspx?
+||https://media.librabet.com/renderimage.aspx?$third-party
 ||https://mediaplex.com/ad/
 ||https://metroland.com/wagjag/
 ||https://missnowmrs.com/images/banners/
 ||https://mmosale.com/baner_images/
-||https://msn.com/images/v9/en-us/game/tw48/960x300_
+||https://msn.com/images/v9/en-us/game/tw48/960x300_$third-party
 ||https://mydirtyhobby.com 
 ||https://myfinance.com^$subdocument,third-party
 ||https://namecheap.com/graphics/linkus/
@@ -9017,7 +9017,7 @@
 ||https://newsiqra.com^$subdocument,third-party
 ||https://nimblecommerce.com/widget.action?
 ||https://nitroflare.com/img/banners/
-||https://nmh.my.na/main/products/
+||https://nmh.my.na/main/products/$third-party
 ||https://obox-design.com/affiliate-banners/
 ||https://oilofasia.com/images/banners/
 ||https://orangebuddies.nl/image/banners/
@@ -9029,7 +9029,7 @@
 ||https://pjtra.com^$image,script
 ||https://play-asia.com^$image,subdocument,third-party
 ||https://plista.com/async_lib.js?
-||https://plista.com/tiny/
+||https://plista.com/tiny/$third-party
 ||https://plus.net/images/referrals/
 ||https://pntra.com^$image,script
 ||https://pntrac.com^$image,script
@@ -9060,8 +9060,8 @@
 ||https://sascdn.com/diff/$image,script
 ||https://sascdn.com/tag/
 ||https://service.smscoin.com/js/sendpic.js
-||https://shareasale.com/image/
-||https://shareflare.net/images/
+||https://shareasale.com/image/$third-party
+||https://shareflare.net/images/$third-party
 ||https://shink.in/js/script.js
 ||https://shorte.st/link-converter.min.js
 ||https://siteground.com/img/affiliate/
@@ -9086,15 +9086,16 @@
 ||https://thefreesite.com/nov99bannov.gif
 ||https://torrindex.net/images/epv/
 ||https://torrindex.net/static/tinysort.min.js
+||https://track.effiliation.com^$image,script
 ||https://travel.mediaalpha.com/js/serve.js
 ||https://trvl-px.com/trvl-px/
-||https://uploaded.net/img/public/
+||https://uploaded.net/img/public/$third-party
 ||https://utility.rogersmedia.com/wrapper.js
 ||https://viralize.tv/t-bid-opportunity/
 ||https://virool.com/widgets/
 ||https://vultr.com/media/banner
 ||https://vuukle.com/ads/
-||https://web2feel.com/images/
+||https://web2feel.com/images/$third-party
 ||https://webseed.com/WP/
 ||https://widgeo.net/popup.js
 ||https://widget.engageya.com/engageya_loader.js
@@ -9180,29 +9181,29 @@
 ||https://yield.app^*utm_source=$popup
 ||https://18onlygirls.tv/wp-content/banners/
 ||https://4fcams.com/in/?track=$subdocument,third-party
-||https://4tube.com/iframe/
+||https://4tube.com/iframe/$third-party
 ||https://69games.xxx/ajax/skr?
 ||https://adult.xyz^$script,third-party
-||https://adultfriendfinder.com/go/
+||https://adultfriendfinder.com/go/$third-party
 ||https://adultfriendfinder.com/piclist?
 ||https://allanalpass.com/visitScript/
-||https://amarotic.com/Banner/
+||https://amarotic.com/Banner/$third-party
 ||https://amateurporn.net
 ||https://asianbutterflies.com/potd/
 ||https://asktiava.com/promotion/
 ||https://assinclusive.com/cyonix.html
 ||https://assinclusive.com/linkstxt2.html
-||https://atlasfiles.com^*/sp3_ep.js
+||https://atlasfiles.com^*/sp3_ep.js$third-party
 ||https://avatraffic.com/b/
 ||https://awempt.com/embed/
 ||https://awestat.com^*/banner/
 ||https://b-cdn.net/media/cb/
-||https://babesmansion.com/banner/
+||https://babesmansion.com/banner/$third-party
 ||https://bangdom.com
 ||https://bongacams.com/promo.php
 ||https://bongacash.com/tools/promo.php
 ||https://brazzers.com/ads/
-||https://cams.com/go/
+||https://cams.com/go/$third-party
 ||https://camsaim.com/in/
 ||https://camsoda.com/promos/
 ||https://chaturbate.com/affiliates/
@@ -9221,7 +9222,7 @@
 ||https://geobanner.sexfinder.com
 ||https://gfrevenge.com/vbanners/
 ||https://girlsfuck-tube.com/js/aobj.js
-||https://go2cdn.org/brand/
+||https://go2cdn.org/brand/$third-party
 ||https://hardbritlads.com/banner/
 ||https://hardcoreluv.com/hmt.gif
 ||https://hdpornphotos.com/images/728x180_
@@ -9230,8 +9231,8 @@
 ||https://hodun.ru/files/promo/
 ||https://homoactive.tv/banner/
 ||https://hostave3.net/hvw/banners/
-||https://hosted.x-art.com/potd
-||https://hosting24.com/images/banners/
+||https://hosted.x-art.com/potd$third-party
+||https://hosting24.com/images/banners/$third-party
 ||https://hotcaracum.com/banner/
 ||https://hotkinkyjo.xxx/resseler/banners/
 ||https://hotmovies.com/custom_videos.php?
@@ -9239,25 +9240,25 @@
 ||https://iframes.hustler.com
 ||https://ifriends.net^$subdocument,third-party
 ||https://ihookup.com/configcreatives/
-||https://images.elenasmodels.com/Upload/
+||https://images.elenasmodels.com/Upload/$third-party
 ||https://istripper.com 
 ||https://kau.li/yad.js
-||https://kenny-glenn.net^*/longbanner_
+||https://kenny-glenn.net^*/longbanner_$third-party
 ||https://lacyx.com/images/banners/
 ||https://ladyboygoo.com/lbg/banners/
 ||https://lb-69.com/pics/
-||https://lifeselector.com/iframetool/
+||https://lifeselector.com/iframetool/$third-party
 ||https://livejasmin.com 
 ||https://livesexasian.com^$subdocument,third-party
 ||https://loveme.com
-||https://lovense.com/UploadFiles/Temp/
+||https://lovense.com/UploadFiles/Temp/$third-party
 ||https://media.eurolive.com
 ||https://media.mykodial.com
 ||https://metartmoney.com
 ||https://mrskin.com/affiliateframe/
 ||https://mrvids.com/network/
 ||https://mtoon.com/banner/
-||https://my-dirty-hobby.com/?sub=
+||https://my-dirty-hobby.com/?sub=$third-party
 ||https://mycams.com/freechat.php?
 ||https://mykocam.com/js/feeds.js
 ||https://mysexjourney.com/revenue/
@@ -9265,7 +9266,7 @@
 ||https://nakedswordcashcontent.com/videobanners/
 ||https://naughtycdn.com/public/iframes/
 ||https://nubiles.net/webmasters/promo/
-||https://nude.hu/html/
+||https://nude.hu/html/$third-party
 ||https://openadultdirectory.com/banner-
 ||https://otcash.com/images/
 ||https://pinkvisualgames.com/?revid=
@@ -9290,42 +9291,42 @@
 ||https://scoreland.com/banner/
 ||https://sexei.net^$subdocument,xmlhttprequest
 ||https://sexgangsters.com/sg-banners/
-||https://sextronix.com/b/
-||https://sextronix.com/images/
+||https://sextronix.com/b/$third-party
+||https://sextronix.com/images/$third-party
 ||https://sextubepromo.com/ubr/
 ||https://sexy.fling.com
-||https://sexycams.com/exports/
+||https://sexycams.com/exports/$third-party
 ||https://share-image.com/borky/
 ||https://shemalenova.com/smn/banners/
 ||https://simonscans.com/banner/
-||https://skyprivate.com^*/external/
-||https://sleepgalleries.com/recips/
-||https://smartmovies.net/promo_
+||https://skyprivate.com^*/external/$third-party
+||https://sleepgalleries.com/recips/$third-party
+||https://smartmovies.net/promo_$third-party
 ||https://smyw.org/smyw_anima_1.gif
-||https://snrcash.com/profilerotator/
+||https://snrcash.com/profilerotator/$third-party
 ||https://st.ipornia.com
 ||https://static.twincdn.com/special/license.packed
 ||https://static.twincdn.com/special/script.packed
-||https://streamen.com/exports/
+||https://streamen.com/exports/$third-party
 ||https://stripchat.com/api/external/
-||https://stripchat.com^*/widget/
+||https://stripchat.com^*/widget/$third-party
 ||https://swurve.com/affiliates/
 ||https://target.vivid.com
 ||https://teendaporn.com/rk.js
 ||https://teenspirithentai.com
-||https://theporndude.com/graphics/tpd-
-||https://tlavideo.com/affiliates/
+||https://theporndude.com/graphics/tpd-$third-party
+||https://tlavideo.com/affiliates/$third-party
 ||https://tongabonga.com/nudegirls
 ||https://tools.bongacams.com
 ||https://track.xtrasize.nl
 ||https://turbolovervidz.com/fling/
 ||https://twiant.com/img/banners/
 ||https://twilightsex.com^$subdocument,third-party
-||https://upsellit.com/custom/
-||https://vidz.com/promo_banner/
+||https://upsellit.com/custom/$third-party
+||https://vidz.com/promo_banner/$third-party
 ||https://vigrax.pl/banner/
 ||https://virtualhottie2.com/cash/tools/banners/
-||https://visit-x.net/promo/
+||https://visit-x.net/promo/$third-party
 ||https://vodconcepts.com^*/banners/
 ||https://vs3.com/_special/banners/
 ||https://vs4.com/req.php?z=
@@ -9333,8 +9334,8 @@
 ||https://webcams.com/misc/iframes_new/
 ||https://widget.faphouse.com
 ||https://wp-script.com/img/banners/
-||https://xcabin.net/b/
-||https://xlgirls.com/banner/
+||https://xcabin.net/b/$third-party
+||https://xlgirls.com/banner/$third-party
 ||https://xtrasize.pl/banner/
 ||https://adultfriendfinder.com/banners/$popup,third-party
 ||https://adultfriendfinder.com/go/$popup,third-party
@@ -9413,7 +9414,7 @@
 ||https://celebstoner.com/assets/components/bdlistings/uploads/
 ||https://celebstoner.com/assets/images/img/sidebar/$image
 ||https://chinadaily.com.cn/s?
-||https://cimg.co/w/bn/
+||https://cimg.co/w/bn/$third-party
 ||https://cinemablend.com/static/js/batsignal/
 ||https://clarksvilleonline.com/cols/
 ||https://cloudfront.net^*/sponsors/
@@ -9453,6 +9454,7 @@
 ||https://domaintyper.com/Images/dotsitehead.png
 ||https://dominicantoday.com/wp-content/themes/dominicantoday/banners/
 ||https://dotaoutpost.com/stable/js/ab/$script
+||https://duplichecker.com/xdtev/
 ||https://dyncdn.me/static/20/js/expla
 ||https://eawaz.com/wp-content/plugins/ml-slider/
 ||https://ebay.com/scl/js/ScandalLoader.js
@@ -9729,7 +9731,7 @@
 ||https://wsj.net/pb/pb.js
 ||https://avantisvideo.com/avm/js/video-loader.js$script,third-party
 ||https://c.jsrdn.com^$script
-||https://channelexco.com/player/
+||https://channelexco.com/player/$third-party
 ||https://connatix.com^$script,third-party
 ||https://embed.sendtonews.com
 ||https://fwcdn1.com/js/fwn.js
@@ -10638,8 +10640,8 @@
 ||http://1818bobo.com^
 ||http://1888pro.com^
 ||http://188xiaoba.net^
-||http://189.cn^*/push/
-||http://189.gd^*.html
+||http://189.cn^*/push/$third-party
+||http://189.gd^*.html$third-party
 ||http://18tzx.com^
 ||http://19shows.net^
 ||http://1d1a.com^
@@ -10723,7 +10725,7 @@
 ||http://3338863.com^
 ||http://3338877.com^
 ||http://338336.com^
-||http://3399.com/act/
+||http://3399.com/act/$third-party
 ||http://3400.org^
 ||http://35clouds.com.cn^
 ||http://360doo.com
@@ -11043,7 +11045,7 @@
 ||http://aliyuncss.com^
 ||http://aliyunxin.com^
 ||http://alllget.com
-||http://allyes.
+||http://allyes.$third-party
 ||http://amarketing.top^
 ||http://andmejs.com
 ||http://andyfanfan.xyz^
@@ -11136,7 +11138,7 @@
 ||http://bole8dns.com^
 ||http://boleimg.com^
 ||http://bolimen.top^
-||http://books.com.tw/exep/ap/
+||http://books.com.tw/exep/ap/$third-party
 ||http://bosatria.cn^
 ||http://bosiwangzi.cn^
 ||http://botsforger.com.cn^
@@ -11486,7 +11488,7 @@
 ||http://gasxf.com^
 ||http://gaycloud.cn^
 ||http://gclick.cn
-||http://gd.189.cn^*.htm?SP=
+||http://gd.189.cn^*.htm?SP=$third-party
 ||http://gdbly.com^
 ||http://gdgy56.com^
 ||http://gdskywings.com^
@@ -11869,7 +11871,7 @@
 ||http://keeearl.top^
 ||http://keeyekey.xyz^
 ||http://kefeng56.com
-||http://kejet.
+||http://kejet.$third-party
 ||http://kele4.com^
 ||http://kevinhewu.com^
 ||http://keydot.net
@@ -12337,7 +12339,7 @@
 ||http://shama5.com^
 ||http://shangjiabiao.com
 ||http://shannon-porject.com^
-||http://shaqm.com^*.js
+||http://shaqm.com^*.js$third-party
 ||http://sharedaddomain.com^
 ||http://sharele.cn
 ||http://sharonyean.com^
@@ -12893,7 +12895,7 @@
 ||http://yinyuehu.cn^
 ||http://yipanhaocai.com^
 ||http://yiqifa.com^$subdocument
-||http://yiqifa.com^*.js
+||http://yiqifa.com^*.js$third-party
 ||http://yiqiv.com
 ||http://yiran686.cn^
 ||http://yirendajiankang.com^
@@ -14420,7 +14422,7 @@
 ||http://buy.sina.com.tw/js/sina_popup.php
 ||http://buzzhand.com/images/$subdocument
 ||http://bvlang.com/ad/
-||http://bvmqkla.de/files/photo/
+||http://bvmqkla.de/files/photo/$third-party
 ||http://bw66.cn/template/default_pc/bbs/
 ||http://bxw666.com/storage/*.gif
 ||http://by4d.com/dh/
@@ -16516,7 +16518,7 @@
 ||http://picb.cc/uploads/2018/06/26/2zxrsi.jpg
 ||http://picgd.com/images/*.gif
 ||http://picgd.com/images/2018/12/01/h1pi5.png
-||http://piclect.com^*.gif
+||http://piclect.com^*.gif$third-party
 ||http://picpar.com^$domain=18board.com|18p2p.com
 ||http://pics.wanlibo.com/js/pagemodulestat.js
 ||http://pics.xgo-img.com.cn^
@@ -23383,6 +23385,7 @@
 ||http://anxdwq.com^
 ||http://anydiscourteousinsure.com^
 ||http://anymad.com^
+||http://aoasnidcvnorf.xyz^
 ||http://aobyp1una641o8.com^
 ||http://aocular.com^
 ||http://aohuwj.com^
@@ -36260,6 +36263,7 @@
 ||http://xsvvmrhjztro.com^
 ||http://xtcfjrwdyga.xyz^
 ||http://xteedehi.com^
+||http://xtggpxfmyyfmeun.xyz^
 ||http://xtmuasvldoiz.com^
 ||http://xtow.xyz^
 ||http://xtrackme.com^
@@ -38256,8 +38260,8 @@
 ||http://youlamedia.com
 ||http://ypaletdevelspe.info
 ||http://zampad.com
-||http://zanox-affiliate.de/ppv/
-||http://zanox.com/ppv/
+||http://zanox-affiliate.de/ppv/$third-party
+||http://zanox.com/ppv/$third-party
 ||http://zap.buzz
 ||http://zedo.com
 ||http://zemanta.com
@@ -40437,8 +40441,8 @@
 ||http://adf.ly/js/display.js
 ||http://adf.ly/js/link-converter.js
 ||http://adfoc.us^$script,third-party
-||http://adform.net/banners/
-||http://adform.net/serving/
+||http://adform.net/banners/$third-party
+||http://adform.net/serving/$third-party
 ||http://ads-sg.tiktok.com^
 ||http://ads.audio.thisisdax.com^
 ||http://ads.linkedin.com
@@ -40460,7 +40464,7 @@
 ||http://api.140proof.com^
 ||http://api.bitp.it^
 ||http://apihotels.net/onestream/events/
-||http://apkmaza.net/wp-content/uploads/
+||http://apkmaza.net/wp-content/uploads/$third-party
 ||http://appdevsecrets.com/images/nuts/
 ||http://appnext-a.akamaihd.net^
 ||http://assets.sheetmusicplus.com
@@ -40468,8 +40472,8 @@
 ||http://autotrader.ca/result/AutosAvailableListings.aspx?
 ||http://autotrader.co.za/partners/
 ||http://award.sitekeuring.net^
-||http://awin1.com/cawshow.php
-||http://awin1.com/cshow.php
+||http://awin1.com/cawshow.php$third-party
+||http://awin1.com/cshow.php$third-party
 ||http://axandra.com/affiliates/
 ||http://azureedge.net/cdn/js/rad.js
 ||http://b.marfeelcache.com/statics/marfeel/gardac-sync.js
@@ -40478,7 +40482,7 @@
 ||http://bc.vc/js/link-converter.js
 ||http://beauties-of-ukraine.com/export.js
 ||http://besthosting.ua/banner/
-||http://bet365.com/favicon.ico
+||http://bet365.com/favicon.ico$third-party
 ||http://betting.betfair.com
 ||http://bharatmatrimony.com/matrimoney/matrimoneybanners/
 ||http://bidder.criteo.com^
@@ -40492,7 +40496,7 @@
 ||http://bitbond.com/affiliate-program/
 ||http://bl.wavecdn.de^
 ||http://blacklistednews.com/contentrotator/
-||http://blogatus.com/images/banner/
+||http://blogatus.com/images/banner/$third-party
 ||http://bloodstock.uk.com/affiliates/
 ||http://bluehost-cdn.com/media/partner/images/
 ||http://bluehost.com/web-hosting/domaincheckapi/?affiliate=
@@ -40500,7 +40504,7 @@
 ||http://bluesattv.net/bluesattvnet.gif
 ||http://bluesattv.net/gif.gif
 ||http://bookingdragon.com^$subdocument,third-party
-||http://bordernode.com/images/
+||http://bordernode.com/images/$third-party
 ||http://borrowlenses.com/affiliate/
 ||http://bplaced.net/pub/
 ||http://bravenet.com/cserv.php
@@ -40532,7 +40536,7 @@
 ||http://cpmstar.com/cached/
 ||http://cpmstar.com/view.aspx
 ||http://creatives.inmotionhosting.com^
-||http://credible.com/sdk.js
+||http://credible.com/sdk.js$third-party
 ||http://crowdsavings.com/r/banner/
 ||http://crunchyroll.com/awidget/
 ||http://customer.heartinternet.co.uk
@@ -40541,7 +40545,7 @@
 ||http://dart.clearchannel.com^
 ||http://datafeedfile.com/widget/readywidget/
 ||http://dawanda.com/widget/
-||http://ddownload.com/images/promo/
+||http://ddownload.com/images/promo/$third-party
 ||http://dealextreme.com/affiliate_upload/
 ||http://deals.macupdate.com
 ||http://dealspure.com
@@ -40551,7 +40555,7 @@
 ||http://desperateseller.co.uk/affiliates/
 ||http://disqus.com/listPromoted?
 ||http://disqusservice.com/iframe/fallback/
-||http://djicdn.com/uploads/ad_image_
+||http://djicdn.com/uploads/ad_image_$third-party
 ||http://dtrk.slimcdn.com^
 ||http://dunhilltraveldeals.com
 ||http://dx.com/affiliate/
@@ -40571,7 +40575,7 @@
 ||http://fapturbo.com/testoid/
 ||http://fcdn.stream/asset/bann.js
 ||http://feedburner.com/~a/
-||http://fileboom.me/images/i/
+||http://fileboom.me/images/i/$third-party
 ||http://filterforge.com/images/banners/
 ||http://flower.com/img/lsh/
 ||http://footymad.net/partners/
@@ -40622,8 +40626,8 @@
 ||http://hide-my-ip.com/promo/
 ||http://highepcoffer.com/images/banners/
 ||http://hitleap.com/assets/banner
-||http://hostmonster.com/src/js/
-||http://hoteltravel.com/partner/
+||http://hostmonster.com/src/js/$third-party
+||http://hoteltravel.com/partner/$third-party
 ||http://hotlink.cc/promo/
 ||http://httpslink.com/EdgeOfTheFire
 ||http://iad-*.blaze.com^
@@ -40649,16 +40653,16 @@
 ||http://jwpcdn.com/player/plugins/bidding/
 ||http://jwpcdn.com/player/plugins/googima/
 ||http://karma.mdpcdn.com^
-||http://keep2share.cc/images/i/
+||http://keep2share.cc/images/i/$third-party
 ||http://kontera.com/javascript/lib/KonaLibInline.js
-||http://lawdepot.com/affiliate/
+||http://lawdepot.com/affiliate/$third-party
 ||http://leadfamly.com/campaign/sdk/popup.min.js
 ||http://leadsleap.com/widget/
 ||http://leanpub.com^*/embed$subdocument,third-party
-||http://legitonlinejobs.com/images/
+||http://legitonlinejobs.com/images/$third-party
 ||http://lesmeilleurs-jeux.net/images/ban/
 ||http://lessemf.com/images/banner-
-||http://libs.sphere.com/video/outbrain-player/
+||http://libs.sphere.com/video/outbrain-player/$third-party
 ||http://lijit.com/adif_px.php
 ||http://lijit.com/delivery/
 ||http://link.link.ru
@@ -40677,17 +40681,17 @@
 ||http://marketing.888.com^
 ||http://marketools.plus500.com/feeds/
 ||http://marketools.plus500.com/Widgets/
-||http://matrixmails.com/images/
+||http://matrixmails.com/images/$third-party
 ||http://mbid.marfeelrev.com^
 ||http://mcc.godaddy.com/park/
-||http://media.librabet.com/renderimage.aspx?
+||http://media.librabet.com/renderimage.aspx?$third-party
 ||http://media.netrefer.com^
 ||http://mediaplex.com/ad/
 ||http://metroland.com/wagjag/
 ||http://missnowmrs.com/images/banners/
 ||http://mmosale.com/baner_images/
 ||http://mmwebhandler.888.com^
-||http://msn.com/images/v9/en-us/game/tw48/960x300_
+||http://msn.com/images/v9/en-us/game/tw48/960x300_$third-party
 ||http://mydirtyhobby.com ,domain=~my-dirty-hobby.com|~mydirtyhobby.de
 ||http://myfinance.com^$subdocument,third-party
 ||http://namecheap.com/graphics/linkus/
@@ -40696,7 +40700,7 @@
 ||http://newsiqra.com^$subdocument,third-party
 ||http://nimblecommerce.com/widget.action?
 ||http://nitroflare.com/img/banners/
-||http://nmh.my.na/main/products/
+||http://nmh.my.na/main/products/$third-party
 ||http://ntvcld-a.akamaihd.net^
 ||http://obox-design.com/affiliate-banners/
 ||http://oilofasia.com/images/banners/
@@ -40724,7 +40728,7 @@
 ||http://pjtra.com^$image,script
 ||http://play-asia.com^$image,subdocument,third-party
 ||http://plista.com/async_lib.js?
-||http://plista.com/tiny/
+||http://plista.com/tiny/$third-party
 ||http://plus.net/images/referrals/
 ||http://pntra.com^$image,script
 ||http://pntrac.com^$image,script
@@ -40766,8 +40770,8 @@
 ||http://servedby.yell.com^
 ||http://service.smscoin.com/js/sendpic.js
 ||http://services.zam.com^
-||http://shareasale.com/image/
-||http://shareflare.net/images/
+||http://shareasale.com/image/$third-party
+||http://shareflare.net/images/$third-party
 ||http://shink.in/js/script.js
 ||http://shorte.st/link-converter.min.js
 ||http://siteground.com/img/affiliate/
@@ -40803,10 +40807,10 @@
 ||http://tillertag-a.akamaihd.net^
 ||http://torrindex.net/images/epv/
 ||http://torrindex.net/static/tinysort.min.js
-||http://track.effiliation.com^
+||http://track.effiliation.com^$image,script
 ||http://travel.mediaalpha.com/js/serve.js
 ||http://trvl-px.com/trvl-px/
-||http://uploaded.net/img/public/
+||http://uploaded.net/img/public/$third-party
 ||http://utility.rogersmedia.com/wrapper.js
 ||http://vice-publishers-cdn.vice.com^
 ||http://video-ads.a2z.com^
@@ -40815,7 +40819,7 @@
 ||http://vultr.com/media/banner
 ||http://vuukle.com/ads/
 ||http://web.adblade.com^
-||http://web2feel.com/images/
+||http://web2feel.com/images/$third-party
 ||http://webseed.com/WP/
 ||http://weby.aaas.org^
 ||http://widenetworks.net^$domain=flysat.com
@@ -41193,29 +41197,29 @@
 ||http://yield.app^*utm_source=$popup
 ||http://18onlygirls.tv/wp-content/banners/
 ||http://4fcams.com/in/?track=$subdocument,third-party
-||http://4tube.com/iframe/
+||http://4tube.com/iframe/$third-party
 ||http://69games.xxx/ajax/skr?
 ||http://adult.xyz^$script,third-party
-||http://adultfriendfinder.com/go/
+||http://adultfriendfinder.com/go/$third-party
 ||http://adultfriendfinder.com/piclist?
 ||http://aff-jp.dxlive.com^
 ||http://affiliate.dtiserv.com^
 ||http://affiliates.cupidplc.com^
 ||http://affiliates.thrixxx.com^
 ||http://allanalpass.com/visitScript/
-||http://amarotic.com/Banner/
+||http://amarotic.com/Banner/$third-party
 ||http://amateurporn.net
 ||http://asianbutterflies.com/potd/
 ||http://asktiava.com/promotion/
 ||http://assinclusive.com/cyonix.html
 ||http://assinclusive.com/linkstxt2.html
-||http://atlasfiles.com^*/sp3_ep.js
+||http://atlasfiles.com^*/sp3_ep.js$third-party
 ||http://avatraffic.com/b/
 ||http://awempt.com/embed/
 ||http://awestat.com^*/banner/
 ||http://b-cdn.net/media/cb/
 ||http://babes-mansion.s3.amazonaws.com^
-||http://babesmansion.com/banner/
+||http://babesmansion.com/banner/$third-party
 ||http://bangdom.com
 ||http://banner.themediaplanets.com^
 ||http://banners.adultfriendfinder.com^
@@ -41238,7 +41242,7 @@
 ||http://br.fling.com^
 ||http://br.realitykings.com^
 ||http://brazzers.com/ads/
-||http://cams.com/go/
+||http://cams.com/go/$third-party
 ||http://cams.enjoy.be^
 ||http://camsaim.com/in/
 ||http://camsoda.com/promos/
@@ -41273,7 +41277,7 @@
 ||http://gfrevenge.com/vbanners/
 ||http://girlsfuck-tube.com/js/aobj.js
 ||http://go.clicknplay.to^
-||http://go2cdn.org/brand/
+||http://go2cdn.org/brand/$third-party
 ||http://hardbritlads.com/banner/
 ||http://hardcoreluv.com/hmt.gif
 ||http://hdpornphotos.com/images/728x180_
@@ -41282,8 +41286,8 @@
 ||http://hodun.ru/files/promo/
 ||http://homoactive.tv/banner/
 ||http://hostave3.net/hvw/banners/
-||http://hosted.x-art.com/potd
-||http://hosting24.com/images/banners/
+||http://hosted.x-art.com/potd$third-party
+||http://hosting24.com/images/banners/$third-party
 ||http://hotcaracum.com/banner/
 ||http://hotkinkyjo.xxx/resseler/banners/
 ||http://hotmovies.com/custom_videos.php?
@@ -41291,25 +41295,25 @@
 ||http://iframes.hustler.com
 ||http://ifriends.net^$subdocument,third-party
 ||http://ihookup.com/configcreatives/
-||http://images.elenasmodels.com/Upload/
+||http://images.elenasmodels.com/Upload/$third-party
 ||http://istripper.com ,domain=~istripper.eu
 ||http://kau.li/yad.js
-||http://kenny-glenn.net^*/longbanner_
+||http://kenny-glenn.net^*/longbanner_$third-party
 ||http://lacyx.com/images/banners/
 ||http://ladyboygoo.com/lbg/banners/
 ||http://lb-69.com/pics/
-||http://lifeselector.com/iframetool/
+||http://lifeselector.com/iframetool/$third-party
 ||http://livejasmin.com ,domain=~awempire.com
 ||http://livesexasian.com^$subdocument,third-party
 ||http://loveme.com
-||http://lovense.com/UploadFiles/Temp/
+||http://lovense.com/UploadFiles/Temp/$third-party
 ||http://media.eurolive.com
 ||http://media.mykodial.com
 ||http://metartmoney.com
 ||http://mrskin.com/affiliateframe/
 ||http://mrvids.com/network/
 ||http://mtoon.com/banner/
-||http://my-dirty-hobby.com/?sub=
+||http://my-dirty-hobby.com/?sub=$third-party
 ||http://mycams.com/freechat.php?
 ||http://mykocam.com/js/feeds.js
 ||http://mysexjourney.com/revenue/
@@ -41317,7 +41321,7 @@
 ||http://nakedswordcashcontent.com/videobanners/
 ||http://naughtycdn.com/public/iframes/
 ||http://nubiles.net/webmasters/promo/
-||http://nude.hu/html/
+||http://nude.hu/html/$third-party
 ||http://openadultdirectory.com/banner-
 ||http://otcash.com/images/
 ||http://partner.loveplanet.ru^
@@ -41354,31 +41358,31 @@
 ||http://scoreland.com/banner/
 ||http://sexei.net^$subdocument,xmlhttprequest
 ||http://sexgangsters.com/sg-banners/
-||http://sextronix.com/b/
-||http://sextronix.com/images/
+||http://sextronix.com/b/$third-party
+||http://sextronix.com/images/$third-party
 ||http://sextubepromo.com/ubr/
 ||http://sexy.fling.com
-||http://sexycams.com/exports/
+||http://sexycams.com/exports/$third-party
 ||http://share-image.com/borky/
 ||http://shemalenova.com/smn/banners/
 ||http://simonscans.com/banner/
-||http://skyprivate.com^*/external/
-||http://sleepgalleries.com/recips/
-||http://smartmovies.net/promo_
+||http://skyprivate.com^*/external/$third-party
+||http://sleepgalleries.com/recips/$third-party
+||http://smartmovies.net/promo_$third-party
 ||http://smyw.org/smyw_anima_1.gif
-||http://snrcash.com/profilerotator/
+||http://snrcash.com/profilerotator/$third-party
 ||http://st.ipornia.com
 ||http://static.twincdn.com/special/license.packed
 ||http://static.twincdn.com/special/script.packed
-||http://streamen.com/exports/
+||http://streamen.com/exports/$third-party
 ||http://stripchat.com/api/external/
-||http://stripchat.com^*/widget/
+||http://stripchat.com^*/widget/$third-party
 ||http://swurve.com/affiliates/
 ||http://target.vivid.com
 ||http://teendaporn.com/rk.js
 ||http://teenspirithentai.com
-||http://theporndude.com/graphics/tpd-
-||http://tlavideo.com/affiliates/
+||http://theporndude.com/graphics/tpd-$third-party
+||http://tlavideo.com/affiliates/$third-party
 ||http://tm-offers.gamingadult.com^
 ||http://tongabonga.com/nudegirls
 ||http://tool.acces-vod.com^
@@ -41387,12 +41391,12 @@
 ||http://turbolovervidz.com/fling/
 ||http://twiant.com/img/banners/
 ||http://twilightsex.com^$subdocument,third-party
-||http://upsellit.com/custom/
+||http://upsellit.com/custom/$third-party
 ||http://uselessjunk.com^$domain=yoloselfie.com
-||http://vidz.com/promo_banner/
+||http://vidz.com/promo_banner/$third-party
 ||http://vigrax.pl/banner/
 ||http://virtualhottie2.com/cash/tools/banners/
-||http://visit-x.net/promo/
+||http://visit-x.net/promo/$third-party
 ||http://vodconcepts.com^*/banners/
 ||http://vs3.com/_special/banners/
 ||http://vs4.com/req.php?z=
@@ -41402,8 +41406,8 @@
 ||http://widget.faphouse.com
 ||http://widgets.comcontent.net^
 ||http://wp-script.com/img/banners/
-||http://xcabin.net/b/
-||http://xlgirls.com/banner/
+||http://xcabin.net/b/$third-party
+||http://xlgirls.com/banner/$third-party
 ||http://xtrasize.pl/banner/
 ||http://adultfriendfinder.com/banners/$popup,third-party
 ||http://adultfriendfinder.com/go/$popup,third-party
@@ -41496,7 +41500,7 @@
 ||http://celebstoner.com/assets/components/bdlistings/uploads/
 ||http://celebstoner.com/assets/images/img/sidebar/$image
 ||http://chinadaily.com.cn/s?
-||http://cimg.co/w/bn/
+||http://cimg.co/w/bn/$third-party
 ||http://cinemablend.com/static/js/batsignal/
 ||http://clarksvilleonline.com/cols/
 ||http://click.livedoor.com^
@@ -41544,6 +41548,7 @@
 ||http://domaintyper.com/Images/dotsitehead.png
 ||http://dominicantoday.com/wp-content/themes/dominicantoday/banners/
 ||http://dotaoutpost.com/stable/js/ab/$script,domain=wowhead.com
+||http://duplichecker.com/xdtev/
 ||http://dyncdn.me/static/20/js/expla
 ||http://eawaz.com/wp-content/plugins/ml-slider/
 ||http://ebay.com/scl/js/ScandalLoader.js
@@ -41847,7 +41852,7 @@
 ||http://api.fw.tv^
 ||http://avantisvideo.com/avm/js/video-loader.js$script,third-party
 ||http://c.jsrdn.com^$script,domain=muscleandfitness.com
-||http://channelexco.com/player/
+||http://channelexco.com/player/$third-party
 ||http://connatix.com^$script,third-party
 ||http://embed.sendtonews.com
 ||http://fwcdn1.com/js/fwn.js
@@ -48824,6 +48829,7 @@ https://road.cc###Top-Billboard
 https://warisboring.com###WIB300x250_IA_M_HB
 https://eetimes.com###WelcomeAdContainer
 https://eetimes.com###WelcomeAdContainer + #overlay
+https://turbobit.net###__bgd_link
 https://ytmp3.cc###a-320-50
 https://egotastic.com###a46c6331
 https://egotasticsports.com###a83042c4
@@ -48949,6 +48955,7 @@ https://whocallsme.com###cnt_2
 https://whocallsme.com###cnt_btm
 https://linuxinsider.com###colorbox
 https://smbc-comics.com###comicright > div[style]
+https://mirror.co.uk###comments-standalone-mpu
 https://cpuid.com###console_log
 https://gearspace.com###container__DesktopFDAdBanner
 https://gearspace.com###container__DesktopForumdisplayHalfway
@@ -49216,6 +49223,7 @@ https://pons.com###pons-ad-leaderboard__container
 https://quickmeme.com###post[style="display: block;min-height: 290px; padding:0px;"]
 https://sentinelnews.com,theandersonnews.com###pre-header
 https://the-scientist.com###preHeader
+https://playok.com###pread
 https://thestreamable.com###promo-signup-bottom-sheet
 https://bnnbloomberg.ca###promotions
 https://frequence-radio.com###pub_listing_top
@@ -49907,6 +49915,7 @@ https://pcworld.com##.coupons
 https://wolfstream.tv##.cover2
 https://thesimsresource.com##.crtv-top-wrapper
 https://irishtimes.com##.cs-teaser
+https://duplichecker.com##.csdted
 https://c-span.org##.cspan-ad-still-wrapper
 https://healthline.com##.css-0 + div:not([class]):last-of-type
 https://healthline.com##.css-12efcmn
@@ -49975,6 +49984,7 @@ https://crash.net##.dmpu-container
 https://allrecipes.com##.docking-leaderboard-container
 https://gearlive.com##.double
 https://capitalfm.com,radiox.co.uk,smoothradio.com##.download
+https://duplichecker.com##.dpn
 https://kickasstorrents.to##.dssdffds
 https://designtaxi.com##.dt_rcjs
 https://digitaltrends.com##.dtads-slot
@@ -50125,6 +50135,7 @@ https://lyricsmode.com##.h253
 https://standard.co.uk##.hafZUG
 https://runtastic.com##.halfpage
 https://ausbt.com.au##.halfpage-homepage
+https://anime-planet.com##.halo
 https://whistleout.com.au##.has-hover
 https://twitter.com##.has-profile-promoted-tweet
 https://screenbinge.com##.hb-strip
@@ -50235,6 +50246,7 @@ https://restaurants.com##.latad
 https://flava.co.nz,hauraki.co.nz,mixonline.co.nz,thehits.co.nz,zmonline.com##.layout__background
 https://racingtv.com##.layout__promotion
 https://mytempsms.com##.layui-col-md12
+https://duplichecker.com##.ldo6uv2f
 https://justjared.com,justjaredjr.com##.lead_shell
 https://techrepublic.com,thepcguild.com##.leader
 https://zdnet.com##.leader-bottom
@@ -50635,6 +50647,8 @@ https://studyfinds.org##.sfspot
 https://shortorial.com,webogram.in##.sgpb-popup-dialog-main-div-wrapper
 https://shortorial.com,webogram.in##.sgpb-popup-overlay
 https://zdnet.com##.sharethrough-top
+https://mirror.co.uk##.shopwindow-adslot
+https://mirror.co.uk##.shopwindow-advertorial
 https://skins.be##.shortBioShadowB
 https://siliconrepublic.com##.show-for-medium-up
 https://pixabay.com##.show-getty-item
@@ -50816,6 +50830,7 @@ https://itproportal.com##.teaser
 https://macrumors.com##.tertiary
 https://businessonhome.com##.text-info
 https://evilbeetgossip.com##.textwidget
+https://duplichecker.com##.tikimon
 https://coub.com##.timeline-banner
 https://aardvark.co.nz##.tinyprint
 https://cyberciti.biz##.tips_right_slot_1
@@ -50823,6 +50838,7 @@ https://cyberciti.biz##.tips_right_slot_2
 https://onlinecourse24.com##.tl-topromote
 https://trademe.co.nz##.tm-display-ad__wrapper
 https://last.fm##.tonefuze
+https://duplichecker.com##.tool_bg.col-md-12 > div
 https://euobserver.com##.top
 https://artistdirect.com##.top-add
 https://automotive-fleet.com,businessfleet.com,cfl.ca,fleetfinancials.com,government-fleet.com,howsecureismypassword.net,ncaa.com,schoolbusfleet.com##.top-banner
@@ -50946,6 +50962,7 @@ https://thetimes.co.uk##[class*="responsiveweb__NativeAd"]
 https://macworld.co.uk,techadvisor.com##[class] > [class] > img[src]
 https://macworld.co.uk,techadvisor.com##[class] > [id] > img[src]
 https://zerohedge.com##[class^="Advert_"]
+https://duplichecker.com##[class^="adefaee"]
 https://uploader.link##[class^="ads"]
 https://swarajyamag.com##[class^="banner-ad-"]
 https://romhustler.org##[class^="leaderboard_ad"]
@@ -59051,6 +59068,7 @@ http://road.cc###Top-Billboard
 http://warisboring.com###WIB300x250_IA_M_HB
 http://eetimes.com###WelcomeAdContainer
 http://eetimes.com###WelcomeAdContainer + #overlay
+http://turbobit.net###__bgd_link
 http://ytmp3.cc###a-320-50
 http://egotastic.com###a46c6331
 http://egotasticsports.com###a83042c4
@@ -59176,6 +59194,7 @@ http://whocallsme.com###cnt_2
 http://whocallsme.com###cnt_btm
 http://linuxinsider.com###colorbox
 http://smbc-comics.com###comicright > div[style]
+http://mirror.co.uk###comments-standalone-mpu
 http://cpuid.com###console_log
 http://gearspace.com###container__DesktopFDAdBanner
 http://gearspace.com###container__DesktopForumdisplayHalfway
@@ -59443,6 +59462,7 @@ http://pons.com###pons-ad-leaderboard__container
 http://quickmeme.com###post[style="display: block;min-height: 290px; padding:0px;"]
 http://sentinelnews.com,theandersonnews.com###pre-header
 http://the-scientist.com###preHeader
+http://playok.com###pread
 http://thestreamable.com###promo-signup-bottom-sheet
 http://bnnbloomberg.ca###promotions
 http://frequence-radio.com###pub_listing_top
@@ -60134,6 +60154,7 @@ http://pcworld.com##.coupons
 http://wolfstream.tv##.cover2
 http://thesimsresource.com##.crtv-top-wrapper
 http://irishtimes.com##.cs-teaser
+http://duplichecker.com##.csdted
 http://c-span.org##.cspan-ad-still-wrapper
 http://healthline.com##.css-0 + div:not([class]):last-of-type
 http://healthline.com##.css-12efcmn
@@ -60202,6 +60223,7 @@ http://crash.net##.dmpu-container
 http://allrecipes.com##.docking-leaderboard-container
 http://gearlive.com##.double
 http://capitalfm.com,radiox.co.uk,smoothradio.com##.download
+http://duplichecker.com##.dpn
 http://kickasstorrents.to##.dssdffds
 http://designtaxi.com##.dt_rcjs
 http://digitaltrends.com##.dtads-slot
@@ -60352,6 +60374,7 @@ http://lyricsmode.com##.h253
 http://standard.co.uk##.hafZUG
 http://runtastic.com##.halfpage
 http://ausbt.com.au##.halfpage-homepage
+http://anime-planet.com##.halo
 http://whistleout.com.au##.has-hover
 http://twitter.com##.has-profile-promoted-tweet
 http://screenbinge.com##.hb-strip
@@ -60462,6 +60485,7 @@ http://restaurants.com##.latad
 http://flava.co.nz,hauraki.co.nz,mixonline.co.nz,thehits.co.nz,zmonline.com##.layout__background
 http://racingtv.com##.layout__promotion
 http://mytempsms.com##.layui-col-md12
+http://duplichecker.com##.ldo6uv2f
 http://justjared.com,justjaredjr.com##.lead_shell
 http://techrepublic.com,thepcguild.com##.leader
 http://zdnet.com##.leader-bottom
@@ -60862,6 +60886,8 @@ http://studyfinds.org##.sfspot
 http://shortorial.com,webogram.in##.sgpb-popup-dialog-main-div-wrapper
 http://shortorial.com,webogram.in##.sgpb-popup-overlay
 http://zdnet.com##.sharethrough-top
+http://mirror.co.uk##.shopwindow-adslot
+http://mirror.co.uk##.shopwindow-advertorial
 http://skins.be##.shortBioShadowB
 http://siliconrepublic.com##.show-for-medium-up
 http://pixabay.com##.show-getty-item
@@ -61043,6 +61069,7 @@ http://itproportal.com##.teaser
 http://macrumors.com##.tertiary
 http://businessonhome.com##.text-info
 http://evilbeetgossip.com##.textwidget
+http://duplichecker.com##.tikimon
 http://coub.com##.timeline-banner
 http://aardvark.co.nz##.tinyprint
 http://cyberciti.biz##.tips_right_slot_1
@@ -61050,6 +61077,7 @@ http://cyberciti.biz##.tips_right_slot_2
 http://onlinecourse24.com##.tl-topromote
 http://trademe.co.nz##.tm-display-ad__wrapper
 http://last.fm##.tonefuze
+http://duplichecker.com##.tool_bg.col-md-12 > div
 http://euobserver.com##.top
 http://artistdirect.com##.top-add
 http://automotive-fleet.com,businessfleet.com,cfl.ca,fleetfinancials.com,government-fleet.com,howsecureismypassword.net,ncaa.com,schoolbusfleet.com##.top-banner
@@ -61173,6 +61201,7 @@ http://thetimes.co.uk##[class*="responsiveweb__NativeAd"]
 http://macworld.co.uk,techadvisor.com##[class] > [class] > img[src]
 http://macworld.co.uk,techadvisor.com##[class] > [id] > img[src]
 http://zerohedge.com##[class^="Advert_"]
+http://duplichecker.com##[class^="adefaee"]
 http://uploader.link##[class^="ads"]
 http://swarajyamag.com##[class^="banner-ad-"]
 http://romhustler.org##[class^="leaderboard_ad"]

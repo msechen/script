@@ -6219,13 +6219,6 @@
 ! [lg.com]
 ||https://tracking.lg.com
 
-! [lgappstv.com]
-||https://us.ibs.lgappstv.com
-
-! [lgtvsdp.com]
-||https://us.rdx2.lgtvsdp.com
-||https://us.lgtvsdp.com
-
 ! [liadm.com]
 ||https://b-code.liadm.com
 ||https://p.liadm.com
@@ -9000,12 +8993,6 @@
 ||https://insights.samsung.com
 ||https://nmetrics.samsung.com
 
-! [samsungacr.com]
-||https://samsungacr.com
-||https://log-config.samsungacr.com
-||https://log-ingestion.samsungacr.com
-||https://log-ingestion-eu.samsungacr.com
-
 ! [samsungadhub.com]
 ||https://ad.samsungadhub.com
 
@@ -9186,10 +9173,6 @@
 ! [sgdmobile.com]
 ||https://track.sgdmobile.com
 
-! [sgn.com]
-||https://cookie-jam.sgn.com
-||https://invenio.sgn.com
-
 ! [shareaholic.com]
 ||https://analytics.shareaholic.com
 ||https://apps.shareaholic.com
@@ -9314,9 +9297,6 @@
 ! [sinajs.cn]
 ||https://newspush.sinajs.cn
 
-! [singlewire.com]
-||https://api.icmobile.singlewire.com
-
 ! [singular.net]
 ||https://singular.net
 ||https://i.singular.net
@@ -9325,9 +9305,6 @@
 
 ! [sitemaji.com]
 ||https://sitemaji.com
-
-! [sitescout.com]
-||https://sitescout.com
 
 ! [skimresources.com]
 ||https://assistjs.skimresources.com
@@ -9344,9 +9321,6 @@
 
 ! [slack.com]
 ||https://mparticle.slack.com
-
-! [slashdotmedia.com]
-||https://analytics.slashdotmedia.com
 
 ! [slicktext.com]
 ||https://slicktext.com
@@ -17982,13 +17956,6 @@
 ! [lg.com]
 ||http://tracking.lg.com
 
-! [lgappstv.com]
-||http://us.ibs.lgappstv.com
-
-! [lgtvsdp.com]
-||http://us.rdx2.lgtvsdp.com
-||http://us.lgtvsdp.com
-
 ! [liadm.com]
 ||http://b-code.liadm.com
 ||http://p.liadm.com
@@ -20763,12 +20730,6 @@
 ||http://insights.samsung.com
 ||http://nmetrics.samsung.com
 
-! [samsungacr.com]
-||http://samsungacr.com
-||http://log-config.samsungacr.com
-||http://log-ingestion.samsungacr.com
-||http://log-ingestion-eu.samsungacr.com
-
 ! [samsungadhub.com]
 ||http://ad.samsungadhub.com
 
@@ -20949,10 +20910,6 @@
 ! [sgdmobile.com]
 ||http://track.sgdmobile.com
 
-! [sgn.com]
-||http://cookie-jam.sgn.com
-||http://invenio.sgn.com
-
 ! [shareaholic.com]
 ||http://analytics.shareaholic.com
 ||http://apps.shareaholic.com
@@ -21077,9 +21034,6 @@
 ! [sinajs.cn]
 ||http://newspush.sinajs.cn
 
-! [singlewire.com]
-||http://api.icmobile.singlewire.com
-
 ! [singular.net]
 ||http://singular.net
 ||http://i.singular.net
@@ -21088,9 +21042,6 @@
 
 ! [sitemaji.com]
 ||http://sitemaji.com
-
-! [sitescout.com]
-||http://sitescout.com
 
 ! [skimresources.com]
 ||http://assistjs.skimresources.com
@@ -21107,9 +21058,6 @@
 
 ! [slack.com]
 ||http://mparticle.slack.com
-
-! [slashdotmedia.com]
-||http://analytics.slashdotmedia.com
 
 ! [slicktext.com]
 ||http://slicktext.com

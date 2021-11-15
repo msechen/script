@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: BsVfuqPA/3FY57xB69iYfQ
-! Version: 202111151600
+! Checksum: he3Ks8DHKsuMU7AMEBhl0w
+! Version: 202111152250
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-15 16:00 UTC
+! Last modified: 2021-11-15 22:50 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -36,7 +36,7 @@
 ||https://apester.com
 ||https://api.branch.io
 ||https://api.giphy.com^*/related?$third-party
-||https://api.search.live.net 
+||https://api.search.live.net^$third-party
 ||https://api.traq.li
 ||https://app.convertful.com
 ||https://app.e2ma.net
@@ -89,7 +89,6 @@
 ||https://cursors-4u.net
 ||https://customfit.ai
 ||https://cxpublic.com
-||https://data.tm-awx.com
 ||https://desipearl.com
 ||https://devscroll.com
 ||https://digsby.com
@@ -125,7 +124,7 @@
 ||https://flashgroup.com
 ||https://fluidsurveys.com
 ||https://folloyu.com
-||https://form.jotformpro.com 
+||https://form.jotformpro.com^$third-party
 ||https://formstack.com/forms/$third-party
 ||https://freetellafriend.com
 ||https://frizbit.com
@@ -235,7 +234,7 @@
 ||https://page2rss.com
 ||https://parse.ly
 ||https://partner.dw.com
-||https://pelcro.com 
+||https://pelcro.com^$third-party
 ||https://phoenix-widget.com
 ||https://pippity.com
 ||https://placehold.it
@@ -324,7 +323,7 @@
 ||https://survey.io
 ||https://surveygizmo.com^$~subdocument,third-party
 ||https://surveymonkey.com^$~subdocument,third-party
-||https://swiftypecdn.com 
+||https://swiftypecdn.com^$third-party
 ||https://swishu.com
 ||https://synapsys.us
 ||https://systeme.io
@@ -377,7 +376,7 @@
 ||https://wishpond.com
 ||https://woobox.com
 ||https://worldgravity.com
-||https://ws.audioscrobbler.com 
+||https://ws.audioscrobbler.com^$third-party
 ||https://xhamsterlive.com/api/external/$third-party
 ||https://yimg.com/uq/syndication/
 ||https://yimg.com^*/GoldenGate.
@@ -618,7 +617,7 @@
 ||https://bshare.cn
 ||https://bufferapp.com
 ||https://button.like.co
-||https://buttons.googlesyndication.com 
+||https://buttons.googlesyndication.com^$third-party
 ||https://buttons.reddit.com
 ||https://buzzbuttons.com
 ||https://cdn.wibiya.com^$script
@@ -703,7 +702,7 @@
 ||https://reddit.com/static/$third-party
 ||https://reddit.com^*/submitted.embed?$third-party
 ||https://redditstatic.com/button/$third-party
-||https://redditstatic.s3.amazonaws.com 
+||https://redditstatic.s3.amazonaws.com^$third-party
 ||https://revinate.com
 ||https://rp-api.com/rjs/repostus.js
 ||https://scoop.it
@@ -738,7 +737,7 @@
 ||https://store.yahoo.net^*/facebook.png$third-party
 ||https://store.yahoo.net^*/twitter.png$third-party
 ||https://storeya.com/externalscript/$third-party
-||https://stumble-upon.com 
+||https://stumble-upon.com^$third-party
 ||https://stumbleupon.com/badge/$third-party
 ||https://stumbleupon.com/hostedbadge$third-party
 ||https://stumbleupon.com/services/$third-party
@@ -873,8 +872,8 @@
 ||https://widget.clym-sdk.net
 ||https://wpcc.io
 ||https://opencmp.net^$script,third-party
-||https://privacy-mgmt.com 
-||https://sp-prod.net 
+||https://privacy-mgmt.com^$third-party
+||https://sp-prod.net^$third-party
 ||https://4chan.org/b/*.swf
 ||https://anews.com/s/js/widget.js
 ||https://api.qwant.com/*/homepage/trends?
@@ -1269,7 +1268,7 @@
 ||https://diners.co.jp^*/icon_pagetop_
 ||https://gamespark.jp^*/pagetop.
 ||https://girlsheaven-job.net^*/pagetop.
-||https://img.mixi.net 
+||https://img.mixi.net^$third-party
 ||https://j-wave.co.jp^*/pagetop.
 ||https://jreast.co.jp^*/bg-pagetop_
 ||https://keisei.co.jp^*/go_top_
@@ -1466,7 +1465,7 @@
 ||http://apester.com
 ||http://api.branch.io
 ||http://api.giphy.com^*/related?$third-party
-||http://api.search.live.net ,domain=~bing.com
+||http://api.search.live.net^$third-party,domain=~bing.com
 ||http://api.traq.li
 ||http://app.convertful.com
 ||http://app.e2ma.net
@@ -1525,7 +1524,6 @@
 ||http://d2ip7iv1l4ergv.cloudfront.net^
 ||http://d2yyd1h5u9mauk.cloudfront.net^
 ||http://d9etzk30b05yg.cloudfront.net^
-||http://data.tm-awx.com
 ||http://desipearl.com
 ||http://devscroll.com
 ||http://dhpikd1t89arn.cloudfront.net^
@@ -1562,7 +1560,7 @@
 ||http://flashgroup.com
 ||http://fluidsurveys.com
 ||http://folloyu.com
-||http://form.jotformpro.com ,domain=entrepreneur.com
+||http://form.jotformpro.com^$third-party,domain=entrepreneur.com
 ||http://formstack.com/forms/$third-party
 ||http://freetellafriend.com
 ||http://frizbit.com
@@ -1673,7 +1671,7 @@
 ||http://page2rss.com
 ||http://parse.ly
 ||http://partner.dw.com
-||http://pelcro.com ,domain=newsweek.com
+||http://pelcro.com^$third-party,domain=newsweek.com
 ||http://phoenix-widget.com
 ||http://pippity.com
 ||http://placehold.it
@@ -1763,7 +1761,7 @@
 ||http://survey.io
 ||http://surveygizmo.com^$~subdocument,third-party
 ||http://surveymonkey.com^$~subdocument,third-party,domain=~surverymonkey.co.uk|~surveymonkey.co.uk|~surveymonkey.de
-||http://swiftypecdn.com ,domain=~swiftype.com
+||http://swiftypecdn.com^$third-party,domain=~swiftype.com
 ||http://swishu.com
 ||http://synapsys.us
 ||http://systeme.io
@@ -1819,7 +1817,7 @@
 ||http://wishpond.com
 ||http://woobox.com
 ||http://worldgravity.com
-||http://ws.audioscrobbler.com ,domain=~last.fm|~lastfm.de|~lastfm.ru|~play.google.com|~spotify.com
+||http://ws.audioscrobbler.com^$third-party,domain=~last.fm|~lastfm.de|~lastfm.ru|~play.google.com|~spotify.com
 ||http://xhamsterlive.com/api/external/$third-party
 ||http://yimg.com/uq/syndication/
 ||http://yimg.com^*/GoldenGate.
@@ -2066,7 +2064,7 @@
 ||http://bshare.cn
 ||http://bufferapp.com
 ||http://button.like.co
-||http://buttons.googlesyndication.com ,domain=~google.com
+||http://buttons.googlesyndication.com^$third-party,domain=~google.com
 ||http://buttons.reddit.com
 ||http://buzzbuttons.com
 ||http://cdn.wibiya.com^$script
@@ -2152,7 +2150,7 @@
 ||http://reddit.com/static/$third-party
 ||http://reddit.com^*/submitted.embed?$third-party
 ||http://redditstatic.com/button/$third-party,domain=~reddit.com
-||http://redditstatic.s3.amazonaws.com ,domain=~reddit.com
+||http://redditstatic.s3.amazonaws.com^$third-party,domain=~reddit.com
 ||http://revinate.com
 ||http://rp-api.com/rjs/repostus.js
 ||http://scoop.it
@@ -2188,7 +2186,7 @@
 ||http://store.yahoo.net^*/facebook.png$third-party
 ||http://store.yahoo.net^*/twitter.png$third-party
 ||http://storeya.com/externalscript/$third-party
-||http://stumble-upon.com ,domain=~stumbleupon.com
+||http://stumble-upon.com^$third-party,domain=~stumbleupon.com
 ||http://stumbleupon.com/badge/$third-party
 ||http://stumbleupon.com/hostedbadge$third-party
 ||http://stumbleupon.com/services/$third-party
@@ -2334,8 +2332,8 @@
 ||http://widget.clym-sdk.net
 ||http://wpcc.io
 ||http://opencmp.net^$script,third-party
-||http://privacy-mgmt.com ,domain=~11freunde.de|~ad.nl|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~bold.dk|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~derstandard.at|~dilbert.com|~edelblech.de|~ekstrabladet.dk|esgentside.com|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gentside.de|~giga.de|~gofeminin.de|~heise.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~manager-magazin.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~ohmymag.com|~onmeda.de|~politico.eu|~rollingstone.de|~spiegel.de|~sport1.de|~sportbild.de|~stylebook.de|~techbook.de|~telegraph.co.uk|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~utopia.de|~vip.de|~vtm.begmt.com|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
-||http://sp-prod.net ,domain=~11freunde.de|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~bold.dk|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~edelblech.de|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gofeminin.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~onmeda.de|~politico.eu|~rollingstone.de|~sportbild.de|~stylebook.de|~techbook.de|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~vip.de|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
+||http://privacy-mgmt.com^$third-party,domain=~11freunde.de|~ad.nl|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~bold.dk|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~derstandard.at|~dilbert.com|~edelblech.de|~ekstrabladet.dk|esgentside.com|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gentside.de|~giga.de|~gofeminin.de|~heise.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~manager-magazin.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~ohmymag.com|~onmeda.de|~politico.eu|~rollingstone.de|~spiegel.de|~sport1.de|~sportbild.de|~stylebook.de|~techbook.de|~telegraph.co.uk|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~utopia.de|~vip.de|~vtm.begmt.com|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
+||http://sp-prod.net^$third-party,domain=~11freunde.de|~autobild.de|~bike-bild.de|~bild.de|~boerse-online.de|~bold.dk|~businessinsider.de|~bz-berlin.de|~caramia.de|~clever-tanken.de|~computerbild.de|~edelblech.de|~faz.net|~finanzen.at|~finanzen.ch|~finanzen.net|~fitbook.de|~gentside.com|~gofeminin.de|~idealo.at|~idealo.co.uk|~idealo.de|~idealo.es|~idealo.fr|~idealo.it|~immonet.de|~insider.com|~kombi.de|~maxisciences.com|~meinestadt.de|~metal-hammer.de|~musikexpress.de|~myhomebook.de|~n24.de|~noizz.de|~onmeda.de|~politico.eu|~rollingstone.de|~sportbild.de|~stylebook.de|~techbook.de|~testbild.de|~transfermarkt.at|~transfermarkt.ch|~transfermarkt.co.uk|~transfermarkt.com|~transfermarkt.com.tr|~transfermarkt.de|~transfermarkt.fr|~transfermarkt.it|~transfermarkt.nl|~transfermarkt.pl|~transfermarkt.pt|~transfermarkt.us|~travelbook.de|~tvspielfilm.de|~vip.de|~welt.de|~wieistmeineip.at|~wieistmeineip.ch|~wieistmeineip.de|~zuio.tv
 ||http://4chan.org/b/*.swf
 ||http://anews.com/s/js/widget.js
 ||http://api.qwant.com/*/homepage/trends?
@@ -2765,7 +2763,7 @@
 ||http://diners.co.jp^*/icon_pagetop_
 ||http://gamespark.jp^*/pagetop.
 ||http://girlsheaven-job.net^*/pagetop.
-||http://img.mixi.net ,domain=~mixi.jp
+||http://img.mixi.net^$third-party,domain=~mixi.jp
 ||http://j-wave.co.jp^*/pagetop.
 ||http://jreast.co.jp^*/bg-pagetop_
 ||http://keisei.co.jp^*/go_top_
@@ -6259,13 +6257,13 @@ https://newsok.com##div[style="position: relative; top: 1px;"]
 https://heraldtribune.com##div[style="position:fixed;margin-left:-31px;margin-bottom:700px;width:30px;height:200px;"]
 https://rri.ro##div[style="position:fixed;right:15px;bottom:0px"]
 https://net-security.org##div[style="position:relative; background-color: #F2F2F2; width: 337px;"]
+https://privacywall.org##div[style="top:0;right:0;position:absolute"]
 https://lef.org##div[style="width: 197px; background-color: #FFF; padding-bottom: 10px;"]
 https://thesun.co.uk##div[style="width: 280px; margin: 0 0 10px 0;"]
 https://seattlepi.com##div[style="width: 300px; height: 35px; padding: 4px 0; margin: 10px 0;"]
 https://ispreview.co.uk##div[style="width:100%;clear:both;"]
 https://ketv.com##div[style="width:200px;float:left;border-top:1px double #C9C9C9;border-bottom:1px double #C9C9C9;padding:8px 5px 4px 10px;margin: 5px 10px 5px 0;"]
 https://ugo.com##div[style="width:300px;height:155px;text-align:left;color:#000;font-size:11px;background: #e4e7ff;"]
-https://privacywall.org##div[style=style="top:0;right:0;position:absolute"]
 https://mikebloomberg.com##div[style^="float:left; padding:0px 8px 0px"]
 https://itwire.com##div[style^="position:fixed;left:50%;top:380px;"]
 https://huffpost.com##div[style^="z-index: 1; border: 7px"]
@@ -10245,6 +10243,7 @@ https://haier.com##.swiper-slide-img-txt
 https://games2gether.com##.system-notification-container
 https://adex.com,ralabs.org,socioinform.com##.t886
 https://distro.tv##.tandc-wrapper
+https://playok.com##.tcell
 https://tudorwatch.com##.tdr-ribbon
 https://yahoo.com##.tdv2-applet-nagbar
 https://abcnews.go.com##.terms-alert-fixed
@@ -10374,6 +10373,7 @@ https://stargreen.com##div[style^="color: rgb(238, 238, 238);"]
 https://survey-remover.com##div[style^="height: 25px; position: fixed;"]
 https://openpli.org##div[style^="height:20px;background-color:#FAFFDC;"]
 https://globaltuners.com,psychomedia.qc.ca,speedtestcustom.com,zerochan.net##div[style^="position: fixed; bottom"]
+https://playok.com##div[style^="position: fixed;"]
 https://podbean.com##div[style^="z-index: 999999; position: fixed;"]
 https://invezz.com##div[x-data="CookieConsent()"]
 https://my.games##header > .gdpr
@@ -17796,13 +17796,13 @@ http://newsok.com##div[style="position: relative; top: 1px;"]
 http://heraldtribune.com##div[style="position:fixed;margin-left:-31px;margin-bottom:700px;width:30px;height:200px;"]
 http://rri.ro##div[style="position:fixed;right:15px;bottom:0px"]
 http://net-security.org##div[style="position:relative; background-color: #F2F2F2; width: 337px;"]
+http://privacywall.org##div[style="top:0;right:0;position:absolute"]
 http://lef.org##div[style="width: 197px; background-color: #FFF; padding-bottom: 10px;"]
 http://thesun.co.uk##div[style="width: 280px; margin: 0 0 10px 0;"]
 http://seattlepi.com##div[style="width: 300px; height: 35px; padding: 4px 0; margin: 10px 0;"]
 http://ispreview.co.uk##div[style="width:100%;clear:both;"]
 http://ketv.com##div[style="width:200px;float:left;border-top:1px double #C9C9C9;border-bottom:1px double #C9C9C9;padding:8px 5px 4px 10px;margin: 5px 10px 5px 0;"]
 http://ugo.com##div[style="width:300px;height:155px;text-align:left;color:#000;font-size:11px;background: #e4e7ff;"]
-http://privacywall.org##div[style=style="top:0;right:0;position:absolute"]
 http://mikebloomberg.com##div[style^="float:left; padding:0px 8px 0px"]
 http://itwire.com##div[style^="position:fixed;left:50%;top:380px;"]
 http://huffpost.com##div[style^="z-index: 1; border: 7px"]
@@ -21783,6 +21783,7 @@ http://haier.com##.swiper-slide-img-txt
 http://games2gether.com##.system-notification-container
 http://adex.com,ralabs.org,socioinform.com##.t886
 http://distro.tv##.tandc-wrapper
+http://playok.com##.tcell
 http://tudorwatch.com##.tdr-ribbon
 http://yahoo.com##.tdv2-applet-nagbar
 http://abcnews.go.com##.terms-alert-fixed
@@ -21912,6 +21913,7 @@ http://stargreen.com##div[style^="color: rgb(238, 238, 238);"]
 http://survey-remover.com##div[style^="height: 25px; position: fixed;"]
 http://openpli.org##div[style^="height:20px;background-color:#FAFFDC;"]
 http://globaltuners.com,psychomedia.qc.ca,speedtestcustom.com,zerochan.net##div[style^="position: fixed; bottom"]
+http://playok.com##div[style^="position: fixed;"]
 http://podbean.com##div[style^="z-index: 999999; position: fixed;"]
 http://invezz.com##div[x-data="CookieConsent()"]
 http://my.games##header > .gdpr
