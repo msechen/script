@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: ViRvaXmqvXcxsnUrGRRPQw
-! Version: 202111150200
+! Checksum: k0weQSVqOvXJ2/85+9vOHQ
+! Version: 202111150300
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-15 02:00 UTC
+! Last modified: 2021-11-15 03:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -9047,6 +9047,7 @@ https://myfitnesspal.com##.social_profile
 https://forbes.com,impactloud.com,technobuffalo.com,thehindu.com,thenextweb.com##.socialize
 https://bidorbuy.co.za##.socialnetwork
 https://tecmint.com##.socialprofiles
+https://xhamster.com##.socials
 https://apnews.com##.socials-0-2-26
 https://asurascans.com##.socialts
 https://guernicamag.com##.socio3
@@ -20583,6 +20584,7 @@ http://myfitnesspal.com##.social_profile
 http://forbes.com,impactloud.com,technobuffalo.com,thehindu.com,thenextweb.com##.socialize
 http://bidorbuy.co.za##.socialnetwork
 http://tecmint.com##.socialprofiles
+http://xhamster.com##.socials
 http://apnews.com##.socials-0-2-26
 http://asurascans.com##.socialts
 http://guernicamag.com##.socio3

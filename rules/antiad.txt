@@ -1,6 +1,6 @@
 !TITLE=anti-AD
-!VER=20211114024035
-!TOTAL_LINES=49504
+!VER=20211115105634
+!TOTAL_LINES=49503
 ||https://00-gov.cn
 ||https://000123456789.online
 ||https://000123456789.site
@@ -38952,7 +38952,6 @@
 ||https://trck.spoteffects.net
 ||https://ablink.emails.spothero.com
 ||https://track.spothero.com
-||https://wl.spotify.com
 ||https://adeventtracker.spotify.com
 ||https://analytics.spotify.com
 ||https://log.spotify.com
@@ -49039,8 +49038,8 @@
 ||https://zzyanhushi.com
 ||https://zzyonghao.com
 !TITLE=anti-AD
-!VER=20211114024035
-!TOTAL_LINES=49504
+!VER=20211115105634
+!TOTAL_LINES=49503
 ||http://00-gov.cn
 ||http://000123456789.online
 ||http://000123456789.site
@@ -87992,7 +87991,6 @@
 ||http://trck.spoteffects.net
 ||http://ablink.emails.spothero.com
 ||http://track.spothero.com
-||http://wl.spotify.com
 ||http://adeventtracker.spotify.com
 ||http://analytics.spotify.com
 ||http://log.spotify.com
