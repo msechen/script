@@ -1,4 +1,4 @@
-! Version: 20211113214420
+! Version: 20211115115330
 ! Title: adgk手机去广告规则
 ! by: 坂本dalao
 ||shence.wosai-inc.com
@@ -423,7 +423,6 @@ tieba.baidu.com##.banner-wrapper
 ||nggwhyk.cn
 ||myams.cn
 ||static.cloudflareinsights.com/beacon.min.js
-$third-party,domain=baoshuu.com
 ||yyslate.com
 ||ubt573.org
 ||nuanyanghb.com
@@ -581,7 +580,6 @@ tieba.baidu.com##div.banner-wrapper,div.fixed-nav-bar.nav-bar-wrapper,div.recomm
 ||jku62.com/other/gameEntrance
 ||jku62.com/other/bannerList
 /other/adlist|
-$domain=snzb.org,third-party
 ||nadvideo2.baidu.com
 ||admobile.top
 ||10010.com/mobileService/customer/getTenxuAdvConfig.htm
@@ -729,16 +727,9 @@ zhenbuka.com$$a[href="ybvip1879.vip"]
 ||jscode.jbzj.com
 ||jsjs.jbzj.com
 ||avgle.topgirlsdating.com $domain=avgle.com
-$third-party,domain=biquge001.com|shuquge.com|biqu.ge|xbiquge.la|biquw.com|biquge5200.cc|yuanzunxs.cc|biqubao.com|biquge.tv|12zw.com|biqugle.com|32xs.org|biqugeg.com|biqugedu.com|xswang.com|biquduge.com|gebiqu.com|xshengyan.com|bbiqugew.com|biquges.com|xsbiquge.com|ibqg5200.com|biquge.info|biquwu.cc|biquger.com|mybooks8.com|zzbiquge.com|3xs.cc|biquge123.com|yiyi120.com|zuimeng8.com|biquga.com|hehuamei.com|biquku.la|biqug.org|biqugewx.com
-$script,third-party,websocket,domain=52codes.net|m.ting56.com
-$script,third-party,domain=rijutv.com
 @@||cdn.bootcss.com $script,domain=rijutv.com
 @@||cdn.staticfile.org $script,domain=rijutv.com
-$script,third-party,domain=m.1kkk.com|m.dm5.com
 @@||cdndm5.com $script,domain=m.1kkk.com|m.dm5.com
-$script,third-party,domain=512539700c.top|ahri-hentai.com
-$popup,third-party,domain=downdv.com|rmdown.com|soyunpan.com|youtubeto.com
-$image,third-party,domain=258zw.com
 ||google.com*/pagead
 baidu.com$$div[class="ec_wise_ad"]
 ||avgle.com/images.php
@@ -900,8 +891,6 @@ linuxbaike.com$$div[class="fadacai"]
 ||v2ex.com/b/i
 ||pagead.
 ||pagead2.
-$$div[class="ad-card"]
-$$div[class="ad-content"]
 /361xk-2
 ||f99.gdsoq.com
 ||advert.
@@ -919,7 +908,6 @@ $$div[class="ad-content"]
 ||a.cnzz.com
 /[a-z]+\d+\.cnzz\./
 ||m.sm.cn$third-party
-$$div[class="-ad-"]
 ||data.video.ptqy.gitv.tv/videos/other/$redirect=noopmp4-1s
 ##div.a_mu,tr.ad,div.wp.a_f,div.a_fl.a_cb,div.a_fr.a_cb
 v*-dy.ixigua.com/*/video/m/$app=~com.ss.android.ugc.aweme
@@ -931,8 +919,6 @@ v*-dy.ixigua.com/*/video/m/$app=~com.ss.android.ugc.aweme
 m.baidu.com,www.baidu.com$$div[class="main"]
 /?encrypt=$empty,app=com.tencent.mtt.intl
 zhidao.baidu.com,www.baidu.com##[class ="EC_ads_"],.wgt-ads,div#left-promotion,div#ui-tooltip-0,div.cms-slide.cms-slide-optimus,div.wgt-bottom-ask,div.cms-slide.cms-slide-lazy,div.aside,div.aside-inner,div#top.top,#wgt-ecom-banner,.bannerdown,.cur
-$$div[class="_ad_"]
-$$div[class=".ad."]
 zhidao.baidu.com,www.baidu.com###left-promotion,#ui-tooltip-0,div.cms-slide.cms-slide-optimus,div.wgt-bottom-ask,div.cms-slide.cms-slide-lazy
 zhidao.baidu.com,www.baidu.com##.icon-bannerad
 zhidao.baidu.com,www.baidu.com##IMG[src*='iknowwap.bdimg.com']
@@ -7011,7 +6997,6 @@ www.79jjjj.com$$a[href="da303.com"]
 www.79jjjj.com$$img[src="/images/player1.gif"]
 ||da303.com
 www.79jjjj.com$$div[class="dialog"]
-$$a[href="changhong886.com"]
 ||www.woai00.com/Scripts/*-hengfu.js
 ||caclick.baidu.com
 ||*/jd/a.ashx
@@ -7919,7 +7904,6 @@ s.parentNode.insertBefore(hm, s);
 ||cdgfa.ifeng.com
 ||www.tianjinblg.com
 /youku.js$third-party
-$domain=m.fengyunok.com,third-party
 ||file.market.xiaomi.com/download/AppStore/
  getappmsgad
 ||m.ithome.com/js/pwa
@@ -7982,8 +7966,6 @@ wap.faloo.com###ou_181
 wap.faloo.com###footerApp
 wap.faloo.com###ou_162
 wap.faloo.com###anzhuang_100
-$$div[id="Couple"]
-$$a[href="/js/app.htm?url="]
 ###rightCouple
 ###leftCouple
 ###indextop
@@ -8099,7 +8081,6 @@ $$a[href="/js/app.htm?url="]
 /css/adv1600.css
 ||0024aadd.com
 /99rejs/
-$$span[class="dmcenterb"]
 ||api.appodeal.com/stats
 ||j.mmtu.top
 ||m.meinianguoji.com
@@ -8130,7 +8111,6 @@ $$span[class="dmcenterb"]
 /cnzza.js|
 ||ddl.3g567.com
 ||bzclk.baidu.com
-$$div[class="bannerBottom"]
 ||*/videos/other*.f4v*$redirect=noopmp4-1s,domain=www.iqiyi.com|m.iqiyi.com
 m.aliyun.com###guid-1351324
 ||www.wesiedu.com
@@ -8308,8 +8288,6 @@ g.pconline.com.cn##div.pc-client
 3g.163.com##div.big_boom
 download.csdn.net##div.fixed_box
 boke112.com##div.abc-pc.abc-site
-$$div[class="-ads-"]
-$$div[class="-adv-"]
 ||0024aaaa.com
 /data/cache/logging.js?
 jianshu.com##div.note-comment-above-ad-wrap
@@ -8591,7 +8569,6 @@ piao.js|
 /template/23ttav/js/aa.htm
 ||hpd.baidu.com
 ||baidu.com $app=com.tencent.qqlive
-$$ins[class="adsbygoogle"]
 ||stat.lizhi.fm p=com.tencent.qqlive
 ||app.biliapi.net/x/v2/feed/index?$replace=/ad_info//
 ||app.bilibili.com/x/v2/feed/index?$replace=/ad_info//
@@ -8633,7 +8610,6 @@ iptv444.com$$a[target="_blank"]
 ||iscrv.com
 ||satismeter.com
 /slade.js
-$$div[class="ad-banner-wrapper"]
 ##.ad-banner-wrapper
 ||admarvel.top
 ||adtiming.com
@@ -10872,8 +10848,6 @@ _xiuno_com_ad/
 ||xingshenfang.cn $popup
 ||xiyouence.com $popup,third-party
 ||yy18.info *thanks$popup
-$image,third-party,domain=avtb6677.com|lady1.top
-$script,third-party,xmlhttprequest,domain=btio.pw
 ||194007.com/4058.gif
 ||gif|$domain=7mshipin.org|viidii.info|xgan.cn
 ||gif|$third-party,domain=33235.net
@@ -20671,7 +20645,6 @@ bingfeng.tw##div[style="position: fixed; left: 0px; top: 0px; width: 100%; heigh
 ##.footer > #box[style="width:100%;height:100%;position:fixed;top:0"]
 ##a[href*=".gotourls.bid"]
 ##a[href ="http://yunbofangbt."]
-$script,subdocument,third-party,xmlhttprequest,domain=alicili.me|alicili8.com|alicilibt.com|bittorrentsearchweb.com|btdiggba.me|btdiggba.ws|btdiggcn.xyz|btdiggs.co|btkitty.com|btkitty.pet|btkittyba.cc|btkittyba.me|btkittyba.net|btkittyba.pw|btkittyla.me|btkittyla.org|btkittyon.co|btkittyplus.cc|btlibrary.xyz|btlibrarys.cc|btlibrarys.net|btspread.cc|cilidaquan.co|cilidaquan.top|cilidaquancn.pw|cilidb.net|cilifanhao.ws|cilifanhaobt.xyz|cnbtdigg.pw|cnbtkitty.xyz|cncilidb.pw|cntorrentkitty.co|cnzhongzicili.net|diggbts.cc|diggbts.xyz|feifeibt.pw|godiggbt.org|godiggbts.cc|kikibt.me|kikibts.org|mybtlibrary.cc|nanrenbt.cc|newbtkitty.me|newbtkitty.pw|newbtspread.ws|okbtkitty.me|renrencili.pw|renrencili.xyz|savebt.pw|sousoucili.com|storebt.net|storetorrents.com|torrentkitty.app|torrentsearchweb.xyz|zhainanbt.me|zhongzicilibt.org|zhongzicilicn.com|zhongzicilicn.ws|zhongzicilicn.xyz|zhongzicilila.cc|zhongzicilila.co|zhongziciliso.net|zhongzifuli.cc|zhongzishenqi.ws
 @@||baidu.com *&cb=BaiduSuggestion.
 @@||jsdelivr.net/opensug/1.1.2/opensug.js
 btzhongzifuli.com,cililianbt.org,maomaobt.cc,sousoucili.com,zhainanzhongzi.cc##.photos
@@ -20754,7 +20727,6 @@ china.cn##.feeds
 china.cn##.lianmeng_search
 china.cn##.ltp_box
 ||china.cn/js/common/local_hydn/
-$script,third-party,domain=cilimao.co|cilimao.one
 @@||qianpanso.cn/other/*.js$domain=cilimao.co|cilimao.one
 @@||upaiyun.com *.js$domain=cilimao.co|cilimao.one
 cilimao.co,cilimao.one##div[class ="FixBanner"]
@@ -20796,7 +20768,6 @@ ifun.tv##vg-pause-ads
 ||ifun.tv/a/$xmlhttprequest
 ||s1-a1.dnvodcdn.me *.svg
 ||s1-a4.ifun.tv $rewrite=abp-resource:blank-mp3,domain=ifun.tv
-$script,third-party,domain=dybee.tv
 @@||bdimg.com/libs/$domain=dybee.tv
 @@||cdn.staticfile.org $script,domain=dybee.tv
 ||dybee.tv/gg
@@ -21838,7 +21809,6 @@ fqsousou.com,kengso.com#@#.user-share
 ||hjfile.cn/analytics/site/TrackEvent.js
 ||ug.snssdk.com
 @@||api.ad-gone.com
-$image,domain=ip.cn
 ||tianshu-x.gtimg.cn
 ||irs03.com
 /[0-9]{1,2}\/[0-9]{5,6}\.js/$script,third-party
@@ -22003,7 +21973,6 @@ yse1234.com/template/phone/imagess/sdfwe.js
 ||sohulink.cc
 ||zp0573.cn
 ||abie13.top
-$$p[class="ReadAd"]
 ||91feiyong.com
 ||jusdq.com
 ||zhangguangzong.com
@@ -22016,8 +21985,6 @@ $$p[class="ReadAd"]
 ||wangyouxs.cn
 ||tnarzc.com
 ||adstats.
-$$div[class="ad_bottom"]
-$$div[class="ad_top"]
 ||zhangyumo.top
 ||mmszxc.top
 ||yehuitudu.cn
