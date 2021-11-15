@@ -21,7 +21,10 @@ class BrandquizProd extends MappingTemplate {
     // const shareId = 'efed8e76-634a-41fc-948a-ae74689b6b8a';
     // return api.doApiMapping('/api/support/doSupport', {shareId});
 
-    let {data: {quizId, firstQuiz, supportInfo}} = await api.doApiMapping('/api/index/indexInfo');
+    let {code, data: {quizId, firstQuiz, supportInfo}, msg} = await api.doApiMapping('/api/index/indexInfo');
+
+    if (!self.isSuccess(code)) return api.log(msg);
+
     await handleSubmit();
 
     const {shareId} = await api.doApiMapping('/api/support/getSupport', {quizId}).then(_.property('data'));
