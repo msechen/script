@@ -239,7 +239,7 @@
 59 7,15,23 * * * cd /scripts/logs && node /scripts/logs/joy_bean.js >> /scripts/logs/joy_bean.log 2>&1
 
 # 京享红包
-0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
+# 0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
 
 # 单独收牛牛
 0,30 * * * * cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
