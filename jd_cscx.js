@@ -65,7 +65,7 @@ const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
 
 async function PrizeIndex() {
   await smtg_queryPrize();
-  await smtg_queryMorePrizes();
+  //await smtg_queryMorePrizes();
   // await smtg_materialPrizeIndex();//兑换酒类奖品，此兑换API与之前的兑换京豆类的不一致，故目前无法进行
   // await Promise.all([
   //   smtg_queryPrize(),
