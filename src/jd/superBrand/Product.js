@@ -5,13 +5,15 @@ const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
+const source = 'secondfloor';
+
 class SuperBrandProduct extends Template {
   static scriptName = 'SuperBrandProduct';
-  static scriptNameDesc = '物特(集卡瓜分)';
+  static scriptNameDesc = '物特';
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static times = 1;
+  static times = 2;
   static needInAppComplete = true;
 
   static apiOptions = {
@@ -19,7 +21,7 @@ class SuperBrandProduct extends Template {
       qs: {
         appid: 'ProductZ4Brand',
         client: 'wh5',
-        body: {'source': 'card'},
+        body: {source},
         uuid: this.getUUid(),
       },
       headers: {
@@ -71,7 +73,7 @@ class SuperBrandProduct extends Template {
             waitDuration,
             ext = {},
           } of taskList) {
-            if ([].includes(assignmentType) || assignmentName.match(/邀请/)) continue;
+            if ([].includes(assignmentType)) continue;
 
             let list = [];
 
@@ -85,29 +87,32 @@ class SuperBrandProduct extends Template {
 
             if (!_.isEmpty(ext)) {
               const extName = ext['extraType'];
-              if (extName === 'assistTaskDetail') continue;
-              for (const {itemId, status, beginTime, endTime} of _.concat(ext[extName])) {
-                if (status === 2) continue;
-                if (beginTime && endTime) {
-                  const nowTime = getMoment().format('HH:mm:ss');
-                  if (nowTime < beginTime || nowTime > endTime) {
-                    continue;
-                  } else {
-                    times = 0;
-                    maxTimes = 1;
+              const patchItem = itemId => _.assign({
+                encryptProjectId: api.encryptProjectId,
+                encryptAssignmentId,
+                assignmentType,
+                actionType: 0,
+                itemId,
+              }, !itemId ? {completionFlag: 1} : {});
+              if (extName === 'assistTaskDetail') {
+                self.isFirstLoop() && self.updateShareCodeFn(ext[extName].itemId);
+                list = self.getShareCodeFn().map(patchItem);
+                times = 0;
+                maxTimes = list.length;
+              } else {
+                for (const {itemId, status, beginTime, endTime} of _.concat(ext[extName])) {
+                  if (status === 2) continue;
+                  if (beginTime && endTime) {
+                    const nowTime = getMoment().format('HH:mm:ss');
+                    if (nowTime < beginTime || nowTime > endTime) {
+                      continue;
+                    } else {
+                      times = 0;
+                      maxTimes = 1;
+                    }
                   }
+                  list.push(patchItem(itemId));
                 }
-                const item = {
-                  encryptProjectId: api.encryptProjectId,
-                  encryptAssignmentId,
-                  assignmentType,
-                  itemId,
-                  actionType: 0,
-                };
-                if (!itemId) {
-                  _.assign(item, {completionFlag: 1});
-                }
-                list.push(item);
               }
             }
             if (_.isEmpty(list)) continue;
@@ -122,7 +127,10 @@ class SuperBrandProduct extends Template {
         name: 'superBrandDoTask',
         paramFn: o => o,
       },
-      afterGetTaskList: {
+    };
+
+    if (source === 'card') {
+      _.assign(result, {
         name: 'showSecondFloorCardInfo',
         async successFn(data, api) {
           if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
@@ -132,11 +140,8 @@ class SuperBrandProduct extends Template {
           const cardLog = '已收集卡片数: ' + cardPackList.map(({num, cardType}) => `${num}张卡片${cardType}`).join(', ');
           api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
         },
-      },
-    };
-
-    // TODO 待确认是否需要
-    if (0) {
+      });
+    } else if (source === 'secondfloor') {
       _.assign(result, {
         doRedeem: {
           name: 'superBrandTaskLottery',
