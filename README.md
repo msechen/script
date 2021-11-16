@@ -6,54 +6,54 @@
 
 #### 规则地址
 
-静态规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/koolproxy.txt
+静态规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/koolproxy.txt
 
-每日规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/daily.txt
+每日规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/daily.txt
 
-视频规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/kp.dat
+视频规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/kp.dat
 
-ABP规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/ABP.txt 
+ABP规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/ABP.txt 
 
-Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/yhosts.txt
+Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/yhosts.txt
 
-Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/fanboy.txt
+Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/fanboy.txt
 
-Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/antiad.txt
+Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/antiad.txt
 
-StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/steven.txt
+StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/steven.txt
 
-AdAway规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/adaway.txt
+AdAway规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/adaway.txt
 
-Adwars规则：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/adwars.txt
+Adwars规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/adwars.txt
 
-乘风视频：https://raw.githubusercontents.com/project-lede/koolproxy/master/rules/mv.txt
+乘风视频：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/mv.txt
 
 #### 备用地址
 
-静态规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/koolproxy.txt
+静态规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/koolproxy.txt
 
-每日规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/daily.txt
+每日规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/daily.txt
 
-视频规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/kp.dat
+视频规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/kp.dat
 
-ABP规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/ABP.txt 
+ABP规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/ABP.txt 
 
-Yhosts规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/yhosts.txt
+Yhosts规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/yhosts.txt
 
-Fanboy规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/fanboy.txt
+Fanboy规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/fanboy.txt
 
-Anti-AD规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/antiad.txt
+Anti-AD规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/antiad.txt
 
-StevenBlack规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/steven.txt
+StevenBlack规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/steven.txt
 
-AdAway规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/adaway.txt
+AdAway规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/adaway.txt
 
-Adwars规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/adwars.txt
+Adwars规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/adwars.txt
 
-乘风视频：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/mv.txt
+乘风视频：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/mv.txt
 
 
 #### 订阅规则
 订阅规则：
 https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/ikprule.txt 或者
-https://cdn.jsdelivr.net/gh/project-lede/koolproxy@master/rules/ikprule.txt
+https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/ikprule.txt
