@@ -40,7 +40,10 @@ class Sign extends Template {
         },
       },
       isSuccessFn: data => _.get(data, 'data.status') === '1',
-      rewardOutputFn: data => `${_.get(data, 'data.dailyAward.beanAward.beanCount') || 0} 豆豆`,
+      rewardOutputFn: data => {
+        const {dailyAward, continuityAward} = data.data;
+        return `${_.get(dailyAward || continuityAward, 'beanAward.beanCount', 0)} 豆豆`;
+      },
     };
 
     const jrSign = {
