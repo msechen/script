@@ -59,12 +59,12 @@ class PlantBean extends Template {
           const result = [];
 
           const taskList = _.property('data.taskList')(data) || [];
-          self.isFirstLoop() && self.firstTimeInTheDay() && taskList.push({
-            taskType: 7,
-            taskName: '金融双签',
-            totalNum: 1,
-            gainedNum: 0,
-          });
+          // self.isFirstLoop() && self.firstTimeInTheDay() && taskList.push({
+          //   taskType: 7,
+          //   taskName: '金融双签',
+          //   totalNum: 1,
+          //   gainedNum: 0,
+          // });
           for (let {
             isFinished: status,
             taskType, taskName,
