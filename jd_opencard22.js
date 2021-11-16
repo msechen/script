@@ -152,8 +152,8 @@ async function run() {
     if ($.MixNick == '') {
       console.log(`获取cookie失败`); return;
     }
-     console.log($.MixNick)
-     return
+    // console.log($.MixNick)
+    // return
     $.toBind = 0
     $.openList = []
     await takePostRequest('绑定');
