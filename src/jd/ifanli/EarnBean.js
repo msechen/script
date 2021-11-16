@@ -37,7 +37,7 @@ class EarnBean extends Template {
 
       const taskList = await api.doGetPath('getTaskList').then(getContent) || [];
 
-      for (const {taskId, taskType, watchTime: waitDuration, statusName} of taskList) {
+      for (const {taskId, taskType, watchTime: waitDuration, statusName, businessId} of taskList) {
         if (!['去赚钱'].includes(statusName) || !taskId) continue;
 
         // 检查任务是否需要继续做
@@ -47,11 +47,11 @@ class EarnBean extends Template {
           break;
         }
 
-        const {uid, tt} = await api.doBodyPath('saveTaskRecord', {taskId, taskType}).then(getContent) || {};
+        const {uid, tt} = await api.doBodyPath('saveTaskRecord', {taskId, businessId, taskType}).then(getContent) || {};
         if (!uid) continue;
         needLoop = true;
         await sleep(waitDuration);
-        await api.doBodyPath('saveTaskRecord', {taskId, taskType, uid, tt}).then(data => {
+        await api.doBodyPath('saveTaskRecord', {taskId, businessId, taskType, uid, tt}).then(data => {
           api.log(_.get(data, 'content.msg'));
         });
       }
