@@ -20,12 +20,6 @@ Fanboy规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/ru
 
 Anti-AD规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/antiad.txt
 
-StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/steven.txt
-
-AdAway规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/adaway.txt
-
-Adwars规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/adwars.txt
-
 乘风视频：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/mv.txt
 
 #### 备用地址
@@ -43,12 +37,6 @@ Yhosts规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/yho
 Fanboy规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/fanboy.txt
 
 Anti-AD规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/antiad.txt
-
-StevenBlack规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/steven.txt
-
-AdAway规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/adaway.txt
-
-Adwars规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/adwars.txt
 
 乘风视频：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/mv.txt
 
