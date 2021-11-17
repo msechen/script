@@ -1,10 +1,11 @@
 # # KoolProxy规则
 
 #### 介绍
-转换ABP规则(EasyList+ Easylist China  + CJX's Annoyance List + CJX's chinese)、Fanboy规则、AntiAd规则、Andorid规则、Yhost规则优化成koolproxy规则
+转换ABP规则、Yhosts规则、Fanboy规则、AntiAd规则、Andorid规则、优化成koolproxy规则
 
 
 #### 规则地址
+ 在此特别鸣谢 [CatsTeam](https://github.com/Cats-Team/AdRules) 和 [Houzi大神](https://github.com/houzi-)提供的规则。
 
 静态规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/koolproxy.txt
 
