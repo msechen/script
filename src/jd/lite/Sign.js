@@ -8,7 +8,7 @@ const {encrypt} = require('./api');
 const activityId = '8a8fabf3cccb417f8e691b6774938bc2';
 const kernelPlatform = 'RN';
 
-class Sign extends Template {
+class LiteSign extends Template {
   static scriptName = 'LiteSign';
   static scriptNameDesc = '极速版签到';
   static shareCodeTaskList = [];
@@ -54,6 +54,6 @@ class Sign extends Template {
   }
 }
 
-singleRun(Sign).then();
+singleRun(LiteSign).then();
 
-module.exports = Sign;
+module.exports = LiteSign;

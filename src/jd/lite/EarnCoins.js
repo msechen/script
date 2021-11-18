@@ -6,8 +6,8 @@ const {getMoment} = require('../../lib/moment');
 
 const {encrypt, clientHandleService} = require('./api');
 
-class EarnCoins extends Template {
-  static scriptName = 'EarnCoins';
+class LiteEarnCoins extends Template {
+  static scriptName = 'LiteEarnCoins';
   static scriptNameDesc = '赚金币';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
@@ -91,6 +91,6 @@ class EarnCoins extends Template {
   }
 }
 
-singleRun(EarnCoins).then();
+singleRun(LiteEarnCoins).then();
 
-module.exports = EarnCoins;
+module.exports = LiteEarnCoins;

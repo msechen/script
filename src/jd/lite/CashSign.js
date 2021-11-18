@@ -8,8 +8,8 @@ const EncryptH5st = require('../../lib/EncryptH5st');
 const linkId = '9WA12jYGulArzWS7vcrwhw';
 const origin = 'https://daily-redpacket.jd.com';
 
-class CashSign extends Template {
-  static scriptName = 'CashSign';
+class LiteCashSign extends Template {
+  static scriptName = 'LiteCashSign';
   static scriptNameDesc = '极速版签到提现';
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
@@ -76,6 +76,6 @@ class CashSign extends Template {
   }
 }
 
-singleRun(CashSign).then();
+singleRun(LiteCashSign).then();
 
-module.exports = CashSign;
+module.exports = LiteCashSign;

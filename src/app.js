@@ -70,9 +70,10 @@ const Kmg = require('./jd/kmg');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
-const SpringReward = require('./jd/lite/SpringReward');
-const EarnCoins = require('./jd/lite/EarnCoins');
+const LiteSpringReward = require('./jd/lite/SpringReward');
+const LiteEarnCoins = require('./jd/lite/EarnCoins');
 const LiteCashSign = require('./jd/lite/CashSign');
+const LiteHappyDig = require('./jd/lite/HappyDig');
 
 /* 本地执行 */
 const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');
@@ -114,7 +115,7 @@ async function main() {
   ];
   // 极速版
   const lites = [
-    LiteSign, SpringReward, LiteCashSign, EarnCoins,
+    LiteSign, LiteSpringReward, LiteCashSign, LiteEarnCoins, LiteHappyDig,
   ];
   // 短期活动
   const shortTermActivity = [
@@ -165,7 +166,7 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
-          EarnCoins,
+          LiteEarnCoins,
           Family,
         ]);
       },
@@ -230,9 +231,10 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
-          EarnCoins,
+          LiteEarnCoins,
           SuperMarket,
           StatisticsRedEnvelope,
+          LiteHappyDig,
         ]);
       },
     },

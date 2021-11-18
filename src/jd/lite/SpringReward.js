@@ -7,8 +7,8 @@ const appid = 'activities_platform';
 let linkId = '9wdf1YTT2L59Vr-meKskLA';
 const indexUrl = 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html';
 
-class SpringReward extends Template {
-  static scriptName = 'SpringReward';
+class LiteSpringReward extends Template {
+  static scriptName = 'LiteSpringReward';
   static scriptNameDesc = '极速版-领红包';
   static needInSpeedApp = true;
   static shareCodeTaskList = [];
@@ -107,6 +107,6 @@ class SpringReward extends Template {
   }
 }
 
-singleRun(SpringReward).then();
+singleRun(LiteSpringReward).then();
 
-module.exports = SpringReward;
+module.exports = LiteSpringReward;
