@@ -1,9 +1,9 @@
 [Adblock Plus 2.0]
-! Checksum: LaQVTjuYqJEf8nlJ0HXmjw
-! Version: 202111181306
+! Checksum: 5thIIF2mFIUVFdT3PmziEA
+! Version: 202111181516
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
-! Last Modified: 18 Nov 2021 13:06 UTC
+! Last Modified: 18 Nov 2021 15:16 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: http://abpchina.org/forum/
 ! License: https://easylist-downloads.adblockplus.org/COPYING
@@ -7043,6 +7043,7 @@
 ||https://avgle.topgirlsdating.com 
 ||https://jads.co 
 ||https://olmsoneenh.info 
+||https://taobc.com
 ||https://a.huocheba.com
 ||https://003store.com
 ||https://0512s.com 
@@ -18889,6 +18890,9 @@
 ||http://avgle.topgirlsdating.com $domain=avgle.com
 ||http://jads.co $domain=avgle.com
 ||http://olmsoneenh.info $domain=avgle.com
+||http://t*.baidu.com/it/u=*,*&fm=76
+||http://f*.baidu.com/it/u=*,*&fm= ,domain=~hao123.com|haokan.com
+||http://taobc.com
 ||http://a.huocheba.com
 ||http://003store.com
 ||http://0512s.com 
@@ -19294,7 +19298,6 @@
 ||http://ent1.qunchua.com
 ||http://er.5ykj.cn
 ||http://er.5ykj.com
-||http://f*.baidu.com/it/u=*,*&fm= ,domain=~hao123.com|haokan.com
 ||http://f1.06ps.com
 ||http://f1.ichong123.com
 ||http://f1.pig66.com
@@ -19565,7 +19568,6 @@
 ||http://static.ichehome.com
 ||http://static.jiaquyi.com
 ||http://static.sinawap.com
-||http://t*.baidu.com/it/u=*,*&fm=76
 ||http://t.cnscore.com
 ||http://t1.612.com
 ||http://tech.jiukang.org

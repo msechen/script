@@ -1,7 +1,10 @@
 [Adblock Plus 2.0]
-! Checksum: kZjtpV+HL05RG8umQSzTGA
-! Version: 202111181300
+! Checksum: iamAWg9ELvZM0O3Y0KtCpg
+! Version: 202111181500
 ! Title: Fanboy's Annoyance List
+! Last modified: 2021-11-18 15:00 UTC
+! Expires: 9 days (update frequency)
+! Homepage: https://easylist.to/
 ||https://123cursors.com 
 ||https://1worldonline.com 
 ||https://24smi.org 
