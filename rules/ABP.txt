@@ -1,9 +1,9 @@
 [Adblock Plus 2.0]
-! Checksum: wRV0cQqtA+Nuk2QOQ8NoDQ
-! Version: 202111190026
+! Checksum: /FuSruL+ZXdpVrQDJZ3TPg
+! Version: 202111190456
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
-! Last Modified: 19 Nov 2021 00:26 UTC
+! Last Modified: 19 Nov 2021 04:56 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: http://abpchina.org/forum/
 ! License: https://easylist-downloads.adblockplus.org/COPYING
@@ -13,6 +13,7 @@
 ! or via e-mail (easylist.china@gmail.com).
 !
 !-----------------------General advert blocking filters-----------------------!
+||https://lm685.com
 ||https://00-gov.cn
 ||https://000123456789.site
 ||https://0024aaaa.com
@@ -4917,7 +4918,6 @@
 ||https://iqiyi.com/player/cupid/*/pageer.swf
 ||https://iqiyi.com/player/cupid/common/flash980100.swf
 ||https://iqiyi.com/show2?cb=
-||https://iqiyi.com/show2?e=
 ||https://iqshw.com/d/js/m/thea
 ||https://ishowx.com/www/2015/js/top.js
 ||https://isky.ltd/skin/js/ad.js
@@ -7895,6 +7895,11 @@
 ||https://stunninglover.com
 ||https://xcgcwfc.cn
 ||https://wknniyu.cn
+||https://tndiltm.cn
+||https://lapwlbz.cn
+||https://szmjskjx.com
+||https://cfvapda.cn
+||https://vcsoat.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -11721,6 +11726,7 @@
 ||https://sinajs.cn/open/analytics/
 ||https://stadig.ifeng.com
 ||https://wrating.com 
+||http://lm685.com
 ||http://00-gov.cn
 ||http://000123456789.site
 ||http://0024aaaa.com
@@ -16714,7 +16720,6 @@
 ||http://iqiyi.com/player/cupid/*/pageer.swf
 ||http://iqiyi.com/player/cupid/common/flash980100.swf
 ||http://iqiyi.com/show2?cb=
-||http://iqiyi.com/show2?e=$domain=~m.iqiyi.com
 ||http://iqshw.com/d/js/m/thea
 ||http://ishowx.com/www/2015/js/top.js
 ||http://isky.ltd/skin/js/ad.js
@@ -19768,6 +19773,11 @@
 ||http://stunninglover.com
 ||http://xcgcwfc.cn
 ||http://wknniyu.cn
+||http://tndiltm.cn
+||http://lapwlbz.cn
+||http://szmjskjx.com
+||http://cfvapda.cn
+||http://vcsoat.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
@@ -23610,6 +23620,7 @@ https://ubmcmm.baidustatic.com
 https://hxsame.hexun.com$domain=~quote.hexun.com
 https://szxx.com.cn###A0
 https://szxx.com.cn###A1
+https://itdog.cn##.div-gg
 https://szxx.com.cn###A2
 https://gpcxw.com###AA2
 https://yahoo.com###ACT_crazy
@@ -30519,6 +30530,7 @@ http://ubmcmm.baidustatic.com
 http://hxsame.hexun.com$domain=~quote.hexun.com
 http://szxx.com.cn###A0
 http://szxx.com.cn###A1
+http://itdog.cn##.div-gg
 http://szxx.com.cn###A2
 http://gpcxw.com###AA2
 http://yahoo.com###ACT_crazy

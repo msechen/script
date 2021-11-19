@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: NMSg7ga7s1gvKURanHG/Og
-! Version: 202111190000
+! Checksum: MEZfGQCaHeiuLwxA8X1NTA
+! Version: 202111190500
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-19 00:00 UTC
+! Last modified: 2021-11-19 05:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -1069,6 +1069,7 @@
 ||https://harpercollins.co.uk/js/cookie.js
 ||https://hunstoncanoeclub.co.uk/media/system/js/modal.js
 ||https://jacquelinewilson.co.uk/style/cookies.css$stylesheet
+||https://kotaku.com/wrapper/*/gdpr/$xmlhttprequest
 ||https://masaltos.com/js/cookies-
 ||https://medicalnewstoday.com/_next/chunks/modal-0cb79-legacy.js
 ||https://mms.cmpsky.com
@@ -2488,6 +2489,7 @@
 ||http://inblu.com */cookies.js
 ||http://jacquelinewilson.co.uk/style/cookies.css$stylesheet
 ||http://jimmychoo.com */first-time-visitor-
+||http://kotaku.com/wrapper/*/gdpr/$xmlhttprequest,domain=kotaku.com
 ||http://mad-daily.com */cp-module-
 ||http://masaltos.com/js/cookies-
 ||http://medicalnewstoday.com/_next/chunks/modal-0cb79-legacy.js
@@ -8869,6 +8871,7 @@ https://dibujos.net,time.com##.social-container
 https://fujitsu.com##.social-content
 https://topmarks.co.uk##.social-game
 https://jns.org##.social-help
+https://empoweringparents.com##.social-icon
 https://gaystarnews.com##.social-images
 https://cinenews.be##.social-line
 https://gamerant.com##.social-list
@@ -10175,6 +10178,7 @@ https://revolut.com##div[class*="Modal__OverlayBox"]
 https://revolut.com##div[class*="StyledCookiesBanner"]
 https://quora.com##div[class*="flex_wrapper"][class*="gray_ultralight"]
 https://inc.com##div[class*="privacyPolicyPopup"]
+https://sportinglife.com##div[class ="Article__FlashTalkingWrapper-"]
 https://cbtnuggets.com##div[class ="BannerContainer-sc-"]
 https://bloomberglaw.com##div[class ="CookieNotice_"]
 https://lucidmotors.com##div[class ="Cookies-module-"]
@@ -13833,6 +13837,7 @@ https://reddit.com#@#.reddit_button
 https://hootsuite.com#@#.retweet
 https://romaniatv.net,space.com#@#.search-social
 https://nasa.gov,nosdiario.gal#@#.section-social
+https://deezer.com#@#.share-action
 https://californiasunday.com,youtube.com#@#.share-bar
 https://advego.com,figshare.com,upi.com#@#.share-block
 https://speedtest.net#@#.share-body
@@ -13861,6 +13866,7 @@ https://autokult.pl,channelnewsasia.com,fotoblogia.pl,imgur.com,komorkomania.pl#
 https://baidu.com,channelnewsasia.com,recite.com#@#.share-list
 https://weiyun.com#@#.share-mail
 https://app.sococo.com,disqus.com,disroot.org,google.at,google.be,google.ca,google.ch,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.th,google.co.za,google.com,google.com.ar,google.com.au,google.com.br,google.com.hk,google.com.mx,google.com.tr,google.com.ua,google.cz,google.dk,google.es,google.fi,google.fr,google.hu,google.it,google.nl,google.pl,google.ro,google.ru,google.se,google.sk,livelib.ru,tumblr.com#@#.share-menu
+https://deezer.com#@#.share-message
 https://flickr.com,fxhome.com#@#.share-options
 https://dropbox.com,ge.tt,gfycat.com,kuaishou.com,recite.com,redgifs.com#@#.share-page
 https://flickr.com,imgur.com,safety.olx.ua,tobii.com,youtube.com#@#.share-panel
@@ -20419,6 +20425,7 @@ http://dibujos.net,time.com##.social-container
 http://fujitsu.com##.social-content
 http://topmarks.co.uk##.social-game
 http://jns.org##.social-help
+http://empoweringparents.com##.social-icon
 http://gaystarnews.com##.social-images
 http://cinenews.be##.social-line
 http://gamerant.com##.social-list
@@ -21726,6 +21733,7 @@ http://revolut.com##div[class*="Modal__OverlayBox"]
 http://revolut.com##div[class*="StyledCookiesBanner"]
 http://quora.com##div[class*="flex_wrapper"][class*="gray_ultralight"]
 http://inc.com##div[class*="privacyPolicyPopup"]
+http://sportinglife.com##div[class ="Article__FlashTalkingWrapper-"]
 http://cbtnuggets.com##div[class ="BannerContainer-sc-"]
 http://bloomberglaw.com##div[class ="CookieNotice_"]
 http://lucidmotors.com##div[class ="Cookies-module-"]
@@ -25385,6 +25393,7 @@ http://reddit.com#@#.reddit_button
 http://hootsuite.com#@#.retweet
 http://romaniatv.net,space.com#@#.search-social
 http://nasa.gov,nosdiario.gal#@#.section-social
+http://deezer.com#@#.share-action
 http://californiasunday.com,youtube.com#@#.share-bar
 http://advego.com,figshare.com,upi.com#@#.share-block
 http://speedtest.net#@#.share-body
@@ -25413,6 +25422,7 @@ http://autokult.pl,channelnewsasia.com,fotoblogia.pl,imgur.com,komorkomania.pl#@
 http://baidu.com,channelnewsasia.com,recite.com#@#.share-list
 http://weiyun.com#@#.share-mail
 http://app.sococo.com,disqus.com,disroot.org,google.at,google.be,google.ca,google.ch,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.th,google.co.za,google.com,google.com.ar,google.com.au,google.com.br,google.com.hk,google.com.mx,google.com.tr,google.com.ua,google.cz,google.dk,google.es,google.fi,google.fr,google.hu,google.it,google.nl,google.pl,google.ro,google.ru,google.se,google.sk,livelib.ru,tumblr.com#@#.share-menu
+http://deezer.com#@#.share-message
 http://flickr.com,fxhome.com#@#.share-options
 http://dropbox.com,ge.tt,gfycat.com,kuaishou.com,recite.com,redgifs.com#@#.share-page
 http://flickr.com,imgur.com,safety.olx.ua,tobii.com,youtube.com#@#.share-panel
