@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: Mu3opji2lYCTAkJeKjdUVA
-! Version: 202111181600
+! Checksum: NMSg7ga7s1gvKURanHG/Og
+! Version: 202111190000
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-18 16:00 UTC
+! Last modified: 2021-11-19 00:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -9751,7 +9751,7 @@ https://xing.com##.consent_wrapper
 https://cityoflondon.gov.uk##.container-floating-notifications
 https://bankofengland.co.uk,cityoflondon.police.uk##.container-notifications
 https://antoineonline.com##.container-overlay
-https://18virginsex.com,altervista.org,anglianwater.co.uk,ask.fm,callcredit.co.uk,calvertjournal.com,cbeci.org,crazydomains.co.uk,derwaldhof.com,dw.com,farecompare.com,firefox-usb.com,forever21.com,forgeworld.co.uk,gheed.com,gooddollar.org,hempel.co.uk,hempelyacht.com,here.com,hud.ac.uk,jaguarlandrover.com,leonorgreyl.com,liptonicetea.com,ludwig.guru,m64.info,mandarinoriental.com,mclaren.com,mik.eu,modecom.com,modhoster.com,moneywise.co.uk,mydraw.com,mysurveylab.com,nationalcircus.org.uk,natwest.com,npl.co.uk,octotree.io,oldgoesyoung.com,openmailbox.org,pepperl-fuchs.com,postoffice.co.uk,prodir.com,purnatur.eu,rbs.co.uk,redditinc.com,roalddahl.com,rowenta.com,samsunghealthcare.com,sense.org.uk,sheldrickwildlifetrust.org,silverlake.com,sleek-mag.com,squirt.org,statusbrew.com,syntevo.com,team-mediaportal.com,togetherall.com,trailfinders.com,tubidy.news,twitchstrike.com,unicheck.com,virgin-atlantic.com,wannawork.com,ytddownloader.com##.cookie
+https://18virginsex.com,altervista.org,anglianwater.co.uk,ask.fm,callcredit.co.uk,calvertjournal.com,cbeci.org,crazydomains.co.uk,derwaldhof.com,dw.com,farecompare.com,firefox-usb.com,forever21.com,forgeworld.co.uk,gheed.com,gooddollar.org,hempel.co.uk,hempelyacht.com,here.com,hud.ac.uk,jaguarlandrover.com,leonorgreyl.com,liptonicetea.com,ludwig.guru,m64.info,mandarinoriental.com,mclaren.com,mik.eu,modecom.com,modhoster.com,moneywise.co.uk,mydraw.com,mysurveylab.com,nationalcircus.org.uk,natwest.com,nornickel.com,npl.co.uk,octotree.io,oldgoesyoung.com,openmailbox.org,pepperl-fuchs.com,postoffice.co.uk,prodir.com,purnatur.eu,rbs.co.uk,redditinc.com,roalddahl.com,rowenta.com,samsunghealthcare.com,sense.org.uk,sheldrickwildlifetrust.org,silverlake.com,sleek-mag.com,squirt.org,statusbrew.com,syntevo.com,team-mediaportal.com,togetherall.com,trailfinders.com,tubidy.news,twitchstrike.com,unicheck.com,virgin-atlantic.com,wannawork.com,ytddownloader.com##.cookie
 https://deezer.com,tiktok.com##.cookie-banner
 https://forcepoint.com,geeksforgeeks.org##.cookie-consent
 https://7news.com.au##.cookie-consent--normal
@@ -13313,6 +13313,7 @@ https://cardsmobile.ru##.cm-m_c-w
 https://2x2tv.ru##.cook-web
 https://hashrating.com,zettains.ru##.cookie
 https://2x2.su,advstreet.ru,calltouch.ru,glavred.info,skillbox.ru,unian.net##.cookies
+https://kaida-fish.ru##.custom_message
 https://lisa.ru##.disclamer
 https://4game.com##.fcw-wrap
 https://ozon.ru##.i4
@@ -13326,6 +13327,7 @@ https://culture.ru##.notify-bar
 https://lamoda.ru,lamoda.ua##.page > [class*="widget"]
 https://kamkabel.ru##.panel_152_wp
 https://pegast.ru##.pgs-top
+https://henderson.ru##.politica
 https://trudvsem.ru##.rostrud-notification
 https://sbis.ru##.sbisru-CookieAgreement
 https://tutu.ru##.style__disclaimer
@@ -21300,7 +21302,7 @@ http://xing.com##.consent_wrapper
 http://cityoflondon.gov.uk##.container-floating-notifications
 http://bankofengland.co.uk,cityoflondon.police.uk##.container-notifications
 http://antoineonline.com##.container-overlay
-http://18virginsex.com,altervista.org,anglianwater.co.uk,ask.fm,callcredit.co.uk,calvertjournal.com,cbeci.org,crazydomains.co.uk,derwaldhof.com,dw.com,farecompare.com,firefox-usb.com,forever21.com,forgeworld.co.uk,gheed.com,gooddollar.org,hempel.co.uk,hempelyacht.com,here.com,hud.ac.uk,jaguarlandrover.com,leonorgreyl.com,liptonicetea.com,ludwig.guru,m64.info,mandarinoriental.com,mclaren.com,mik.eu,modecom.com,modhoster.com,moneywise.co.uk,mydraw.com,mysurveylab.com,nationalcircus.org.uk,natwest.com,npl.co.uk,octotree.io,oldgoesyoung.com,openmailbox.org,pepperl-fuchs.com,postoffice.co.uk,prodir.com,purnatur.eu,rbs.co.uk,redditinc.com,roalddahl.com,rowenta.com,samsunghealthcare.com,sense.org.uk,sheldrickwildlifetrust.org,silverlake.com,sleek-mag.com,squirt.org,statusbrew.com,syntevo.com,team-mediaportal.com,togetherall.com,trailfinders.com,tubidy.news,twitchstrike.com,unicheck.com,virgin-atlantic.com,wannawork.com,ytddownloader.com##.cookie
+http://18virginsex.com,altervista.org,anglianwater.co.uk,ask.fm,callcredit.co.uk,calvertjournal.com,cbeci.org,crazydomains.co.uk,derwaldhof.com,dw.com,farecompare.com,firefox-usb.com,forever21.com,forgeworld.co.uk,gheed.com,gooddollar.org,hempel.co.uk,hempelyacht.com,here.com,hud.ac.uk,jaguarlandrover.com,leonorgreyl.com,liptonicetea.com,ludwig.guru,m64.info,mandarinoriental.com,mclaren.com,mik.eu,modecom.com,modhoster.com,moneywise.co.uk,mydraw.com,mysurveylab.com,nationalcircus.org.uk,natwest.com,nornickel.com,npl.co.uk,octotree.io,oldgoesyoung.com,openmailbox.org,pepperl-fuchs.com,postoffice.co.uk,prodir.com,purnatur.eu,rbs.co.uk,redditinc.com,roalddahl.com,rowenta.com,samsunghealthcare.com,sense.org.uk,sheldrickwildlifetrust.org,silverlake.com,sleek-mag.com,squirt.org,statusbrew.com,syntevo.com,team-mediaportal.com,togetherall.com,trailfinders.com,tubidy.news,twitchstrike.com,unicheck.com,virgin-atlantic.com,wannawork.com,ytddownloader.com##.cookie
 http://deezer.com,tiktok.com##.cookie-banner
 http://forcepoint.com,geeksforgeeks.org##.cookie-consent
 http://7news.com.au##.cookie-consent--normal
@@ -24863,6 +24865,7 @@ http://cardsmobile.ru##.cm-m_c-w
 http://2x2tv.ru##.cook-web
 http://hashrating.com,zettains.ru##.cookie
 http://2x2.su,advstreet.ru,calltouch.ru,glavred.info,skillbox.ru,unian.net##.cookies
+http://kaida-fish.ru##.custom_message
 http://lisa.ru##.disclamer
 http://4game.com##.fcw-wrap
 http://ozon.ru##.i4
@@ -24876,6 +24879,7 @@ http://culture.ru##.notify-bar
 http://lamoda.ru,lamoda.ua##.page > [class*="widget"]
 http://kamkabel.ru##.panel_152_wp
 http://pegast.ru##.pgs-top
+http://henderson.ru##.politica
 http://trudvsem.ru##.rostrud-notification
 http://sbis.ru##.sbisru-CookieAgreement
 http://tutu.ru##.style__disclaimer
