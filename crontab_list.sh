@@ -104,7 +104,7 @@
 10 0 * * * node /scripts/jd_jin_tie.js >> /scripts/logs/jd_jin_tie.log 2>&1
 
 # 宠汪汪
-15 0-23/2 * * * node /scripts/jd_joy_new.js >> /scripts/logs/jd_joy.log 2>&1
+0 0-23/3 * * * cd /scripts && ts-node /scripts/jd_joy_new.ts >> /scripts/logs/jd_joy_new.log 2>&1
 
 # 汪汪乐园
 45 0-23/3 * * * cd /scripts && ts-node /scripts/jd_joy_park.ts >> /scripts/logs/jd_joy_park.log 2>&1
