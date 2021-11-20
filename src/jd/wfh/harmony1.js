@@ -6,11 +6,11 @@ const {sleep, writeFileJSON} = require('../../lib/common');
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/3LdMQi6ZC11vt3Nu8fC9ESbhi56H/index.html';
 
 class Harmony1 extends HarmonyTemplate {
-  static scriptNameDesc = '惊喜大作战';
+  static scriptNameDesc = '心动电波';
   static shareCodeTaskList = [];
-  static shareTaskId = 1;
-  static skipTaskIds = [5/*开会员*/, 8/*购买*/];
-  static commonParamFn = () => ({appId: '1FV1VwKc'});
+  static shareTaskId = 9;
+  static skipTaskIds = [7/*开会员*/];
+  static commonParamFn = () => ({appId: '1FFRWwqg'});
 }
 
 module.exports = Harmony1;
