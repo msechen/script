@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: Tzi2HMMvT0ycz7yn1wL7+Q
-! Version: 202111200900
+! Checksum: rbymLM3Gm6P1MYt3LFdTuA
+! Version: 202111201000
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-20 09:00 UTC
+! Last modified: 2021-11-20 10:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -10262,7 +10262,7 @@
 ||https://walmart.ca##.privacy-open > div > [class] > div[class ="css"]
 ||https://spot-a-shop.at,spot-a-shop.de,spot-a-shop.fi,spot-a-shop.fr,spot-a-shop.pl,spot-a-shop.se###__next > div > div > div[class ="css"]
 ||https://minhaconexao.com.br#?#section[id][class]:-abp-has(:scope > div[class] > button[class][onclick ="onClickCookiesBannerWeb"])
-||https://eduface.ru,solnyshko-ramdou60.edumsko.ru#@#.cookies_popup
+||https://eduface.ru,edumsko.ru#@#.cookies_popup
 ||https://podleze-piekielko.pl#$#abort-on-property-read cookieman
 ||https://sme.sk###js-top-info-bar
 ||https://egmont.cz###nrlskswidget
@@ -13323,6 +13323,7 @@
 ||https://kaida-fish.ru##.custom_message
 ||https://lisa.ru##.disclamer
 ||https://4game.com##.fcw-wrap
+||https://smartdrive.skoda-avto.ru##.gHUUHu
 ||https://ozon.ru##.i4
 ||https://friday.ru##.information
 ||https://patee.ru##.informer2
@@ -14139,6 +14140,7 @@
 ||https://gocomics.com#@##cookieconsent-container
 ||https://gruenderservice.at#@##cookiehint
 ||https://porno720.pl,tvporno.pl#@##cookieinfo
+||https://warta.pl#@##cookieman-modal
 ||https://qastack.fr#@##cookies-accept
 ||https://qastack.fr#@##cookies-consent
 ||https://paradoxplaza.com#@##cookies-info
@@ -21821,7 +21823,7 @@
 ||http://walmart.ca##.privacy-open > div > [class] > div[class ="css"]
 ||http://spot-a-shop.at,spot-a-shop.de,spot-a-shop.fi,spot-a-shop.fr,spot-a-shop.pl,spot-a-shop.se###__next > div > div > div[class ="css"]
 ||http://minhaconexao.com.br#?#section[id][class]:-abp-has(:scope > div[class] > button[class][onclick ="onClickCookiesBannerWeb"])
-||http://eduface.ru,solnyshko-ramdou60.edumsko.ru#@#.cookies_popup
+||http://eduface.ru,edumsko.ru#@#.cookies_popup
 ||http://podleze-piekielko.pl#$#abort-on-property-read cookieman
 ||http://sme.sk###js-top-info-bar
 ||http://egmont.cz###nrlskswidget
@@ -24883,6 +24885,7 @@
 ||http://kaida-fish.ru##.custom_message
 ||http://lisa.ru##.disclamer
 ||http://4game.com##.fcw-wrap
+||http://smartdrive.skoda-avto.ru##.gHUUHu
 ||http://ozon.ru##.i4
 ||http://friday.ru##.information
 ||http://patee.ru##.informer2
@@ -25699,6 +25702,7 @@
 ||http://gocomics.com#@##cookieconsent-container
 ||http://gruenderservice.at#@##cookiehint
 ||http://porno720.pl,tvporno.pl#@##cookieinfo
+||http://warta.pl#@##cookieman-modal
 ||http://qastack.fr#@##cookies-accept
 ||http://qastack.fr#@##cookies-consent
 ||http://paradoxplaza.com#@##cookies-info
