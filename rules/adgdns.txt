@@ -19810,7 +19810,7 @@ vkcdnservice.appspot.com
 ||https://restartad.com
 ||https://appgiftwall.oss-us-west-1.aliyuncs.com
 ||https://appgift.sinaapp.com
-||https://ad.mail.ru|
+||https://ad.mail.ru
 ||https://servedby.o2.co.uk
 ||https://amillionads.com
 ||https://mcoreads.com
@@ -38383,18 +38383,18 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://z.nowscore.com
 ||https://zt2088.com
 ||https://ztyumn.ifeng.com
-!@||ad.10010.com
-!@||ad.abchina.com
-!@||ad.kazakinfo.com
-!@||ad.ourgame.com
-!@||adcdn.pingan.com
-!@||advert.kf5.com
-!@||api.ads.tvb.com
-!@||app-advertise.zhihuishu.com
-!@||buyad.bi-xenon.cn
-!@||captcha.su.baidu.com
-!@||img.ads.tvb.com
-!@||newad.mail.wo.cn
+@@||ad.10010.com
+@@||ad.abchina.com
+@@||ad.kazakinfo.com
+@@||ad.ourgame.com
+@@||adcdn.pingan.com
+@@||advert.kf5.com
+@@||api.ads.tvb.com
+@@||app-advertise.zhihuishu.com
+@@||buyad.bi-xenon.cn
+@@||captcha.su.baidu.com
+@@||img.ads.tvb.com
+@@||newad.mail.wo.cn
 ||https://3336672.com
 ||https://3337729.com
 ||https://3337751.com
@@ -42290,124 +42290,124 @@ charlestownwyllie.oaklawnnonantum.com
 ! `*-dnsotls-ds.metric.gstatic.com` (for instance, `a5a6380f-dnsotls-ds.metric.gstatic.com`).
 !
 !
-!@||thumbnail.thench.net|
-!@||validate.perfdrive.com|
-!@||ia.hit.interia.pl|
-!@||r.sascdn.com|
+@@||thumbnail.thench.net
+@@||validate.perfdrive.com
+@@||ia.hit.interia.pl
+@@||r.sascdn.com
 ! https://forum.adguard.com/index.php?threads/amplitude-com-blocked.45115
-!@||analytics.amplitude.com|
-!@|adsterra.com|
-!@|ads.adsterra.com|
-!@|publishers.adsterra.com|
-!@|beta.publishers.adsterra.com|
-!@|partners.adsterra.com|
-!@|beta.partners.adsterra.com|
-!@|affiliates.adsterra.com|
-!@|beta.affiliates.adsterra.com|
-!@|help-advertisers.adsterra.com|
+@@||analytics.amplitude.com
+@@|adsterra.com
+@@|ads.adsterra.com
+@@|publishers.adsterra.com
+@@|beta.publishers.adsterra.com
+@@|partners.adsterra.com
+@@|beta.partners.adsterra.com
+@@|affiliates.adsterra.com
+@@|beta.affiliates.adsterra.com
+@@|help-advertisers.adsterra.com
 ! Blocked by CNAME we-stats.com
-!@||contents*.00110.citi.com|
+@@||contents*.00110.citi.com
 ! Blocked by CNAME impactradius.com
-!@||goto.target.com|
-!@||goto.walmart.com|
-!@||citiintl.122.2o7.net|
-!@||ma135-r.analytics.edgekey.net|
-!@||79423.analytics.edgekey.net|
+@@||goto.target.com
+@@||goto.walmart.com
+@@||citiintl.122.2o7.net
+@@||ma135-r.analytics.edgekey.net
+@@||79423.analytics.edgekey.net
 !
 ! Blocked by CNAME ||leadpages.net$third-party
-!@||classliving.lpages.co|
-!@||home.focusatwill.com|
-!@||health.halodoc.com|
+@@||classliving.lpages.co
+@@||home.focusatwill.com
+@@||health.halodoc.com
 !
-!@||promo.gramedia.com|
-!@||support-beacon.nakanohito.jp|
-!@||support-widget.nakanohito.jp|
-!@||afi-b.com|
-!@||daikoku.ebis.ne.jp|
-!@||envato.market|
+@@||promo.gramedia.com
+@@||support-beacon.nakanohito.jp
+@@||support-widget.nakanohito.jp
+@@||afi-b.com
+@@||daikoku.ebis.ne.jp
+@@||envato.market
 ! whitelist as click-through
-!@||ac.ebis.ne.jp|
+@@||ac.ebis.ne.jp
 ! Don't block clicks in AWS emails
-!@||email.awscloud.com|
+@@||email.awscloud.com
 ! Blocked by ||relevant-digital.com
-!@||oneline.nextday.media|
+@@||oneline.nextday.media
 ! Reported via Telegram: https://t.me/AdGuard_chinese/13741
-!@|ftp.bmp.ovh|
-!@||cloud.notification-naviextras.com|
-!@||email.elitedangerous.com|
-!@||links.e.theatlantic.com|
-!@||app.appsflyer.com|
-!@||email.procook.co.uk|
-!@||omsc.kpn.com|
-!@||logentries.com|
-!@||email.*.skyeng.ru|
+@@|ftp.bmp.ovh
+@@||cloud.notification-naviextras.com
+@@||email.elitedangerous.com
+@@||links.e.theatlantic.com
+@@||app.appsflyer.com
+@@||email.procook.co.uk
+@@||omsc.kpn.com
+@@||logentries.com
+@@||email.*.skyeng.ru
 ! cdn.rozetka.com.ua is blocked by CNAME 'rozetka-cdn.exponea.com'
-!@||cdn.rozetka.com.ua|
-!@||go.scorptec.com.au|
-!@||links.getblueshift.com|
-!@||click.trafficguard.ai|
-!@||hb.afl.rakuten.co.jp|
-!@||pt.afl.rakuten.co.jp|
-!@||proto2ad.durasite.net|
-!@||tags.crwdcntrl.net|
+@@||cdn.rozetka.com.ua
+@@||go.scorptec.com.au
+@@||links.getblueshift.com
+@@||click.trafficguard.ai
+@@||hb.afl.rakuten.co.jp
+@@||pt.afl.rakuten.co.jp
+@@||proto2ad.durasite.net
+@@||tags.crwdcntrl.net
 ! CNAME: paymaya.customlinks.appsflyer.com
-!@||official.paymaya.com|
-!@||gs.statcounter.com|
+@@||official.paymaya.com
+@@||gs.statcounter.com
 ! Blocked by exacttarget.com alias
-!@||click.virt.s*.exacttarget.com|
-!@||click.virt.exacttarget.com|
+@@||click.virt.s*.exacttarget.com
+@@||click.virt.exacttarget.com
 ! Exacttarget Marketing Cloud
-!@||mc.*.exacttarget.com|
-!@||login.sendpulse.com|
-!@||a.sellpoint.net|
-!@||tlaol.com|
-!@||admin.dable.io|
-!@||log.mmstat.com|
+@@||mc.*.exacttarget.com
+@@||login.sendpulse.com
+@@||a.sellpoint.net
+@@||tlaol.com
+@@||admin.dable.io
+@@||log.mmstat.com
 ! Blocked by alimama.com alias
-!@||cs.silverpop.com|
-!@||grp07.ias.rakuten.co.jp|
-!@||cindyholbrook.lpages.co|
+@@||cs.silverpop.com
+@@||grp07.ias.rakuten.co.jp
+@@||cindyholbrook.lpages.co
 ! Fixing Google Shop and Google Ads in search results.
 ! These ads cannot be hidden on the DNS-level, so we should not break clicks on the adverts
-!@||pagead.l.doubleclick.net|
-!@||www.googleadservices.com|
-!@||googleadapis.l.google.com|
-!@||my.tealiumiq.com|
-!@||artifactory.appodeal.com|
-!@||www.jdoqocy.com|
-!@||cj.dotomi.com|
-!@||intersport.peerius.com|
-!@||cutcaptcha.com|
+@@||pagead.l.doubleclick.net
+@@||www.googleadservices.com
+@@||googleadapis.l.google.com
+@@||my.tealiumiq.com
+@@||artifactory.appodeal.com
+@@||www.jdoqocy.com
+@@||cj.dotomi.com
+@@||intersport.peerius.com
+@@||cutcaptcha.com
 ! https://forum.adguard.com/index.php?threads/36967/
-!@||forum.notebookreview.com|
-!@||radiofrance.targetspot.com|
-!@||awin1.com|
-!@||app.adjust.com|
-!@||feed.adrelayer.com|
-!@||redirect.appmetrica.yandex.com|
+@@||forum.notebookreview.com
+@@||radiofrance.targetspot.com
+@@||awin1.com
+@@||app.adjust.com
+@@||feed.adrelayer.com
+@@||redirect.appmetrica.yandex.com
 ! Fixing redirects through guce.advertising.com (www.engadget.com, www.huffpost.com)
-!@||guce.advertising.com
+@@||guce.advertising.com
 ! Unblock logrocket.com blog
-!@||blog.logrocket.com|
+@@||blog.logrocket.com
 ! AdGuard DNS blocks this domain but for some reason, it messes with Android's network validation process.
-!@dnsotls-ds.metric.gstatic.com
-!@||a.adwolf.ru|
-!@||imasdk.googleapis.com|
-!@||cm-beacon.nakanohito.jp|
-!@||cm-widget.nakanohito.jp|
-!@||ads.tdbank.com
+@@dnsotls-ds.metric.gstatic.com
+@@||a.adwolf.ru
+@@||imasdk.googleapis.com
+@@||cm-beacon.nakanohito.jp
+@@||cm-widget.nakanohito.jp
+@@||ads.tdbank.com
 ! https://forum.adguard.com/index.php?threads/23410/page-7#post-165504
-!@||nineto5mac-d.openx.net|
-!@||redir.tradedoubler.com|
-!@||clk*.tradedoubler.com|
+@@||nineto5mac-d.openx.net
+@@||redir.tradedoubler.com
+@@||clk*.tradedoubler.com
 ! https://forum.adguard.com/index.php?threads/27021/
-!@||href.li|
-!@||str.hit.gemius.pl|
-!@||track.rutarget.ru|
-!@||5471782.fls.doubleclick.net|
-!@||h-sdk.online-metrix.net|
+@@||href.li
+@@||str.hit.gemius.pl
+@@||track.rutarget.ru
+@@||5471782.fls.doubleclick.net
+@@||h-sdk.online-metrix.net
 ! Fixing Walmart
-!@||omniture.walmart.com|
+@@||omniture.walmart.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
@@ -62239,7 +62239,7 @@ vkcdnservice.appspot.com
 ||http://restartad.com
 ||http://appgiftwall.oss-us-west-1.aliyuncs.com
 ||http://appgift.sinaapp.com
-||http://ad.mail.ru|
+||http://ad.mail.ru
 ||http://servedby.o2.co.uk
 ||http://amillionads.com
 ||http://mcoreads.com
@@ -80949,18 +80949,18 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://z.nowscore.com
 ||http://zt2088.com
 ||http://ztyumn.ifeng.com
-!@||ad.10010.com
-!@||ad.abchina.com
-!@||ad.kazakinfo.com
-!@||ad.ourgame.com
-!@||adcdn.pingan.com
-!@||advert.kf5.com
-!@||api.ads.tvb.com
-!@||app-advertise.zhihuishu.com
-!@||buyad.bi-xenon.cn
-!@||captcha.su.baidu.com
-!@||img.ads.tvb.com
-!@||newad.mail.wo.cn
+@@||ad.10010.com
+@@||ad.abchina.com
+@@||ad.kazakinfo.com
+@@||ad.ourgame.com
+@@||adcdn.pingan.com
+@@||advert.kf5.com
+@@||api.ads.tvb.com
+@@||app-advertise.zhihuishu.com
+@@||buyad.bi-xenon.cn
+@@||captcha.su.baidu.com
+@@||img.ads.tvb.com
+@@||newad.mail.wo.cn
 ||http://3336672.com
 ||http://3337729.com
 ||http://3337751.com
@@ -84881,121 +84881,121 @@ charlestownwyllie.oaklawnnonantum.com
 ! `*-dnsotls-ds.metric.gstatic.com` (for instance, `a5a6380f-dnsotls-ds.metric.gstatic.com`).
 !
 !
-!@||thumbnail.thench.net|
-!@||validate.perfdrive.com|
-!@||ia.hit.interia.pl|
-!@||r.sascdn.com|
+@@||thumbnail.thench.net
+@@||validate.perfdrive.com
+@@||ia.hit.interia.pl
+@@||r.sascdn.com
 ! https://forum.adguard.com/index.php?threads/amplitude-com-blocked.45115
-!@||analytics.amplitude.com|
-!@|adsterra.com|
-!@|ads.adsterra.com|
-!@|publishers.adsterra.com|
-!@|beta.publishers.adsterra.com|
-!@|partners.adsterra.com|
-!@|beta.partners.adsterra.com|
-!@|affiliates.adsterra.com|
-!@|beta.affiliates.adsterra.com|
-!@|help-advertisers.adsterra.com|
+@@||analytics.amplitude.com
+@@|adsterra.com
+@@|ads.adsterra.com
+@@|publishers.adsterra.com
+@@|beta.publishers.adsterra.com
+@@|partners.adsterra.com
+@@|beta.partners.adsterra.com
+@@|affiliates.adsterra.com
+@@|beta.affiliates.adsterra.com
+@@|help-advertisers.adsterra.com
 ! Blocked by CNAME we-stats.com
-!@||contents*.00110.citi.com|
+@@||contents*.00110.citi.com
 ! Blocked by CNAME impactradius.com
-!@||goto.target.com|
-!@||goto.walmart.com|
-!@||citiintl.122.2o7.net|
-!@||ma135-r.analytics.edgekey.net|
-!@||79423.analytics.edgekey.net|
+@@||goto.target.com
+@@||goto.walmart.com
+@@||citiintl.122.2o7.net
+@@||ma135-r.analytics.edgekey.net
+@@||79423.analytics.edgekey.net
 !
 ! Blocked by CNAME ||leadpages.net$third-party
-!@||classliving.lpages.co|
-!@||home.focusatwill.com|
-!@||health.halodoc.com|
+@@||classliving.lpages.co
+@@||home.focusatwill.com
+@@||health.halodoc.com
 !
-!@||promo.gramedia.com|
-!@||support-beacon.nakanohito.jp|
-!@||support-widget.nakanohito.jp|
-!@||afi-b.com|
-!@||daikoku.ebis.ne.jp|
-!@||envato.market|
+@@||promo.gramedia.com
+@@||support-beacon.nakanohito.jp
+@@||support-widget.nakanohito.jp
+@@||afi-b.com
+@@||daikoku.ebis.ne.jp
+@@||envato.market
 ! whitelist as click-through
-!@||ac.ebis.ne.jp|
+@@||ac.ebis.ne.jp
 ! Don't block clicks in AWS emails
-!@||email.awscloud.com|
+@@||email.awscloud.com
 ! Blocked by ||relevant-digital.com
-!@||oneline.nextday.media|
+@@||oneline.nextday.media
 ! Reported via Telegram: https://t.me/AdGuard_chinese/13741
-!@|ftp.bmp.ovh|
-!@||cloud.notification-naviextras.com|
-!@||email.elitedangerous.com|
-!@||links.e.theatlantic.com|
-!@||app.appsflyer.com|
-!@||email.procook.co.uk|
-!@||omsc.kpn.com|
-!@||logentries.com|
-!@||email.*.skyeng.ru|
+@@|ftp.bmp.ovh
+@@||cloud.notification-naviextras.com
+@@||email.elitedangerous.com
+@@||links.e.theatlantic.com
+@@||app.appsflyer.com
+@@||email.procook.co.uk
+@@||omsc.kpn.com
+@@||logentries.com
+@@||email.*.skyeng.ru
 ! cdn.rozetka.com.ua is blocked by CNAME 'rozetka-cdn.exponea.com'
-!@||cdn.rozetka.com.ua|
-!@||go.scorptec.com.au|
-!@||links.getblueshift.com|
-!@||click.trafficguard.ai|
-!@||hb.afl.rakuten.co.jp|
-!@||pt.afl.rakuten.co.jp|
-!@||proto2ad.durasite.net|
-!@||tags.crwdcntrl.net|
+@@||cdn.rozetka.com.ua
+@@||go.scorptec.com.au
+@@||links.getblueshift.com
+@@||click.trafficguard.ai
+@@||hb.afl.rakuten.co.jp
+@@||pt.afl.rakuten.co.jp
+@@||proto2ad.durasite.net
+@@||tags.crwdcntrl.net
 ! CNAME: paymaya.customlinks.appsflyer.com
-!@||official.paymaya.com|
-!@||gs.statcounter.com|
+@@||official.paymaya.com
+@@||gs.statcounter.com
 ! Blocked by exacttarget.com alias
-!@||click.virt.s*.exacttarget.com|
-!@||click.virt.exacttarget.com|
+@@||click.virt.s*.exacttarget.com
+@@||click.virt.exacttarget.com
 ! Exacttarget Marketing Cloud
-!@||mc.*.exacttarget.com|
-!@||login.sendpulse.com|
-!@||a.sellpoint.net|
-!@||tlaol.com|
-!@||admin.dable.io|
-!@||log.mmstat.com|
+@@||mc.*.exacttarget.com
+@@||login.sendpulse.com
+@@||a.sellpoint.net
+@@||tlaol.com
+@@||admin.dable.io
+@@||log.mmstat.com
 ! Blocked by alimama.com alias
-!@||cs.silverpop.com|
-!@||grp07.ias.rakuten.co.jp|
-!@||cindyholbrook.lpages.co|
+@@||cs.silverpop.com
+@@||grp07.ias.rakuten.co.jp
+@@||cindyholbrook.lpages.co
 ! Fixing Google Shop and Google Ads in search results.
 ! These ads cannot be hidden on the DNS-level, so we should not break clicks on the adverts
-!@||pagead.l.doubleclick.net|
-!@||www.googleadservices.com|
-!@||googleadapis.l.google.com|
-!@||my.tealiumiq.com|
-!@||artifactory.appodeal.com|
-!@||www.jdoqocy.com|
-!@||cj.dotomi.com|
-!@||intersport.peerius.com|
-!@||cutcaptcha.com|
+@@||pagead.l.doubleclick.net
+@@||www.googleadservices.com
+@@||googleadapis.l.google.com
+@@||my.tealiumiq.com
+@@||artifactory.appodeal.com
+@@||www.jdoqocy.com
+@@||cj.dotomi.com
+@@||intersport.peerius.com
+@@||cutcaptcha.com
 ! https://forum.adguard.com/index.php?threads/36967/
-!@||forum.notebookreview.com|
-!@||radiofrance.targetspot.com|
-!@||awin1.com|
-!@||app.adjust.com|
-!@||feed.adrelayer.com|
-!@||redirect.appmetrica.yandex.com|
+@@||forum.notebookreview.com
+@@||radiofrance.targetspot.com
+@@||awin1.com
+@@||app.adjust.com
+@@||feed.adrelayer.com
+@@||redirect.appmetrica.yandex.com
 ! Fixing redirects through guce.advertising.com (www.engadget.com, www.huffpost.com)
-!@||guce.advertising.com
+@@||guce.advertising.com
 ! Unblock logrocket.com blog
-!@||blog.logrocket.com|
+@@||blog.logrocket.com
 ! AdGuard DNS blocks this domain but for some reason, it messes with Android's network validation process.
-!@dnsotls-ds.metric.gstatic.com
-!@||a.adwolf.ru|
-!@||imasdk.googleapis.com|
-!@||cm-beacon.nakanohito.jp|
-!@||cm-widget.nakanohito.jp|
-!@||ads.tdbank.com
+@@dnsotls-ds.metric.gstatic.com
+@@||a.adwolf.ru
+@@||imasdk.googleapis.com
+@@||cm-beacon.nakanohito.jp
+@@||cm-widget.nakanohito.jp
+@@||ads.tdbank.com
 ! https://forum.adguard.com/index.php?threads/23410/page-7#post-165504
-!@||nineto5mac-d.openx.net|
-!@||redir.tradedoubler.com|
-!@||clk*.tradedoubler.com|
+@@||nineto5mac-d.openx.net
+@@||redir.tradedoubler.com
+@@||clk*.tradedoubler.com
 ! https://forum.adguard.com/index.php?threads/27021/
-!@||href.li|
-!@||str.hit.gemius.pl|
-!@||track.rutarget.ru|
-!@||5471782.fls.doubleclick.net|
-!@||h-sdk.online-metrix.net|
+@@||href.li
+@@||str.hit.gemius.pl
+@@||track.rutarget.ru
+@@||5471782.fls.doubleclick.net
+@@||h-sdk.online-metrix.net
 ! Fixing Walmart
-!@||omniture.walmart.com|
+@@||omniture.walmart.com
