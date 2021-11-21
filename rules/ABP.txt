@@ -1,9 +1,9 @@
 [Adblock Plus 2.0]
-! Checksum: Nx2x/65nXnefmM4ReYgoYg
-! Version: 202111201616
+! Checksum: HDDvOGRbEz2+Wrxy+F8Wzw
+! Version: 202111210436
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
-! Last Modified: 20 Nov 2021 16:16 UTC
+! Last Modified: 21 Nov 2021 04:36 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: http://abpchina.org/forum/
 ! License: https://easylist-downloads.adblockplus.org/COPYING
@@ -13,22 +13,23 @@
 ! or via e-mail (easylist.china@gmail.com).
 !
 !-----------------------General advert blocking filters-----------------------!
+||https://2529212.com
 ||https://00-gov.cn
 ||https://000123456789.site
 ||https://0024aaaa.com
 ||https://008844.cc
 ||https://00xvppy.cn
-||https://012.tw $third-party
+||https://012.tw 
 ||https://01fen.com
 ||https://022aifang.com
 ||https://025suyu.com
-||https://033.com $third-party
+||https://033.com 
 ||https://0351dvd.cn
 ||https://0451106.com
 ||https://04zl.cn
 ||https://0516bm.com
 ||https://0531kt.com
-||https://0591101.com $third-party
+||https://0591101.com 
 ||https://0592weixin.com
 ||https://05qwmtwxa3ev.com
 ||https://06789.xyz
@@ -37,15 +38,15 @@
 ||https://0798ls.com
 ||https://080644.com
 ||https://080cbfe.cn
-||https://0885.net $third-party
+||https://0885.net 
 ||https://0937jyg.com
 ||https://0b2qv7.cn
-||https://0ka.com $third-party
+||https://0ka.com 
 ||https://0mr.cc
 ||https://0xxd.com
 ||https://1000dy.com
 ||https://1002.men
-||https://100cpc.com $third-party
+||https://100cpc.com 
 ||https://100fenlm.com
 ||https://104.197.140.120
 ||https://104.198.198.188
@@ -54,28 +55,28 @@
 ||https://104.233.177.93
 ||https://107.183.137.18
 ||https://107.187.122.172
-||https://110160.com $third-party
+||https://110160.com 
 ||https://11111fs.com
-||https://1133.cc $third-party
+||https://1133.cc 
 ||https://113o.com
-||https://114la.com $third-party
-||https://114lm.com $third-party
-||https://114yeah.com $third-party
-||https://116b.com $third-party
-||https://118114.cn $third-party
-||https://1188.com $third-party
+||https://114la.com  
+||https://114lm.com 
+||https://114yeah.com 
+||https://116b.com 
+||https://118114.cn 
+||https://1188.com 
 ||https://119.29.207.87
 ||https://120571.com
 ||https://12086.net
 ||https://121.40.25.88
 ||https://122.114.239.160
-||https://12291.com $third-party
+||https://12291.com 
 ||https://123456img.com
 ||https://12365chia.com
 ||https://123hala.com
 ||https://134.73.54.252
 ||https://138lm.com
-||https://139site.com $third-party
+||https://139site.com 
 ||https://13hangpifa.com
 ||https://13wn.com
 ||https://1503.net/code/
@@ -116,17 +117,17 @@
 ||https://1l1.cc
 ||https://1lib.cn
 ||https://1q8h.cn
-||https://1qwe3r.com $third-party
-||https://1v7.cn $third-party
+||https://1qwe3r.com 
+||https://1v7.cn 
 ||https://1w5ddx.cn
-||https://1x3x.com $third-party
+||https://1x3x.com 
 ||https://201071.com
 ||https://2018haoyunlai.com
 ||https://201n.com
-||https://210.65.10.32 $third-party
+||https://210.65.10.32 
 ||https://211.167.105.131
-||https://2155ec.com $third-party
-||https://217wo.com $third-party
+||https://2155ec.com 
+||https://217wo.com 
 ||https://21kk.cc
 ||https://220.115.251.25
 ||https://221.204.213.222
@@ -134,15 +135,15 @@
 ||https://23.244.43.212
 ||https://23.89.50.180
 ||https://23456dj.com
-||https://235123.net $third-party
+||https://235123.net 
 ||https://23dsf.top
-||https://23kmm.com $third-party
+||https://23kmm.com 
 ||https://2526game.com
-||https://2529.com $third-party
+||https://2529.com 
 ||https://268mob.cn
 ||https://272xb.com
 ||https://280dp.com
-||https://2898.com $third-party
+||https://2898.com 
 ||https://28acglz.com
 ||https://28wangmeng.com
 ||https://292812.com
@@ -150,19 +151,19 @@
 ||https://297772.com
 ||https://29wjns.com
 ||https://2d-c.cn
-||https://2f.com $third-party
+||https://2f.com 
 ||https://2g2h.com
-||https://2lian.com $third-party
+||https://2lian.com 
 ||https://2m2n.com
 ||https://2nmhz6k.cn
 ||https://2polj.top
 ||https://2zfzly.com
 ||https://30mksr.cn
 ||https://31365y.com
-||https://321tui.cn $third-party
-||https://321tui.com $third-party
-||https://32414.com $third-party
-||https://3324.cn $third-party
+||https://321tui.cn 
+||https://321tui.com 
+||https://32414.com 
+||https://3324.cn 
 ||https://3331909.com
 ||https://3332218.com
 ||https://3332219.com
@@ -188,51 +189,51 @@
 ||https://3338863.com
 ||https://3338877.com
 ||https://338336.com
-||https://3399.com/act/$third-party
+||https://3399.com/act/
 ||https://3400.org
 ||https://35clouds.com.cn
-||https://360doo.com $third-party
+||https://360doo.com 
 ||https://363lm.com
-||https://36500.com $third-party
-||https://36500.net $third-party
+||https://36500.com 
+||https://36500.net 
 ||https://365339.top
 ||https://365che.cc
 ||https://36pn.com
 ||https://375553.com
 ||https://376zf.com
-||https://3798.com $third-party
-||https://37cs.com $third-party
-||https://38ra.com $third-party
-||https://3975lm.com $third-party
+||https://3798.com 
+||https://37cs.com 
+||https://38ra.com 
+||https://3975lm.com 
 ||https://397773.com
-||https://3alian.net $third-party
+||https://3alian.net 
 ||https://3c3c3.com
-||https://3dwwwgame.com $third-party
+||https://3dwwwgame.com 
 ||https://3g.990.net
 ||https://3gmtr.com
 ||https://3lga3.cn
-||https://3p-link.com $third-party
+||https://3p-link.com 
 ||https://3qmh.com
 ||https://3qsys.com
-||https://3vlm.com $third-party
+||https://3vlm.com 
 ||https://3ygww.com
 ||https://4006825178.com
 ||https://40fenzhong.com
 ||https://4480dy.net
-||https://44pv.com $third-party
-||https://4567.org $third-party
+||https://44pv.com 
+||https://4567.org 
 ||https://47api.cn
-||https://4936.cn $third-party
+||https://4936.cn 
 ||https://4kyu.cn
-||https://50bang.org $third-party
+||https://50bang.org 
 ||https://50zera.com
 ||https://51-tour.net
 ||https://5125129.com
 ||https://517m.cn
-||https://51ads.com $third-party
+||https://51ads.com 
 ||https://51dmn.top
 ||https://51fuliwang.cn
-||https://51gugu.com $third-party
+||https://51gugu.com 
 ||https://51jumintong.com
 ||https://51roadway.com
 ||https://51sxzz.com
@@ -240,98 +241,98 @@
 ||https://51xumei.com
 ||https://5207470.com
 ||https://520meirenyu.com
-||https://525cm.com $third-party
+||https://525cm.com 
 ||https://5269120.com
-||https://526d.com $third-party
-||https://52kmh.com $third-party
+||https://526d.com 
+||https://52kmh.com 
 ||https://52kmk.com
 ||https://52kp2.com
 ||https://52yugan.com
 ||https://52zfl.com
-||https://5399.com $third-party
+||https://5399.com 
 ||https://550tg.com
 ||https://5551193.com
 ||https://5551650.com
 ||https://5551660.com
 ||https://5551825.com
 ||https://5551933.com
-||https://55803.net $third-party
+||https://55803.net 
 ||https://55kk.tv
 ||https://560378.com
-||https://565882.com $third-party
-||https://56yk.com $third-party
+||https://565882.com 
+||https://56yk.com 
 ||https://5783.org
 ||https://57union.com
 ||https://58taopinhui.com
 ||https://58xiangka.com
 ||https://592man.com
 ||https://593pi.cn
-||https://59519.com $third-party
+||https://59519.com 
 ||https://59gt.cn
-||https://59hi.com $third-party
+||https://59hi.com 
 ||https://5b1d.com
 ||https://5imoney.com
-||https://5leji.com $third-party
-||https://5mn.net $third-party
-||https://5mnh.com $third-party
+||https://5leji.com 
+||https://5mn.net 
+||https://5mnh.com 
 ||https://60.190.139.164
-||https://63kc.com $third-party
+||https://63kc.com 
 ||https://643226.com
 ||https://65tgh.com
-||https://6604.org $third-party
+||https://6604.org 
 ||https://666666666666.site
 ||https://6666lm.com
-||https://668559.com $third-party
+||https://668559.com 
 ||https://66996.top
 ||https://66997.top
 ||https://66998.top
 ||https://6728812.com
-||https://6789.net $third-party
-||https://67lm.com $third-party
-||https://685wo.com $script,third-party
+||https://6789.net 
+||https://67lm.com 
+||https://685wo.com 
 ||https://68665565.com
 ||https://68710266.com
-||https://6avz.com $script,third-party
+||https://6avz.com 
 ||https://6cc8cc.xyz
-||https://6dad.com $third-party
+||https://6dad.com 
 ||https://6dvip.com
 ||https://6huu.com
-||https://6travel.com $third-party
-||https://6v4.cn $third-party
-||https://70e.com $third-party
+||https://6travel.com 
+||https://6v4.cn 
+||https://70e.com 
 ||https://70lm.com
 ||https://70yst.cn
-||https://710070.com $third-party
+||https://710070.com 
 ||https://711kk.com
 ||https://71sem.com
-||https://7540.com $third-party
+||https://7540.com 
 ||https://761f1b3960.com
-||https://7676.com $third-party
+||https://7676.com 
 ||https://77417.cn
-||https://77777.org $third-party
+||https://77777.org 
 ||https://7791.com.cn
-||https://7794.com $third-party
+||https://7794.com 
 ||https://77power.com
-||https://77zhuan.com $third-party
-||https://788xj.com $third-party
+||https://77zhuan.com 
+||https://788xj.com 
 ||https://78dx8t.com
 ||https://7a096v.cn
-||https://7bwan.com $third-party
+||https://7bwan.com 
 ||https://7cbwus.cn
-||https://7clink.com $third-party
+||https://7clink.com 
 ||https://7dah8.com
 ||https://7daystodie.cn
-||https://7dlm.cn $third-party
+||https://7dlm.cn 
 ||https://7g9m3r.com
 ||https://7gg.cc
 ||https://7krvbn.com
-||https://7o2o.com $third-party
-||https://7t955.com $third-party
+||https://7o2o.com 
+||https://7t955.com 
 ||https://7wen.cn
 ||https://7xi9g1.com1.z0.glb.clouddn.com
-||https://8080i.com $third-party
+||https://8080i.com 
 ||https://80sjw.com
-||https://810236.com $third-party
+||https://810236.com 
 ||https://810251.com
 ||https://81c.cn
 ||https://820rd.com
@@ -348,21 +349,21 @@
 ||https://8881919.cc
 ||https://888888888888.online
 ||https://88888888vip.top
-||https://88cpc.com $third-party
+||https://88cpc.com 
 ||https://88rpg.net
-||https://88shu.cn $third-party
-||https://88ysg.com $third-party
+||https://88shu.cn 
+||https://88ysg.com 
 ||https://892155.com
 ||https://899792.com
 ||https://89h8.com
 ||https://8ao8ao.com
 ||https://8hdp.cn
-||https://8le8le.com $third-party
+||https://8le8le.com 
 ||https://8ucdn.com
-||https://911.cc $third-party
-||https://91link.xyz $third-party
-||https://91lmgg.com $third-party
-||https://91toon.com $third-party
+||https://911.cc 
+||https://91link.xyz 
+||https://91lmgg.com 
+||https://91toon.com 
 ||https://91xry.com
 ||https://91ysa.com
 ||https://92mile.com
@@ -375,32 +376,32 @@
 ||https://94dwc.com
 ||https://94lm.com
 ||https://94nw.com
-||https://9519.net $third-party
+||https://9519.net 
 ||https://95558000.com
 ||https://9596yy.com
-||https://9665yx.com $third-party
-||https://9669.com $script,third-party
+||https://9665yx.com 
+||https://9669.com 
 ||https://96mob.com
-||https://9718.com $third-party
+||https://9718.com 
 ||https://978655.online
 ||https://97wanle.com
-||https://980th.com $third-party
+||https://980th.com 
 ||https://9898c.com
 ||https://99dqw.com
-||https://99l.co $third-party
+||https://99l.co 
 ||https://99lolo.com
 ||https://99pps.com
 ||https://99tianxin.com
-||https://9ads.net $third-party
-||https://9ead.com $third-party
+||https://9ads.net 
+||https://9ead.com 
 ||https://9kanw.com
 ||https://9kff.com
 ||https://9nwg9sib9e.com
-||https://9w1an.com $third-party
+||https://9w1an.com 
 ||https://9wlm.com
 ||https://9wotuan.com
 ||https://9xiazaiqi.com
-||https://9xu.com $third-party
+||https://9xu.com 
 ||https://a.youdao.com
 ||https://a0b11.com
 ||https://a0b22.com
@@ -409,71 +410,71 @@
 ||https://a0c77.com
 ||https://a0usa.top
 ||https://a2b3.tk
-||https://a3p4.com $third-party
+||https://a3p4.com 
 ||https://a3p4.net
 ||https://a907907.com
 ||https://a9377j.com
 ||https://aaaa8.top
 ||https://aaaf.info $script
-||https://aafuck.xyz $third-party
+||https://aafuck.xyz 
 ||https://aaliyaheartha.com
 ||https://aasyy.com
 ||https://abc88866.com
 ||https://abcdlm.com
-||https://abiaobai.cn $third-party
+||https://abiaobai.cn 
 ||https://acasys88.cn
-||https://acgbase.com $third-party
-||https://achicih.gitee.io $third-party
+||https://acgbase.com 
+||https://achicih.gitee.io 
 ||https://acptkgp.com
-||https://acs86.com $third-party
-||https://ad-plus.cn $third-party
-||https://ad-survey.com $third-party
+||https://acs86.com 
+||https://ad-plus.cn 
+||https://ad-survey.com 
 ||https://ad.52av.tv
 ||https://ad.muyang888.top
-||https://ad8.cc $third-party
+||https://ad8.cc 
 ||https://ad9377.com
 ||https://adacgov.cn
 ||https://adbot.tw
-||https://adbxb.com $third-party
-||https://adconfer.com $third-party
+||https://adbxb.com 
+||https://adconfer.com 
 ||https://address9.com
 ||https://adelazanna.com
-||https://adfeifan.com $third-party
+||https://adfeifan.com 
 ||https://adget.cn
-||https://adhouyi.com $third-party
+||https://adhouyi.com 
 ||https://adiniky.com
-||https://adm.cnzz.net $third-party
-||https://admin6.com $third-party
+||https://adm.cnzz.net 
+||https://admin6.com 
 ||https://adnex.tech
-||https://adnow.cc $third-party
+||https://adnow.cc 
 ||https://adomv.com
-||https://adondemand.com $third-party
-||https://adpro.cn $third-party
-||https://adpush.cn $third-party
+||https://adondemand.com 
+||https://adpro.cn 
+||https://adpush.cn 
 ||https://adreal.cn
-||https://adreep.cn $third-party
+||https://adreep.cn 
 ||https://adrs.sdo.com
 ||https://ads.uc.cn
-||https://ads80.com $third-party
-||https://adsage.com $third-party
-||https://adsbro.com $third-party
-||https://adt100.com $third-party
-||https://adunioncode.com $third-party
-||https://adunite.com $third-party
-||https://adxiaozi.com $third-party
-||https://adxxx.com $third-party
-||https://adyun.com $third-party
+||https://ads80.com 
+||https://adsage.com 
+||https://adsbro.com 
+||https://adt100.com 
+||https://adunioncode.com 
+||https://adunite.com 
+||https://adxiaozi.com 
+||https://adxxx.com 
+||https://adyun.com 
 ||https://aencx.net
 ||https://aeoprw.cn
-||https://affiliate.rakuten.co.jp $third-party
+||https://affiliate.rakuten.co.jp 
 ||https://afj0.com
 ||https://afjlb.com
 ||https://agathaedith.com
 ||https://agilehw.online
-||https://agrantsem.com $third-party
+||https://agrantsem.com 
 ||https://agtsjb.com
-||https://aguo.com $third-party
-||https://agxclick.com $third-party
+||https://aguo.com 
+||https://agxclick.com 
 ||https://ah58tc.com
 ||https://ahjinhuayi.com
 ||https://ahjzys.com
@@ -485,11 +486,11 @@
 ||https://ahyau.com
 ||https://ahyuns.com
 ||https://ai36588.com
-||https://aiclicash.com $third-party
-||https://aidaicn.com $third-party
+||https://aiclicash.com 
+||https://aidaicn.com 
 ||https://aifu-pay.com
 ||https://aijielang.cn
-||https://aimato.com $third-party
+||https://aimato.com 
 ||https://aishangcan.com
 ||https://ajaxcdn.org
 ||https://ajwssds.com
@@ -500,7 +501,7 @@
 ||https://alifixed.cn
 ||https://alightin.com
 ||https://alimama.alicdn.com
-||https://alimama.cn $third-party
+||https://alimama.cn  
 ||https://alimb.top
 ||https://alimc1.top
 ||https://alisinak.com
@@ -508,17 +509,17 @@
 ||https://alivelivevideos.com
 ||https://aliyuncss.com
 ||https://aliyunxin.com
-||https://alllget.com $third-party
-||https://allyes.$third-party
+||https://alllget.com 
+||https://allyes.
 ||https://amarketing.top
-||https://andmejs.com $third-party
+||https://andmejs.com 
 ||https://andyfanfan.xyz
 ||https://annabelleabe.com
 ||https://anquanzhuomian.cn
 ||https://anquanzhuomian.com
-||https://aomeng.net $third-party
+||https://aomeng.net 
 ||https://aonecomd.com
-||https://aoparking.com $third-party
+||https://aoparking.com 
 ||https://aotetu.cn
 ||https://aoyinn.com
 ||https://aparvibices.com
@@ -533,10 +534,10 @@
 ||https://atanx.alicdn.com
 ||https://audit8.com
 ||https://auspiciousvp.com
-||https://av8d.net $third-party
+||https://av8d.net 
 ||https://avtiaozhuan.com
 ||https://aw21.top
-||https://awifi.cn $third-party
+||https://awifi.cn 
 ||https://ax21pics.org
 ||https://azttxs.com
 ||https://b588866.com
@@ -548,16 +549,16 @@
 ||https://baidulao.com
 ||https://baiduyoukualiyun.com
 ||https://baiduyubaidu.com
-||https://baitaiad.com $third-party
-||https://baitugu.com $third-party
+||https://baitaiad.com 
+||https://baitugu.com 
 ||https://baiyuandian.cc
-||https://baizhu.cc $third-party
+||https://baizhu.cc 
 ||https://bajieyy.cc
-||https://balmoralmkt.com $third-party
-||https://bang5mai.com $third-party
+||https://balmoralmkt.com 
+||https://bang5mai.com 
 ||https://bangbang521.com
 ||https://banjuanmao.com
-||https://baodaozhan.cn $third-party
+||https://baodaozhan.cn 
 ||https://baolic.com
 ||https://bbdsdy.com
 ||https://bbttkk.com
@@ -570,21 +571,21 @@
 ||https://bdyxzx.com
 ||https://bearad.com
 ||https://bebelait.com
-||https://behe.com $third-party
+||https://behe.com 
 ||https://bejzz.top
 ||https://bfgg365.com
 ||https://bhyblanket.cn
 ||https://biandaosheng.com
-||https://bianxianmao.com $third-party
+||https://bianxianmao.com 
 ||https://biaoshipai.net
 ||https://bibilm.com
-||https://biddingx.com $third-party
+||https://biddingx.com 
 ||https://bihaipack.com
 ||https://billionfocus.com
 ||https://bingyinq.com
 ||https://biohailijie.cn
-||https://biquge22.com $third-party
-||https://birdmedia.com $third-party
+||https://biquge22.com 
+||https://birdmedia.com 
 ||https://bj-bytsk.com
 ||https://bjgtsh.com
 ||https://bjxgw.top
@@ -593,24 +594,24 @@
 ||https://bla01.com
 ||https://bllzgqbyp.com
 ||https://blogdaka.cc
-||https://bloggerads.net $third-party
+||https://bloggerads.net 
 ||https://bmbaike.cn
-||https://bmw100.cn $third-party
+||https://bmw100.cn 
 ||https://bnq86.com
-||https://bnuni.com $third-party
+||https://bnuni.com 
 ||https://bole.asia
 ||https://bole8dns.com
 ||https://boleimg.com
 ||https://bolimen.top
-||https://books.com.tw/exep/ap/$third-party
+||https://books.com.tw/exep/ap/
 ||https://bosatria.cn
 ||https://bosiwangzi.cn
 ||https://botsforger.com.cn
-||https://bozhihua.com $third-party
+||https://bozhihua.com 
 ||https://bozhixiang.top
 ||https://braincf.com
 ||https://brownfox.top
-||https://bs777.net $third-party
+||https://bs777.net 
 ||https://bsfishing.cn
 ||https://bsjgc.com
 ||https://bskchina.cn/js/
@@ -619,24 +620,24 @@
 ||https://bts05.site
 ||https://btssy.net
 ||https://btwan5.com
-||https://btyou.com $third-party
+||https://btyou.com 
 ||https://bufamy.com
 ||https://bujiangjiu123.com
 ||https://buydee.org
 ||https://buyihao.com
-||https://buzzads.com $third-party
+||https://buzzads.com 
 ||https://bv8888.com
 ||https://bxgmb.com
 ||https://bxgz.cc
 ||https://bxjpl.cn
 ||https://bydonline.com
-||https://c.91wan.com $third-party
-||https://caiyifz.com $third-party
+||https://c.91wan.com 
+||https://caiyifz.com 
 ||https://cangnews.com
 ||https://cao444cao.com
-||https://caodaye.com $third-party
+||https://caodaye.com 
 ||https://caomindianying.com
-||https://cardniu.com $third-party
+||https://cardniu.com 
 ||https://carnol.cn
 ||https://cb.baidu.com
 ||https://cbjs.baidu.com
@@ -657,19 +658,19 @@
 ||https://cgiale.com
 ||https://cgskqg.com
 ||https://championmachinery-cn.com
-||https://chanet.com.cn $third-party
+||https://chanet.com.cn 
 ||https://chaoyi4.com
-||https://chapm.com $third-party
+||https://chapm.com 
 ||https://chaxinyong.net
 ||https://chayayeon.com
-||https://che0.com $third-party
+||https://che0.com 
 ||https://chehuanjie.com
-||https://chengruide.com $third-party
+||https://chengruide.com 
 ||https://chengzhonghuxin.com
 ||https://chenyanjiao.cn
 ||https://china-star.cc
-||https://chinauma.net $third-party
-||https://chinesean.com $third-party
+||https://chinauma.net 
+||https://chinesean.com 
 ||https://chiuhua.com.cn
 ||https://chromc.com
 ||https://chucity.com
@@ -677,7 +678,7 @@
 ||https://chushoushijian.cn
 ||https://chuzushijian.cn
 ||https://ci-web.cn
-||https://cifenqi.com $third-party
+||https://cifenqi.com 
 ||https://cj-cy.com
 ||https://cjgcedu.com
 ||https://cke199.com
@@ -686,11 +687,11 @@
 ||https://cl-xny.cn
 ||https://claz.com.cn
 ||https://climbcoder.com
-||https://cloudad.asia $third-party
+||https://cloudad.asia 
 ||https://cloudpsvn.com
 ||https://cmaxisolation.com
 ||https://cnbole.net
-||https://cnco.me $third-party
+||https://cnco.me 
 ||https://cncy8.com
 ||https://cnfanglei.com
 ||https://cnhbxx.com
@@ -699,17 +700,17 @@
 ||https://cnnywz.cn
 ||https://cnpinzhuo.com
 ||https://cnscdj.com
-||https://cnxad.com $third-party
+||https://cnxad.com 
 ||https://cnxad.net
 ||https://cnzz.com.so
 ||https://code222.com
 ||https://code668.com
-||https://coinadv.com $third-party
+||https://coinadv.com 
 ||https://coinever.net
 ||https://coolbook.cc
 ||https://coolfenxi.com
-||https://cpc.cc $third-party
-||https://cpm360.com $third-party
+||https://cpc.cc 
+||https://cpm360.com 
 ||https://cpro.baidu.com
 ||https://cpro.baidustatic.com
 ||https://cpv6.com
@@ -720,15 +721,15 @@
 ||https://cqtnfs.com 
 ||https://cqwzjx.cn
 ||https://cqyhd.com
-||https://cr-nielsen.com $third-party
+||https://cr-nielsen.com 
 ||https://crdrjs.info
 ||https://cre99.com
 ||https://crfrf.com
 ||https://crglpt.com
 ||https://crywl.com
-||https://cs.37see.com $third-party
-||https://csad.cc $third-party
-||https://csbew.com $third-party
+||https://cs.37see.com 
+||https://csad.cc 
+||https://csbew.com 
 ||https://csgtfruit.com
 ||https://csqiulong.com
 ||https://cssdiv.club
@@ -741,7 +742,7 @@
 ||https://cwmlm.com
 ||https://cxfzw.cn
 ||https://cxgh.net
-||https://cxxtv.com $third-party
+||https://cxxtv.com 
 ||https://cy-wz.com
 ||https://cyacc.com
 ||https://cycytea.cn
@@ -754,8 +755,8 @@
 ||https://czshenyue.cn
 ||https://cztanchao.com
 ||https://d15cjcet1djbmv.cloudfront.net
-||https://d1ad.com $third-party
-||https://d8360.com $third-party
+||https://d1ad.com 
+||https://d8360.com 
 ||https://dadjia.com
 ||https://dafapai.com
 ||https://dagonghuzhu.com
@@ -778,8 +779,8 @@
 ||https://dbncp.com
 ||https://dbojetp.cn
 ||https://dce0k0.cn
-||https://dcxmy.com $third-party
-||https://dddddd.net $third-party
+||https://dcxmy.com 
+||https://dddddd.net 
 ||https://ddhtek.com
 ||https://ddomm.com
 ||https://deeplacer.com
@@ -787,34 +788,34 @@
 ||https://dexuanyu.top
 ||https://df3n43m.com
 ||https://df77.com
-||https://df9377.com $third-party
+||https://df9377.com 
 ||https://dgtauto.com
 ||https://dhlmy.com
 ||https://dhxyzx.cn
 ||https://di9qu.com.cn
-||https://dian500.com $third-party
-||https://dian5000.com $third-party
+||https://dian500.com 
+||https://dian5000.com 
 ||https://dianwenwang.com
-||https://dianxin.com $third-party
+||https://dianxin.com 
 ||https://dilidd.com
-||https://displink.com $third-party
+||https://displink.com 
 ||https://diuling.com
 ||https://dizhonghaihotel.com
 ||https://djpt33.com
 ||https://djsn888.com
 ||https://djy518.com
-||https://dlads.cn $third-party
+||https://dlads.cn 
 ||https://dlhygj.com
 ||https://dlkjgjmy.com
 ||https://dlpifu.com
 ||https://dlrijiaele.com
 ||https://dlzjdesign.com
 ||https://dmqapp.com
-||https://dmtrck.com $third-party
+||https://dmtrck.com 
 ||https://dnskuu.com
-||https://doniv.net $third-party
+||https://doniv.net 
 ||https://dou777.com
-||https://doubleadv.com $third-party
+||https://doubleadv.com 
 ||https://doudao.cn
 ||https://dpjszs.com
 ||https://dqsft.com
@@ -828,21 +829,21 @@
 ||https://dtrcw.cc
 ||https://duiwai.baidu.com
 ||https://duobaoqj.com
-||https://duomai.com $third-party
+||https://duomai.com 
 ||https://duoquyouhui.cn
 ||https://dushiken.cn
 ||https://duusuu.com
 ||https://dvr8.com
 ||https://dw998.com
-||https://dxpmedia.com $third-party
+||https://dxpmedia.com 
 ||https://dxssiyi.com
 ||https://dy886.cn
-||https://dyhs52.com $third-party
+||https://dyhs52.com 
 ||https://dyssir.com
 ||https://dyx0878.cn
 ||https://dzjzg.com
 ||https://dzletao.com
-||https://dzsstye.com $third-party
+||https://dzsstye.com 
 ||https://dzxwnews.com
 ||https://e-demx.com
 ||https://e66gg.com
@@ -855,21 +856,21 @@
 ||https://e719.net
 ||https://e7ymqu6.cn
 ||https://earthahedda.com
-||https://easou.com $third-party
+||https://easou.com 
 ||https://ecuc123.net
 ||https://edenhermosa.com
 ||https://edo5.com
 ||https://eduad.baidu.com
 ||https://eduzzjy.com
-||https://eeyy.com $third-party
-||https://egooad.com $third-party
+||https://eeyy.com 
+||https://egooad.com 
 ||https://einsuran.com.cn
 ||https://eiv.baidu.com
-||https://ejin56.com $third-party
+||https://ejin56.com 
 ||https://ellenhilary.com
 ||https://elsiehoney.com
 ||https://elvirahedwig.com
-||https://emarbox.com $third-party
+||https://emarbox.com 
 ||https://enohb.com
 ||https://eoncreativity.com
 ||https://erdsyzb.com
@@ -877,17 +878,17 @@
 ||https://expo123.net
 ||https://extremedirectness.com
 ||https://eyd77s.com
-||https://eyouv.cn $third-party
-||https://ez33.com $third-party
-||https://ezlian.com $third-party
+||https://eyouv.cn 
+||https://ez33.com 
+||https://ezlian.com 
 ||https://f1190.com
-||https://f11w.com $third-party
-||https://f1zd.com $third-party
+||https://f11w.com 
+||https://f1zd.com 
 ||https://f2zd.com
 ||https://f70123.com
-||https://f8272.com $third-party
+||https://f8272.com 
 ||https://faachen.cn
-||https://fadama.com $third-party
+||https://fadama.com 
 ||https://family-joy.com
 ||https://fangniaowang.net
 ||https://fanli.in
@@ -897,10 +898,10 @@
 ||https://fcheng.top
 ||https://fd7c.com
 ||https://feisia1.cn
-||https://feitian001.com $third-party
+||https://feitian001.com 
 ||https://fengchedaomall.cn
 ||https://fenggejiaju.com
-||https://fengxiangstore.com $third-party
+||https://fengxiangstore.com 
 ||https://fensifuligo.com
 ||https://fexiaen.com
 ||https://ffa9.cn
@@ -912,12 +913,12 @@
 ||https://fjmeyer.com
 ||https://fjsjsj.com
 ||https://fkub.xyz
-||https://flashwing.net $third-party
+||https://flashwing.net 
 ||https://flowcodeapp.com
 ||https://fnkjj.com
 ||https://focusonus.top
 ||https://focusprolight.com
-||https://food5.net $third-party
+||https://food5.net 
 ||https://forever-k.com.cn
 ||https://foreveryoung.gz01.bdysite.com
 ||https://forrerri.com
@@ -933,34 +934,34 @@
 ||https://fv99.com
 ||https://fwt0.com
 ||https://fxmacd.com
-||https://fxxgw.com $third-party
+||https://fxxgw.com 
 ||https://fzbymy.com
 ||https://fzdeng.com
 ||https://fzglqyy.com
 ||https://g1.tagtic.cn
 ||https://g1c5.com
 ||https://g1f5.com
-||https://g35.cc $third-party
-||https://g3user.com $third-party
+||https://g35.cc 
+||https://g3user.com 
 ||https://g52bl.cn
-||https://game3737.com $third-party
-||https://gamecps.com $third-party
-||https://gameone.com $third-party
+||https://game3737.com 
+||https://gamecps.com 
+||https://gameone.com 
 ||https://gaobata.com
 ||https://gaomingbo.com
 ||https://garacy.cn
 ||https://gars57.cn
 ||https://gasxf.com
 ||https://gaycloud.cn
-||https://gclick.cn $third-party
+||https://gclick.cn 
 ||https://gdbly.com
 ||https://gdgy56.com
 ||https://gdskywings.com
-||https://gdxxb.com $third-party
+||https://gdxxb.com 
 ||https://ge95.com
 ||https://geili.co
 ||https://geiyujieda.com
-||https://geotmt.com $third-party
+||https://geotmt.com 
 ||https://geryi.com
 ||https://gf108.com
 ||https://gfd80.com
@@ -968,15 +969,15 @@
 ||https://gg.miued.com
 ||https://gg570.com
 ||https://ggdydz.com
-||https://ggmm777.com $third-party
+||https://ggmm777.com 
 ||https://ggweb.net
-||https://ggxt.net $third-party
+||https://ggxt.net 
 ||https://ghnmg.top
 ||https://glrcy.cn
 ||https://goodgoodluck.cn
 ||https://goodgz.cn
-||https://googleadsl.com $third-party
-||https://gotonav.com $third-party
+||https://googleadsl.com 
+||https://gotonav.com 
 ||https://gouweida.cn
 ||https://govbeijing.cn
 ||https://govchongqing.cn
@@ -991,11 +992,11 @@
 ||https://govxian.cn
 ||https://govyunfu.cn
 ||https://gowin01.com
-||https://gowinxp.com $third-party
+||https://gowinxp.com 
 ||https://gqswg.com
 ||https://greenbetterkids.com
 ||https://greenxcx.com
-||https://gs307.com $third-party
+||https://gs307.com 
 ||https://gshtrl.top
 ||https://gsjzlssws.com
 ||https://gssxb.com
@@ -1007,7 +1008,7 @@
 ||https://guangzizai.com
 ||https://guanmeixiangsu.com
 ||https://guduopu.com
-||https://gugeys.com $third-party
+||https://gugeys.com 
 ||https://guidashu.com
 ||https://guirui-clothes.com
 ||https://guominziben.com
@@ -1029,24 +1030,24 @@
 ||https://gzwxdq.cn
 ||https://gzxxty168.com
 ||https://h41s.com
-||https://h501.cn $third-party
+||https://h501.cn 
 ||https://hahazl.com
 ||https://haidaocn.com
 ||https://haireig.com
 ||https://haiyunimg.com
 ||https://haiyunpush.com
-||https://haiyunx.com $third-party
+||https://haiyunx.com 
 ||https://haizirv.cn
 ||https://handanxinkai.com
 ||https://hangoutairbags.com
 ||https://hanqidq.com
-||https://hao123union.baidu.com $third-party
-||https://hao222.com $third-party
+||https://hao123union.baidu.com 
+||https://hao222.com 
 ||https://hao61.net
 ||https://haokan3.cn
 ||https://haolew.com
-||https://haomm.com $third-party
-||https://haosf.com $third-party
+||https://haomm.com 
+||https://haosf.com 
 ||https://harahero.top
 ||https://harridan.cc
 ||https://harveysarv.com
@@ -1063,11 +1064,11 @@
 ||https://hbzjht.com
 ||https://hcwljy.com
 ||https://heaplap.com
-||https://heartshow.cn $third-party
+||https://heartshow.cn 
 ||https://hebkb.cn
-||https://heima8.com $third-party
+||https://heima8.com 
 ||https://hellocdn.top
-||https://hen360.com $third-party
+||https://hen360.com 
 ||https://henanlvyi.com
 ||https://henanzhulongjx.com
 ||https://heshun365.cn
@@ -1092,7 +1093,7 @@
 ||https://hmaqz.top
 ||https://hmnjf.com
 ||https://hmong-miaojiuyi.com
-||https://hn163fck.com $third-party
+||https://hn163fck.com 
 ||https://hnasd.com
 ||https://hnctsm.com
 ||https://hngezj.com
@@ -1121,17 +1122,17 @@
 ||https://hrbpay.com
 ||https://hskj.net
 ||https://hslyqs.com
-||https://hsmkj.net $third-party
+||https://hsmkj.net 
 ||https://hsyjxzl.cn
 ||https://ht12366.top
-||https://htg-x.com $third-party
+||https://htg-x.com 
 ||https://htxcl.com.cn
 ||https://huaerduo.com
 ||https://huapuzs.com
 ||https://huataisangao.cn
 ||https://huichenbz.com
 ||https://huigun.top
-||https://huimee.com $third-party
+||https://huimee.com 
 ||https://huimee.net
 ||https://huishij.net
 ||https://huiyutz.cn
@@ -1142,8 +1143,8 @@
 ||https://hxadt.com
 ||https://hxlif.com
 ||https://hxnzyy.com
-||https://hxqu.com $third-party
-||https://hxsq.app $third-party
+||https://hxqu.com 
+||https://hxsq.app 
 ||https://hxssj.cn
 ||https://hxtwl.cn
 ||https://hxyifu.com
@@ -1157,64 +1158,64 @@
 ||https://hytgj.com
 ||https://hyz86.com
 ||https://hz-sllace.com
-||https://hz3137.com $third-party
+||https://hz3137.com 
 ||https://hzdwjc.com
 ||https://hzlm.cc
 ||https://hzyyhz.cn
 ||https://i.zhuoyaju.com
-||https://i000o.com $third-party
+||https://i000o.com 
 ||https://i3818.com
-||https://i3z.cn $third-party
-||https://ianpos.com $third-party
-||https://icast.cn $third-party
+||https://i3z.cn 
+||https://ianpos.com 
+||https://icast.cn 
 ||https://icemf.com
-||https://icolor8.com $third-party
+||https://icolor8.com 
 ||https://id528.com
 ||https://idasai.com
 ||https://idcqi.com
 ||https://idianfang.com
 ||https://idoc58.com
 ||https://idy666.com
-||https://iee5.com $third-party
+||https://iee5.com 
 ||https://iewad.net
-||https://ifocus.cn $third-party
+||https://ifocus.cn 
 ||https://ifufen.com
-||https://igo5.cc $third-party
+||https://igo5.cc 
 ||https://ijir.cn
 ||https://il8r.com
-||https://ilepai.com $third-party
+||https://ilepai.com 
 ||https://ilinxi.cc
-||https://image.qndown.com $third-party
-||https://img.uu1001.cn $third-party
+||https://image.qndown.com 
+||https://img.uu1001.cn  
 ||https://imglele.xyz
 ||https://imglolo.xyz
 ||https://imgpipi.xyz
 ||https://imim.me
 ||https://immaohao.cn
 ||https://imnvgma.cn
-||https://index8.cn $third-party
-||https://instreet.cn $third-party
+||https://index8.cn 
+||https://instreet.cn 
 ||https://inte.sogoucdn.com 
-||https://intentarget.com $third-party
+||https://intentarget.com 
 ||https://iomsew.com
-||https://ipaypay.cn $third-party
-||https://iprefer.com.tw $third-party
+||https://ipaypay.cn 
+||https://iprefer.com.tw 
 ||https://iqiyi.kim
 ||https://iqiyi.pub
 ||https://iqu-operation.com
 ||https://iroby.com
-||https://is686.com $third-party
-||https://istcg.com $third-party
-||https://istreamsche.com $third-party
+||https://is686.com 
+||https://istcg.com 
+||https://istreamsche.com 
 ||https://it028.net.cn
 ||https://itchenjian.com
-||https://itechwall.com $third-party
+||https://itechwall.com 
 ||https://itemccmod.com
 ||https://iupnlpd.cn
 ||https://iwansf.com
 ||https://iyodoctor.com
 ||https://iyptc.cn
-||https://j8j9.com $third-party
+||https://j8j9.com 
 ||https://ja9377.com
 ||https://jacquelinelaura.com
 ||https://jbyy010.com
@@ -1237,12 +1238,12 @@
 ||https://jianbaimei.com
 ||https://jianbangjiaoyu.com
 ||https://jianduankm.com
-||https://jianglishi.cn $third-party
+||https://jianglishi.cn 
 ||https://jianglongjie.cn
 ||https://jiangmg.com
-||https://jiankang13.com $third-party
+||https://jiankang13.com 
 ||https://jianmei123.com
-||https://jianpian.vip $third-party
+||https://jianpian.vip 
 ||https://jianxinshanghai.com
 ||https://jianyouling.com
 ||https://jianyousj.com
@@ -1260,15 +1261,15 @@
 ||https://jinshasi.cn
 ||https://jinshenglong.cn
 ||https://jinxiuzhilv.com
-||https://jisucn.com $third-party
+||https://jisucn.com 
 ||https://jisukuaisong.cn
 ||https://jisuoping.com
-||https://jiudianhudong.com $third-party
+||https://jiudianhudong.com 
 ||https://jiuhui878.com
 ||https://jiuku.cc
-||https://jiuzhilan.com $third-party
-||https://jixing8.com $third-party
-||https://jixing8.net $third-party
+||https://jiuzhilan.com 
+||https://jixing8.com 
+||https://jixing8.net 
 ||https://jiyuanzhiwensuo.cn
 ||https://jjxgly.com
 ||https://jjz666.cn
@@ -1278,13 +1279,13 @@
 ||https://jl027.com
 ||https://jljspx.com
 ||https://jlwljym.com
-||https://jntmedia.cn $third-party
+||https://jntmedia.cn 
 ||https://jnxz88.cn
 ||https://jnyngg.cn
 ||https://joannalaura.com
 ||https://jocelynlaura.com
 ||https://johtzj.com
-||https://jointreport-switch.com $third-party
+||https://jointreport-switch.com 
 ||https://jozee.cn
 ||https://jp88888887.cn
 ||https://jqsex.com
@@ -1293,28 +1294,28 @@
 ||https://js88895.net
 ||https://jschuangnuo.com
 ||https://jscsd.cn
-||https://jsinfo.net $third-party
-||https://jsjxhd.com $third-party
+||https://jsinfo.net 
+||https://jsjxhd.com 
 ||https://jsmwd.com
-||https://jsyd139.com $third-party
+||https://jsyd139.com 
 ||https://jsyzw132.com
 ||https://jtdxz.top
 ||https://jtkshop.net
-||https://jtxh.net $third-party
-||https://ju33.com $third-party
-||https://juandou.com $third-party
-||https://juhepen.com $third-party
+||https://jtxh.net 
+||https://ju33.com 
+||https://juandou.com 
+||https://juhepen.com 
 ||https://junfull.com
 ||https://jungbey.xyz
 ||https://junkucm.com
-||https://junnew.com $third-party
-||https://jusha.com $third-party
+||https://junnew.com 
+||https://jusha.com 
 ||https://jushikk.com
 ||https://just-machinery.com
 ||https://jutou5.com
 ||https://juuhe.com
 ||https://juvbzle.cn
-||https://juxiangyou.com $third-party
+||https://juxiangyou.com 
 ||https://juyiqiche.com.cn
 ||https://jx118114.net
 ||https://jxjzny.com
@@ -1322,27 +1323,27 @@
 ||https://jxsgxzx.com
 ||https://jystea.com
 ||https://k1815.com
-||https://k3851.com $third-party
+||https://k3851.com 
 ||https://k9dzax.cn
 ||https://ka12138.top
 ||https://kagdf.com
 ||https://kaiguangdou.com
-||https://kaixinjiehun.com $third-party
-||https://kakayy.com $third-party
+||https://kaixinjiehun.com 
+||https://kakayy.com 
 ||https://kan8.xyz
 ||https://kanfaxing.com
 ||https://kanwby.com
 ||https://kc-valves.com
-||https://kdly.net $third-party
+||https://kdly.net 
 ||https://kdy365.vip
 ||https://keeearl.top
 ||https://keeyekey.xyz
-||https://kefeng56.com $third-party
-||https://kejet.$third-party
+||https://kefeng56.com 
+||https://kejet.
 ||https://kele4.com
 ||https://kevinhewu.com
-||https://keydot.net $third-party
-||https://keyrun.cn $third-party
+||https://keydot.net 
+||https://keyrun.cn 
 ||https://keyyou.net
 ||https://kf3msfm.com
 ||https://kfd3sm2c.com
@@ -1350,14 +1351,14 @@
 ||https://kfyg.xyz
 ||https://kgua0o66bcw8.com
 ||https://kguke.com
-||https://khgj.cn $third-party
+||https://khgj.cn 
 ||https://khufaw2.com
 ||https://kiees.com $image,subdocument,third-party
 ||https://kilin.xyz
 ||https://kingpolo.com.cn
 ||https://kingwam.com
 ||https://kitchenfurniture.cc
-||https://kiwihk.net $third-party
+||https://kiwihk.net 
 ||https://kjfoqi.cn
 ||https://kjgen.com
 ||https://kjwx8.com
@@ -1372,16 +1373,16 @@
 ||https://kojwex.top
 ||https://kokofits.com
 ||https://kolinay.com
-||https://koopei.com $third-party
+||https://koopei.com 
 ||https://koukou7.com
 ||https://ksxcxb.cn
 ||https://kt220.com
 ||https://ktdlsb.com
 ||https://ktunions.com
-||https://ku63.com $third-party
+||https://ku63.com 
 ||https://ku9377.com
-||https://kuaizitech.com $third-party
-||https://kuqi.com $third-party
+||https://kuaizitech.com 
+||https://kuqi.com 
 ||https://kuwoyy.com
 ||https://kuxinqi.com
 ||https://kwntistyuogo.com
@@ -1392,7 +1393,7 @@
 ||https://l0l.top
 ||https://laifu365.com
 ||https://langchars.com
-||https://lanmogu.net $third-party
+||https://lanmogu.net 
 ||https://lanshi021.com
 ||https://lantata.com
 ||https://laobei.top
@@ -1400,15 +1401,15 @@
 ||https://lc442.com
 ||https://lcloc.com
 ||https://lctcw.top
-||https://le123.cn $third-party
+||https://le123.cn 
 ||https://le4le.com
 ||https://leeleo.top
 ||https://lehutv6.com
 ||https://leletuitui.com
 ||https://letaojuan68.com
 ||https://leturich.org $subdocument
-||https://leturich.org $third-party
-||https://lezai.com $third-party
+||https://leturich.org 
+||https://lezai.com 
 ||https://leztc.com
 ||https://lflili.com
 ||https://lflucky.com
@@ -1416,12 +1417,12 @@
 ||https://lhengilin.com
 ||https://lhusy.com
 ||https://lhy1.xyz
-||https://lhzly.com $third-party
+||https://lhzly.com 
 ||https://liangxiaoru.cn
-||https://liangyi360.com $third-party
+||https://liangyi360.com 
 ||https://liangziweixg.com
-||https://lianjie.phpwind.com $third-party
-||https://lianle.com $third-party
+||https://lianjie.phpwind.com 
+||https://lianle.com 
 ||https://lianmeng.360.cn 
 ||https://liaoren85.com
 ||https://lichenqx.com
@@ -1430,7 +1431,7 @@
 ||https://lingqinga.cn
 ||https://linjiajia.cn
 ||https://linkpage.cn
-||https://linkvans.com $third-party
+||https://linkvans.com 
 ||https://lintyone.top
 ||https://lisaiservice.top
 ||https://lishuanghao.com
@@ -1445,7 +1446,7 @@
 ||https://lizehuandian.top
 ||https://llguandongyan.com
 ||https://llqss.top
-||https://lm.35.com $third-party
+||https://lm.35.com 
 ||https://lm245.com
 ||https://lm335.com
 ||https://lm343.com
@@ -1456,10 +1457,10 @@
 ||https://lm882.com
 ||https://lm885.com
 ||https://lm995.com
-||https://lnr1.com $third-party
+||https://lnr1.com 
 ||https://loclog.cn
 ||https://log.interest.mix.sina.com.cn
-||https://lolmp4.com $third-party
+||https://lolmp4.com 
 ||https://longbaojiachen.top
 ||https://longchengtg.com
 ||https://lovestyl.com
@@ -1475,10 +1476,10 @@
 ||https://lu.sogoucdn.com
 ||https://luassane.cn
 ||https://luoyuanedu.cn
-||https://lv711.net $third-party
+||https://lv711.net 
 ||https://lvt1980.cn
 ||https://lvylv.cn
-||https://lx167.com $third-party
+||https://lx167.com 
 ||https://lxqcgj.com
 ||https://lyadu.com
 ||https://lyaeccn.com
@@ -1490,23 +1491,23 @@
 ||https://lyxuexin.com
 ||https://lyztdz.com
 ||https://lzmm8.com
-||https://lzzqqc.com $third-party
+||https://lzzqqc.com 
 ||https://magic-future.com
 ||https://magictreehouse.cn
 ||https://magiphone.cn
 ||https://maidagu.com
 ||https://mainbx.com
 ||https://mall043.com
-||https://mamamiyu.com $third-party
+||https://mamamiyu.com 
 ||https://manhuachi.com
 ||https://manparis.cn
 ||https://maskbaby.com.cn
-||https://mathtag.com $third-party
-||https://mbai.cn $third-party
+||https://mathtag.com 
+||https://mbai.cn 
 ||https://mcdhshlsboom.com
-||https://medi-8.net $third-party
-||https://media8.cn $third-party
-||https://mediav.com $third-party
+||https://medi-8.net 
+||https://media8.cn 
+||https://mediav.com  
 ||https://meethanshi.com
 ||https://meihaoxiangwang.com
 ||https://meilides.com
@@ -1522,7 +1523,7 @@
 ||https://mgtv-bbqn.oss-cn-beijing.aliyuncs.com
 ||https://mgwcn.com
 ||https://miaolejieshui.cn
-||https://miaozhen.com $third-party
+||https://miaozhen.com 
 ||https://michael31lin.com
 ||https://mieyisi.com
 ||https://mindopu.com
@@ -1536,13 +1537,13 @@
 ||https://mm-cgnews.com
 ||https://mngjrn.cn
 ||https://mnxtu.com
-||https://mobads.baidu.com $third-party
+||https://mobads.baidu.com 
 ||https://moguozhi.com
 ||https://mojing.xyz
-||https://momzs.com $third-party
-||https://moogos.com $third-party
+||https://momzs.com 
+||https://moogos.com 
 ||https://moonwish.com.cn
-||https://mosa86.com $third-party
+||https://mosa86.com 
 ||https://motohelpr.com
 ||https://mozist.com
 ||https://mrksys.com
@@ -1550,35 +1551,35 @@
 ||https://mscimg.com
 ||https://mskjf.com
 ||https://msujd.cn
-||https://mtburn.com $third-party
-||https://mtty.com $third-party
+||https://mtburn.com 
+||https://mtty.com 
 ||https://mu722.com
 ||https://muyang888.top/js/
 ||https://mxmrt.com
-||https://mycctvmedia.com $third-party
+||https://mycctvmedia.com 
 ||https://myselfjanitor.com
-||https://mytanwan.com $third-party
+||https://mytanwan.com 
 ||https://myzk1.com
-||https://myzwqwe12.com $third-party
-||https://mzy2014.com $third-party
+||https://myzwqwe12.com 
+||https://mzy2014.com 
 ||https://n12xar123.xyz
-||https://naifei.shop $third-party
+||https://naifei.shop 
 ||https://namemek.com
 ||https://nbhxgjz.com
 ||https://nbzq.net
 ||https://nchte.com
 ||https://ndtzx.com
 ||https://netcoretech.net
-||https://news.tagtoo.co $third-party
+||https://news.tagtoo.co 
 ||https://newyiba.top
-||https://ni22.com $third-party
+||https://ni22.com 
 ||https://ni87.com
 ||https://niangaoxiansheng.com
 ||https://niubiba.com
 ||https://niuguwang.net.cn
 ||https://niuxgame77.com
 ||https://niuza.com $image,subdocument,third-party
-||https://niwota.com $third-party
+||https://niwota.com 
 ||https://njaeqjx.com
 ||https://njcyfpv.cn
 ||https://njdijiani.com
@@ -1591,15 +1592,15 @@
 ||https://njzyjy.cn
 ||https://nkscdn.com
 ||https://nktcw.cn
-||https://nmbtedu.com $third-party
+||https://nmbtedu.com 
 ||https://nmpcdn.com
 ||https://nmqbg.com
 ||https://nnsbbd.com
 ||https://nongsalei.com
-||https://nord-raum.com $third-party
+||https://nord-raum.com 
 ||https://notice.uchome.manyou.com
 ||https://nr1234.com
-||https://nszmz.com $third-party
+||https://nszmz.com 
 ||https://nterbx.com
 ||https://ntzfly.cn
 ||https://nukebomb.cn
@@ -1608,26 +1609,26 @@
 ||https://nwk6in.cn
 ||https://nwpuis.top
 ||https://nxrhs.com
-||https://ny5159.com $third-party
+||https://ny5159.com 
 ||https://nydql.com
 ||https://nzezn.com
 ||https://nzydzsw.com
-||https://o091i.com $third-party
-||https://oa-panther.data.aliyun.com $third-party
+||https://o091i.com 
+||https://oa-panther.data.aliyun.com 
 ||https://oceanbot-steam.com
 ||https://oddsds.com
 ||https://ojbknb.com
 ||https://ojbknx.com
 ||https://okm918.com
-||https://okokw.com $third-party
+||https://okokw.com 
 ||https://one-arts.com
 ||https://onenews.vip
-||https://onetad.com $third-party
-||https://onewhee.com $third-party
+||https://onetad.com 
+||https://onewhee.com 
 ||https://oneyearonechange.com
 ||https://onsnv.com
 ||https://oo5548q.top
-||https://open8.cn $third-party
+||https://open8.cn 
 ||https://openxt.cn
 ||https://oq68.com
 ||https://orchidscape.net
@@ -1636,14 +1637,14 @@
 ||https://oumazg.com
 ||https://overlordtea.cn
 ||https://ovkwiz.xyz
-||https://oxrm.com $third-party
+||https://oxrm.com 
 ||https://p0y.cn $image
 ||https://p3tt.com
-||https://pababy.cn $third-party
-||https://pagechoice.net $third-party
+||https://pababy.cn 
+||https://pagechoice.net 
 ||https://pagetest.top
 ||https://panel-cn.com
-||https://papa9394.com $third-party
+||https://papa9394.com 
 ||https://papa999.xyz
 ||https://parisianmacao.bet
 ||https://pc6cda10.com
@@ -1657,7 +1658,7 @@
 ||https://pgcm58.com/maizhan/
 ||https://pi9lxn.cn
 ||https://pianjjiicdn.com
-||https://piclick.cn $third-party
+||https://piclick.cn 
 ||https://pingping888.com
 ||https://pinwu123.com
 ||https://pinyierp.com
@@ -1671,13 +1672,13 @@
 ||https://poke88.com
 ||https://polkoa.com
 ||https://pos.baidu.com
-||https://poyang.cn $third-party
+||https://poyang.cn 
 ||https://poyang.com
 ||https://ppcdweb.cc
 ||https://pr00001.com
-||https://pro.cn $third-party
+||https://pro.cn 
 ||https://prohibited.cn
-||https://prohost.com.tw $third-party
+||https://prohost.com.tw 
 ||https://ptkhy.com
 ||https://ptv1f5dh4s35df4h5fg.xyz
 ||https://pubbirdf.com
@@ -1690,7 +1691,7 @@
 ||https://qdkzjdsb.cn
 ||https://qdsfzz.cn
 ||https://qdwght.com
-||https://qdxrhg.com $third-party
+||https://qdxrhg.com 
 ||https://qfihdr.com
 ||https://qfs365.com
 ||https://qgjapp.com
@@ -1698,10 +1699,10 @@
 ||https://qhaif.com
 ||https://qianfuyin.com
 ||https://qianmeiby.com
-||https://qidou.com $third-party
+||https://qidou.com 
 ||https://qilashou.com
-||https://qingniao.me $third-party
-||https://qingsedhhh.xyz $third-party
+||https://qingniao.me 
+||https://qingsedhhh.xyz 
 ||https://qingyanmjg.com
 ||https://qinqiaotrade.com
 ||https://qiqivv.com
@@ -1709,13 +1710,13 @@
 ||https://qiqiyii.com
 ||https://qixedu.com
 ||https://qiyijiazhuangshi.com
-||https://qiyou.com $third-party
+||https://qiyou.com 
 ||https://qjyzj.cn
-||https://qling.com $third-party
+||https://qling.com 
 ||https://qmname.com
 ||https://qo26.com
 ||https://qpokok.com
-||https://qq4g.cn $third-party
+||https://qq4g.cn 
 ||https://qqm98.com
 ||https://qqtx.me
 ||https://qs01.cn
@@ -1724,9 +1725,9 @@
 ||https://qsmdeyz.cn
 ||https://qtch888.com
 ||https://qtmojo.cn
-||https://qtmojo.com $third-party
+||https://qtmojo.com 
 ||https://quan7.cc
-||https://quanbailing.com $third-party
+||https://quanbailing.com 
 ||https://quandangdang.net
 ||https://quansj.cn
 ||https://quanxiaozi.com
@@ -1745,16 +1746,16 @@
 ||https://qzkxt.com
 ||https://qzxmtyy.com
 ||https://qzzljx.com
-||https://r5g.cc $third-party
-||https://raonie.com $third-party
-||https://rayli.com.cn $third-party
+||https://r5g.cc 
+||https://raonie.com 
+||https://rayli.com.cn 
 ||https://rcyl-uni.com
 ||https://rdance.cn
 ||https://rdsvsh.com
 ||https://re.taotaosou.com
 ||https://rebdy.com
 ||https://reendian.cn
-||https://rekanw.com $third-party
+||https://rekanw.com 
 ||https://reliancevalve.com
 ||https://rencai56.com
 ||https://rgdhct.cn
@@ -1767,29 +1768,29 @@
 ||https://rrsubway.com
 ||https://rsctljb.cn
 ||https://rscxwmj.cn
-||https://ruanwenclub.com $third-party
+||https://ruanwenclub.com 
 ||https://ruigezx.com
 ||https://ruizhimu.cn
 ||https://ruxianke.com
 ||https://rwjfs.com
 ||https://rx616.cn
-||https://s8dj.com $third-party
+||https://s8dj.com 
 ||https://s9w.cc
 ||https://sadobo.com
 ||https://saf588.com
 ||https://safe524.xyz
 ||https://safe555.xyz
 ||https://saleonce.top
-||https://sales-frontier.com $third-party
+||https://sales-frontier.com 
 ||https://samanthyean.com
-||https://samboc.com $third-party
-||https://sanmiyangguang.com $third-party
+||https://samboc.com 
+||https://sanmiyangguang.com 
 ||https://sanxiucaiwu.top
 ||https://sawadeca.com
 ||https://sbrqp.com
 ||https://scenepass.com
 ||https://scfatao.com
-||https://scize.com $third-party
+||https://scize.com 
 ||https://scjcgj.top
 ||https://scriptcc.cc
 ||https://scw0.com
@@ -1800,16 +1801,16 @@
 ||https://sdxctr.com
 ||https://sdxkdj.cn
 ||https://senxiaopang.top
-||https://sexy-more.com $third-party
+||https://sexy-more.com 
 ||https://sfxl.com.cn
 ||https://sfz023.com
 ||https://sh-xianghe.com
 ||https://shackapple.com
 ||https://shama5.com
-||https://shangjiabiao.com $third-party
+||https://shangjiabiao.com 
 ||https://shannon-porject.com
 ||https://sharedaddomain.com
-||https://sharele.cn $third-party
+||https://sharele.cn 
 ||https://sharonyean.com
 ||https://shcy3.com
 ||https://shengminsy.com
@@ -1819,7 +1820,7 @@
 ||https://shibagongfang.com
 ||https://shijixinrui.cn
 ||https://shixiaofei864.cn
-||https://sho9wbox.com $third-party
+||https://sho9wbox.com 
 ||https://shoukuoedu.com
 ||https://shouwangba.cn
 ||https://shouyouyou.com
@@ -1829,8 +1830,8 @@
 ||https://shuangshiyihightgo.top
 ||https://shucaihangjia.com
 ||https://shuccn.com
-||https://shuihulu.com $third-party
-||https://shujuwu.com $third-party
+||https://shuihulu.com 
+||https://shujuwu.com 
 ||https://shukongshebei.net
 ||https://shunlidl.online
 ||https://shunshiwlkj.com
@@ -1842,7 +1843,7 @@
 ||https://sigrce.one
 ||https://simaoer.com
 ||https://simpasa.cn
-||https://sin114.com $third-party
+||https://sin114.com 
 ||https://sina-img.club
 ||https://sinaalicdn.com
 ||https://sinawbimg.com
@@ -1860,13 +1861,13 @@
 ||https://smitionsory.co
 ||https://smucdn.com
 ||https://smxsg.com
-||https://snmi.cn $third-party
+||https://snmi.cn 
 ||https://snnnyy.com
-||https://snxyf.com $third-party
-||https://snyu.com $third-party
+||https://snxyf.com 
+||https://snyu.com 
 ||https://so9l.com
 ||https://socdm.com
-||https://somennew.com $third-party
+||https://somennew.com 
 ||https://soulplp.com
 ||https://sparkyinchun.com
 ||https://spcode.baidu.com
@@ -1876,30 +1877,30 @@
 ||https://sq85.press
 ||https://sqext.com
 ||https://sqyueda.com
-||https://ssaa.cc $third-party
-||https://sscj123.com $third-party
+||https://ssaa.cc 
+||https://sscj123.com 
 ||https://ssdaili.com
 ||https://ssmuse1314.cn
-||https://sspsky.com $third-party
+||https://sspsky.com 
 ||https://ssroa.cc
 ||https://staqnet.com
-||https://star8.net $third-party
+||https://star8.net 
 ||https://static-cn.plista.com
 ||https://steadfastsystem.com
 ||https://stgowan.com
 ||https://stn88.com
 ||https://stocksbsc.com
-||https://storeapi.net $third-party
+||https://storeapi.net 
 ||https://stsywl.com
 ||https://suangtianw.com
-||https://subo.me $third-party
+||https://subo.me 
 ||https://sufficient.cn
-||https://sums.suning.com $third-party
+||https://sums.suning.com 
 ||https://sundady.online
 ||https://suning.beer
 ||https://suning.design
 ||https://suning.fit
-||https://superfish.com $third-party
+||https://superfish.com 
 ||https://superli666.top
 ||https://suukcn.com
 ||https://suzhoujinghui.com
@@ -1914,7 +1915,7 @@
 ||https://sxz67.com
 ||https://sxzmj.cn
 ||https://sykty.com
-||https://symaw.cn $third-party
+||https://symaw.cn 
 ||https://sytcyf.com
 ||https://syzzhd.cn
 ||https://szblcad.com
@@ -1925,48 +1926,48 @@
 ||https://szpl0.com
 ||https://szshss.com
 ||https://sztbjs.com
-||https://szvr.com $third-party
+||https://szvr.com 
 ||https://szwyyl.com
 ||https://szxhybj.com
-||https://t3nlink.com $third-party
+||https://t3nlink.com 
 ||https://t415n.cn
 ||https://t58b.com
 ||https://t70123.com
-||https://ta80.com $third-party
+||https://ta80.com 
 ||https://tad.suning.com
-||https://tamedia.com.tw $third-party
+||https://tamedia.com.tw 
 ||https://tan1dian.com
-||https://tanwanyx.com $third-party
-||https://tanx.com $third-party
+||https://tanwanyx.com 
+||https://tanx.com  
 ||https://taobaojx.com
 ||https://taobayun.cn
 ||https://taoguanda.com
 ||https://taoguohe.com
 ||https://taohanpai.com
-||https://taojingu.cn $third-party
+||https://taojingu.cn 
 ||https://taoyuay.top
 ||https://tbaocdn.com
 ||https://tc600.com
 ||https://tdayi.com
-||https://tebaidu.cn $third-party
+||https://tebaidu.cn 
 ||https://techantuijian.com
-||https://techsolutions.com.tw $third-party
-||https://tellvi.cn $third-party
+||https://techsolutions.com.tw 
+||https://tellvi.cn 
 ||https://tencent.xn--io0a7i
-||https://tenmax.io $third-party
+||https://tenmax.io 
 ||https://tequanma.com
 ||https://teresacd.cn
 ||https://tesfw.com
-||https://tgjkbx.cn $third-party
+||https://tgjkbx.cn 
 ||https://th-make.com
 ||https://th21333.com
 ||https://thallus.net
-||https://thefifthera.com $third-party
+||https://thefifthera.com 
 ||https://thishare.com
-||https://tianfus.com $third-party
+||https://tianfus.com 
 ||https://tiangu99.com
 ||https://tianii.top
-||https://tianji520.cn $third-party
+||https://tianji520.cn 
 ||https://tianjieleather.com
 ||https://tianjiunion.cn
 ||https://tianqi777.com
@@ -1981,17 +1982,17 @@
 ||https://tkd777.cn
 ||https://tnarzc.com
 ||https://tngmn.com
-||https://to8to.com $subdocument,third-party
+||https://to8to.com 
 ||https://togo666.com
 ||https://tongdejiayuan.com
 ||https://toolset.vip
 ||https://toospk.com
 ||https://toourbb.com
-||https://top.baidu.com $subdocument,third-party
+||https://top.baidu.com 
 ||https://top267.com
-||https://top888.com $third-party
-||https://touchrom.com $third-party
-||https://toufangke.com $third-party
+||https://top888.com 
+||https://touchrom.com 
+||https://toufangke.com 
 ||https://toutiao.social
 ||https://toutiao.xn--fiqs8s
 ||https://towers-shield.com
@@ -2001,23 +2002,23 @@
 ||https://trenhdg.com
 ||https://trisn.top
 ||https://trourted.pro
-||https://trys5.com $third-party
+||https://trys5.com 
 ||https://tsdlp.com
 ||https://tsyndolls.com
 ||https://ttbc.cc
 ||https://tttppp.oss-cn-guangzhou.aliyuncs.com
-||https://tttxx.cn $third-party
-||https://ttz.com $third-party
+||https://tttxx.cn 
+||https://ttz.com 
 ||https://ttzhongbao.com
-||https://tudown.com $third-party
-||https://tuia.cn $third-party
+||https://tudown.com 
+||https://tuia.cn 
 ||https://tuifish.com
 ||https://tukeai.com
 ||https://tumeite.cn
-||https://twb98.com $third-party
-||https://twcczhu.com $third-party
+||https://twb98.com 
+||https://twcczhu.com 
 ||https://twitterzs.com
-||https://twrank.com $third-party
+||https://twrank.com 
 ||https://twzui6.com
 ||https://txdwc.cn
 ||https://txt2017.com
@@ -2029,53 +2030,53 @@
 ||https://tyjnwg.top
 ||https://tyjnwj.top
 ||https://tylll.com
-||https://tz-dsp.com $third-party
-||https://u.801t.com $third-party
+||https://tz-dsp.com 
+||https://u.801t.com 
 ||https://u.huoying666.com
 ||https://u1n6ok.cn
-||https://u88.cn $third-party
+||https://u88.cn 
 ||https://uadsaa.com
 ||https://ubalh.com
 ||https://uballcc.com
-||https://ubcpm.com $third-party
+||https://ubcpm.com 
 ||https://ubmcvideo.baidustatic.com
-||https://uc138.com $third-party
+||https://uc138.com 
 ||https://uc610.com
-||https://uctrac.com $third-party
+||https://uctrac.com 
 ||https://ucxgg.com
 ||https://ud831d2.com
 ||https://ud831d4.com
 ||https://ue2bm3.cn
-||https://ueadlian.com $third-party
-||https://ufstone.com $third-party
+||https://ueadlian.com 
+||https://ufstone.com 
 ||https://ugg66.com
-||https://ujian.cc $third-party
-||https://ulink.cc $third-party
-||https://um29.com $third-party
+||https://ujian.cc 
+||https://ulink.cc 
+||https://um29.com 
 ||https://umjsik.com
 ||https://uneede.com
-||https://unimhk.com $third-party
-||https://union-wifi.com $third-party
-||https://union.zbj.com $third-party
-||https://union009.com $third-party
-||https://unionbig.com $third-party
-||https://unionli.com $third-party
-||https://unionsky.cn $third-party
-||https://unionsky2.cn $third-party
+||https://unimhk.com 
+||https://union-wifi.com 
+||https://union.zbj.com 
+||https://union009.com 
+||https://unionbig.com 
+||https://unionli.com 
+||https://unionsky.cn 
+||https://unionsky2.cn 
 ||https://uoyrsd.com
 ||https://urlat.cn
-||https://usingde.com $third-party
+||https://usingde.com 
 ||https://uuaoz.com
 ||https://uvclick.com
 ||https://uzpmrbek.com
-||https://v-links.net $third-party
-||https://v.center $third-party
-||https://v.xi666.com $third-party
+||https://v-links.net 
+||https://v.center 
+||https://v.xi666.com 
 ||https://v9wuyulou.com
 ||https://vaedan.top
 ||https://vainews.cn
 ||https://valueur.com
-||https://vamaker.com $third-party
+||https://vamaker.com 
 ||https://vc370.com
 ||https://vdajk.com
 ||https://vdazz.net
@@ -2083,27 +2084,27 @@
 ||https://vedeh.com
 ||https://vertivchina.cn
 ||https://verycleaner.cn
-||https://vf5c.com $third-party
+||https://vf5c.com 
 ||https://vhpxa.top
 ||https://victorjx.com
 ||https://video231.oss-cn-beijing.aliyuncs.com
-||https://visadd.com $third-party
-||https://vlion.cn $third-party
+||https://visadd.com 
+||https://vlion.cn 
 ||https://vmjjzk.cn
 ||https://vnnv777.cn
 ||https://vns3359.com
 ||https://voocl.com
-||https://vpie.net $third-party
-||https://vsnoon.com $third-party
+||https://vpie.net 
+||https://vsnoon.com 
 ||https://vt863.cn
 ||https://vtfwgfo.cn
 ||https://vtqifk86868.cn
 ||https://vxsnk.com
 ||https://w65p.com
 ||https://waiyuyou.com
-||https://walibao.com $third-party
+||https://walibao.com 
 ||https://wanfukang.cc
-||https://wanfumei.net $third-party
+||https://wanfumei.net 
 ||https://wangdaizao.com
 ||https://wangdddy.com
 ||https://wangdq.com
@@ -2119,12 +2120,12 @@
 ||https://wdxxx.top
 ||https://wdymwzz.com
 ||https://wdzsb.com.cn
-||https://weareqy.com $third-party
+||https://weareqy.com 
 ||https://wecrtfr.com
-||https://weddingeeos.com $third-party
+||https://weddingeeos.com 
 ||https://weifengtianxia.com
 ||https://weizhenwx.com
-||https://weizjzg.com $third-party
+||https://weizjzg.com 
 ||https://wemdsm.com
 ||https://wenqiche.com
 ||https://werpig.com
@@ -2132,34 +2133,34 @@
 ||https://wffengtai.com.cn
 ||https://wgnlz.com
 ||https://whafwl.com
-||https://whale123.com $third-party
+||https://whale123.com 
 ||https://whhxnz.com
 ||https://whshangsha.com
 ||https://whycywhivu.pro
 ||https://whytoss.com
 ||https://whzxpm.cn
-||https://widget.ezprice.com.tw $third-party
+||https://widget.ezprice.com.tw 
 ||https://wikigifth.com
-||https://winasdaq.com $third-party
+||https://winasdaq.com 
 ||https://winde.cc
 ||https://windowsxi.com
 ||https://windzq.com
-||https://wit.qq.com $third-party
+||https://wit.qq.com 
 ||https://wjguc.com
 ||https://wka8.com
 ||https://wm-mxc.com
-||https://wmrmb.cn $third-party
+||https://wmrmb.cn 
 ||https://wmspw.com
 ||https://wnlyjhb.com
 ||https://wo19.top
-||https://wo685.com $third-party
-||https://wodemeitu.com $third-party
-||https://wofan.net $third-party
+||https://wo685.com 
+||https://wodemeitu.com 
+||https://wofan.net 
 ||https://wojiabaoye.com
 ||https://wootwood.com
 ||https://wowips.com
 ||https://wowostar.cn
-||https://wqzyt.net $third-party
+||https://wqzyt.net 
 ||https://ws341.com
 ||https://ws7j.com
 ||https://wsgblw.com
@@ -2167,12 +2168,12 @@
 ||https://wsmky.com
 ||https://wstztt.com
 ||https://wu65.com
-||https://wudang05.com $third-party
+||https://wudang05.com 
 ||https://wudejia.com
-||https://wuseng.net $third-party
+||https://wuseng.net 
 ||https://wuwaii.com
-||https://wuxinb.com $third-party
-||https://wwads.cn $third-party
+||https://wuxinb.com 
+||https://wwads.cn 
 ||https://wwlolbs.com
 ||https://www-sina-cn-com.com
 ||https://wwwlongjiekejijishu.com
@@ -2188,12 +2189,12 @@
 ||https://wzjijia.com
 ||https://wzsygdl.com
 ||https://x6z6.com
-||https://x70e.com $third-party
-||https://x8ad.com $third-party
+||https://x70e.com 
+||https://x8ad.com 
 ||https://xa9t.com
 ||https://xabaitai.com
 ||https://xabmjr.com
-||https://xajx.com $third-party
+||https://xajx.com 
 ||https://xcads.cn
 ||https://xchgx.com
 ||https://xcjy876.com
@@ -2201,11 +2202,11 @@
 ||https://xcsci.cn
 ||https://xcxzxc.cn
 ||https://xcy8.com
-||https://xcycm.com $third-party
+||https://xcycm.com 
 ||https://xdbwc.com
 ||https://xdcqcyp.com
-||https://xdwan.com $third-party
-||https://xe2c.com $third-party
+||https://xdwan.com 
+||https://xe2c.com 
 ||https://xgxq518.com
 ||https://xhbqczl.com
 ||https://xhmrv.com
@@ -2218,18 +2219,18 @@
 ||https://xiangzhengjinshu.com
 ||https://xiaochengzhixue.com
 ||https://xiaoxiangmovie.com
-||https://xiaoyida.com $third-party
+||https://xiaoyida.com 
 ||https://xiarikui08.com
-||https://xigeweb.com $third-party
+||https://xigeweb.com 
 ||https://xihashuale.com
 ||https://xihuangdushu.com
 ||https://xiji-express.com
-||https://xijinfa.com $third-party
+||https://xijinfa.com 
 ||https://xilele.com
-||https://xin365.org $third-party
+||https://xin365.org 
 ||https://xinbo-lora.cn
 ||https://xinerdact.com
-||https://xing678.com $third-party
+||https://xing678.com 
 ||https://xingjuhe.com
 ||https://xingxingdm.com
 ||https://xinhaogong.xyz
@@ -2237,20 +2238,20 @@
 ||https://xinray.net
 ||https://xinyansaas.com
 ||https://xiongdong.com
-||https://xiongyin.com $third-party
+||https://xiongyin.com 
 ||https://xiongzhangad.com
-||https://xitao3.com $third-party
-||https://xixianad.com $third-party
+||https://xitao3.com 
+||https://xixianad.com 
 ||https://xk2012.com
 ||https://xlgqy.com
-||https://xlingdi.com $third-party
+||https://xlingdi.com 
 ||https://xm9178.com
 ||https://xmangoculture.com
 ||https://xmhaorizi.cn
 ||https://xmliw.com
 ||https://xmrepair.com
 ||https://xmrzw.cn
-||https://xmshqh.com $third-party
+||https://xmshqh.com 
 ||https://xmtsyg.com
 ||https://xmxxwl.com
 ||https://xmzwdgm.com
@@ -2277,22 +2278,22 @@
 ||https://xn--xhq9mt12cf5v.top
 ||https://xn--xhq9mt12cf5v.website
 ||https://xn--xhq9mt12cf5v.xn--io0a7i
-||https://xn01.xyz $third-party
+||https://xn01.xyz 
 ||https://xnjpg.com
-||https://xp3366.com $third-party
-||https://xq12.com $third-party
+||https://xp3366.com 
+||https://xq12.com 
 ||https://xsjyun.cn
-||https://xsu.cc $third-party
+||https://xsu.cc 
 ||https://xt2d.cn
 ||https://xtdzkj.cn
-||https://xtgreat.com $third-party
+||https://xtgreat.com 
 ||https://xtianqi.com.cn
 ||https://xtxa.net
 ||https://xtyizilaijx.cn
 ||https://xu7b.com
 ||https://xuanmin.wang
 ||https://xuanmingyc.com
-||https://xuchuang.com $third-party
+||https://xuchuang.com 
 ||https://xuehelei.com
 ||https://xueyongbao.com
 ||https://xujingch.com
@@ -2317,10 +2318,10 @@
 ||https://xylmdm.top
 ||https://xytom.com
 ||https://xz6d.com
-||https://xzdchl.com $third-party
+||https://xzdchl.com 
 ||https://xzyituo.com
 ||https://y0o1g.cn
-||https://yabo168.cc $third-party
+||https://yabo168.cc 
 ||https://yalongrope.cn
 ||https://yamaidei.cn
 ||https://yangdasen.cn
@@ -2330,52 +2331,52 @@
 ||https://yatemy.cn
 ||https://ycgy8888.com
 ||https://ychml.com
-||https://ydcpc.com $third-party
+||https://ydcpc.com 
 ||https://yditweb.cn
 ||https://ydqzkj.com
 ||https://ye2017.com
-||https://ye3.com $third-party
+||https://ye3.com 
 ||https://yenlm.com
 ||https://yese115.com
 ||https://yese161.com
 ||https://yese236.com
 ||https://yeyajipp.com
-||https://yezilm.com $third-party
+||https://yezilm.com 
 ||https://yf898.com
 ||https://yfot.com.cn
 ||https://yfycy.com
-||https://yghua.com $third-party
+||https://yghua.com 
 ||https://yhhls.com
 ||https://yhsmk.com
 ||https://yi71.com.cn
 ||https://yichunrz.com
-||https://yifuls.com $third-party
-||https://yigao.com $third-party
+||https://yifuls.com 
+||https://yigao.com 
 ||https://yigyx.com
-||https://yiiwoo.com $third-party
+||https://yiiwoo.com 
 ||https://yijia2009.com
 ||https://yijikm.com
 ||https://yilianqing.com
-||https://yingshidaquan.cc $third-party
+||https://yingshidaquan.cc 
 ||https://yinmofun.com
-||https://yinoo.cn $third-party
+||https://yinoo.cn 
 ||https://yinyuehu.cn
 ||https://yipanhaocai.com
 ||https://yiqifa.com $subdocument
-||https://yiqiv.com $third-party
+||https://yiqiv.com 
 ||https://yiran686.cn
 ||https://yirendajiankang.com
 ||https://yisd.press
 ||https://yishuifa.org
 ||https://yitai001.com
 ||https://yitongfang.com
-||https://yiwad.com $third-party
-||https://yixige.com $third-party
+||https://yiwad.com 
+||https://yixige.com 
 ||https://yixui.com
 ||https://yjbuhao.top
 ||https://yl-zipper.com
 ||https://ylfgybn.cn
-||https://ylzx.net $third-party
+||https://ylzx.net 
 ||https://ymcqb.com
 ||https://ynbojie.com
 ||https://ynlsgw.com
@@ -2383,17 +2384,17 @@
 ||https://ynwqls.com
 ||https://ynyyx168.com
 ||https://yongkang6.com
-||https://yongv.com $third-party
+||https://yongv.com 
 ||https://youfumei.com
 ||https://youhehuixiangxinxi.top
-||https://youle55.com $third-party
-||https://youmw.com $third-party
+||https://youle55.com 
+||https://youmw.com 
 ||https://yousee.com
-||https://youxiaoad.com $third-party
-||https://youxicool.net $third-party
+||https://youxiaoad.com 
+||https://youxicool.net 
 ||https://youyoumw.com
-||https://yoyi.com.cn $third-party
-||https://yoyi.tv $third-party
+||https://yoyi.com.cn 
+||https://yoyi.tv 
 ||https://ypa.focusoftime.com
 ||https://ypmob.com
 ||https://yqgjq.com
@@ -2404,12 +2405,12 @@
 ||https://ysgsq.cn
 ||https://ysjkbk.com
 ||https://ysjwj.com
-||https://yskanba.com $script,third-party
-||https://ysm.ezprice.net $third-party
+||https://yskanba.com 
+||https://ysm.ezprice.net 
 ||https://ysyjg.com
 ||https://ytop8.com
 ||https://yuailairuci.com
-||https://yuanhsu.com $third-party
+||https://yuanhsu.com 
 ||https://yuanmengbi.com
 ||https://yuanyanglw.com
 ||https://yueleshenghuo.cn
@@ -2418,7 +2419,7 @@
 ||https://yujianmeihao179.cn
 ||https://yule8.net
 ||https://yunchong6.cn
-||https://yunfanlm.com $third-party
+||https://yunfanlm.com 
 ||https://yunmowu.com
 ||https://yunrong360.com
 ||https://yunsoka.com
@@ -2427,13 +2428,13 @@
 ||https://ywadf.cn
 ||https://ywjxsp168.cn
 ||https://ywxi.net
-||https://yxdyk.com $script,third-party
+||https://yxdyk.com 
 ||https://yxgfcj.com
 ||https://yxjad.com
 ||https://yxmspx.com
 ||https://yxszy.com
 ||https://yxxwyz.com
-||https://yy32.com $third-party
+||https://yy32.com 
 ||https://yy58ju.com
 ||https://yyp17.com
 ||https://yyy6999.com
@@ -2441,18 +2442,18 @@
 ||https://yzbqz.com
 ||https://yzh360.com
 ||https://yzwr588.com
-||https://yzxls.com $third-party
+||https://yzxls.com 
 ||https://yzygo.com
 ||https://yzyrsw.com
 ||https://yzytb.com
-||https://z2blog.com $third-party
+||https://z2blog.com 
 ||https://zaitouwang.com
-||https://zampda.net $third-party
-||https://zampdsp.com $third-party
+||https://zampda.net 
+||https://zampdsp.com 
 ||https://zantainet.com
 ||https://zcrtd.com
-||https://zd6789.com $third-party
-||https://ze5.com $third-party
+||https://zd6789.com 
+||https://ze5.com 
 ||https://zencu.com.cn
 ||https://zeroao.cn
 ||https://zeronethree.xyz
@@ -2465,10 +2466,10 @@
 ||https://zgtcar.com
 ||https://zgunion.cn
 ||https://zgyemy.com
-||https://zgyiyi.com $third-party
+||https://zgyiyi.com 
 ||https://zhaibei112.top
 ||https://zhaiqichao.top
-||https://zhandi.cc $third-party
+||https://zhandi.cc 
 ||https://zhangbaochang.top
 ||https://zhangjunying.top
 ||https://zhangkc.com
@@ -2497,7 +2498,7 @@
 ||https://zhuba8.com
 ||https://zhudiaosz.com
 ||https://zhufushuo.com
-||https://zhululm.com $third-party
+||https://zhululm.com 
 ||https://zhy333.com
 ||https://ziig.com.cn
 ||https://zisu.cn.com
@@ -2506,17 +2507,17 @@
 ||https://zjhim.com
 ||https://zjhoudao.com
 ||https://zl588.com
-||https://zlongad.com $third-party
+||https://zlongad.com 
 ||https://zmgod.com
 ||https://zmlled.cn
-||https://zp265.com $third-party
+||https://zp265.com 
 ||https://zpxw.vip
 ||https://zqsbnfh.top
 ||https://zqscript.com
 ||https://zsdexun.com.cn
 ||https://zsjyc.top
 ||https://zswinwin.xyz
-||https://ztdsp.com $third-party
+||https://ztdsp.com 
 ||https://ztidu.com
 ||https://ztvx8.com
 ||https://zuoss.net
@@ -2527,8 +2528,8 @@
 ||https://zymro.com
 ||https://zyqp9.com
 ||https://zyzjpx.cn
-||https://zz123.com $third-party
-||https://zzad.com $third-party
+||https://zz123.com 
+||https://zzad.com 
 ||https://zzbaowen.com
 ||https://zzkangyuan.cn
 ||https://zzkoubei.com
@@ -2538,54 +2539,54 @@
 ||https://zzwpsm.cn
 ||https://zzxlhwyp.com
 ||https://zzyonghao.com
-||https://1024mzs.pw $popup,third-party
-||https://1024wanzhai.$popup,third-party
-||https://133gp.com $popup
-||https://189.cn/actpush/$popup,third-party
-||https://5lu8.com $popup,third-party
-||https://76fengyun.com/vip.php$popup
-||https://7wkw.com $popup
-||https://88p2p.com $popup
-||https://9453hot.com $popup
-||https://99nfft.com $popup,third-party
-||https://agxclick.com $popup
-||https://aiwanma99.com $popup
-||https://b477.life $popup,third-party
-||https://baidu.com/adrc.$popup
-||https://baidu.com/baidu.php?url=$popup
-||https://bm999999.com $popup
-||https://c.admaster.com.cn $popup
-||https://csaimall.com $popup,third-party
-||https://ctfile.com/popjump.php?$popup
-||https://d6262.com $popup
-||https://downmn.com $popup,third-party
-||https://downmz.com $popup,third-party
-||https://duoyi.com/welcome/$popup
-||https://elsbfby.com $popup,third-party
-||https://flash.cn/success/$popup
-||https://fu9453.com $popup,third-party
-||https://gd.189.cn/ad/$popup,third-party
-||https://gd.189.cn/gz/promotion/$popup,third-party
-||https://gotourl.xyz $popup
-||https://hinet.net/product/promotion/$popup
-||https://huancaicp.com/?pid=$popup
-||https://ieeod0.com $popup
-||https://img999.com $popup
-||https://iqiyi.com/track$popup
-||https://jav321.com $popup,third-party
-||https://kfc.com.cn $popup
-||https://kuheju.com $popup
-||https://miaozhen.com $popup
-||https://mm786.com $popup,third-party
-||https://p.ynb2dca.com $popup
-||https://puma.com $popup
-||https://qx568.com $popup
-||https://sohu.com/i/?pvid=$popup
-||https://todayapp.tv $popup,third-party
-||https://u26u.com $popup,third-party
-||https://wy213.com $popup,third-party
-||https://xingshenfang.cn $popup
-||https://xiyouence.com $popup,third-party
+||https://1024mzs.pw 
+||https://1024wanzhai.
+||https://133gp.com 
+||https://189.cn/actpush/
+||https://5lu8.com 
+||https://76fengyun.com/vip.php
+||https://7wkw.com 
+||https://88p2p.com 
+||https://9453hot.com 
+||https://99nfft.com 
+||https://agxclick.com 
+||https://aiwanma99.com 
+||https://b477.life 
+||https://baidu.com/adrc.
+||https://baidu.com/baidu.php?url=
+||https://bm999999.com 
+||https://c.admaster.com.cn 
+||https://csaimall.com 
+||https://ctfile.com/popjump.php?
+||https://d6262.com 
+||https://downmn.com 
+||https://downmz.com 
+||https://duoyi.com/welcome/
+||https://elsbfby.com 
+||https://flash.cn/success/
+||https://fu9453.com 
+||https://gd.189.cn/ad/
+||https://gd.189.cn/gz/promotion/
+||https://gotourl.xyz 
+||https://hinet.net/product/promotion/
+||https://huancaicp.com/?pid=
+||https://ieeod0.com 
+||https://img999.com  
+||https://iqiyi.com/track
+||https://jav321.com 
+||https://kfc.com.cn  
+||https://kuheju.com 
+||https://miaozhen.com  
+||https://mm786.com 
+||https://p.ynb2dca.com 
+||https://puma.com  
+||https://qx568.com 
+||https://sohu.com/i/?pvid=
+||https://todayapp.tv 
+||https://u26u.com 
+||https://wy213.com 
+||https://xingshenfang.cn 
+||https://xiyouence.com 
 ||https://007.mx/flv/
 ||https://007ds.com/js/js/
 ||https://00eeekk.com//html5/activityPage/
@@ -3207,7 +3208,7 @@
 ||https://99kubo.tv/static/img/adsfree.png
 ||https://99mst.com/upfiles/adv/main02.jpg
 ||https://99nets.com/kfb/index.html
-||https://99smsf.com $third-party
+||https://99smsf.com 
 ||https://99tianji.com/hack/
 ||https://99youmeng.com/pc/js/*_g
 ||https://99youmeng.com/pc/js/g_top_ban.js
@@ -3787,7 +3788,7 @@
 ||https://buy.sina.com.tw/js/sina_popup.php
 ||https://buzzhand.com/images/$subdocument
 ||https://bvlang.com/ad/
-||https://bvmqkla.de/files/photo/$third-party
+||https://bvmqkla.de/files/photo/
 ||https://bw66.cn/template/default_pc/bbs/
 ||https://bxw666.com/storage/*.gif
 ||https://by4d.com/dh/
@@ -4379,7 +4380,7 @@
 ||https://faxingw.cn/js/*ad
 ||https://faxingw.cn/js/detailgcbox.js
 ||https://fc2fan.net/js/check_focus.js
-||https://fd173.cn $third-party
+||https://fd173.cn 
 ||https://fdc.my0511.com $script
 ||https://feesoon.com/js/cnzz_
 ||https://feijisu5.com/js/huimi-
@@ -4452,7 +4453,7 @@
 ||https://gaglxx.com/5_
 ||https://galacg.me/wp-content/uploads/*750x
 ||https://galaxymedia.xyz/app/images/banner.gif
-||https://game.466.com $third-party
+||https://game.466.com 
 ||https://game234.com/1/234.php
 ||https://game234.com/wd/*ad.js
 ||https://game333.net/aainset/
@@ -4511,7 +4512,7 @@
 ||https://ggtp-1255424916.cos.ap-chengdu.myqcloud.com
 ||https://ggw.gusuwang.com
 ||https://ggw.watertu.com
-||https://ggwan.com $third-party
+||https://ggwan.com  
 ||https://ghjie.com/images/2012/images/bg
 ||https://ghjie.com/JS/youcegg.js
 ||https://ghoffice.com/bbs/js/float.js
@@ -4673,7 +4674,7 @@
 ||https://helloavgirls.com/public/hg/
 ||https://henan.sina.com.cn/iframe/7/
 ||https://henan100.com/d/file/indexad/
-||https://henghost.com $third-party
+||https://henghost.com 
 ||https://hentaicomic.org/data/game/
 ||https://herogame.com $subdocument
 ||https://hexun.com/gphqtc/
@@ -5096,7 +5097,7 @@
 ||https://jz5u.com/public/new/
 ||https://jzb.com/website/fe/pub_js/dbclickshow.js
 ||https://k.youku.com/player/getFlvPath/sid/*&vl=
-||https://k99.cc $third-party
+||https://k99.cc 
 ||https://kaixin001.com.cn/js/cpm-
 ||https://kajila.cn/ad.html
 ||https://kalvin.cn/page/img/
@@ -5148,7 +5149,7 @@
 ||https://klandmart.com/K-Landmart_0011.jpg
 ||https://kmplayer.cn/include/jscript/*-a.js
 ||https://kocpc.com.tw/adsbyso.js
-||https://kokojia.com $third-party
+||https://kokojia.com 
 ||https://kostool.cn/screenshot/
 ||https://koyi.pub/wp-content/plugins/dh-anti-adblocker/
 ||https://kppt.cc/zb_system/script/common.js
@@ -6322,7 +6323,7 @@
 ||https://toutiaoimg.com 
 ||https://tp.sgcn.com
 ||https://tq121.com.cn/j/ad/
-||https://trafficjam.cn $third-party
+||https://trafficjam.cn 
 ||https://trendmicro.com.tw/wp-content/uploads/*Banner
 ||https://truvidplayer.com 
 ||https://tt.biquge.la
@@ -7049,9 +7050,8 @@
 ||https://avgle.topgirlsdating.com 
 ||https://jads.co 
 ||https://olmsoneenh.info 
-||https://p1.58tg.com
 ||https://003store.com
-||https://0512s.com $third-party
+||https://0512s.com 
 ||https://1.01fy.cn
 ||https://1.07swz.com
 ||https://1.1010pic.com
@@ -7111,7 +7111,7 @@
 ||https://1.zou114.com
 ||https://1.zuowenjun.com
 ||https://1.zw3e.com
-||https://100669.com $third-party
+||https://100669.com 
 ||https://1017.cn
 ||https://11.96131.com.cn
 ||https://11.golang8.com
@@ -7119,12 +7119,12 @@
 ||https://11.yiqig.com
 ||https://12.cookcai.com
 ||https://123456.asia
-||https://15tianqi.com $third-party
+||https://15tianqi.com 
 ||https://17.huanqiu.com
 ||https://177o.com
 ||https://1999019.com
 ||https://2.haoxue360.com
-||https://200218.com $third-party
+||https://200218.com 
 ||https://2021.dxsbb.com
 ||https://21.cizhibaogao.org
 ||https://21.fh21static.com
@@ -7142,7 +7142,7 @@
 ||https://51dengshan.cn
 ||https://51ertong.com
 ||https://51gxqm.com
-||https://51yhzp.com $third-party
+||https://51yhzp.com 
 ||https://5pub.com
 ||https://644446.com
 ||https://6669667.com
@@ -7152,10 +7152,10 @@
 ||https://80juqing.com
 ||https://8131.qizhihaotian.cn
 ||https://8961.jianbihua.com
-||https://91friend.com $third-party
-||https://94ab.com $third-party
+||https://91friend.com 
+||https://94ab.com 
 ||https://98158.com
-||https://999d.com $third-party
+||https://999d.com 
 ||https://99js.rxys.com
 ||https://a.4aqq.com
 ||https://a.52wubi.com
@@ -7244,10 +7244,10 @@
 ||https://adbd.liuxue86.com
 ||https://adccoo.cn
 ||https://adjb.5nd.com
-||https://adutp.com $third-party
+||https://adutp.com 
 ||https://ag1.zuszw.com
 ||https://aijiamao.top
-||https://aili.com $third-party
+||https://aili.com 
 ||https://aiwen.cc
 ||https://al.newxue.com
 ||https://anews7.nvwu.com
@@ -7348,13 +7348,13 @@
 ||https://cbdm.weathercn.com
 ||https://cc.xiaodapei.com
 ||https://cc.xwscg.com
-||https://ccmeng.com $third-party
+||https://ccmeng.com 
 ||https://cdn.wenzhangba.cn
 ||https://cdn1.tvzhe.com
 ||https://cdnjs.z-face.cn
 ||https://cee1.iteye.com
-||https://cfff.net $third-party
-||https://chnci.com $third-party
+||https://cfff.net 
+||https://chnci.com 
 ||https://chong-wu.net
 ||https://ckg.vipyl.com
 ||https://classic.39health.com
@@ -7395,7 +7395,7 @@
 ||https://daiwofei2019.top
 ||https://data.waptime.cn
 ||https://datas.tianqistatic.com
-||https://daxishi.com $third-party
+||https://daxishi.com 
 ||https://dd1.diymianmo.com
 ||https://df888.eastday.com
 ||https://dm.17xuexiba.com
@@ -7426,11 +7426,11 @@
 ||https://dms.vancss.com
 ||https://dms.xuexxing.com
 ||https://dmym.aixyy.com
-||https://dnpz123.com $third-party
+||https://dnpz123.com 
 ||https://domain1.chahaoba.cn
 ||https://du1.bbdj.com
 ||https://dudm.qingsj.cn
-||https://dyscb.cn $third-party
+||https://dyscb.cn 
 ||https://edu.jiukang.org
 ||https://ee.shixunwang.net
 ||https://ejunshi.com
@@ -7452,7 +7452,7 @@
 ||https://ff.guidaye.com
 ||https://ff.qichetansuo.com
 ||https://ff.xue163.net
-||https://fjzimaoqu.cn $third-party
+||https://fjzimaoqu.cn 
 ||https://fotao9.com
 ||https://fp.czvv.com
 ||https://fp.nanrenwo.net
@@ -7478,10 +7478,10 @@
 ||https://godloveme.cn
 ||https://gold.szonline.net
 ||https://gp.zaiyunli.cn
-||https://gsjdzx.com $third-party
+||https://gsjdzx.com 
 ||https://guang.sdsgwy.com
-||https://gumgo.cn $third-party
-||https://gunmi.cn $third-party
+||https://gumgo.cn 
+||https://gunmi.cn 
 ||https://gxjajt.com
 ||https://gzm.xzbu.com
 ||https://h1.cfxinxi.cn
@@ -7493,17 +7493,17 @@
 ||https://hh.jiankang.com
 ||https://hi.xiunm.cn
 ||https://hi.xiunm.com
-||https://hmtoday.com $third-party
-||https://hrjg.com.cn $third-party
+||https://hmtoday.com 
+||https://hrjg.com.cn 
 ||https://hu.xbhy.com
 ||https://huhai.cdwz8.cn
 ||https://hxbt.alading123.com
 ||https://hy.huangye88.com.cn
 ||https://hy.huangye88.net
-||https://ideng.com $third-party
+||https://ideng.com 
 ||https://ii1.chajiaotong.com
 ||https://iia1.pikacn.com
-||https://ikuailian.com $third-party
+||https://ikuailian.com 
 ||https://images8.gaotie.cn
 ||https://img.0279.net
 ||https://img.263y.com
@@ -7519,11 +7519,11 @@
 ||https://img16.diyifanwen.com
 ||https://img50.pingguolv.com
 ||https://inone517.com
-||https://inping.com $third-party
+||https://inping.com 
 ||https://ios.426g.com
 ||https://ishuoshuo.com
-||https://ixiunv.com $third-party
-||https://iy.com.cn $third-party
+||https://ixiunv.com 
+||https://iy.com.cn 
 ||https://j.9136.com
 ||https://j.baminw.cn
 ||https://j.diangon.com
@@ -7534,12 +7534,12 @@
 ||https://jc1.dayfund.cn
 ||https://jc1.dayfund.com.cn
 ||https://jddaw.com
-||https://jeepyy.com $third-party
+||https://jeepyy.com 
 ||https://jiaoben.eastday.com
 ||https://jiaoben.ganji.cn
 ||https://jiaoben.jucanw.com
 ||https://jibn12.jintang114.org
-||https://jiliw.com $third-party
+||https://jiliw.com 
 ||https://jinghuazhijia.com
 ||https://jinhonghao.cn
 ||https://jintonghua.com
@@ -7564,11 +7564,11 @@
 ||https://jscode.jbzj.com
 ||https://jsf.cnlinfo.net
 ||https://jss.tvzhe.com
-||https://junshizhanlue.com $third-party
+||https://junshizhanlue.com 
 ||https://jx.renrensousuo.com
-||https://jxdown.com $third-party
+||https://jxdown.com 
 ||https://jy.zhongxues.com
-||https://jy135.com $third-party
+||https://jy135.com 
 ||https://k1.dancihu.com
 ||https://k1.wanwenwan.cn
 ||https://ka5188.com
@@ -7576,12 +7576,12 @@
 ||https://khrtac.xiangha.com
 ||https://km1.muhoujiemi.com
 ||https://kpshx.douguo.com
-||https://kuk8.com $third-party
-||https://kuku99.com $third-party
-||https://kxji.com $third-party
+||https://kuk8.com 
+||https://kuku99.com 
+||https://kxji.com 
 ||https://laobaigushi.com
 ||https://leabd.douguo.com
-||https://liangpinge.com $third-party
+||https://liangpinge.com 
 ||https://lianmen1.joyyang.com
 ||https://libs.tvmao.cn
 ||https://lixiangmo.com
@@ -7590,7 +7590,7 @@
 ||https://lm1.tuliu.com
 ||https://lm1.wkpcw.cn
 ||https://lraa.xiaoniutui.com
-||https://luolikong.net $third-party
+||https://luolikong.net 
 ||https://lv.myapks.com
 ||https://lynr.com
 ||https://lyz.radio366.com
@@ -7614,12 +7614,12 @@
 ||https://mc.tvzhe.com
 ||https://mc.weather.com.cn
 ||https://md.tvzhe.com
-||https://meishiba.com.cn $third-party
+||https://meishiba.com.cn 
 ||https://meng.360zuowen.com
 ||https://mg.32r.com
 ||https://mg.glwxw.net
 ||https://milk.yesky.com.cn
-||https://mipujia.com $third-party
+||https://mipujia.com 
 ||https://mm.jbzj.com
 ||https://mnwor.xuanlishi.com
 ||https://mo-tuo.com
@@ -7639,11 +7639,12 @@
 ||https://o.jy135.com
 ||https://o.phb123.com
 ||https://o1.jyjyj.cn
-||https://oicchina.com $third-party
+||https://oicchina.com 
 ||https://okkkk.com
 ||https://olive.ergeapp.com
 ||https://p.junshi881.com
 ||https://p.junshifuxin.com
+||https://p1.58tg.com
 ||https://p1.chinakaoyan.com
 ||https://p1.pl520.com
 ||https://p1.qxzsw.com
@@ -7654,9 +7655,9 @@
 ||https://pc768.com
 ||https://pic1.dianshu119.com
 ||https://pic50.pingguolv.com
-||https://pincai.com $third-party
+||https://pincai.com 
 ||https://pinlue.com/error/bangolike.js
-||https://pjcn.org $third-party
+||https://pjcn.org 
 ||https://pkk1.zuimeiniwo.com
 ||https://q1.yyxwzx.com
 ||https://qifake.com
@@ -7668,12 +7669,12 @@
 ||https://qqhuhu.com
 ||https://qqwwmm.com
 ||https://qujishu.com
-||https://qwxcs.com $third-party
+||https://qwxcs.com 
 ||https://r.99waiyu.com
 ||https://rabc1.iteye.com
 ||https://rc.ie13.com
 ||https://rdbd.xsread.com
-||https://redmx.cn $third-party
+||https://redmx.cn 
 ||https://res.pinpai8.cn
 ||https://s.yaozui.com
 ||https://s.zixuntop.com
@@ -7683,7 +7684,7 @@
 ||https://s1.qiqutt.com
 ||https://s1.tuzhaozhao.com
 ||https://s1.wesiedu.com
-||https://s11.cn $third-party
+||https://s11.cn 
 ||https://salary.xiao84.com
 ||https://sanme2.lanzoui.com
 ||https://sbbd1.qulishi.com
@@ -7698,12 +7699,12 @@
 ||https://shiyaokejishanghai.com
 ||https://shzzzz.dftoutiao.com
 ||https://sjbaiduadv1.redou.com
-||https://snzfj.net $third-party
+||https://snzfj.net 
 ||https://so.auto999.cn
 ||https://sp.dnqc.com
 ||https://ss.ting55.com
 ||https://ssb.ah499.com
-||https://star-media.cn $third-party
+||https://star-media.cn 
 ||https://static.gaomaer.cn
 ||https://static.ichehome.com
 ||https://static.jiaquyi.com
@@ -7713,11 +7714,11 @@
 ||https://taobc.com
 ||https://tech.jiukang.org
 ||https://thetestpage.39.net
-||https://tiexing.com $third-party
+||https://tiexing.com 
 ||https://tonghuaji.com
 ||https://tongj.xilu.com
 ||https://top2099.com
-||https://trebleperfect.com $third-party
+||https://trebleperfect.com 
 ||https://tt123.eastday.com
 ||https://tu.zx110.org
 ||https://u.zuoyesou.com
@@ -7742,7 +7743,7 @@
 ||https://ve.kj-cy.cn
 ||https://vi1.souid.com
 ||https://vip.panggugu.com
-||https://vjie.com $third-party
+||https://vjie.com 
 ||https://vv1.pyhfxdm.cn
 ||https://vvv.ieduw.com
 ||https://vyule.com
@@ -7755,10 +7756,10 @@
 ||https://w3c.5txs.com
 ||https://wap001.bytravel.cn
 ||https://wap1.laogu.wang
-||https://web8.net $third-party
-||https://weidianyuedu.com $third-party
+||https://web8.net 
+||https://weidianyuedu.com 
 ||https://wenhua.jiaoshou.com
-||https://wenshenbang.com $third-party
+||https://wenshenbang.com 
 ||https://whfpbc.99.com.cn
 ||https://wj.jiancai365.cn
 ||https://wm.mipcdn.com
@@ -7768,7 +7769,7 @@
 ||https://wneia.iaskhot.com
 ||https://wr.yiyouliao.com
 ||https://ws.wenshenxiu.com
-||https://wshufa.com $third-party
+||https://wshufa.com 
 ||https://wuliao.chzsport.cn
 ||https://wuliao.juqingba.cn
 ||https://www1.wxnmh.com
@@ -7796,8 +7797,8 @@
 ||https://youwugong.jobui.com
 ||https://ys.muhoujiemi.com
 ||https://ysxywj.com
-||https://ytelc.com $third-party
-||https://yunzuowen.com $third-party
+||https://ytelc.com 
+||https://yunzuowen.com 
 ||https://yx1.managershare.com
 ||https://yylady.cn
 ||https://z.grfyw.com
@@ -7810,11 +7811,11 @@
 ||https://z1hihu.xmcimg.com
 ||https://zg.mmyuer.com
 ||https://zhihu.xmcimg.com
-||https://zhongkaowu.com $third-party
+||https://zhongkaowu.com 
 ||https://zk.91post.com
 ||https://zoom.zshu.net
 ||https://zuowen.hydcd.com
-||https://zxw51.com $third-party
+||https://zxw51.com 
 ||https://2013sh.com
 ||https://258ydh.com
 ||https://265958.com
@@ -7836,7 +7837,7 @@
 ||https://gotourls.bid
 ||https://h01ce.cn
 ||https://hdjxmf.com
-||https://hechaocheng.cn $third-party
+||https://hechaocheng.cn 
 ||https://henanfs.com
 ||https://hulemedia.com
 ||https://ip.hivps.xyz
@@ -7857,7 +7858,7 @@
 ||https://start1999.com
 ||https://tdtsd.com
 ||https://tuituiyoo999.com
-||https://uux79.com $third-party
+||https://uux79.com 
 ||https://wangketuan.com
 ||https://weduoke.com
 ||https://weekslw.com
@@ -7888,9 +7889,9 @@
 ||https://alicdn.com/kf/U4b536ad9a43d428cb07b28f536220c30p.jpg
 ||https://alicdn.com/kf/Ud73197247afc4a8598f62d3aeb9b9b56K.jpg
 ||https://dlkoo.cc/down/$subdocument
-||https://dlkoo.cc/down/*.htm$popup
+||https://dlkoo.cc/down/*.htm
 ||https://dlkoo.cc/down/copy
-||https://haoxianggou.xyz/?from=$popup,third-party
+||https://haoxianggou.xyz/?from=
 ||https://dlkoo.com/down/$subdocument
 ||https://dlkoo.com/down/copy
 ||https://dnvodcdn.me/fast/*.mp4
@@ -7900,19 +7901,9 @@
 ||https://hboav.com/guga/
 ||https://hh010.com/static/image/fff/
 ||https://stunninglover.com
-||https://ax329.cn
-||https://tjtsfhh.cn
-||https://tzuyruz.cn
-||https://xsrypte.cn
-||https://7to5phc.cn
-||https://xpxmpf.cn
-||https://etrht.cn
-||https://banhfw.cn
-||https://jdsy.ltd
-||https://gongshangwang.top
-||https://banxfw.cn
-||https://beizkw.cn
-||https://fyijt.cn
+||https://smncden.cn
+||https://wgqhwcg.cn
+||https://banzdw.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -7974,7 +7965,7 @@
 ||https://23uuw3.com
 ||https://256k.xyz
 ||https://258580w.cn
-||https://258zw.com $third-party
+||https://258zw.com 
 ||https://2860885.com
 ||https://2886115.com
 ||https://2886996.com
@@ -8079,6 +8070,7 @@
 ||https://7j7jv5.cn
 ||https://7kzod8.cn
 ||https://7times.top
+||https://7to5phc.cn
 ||https://81book.com/static/scripts/1.js
 ||https://81book.com/static/scripts/common.
 ||https://833761.com
@@ -8258,6 +8250,7 @@
 ||https://awleo.cn
 ||https://awtks.com
 ||https://awyys.com
+||https://ax329.cn
 ||https://axcdt.cn
 ||https://axcdy.cn
 ||https://axfrb.cn
@@ -8296,8 +8289,10 @@
 ||https://banfz.com
 ||https://bangdu2.com
 ||https://bangxin.xyz
+||https://banhfw.cn
 ||https://banma51.cn
 ||https://banxf.com
+||https://banxfw.cn
 ||https://banzd.com
 ||https://baodc.com
 ||https://baogames.cn
@@ -8331,6 +8326,7 @@
 ||https://beitd.com
 ||https://beiwm.com
 ||https://beizhoujt.cn
+||https://beizkw.cn
 ||https://benfkw.cn
 ||https://bentengcn.com
 ||https://benwfw.cn
@@ -8391,7 +8387,7 @@
 ||https://bolijiupingchang.com
 ||https://boluoxs.com/js/digu.js
 ||https://bom-soft.com.cn
-||https://book9.net $third-party
+||https://book9.net 
 ||https://bookopen.cn
 ||https://bookrb.com/images/jtt
 ||https://bostonceltics.com.cn
@@ -8738,6 +8734,7 @@
 ||https://eq984.cn
 ||https://etfuxd.cn
 ||https://etongxs.com/mb/meng/
+||https://etrht.cn
 ||https://f4082.cn
 ||https://fdfgf.cc
 ||https://febao.xyz
@@ -8751,12 +8748,14 @@
 ||https://freeyue.xyz
 ||https://fuyangno1.top
 ||https://fxhfxhf.cc
+||https://fyijt.cn
 ||https://g1kb9u.xyz
 ||https://gdmjskjx.com
 ||https://gdshuotai.cn
 ||https://gjohvhf.cn
 ||https://go06.cc
 ||https://go07.cc
+||https://gongshangwang.top
 ||https://guangzhengtwo.top
 ||https://guyun03.cn
 ||https://gwmeinq.cn
@@ -8802,6 +8801,7 @@
 ||https://jcjaniu.cn
 ||https://jcxcvqc.cn
 ||https://jdiaveu.cn
+||https://jdsy.ltd
 ||https://jgrkjp.cn
 ||https://jiajiann.cn
 ||https://jiameiyin.cn
@@ -8944,6 +8944,7 @@
 ||https://thechosen1.cn
 ||https://tianlule.cn
 ||https://tivfcaa.cn
+||https://tjtsfhh.cn
 ||https://tndiltm.cn
 ||https://to335.cn
 ||https://toolgirl.cn
@@ -8955,6 +8956,7 @@
 ||https://tuzufsi.cn
 ||https://tw5k2vc.cn
 ||https://tzjovzs.cn
+||https://tzuyruz.cn
 ||https://u5274.cn
 ||https://umis.top
 ||https://uqbmzwv.cn
@@ -8988,6 +8990,8 @@
 ||https://xiituvt.top
 ||https://xinyuanzszy.com
 ||https://xjjkxcg.cn
+||https://xpxmpf.cn
+||https://xsrypte.cn
 ||https://xxw777.cn
 ||https://xzcvfdwe.cn
 ||https://y0764.cn
@@ -9432,7 +9436,7 @@
 ||https://identified.cn
 ||https://idevoa.cn
 ||https://ieatlu.xyz
-||https://ieeod0.com $third-party
+||https://ieeod0.com 
 ||https://if37.com
 ||https://igig87.cn
 ||https://ihais.com
@@ -9570,7 +9574,7 @@
 ||https://jsku.cc
 ||https://jsku.info
 ||https://jsnqh.cn
-||https://jsr9.com $third-party
+||https://jsr9.com 
 ||https://jsshuiyuan.com
 ||https://jsszxx.com
 ||https://jstdjq.com
@@ -9777,7 +9781,7 @@
 ||https://lovepets70.com
 ||https://loverzhou.club
 ||https://lownguw.top
-||https://lqmohun.com $third-party
+||https://lqmohun.com 
 ||https://lr96.top
 ||https://lrwgc.com
 ||https://lscckgm.cn
@@ -9820,7 +9824,7 @@
 ||https://mageti.cn
 ||https://maicaoren.cn
 ||https://maimaias.cn
-||https://maka.im $third-party
+||https://maka.im 
 ||https://mamababu.cn
 ||https://mao1.jsnovel.com
 ||https://maobujie.com
@@ -9904,7 +9908,7 @@
 ||https://myams.cn
 ||https://mydownba.com
 ||https://mysty.com.cn
-||https://myyxapp.com $third-party
+||https://myyxapp.com 
 ||https://myz11111.cn
 ||https://myz33333.cn
 ||https://mzbb8872.cn
@@ -10279,7 +10283,7 @@
 ||https://sonsang.cn
 ||https://sosjyx.com
 ||https://soso.ws
-||https://soyue.cc $third-party
+||https://soyue.cc 
 ||https://spaung.cn
 ||https://speaknews.cn
 ||https://sqdjg.cn
@@ -10574,7 +10578,7 @@
 ||https://weiyuedu.cc/skin/v3/js/dibu.js
 ||https://weiziqiang.top
 ||https://wenbangsh.com.cn
-||https://wenlang.com $third-party
+||https://wenlang.com 
 ||https://wenqixiefu.cn
 ||https://wenzhougy.cn
 ||https://wervp.com
@@ -10637,7 +10641,7 @@
 ||https://wxhdwy.com
 ||https://wxkksk.com
 ||https://wxskqy.cn
-||https://wxtp.cdn.bcebos.com $popup
+||https://wxtp.cdn.bcebos.com 
 ||https://wxtuoke.cn
 ||https://wy95.xyz
 ||https://wyafelk.cn
@@ -10737,7 +10741,7 @@
 ||https://xstt5.com/skin/v3/js/dibu.js
 ||https://xstt5.com/template/js/fx
 ||https://xsyouwei.cn
-||https://xszysc.com $third-party
+||https://xszysc.com 
 ||https://xuchangmuying.com
 ||https://xuehongxs.com:
 ||https://xuenengyoujiaoyu.com
@@ -11077,21 +11081,21 @@
 ||https://muer.cdn-baidu.fs-sywh.com
 ||https://hy-dy.cn
 ||https://liveappgirl.net
-||https://22588888.com $popup
-||https://2481e.com $popup
-||https://693836.com $popup
-||https://a1714.com $popup
+||https://22588888.com 
+||https://2481e.com 
+||https://693836.com 
+||https://a1714.com 
 ||https://alicdn.com/img/ibank/*_1980598585.
 ||https://alicdn.com/img/ibank/*_255861743.
-||https://baidu-jxf.co $popup
-||https://e5yx.com $popup
-||https://h6295.com $popup
-||https://lady177.com $popup
-||https://magnetdog.net $popup
-||https://pv4b.com $popup
-||https://sa669.com $popup
-||https://xdh0808.com $popup
-||https://yunsennet.com $popup
+||https://baidu-jxf.co 
+||https://e5yx.com 
+||https://h6295.com 
+||https://lady177.com 
+||https://magnetdog.net 
+||https://pv4b.com 
+||https://sa669.com 
+||https://xdh0808.com 
+||https://yunsennet.com 
 ||https://360buyimg.com
 ||https://alicdn.com/kf/HTB1pS6Zel1D3KVjSZFy5jbuFpXaO.gif
 ||https://alicdn.com 
@@ -11124,35 +11128,35 @@
 ||https://sohu999.com
 ||https://tcmdz.com
 ||https://hjfile.cn/analytics/site/TrackEvent.js
-||https://7moor.com $third-party
-||https://2005net.net $third-party
-||https://3jia5.com $third-party
-||https://5251.net $third-party
-||https://53kf.com $third-party
-||https://54kefu.net $third-party
-||https://5etv.com $third-party
-||https://bobo.com $third-party
+||https://7moor.com 
+||https://2005net.net 
+||https://3jia5.com 
+||https://5251.net 
+||https://53kf.com 
+||https://54kefu.net 
+||https://5etv.com 
+||https://bobo.com 
 ||https://cir-smart.baidu.com
 ||https://bjmantis.net
 ||https://crs.baidu.com
 ||https://goutong.baidu.com
-||https://knet.cn $third-party
-||https://kuaishang.cn $third-party
-||https://live800.com $third-party
-||https://looyu.com $third-party
-||https://lxbjs.baidu.com $third-party
-||https://meiqia.com $third-party
-||https://miduoke.net $third-party
-||https://mylikechat.com $third-party
-||https://pop800.com $third-party
-||https://soperson.com $third-party
-||https://tawk.to $third-party
-||https://tui.cnzz.net $third-party
+||https://knet.cn 
+||https://kuaishang.cn 
+||https://live800.com 
+||https://looyu.com 
+||https://lxbjs.baidu.com 
+||https://meiqia.com 
+||https://miduoke.net 
+||https://mylikechat.com 
+||https://pop800.com 
+||https://soperson.com 
+||https://tawk.to 
+||https://tui.cnzz.net 
 ||https://wpa.b.qq.com/cgi/wpa.php?
-||https://zoosnet.net $third-party
-||https://zoossoft.cn $third-party
-||https://easyliao.com $third-party
-||https://outbrain.com $third-party
+||https://zoosnet.net 
+||https://zoossoft.cn 
+||https://easyliao.com 
+||https://outbrain.com 
 ||https://025yimei.com/templets/default/js/swt.js
 ||https://100xuexi.com/CssModel/botad.js
 ||https://115img.com/static/pc/d_
@@ -11203,7 +11207,7 @@
 ||https://chinatimes.com/ads/
 ||https://cndns.com/incs/js/website_mobile.js
 ||https://con-article.hjapi.com/v1/txs/
-||https://cpu.baidu.com $third-party
+||https://cpu.baidu.com 
 ||https://ctfile.com/img/*ssp
 ||https://daf-rs.com/imageViewer/wpAd
 ||https://dahe.cn/indiboy/ads/
@@ -11511,13 +11515,13 @@
 ||https://ip.tianqiapi.com
 ||https://count.nuanyuehanxing.com
 ||https://pconline.com.cn/ipJson.
-||https://develenv.com $third-party
+||https://develenv.com 
 ||https://syzjxz2018.cn
 ||https://gog.cn/sys/online_calc.js
 ||https://ip.ws.126.net 
 ||https://dhgxl8qk9zgzr.cloudfront.net/js/log.js
-||https://optimix.cn $third-party
-||https://bdp.cn $third-party
+||https://optimix.cn 
+||https://bdp.cn 
 ||https://zol.com.cn/pvn/
 ||https://map.baidu.com 
 ||https://laosiji.com/static/js/lib/od_statistics.js
@@ -11529,9 +11533,9 @@
 ||https://28.com/count.js
 ||https://28.com/countnew.js
 ||https://39.net/js/wt.js
-||https://51.la $third-party
+||https://51.la 
 ||https://5173.com/__tra.gif?
-||https://51la.net $third-party
+||https://51la.net 
 ||https://58cdn.com.cn/resource/xxzl/xxfw/
 ||https://8cnd.com
 ||https://91160.com/nykj/f=static/v4/common/tj.js
@@ -11579,7 +11583,7 @@
 ||https://cheshi-img.com/js/pv.min.js
 ||https://chinatimes.com/analytics/
 ||https://chouti.com/js/tingyun-rum.js
-||https://cig.com.cn $third-party
+||https://cig.com.cn 
 ||https://cjyun.org/assets/js/analytics.js
 ||https://click.tianyaui.com
 ||https://cnfol.com/Count.html
@@ -11617,7 +11621,7 @@
 ||https://hd.sohu.com.cn $object-subrequest
 ||https://hdslb.com/js/bfd.js
 ||https://hexun.com/js/att_count.js
-||https://hiido.com $third-party
+||https://hiido.com 
 ||https://hm.baidu.com/mkt.js
 ||https://hupu.com/_dace.gif?
 ||https://house365.com/js/analyze.js
@@ -11627,7 +11631,7 @@
 ||https://img.kuai.xunlei.com/js/statistics.js
 ||https://imgstat.baidu.com
 ||https://imp.zol.com.cn
-||https://ipinyou.com $third-party
+||https://ipinyou.com 
 ||https://iqiyi.com/etx?
 ||https://iqiyi.com/js/pingback/
 ||https://iqiyi.com/track
@@ -11636,7 +11640,7 @@
 ||https://itc.cn/cache/lib/v2/odvmonitor/
 ||https://itc.cn/hdpv.js
 ||https://itc.cn/pv/
-||https://itsmore.cn $third-party
+||https://itsmore.cn 
 ||https://js.passport.qihucdn.com/11.0.1.js
 ||https://kaipuyun.cn/count/
 ||https://kkpgv2.xunlei.com
@@ -11661,7 +11665,7 @@
 ||https://nmgnews.com.cn/sys/online_calc.js
 ||https://nsclick.baidu.com
 ||https://olpv.onlylady.com
-||https://optaim.com $third-party
+||https://optaim.com 
 ||https://other.v.duowan.com
 ||https://p0y.cn
 ||https://p2p.v.yyclouds.com/crossdomain.xml
@@ -11716,10 +11720,10 @@
 ||https://stats.v.duowan.com
 ||https://suning.cn/javascript/sn_da/sa.js
 ||https://sxrb.com/front/stat/
-||https://ta.trs.cn $third-party
+||https://ta.trs.cn 
 ||https://tajs.qq.com
 ||https://tcss.qq.com
-||https://tingyun.com $third-party
+||https://tingyun.com 
 ||https://tj.21ic.com
 ||https://tjj.com
 ||https://tongji.xinmin.cn
@@ -11747,16 +11751,16 @@
 ||https://zhulang.com/zlpv.php
 ||https://zol.com.cn/cgimp/zc.js
 ||https://beacon.sina.com.cn
-||https://cnzz.com $third-party
+||https://cnzz.com 
 ||https://duba.com/proxy/tj/
 ||https://google-analytics.com/analytics.js
-||https://hm.baidu.com $third-party
+||https://hm.baidu.com 
 ||https://msg.71.am
 ||https://rs.sinajs.cn
 ||https://s.360.cn
 ||https://sinajs.cn/open/analytics/
 ||https://stadig.ifeng.com
-||https://wrating.com $third-party
+||https://wrating.com 
 @@&adurl=http://
 @@.adserver.
 @@.com/adv/
@@ -11946,7 +11950,7 @@
 @@||bdstatic.com/static/exp-pc/article/widget/cms-banner-ads/cms-banner-ads_*.css
 @@||beanfun.com/ADClient/
 @@||beyondsoft.com/dataservice/img/ad_
-@@||bing.com/translator/api/Translate/TranslateArray?$third-party,xmlhttprequest
+@@||bing.com/translator/api/Translate/TranslateArray? ,xmlhttprequest
 @@||blackmod.net $generichide
 @@||blog.ztjal.info $generichide
 @@||bootcss.com $script
@@ -12015,7 +12019,7 @@
 @@||dnbus.com.tw/AD/tab_route.html
 @@||douban.com/popup/login?
 @@||doubibackup.com $generichide
-@@||doubleclick.net/ddm/trackclk/$popup
+@@||doubleclick.net/ddm/trackclk/ 
 @@||doubleclick.net/gpt/pubads_impl
 @@||doubleclick.net/gpt/pubads_impl_
 @@||doubleclick.net/instream/ad_status.js
@@ -12281,7 +12285,7 @@
 @@||securepubads.g.doubleclick.net/gpt/pubads
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js
 @@||selfimg.com.cn/??
-@@||serving-sys.com/serving/adServer.bs?$popup
+@@||serving-sys.com/serving/adServer.bs? 
 @@||seselah.com $generichide
 @@||seyise8.com $generichide
 @@||seyy66.space $generichide
@@ -12431,7 +12435,7 @@
 @@||alicdn.com/t/img/TB1DmcoJXXXXXavXpXXXXXXXXXX-26-26.png
 @@||alicdn.com/t/img/TB1tWvVJFXXXXc_aXXXXXXXXXXX-40-26.png
 @@||alicdn.com */tanxssp.js
-@@||dlkoo.cc/down/*/*.htm$popup
+@@||dlkoo.cc/down/*/*.htm
 @@||dlkoo.cc/down/copy0
 @@||dlkoo.cc/down/copy1
 @@||dlkoo.cc/down/Copydown1
@@ -12653,22 +12657,23 @@
 @@||fm.ipinyou.
 @@||fm.p0y.cn 
 @@/transparent.gif?ray=$image,~third-party
+||http://2529212.com
 ||http://00-gov.cn
 ||http://000123456789.site
 ||http://0024aaaa.com
 ||http://008844.cc
 ||http://00xvppy.cn
-||http://012.tw $third-party
+||http://012.tw 
 ||http://01fen.com
 ||http://022aifang.com
 ||http://025suyu.com
-||http://033.com $third-party
+||http://033.com 
 ||http://0351dvd.cn
 ||http://0451106.com
 ||http://04zl.cn
 ||http://0516bm.com
 ||http://0531kt.com
-||http://0591101.com $third-party
+||http://0591101.com 
 ||http://0592weixin.com
 ||http://05qwmtwxa3ev.com
 ||http://06789.xyz
@@ -12677,15 +12682,15 @@
 ||http://0798ls.com
 ||http://080644.com
 ||http://080cbfe.cn
-||http://0885.net $third-party
+||http://0885.net 
 ||http://0937jyg.com
 ||http://0b2qv7.cn
-||http://0ka.com $third-party
+||http://0ka.com 
 ||http://0mr.cc
 ||http://0xxd.com
 ||http://1000dy.com
 ||http://1002.men
-||http://100cpc.com $third-party
+||http://100cpc.com 
 ||http://100fenlm.com
 ||http://104.197.140.120
 ||http://104.198.198.188
@@ -12694,29 +12699,29 @@
 ||http://104.233.177.93
 ||http://107.183.137.18
 ||http://107.187.122.172
-||http://110160.com $third-party
+||http://110160.com 
 ||http://111.175.219.*.js
 ||http://11111fs.com
-||http://1133.cc $third-party
+||http://1133.cc 
 ||http://113o.com
-||http://114la.com $third-party,domain=~ylmf.com
-||http://114lm.com $third-party
-||http://114yeah.com $third-party
-||http://116b.com $third-party
-||http://118114.cn $third-party
-||http://1188.com $third-party
+||http://114la.com  ,domain=~ylmf.com
+||http://114lm.com 
+||http://114yeah.com 
+||http://116b.com 
+||http://118114.cn 
+||http://1188.com 
 ||http://119.29.207.87
 ||http://120571.com
 ||http://12086.net
 ||http://121.40.25.88
 ||http://122.114.239.160
-||http://12291.com $third-party
+||http://12291.com 
 ||http://123456img.com
 ||http://12365chia.com
 ||http://123hala.com
 ||http://134.73.54.252
 ||http://138lm.com
-||http://139site.com $third-party
+||http://139site.com 
 ||http://13hangpifa.com
 ||http://13wn.com
 ||http://1503.net/code/
@@ -12747,8 +12752,8 @@
 ||http://1818bobo.com
 ||http://1888pro.com
 ||http://188xiaoba.net
-||http://189.cn */push/$third-party
-||http://189.gd *.html$third-party
+||http://189.cn */push/
+||http://189.gd *.html
 ||http://18tzx.com
 ||http://19shows.net
 ||http://1d1a.com
@@ -12759,17 +12764,17 @@
 ||http://1l1.cc
 ||http://1lib.cn
 ||http://1q8h.cn
-||http://1qwe3r.com $third-party
-||http://1v7.cn $third-party
+||http://1qwe3r.com 
+||http://1v7.cn 
 ||http://1w5ddx.cn
-||http://1x3x.com $third-party
+||http://1x3x.com 
 ||http://201071.com
 ||http://2018haoyunlai.com
 ||http://201n.com
-||http://210.65.10.32 $third-party
+||http://210.65.10.32 
 ||http://211.167.105.131
-||http://2155ec.com $third-party
-||http://217wo.com $third-party
+||http://2155ec.com 
+||http://217wo.com 
 ||http://218.26.217.*.html
 ||http://21kk.cc
 ||http://220.115.251.25
@@ -12778,15 +12783,15 @@
 ||http://23.244.43.212
 ||http://23.89.50.180
 ||http://23456dj.com
-||http://235123.net $third-party
+||http://235123.net 
 ||http://23dsf.top
-||http://23kmm.com $third-party
+||http://23kmm.com 
 ||http://2526game.com
-||http://2529.com $third-party
+||http://2529.com 
 ||http://268mob.cn
 ||http://272xb.com
 ||http://280dp.com
-||http://2898.com $third-party
+||http://2898.com 
 ||http://28acglz.com
 ||http://28wangmeng.com
 ||http://292812.com
@@ -12794,19 +12799,19 @@
 ||http://297772.com
 ||http://29wjns.com
 ||http://2d-c.cn
-||http://2f.com $third-party
+||http://2f.com 
 ||http://2g2h.com
-||http://2lian.com $third-party
+||http://2lian.com 
 ||http://2m2n.com
 ||http://2nmhz6k.cn
 ||http://2polj.top
 ||http://2zfzly.com
 ||http://30mksr.cn
 ||http://31365y.com
-||http://321tui.cn $third-party
-||http://321tui.com $third-party
-||http://32414.com $third-party
-||http://3324.cn $third-party
+||http://321tui.cn 
+||http://321tui.com 
+||http://32414.com 
+||http://3324.cn 
 ||http://3331909.com
 ||http://3332218.com
 ||http://3332219.com
@@ -12832,51 +12837,51 @@
 ||http://3338863.com
 ||http://3338877.com
 ||http://338336.com
-||http://3399.com/act/$third-party
+||http://3399.com/act/
 ||http://3400.org
 ||http://35clouds.com.cn
-||http://360doo.com $third-party
+||http://360doo.com 
 ||http://363lm.com
-||http://36500.com $third-party
-||http://36500.net $third-party
+||http://36500.com 
+||http://36500.net 
 ||http://365339.top
 ||http://365che.cc
 ||http://36pn.com
 ||http://375553.com
 ||http://376zf.com
-||http://3798.com $third-party
-||http://37cs.com $third-party
-||http://38ra.com $third-party
-||http://3975lm.com $third-party
+||http://3798.com 
+||http://37cs.com 
+||http://38ra.com 
+||http://3975lm.com 
 ||http://397773.com
-||http://3alian.net $third-party
+||http://3alian.net 
 ||http://3c3c3.com
-||http://3dwwwgame.com $third-party
+||http://3dwwwgame.com 
 ||http://3g.990.net
 ||http://3gmtr.com
 ||http://3lga3.cn
-||http://3p-link.com $third-party
+||http://3p-link.com 
 ||http://3qmh.com
 ||http://3qsys.com
-||http://3vlm.com $third-party
+||http://3vlm.com 
 ||http://3ygww.com
 ||http://4006825178.com
 ||http://40fenzhong.com
 ||http://4480dy.net
-||http://44pv.com $third-party
-||http://4567.org $third-party
+||http://44pv.com 
+||http://4567.org 
 ||http://47api.cn
-||http://4936.cn $third-party
+||http://4936.cn 
 ||http://4kyu.cn
-||http://50bang.org $third-party
+||http://50bang.org 
 ||http://50zera.com
 ||http://51-tour.net
 ||http://5125129.com
 ||http://517m.cn
-||http://51ads.com $third-party
+||http://51ads.com 
 ||http://51dmn.top
 ||http://51fuliwang.cn
-||http://51gugu.com $third-party
+||http://51gugu.com 
 ||http://51jumintong.com
 ||http://51roadway.com
 ||http://51sxzz.com
@@ -12884,98 +12889,98 @@
 ||http://51xumei.com
 ||http://5207470.com
 ||http://520meirenyu.com
-||http://525cm.com $third-party
+||http://525cm.com 
 ||http://5269120.com
-||http://526d.com $third-party
-||http://52kmh.com $third-party
+||http://526d.com 
+||http://52kmh.com 
 ||http://52kmk.com
 ||http://52kp2.com
 ||http://52yugan.com
 ||http://52zfl.com
-||http://5399.com $third-party
+||http://5399.com 
 ||http://550tg.com
 ||http://5551193.com
 ||http://5551650.com
 ||http://5551660.com
 ||http://5551825.com
 ||http://5551933.com
-||http://55803.net $third-party
+||http://55803.net 
 ||http://55kk.tv
 ||http://560378.com
-||http://565882.com $third-party
-||http://56yk.com $third-party
+||http://565882.com 
+||http://56yk.com 
 ||http://5783.org
 ||http://57union.com
 ||http://58taopinhui.com
 ||http://58xiangka.com
 ||http://592man.com
 ||http://593pi.cn
-||http://59519.com $third-party
+||http://59519.com 
 ||http://59gt.cn
-||http://59hi.com $third-party
+||http://59hi.com 
 ||http://5b1d.com
 ||http://5imoney.com
-||http://5leji.com $third-party
-||http://5mn.net $third-party
-||http://5mnh.com $third-party
+||http://5leji.com 
+||http://5mn.net 
+||http://5mnh.com 
 ||http://60.190.139.164
-||http://63kc.com $third-party
+||http://63kc.com 
 ||http://643226.com
 ||http://65tgh.com
-||http://6604.org $third-party
+||http://6604.org 
 ||http://666666666666.site
 ||http://6666lm.com
-||http://668559.com $third-party
+||http://668559.com 
 ||http://66996.top
 ||http://66997.top
 ||http://66998.top
 ||http://6728812.com
-||http://6789.net $third-party
-||http://67lm.com $third-party
-||http://685wo.com $script,third-party
+||http://6789.net 
+||http://67lm.com 
+||http://685wo.com 
 ||http://68665565.com
 ||http://68710266.com
-||http://6avz.com $script,third-party
+||http://6avz.com 
 ||http://6cc8cc.xyz
-||http://6dad.com $third-party
+||http://6dad.com 
 ||http://6dvip.com
 ||http://6huu.com
-||http://6travel.com $third-party
-||http://6v4.cn $third-party
-||http://70e.com $third-party
+||http://6travel.com 
+||http://6v4.cn 
+||http://70e.com 
 ||http://70lm.com
 ||http://70yst.cn
-||http://710070.com $third-party
+||http://710070.com 
 ||http://711kk.com
 ||http://71sem.com
-||http://7540.com $third-party
+||http://7540.com 
 ||http://761f1b3960.com
-||http://7676.com $third-party
+||http://7676.com 
 ||http://77417.cn
-||http://77777.org $third-party
+||http://77777.org 
 ||http://7791.com.cn
-||http://7794.com $third-party
+||http://7794.com 
 ||http://77power.com
-||http://77zhuan.com $third-party
-||http://788xj.com $third-party
+||http://77zhuan.com 
+||http://788xj.com 
 ||http://78dx8t.com
 ||http://7a096v.cn
-||http://7bwan.com $third-party
+||http://7bwan.com 
 ||http://7cbwus.cn
-||http://7clink.com $third-party
+||http://7clink.com 
 ||http://7dah8.com
 ||http://7daystodie.cn
-||http://7dlm.cn $third-party
+||http://7dlm.cn 
 ||http://7g9m3r.com
 ||http://7gg.cc
 ||http://7krvbn.com
-||http://7o2o.com $third-party
-||http://7t955.com $third-party
+||http://7o2o.com 
+||http://7t955.com 
 ||http://7wen.cn
 ||http://7xi9g1.com1.z0.glb.clouddn.com
-||http://8080i.com $third-party
+||http://8080i.com 
 ||http://80sjw.com
-||http://810236.com $third-party
+||http://810236.com 
 ||http://810251.com
 ||http://81c.cn
 ||http://820rd.com
@@ -12992,21 +12997,21 @@
 ||http://8881919.cc
 ||http://888888888888.online
 ||http://88888888vip.top
-||http://88cpc.com $third-party
+||http://88cpc.com 
 ||http://88rpg.net
-||http://88shu.cn $third-party
-||http://88ysg.com $third-party
+||http://88shu.cn 
+||http://88ysg.com 
 ||http://892155.com
 ||http://899792.com
 ||http://89h8.com
 ||http://8ao8ao.com
 ||http://8hdp.cn
-||http://8le8le.com $third-party
+||http://8le8le.com 
 ||http://8ucdn.com
-||http://911.cc $third-party
-||http://91link.xyz $third-party
-||http://91lmgg.com $third-party
-||http://91toon.com $third-party
+||http://911.cc 
+||http://91link.xyz 
+||http://91lmgg.com 
+||http://91toon.com 
 ||http://91xry.com
 ||http://91ysa.com
 ||http://92mile.com
@@ -13019,32 +13024,32 @@
 ||http://94dwc.com
 ||http://94lm.com
 ||http://94nw.com
-||http://9519.net $third-party
+||http://9519.net 
 ||http://95558000.com
 ||http://9596yy.com
-||http://9665yx.com $third-party
-||http://9669.com $script,third-party
+||http://9665yx.com 
+||http://9669.com 
 ||http://96mob.com
-||http://9718.com $third-party
+||http://9718.com 
 ||http://978655.online
 ||http://97wanle.com
-||http://980th.com $third-party
+||http://980th.com 
 ||http://9898c.com
 ||http://99dqw.com
-||http://99l.co $third-party
+||http://99l.co 
 ||http://99lolo.com
 ||http://99pps.com
 ||http://99tianxin.com
-||http://9ads.net $third-party
-||http://9ead.com $third-party
+||http://9ads.net 
+||http://9ead.com 
 ||http://9kanw.com
 ||http://9kff.com
 ||http://9nwg9sib9e.com
-||http://9w1an.com $third-party
+||http://9w1an.com 
 ||http://9wlm.com
 ||http://9wotuan.com
 ||http://9xiazaiqi.com
-||http://9xu.com $third-party
+||http://9xu.com 
 ||http://a.youdao.com
 ||http://a0b11.com
 ||http://a0b22.com
@@ -13053,71 +13058,71 @@
 ||http://a0c77.com
 ||http://a0usa.top
 ||http://a2b3.tk
-||http://a3p4.com $third-party
+||http://a3p4.com 
 ||http://a3p4.net
 ||http://a907907.com
 ||http://a9377j.com
 ||http://aaaa8.top
 ||http://aaaf.info $script
-||http://aafuck.xyz $third-party
+||http://aafuck.xyz 
 ||http://aaliyaheartha.com
 ||http://aasyy.com
 ||http://abc88866.com
 ||http://abcdlm.com
-||http://abiaobai.cn $third-party
+||http://abiaobai.cn 
 ||http://acasys88.cn
-||http://acgbase.com $third-party
-||http://achicih.gitee.io $third-party
+||http://acgbase.com 
+||http://achicih.gitee.io 
 ||http://acptkgp.com
-||http://acs86.com $third-party
-||http://ad-plus.cn $third-party
-||http://ad-survey.com $third-party
+||http://acs86.com 
+||http://ad-plus.cn 
+||http://ad-survey.com 
 ||http://ad.52av.tv
 ||http://ad.muyang888.top
-||http://ad8.cc $third-party
+||http://ad8.cc 
 ||http://ad9377.com
 ||http://adacgov.cn
 ||http://adbot.tw
-||http://adbxb.com $third-party
-||http://adconfer.com $third-party
+||http://adbxb.com 
+||http://adconfer.com 
 ||http://address9.com
 ||http://adelazanna.com
-||http://adfeifan.com $third-party
+||http://adfeifan.com 
 ||http://adget.cn
-||http://adhouyi.com $third-party
+||http://adhouyi.com 
 ||http://adiniky.com
-||http://adm.cnzz.net $third-party
-||http://admin6.com $third-party
+||http://adm.cnzz.net 
+||http://admin6.com 
 ||http://adnex.tech
-||http://adnow.cc $third-party
+||http://adnow.cc 
 ||http://adomv.com
-||http://adondemand.com $third-party
-||http://adpro.cn $third-party
-||http://adpush.cn $third-party
+||http://adondemand.com 
+||http://adpro.cn 
+||http://adpush.cn 
 ||http://adreal.cn
-||http://adreep.cn $third-party
+||http://adreep.cn 
 ||http://adrs.sdo.com
 ||http://ads.uc.cn
-||http://ads80.com $third-party
-||http://adsage.com $third-party
-||http://adsbro.com $third-party
-||http://adt100.com $third-party
-||http://adunioncode.com $third-party
-||http://adunite.com $third-party
-||http://adxiaozi.com $third-party
-||http://adxxx.com $third-party
-||http://adyun.com $third-party
+||http://ads80.com 
+||http://adsage.com 
+||http://adsbro.com 
+||http://adt100.com 
+||http://adunioncode.com 
+||http://adunite.com 
+||http://adxiaozi.com 
+||http://adxxx.com 
+||http://adyun.com 
 ||http://aencx.net
 ||http://aeoprw.cn
-||http://affiliate.rakuten.co.jp $third-party
+||http://affiliate.rakuten.co.jp 
 ||http://afj0.com
 ||http://afjlb.com
 ||http://agathaedith.com
 ||http://agilehw.online
-||http://agrantsem.com $third-party
+||http://agrantsem.com 
 ||http://agtsjb.com
-||http://aguo.com $third-party
-||http://agxclick.com $third-party
+||http://aguo.com 
+||http://agxclick.com 
 ||http://ah58tc.com
 ||http://ahjinhuayi.com
 ||http://ahjzys.com
@@ -13129,11 +13134,11 @@
 ||http://ahyau.com
 ||http://ahyuns.com
 ||http://ai36588.com
-||http://aiclicash.com $third-party
-||http://aidaicn.com $third-party
+||http://aiclicash.com 
+||http://aidaicn.com 
 ||http://aifu-pay.com
 ||http://aijielang.cn
-||http://aimato.com $third-party
+||http://aimato.com 
 ||http://aishangcan.com
 ||http://ajaxcdn.org
 ||http://ajwssds.com
@@ -13151,17 +13156,17 @@
 ||http://alivelivevideos.com
 ||http://aliyuncss.com
 ||http://aliyunxin.com
-||http://alllget.com $third-party
-||http://allyes.$third-party
+||http://alllget.com 
+||http://allyes.
 ||http://amarketing.top
-||http://andmejs.com $third-party
+||http://andmejs.com 
 ||http://andyfanfan.xyz
 ||http://annabelleabe.com
 ||http://anquanzhuomian.cn
 ||http://anquanzhuomian.com
-||http://aomeng.net $third-party
+||http://aomeng.net 
 ||http://aonecomd.com
-||http://aoparking.com $third-party
+||http://aoparking.com 
 ||http://aotetu.cn
 ||http://aoyinn.com
 ||http://aparvibices.com
@@ -13176,10 +13181,10 @@
 ||http://atanx.alicdn.com
 ||http://audit8.com
 ||http://auspiciousvp.com
-||http://av8d.net $third-party
+||http://av8d.net 
 ||http://avtiaozhuan.com
 ||http://aw21.top
-||http://awifi.cn $third-party
+||http://awifi.cn 
 ||http://ax21pics.org
 ||http://azttxs.com
 ||http://b588866.com
@@ -13191,16 +13196,16 @@
 ||http://baidulao.com
 ||http://baiduyoukualiyun.com
 ||http://baiduyubaidu.com
-||http://baitaiad.com $third-party
-||http://baitugu.com $third-party
+||http://baitaiad.com 
+||http://baitugu.com 
 ||http://baiyuandian.cc
-||http://baizhu.cc $third-party
+||http://baizhu.cc 
 ||http://bajieyy.cc
-||http://balmoralmkt.com $third-party
-||http://bang5mai.com $third-party
+||http://balmoralmkt.com 
+||http://bang5mai.com 
 ||http://bangbang521.com
 ||http://banjuanmao.com
-||http://baodaozhan.cn $third-party
+||http://baodaozhan.cn 
 ||http://baolic.com
 ||http://bbdsdy.com
 ||http://bbttkk.com
@@ -13213,21 +13218,21 @@
 ||http://bdyxzx.com
 ||http://bearad.com
 ||http://bebelait.com
-||http://behe.com $third-party
+||http://behe.com 
 ||http://bejzz.top
 ||http://bfgg365.com
 ||http://bhyblanket.cn
 ||http://biandaosheng.com
-||http://bianxianmao.com $third-party
+||http://bianxianmao.com 
 ||http://biaoshipai.net
 ||http://bibilm.com
-||http://biddingx.com $third-party
+||http://biddingx.com 
 ||http://bihaipack.com
 ||http://billionfocus.com
 ||http://bingyinq.com
 ||http://biohailijie.cn
-||http://biquge22.com $third-party
-||http://birdmedia.com $third-party
+||http://biquge22.com 
+||http://birdmedia.com 
 ||http://bj-bytsk.com
 ||http://bjgtsh.com
 ||http://bjxgw.top
@@ -13236,24 +13241,24 @@
 ||http://bla01.com
 ||http://bllzgqbyp.com
 ||http://blogdaka.cc
-||http://bloggerads.net $third-party
+||http://bloggerads.net 
 ||http://bmbaike.cn
-||http://bmw100.cn $third-party
+||http://bmw100.cn 
 ||http://bnq86.com
-||http://bnuni.com $third-party
+||http://bnuni.com 
 ||http://bole.asia
 ||http://bole8dns.com
 ||http://boleimg.com
 ||http://bolimen.top
-||http://books.com.tw/exep/ap/$third-party
+||http://books.com.tw/exep/ap/
 ||http://bosatria.cn
 ||http://bosiwangzi.cn
 ||http://botsforger.com.cn
-||http://bozhihua.com $third-party
+||http://bozhihua.com 
 ||http://bozhixiang.top
 ||http://braincf.com
 ||http://brownfox.top
-||http://bs777.net $third-party
+||http://bs777.net 
 ||http://bsfishing.cn
 ||http://bsjgc.com
 ||http://bskchina.cn/js/
@@ -13262,24 +13267,24 @@
 ||http://bts05.site
 ||http://btssy.net
 ||http://btwan5.com
-||http://btyou.com $third-party
+||http://btyou.com 
 ||http://bufamy.com
 ||http://bujiangjiu123.com
 ||http://buydee.org
 ||http://buyihao.com
-||http://buzzads.com $third-party
+||http://buzzads.com 
 ||http://bv8888.com
 ||http://bxgmb.com
 ||http://bxgz.cc
 ||http://bxjpl.cn
 ||http://bydonline.com
-||http://c.91wan.com $third-party
-||http://caiyifz.com $third-party
+||http://c.91wan.com 
+||http://caiyifz.com 
 ||http://cangnews.com
 ||http://cao444cao.com
-||http://caodaye.com $third-party
+||http://caodaye.com 
 ||http://caomindianying.com
-||http://cardniu.com $third-party
+||http://cardniu.com 
 ||http://carnol.cn
 ||http://cb.baidu.com
 ||http://cbjs.baidu.com
@@ -13300,19 +13305,19 @@
 ||http://cgiale.com
 ||http://cgskqg.com
 ||http://championmachinery-cn.com
-||http://chanet.com.cn $third-party
+||http://chanet.com.cn 
 ||http://chaoyi4.com
-||http://chapm.com $third-party
+||http://chapm.com 
 ||http://chaxinyong.net
 ||http://chayayeon.com
-||http://che0.com $third-party
+||http://che0.com 
 ||http://chehuanjie.com
-||http://chengruide.com $third-party
+||http://chengruide.com 
 ||http://chengzhonghuxin.com
 ||http://chenyanjiao.cn
 ||http://china-star.cc
-||http://chinauma.net $third-party
-||http://chinesean.com $third-party
+||http://chinauma.net 
+||http://chinesean.com 
 ||http://chiuhua.com.cn
 ||http://chromc.com
 ||http://chucity.com
@@ -13320,7 +13325,7 @@
 ||http://chushoushijian.cn
 ||http://chuzushijian.cn
 ||http://ci-web.cn
-||http://cifenqi.com $third-party
+||http://cifenqi.com 
 ||http://cj-cy.com
 ||http://cjgcedu.com
 ||http://cke199.com
@@ -13329,11 +13334,11 @@
 ||http://cl-xny.cn
 ||http://claz.com.cn
 ||http://climbcoder.com
-||http://cloudad.asia $third-party
+||http://cloudad.asia 
 ||http://cloudpsvn.com
 ||http://cmaxisolation.com
 ||http://cnbole.net
-||http://cnco.me $third-party
+||http://cnco.me 
 ||http://cncy8.com
 ||http://cnfanglei.com
 ||http://cnhbxx.com
@@ -13342,17 +13347,17 @@
 ||http://cnnywz.cn
 ||http://cnpinzhuo.com
 ||http://cnscdj.com
-||http://cnxad.com $third-party
+||http://cnxad.com 
 ||http://cnxad.net
 ||http://cnzz.com.so
 ||http://code222.com
 ||http://code668.com
-||http://coinadv.com $third-party
+||http://coinadv.com 
 ||http://coinever.net
 ||http://coolbook.cc
 ||http://coolfenxi.com
-||http://cpc.cc $third-party
-||http://cpm360.com $third-party
+||http://cpc.cc 
+||http://cpm360.com 
 ||http://cpro.baidu.com
 ||http://cpro.baidustatic.com
 ||http://cpv6.com
@@ -13363,15 +13368,15 @@
 ||http://cqtnfs.com $domain=~agefans.tv
 ||http://cqwzjx.cn
 ||http://cqyhd.com
-||http://cr-nielsen.com $third-party
+||http://cr-nielsen.com 
 ||http://crdrjs.info
 ||http://cre99.com
 ||http://crfrf.com
 ||http://crglpt.com
 ||http://crywl.com
-||http://cs.37see.com $third-party
-||http://csad.cc $third-party
-||http://csbew.com $third-party
+||http://cs.37see.com 
+||http://csad.cc 
+||http://csbew.com 
 ||http://csgtfruit.com
 ||http://csqiulong.com
 ||http://cssdiv.club
@@ -13384,7 +13389,7 @@
 ||http://cwmlm.com
 ||http://cxfzw.cn
 ||http://cxgh.net
-||http://cxxtv.com $third-party
+||http://cxxtv.com 
 ||http://cy-wz.com
 ||http://cyacc.com
 ||http://cycytea.cn
@@ -13397,8 +13402,8 @@
 ||http://czshenyue.cn
 ||http://cztanchao.com
 ||http://d15cjcet1djbmv.cloudfront.net
-||http://d1ad.com $third-party
-||http://d8360.com $third-party
+||http://d1ad.com 
+||http://d8360.com 
 ||http://dadjia.com
 ||http://dafapai.com
 ||http://dagonghuzhu.com
@@ -13421,8 +13426,8 @@
 ||http://dbncp.com
 ||http://dbojetp.cn
 ||http://dce0k0.cn
-||http://dcxmy.com $third-party
-||http://dddddd.net $third-party
+||http://dcxmy.com 
+||http://dddddd.net 
 ||http://ddhtek.com
 ||http://ddomm.com
 ||http://deeplacer.com
@@ -13430,34 +13435,34 @@
 ||http://dexuanyu.top
 ||http://df3n43m.com
 ||http://df77.com
-||http://df9377.com $third-party
+||http://df9377.com 
 ||http://dgtauto.com
 ||http://dhlmy.com
 ||http://dhxyzx.cn
 ||http://di9qu.com.cn
-||http://dian500.com $third-party
-||http://dian5000.com $third-party
+||http://dian500.com 
+||http://dian5000.com 
 ||http://dianwenwang.com
-||http://dianxin.com $third-party
+||http://dianxin.com 
 ||http://dilidd.com
-||http://displink.com $third-party
+||http://displink.com 
 ||http://diuling.com
 ||http://dizhonghaihotel.com
 ||http://djpt33.com
 ||http://djsn888.com
 ||http://djy518.com
-||http://dlads.cn $third-party
+||http://dlads.cn 
 ||http://dlhygj.com
 ||http://dlkjgjmy.com
 ||http://dlpifu.com
 ||http://dlrijiaele.com
 ||http://dlzjdesign.com
 ||http://dmqapp.com
-||http://dmtrck.com $third-party
+||http://dmtrck.com 
 ||http://dnskuu.com
-||http://doniv.net $third-party
+||http://doniv.net 
 ||http://dou777.com
-||http://doubleadv.com $third-party
+||http://doubleadv.com 
 ||http://doudao.cn
 ||http://dpjszs.com
 ||http://dqsft.com
@@ -13471,21 +13476,21 @@
 ||http://dtrcw.cc
 ||http://duiwai.baidu.com
 ||http://duobaoqj.com
-||http://duomai.com $third-party
+||http://duomai.com 
 ||http://duoquyouhui.cn
 ||http://dushiken.cn
 ||http://duusuu.com
 ||http://dvr8.com
 ||http://dw998.com
-||http://dxpmedia.com $third-party
+||http://dxpmedia.com 
 ||http://dxssiyi.com
 ||http://dy886.cn
-||http://dyhs52.com $third-party
+||http://dyhs52.com 
 ||http://dyssir.com
 ||http://dyx0878.cn
 ||http://dzjzg.com
 ||http://dzletao.com
-||http://dzsstye.com $third-party
+||http://dzsstye.com 
 ||http://dzxwnews.com
 ||http://e-demx.com
 ||http://e66gg.com
@@ -13498,21 +13503,21 @@
 ||http://e719.net
 ||http://e7ymqu6.cn
 ||http://earthahedda.com
-||http://easou.com $third-party
+||http://easou.com 
 ||http://ecuc123.net
 ||http://edenhermosa.com
 ||http://edo5.com
 ||http://eduad.baidu.com
 ||http://eduzzjy.com
-||http://eeyy.com $third-party
-||http://egooad.com $third-party
+||http://eeyy.com 
+||http://egooad.com 
 ||http://einsuran.com.cn
 ||http://eiv.baidu.com
-||http://ejin56.com $third-party
+||http://ejin56.com 
 ||http://ellenhilary.com
 ||http://elsiehoney.com
 ||http://elvirahedwig.com
-||http://emarbox.com $third-party
+||http://emarbox.com 
 ||http://enohb.com
 ||http://eoncreativity.com
 ||http://erdsyzb.com
@@ -13520,17 +13525,17 @@
 ||http://expo123.net
 ||http://extremedirectness.com
 ||http://eyd77s.com
-||http://eyouv.cn $third-party
-||http://ez33.com $third-party
-||http://ezlian.com $third-party
+||http://eyouv.cn 
+||http://ez33.com 
+||http://ezlian.com 
 ||http://f1190.com
-||http://f11w.com $third-party
-||http://f1zd.com $third-party
+||http://f11w.com 
+||http://f1zd.com 
 ||http://f2zd.com
 ||http://f70123.com
-||http://f8272.com $third-party
+||http://f8272.com 
 ||http://faachen.cn
-||http://fadama.com $third-party
+||http://fadama.com 
 ||http://family-joy.com
 ||http://fangniaowang.net
 ||http://fanli.in
@@ -13540,10 +13545,10 @@
 ||http://fcheng.top
 ||http://fd7c.com
 ||http://feisia1.cn
-||http://feitian001.com $third-party
+||http://feitian001.com 
 ||http://fengchedaomall.cn
 ||http://fenggejiaju.com
-||http://fengxiangstore.com $third-party
+||http://fengxiangstore.com 
 ||http://fensifuligo.com
 ||http://fexiaen.com
 ||http://ffa9.cn
@@ -13555,12 +13560,12 @@
 ||http://fjmeyer.com
 ||http://fjsjsj.com
 ||http://fkub.xyz
-||http://flashwing.net $third-party
+||http://flashwing.net 
 ||http://flowcodeapp.com
 ||http://fnkjj.com
 ||http://focusonus.top
 ||http://focusprolight.com
-||http://food5.net $third-party
+||http://food5.net 
 ||http://forever-k.com.cn
 ||http://foreveryoung.gz01.bdysite.com
 ||http://forrerri.com
@@ -13576,35 +13581,35 @@
 ||http://fv99.com
 ||http://fwt0.com
 ||http://fxmacd.com
-||http://fxxgw.com $third-party
+||http://fxxgw.com 
 ||http://fzbymy.com
 ||http://fzdeng.com
 ||http://fzglqyy.com
 ||http://g1.tagtic.cn
 ||http://g1c5.com
 ||http://g1f5.com
-||http://g35.cc $third-party
-||http://g3user.com $third-party
+||http://g35.cc 
+||http://g3user.com 
 ||http://g52bl.cn
-||http://game3737.com $third-party
-||http://gamecps.com $third-party
-||http://gameone.com $third-party
+||http://game3737.com 
+||http://gamecps.com 
+||http://gameone.com 
 ||http://gaobata.com
 ||http://gaomingbo.com
 ||http://garacy.cn
 ||http://gars57.cn
 ||http://gasxf.com
 ||http://gaycloud.cn
-||http://gclick.cn $third-party
-||http://gd.189.cn *.htm?SP=$third-party
+||http://gclick.cn 
+||http://gd.189.cn *.htm?SP=
 ||http://gdbly.com
 ||http://gdgy56.com
 ||http://gdskywings.com
-||http://gdxxb.com $third-party
+||http://gdxxb.com 
 ||http://ge95.com
 ||http://geili.co
 ||http://geiyujieda.com
-||http://geotmt.com $third-party
+||http://geotmt.com 
 ||http://geryi.com
 ||http://gf108.com
 ||http://gfd80.com
@@ -13612,15 +13617,15 @@
 ||http://gg.miued.com
 ||http://gg570.com
 ||http://ggdydz.com
-||http://ggmm777.com $third-party
+||http://ggmm777.com 
 ||http://ggweb.net
-||http://ggxt.net $third-party
+||http://ggxt.net 
 ||http://ghnmg.top
 ||http://glrcy.cn
 ||http://goodgoodluck.cn
 ||http://goodgz.cn
-||http://googleadsl.com $third-party
-||http://gotonav.com $third-party
+||http://googleadsl.com 
+||http://gotonav.com 
 ||http://gouweida.cn
 ||http://govbeijing.cn
 ||http://govchongqing.cn
@@ -13635,11 +13640,11 @@
 ||http://govxian.cn
 ||http://govyunfu.cn
 ||http://gowin01.com
-||http://gowinxp.com $third-party
+||http://gowinxp.com 
 ||http://gqswg.com
 ||http://greenbetterkids.com
 ||http://greenxcx.com
-||http://gs307.com $third-party
+||http://gs307.com 
 ||http://gshtrl.top
 ||http://gsjzlssws.com
 ||http://gssxb.com
@@ -13651,7 +13656,7 @@
 ||http://guangzizai.com
 ||http://guanmeixiangsu.com
 ||http://guduopu.com
-||http://gugeys.com $third-party
+||http://gugeys.com 
 ||http://guidashu.com
 ||http://guirui-clothes.com
 ||http://guominziben.com
@@ -13673,24 +13678,24 @@
 ||http://gzwxdq.cn
 ||http://gzxxty168.com
 ||http://h41s.com
-||http://h501.cn $third-party
+||http://h501.cn 
 ||http://hahazl.com
 ||http://haidaocn.com
 ||http://haireig.com
 ||http://haiyunimg.com
 ||http://haiyunpush.com
-||http://haiyunx.com $third-party
+||http://haiyunx.com 
 ||http://haizirv.cn
 ||http://handanxinkai.com
 ||http://hangoutairbags.com
 ||http://hanqidq.com
-||http://hao123union.baidu.com $third-party
-||http://hao222.com $third-party
+||http://hao123union.baidu.com 
+||http://hao222.com 
 ||http://hao61.net
 ||http://haokan3.cn
 ||http://haolew.com
-||http://haomm.com $third-party
-||http://haosf.com $third-party
+||http://haomm.com 
+||http://haosf.com 
 ||http://harahero.top
 ||http://harridan.cc
 ||http://harveysarv.com
@@ -13707,11 +13712,11 @@
 ||http://hbzjht.com
 ||http://hcwljy.com
 ||http://heaplap.com
-||http://heartshow.cn $third-party
+||http://heartshow.cn 
 ||http://hebkb.cn
-||http://heima8.com $third-party
+||http://heima8.com 
 ||http://hellocdn.top
-||http://hen360.com $third-party
+||http://hen360.com 
 ||http://henanlvyi.com
 ||http://henanzhulongjx.com
 ||http://heshun365.cn
@@ -13736,7 +13741,7 @@
 ||http://hmaqz.top
 ||http://hmnjf.com
 ||http://hmong-miaojiuyi.com
-||http://hn163fck.com $third-party
+||http://hn163fck.com 
 ||http://hnasd.com
 ||http://hnctsm.com
 ||http://hngezj.com
@@ -13765,17 +13770,17 @@
 ||http://hrbpay.com
 ||http://hskj.net
 ||http://hslyqs.com
-||http://hsmkj.net $third-party
+||http://hsmkj.net 
 ||http://hsyjxzl.cn
 ||http://ht12366.top
-||http://htg-x.com $third-party
+||http://htg-x.com 
 ||http://htxcl.com.cn
 ||http://huaerduo.com
 ||http://huapuzs.com
 ||http://huataisangao.cn
 ||http://huichenbz.com
 ||http://huigun.top
-||http://huimee.com $third-party
+||http://huimee.com 
 ||http://huimee.net
 ||http://huishij.net
 ||http://huiyutz.cn
@@ -13786,8 +13791,8 @@
 ||http://hxadt.com
 ||http://hxlif.com
 ||http://hxnzyy.com
-||http://hxqu.com $third-party
-||http://hxsq.app $third-party
+||http://hxqu.com 
+||http://hxsq.app 
 ||http://hxssj.cn
 ||http://hxtwl.cn
 ||http://hxyifu.com
@@ -13801,63 +13806,63 @@
 ||http://hytgj.com
 ||http://hyz86.com
 ||http://hz-sllace.com
-||http://hz3137.com $third-party
+||http://hz3137.com 
 ||http://hzdwjc.com
 ||http://hzlm.cc
 ||http://hzyyhz.cn
 ||http://i.zhuoyaju.com
-||http://i000o.com $third-party
+||http://i000o.com 
 ||http://i3818.com
-||http://i3z.cn $third-party
-||http://ianpos.com $third-party
-||http://icast.cn $third-party
+||http://i3z.cn 
+||http://ianpos.com 
+||http://icast.cn 
 ||http://icemf.com
-||http://icolor8.com $third-party
+||http://icolor8.com 
 ||http://id528.com
 ||http://idasai.com
 ||http://idcqi.com
 ||http://idianfang.com
 ||http://idoc58.com
 ||http://idy666.com
-||http://iee5.com $third-party
+||http://iee5.com 
 ||http://iewad.net
-||http://ifocus.cn $third-party
+||http://ifocus.cn 
 ||http://ifufen.com
-||http://igo5.cc $third-party
+||http://igo5.cc 
 ||http://ijir.cn
 ||http://il8r.com
-||http://ilepai.com $third-party
+||http://ilepai.com 
 ||http://ilinxi.cc
-||http://image.qndown.com $third-party
+||http://image.qndown.com 
 ||http://imglele.xyz
 ||http://imglolo.xyz
 ||http://imgpipi.xyz
 ||http://imim.me
 ||http://immaohao.cn
 ||http://imnvgma.cn
-||http://index8.cn $third-party
-||http://instreet.cn $third-party
+||http://index8.cn 
+||http://instreet.cn 
 ||http://inte.sogoucdn.com $domain=~index.sogou.com|~zhishu.sogou.com
-||http://intentarget.com $third-party
+||http://intentarget.com 
 ||http://iomsew.com
-||http://ipaypay.cn $third-party
-||http://iprefer.com.tw $third-party
+||http://ipaypay.cn 
+||http://iprefer.com.tw 
 ||http://iqiyi.kim
 ||http://iqiyi.pub
 ||http://iqu-operation.com
 ||http://iroby.com
-||http://is686.com $third-party
-||http://istcg.com $third-party
-||http://istreamsche.com $third-party
+||http://is686.com 
+||http://istcg.com 
+||http://istreamsche.com 
 ||http://it028.net.cn
 ||http://itchenjian.com
-||http://itechwall.com $third-party
+||http://itechwall.com 
 ||http://itemccmod.com
 ||http://iupnlpd.cn
 ||http://iwansf.com
 ||http://iyodoctor.com
 ||http://iyptc.cn
-||http://j8j9.com $third-party
+||http://j8j9.com 
 ||http://ja9377.com
 ||http://jacquelinelaura.com
 ||http://jbyy010.com
@@ -13880,12 +13885,12 @@
 ||http://jianbaimei.com
 ||http://jianbangjiaoyu.com
 ||http://jianduankm.com
-||http://jianglishi.cn $third-party
+||http://jianglishi.cn 
 ||http://jianglongjie.cn
 ||http://jiangmg.com
-||http://jiankang13.com $third-party
+||http://jiankang13.com 
 ||http://jianmei123.com
-||http://jianpian.vip $third-party
+||http://jianpian.vip 
 ||http://jianxinshanghai.com
 ||http://jianyouling.com
 ||http://jianyousj.com
@@ -13903,15 +13908,15 @@
 ||http://jinshasi.cn
 ||http://jinshenglong.cn
 ||http://jinxiuzhilv.com
-||http://jisucn.com $third-party
+||http://jisucn.com 
 ||http://jisukuaisong.cn
 ||http://jisuoping.com
-||http://jiudianhudong.com $third-party
+||http://jiudianhudong.com 
 ||http://jiuhui878.com
 ||http://jiuku.cc
-||http://jiuzhilan.com $third-party
-||http://jixing8.com $third-party
-||http://jixing8.net $third-party
+||http://jiuzhilan.com 
+||http://jixing8.com 
+||http://jixing8.net 
 ||http://jiyuanzhiwensuo.cn
 ||http://jjxgly.com
 ||http://jjz666.cn
@@ -13921,13 +13926,13 @@
 ||http://jl027.com
 ||http://jljspx.com
 ||http://jlwljym.com
-||http://jntmedia.cn $third-party
+||http://jntmedia.cn 
 ||http://jnxz88.cn
 ||http://jnyngg.cn
 ||http://joannalaura.com
 ||http://jocelynlaura.com
 ||http://johtzj.com
-||http://jointreport-switch.com $third-party
+||http://jointreport-switch.com 
 ||http://jozee.cn
 ||http://jp88888887.cn
 ||http://jqsex.com
@@ -13936,28 +13941,28 @@
 ||http://js88895.net
 ||http://jschuangnuo.com
 ||http://jscsd.cn
-||http://jsinfo.net $third-party
-||http://jsjxhd.com $third-party
+||http://jsinfo.net 
+||http://jsjxhd.com 
 ||http://jsmwd.com
-||http://jsyd139.com $third-party
+||http://jsyd139.com 
 ||http://jsyzw132.com
 ||http://jtdxz.top
 ||http://jtkshop.net
-||http://jtxh.net $third-party
-||http://ju33.com $third-party
-||http://juandou.com $third-party
-||http://juhepen.com $third-party
+||http://jtxh.net 
+||http://ju33.com 
+||http://juandou.com 
+||http://juhepen.com 
 ||http://junfull.com
 ||http://jungbey.xyz
 ||http://junkucm.com
-||http://junnew.com $third-party
-||http://jusha.com $third-party
+||http://junnew.com 
+||http://jusha.com 
 ||http://jushikk.com
 ||http://just-machinery.com
 ||http://jutou5.com
 ||http://juuhe.com
 ||http://juvbzle.cn
-||http://juxiangyou.com $third-party
+||http://juxiangyou.com 
 ||http://juyiqiche.com.cn
 ||http://jx118114.net
 ||http://jxjzny.com
@@ -13965,27 +13970,27 @@
 ||http://jxsgxzx.com
 ||http://jystea.com
 ||http://k1815.com
-||http://k3851.com $third-party
+||http://k3851.com 
 ||http://k9dzax.cn
 ||http://ka12138.top
 ||http://kagdf.com
 ||http://kaiguangdou.com
-||http://kaixinjiehun.com $third-party
-||http://kakayy.com $third-party
+||http://kaixinjiehun.com 
+||http://kakayy.com 
 ||http://kan8.xyz
 ||http://kanfaxing.com
 ||http://kanwby.com
 ||http://kc-valves.com
-||http://kdly.net $third-party
+||http://kdly.net 
 ||http://kdy365.vip
 ||http://keeearl.top
 ||http://keeyekey.xyz
-||http://kefeng56.com $third-party
-||http://kejet.$third-party
+||http://kefeng56.com 
+||http://kejet.
 ||http://kele4.com
 ||http://kevinhewu.com
-||http://keydot.net $third-party
-||http://keyrun.cn $third-party
+||http://keydot.net 
+||http://keyrun.cn 
 ||http://keyyou.net
 ||http://kf3msfm.com
 ||http://kfd3sm2c.com
@@ -13993,14 +13998,14 @@
 ||http://kfyg.xyz
 ||http://kgua0o66bcw8.com
 ||http://kguke.com
-||http://khgj.cn $third-party
+||http://khgj.cn 
 ||http://khufaw2.com
 ||http://kiees.com $image,subdocument,third-party
 ||http://kilin.xyz
 ||http://kingpolo.com.cn
 ||http://kingwam.com
 ||http://kitchenfurniture.cc
-||http://kiwihk.net $third-party
+||http://kiwihk.net 
 ||http://kjfoqi.cn
 ||http://kjgen.com
 ||http://kjwx8.com
@@ -14015,16 +14020,16 @@
 ||http://kojwex.top
 ||http://kokofits.com
 ||http://kolinay.com
-||http://koopei.com $third-party
+||http://koopei.com 
 ||http://koukou7.com
 ||http://ksxcxb.cn
 ||http://kt220.com
 ||http://ktdlsb.com
 ||http://ktunions.com
-||http://ku63.com $third-party
+||http://ku63.com 
 ||http://ku9377.com
-||http://kuaizitech.com $third-party
-||http://kuqi.com $third-party
+||http://kuaizitech.com 
+||http://kuqi.com 
 ||http://kuwoyy.com
 ||http://kuxinqi.com
 ||http://kwntistyuogo.com
@@ -14035,7 +14040,7 @@
 ||http://l0l.top
 ||http://laifu365.com
 ||http://langchars.com
-||http://lanmogu.net $third-party
+||http://lanmogu.net 
 ||http://lanshi021.com
 ||http://lantata.com
 ||http://laobei.top
@@ -14043,15 +14048,15 @@
 ||http://lc442.com
 ||http://lcloc.com
 ||http://lctcw.top
-||http://le123.cn $third-party
+||http://le123.cn 
 ||http://le4le.com
 ||http://leeleo.top
 ||http://lehutv6.com
 ||http://leletuitui.com
 ||http://letaojuan68.com
 ||http://leturich.org $subdocument
-||http://leturich.org $third-party
-||http://lezai.com $third-party
+||http://leturich.org 
+||http://lezai.com 
 ||http://leztc.com
 ||http://lflili.com
 ||http://lflucky.com
@@ -14059,12 +14064,12 @@
 ||http://lhengilin.com
 ||http://lhusy.com
 ||http://lhy1.xyz
-||http://lhzly.com $third-party
+||http://lhzly.com 
 ||http://liangxiaoru.cn
-||http://liangyi360.com $third-party
+||http://liangyi360.com 
 ||http://liangziweixg.com
-||http://lianjie.phpwind.com $third-party
-||http://lianle.com $third-party
+||http://lianjie.phpwind.com 
+||http://lianle.com 
 ||http://lianmeng.360.cn $domain=~lianmeng.360.cn
 ||http://liaoren85.com
 ||http://lichenqx.com
@@ -14073,7 +14078,7 @@
 ||http://lingqinga.cn
 ||http://linjiajia.cn
 ||http://linkpage.cn
-||http://linkvans.com $third-party
+||http://linkvans.com 
 ||http://lintyone.top
 ||http://lisaiservice.top
 ||http://lishuanghao.com
@@ -14088,7 +14093,7 @@
 ||http://lizehuandian.top
 ||http://llguandongyan.com
 ||http://llqss.top
-||http://lm.35.com $third-party
+||http://lm.35.com 
 ||http://lm245.com
 ||http://lm335.com
 ||http://lm343.com
@@ -14099,10 +14104,10 @@
 ||http://lm882.com
 ||http://lm885.com
 ||http://lm995.com
-||http://lnr1.com $third-party
+||http://lnr1.com 
 ||http://loclog.cn
 ||http://log.interest.mix.sina.com.cn
-||http://lolmp4.com $third-party
+||http://lolmp4.com 
 ||http://longbaojiachen.top
 ||http://longchengtg.com
 ||http://lovestyl.com
@@ -14118,10 +14123,10 @@
 ||http://lu.sogoucdn.com
 ||http://luassane.cn
 ||http://luoyuanedu.cn
-||http://lv711.net $third-party
+||http://lv711.net 
 ||http://lvt1980.cn
 ||http://lvylv.cn
-||http://lx167.com $third-party
+||http://lx167.com 
 ||http://lxqcgj.com
 ||http://lyadu.com
 ||http://lyaeccn.com
@@ -14133,23 +14138,23 @@
 ||http://lyxuexin.com
 ||http://lyztdz.com
 ||http://lzmm8.com
-||http://lzzqqc.com $third-party
+||http://lzzqqc.com 
 ||http://magic-future.com
 ||http://magictreehouse.cn
 ||http://magiphone.cn
 ||http://maidagu.com
 ||http://mainbx.com
 ||http://mall043.com
-||http://mamamiyu.com $third-party
+||http://mamamiyu.com 
 ||http://manhuachi.com
 ||http://manparis.cn
 ||http://maskbaby.com.cn
-||http://mathtag.com $third-party
-||http://mbai.cn $third-party
+||http://mathtag.com 
+||http://mbai.cn 
 ||http://mcdhshlsboom.com
-||http://medi-8.net $third-party
-||http://media8.cn $third-party
-||http://mediav.com $third-party,domain=~dev.360.cn|~g.360.cn
+||http://medi-8.net 
+||http://media8.cn 
+||http://mediav.com  ,domain=~dev.360.cn|~g.360.cn
 ||http://meethanshi.com
 ||http://meihaoxiangwang.com
 ||http://meilides.com
@@ -14165,7 +14170,7 @@
 ||http://mgtv-bbqn.oss-cn-beijing.aliyuncs.com
 ||http://mgwcn.com
 ||http://miaolejieshui.cn
-||http://miaozhen.com $third-party
+||http://miaozhen.com 
 ||http://michael31lin.com
 ||http://mieyisi.com
 ||http://mindopu.com
@@ -14179,13 +14184,13 @@
 ||http://mm-cgnews.com
 ||http://mngjrn.cn
 ||http://mnxtu.com
-||http://mobads.baidu.com $third-party
+||http://mobads.baidu.com 
 ||http://moguozhi.com
 ||http://mojing.xyz
-||http://momzs.com $third-party
-||http://moogos.com $third-party
+||http://momzs.com 
+||http://moogos.com 
 ||http://moonwish.com.cn
-||http://mosa86.com $third-party
+||http://mosa86.com 
 ||http://motohelpr.com
 ||http://mozist.com
 ||http://mrksys.com
@@ -14193,35 +14198,35 @@
 ||http://mscimg.com
 ||http://mskjf.com
 ||http://msujd.cn
-||http://mtburn.com $third-party
-||http://mtty.com $third-party
+||http://mtburn.com 
+||http://mtty.com 
 ||http://mu722.com
 ||http://muyang888.top/js/
 ||http://mxmrt.com
-||http://mycctvmedia.com $third-party
+||http://mycctvmedia.com 
 ||http://myselfjanitor.com
-||http://mytanwan.com $third-party
+||http://mytanwan.com 
 ||http://myzk1.com
-||http://myzwqwe12.com $third-party
-||http://mzy2014.com $third-party
+||http://myzwqwe12.com 
+||http://mzy2014.com 
 ||http://n12xar123.xyz
-||http://naifei.shop $third-party
+||http://naifei.shop 
 ||http://namemek.com
 ||http://nbhxgjz.com
 ||http://nbzq.net
 ||http://nchte.com
 ||http://ndtzx.com
 ||http://netcoretech.net
-||http://news.tagtoo.co $third-party
+||http://news.tagtoo.co 
 ||http://newyiba.top
-||http://ni22.com $third-party
+||http://ni22.com 
 ||http://ni87.com
 ||http://niangaoxiansheng.com
 ||http://niubiba.com
 ||http://niuguwang.net.cn
 ||http://niuxgame77.com
 ||http://niuza.com $image,subdocument,third-party
-||http://niwota.com $third-party
+||http://niwota.com 
 ||http://njaeqjx.com
 ||http://njcyfpv.cn
 ||http://njdijiani.com
@@ -14235,15 +14240,15 @@
 ||http://nkscdn.com
 ||http://nktcw.cn
 ||http://nlrsq.com *.js
-||http://nmbtedu.com $third-party
+||http://nmbtedu.com 
 ||http://nmpcdn.com
 ||http://nmqbg.com
 ||http://nnsbbd.com
 ||http://nongsalei.com
-||http://nord-raum.com $third-party
+||http://nord-raum.com 
 ||http://notice.uchome.manyou.com
 ||http://nr1234.com
-||http://nszmz.com $third-party
+||http://nszmz.com 
 ||http://nterbx.com
 ||http://ntzfly.cn
 ||http://nukebomb.cn
@@ -14252,26 +14257,26 @@
 ||http://nwk6in.cn
 ||http://nwpuis.top
 ||http://nxrhs.com
-||http://ny5159.com $third-party
+||http://ny5159.com 
 ||http://nydql.com
 ||http://nzezn.com
 ||http://nzydzsw.com
-||http://o091i.com $third-party
-||http://oa-panther.data.aliyun.com $third-party
+||http://o091i.com 
+||http://oa-panther.data.aliyun.com 
 ||http://oceanbot-steam.com
 ||http://oddsds.com
 ||http://ojbknb.com
 ||http://ojbknx.com
 ||http://okm918.com
-||http://okokw.com $third-party
+||http://okokw.com 
 ||http://one-arts.com
 ||http://onenews.vip
-||http://onetad.com $third-party
-||http://onewhee.com $third-party
+||http://onetad.com 
+||http://onewhee.com 
 ||http://oneyearonechange.com
 ||http://onsnv.com
 ||http://oo5548q.top
-||http://open8.cn $third-party
+||http://open8.cn 
 ||http://openxt.cn
 ||http://oq68.com
 ||http://orchidscape.net
@@ -14280,15 +14285,15 @@
 ||http://oumazg.com
 ||http://overlordtea.cn
 ||http://ovkwiz.xyz
-||http://oxrm.com $third-party
+||http://oxrm.com 
 ||http://p0y.cn $image,domain=~ipinyou.com.cn
 ||http://p0y.cn *.swf
 ||http://p3tt.com
-||http://pababy.cn $third-party
-||http://pagechoice.net $third-party
+||http://pababy.cn 
+||http://pagechoice.net 
 ||http://pagetest.top
 ||http://panel-cn.com
-||http://papa9394.com $third-party
+||http://papa9394.com 
 ||http://papa999.xyz
 ||http://parisianmacao.bet
 ||http://pc6cda10.com
@@ -14302,7 +14307,7 @@
 ||http://pgcm58.com/maizhan/
 ||http://pi9lxn.cn
 ||http://pianjjiicdn.com
-||http://piclick.cn $third-party
+||http://piclick.cn 
 ||http://pingping888.com
 ||http://pinwu123.com
 ||http://pinyierp.com
@@ -14316,13 +14321,13 @@
 ||http://poke88.com
 ||http://polkoa.com
 ||http://pos.baidu.com
-||http://poyang.cn $third-party
+||http://poyang.cn 
 ||http://poyang.com
 ||http://ppcdweb.cc
 ||http://pr00001.com
-||http://pro.cn $third-party
+||http://pro.cn 
 ||http://prohibited.cn
-||http://prohost.com.tw $third-party
+||http://prohost.com.tw 
 ||http://ptkhy.com
 ||http://ptv1f5dh4s35df4h5fg.xyz
 ||http://pubbirdf.com
@@ -14335,7 +14340,7 @@
 ||http://qdkzjdsb.cn
 ||http://qdsfzz.cn
 ||http://qdwght.com
-||http://qdxrhg.com $third-party
+||http://qdxrhg.com 
 ||http://qfihdr.com
 ||http://qfs365.com
 ||http://qgjapp.com
@@ -14343,10 +14348,10 @@
 ||http://qhaif.com
 ||http://qianfuyin.com
 ||http://qianmeiby.com
-||http://qidou.com $third-party
+||http://qidou.com 
 ||http://qilashou.com
-||http://qingniao.me $third-party
-||http://qingsedhhh.xyz $third-party
+||http://qingniao.me 
+||http://qingsedhhh.xyz 
 ||http://qingyanmjg.com
 ||http://qinqiaotrade.com
 ||http://qiqivv.com
@@ -14354,13 +14359,13 @@
 ||http://qiqiyii.com
 ||http://qixedu.com
 ||http://qiyijiazhuangshi.com
-||http://qiyou.com $third-party
+||http://qiyou.com 
 ||http://qjyzj.cn
-||http://qling.com $third-party
+||http://qling.com 
 ||http://qmname.com
 ||http://qo26.com
 ||http://qpokok.com
-||http://qq4g.cn $third-party
+||http://qq4g.cn 
 ||http://qqm98.com
 ||http://qqtx.me
 ||http://qs01.cn
@@ -14369,9 +14374,9 @@
 ||http://qsmdeyz.cn
 ||http://qtch888.com
 ||http://qtmojo.cn
-||http://qtmojo.com $third-party
+||http://qtmojo.com 
 ||http://quan7.cc
-||http://quanbailing.com $third-party
+||http://quanbailing.com 
 ||http://quandangdang.net
 ||http://quansj.cn
 ||http://quanxiaozi.com
@@ -14390,16 +14395,16 @@
 ||http://qzkxt.com
 ||http://qzxmtyy.com
 ||http://qzzljx.com
-||http://r5g.cc $third-party
-||http://raonie.com $third-party
-||http://rayli.com.cn $third-party
+||http://r5g.cc 
+||http://raonie.com 
+||http://rayli.com.cn 
 ||http://rcyl-uni.com
 ||http://rdance.cn
 ||http://rdsvsh.com
 ||http://re.taotaosou.com
 ||http://rebdy.com
 ||http://reendian.cn
-||http://rekanw.com $third-party
+||http://rekanw.com 
 ||http://reliancevalve.com
 ||http://rencai56.com
 ||http://rgdhct.cn
@@ -14412,29 +14417,29 @@
 ||http://rrsubway.com
 ||http://rsctljb.cn
 ||http://rscxwmj.cn
-||http://ruanwenclub.com $third-party
+||http://ruanwenclub.com 
 ||http://ruigezx.com
 ||http://ruizhimu.cn
 ||http://ruxianke.com
 ||http://rwjfs.com
 ||http://rx616.cn
-||http://s8dj.com $third-party
+||http://s8dj.com 
 ||http://s9w.cc
 ||http://sadobo.com
 ||http://saf588.com
 ||http://safe524.xyz
 ||http://safe555.xyz
 ||http://saleonce.top
-||http://sales-frontier.com $third-party
+||http://sales-frontier.com 
 ||http://samanthyean.com
-||http://samboc.com $third-party
-||http://sanmiyangguang.com $third-party
+||http://samboc.com 
+||http://sanmiyangguang.com 
 ||http://sanxiucaiwu.top
 ||http://sawadeca.com
 ||http://sbrqp.com
 ||http://scenepass.com
 ||http://scfatao.com
-||http://scize.com $third-party
+||http://scize.com 
 ||http://scjcgj.top
 ||http://scriptcc.cc
 ||http://scw0.com
@@ -14445,17 +14450,17 @@
 ||http://sdxctr.com
 ||http://sdxkdj.cn
 ||http://senxiaopang.top
-||http://sexy-more.com $third-party
+||http://sexy-more.com 
 ||http://sfxl.com.cn
 ||http://sfz023.com
 ||http://sh-xianghe.com
 ||http://shackapple.com
 ||http://shama5.com
-||http://shangjiabiao.com $third-party
+||http://shangjiabiao.com 
 ||http://shannon-porject.com
-||http://shaqm.com *.js$third-party
+||http://shaqm.com *.js
 ||http://sharedaddomain.com
-||http://sharele.cn $third-party
+||http://sharele.cn 
 ||http://sharonyean.com
 ||http://shcy3.com
 ||http://shengminsy.com
@@ -14465,7 +14470,7 @@
 ||http://shibagongfang.com
 ||http://shijixinrui.cn
 ||http://shixiaofei864.cn
-||http://sho9wbox.com $third-party
+||http://sho9wbox.com 
 ||http://shoukuoedu.com
 ||http://shouwangba.cn
 ||http://shouyouyou.com
@@ -14475,8 +14480,8 @@
 ||http://shuangshiyihightgo.top
 ||http://shucaihangjia.com
 ||http://shuccn.com
-||http://shuihulu.com $third-party
-||http://shujuwu.com $third-party
+||http://shuihulu.com 
+||http://shujuwu.com 
 ||http://shukongshebei.net
 ||http://shunlidl.online
 ||http://shunshiwlkj.com
@@ -14488,7 +14493,7 @@
 ||http://sigrce.one
 ||http://simaoer.com
 ||http://simpasa.cn
-||http://sin114.com $third-party
+||http://sin114.com 
 ||http://sina-img.club
 ||http://sinaalicdn.com
 ||http://sinawbimg.com
@@ -14506,13 +14511,13 @@
 ||http://smitionsory.co
 ||http://smucdn.com
 ||http://smxsg.com
-||http://snmi.cn $third-party
+||http://snmi.cn 
 ||http://snnnyy.com
-||http://snxyf.com $third-party
-||http://snyu.com $third-party
+||http://snxyf.com 
+||http://snyu.com 
 ||http://so9l.com
 ||http://socdm.com
-||http://somennew.com $third-party
+||http://somennew.com 
 ||http://soulplp.com
 ||http://sparkyinchun.com
 ||http://spcode.baidu.com
@@ -14522,31 +14527,31 @@
 ||http://sq85.press
 ||http://sqext.com
 ||http://sqyueda.com
-||http://ssaa.cc $third-party
-||http://sscj123.com $third-party
+||http://ssaa.cc 
+||http://sscj123.com 
 ||http://ssdaili.com
-||http://ssh.*.com *!$script,third-party
+||http://ssh.*.com *!
 ||http://ssmuse1314.cn
-||http://sspsky.com $third-party
+||http://sspsky.com 
 ||http://ssroa.cc
 ||http://staqnet.com
-||http://star8.net $third-party
+||http://star8.net 
 ||http://static-cn.plista.com
 ||http://steadfastsystem.com
 ||http://stgowan.com
 ||http://stn88.com
 ||http://stocksbsc.com
-||http://storeapi.net $third-party
+||http://storeapi.net 
 ||http://stsywl.com
 ||http://suangtianw.com
-||http://subo.me $third-party
+||http://subo.me 
 ||http://sufficient.cn
-||http://sums.suning.com $third-party
+||http://sums.suning.com 
 ||http://sundady.online
 ||http://suning.beer
 ||http://suning.design
 ||http://suning.fit
-||http://superfish.com $third-party
+||http://superfish.com 
 ||http://superli666.top
 ||http://suukcn.com
 ||http://suzhoujinghui.com
@@ -14561,7 +14566,7 @@
 ||http://sxz67.com
 ||http://sxzmj.cn
 ||http://sykty.com
-||http://symaw.cn $third-party
+||http://symaw.cn 
 ||http://sytcyf.com
 ||http://syzzhd.cn
 ||http://szblcad.com
@@ -14572,47 +14577,47 @@
 ||http://szpl0.com
 ||http://szshss.com
 ||http://sztbjs.com
-||http://szvr.com $third-party
+||http://szvr.com 
 ||http://szwyyl.com
 ||http://szxhybj.com
-||http://t3nlink.com $third-party
+||http://t3nlink.com 
 ||http://t415n.cn
 ||http://t58b.com
 ||http://t70123.com
-||http://ta80.com $third-party
+||http://ta80.com 
 ||http://tad.suning.com
-||http://tamedia.com.tw $third-party
+||http://tamedia.com.tw 
 ||http://tan1dian.com
-||http://tanwanyx.com $third-party
+||http://tanwanyx.com 
 ||http://taobaojx.com
 ||http://taobayun.cn
 ||http://taoguanda.com
 ||http://taoguohe.com
 ||http://taohanpai.com
-||http://taojingu.cn $third-party
+||http://taojingu.cn 
 ||http://taoyuay.top
 ||http://tbaocdn.com
 ||http://tc600.com
 ||http://tdayi.com
-||http://tebaidu.cn $third-party
+||http://tebaidu.cn 
 ||http://techantuijian.com
-||http://techsolutions.com.tw $third-party
-||http://tellvi.cn $third-party
+||http://techsolutions.com.tw 
+||http://tellvi.cn 
 ||http://tencent.xn--io0a7i
-||http://tenmax.io $third-party
+||http://tenmax.io 
 ||http://tequanma.com
 ||http://teresacd.cn
 ||http://tesfw.com
-||http://tgjkbx.cn $third-party
+||http://tgjkbx.cn 
 ||http://th-make.com
 ||http://th21333.com
 ||http://thallus.net
-||http://thefifthera.com $third-party
+||http://thefifthera.com 
 ||http://thishare.com
-||http://tianfus.com $third-party
+||http://tianfus.com 
 ||http://tiangu99.com
 ||http://tianii.top
-||http://tianji520.cn $third-party
+||http://tianji520.cn 
 ||http://tianjieleather.com
 ||http://tianjiunion.cn
 ||http://tianqi777.com
@@ -14627,17 +14632,17 @@
 ||http://tkd777.cn
 ||http://tnarzc.com
 ||http://tngmn.com
-||http://to8to.com $subdocument,third-party
+||http://to8to.com 
 ||http://togo666.com
 ||http://tongdejiayuan.com
 ||http://toolset.vip
 ||http://toospk.com
 ||http://toourbb.com
-||http://top.baidu.com $subdocument,third-party
+||http://top.baidu.com 
 ||http://top267.com
-||http://top888.com $third-party
-||http://touchrom.com $third-party
-||http://toufangke.com $third-party
+||http://top888.com 
+||http://touchrom.com 
+||http://toufangke.com 
 ||http://toutiao.social
 ||http://toutiao.xn--fiqs8s
 ||http://towers-shield.com
@@ -14647,23 +14652,23 @@
 ||http://trenhdg.com
 ||http://trisn.top
 ||http://trourted.pro
-||http://trys5.com $third-party
+||http://trys5.com 
 ||http://tsdlp.com
 ||http://tsyndolls.com
 ||http://ttbc.cc
 ||http://tttppp.oss-cn-guangzhou.aliyuncs.com
-||http://tttxx.cn $third-party
-||http://ttz.com $third-party
+||http://tttxx.cn 
+||http://ttz.com 
 ||http://ttzhongbao.com
-||http://tudown.com $third-party
-||http://tuia.cn $third-party
+||http://tudown.com 
+||http://tuia.cn 
 ||http://tuifish.com
 ||http://tukeai.com
 ||http://tumeite.cn
-||http://twb98.com $third-party
-||http://twcczhu.com $third-party
+||http://twb98.com 
+||http://twcczhu.com 
 ||http://twitterzs.com
-||http://twrank.com $third-party
+||http://twrank.com 
 ||http://twzui6.com
 ||http://txdwc.cn
 ||http://txt2017.com
@@ -14675,53 +14680,53 @@
 ||http://tyjnwg.top
 ||http://tyjnwj.top
 ||http://tylll.com
-||http://tz-dsp.com $third-party
-||http://u.801t.com $third-party
+||http://tz-dsp.com 
+||http://u.801t.com 
 ||http://u.huoying666.com
 ||http://u1n6ok.cn
-||http://u88.cn $third-party
+||http://u88.cn 
 ||http://uadsaa.com
 ||http://ubalh.com
 ||http://uballcc.com
-||http://ubcpm.com $third-party
+||http://ubcpm.com 
 ||http://ubmcvideo.baidustatic.com
-||http://uc138.com $third-party
+||http://uc138.com 
 ||http://uc610.com
-||http://uctrac.com $third-party
+||http://uctrac.com 
 ||http://ucxgg.com
 ||http://ud831d2.com
 ||http://ud831d4.com
 ||http://ue2bm3.cn
-||http://ueadlian.com $third-party
-||http://ufstone.com $third-party
+||http://ueadlian.com 
+||http://ufstone.com 
 ||http://ugg66.com
-||http://ujian.cc $third-party
-||http://ulink.cc $third-party
-||http://um29.com $third-party
+||http://ujian.cc 
+||http://ulink.cc 
+||http://um29.com 
 ||http://umjsik.com
 ||http://uneede.com
-||http://unimhk.com $third-party
-||http://union-wifi.com $third-party
-||http://union.zbj.com $third-party
-||http://union009.com $third-party
-||http://unionbig.com $third-party
-||http://unionli.com $third-party
-||http://unionsky.cn $third-party
-||http://unionsky2.cn $third-party
+||http://unimhk.com 
+||http://union-wifi.com 
+||http://union.zbj.com 
+||http://union009.com 
+||http://unionbig.com 
+||http://unionli.com 
+||http://unionsky.cn 
+||http://unionsky2.cn 
 ||http://uoyrsd.com
 ||http://urlat.cn
-||http://usingde.com $third-party
+||http://usingde.com 
 ||http://uuaoz.com
 ||http://uvclick.com
 ||http://uzpmrbek.com
-||http://v-links.net $third-party
-||http://v.center $third-party
-||http://v.xi666.com $third-party
+||http://v-links.net 
+||http://v.center 
+||http://v.xi666.com 
 ||http://v9wuyulou.com
 ||http://vaedan.top
 ||http://vainews.cn
 ||http://valueur.com
-||http://vamaker.com $third-party
+||http://vamaker.com 
 ||http://vc370.com
 ||http://vdajk.com
 ||http://vdazz.net
@@ -14729,27 +14734,27 @@
 ||http://vedeh.com
 ||http://vertivchina.cn
 ||http://verycleaner.cn
-||http://vf5c.com $third-party
+||http://vf5c.com 
 ||http://vhpxa.top
 ||http://victorjx.com
 ||http://video231.oss-cn-beijing.aliyuncs.com
-||http://visadd.com $third-party
-||http://vlion.cn $third-party
+||http://visadd.com 
+||http://vlion.cn 
 ||http://vmjjzk.cn
 ||http://vnnv777.cn
 ||http://vns3359.com
 ||http://voocl.com
-||http://vpie.net $third-party
-||http://vsnoon.com $third-party
+||http://vpie.net 
+||http://vsnoon.com 
 ||http://vt863.cn
 ||http://vtfwgfo.cn
 ||http://vtqifk86868.cn
 ||http://vxsnk.com
 ||http://w65p.com
 ||http://waiyuyou.com
-||http://walibao.com $third-party
+||http://walibao.com 
 ||http://wanfukang.cc
-||http://wanfumei.net $third-party
+||http://wanfumei.net 
 ||http://wangdaizao.com
 ||http://wangdddy.com
 ||http://wangdq.com
@@ -14765,12 +14770,12 @@
 ||http://wdxxx.top
 ||http://wdymwzz.com
 ||http://wdzsb.com.cn
-||http://weareqy.com $third-party
+||http://weareqy.com 
 ||http://wecrtfr.com
-||http://weddingeeos.com $third-party
+||http://weddingeeos.com 
 ||http://weifengtianxia.com
 ||http://weizhenwx.com
-||http://weizjzg.com $third-party
+||http://weizjzg.com 
 ||http://wemdsm.com
 ||http://wenqiche.com
 ||http://werpig.com
@@ -14778,35 +14783,35 @@
 ||http://wffengtai.com.cn
 ||http://wgnlz.com
 ||http://whafwl.com
-||http://whale123.com $third-party
+||http://whale123.com 
 ||http://whhxnz.com
 ||http://whshangsha.com
 ||http://whycywhivu.pro
 ||http://whytoss.com
 ||http://whzxpm.cn
 ||http://wicp.net *.swf
-||http://widget.ezprice.com.tw $third-party
+||http://widget.ezprice.com.tw 
 ||http://wikigifth.com
-||http://winasdaq.com $third-party
+||http://winasdaq.com 
 ||http://winde.cc
 ||http://windowsxi.com
 ||http://windzq.com
-||http://wit.qq.com $third-party
+||http://wit.qq.com 
 ||http://wjguc.com
 ||http://wka8.com
 ||http://wm-mxc.com
-||http://wmrmb.cn $third-party
+||http://wmrmb.cn 
 ||http://wmspw.com
 ||http://wnlyjhb.com
 ||http://wo19.top
-||http://wo685.com $third-party
-||http://wodemeitu.com $third-party
-||http://wofan.net $third-party
+||http://wo685.com 
+||http://wodemeitu.com 
+||http://wofan.net 
 ||http://wojiabaoye.com
 ||http://wootwood.com
 ||http://wowips.com
 ||http://wowostar.cn
-||http://wqzyt.net $third-party
+||http://wqzyt.net 
 ||http://ws341.com
 ||http://ws7j.com
 ||http://wsgblw.com
@@ -14814,12 +14819,12 @@
 ||http://wsmky.com
 ||http://wstztt.com
 ||http://wu65.com
-||http://wudang05.com $third-party
+||http://wudang05.com 
 ||http://wudejia.com
-||http://wuseng.net $third-party
+||http://wuseng.net 
 ||http://wuwaii.com
-||http://wuxinb.com $third-party
-||http://wwads.cn $third-party
+||http://wuxinb.com 
+||http://wwads.cn 
 ||http://wwlolbs.com
 ||http://www-sina-cn-com.com
 ||http://wwwlongjiekejijishu.com
@@ -14835,12 +14840,12 @@
 ||http://wzjijia.com
 ||http://wzsygdl.com
 ||http://x6z6.com
-||http://x70e.com $third-party
-||http://x8ad.com $third-party
+||http://x70e.com 
+||http://x8ad.com 
 ||http://xa9t.com
 ||http://xabaitai.com
 ||http://xabmjr.com
-||http://xajx.com $third-party
+||http://xajx.com 
 ||http://xcads.cn
 ||http://xchgx.com
 ||http://xcjy876.com
@@ -14848,11 +14853,11 @@
 ||http://xcsci.cn
 ||http://xcxzxc.cn
 ||http://xcy8.com
-||http://xcycm.com $third-party
+||http://xcycm.com 
 ||http://xdbwc.com
 ||http://xdcqcyp.com
-||http://xdwan.com $third-party
-||http://xe2c.com $third-party
+||http://xdwan.com 
+||http://xe2c.com 
 ||http://xgxq518.com
 ||http://xhbqczl.com
 ||http://xhmrv.com
@@ -14865,18 +14870,18 @@
 ||http://xiangzhengjinshu.com
 ||http://xiaochengzhixue.com
 ||http://xiaoxiangmovie.com
-||http://xiaoyida.com $third-party
+||http://xiaoyida.com 
 ||http://xiarikui08.com
-||http://xigeweb.com $third-party
+||http://xigeweb.com 
 ||http://xihashuale.com
 ||http://xihuangdushu.com
 ||http://xiji-express.com
-||http://xijinfa.com $third-party
+||http://xijinfa.com 
 ||http://xilele.com
-||http://xin365.org $third-party
+||http://xin365.org 
 ||http://xinbo-lora.cn
 ||http://xinerdact.com
-||http://xing678.com $third-party
+||http://xing678.com 
 ||http://xingjuhe.com
 ||http://xingxingdm.com
 ||http://xinhaogong.xyz
@@ -14884,20 +14889,20 @@
 ||http://xinray.net
 ||http://xinyansaas.com
 ||http://xiongdong.com
-||http://xiongyin.com $third-party
+||http://xiongyin.com 
 ||http://xiongzhangad.com
-||http://xitao3.com $third-party
-||http://xixianad.com $third-party
+||http://xitao3.com 
+||http://xixianad.com 
 ||http://xk2012.com
 ||http://xlgqy.com
-||http://xlingdi.com $third-party
+||http://xlingdi.com 
 ||http://xm9178.com
 ||http://xmangoculture.com
 ||http://xmhaorizi.cn
 ||http://xmliw.com
 ||http://xmrepair.com
 ||http://xmrzw.cn
-||http://xmshqh.com $third-party
+||http://xmshqh.com 
 ||http://xmtsyg.com
 ||http://xmxxwl.com
 ||http://xmzwdgm.com
@@ -14924,22 +14929,22 @@
 ||http://xn--xhq9mt12cf5v.top
 ||http://xn--xhq9mt12cf5v.website
 ||http://xn--xhq9mt12cf5v.xn--io0a7i
-||http://xn01.xyz $third-party
+||http://xn01.xyz 
 ||http://xnjpg.com
-||http://xp3366.com $third-party
-||http://xq12.com $third-party
+||http://xp3366.com 
+||http://xq12.com 
 ||http://xsjyun.cn
-||http://xsu.cc $third-party
+||http://xsu.cc 
 ||http://xt2d.cn
 ||http://xtdzkj.cn
-||http://xtgreat.com $third-party
+||http://xtgreat.com 
 ||http://xtianqi.com.cn
 ||http://xtxa.net
 ||http://xtyizilaijx.cn
 ||http://xu7b.com
 ||http://xuanmin.wang
 ||http://xuanmingyc.com
-||http://xuchuang.com $third-party
+||http://xuchuang.com 
 ||http://xuehelei.com
 ||http://xueyongbao.com
 ||http://xujingch.com
@@ -14965,10 +14970,10 @@
 ||http://xylmdm.top
 ||http://xytom.com
 ||http://xz6d.com
-||http://xzdchl.com $third-party
+||http://xzdchl.com 
 ||http://xzyituo.com
 ||http://y0o1g.cn
-||http://yabo168.cc $third-party
+||http://yabo168.cc 
 ||http://yalongrope.cn
 ||http://yamaidei.cn
 ||http://yangdasen.cn
@@ -14978,53 +14983,53 @@
 ||http://yatemy.cn
 ||http://ycgy8888.com
 ||http://ychml.com
-||http://ydcpc.com $third-party
+||http://ydcpc.com 
 ||http://yditweb.cn
 ||http://ydqzkj.com
 ||http://ye2017.com
-||http://ye3.com $third-party
+||http://ye3.com 
 ||http://yenlm.com
 ||http://yese115.com
 ||http://yese161.com
 ||http://yese236.com
 ||http://yeyajipp.com
-||http://yezilm.com $third-party
+||http://yezilm.com 
 ||http://yf898.com
 ||http://yfot.com.cn
 ||http://yfycy.com
-||http://yghua.com $third-party
+||http://yghua.com 
 ||http://yhhls.com
 ||http://yhsmk.com
 ||http://yi71.com.cn
 ||http://yichunrz.com
-||http://yifuls.com $third-party
-||http://yigao.com $third-party
+||http://yifuls.com 
+||http://yigao.com 
 ||http://yigyx.com
-||http://yiiwoo.com $third-party
+||http://yiiwoo.com 
 ||http://yijia2009.com
 ||http://yijikm.com
 ||http://yilianqing.com
-||http://yingshidaquan.cc $third-party
+||http://yingshidaquan.cc 
 ||http://yinmofun.com
-||http://yinoo.cn $third-party
+||http://yinoo.cn 
 ||http://yinyuehu.cn
 ||http://yipanhaocai.com
 ||http://yiqifa.com $subdocument
-||http://yiqifa.com *.js$third-party
-||http://yiqiv.com $third-party
+||http://yiqifa.com *.js
+||http://yiqiv.com 
 ||http://yiran686.cn
 ||http://yirendajiankang.com
 ||http://yisd.press
 ||http://yishuifa.org
 ||http://yitai001.com
 ||http://yitongfang.com
-||http://yiwad.com $third-party
-||http://yixige.com $third-party
+||http://yiwad.com 
+||http://yixige.com 
 ||http://yixui.com
 ||http://yjbuhao.top
 ||http://yl-zipper.com
 ||http://ylfgybn.cn
-||http://ylzx.net $third-party
+||http://ylzx.net 
 ||http://ymcqb.com
 ||http://ynbojie.com
 ||http://ynlsgw.com
@@ -15032,17 +15037,17 @@
 ||http://ynwqls.com
 ||http://ynyyx168.com
 ||http://yongkang6.com
-||http://yongv.com $third-party
+||http://yongv.com 
 ||http://youfumei.com
 ||http://youhehuixiangxinxi.top
-||http://youle55.com $third-party
-||http://youmw.com $third-party
+||http://youle55.com 
+||http://youmw.com 
 ||http://yousee.com
-||http://youxiaoad.com $third-party
-||http://youxicool.net $third-party
+||http://youxiaoad.com 
+||http://youxicool.net 
 ||http://youyoumw.com
-||http://yoyi.com.cn $third-party
-||http://yoyi.tv $third-party
+||http://yoyi.com.cn 
+||http://yoyi.tv 
 ||http://ypa.focusoftime.com
 ||http://ypmob.com
 ||http://yqgjq.com
@@ -15053,12 +15058,12 @@
 ||http://ysgsq.cn
 ||http://ysjkbk.com
 ||http://ysjwj.com
-||http://yskanba.com $script,third-party
-||http://ysm.ezprice.net $third-party
+||http://yskanba.com 
+||http://ysm.ezprice.net 
 ||http://ysyjg.com
 ||http://ytop8.com
 ||http://yuailairuci.com
-||http://yuanhsu.com $third-party
+||http://yuanhsu.com 
 ||http://yuanmengbi.com
 ||http://yuanyanglw.com
 ||http://yueleshenghuo.cn
@@ -15067,7 +15072,7 @@
 ||http://yujianmeihao179.cn
 ||http://yule8.net
 ||http://yunchong6.cn
-||http://yunfanlm.com $third-party
+||http://yunfanlm.com 
 ||http://yunmowu.com
 ||http://yunrong360.com
 ||http://yunsoka.com
@@ -15076,13 +15081,13 @@
 ||http://ywadf.cn
 ||http://ywjxsp168.cn
 ||http://ywxi.net
-||http://yxdyk.com $script,third-party
+||http://yxdyk.com 
 ||http://yxgfcj.com
 ||http://yxjad.com
 ||http://yxmspx.com
 ||http://yxszy.com
 ||http://yxxwyz.com
-||http://yy32.com $third-party
+||http://yy32.com 
 ||http://yy58ju.com
 ||http://yyp17.com
 ||http://yyy6999.com
@@ -15090,18 +15095,18 @@
 ||http://yzbqz.com
 ||http://yzh360.com
 ||http://yzwr588.com
-||http://yzxls.com $third-party
+||http://yzxls.com 
 ||http://yzygo.com
 ||http://yzyrsw.com
 ||http://yzytb.com
-||http://z2blog.com $third-party
+||http://z2blog.com 
 ||http://zaitouwang.com
-||http://zampda.net $third-party
-||http://zampdsp.com $third-party
+||http://zampda.net 
+||http://zampdsp.com 
 ||http://zantainet.com
 ||http://zcrtd.com
-||http://zd6789.com $third-party
-||http://ze5.com $third-party
+||http://zd6789.com 
+||http://ze5.com 
 ||http://zencu.com.cn
 ||http://zeroao.cn
 ||http://zeronethree.xyz
@@ -15114,10 +15119,10 @@
 ||http://zgtcar.com
 ||http://zgunion.cn
 ||http://zgyemy.com
-||http://zgyiyi.com $third-party
+||http://zgyiyi.com 
 ||http://zhaibei112.top
 ||http://zhaiqichao.top
-||http://zhandi.cc $third-party
+||http://zhandi.cc 
 ||http://zhangbaochang.top
 ||http://zhangjunying.top
 ||http://zhangkc.com
@@ -15146,7 +15151,7 @@
 ||http://zhuba8.com
 ||http://zhudiaosz.com
 ||http://zhufushuo.com
-||http://zhululm.com $third-party
+||http://zhululm.com 
 ||http://zhy333.com
 ||http://ziig.com.cn
 ||http://zisu.cn.com
@@ -15155,17 +15160,17 @@
 ||http://zjhim.com
 ||http://zjhoudao.com
 ||http://zl588.com
-||http://zlongad.com $third-party
+||http://zlongad.com 
 ||http://zmgod.com
 ||http://zmlled.cn
-||http://zp265.com $third-party
+||http://zp265.com 
 ||http://zpxw.vip
 ||http://zqsbnfh.top
 ||http://zqscript.com
 ||http://zsdexun.com.cn
 ||http://zsjyc.top
 ||http://zswinwin.xyz
-||http://ztdsp.com $third-party
+||http://ztdsp.com 
 ||http://ztidu.com
 ||http://ztvx8.com
 ||http://zuoss.net
@@ -15176,8 +15181,8 @@
 ||http://zymro.com
 ||http://zyqp9.com
 ||http://zyzjpx.cn
-||http://zz123.com $third-party
-||http://zzad.com $third-party
+||http://zz123.com 
+||http://zzad.com 
 ||http://zzbaowen.com
 ||http://zzkangyuan.cn
 ||http://zzkoubei.com
@@ -15187,61 +15192,61 @@
 ||http://zzwpsm.cn
 ||http://zzxlhwyp.com
 ||http://zzyonghao.com
-||http://1024mzs.pw $popup,third-party
-||http://1024wanzhai.$popup,third-party
-||http://133gp.com $popup
-||http://189.cn/actpush/$popup,third-party
-||http://5lu8.com $popup,third-party
-||http://76fengyun.com/vip.php$popup
-||http://7wkw.com $popup
-||http://88p2p.com $popup
-||http://9453hot.com $popup
-||http://99nfft.com $popup,third-party
-||http://agxclick.com $popup
-||http://aiwanma99.com $popup
-||http://b477.life $popup,third-party
-||http://baidu.com/adrc.$popup
-||http://baidu.com/baidu.php?url=$popup
-||http://bm999999.com $popup
-||http://c.admaster.com.cn $popup
-||http://csaimall.com $popup,third-party
-||http://ctfile.com/popjump.php?$popup
-||http://d6262.com $popup
-||http://downmn.com $popup,third-party
-||http://downmz.com $popup,third-party
-||http://duoyi.com/welcome/$popup
-||http://elsbfby.com $popup,third-party
-||http://flash.cn/success/$popup
-||http://fu9453.com $popup,third-party
-||http://gd.189.cn*/push/$popup
-||http://gd.189.cn/ad/$popup,third-party
-||http://gd.189.cn/gz/promotion/$popup,third-party
-||http://gd.189.cn *.htm?SP=$popup,third-party
-||http://gd.ct10000.com */push/$popup,third-party
-||http://gotourl.xyz $popup
-||http://greenet.cn *_popu_$popup
-||http://hinet.net/product/promotion/$popup
-||http://huancaicp.com/?pid=$popup
-||http://ieeod0.com $popup
-||http://img999.com $popup,domain=tt1069.com
-||http://iqiyi.com/track$popup
-||http://jav321.com $popup,third-party
-||http://jjwxc.net/jjad*.html$popup
-||http://kfc.com.cn $popup,domain=iqiyi.com
-||http://kuheju.com $popup
-||http://miaozhen.com $popup,domain=iqiyi.com
-||http://mm786.com $popup,third-party
-||http://p.ynb2dca.com $popup
-||http://puma.com $popup,domain=hupu.com
-||http://qx568.com $popup
-||http://sohu.com/i/?pvid=$popup
-||http://todayapp.tv $popup,third-party
-||http://u26u.com $popup,third-party
-||http://vnet.cn *.html?$popup,third-party
-||http://wy213.com $popup,third-party
-||http://xingshenfang.cn $popup
-||http://xiyouence.com $popup,third-party
-||http://yy18.info *thanks$popup
+||http://1024mzs.pw 
+||http://1024wanzhai.
+||http://133gp.com 
+||http://189.cn/actpush/
+||http://5lu8.com 
+||http://76fengyun.com/vip.php
+||http://7wkw.com 
+||http://88p2p.com 
+||http://9453hot.com 
+||http://99nfft.com 
+||http://agxclick.com 
+||http://aiwanma99.com 
+||http://b477.life 
+||http://baidu.com/adrc.
+||http://baidu.com/baidu.php?url=
+||http://bm999999.com 
+||http://c.admaster.com.cn 
+||http://csaimall.com 
+||http://ctfile.com/popjump.php?
+||http://d6262.com 
+||http://downmn.com 
+||http://downmz.com 
+||http://duoyi.com/welcome/
+||http://elsbfby.com 
+||http://flash.cn/success/
+||http://fu9453.com 
+||http://gd.189.cn*/push/
+||http://gd.189.cn/ad/
+||http://gd.189.cn/gz/promotion/
+||http://gd.189.cn *.htm?SP=
+||http://gd.ct10000.com */push/
+||http://gotourl.xyz 
+||http://greenet.cn *_popu_
+||http://hinet.net/product/promotion/
+||http://huancaicp.com/?pid=
+||http://ieeod0.com 
+||http://img999.com  ,domain=tt1069.com
+||http://iqiyi.com/track
+||http://jav321.com 
+||http://jjwxc.net/jjad*.html
+||http://kfc.com.cn  ,domain=iqiyi.com
+||http://kuheju.com 
+||http://miaozhen.com  ,domain=iqiyi.com
+||http://mm786.com 
+||http://p.ynb2dca.com 
+||http://puma.com  ,domain=hupu.com
+||http://qx568.com 
+||http://sohu.com/i/?pvid=
+||http://todayapp.tv 
+||http://u26u.com 
+||http://vnet.cn *.html?
+||http://wy213.com 
+||http://xingshenfang.cn 
+||http://xiyouence.com 
+||http://yy18.info *thanks
 ||http://*.$image,rewrite=abp-resource:1x1-transparent-gif,third-party,domain=rmdown.com
 ||http://*/ad/$rewrite=abp-resource:blank-mp3,domain=huaren.tv
 ||http://007.mx/flv/
@@ -15912,7 +15917,7 @@
 ||http://99kubo.tv/static/img/adsfree.png
 ||http://99mst.com/upfiles/adv/main02.jpg
 ||http://99nets.com/kfb/index.html
-||http://99smsf.com $third-party
+||http://99smsf.com 
 ||http://99tianji.com/hack/
 ||http://99youmeng.com/pc/js/*_g
 ||http://99youmeng.com/pc/js/g_top_ban.js
@@ -16540,7 +16545,7 @@
 ||http://buy.sina.com.tw/js/sina_popup.php
 ||http://buzzhand.com/images/$subdocument
 ||http://bvlang.com/ad/
-||http://bvmqkla.de/files/photo/$third-party
+||http://bvmqkla.de/files/photo/
 ||http://bw66.cn/template/default_pc/bbs/
 ||http://bxw666.com/storage/*.gif
 ||http://by4d.com/dh/
@@ -17177,7 +17182,7 @@
 ||http://faxingw.cn/js/*ad
 ||http://faxingw.cn/js/detailgcbox.js
 ||http://fc2fan.net/js/check_focus.js
-||http://fd173.cn $third-party
+||http://fd173.cn 
 ||http://fdc.com.cn *adv
 ||http://fdc.my0511.com $script
 ||http://feesoon.com/js/cnzz_
@@ -17256,7 +17261,7 @@
 ||http://gaglxx.com/5_
 ||http://galacg.me/wp-content/uploads/*750x
 ||http://galaxymedia.xyz/app/images/banner.gif
-||http://game.466.com $third-party
+||http://game.466.com 
 ||http://game234.com/1/234.php
 ||http://game234.com/wd/*ad.js
 ||http://game333.net/aainset/
@@ -17327,7 +17332,7 @@
 ||http://ggtp-1255424916.cos.ap-chengdu.myqcloud.com
 ||http://ggw.gusuwang.com
 ||http://ggw.watertu.com
-||http://ggwan.com $third-party,domain=~linghit.com
+||http://ggwan.com  ,domain=~linghit.com
 ||http://ghjie.com/images/2012/images/bg
 ||http://ghjie.com/JS/youcegg.js
 ||http://ghoffice.com/bbs/js/float.js
@@ -17499,7 +17504,7 @@
 ||http://hellocenter.xyz *.mp4$rewrite=abp-resource:blank-mp4,domain=localmv1.com
 ||http://henan.sina.com.cn/iframe/7/
 ||http://henan100.com/d/file/indexad/
-||http://henghost.com $third-party
+||http://henghost.com 
 ||http://hentaicomic.org/data/game/
 ||http://herogame.com $subdocument,domain=gamer.com.tw
 ||http://hexun.com*/hx_news/hx_news_finalpage.js
@@ -17985,7 +17990,7 @@
 ||http://jz5u.com/public/new/
 ||http://jzb.com/website/fe/pub_js/dbclickshow.js
 ||http://k.youku.com/player/getFlvPath/sid/*&vl=
-||http://k99.cc $third-party
+||http://k99.cc 
 ||http://kaixin001.com.cn/js/cpm-
 ||http://kajila.cn/ad.html
 ||http://kalvin.cn/page/img/
@@ -18041,7 +18046,7 @@
 ||http://klandmart.com/K-Landmart_0011.jpg
 ||http://kmplayer.cn/include/jscript/*-a.js
 ||http://kocpc.com.tw/adsbyso.js
-||http://kokojia.com $third-party
+||http://kokojia.com 
 ||http://kostool.cn/screenshot/
 ||http://koyi.pub/wp-content/plugins/dh-anti-adblocker/
 ||http://kppt.cc/zb_system/script/common.js
@@ -18643,7 +18648,7 @@
 ||http://picb.cc/uploads/2018/06/26/2zxrsi.jpg
 ||http://picgd.com/images/*.gif
 ||http://picgd.com/images/2018/12/01/h1pi5.png
-||http://piclect.com *.gif$third-party
+||http://piclect.com *.gif
 ||http://picpar.com $domain=18board.com|18p2p.com
 ||http://pics.wanlibo.com/js/pagemodulestat.js
 ||http://pics.xgo-img.com.cn
@@ -19312,7 +19317,7 @@
 ||http://toutiaoimg.com $domain=1024wc.com
 ||http://tp.sgcn.com
 ||http://tq121.com.cn/j/ad/
-||http://trafficjam.cn $third-party
+||http://trafficjam.cn 
 ||http://trendmicro.com.tw/wp-content/uploads/*Banner
 ||http://truvidplayer.com $domain=ck101.com
 ||http://tt.biquge.la
@@ -20081,11 +20086,10 @@
 ||http://avgle.topgirlsdating.com $domain=avgle.com
 ||http://jads.co $domain=avgle.com
 ||http://olmsoneenh.info $domain=avgle.com
-||http://f*.baidu.com/it/u=*,*&fm=$third-party,domain=~hao123.com|haokan.com
-||http://t*.baidu.com/it/u=*,*&fm=76$third-party
-||http://p1.58tg.com
+||http://f*.baidu.com/it/u=*,*&fm= ,domain=~hao123.com|haokan.com
+||http://t*.baidu.com/it/u=*,*&fm=76
 ||http://003store.com
-||http://0512s.com $third-party
+||http://0512s.com 
 ||http://1.01fy.cn
 ||http://1.07swz.com
 ||http://1.1010pic.com
@@ -20145,7 +20149,7 @@
 ||http://1.zou114.com
 ||http://1.zuowenjun.com
 ||http://1.zw3e.com
-||http://100669.com $third-party
+||http://100669.com 
 ||http://1017.cn
 ||http://11.96131.com.cn
 ||http://11.golang8.com
@@ -20153,12 +20157,12 @@
 ||http://11.yiqig.com
 ||http://12.cookcai.com
 ||http://123456.asia
-||http://15tianqi.com $third-party
+||http://15tianqi.com 
 ||http://17.huanqiu.com
 ||http://177o.com
 ||http://1999019.com
 ||http://2.haoxue360.com
-||http://200218.com $third-party
+||http://200218.com 
 ||http://2021.dxsbb.com
 ||http://21.cizhibaogao.org
 ||http://21.fh21static.com
@@ -20176,7 +20180,7 @@
 ||http://51dengshan.cn
 ||http://51ertong.com
 ||http://51gxqm.com
-||http://51yhzp.com $third-party
+||http://51yhzp.com 
 ||http://5pub.com
 ||http://644446.com
 ||http://6669667.com
@@ -20186,10 +20190,10 @@
 ||http://80juqing.com
 ||http://8131.qizhihaotian.cn
 ||http://8961.jianbihua.com
-||http://91friend.com $third-party
-||http://94ab.com $third-party
+||http://91friend.com 
+||http://94ab.com 
 ||http://98158.com
-||http://999d.com $third-party
+||http://999d.com 
 ||http://99js.rxys.com
 ||http://a*.chajiaotong.com
 ||http://a.4aqq.com
@@ -20282,10 +20286,10 @@
 ||http://adbd.liuxue86.com
 ||http://adccoo.cn
 ||http://adjb.5nd.com
-||http://adutp.com $third-party
+||http://adutp.com 
 ||http://ag1.zuszw.com
 ||http://aijiamao.top
-||http://aili.com $third-party
+||http://aili.com 
 ||http://aiwen.cc
 ||http://al.newxue.com
 ||http://anews7.nvwu.com
@@ -20390,13 +20394,13 @@
 ||http://cbdm.weathercn.com
 ||http://cc.xiaodapei.com
 ||http://cc.xwscg.com
-||http://ccmeng.com $third-party
+||http://ccmeng.com 
 ||http://cdn.wenzhangba.cn
 ||http://cdn1.tvzhe.com
 ||http://cdnjs.z-face.cn
 ||http://cee1.iteye.com
-||http://cfff.net $third-party
-||http://chnci.com $third-party
+||http://cfff.net 
+||http://chnci.com 
 ||http://chong-wu.net
 ||http://ckg.vipyl.com
 ||http://classic.39health.com
@@ -20439,7 +20443,7 @@
 ||http://daiwofei2019.top
 ||http://data.waptime.cn
 ||http://datas.tianqistatic.com
-||http://daxishi.com $third-party
+||http://daxishi.com 
 ||http://dd1.diymianmo.com
 ||http://df888.eastday.com
 ||http://dm*.ppzuowen.com
@@ -20473,11 +20477,11 @@
 ||http://dms.xuexxing.com
 ||http://dmym.aixyy.com
 ||http://dn*.ixinwei.com
-||http://dnpz123.com $third-party
+||http://dnpz123.com 
 ||http://domain1.chahaoba.cn
 ||http://du1.bbdj.com
 ||http://dudm.qingsj.cn
-||http://dyscb.cn $third-party
+||http://dyscb.cn 
 ||http://edu.jiukang.org
 ||http://ee.shixunwang.net
 ||http://ejunshi.com
@@ -20500,7 +20504,7 @@
 ||http://ff.guidaye.com
 ||http://ff.qichetansuo.com
 ||http://ff.xue163.net
-||http://fjzimaoqu.cn $third-party
+||http://fjzimaoqu.cn 
 ||http://fotao9.com
 ||http://fp.czvv.com
 ||http://fp.nanrenwo.net
@@ -20528,10 +20532,10 @@
 ||http://godloveme.cn
 ||http://gold.szonline.net
 ||http://gp.zaiyunli.cn
-||http://gsjdzx.com $third-party
+||http://gsjdzx.com 
 ||http://guang.sdsgwy.com
-||http://gumgo.cn $third-party
-||http://gunmi.cn $third-party
+||http://gumgo.cn 
+||http://gunmi.cn 
 ||http://gxjajt.com
 ||http://gzm.xzbu.com
 ||http://h1.cfxinxi.cn
@@ -20543,17 +20547,17 @@
 ||http://hh.jiankang.com
 ||http://hi.xiunm.cn
 ||http://hi.xiunm.com
-||http://hmtoday.com $third-party
-||http://hrjg.com.cn $third-party
+||http://hmtoday.com 
+||http://hrjg.com.cn 
 ||http://hu.xbhy.com
 ||http://huhai.cdwz8.cn
 ||http://hxbt.alading123.com
 ||http://hy.huangye88.com.cn
 ||http://hy.huangye88.net
-||http://ideng.com $third-party
+||http://ideng.com 
 ||http://ii1.chajiaotong.com
 ||http://iia1.pikacn.com
-||http://ikuailian.com $third-party
+||http://ikuailian.com 
 ||http://images8.gaotie.cn
 ||http://img.0279.net
 ||http://img.263y.com
@@ -20569,11 +20573,11 @@
 ||http://img16.diyifanwen.com
 ||http://img50.pingguolv.com
 ||http://inone517.com
-||http://inping.com $third-party
+||http://inping.com 
 ||http://ios.426g.com
 ||http://ishuoshuo.com
-||http://ixiunv.com $third-party
-||http://iy.com.cn $third-party
+||http://ixiunv.com 
+||http://iy.com.cn 
 ||http://j.9136.com
 ||http://j.baminw.cn
 ||http://j.diangon.com
@@ -20584,12 +20588,12 @@
 ||http://jc1.dayfund.cn
 ||http://jc1.dayfund.com.cn
 ||http://jddaw.com
-||http://jeepyy.com $third-party
+||http://jeepyy.com 
 ||http://jiaoben.eastday.com
 ||http://jiaoben.ganji.cn
 ||http://jiaoben.jucanw.com
 ||http://jibn12.jintang114.org
-||http://jiliw.com $third-party
+||http://jiliw.com 
 ||http://jinghuazhijia.com
 ||http://jinhonghao.cn
 ||http://jintonghua.com
@@ -20614,11 +20618,11 @@
 ||http://jscode.jbzj.com
 ||http://jsf.cnlinfo.net
 ||http://jss.tvzhe.com
-||http://junshizhanlue.com $third-party
+||http://junshizhanlue.com 
 ||http://jx.renrensousuo.com
-||http://jxdown.com $third-party
+||http://jxdown.com 
 ||http://jy.zhongxues.com
-||http://jy135.com $third-party
+||http://jy135.com 
 ||http://k1.dancihu.com
 ||http://k1.wanwenwan.cn
 ||http://ka5188.com
@@ -20626,12 +20630,12 @@
 ||http://khrtac.xiangha.com
 ||http://km1.muhoujiemi.com
 ||http://kpshx.douguo.com
-||http://kuk8.com $third-party
-||http://kuku99.com $third-party
-||http://kxji.com $third-party
+||http://kuk8.com 
+||http://kuku99.com 
+||http://kxji.com 
 ||http://laobaigushi.com
 ||http://leabd.douguo.com
-||http://liangpinge.com $third-party
+||http://liangpinge.com 
 ||http://lianmen1.joyyang.com
 ||http://libs.tvmao.cn
 ||http://lixiangmo.com
@@ -20640,7 +20644,7 @@
 ||http://lm1.tuliu.com
 ||http://lm1.wkpcw.cn
 ||http://lraa.xiaoniutui.com
-||http://luolikong.net $third-party
+||http://luolikong.net 
 ||http://lv.myapks.com
 ||http://lynr.com
 ||http://lyz.radio366.com
@@ -20664,12 +20668,12 @@
 ||http://mc.tvzhe.com
 ||http://mc.weather.com.cn
 ||http://md.tvzhe.com
-||http://meishiba.com.cn $third-party
+||http://meishiba.com.cn 
 ||http://meng.360zuowen.com
 ||http://mg.32r.com
 ||http://mg.glwxw.net
 ||http://milk.yesky.com.cn
-||http://mipujia.com $third-party
+||http://mipujia.com 
 ||http://mm.jbzj.com
 ||http://mnwor.xuanlishi.com
 ||http://mo-tuo.com
@@ -20689,11 +20693,12 @@
 ||http://o.jy135.com
 ||http://o.phb123.com
 ||http://o1.jyjyj.cn
-||http://oicchina.com $third-party
+||http://oicchina.com 
 ||http://okkkk.com
 ||http://olive.ergeapp.com
 ||http://p.junshi881.com
 ||http://p.junshifuxin.com
+||http://p1.58tg.com
 ||http://p1.chinakaoyan.com
 ||http://p1.pl520.com
 ||http://p1.qxzsw.com
@@ -20704,9 +20709,9 @@
 ||http://pc768.com
 ||http://pic1.dianshu119.com
 ||http://pic50.pingguolv.com
-||http://pincai.com $third-party
+||http://pincai.com 
 ||http://pinlue.com/error/bangolike.js
-||http://pjcn.org $third-party
+||http://pjcn.org 
 ||http://pkk1.zuimeiniwo.com
 ||http://q1.yyxwzx.com
 ||http://qifake.com
@@ -20719,12 +20724,12 @@
 ||http://qqhuhu.com
 ||http://qqwwmm.com
 ||http://qujishu.com
-||http://qwxcs.com $third-party
+||http://qwxcs.com 
 ||http://r.99waiyu.com
 ||http://rabc1.iteye.com
 ||http://rc.ie13.com
 ||http://rdbd.xsread.com
-||http://redmx.cn $third-party
+||http://redmx.cn 
 ||http://res.pinpai8.cn
 ||http://s.yaozui.com
 ||http://s.zixuntop.com
@@ -20734,7 +20739,7 @@
 ||http://s1.qiqutt.com
 ||http://s1.tuzhaozhao.com
 ||http://s1.wesiedu.com
-||http://s11.cn $third-party
+||http://s11.cn 
 ||http://salary.xiao84.com
 ||http://sanme2.lanzoui.com
 ||http://sbbd1.qulishi.com
@@ -20749,12 +20754,12 @@
 ||http://shiyaokejishanghai.com
 ||http://shzzzz.dftoutiao.com
 ||http://sjbaiduadv1.redou.com
-||http://snzfj.net $third-party
+||http://snzfj.net 
 ||http://so.auto999.cn
 ||http://sp.dnqc.com
 ||http://ss.ting55.com
 ||http://ssb.ah499.com
-||http://star-media.cn $third-party
+||http://star-media.cn 
 ||http://static*.365inews.com
 ||http://static.gaomaer.cn
 ||http://static.ichehome.com
@@ -20765,11 +20770,11 @@
 ||http://taobc.com
 ||http://tech.jiukang.org
 ||http://thetestpage.39.net
-||http://tiexing.com $third-party
+||http://tiexing.com 
 ||http://tonghuaji.com
 ||http://tongj.xilu.com
 ||http://top2099.com
-||http://trebleperfect.com $third-party
+||http://trebleperfect.com 
 ||http://tt123.eastday.com
 ||http://tu.zx110.org
 ||http://u.zuoyesou.com
@@ -20796,7 +20801,7 @@
 ||http://ve.kj-cy.cn
 ||http://vi1.souid.com
 ||http://vip.panggugu.com
-||http://vjie.com $third-party
+||http://vjie.com 
 ||http://vv1.pyhfxdm.cn
 ||http://vvv.ieduw.com
 ||http://vyule.com
@@ -20809,10 +20814,10 @@
 ||http://w3c.5txs.com
 ||http://wap001.bytravel.cn
 ||http://wap1.laogu.wang
-||http://web8.net $third-party
-||http://weidianyuedu.com $third-party
+||http://web8.net 
+||http://weidianyuedu.com 
 ||http://wenhua.jiaoshou.com
-||http://wenshenbang.com $third-party
+||http://wenshenbang.com 
 ||http://whfpbc.99.com.cn
 ||http://wj.jiancai365.cn
 ||http://wm.mipcdn.com
@@ -20822,7 +20827,7 @@
 ||http://wneia.iaskhot.com
 ||http://wr.yiyouliao.com
 ||http://ws.wenshenxiu.com
-||http://wshufa.com $third-party
+||http://wshufa.com 
 ||http://wuliao.chzsport.cn
 ||http://wuliao.juqingba.cn
 ||http://www1.wxnmh.com
@@ -20850,8 +20855,8 @@
 ||http://youwugong.jobui.com
 ||http://ys.muhoujiemi.com
 ||http://ysxywj.com
-||http://ytelc.com $third-party
-||http://yunzuowen.com $third-party
+||http://ytelc.com 
+||http://yunzuowen.com 
 ||http://yx1.managershare.com
 ||http://yylady.cn
 ||http://z.grfyw.com
@@ -20864,11 +20869,11 @@
 ||http://z1hihu.xmcimg.com
 ||http://zg.mmyuer.com
 ||http://zhihu.xmcimg.com
-||http://zhongkaowu.com $third-party
+||http://zhongkaowu.com 
 ||http://zk.91post.com
 ||http://zoom.zshu.net
 ||http://zuowen.hydcd.com
-||http://zxw51.com $third-party
+||http://zxw51.com 
 ||http://2013sh.com
 ||http://258ydh.com
 ||http://265958.com
@@ -20890,7 +20895,7 @@
 ||http://gotourls.bid
 ||http://h01ce.cn
 ||http://hdjxmf.com
-||http://hechaocheng.cn $third-party
+||http://hechaocheng.cn 
 ||http://henanfs.com
 ||http://hulemedia.com
 ||http://ip.hivps.xyz
@@ -20911,7 +20916,7 @@
 ||http://start1999.com
 ||http://tdtsd.com
 ||http://tuituiyoo999.com
-||http://uux79.com $third-party
+||http://uux79.com 
 ||http://wangketuan.com
 ||http://weduoke.com
 ||http://weekslw.com
@@ -20945,9 +20950,9 @@
 ||http://anixwallpaper.com $csp=script-src 'self' * 'unsafe-inline'
 ||http://techroomage.com $csp=script-src 'self' * 'unsafe-eval'
 ||http://dlkoo.cc/down/$subdocument
-||http://dlkoo.cc/down/*.htm$popup
+||http://dlkoo.cc/down/*.htm
 ||http://dlkoo.cc/down/copy
-||http://haoxianggou.xyz/?from=$popup,third-party
+||http://haoxianggou.xyz/?from=
 ||http://dlkoo.com/down/$subdocument
 ||http://dlkoo.com/down/copy
 ||http://dnvodcdn.me/fast/*.mp4
@@ -20958,19 +20963,9 @@
 ||http://hboav.com/guga/
 ||http://hh010.com/static/image/fff/
 ||http://stunninglover.com
-||http://ax329.cn
-||http://tjtsfhh.cn
-||http://tzuyruz.cn
-||http://xsrypte.cn
-||http://7to5phc.cn
-||http://xpxmpf.cn
-||http://etrht.cn
-||http://banhfw.cn
-||http://jdsy.ltd
-||http://gongshangwang.top
-||http://banxfw.cn
-||http://beizkw.cn
-||http://fyijt.cn
+||http://smncden.cn
+||http://wgqhwcg.cn
+||http://banzdw.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
@@ -21033,7 +21028,7 @@
 ||http://24kwx.cc $csp=script-src 'self' * 'unsafe-inline'
 ||http://256k.xyz
 ||http://258580w.cn
-||http://258zw.com $third-party
+||http://258zw.com 
 ||http://2860885.com
 ||http://2886115.com
 ||http://2886996.com
@@ -21139,6 +21134,7 @@
 ||http://7j7jv5.cn
 ||http://7kzod8.cn
 ||http://7times.top
+||http://7to5phc.cn
 ||http://81book.com/static/scripts/1.js
 ||http://81book.com/static/scripts/common.
 ||http://833761.com
@@ -21318,6 +21314,7 @@
 ||http://awleo.cn
 ||http://awtks.com
 ||http://awyys.com
+||http://ax329.cn
 ||http://axcdt.cn
 ||http://axcdy.cn
 ||http://axfrb.cn
@@ -21356,8 +21353,10 @@
 ||http://banfz.com
 ||http://bangdu2.com
 ||http://bangxin.xyz
+||http://banhfw.cn
 ||http://banma51.cn
 ||http://banxf.com
+||http://banxfw.cn
 ||http://banzd.com
 ||http://baodc.com
 ||http://baogames.cn
@@ -21391,6 +21390,7 @@
 ||http://beitd.com
 ||http://beiwm.com
 ||http://beizhoujt.cn
+||http://beizkw.cn
 ||http://benfkw.cn
 ||http://bentengcn.com
 ||http://benwfw.cn
@@ -21452,7 +21452,7 @@
 ||http://bolijiupingchang.com
 ||http://boluoxs.com/js/digu.js
 ||http://bom-soft.com.cn
-||http://book9.net $third-party
+||http://book9.net 
 ||http://bookopen.cn
 ||http://bookrb.com/images/jtt
 ||http://bostonceltics.com.cn
@@ -21800,6 +21800,7 @@
 ||http://eq984.cn
 ||http://etfuxd.cn
 ||http://etongxs.com/mb/meng/
+||http://etrht.cn
 ||http://f4082.cn
 ||http://fdfgf.cc
 ||http://febao.xyz
@@ -21813,12 +21814,14 @@
 ||http://freeyue.xyz
 ||http://fuyangno1.top
 ||http://fxhfxhf.cc
+||http://fyijt.cn
 ||http://g1kb9u.xyz
 ||http://gdmjskjx.com
 ||http://gdshuotai.cn
 ||http://gjohvhf.cn
 ||http://go06.cc
 ||http://go07.cc
+||http://gongshangwang.top
 ||http://guangzhengtwo.top
 ||http://guyun03.cn
 ||http://gwmeinq.cn
@@ -21864,6 +21867,7 @@
 ||http://jcjaniu.cn
 ||http://jcxcvqc.cn
 ||http://jdiaveu.cn
+||http://jdsy.ltd
 ||http://jgrkjp.cn
 ||http://jiajiann.cn
 ||http://jiameiyin.cn
@@ -22006,6 +22010,7 @@
 ||http://thechosen1.cn
 ||http://tianlule.cn
 ||http://tivfcaa.cn
+||http://tjtsfhh.cn
 ||http://tndiltm.cn
 ||http://to335.cn
 ||http://toolgirl.cn
@@ -22017,6 +22022,7 @@
 ||http://tuzufsi.cn
 ||http://tw5k2vc.cn
 ||http://tzjovzs.cn
+||http://tzuyruz.cn
 ||http://u5274.cn
 ||http://umis.top
 ||http://uqbmzwv.cn
@@ -22050,6 +22056,8 @@
 ||http://xiituvt.top
 ||http://xinyuanzszy.com
 ||http://xjjkxcg.cn
+||http://xpxmpf.cn
+||http://xsrypte.cn
 ||http://xxw777.cn
 ||http://xzcvfdwe.cn
 ||http://y0764.cn
@@ -22494,7 +22502,7 @@
 ||http://identified.cn
 ||http://idevoa.cn
 ||http://ieatlu.xyz
-||http://ieeod0.com $third-party
+||http://ieeod0.com 
 ||http://if37.com
 ||http://igig87.cn
 ||http://ihais.com
@@ -22633,7 +22641,7 @@
 ||http://jsku.cc
 ||http://jsku.info
 ||http://jsnqh.cn
-||http://jsr9.com $third-party
+||http://jsr9.com 
 ||http://jsshuiyuan.com
 ||http://jsszxx.com
 ||http://jstdjq.com
@@ -22841,7 +22849,7 @@
 ||http://lovepets70.com
 ||http://loverzhou.club
 ||http://lownguw.top
-||http://lqmohun.com $third-party
+||http://lqmohun.com 
 ||http://lr96.top
 ||http://lrwgc.com
 ||http://lscckgm.cn
@@ -22884,7 +22892,7 @@
 ||http://mageti.cn
 ||http://maicaoren.cn
 ||http://maimaias.cn
-||http://maka.im $third-party
+||http://maka.im 
 ||http://mamababu.cn
 ||http://mao1.jsnovel.com
 ||http://maobujie.com
@@ -22968,7 +22976,7 @@
 ||http://myams.cn
 ||http://mydownba.com
 ||http://mysty.com.cn
-||http://myyxapp.com $third-party
+||http://myyxapp.com 
 ||http://myz11111.cn
 ||http://myz33333.cn
 ||http://mzbb8872.cn
@@ -23097,7 +23105,7 @@
 ||http://petsheying.com
 ||http://pgfbtjiy.cn
 ||http://phoenixnk.cn
-||http://photo.*.html?tk=$script,third-party
+||http://photo.*.html?tk=
 ||http://phpape.com
 ||http://pi920.com
 ||http://pieaa.com
@@ -23346,7 +23354,7 @@
 ||http://sonsang.cn
 ||http://sosjyx.com
 ||http://soso.ws
-||http://soyue.cc $third-party
+||http://soyue.cc 
 ||http://spaung.cn
 ||http://speaknews.cn
 ||http://sqdjg.cn
@@ -23643,7 +23651,7 @@
 ||http://weiziqiang.top
 ||http://wenbangsh.com.cn
 ||http://wenjianzhongxin.com *.gif
-||http://wenlang.com $third-party
+||http://wenlang.com 
 ||http://wenqixiefu.cn
 ||http://wenzhougy.cn
 ||http://wervp.com
@@ -23706,7 +23714,7 @@
 ||http://wxhdwy.com
 ||http://wxkksk.com
 ||http://wxskqy.cn
-||http://wxtp.cdn.bcebos.com $popup
+||http://wxtp.cdn.bcebos.com 
 ||http://wxtuoke.cn
 ||http://wy95.xyz
 ||http://wyafelk.cn
@@ -23806,7 +23814,7 @@
 ||http://xstt5.com/skin/v3/js/dibu.js
 ||http://xstt5.com/template/js/fx
 ||http://xsyouwei.cn
-||http://xszysc.com $third-party
+||http://xszysc.com 
 ||http://xuchangmuying.com
 ||http://xuehongxs.com:
 ||http://xuenengyoujiaoyu.com
@@ -24148,21 +24156,21 @@
 ||http://lts*.qq.com *.ts?index=$media,rewrite=abp-resource:blank-mp3,domain=qq.com
 ||http://hy-dy.cn
 ||http://liveappgirl.net
-||http://22588888.com $popup
-||http://2481e.com $popup
-||http://693836.com $popup
-||http://a1714.com $popup
+||http://22588888.com 
+||http://2481e.com 
+||http://693836.com 
+||http://a1714.com 
 ||http://alicdn.com/img/ibank/*_1980598585.
 ||http://alicdn.com/img/ibank/*_255861743.
-||http://baidu-jxf.co $popup
-||http://e5yx.com $popup
-||http://h6295.com $popup
-||http://lady177.com $popup
-||http://magnetdog.net $popup
-||http://pv4b.com $popup
-||http://sa669.com $popup
-||http://xdh0808.com $popup
-||http://yunsennet.com $popup
+||http://baidu-jxf.co 
+||http://e5yx.com 
+||http://h6295.com 
+||http://lady177.com 
+||http://magnetdog.net 
+||http://pv4b.com 
+||http://sa669.com 
+||http://xdh0808.com 
+||http://yunsennet.com 
 ||http://360buyimg.com$domain=28th.cc
 ||http://alicdn.com/kf/HTB1pS6Zel1D3KVjSZFy5jbuFpXaO.gif
 ||http://alicdn.com $domain=28th.cc
@@ -24199,35 +24207,35 @@
 ||http://sohu999.com
 ||http://tcmdz.com
 ||http://hjfile.cn/analytics/site/TrackEvent.js
-||http://7moor.com $third-party
-||http://2005net.net $third-party
-||http://3jia5.com $third-party
-||http://5251.net $third-party
-||http://53kf.com $third-party
-||http://54kefu.net $third-party
-||http://5etv.com $third-party
-||http://bobo.com $third-party
+||http://7moor.com 
+||http://2005net.net 
+||http://3jia5.com 
+||http://5251.net 
+||http://53kf.com 
+||http://54kefu.net 
+||http://5etv.com 
+||http://bobo.com 
 ||http://cir-smart.baidu.com
 ||http://bjmantis.net
 ||http://crs.baidu.com
 ||http://goutong.baidu.com
-||http://knet.cn $third-party
-||http://kuaishang.cn $third-party
-||http://live800.com $third-party
-||http://looyu.com $third-party
-||http://lxbjs.baidu.com $third-party
-||http://meiqia.com $third-party
-||http://miduoke.net $third-party
-||http://mylikechat.com $third-party
-||http://pop800.com $third-party
-||http://soperson.com $third-party
-||http://tawk.to $third-party
-||http://tui.cnzz.net $third-party
+||http://knet.cn 
+||http://kuaishang.cn 
+||http://live800.com 
+||http://looyu.com 
+||http://lxbjs.baidu.com 
+||http://meiqia.com 
+||http://miduoke.net 
+||http://mylikechat.com 
+||http://pop800.com 
+||http://soperson.com 
+||http://tawk.to 
+||http://tui.cnzz.net 
 ||http://wpa.b.qq.com/cgi/wpa.php?
-||http://zoosnet.net $third-party
-||http://zoossoft.cn $third-party
-||http://easyliao.com $third-party
-||http://outbrain.com $third-party
+||http://zoosnet.net 
+||http://zoossoft.cn 
+||http://easyliao.com 
+||http://outbrain.com 
 ||http://025yimei.com/templets/default/js/swt.js
 ||http://100xuexi.com/CssModel/botad.js
 ||http://115img.com/static/pc/d_
@@ -24281,7 +24289,7 @@
 ||http://chinatimes.com/ads/
 ||http://cndns.com/incs/js/website_mobile.js
 ||http://con-article.hjapi.com/v1/txs/
-||http://cpu.baidu.com $third-party
+||http://cpu.baidu.com 
 ||http://ctfile.com/img/*ssp
 ||http://daf-rs.com/imageViewer/wpAd
 ||http://dahe.cn/indiboy/ads/
@@ -24610,13 +24618,13 @@
 ||http://ip.tianqiapi.com
 ||http://count.nuanyuehanxing.com
 ||http://pconline.com.cn/ipJson.
-||http://develenv.com $third-party
+||http://develenv.com 
 ||http://syzjxz2018.cn
 ||http://gog.cn/sys/online_calc.js
 ||http://ip.ws.126.net $domain=~fxingw.com
 ||http://dhgxl8qk9zgzr.cloudfront.net/js/log.js
-||http://optimix.cn $third-party
-||http://bdp.cn $third-party
+||http://optimix.cn 
+||http://bdp.cn 
 ||http://126.net *analysis
 ||http://zol.com.cn/pvn/
 ||http://map.baidu.com $domain=laosiji.com
@@ -24629,9 +24637,9 @@
 ||http://28.com/count.js
 ||http://28.com/countnew.js
 ||http://39.net/js/wt.js
-||http://51.la $third-party
+||http://51.la 
 ||http://5173.com/__tra.gif?
-||http://51la.net $third-party
+||http://51la.net 
 ||http://58cdn.com.cn/resource/xxzl/xxfw/
 ||http://8cnd.com
 ||http://91160.com/nykj/f=static/v4/common/tj.js
@@ -24681,7 +24689,7 @@
 ||http://cheshi-img.com/js/pv.min.js
 ||http://chinatimes.com/analytics/
 ||http://chouti.com/js/tingyun-rum.js
-||http://cig.com.cn $third-party
+||http://cig.com.cn 
 ||http://cjyun.org/assets/js/analytics.js
 ||http://click.tianyaui.com
 ||http://cnfol.com/Count.html
@@ -24723,7 +24731,7 @@
 ||http://hd.sohu.com.cn $object-subrequest
 ||http://hdslb.com/js/bfd.js
 ||http://hexun.com/js/att_count.js
-||http://hiido.com $third-party
+||http://hiido.com 
 ||http://hm.baidu.com/mkt.js
 ||http://hupu.com/_dace.gif?
 ||http://house365.com/js/analyze.js
@@ -24734,7 +24742,7 @@
 ||http://img.kuai.xunlei.com/js/statistics.js
 ||http://imgstat.baidu.com
 ||http://imp.zol.com.cn
-||http://ipinyou.com $third-party
+||http://ipinyou.com 
 ||http://iqiyi.com/etx?
 ||http://iqiyi.com/js/pingback/
 ||http://iqiyi.com/track
@@ -24744,7 +24752,7 @@
 ||http://itc.cn/hdpv.js
 ||http://itc.cn/pv/
 ||http://itc.cn */tracker.js
-||http://itsmore.cn $third-party
+||http://itsmore.cn 
 ||http://js.passport.qihucdn.com/11.0.1.js
 ||http://kaipuyun.cn/count/
 ||http://kkpgv2.xunlei.com
@@ -24769,7 +24777,7 @@
 ||http://nmgnews.com.cn/sys/online_calc.js
 ||http://nsclick.baidu.com
 ||http://olpv.onlylady.com
-||http://optaim.com $third-party
+||http://optaim.com 
 ||http://other.v.duowan.com
 ||http://p0y.cn
 ||http://p2p.v.yyclouds.com/crossdomain.xml
@@ -24829,10 +24837,10 @@
 ||http://stats.v.duowan.com
 ||http://suning.cn/javascript/sn_da/sa.js
 ||http://sxrb.com/front/stat/
-||http://ta.trs.cn $third-party
+||http://ta.trs.cn 
 ||http://tajs.qq.com
 ||http://tcss.qq.com
-||http://tingyun.com $third-party
+||http://tingyun.com 
 ||http://tj.21ic.com
 ||http://tjj.com
 ||http://tongji.xinmin.cn
@@ -24860,22 +24868,20 @@
 ||http://zhulang.com/zlpv.php
 ||http://zol.com.cn/cgimp/zc.js
 ||http://beacon.sina.com.cn
-||http://cnzz.com $third-party
+||http://cnzz.com 
 ||http://duba.com/proxy/tj/
 ||http://google-analytics.com/analytics.js
-||http://hm.baidu.com $third-party
+||http://hm.baidu.com 
 ||http://msg.71.am
 ||http://rs.sinajs.cn
 ||http://s.360.cn
 ||http://sinajs.cn/open/analytics/
 ||http://stadig.ifeng.com
-||http://wrating.com $third-party
+||http://wrating.com 
 ||https://ubmcmm.baidustatic.com
 ||https://hxsame.hexun.com$domain=~quote.hexun.com
 ||https://szxx.com.cn###A0
-||https://ucbug.com##.bzxz
-||https://ucbug.com###bzFixBottom
-||https://ucbug.com###downShow_tellDownload
+||https://itdog.cn##.div-tg
 ||https://szxx.com.cn###A1
 ||https://szxx.com.cn###A2
 ||https://gpcxw.com###AA2
@@ -25228,6 +25234,7 @@
 ||https://05sun.com,7down.com,newasp.net###btndowns
 ||https://xz7.com###bz-ad-position1
 ||https://xz7.com###bz-ad-position2 + div
+||https://ucbug.com###bzFixBottom
 ||https://pchome.net###bzhref
 ||https://fuli.us###callboard
 ||https://360kuai.com,hao.360.com###cangbao_redbags
@@ -25388,6 +25395,7 @@
 ||https://udn.com###doctop
 ||https://niutuku.com###downAD1
 ||https://xiazai.zol.com.cn###downBoxGaosu > .clearfix:first-child
+||https://ucbug.com###downShow_tellDownload
 ||https://qiannao.com###downTb + div
 ||https://ttdytt.net###downlink
 ||https://sm.cn###download-uc
@@ -26314,7 +26322,7 @@
 ||https://360kuai.com###xunjia-modal-btn
 ||https://qhnews.com###xwyc
 ||https://alu.cn###xxxhuangjinzhanwei
-||https://onlinedown.net###xzbtn1 + #xzbtn1
+||https://onlinedown.net###xzbtn1:first-child
 ||https://51xiazai.cn###xzbtn1:nth-child(2)
 ||https://drv5.cn###xzq
 ||https://redocn.com###yc_adv_1_2
@@ -27112,7 +27120,7 @@
 ||https://kuaihou.com##.bz
 ||https://52pk.com##.bzClick
 ||https://downyi.com##.bzYouDao
-||https://xz7.com##.bzxz
+||https://ucbug.com,xz7.com##.bzxz
 ||https://mgtv.com##.c-95060-top
 ||https://sm.cn##.c-container > div[data-sc*="etao"]
 ||https://baidu.com##.c-container.ec-container
@@ -27342,7 +27350,6 @@
 ||https://fanyi.youdao.com##.dict-download-guide
 ||https://bcbay.com##.discuss + table
 ||https://360.cn##.div-adv
-||https://itdog.cn##.div-gg
 ||https://gs.chinanews.com.cn##.div1000_2 + .div980
 ||https://131458.com##.divGuanggao
 ||https://0597ok.com,nongjitong.com##.div_ad
@@ -29689,7 +29696,7 @@
 ||https://bdimg.com,tieba.baidu.com,tieba.com#?#.tl_shadow:-abp-has(> .ti_item > .ti_infos > .label_text_tag:-abp-contains(广告))
 ||https://benyixiwang.com#?#p:-abp-has(a[href="http://www.sm9166.com"])
 ||https://bilibili.com#?#.eva-extension-body > .bili-video-card:-abp-has(.bili-video-card__info--ad)
-||https://bilibili.com#?#.video-card-common:-abp-has(>.card-pic>a[href*="cm.bilibili.com"][data-target-url]:not([data-target-url*=".bili"]))
+||https://bilibili.com#?#.video-card-common:-abp-has(>.card-pic>a[href*="cm.bilibili.com"][data-target-url])
 ||https://api.so.lianmeng.360.cn,pos.baidu.com##body
 ||https://qzwb.com##body > .area[style ="height:60px;"]
 ||https://1024wc.com##body > a
@@ -30661,7 +30668,7 @@
 ||https://hpjav.tv##body > div[style ="position: fixed;"]
 ||https://verystream.com#@#.adsbox
 ||https://googleads.g.doubleclick.net###mys-wrapper
-||https://xhtml?%22+$script,third-party
+||https://xhtml?%22+
 ||https://520tingshu.com##iframe[style*="position:fixed"]
 ||https://52biquge.com##[onclick*="app"]
 ||https://52biquge.com##a[href ="http://html.350.com/"]
@@ -31786,9 +31793,7 @@
 ||http://ubmcmm.baidustatic.com
 ||http://hxsame.hexun.com$domain=~quote.hexun.com
 ||http://szxx.com.cn###A0
-||http://ucbug.com##.bzxz
-||http://ucbug.com###bzFixBottom
-||http://ucbug.com###downShow_tellDownload
+||http://itdog.cn##.div-tg
 ||http://szxx.com.cn###A1
 ||http://szxx.com.cn###A2
 ||http://gpcxw.com###AA2
@@ -32141,6 +32146,7 @@
 ||http://05sun.com,7down.com,newasp.net###btndowns
 ||http://xz7.com###bz-ad-position1
 ||http://xz7.com###bz-ad-position2 + div
+||http://ucbug.com###bzFixBottom
 ||http://pchome.net###bzhref
 ||http://fuli.us###callboard
 ||http://360kuai.com,hao.360.com###cangbao_redbags
@@ -32301,6 +32307,7 @@
 ||http://udn.com###doctop
 ||http://niutuku.com###downAD1
 ||http://xiazai.zol.com.cn###downBoxGaosu > .clearfix:first-child
+||http://ucbug.com###downShow_tellDownload
 ||http://qiannao.com###downTb + div
 ||http://ttdytt.net###downlink
 ||http://sm.cn###download-uc
@@ -33227,7 +33234,7 @@
 ||http://360kuai.com###xunjia-modal-btn
 ||http://qhnews.com###xwyc
 ||http://alu.cn###xxxhuangjinzhanwei
-||http://onlinedown.net###xzbtn1 + #xzbtn1
+||http://onlinedown.net###xzbtn1:first-child
 ||http://51xiazai.cn###xzbtn1:nth-child(2)
 ||http://drv5.cn###xzq
 ||http://redocn.com###yc_adv_1_2
@@ -34025,7 +34032,7 @@
 ||http://kuaihou.com##.bz
 ||http://52pk.com##.bzClick
 ||http://downyi.com##.bzYouDao
-||http://xz7.com##.bzxz
+||http://ucbug.com,xz7.com##.bzxz
 ||http://mgtv.com##.c-95060-top
 ||http://sm.cn##.c-container > div[data-sc*="etao"]
 ||http://baidu.com##.c-container.ec-container
@@ -34255,7 +34262,6 @@
 ||http://fanyi.youdao.com##.dict-download-guide
 ||http://bcbay.com##.discuss + table
 ||http://360.cn##.div-adv
-||http://itdog.cn##.div-gg
 ||http://gs.chinanews.com.cn##.div1000_2 + .div980
 ||http://131458.com##.divGuanggao
 ||http://0597ok.com,nongjitong.com##.div_ad
@@ -36603,7 +36609,7 @@
 ||http://bdimg.com,tieba.baidu.com,tieba.com#?#.tl_shadow:-abp-has(> .ti_item > .ti_infos > .label_text_tag:-abp-contains(广告))
 ||http://benyixiwang.com#?#p:-abp-has(a[href="http://www.sm9166.com"])
 ||http://bilibili.com#?#.eva-extension-body > .bili-video-card:-abp-has(.bili-video-card__info--ad)
-||http://bilibili.com#?#.video-card-common:-abp-has(>.card-pic>a[href*="cm.bilibili.com"][data-target-url]:not([data-target-url*=".bili"]))
+||http://bilibili.com#?#.video-card-common:-abp-has(>.card-pic>a[href*="cm.bilibili.com"][data-target-url])
 ||http://api.so.lianmeng.360.cn,pos.baidu.com##body
 ||http://qzwb.com##body > .area[style ="height:60px;"]
 ||http://1024wc.com##body > a
@@ -37576,8 +37582,8 @@
 ||http://hpjav.tv##body > div[style ="position: fixed;"]
 ||http://verystream.com#@#.adsbox
 ||http://googleads.g.doubleclick.net###mys-wrapper
-||http://MoBi*.baidu.js$script,third-party
-||http://xhtml?%22+$script,third-party
+||http://MoBi*.baidu.js
+||http://xhtml?%22+
 ||http://520tingshu.com##iframe[style*="position:fixed"]
 ||http://52biquge.com##[onclick*="app"]
 ||http://52biquge.com##a[href ="http://html.350.com/"]

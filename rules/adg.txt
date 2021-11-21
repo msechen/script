@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2021-11-20T12:07:18.124Z
+! Last modified: 2021-11-21T00:19:42.625Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -38493,7 +38493,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://5551895.com
 ||https://wofjhs.com
 ||https://xayah.date
-||https://p1.58tg.com
 ||https://003store.com
 ||https://1.01fy.cn
 ||https://1.07swz.com
@@ -39045,6 +39044,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://olive.ergeapp.com
 ||https://p.junshi881.com
 ||https://p.junshifuxin.com
+||https://p1.58tg.com
 ||https://p1.chinakaoyan.com
 ||https://p1.pl520.com
 ||https://p1.qxzsw.com
@@ -39244,18 +39244,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://ggtg8.com
 ||https://runkao.net
 ||https://stunninglover.com
-||https://ax329.cn
-||https://tjtsfhh.cn
-||https://tzuyruz.cn
-||https://xsrypte.cn
-||https://7to5phc.cn
-||https://xpxmpf.cn
-||https://etrht.cn
-||https://banhfw.cn
-||https://jdsy.ltd
-||https://gongshangwang.top
-||https://banxfw.cn
-||https://beizkw.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -39409,6 +39397,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://7j7jv5.cn
 ||https://7kzod8.cn
 ||https://7times.top
+||https://7to5phc.cn
 ||https://833761.com
 ||https://8563p.cn
 ||https://85wa.cn
@@ -39578,6 +39567,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://awleo.cn
 ||https://awtks.com
 ||https://awyys.com
+||https://ax329.cn
 ||https://axcdt.cn
 ||https://axcdy.cn
 ||https://axfrb.cn
@@ -39616,8 +39606,10 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://banfz.com
 ||https://bangdu2.com
 ||https://bangxin.xyz
+||https://banhfw.cn
 ||https://banma51.cn
 ||https://banxf.com
+||https://banxfw.cn
 ||https://banzd.com
 ||https://baodc.com
 ||https://baogames.cn
@@ -39648,6 +39640,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://beitd.com
 ||https://beiwm.com
 ||https://beizhoujt.cn
+||https://beizkw.cn
 ||https://benfkw.cn
 ||https://bentengcn.com
 ||https://benwfw.cn
@@ -40042,6 +40035,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://epzpzmg.cn
 ||https://eq984.cn
 ||https://etfuxd.cn
+||https://etrht.cn
 ||https://f4082.cn
 ||https://fdfgf.cc
 ||https://febao.xyz
@@ -40055,12 +40049,14 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://freeyue.xyz
 ||https://fuyangno1.top
 ||https://fxhfxhf.cc
+||https://fyijt.cn
 ||https://g1kb9u.xyz
 ||https://gdmjskjx.com
 ||https://gdshuotai.cn
 ||https://gjohvhf.cn
 ||https://go06.cc
 ||https://go07.cc
+||https://gongshangwang.top
 ||https://guangzhengtwo.top
 ||https://guyun03.cn
 ||https://gwmeinq.cn
@@ -40105,6 +40101,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://jcjaniu.cn
 ||https://jcxcvqc.cn
 ||https://jdiaveu.cn
+||https://jdsy.ltd
 ||https://jgrkjp.cn
 ||https://jiajiann.cn
 ||https://jiameiyin.cn
@@ -40244,6 +40241,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://thechosen1.cn
 ||https://tianlule.cn
 ||https://tivfcaa.cn
+||https://tjtsfhh.cn
 ||https://tndiltm.cn
 ||https://to335.cn
 ||https://toolgirl.cn
@@ -40255,6 +40253,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://tuzufsi.cn
 ||https://tw5k2vc.cn
 ||https://tzjovzs.cn
+||https://tzuyruz.cn
 ||https://u5274.cn
 ||https://umis.top
 ||https://uqbmzwv.cn
@@ -40288,6 +40287,8 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xiituvt.top
 ||https://xinyuanzszy.com
 ||https://xjjkxcg.cn
+||https://xpxmpf.cn
+||https://xsrypte.cn
 ||https://xxw777.cn
 ||https://xzcvfdwe.cn
 ||https://y0764.cn
@@ -42511,7 +42512,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2021-11-20T12:07:18.124Z
+! Last modified: 2021-11-21T00:19:42.625Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -81159,7 +81160,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://5551895.com
 ||http://wofjhs.com
 ||http://xayah.date
-||http://p1.58tg.com
 ||http://003store.com
 ||http://1.01fy.cn
 ||http://1.07swz.com
@@ -81727,6 +81727,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://olive.ergeapp.com
 ||http://p.junshi881.com
 ||http://p.junshifuxin.com
+||http://p1.58tg.com
 ||http://p1.chinakaoyan.com
 ||http://p1.pl520.com
 ||http://p1.qxzsw.com
@@ -81929,18 +81930,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://ggtg8.com
 ||http://runkao.net
 ||http://stunninglover.com
-||http://ax329.cn
-||http://tjtsfhh.cn
-||http://tzuyruz.cn
-||http://xsrypte.cn
-||http://7to5phc.cn
-||http://xpxmpf.cn
-||http://etrht.cn
-||http://banhfw.cn
-||http://jdsy.ltd
-||http://gongshangwang.top
-||http://banxfw.cn
-||http://beizkw.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
@@ -82094,6 +82083,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://7j7jv5.cn
 ||http://7kzod8.cn
 ||http://7times.top
+||http://7to5phc.cn
 ||http://833761.com
 ||http://8563p.cn
 ||http://85wa.cn
@@ -82263,6 +82253,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://awleo.cn
 ||http://awtks.com
 ||http://awyys.com
+||http://ax329.cn
 ||http://axcdt.cn
 ||http://axcdy.cn
 ||http://axfrb.cn
@@ -82301,8 +82292,10 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://banfz.com
 ||http://bangdu2.com
 ||http://bangxin.xyz
+||http://banhfw.cn
 ||http://banma51.cn
 ||http://banxf.com
+||http://banxfw.cn
 ||http://banzd.com
 ||http://baodc.com
 ||http://baogames.cn
@@ -82333,6 +82326,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://beitd.com
 ||http://beiwm.com
 ||http://beizhoujt.cn
+||http://beizkw.cn
 ||http://benfkw.cn
 ||http://bentengcn.com
 ||http://benwfw.cn
@@ -82727,6 +82721,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://epzpzmg.cn
 ||http://eq984.cn
 ||http://etfuxd.cn
+||http://etrht.cn
 ||http://f4082.cn
 ||http://fdfgf.cc
 ||http://febao.xyz
@@ -82740,12 +82735,14 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://freeyue.xyz
 ||http://fuyangno1.top
 ||http://fxhfxhf.cc
+||http://fyijt.cn
 ||http://g1kb9u.xyz
 ||http://gdmjskjx.com
 ||http://gdshuotai.cn
 ||http://gjohvhf.cn
 ||http://go06.cc
 ||http://go07.cc
+||http://gongshangwang.top
 ||http://guangzhengtwo.top
 ||http://guyun03.cn
 ||http://gwmeinq.cn
@@ -82790,6 +82787,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://jcjaniu.cn
 ||http://jcxcvqc.cn
 ||http://jdiaveu.cn
+||http://jdsy.ltd
 ||http://jgrkjp.cn
 ||http://jiajiann.cn
 ||http://jiameiyin.cn
@@ -82929,6 +82927,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://thechosen1.cn
 ||http://tianlule.cn
 ||http://tivfcaa.cn
+||http://tjtsfhh.cn
 ||http://tndiltm.cn
 ||http://to335.cn
 ||http://toolgirl.cn
@@ -82940,6 +82939,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://tuzufsi.cn
 ||http://tw5k2vc.cn
 ||http://tzjovzs.cn
+||http://tzuyruz.cn
 ||http://u5274.cn
 ||http://umis.top
 ||http://uqbmzwv.cn
@@ -82973,6 +82973,8 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://xiituvt.top
 ||http://xinyuanzszy.com
 ||http://xjjkxcg.cn
+||http://xpxmpf.cn
+||http://xsrypte.cn
 ||http://xxw777.cn
 ||http://xzcvfdwe.cn
 ||http://y0764.cn

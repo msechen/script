@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: ufI2/zWF0bVAIdDhQUKLdg
-! Version: 202111201600
+! Checksum: mrQtK8BEIdybgWVLSLzypQ
+! Version: 202111210400
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-20 16:00 UTC
+! Last modified: 2021-11-21 04:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -6136,7 +6136,9 @@
 ||https://wikihow.com###article_courses_banner
 ||https://theguardian.com###contact-the-guardian
 ||https://designtaxi.com###fancybar_link
+||https://theshot.net.au###fixed_footer
 ||https://theguardian.com###g200-banner
+||https://theshot.net.au###home_row_1
 ||https://alternet.org###kindest-container
 ||https://lastmomenttuitions.com###popups
 ||https://ghacks.net###stackcommerce_widget-4
@@ -6375,6 +6377,7 @@
 ||https://crunchsports.com###ftsingupbtn
 ||https://draxe.com###gclidua
 ||https://click2houston.com,clickondetroit.com,clickorlando.com,ksat.com,news4jax.com,wsls.com###get-alerts
+||https://crikey.com.au###get-the-worm
 ||https://patriotfetch.com###gform_widget-3
 ||https://playfield.io###hail-mary-modal
 ||https://healthleadersmedia.com###hcpro-misc-form
@@ -17696,7 +17699,9 @@
 ||http://wikihow.com###article_courses_banner
 ||http://theguardian.com###contact-the-guardian
 ||http://designtaxi.com###fancybar_link
+||http://theshot.net.au###fixed_footer
 ||http://theguardian.com###g200-banner
+||http://theshot.net.au###home_row_1
 ||http://alternet.org###kindest-container
 ||http://lastmomenttuitions.com###popups
 ||http://ghacks.net###stackcommerce_widget-4
@@ -17935,6 +17940,7 @@
 ||http://crunchsports.com###ftsingupbtn
 ||http://draxe.com###gclidua
 ||http://click2houston.com,clickondetroit.com,clickorlando.com,ksat.com,news4jax.com,wsls.com###get-alerts
+||http://crikey.com.au###get-the-worm
 ||http://patriotfetch.com###gform_widget-3
 ||http://playfield.io###hail-mary-modal
 ||http://healthleadersmedia.com###hcpro-misc-form
