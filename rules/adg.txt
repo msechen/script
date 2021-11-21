@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2021-11-21T12:07:42.648Z
+! Last modified: 2021-11-21T18:04:54.395Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -24655,6 +24655,7 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||https://blue.fox8.com
 ||https://astat.nikkei.co.jp
 ||https://stats.zone-telechargement.work
 ||https://events-service.coinbase.com
@@ -35447,8 +35448,8 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: hostsVN
 ! Description: The filter contains ad and tracking networks in Vietnam.
-! Last modified: 20 Nov 2021 15:13 UTC+7
-! Version: 2111201513
+! Last modified: 21 Nov 2021 19:33 UTC+7
+! Version: 2111211933
 ! Blocked: 978 rules
 ! Expires: 1 days (update frequency)
 !
@@ -39325,6 +39326,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://fzvve.cn
 ||https://wnet.ink
 ||https://beifd.com
+||https://kauomod.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -42593,7 +42595,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2021-11-21T12:07:42.648Z
+! Last modified: 2021-11-21T18:04:54.395Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -67302,6 +67304,7 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||http://blue.fox8.com
 ||http://astat.nikkei.co.jp
 ||http://stats.zone-telechargement.work
 ||http://events-service.coinbase.com
@@ -78173,8 +78176,8 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: hostsVN
 ! Description: The filter contains ad and tracking networks in Vietnam.
-! Last modified: 20 Nov 2021 15:13 UTC+7
-! Version: 2111201513
+! Last modified: 21 Nov 2021 19:33 UTC+7
+! Version: 2111211933
 ! Blocked: 978 rules
 ! Expires: 1 days (update frequency)
 !
@@ -82092,6 +82095,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://fzvve.cn
 ||http://wnet.ink
 ||http://beifd.com
+||http://kauomod.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
