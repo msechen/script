@@ -62,6 +62,7 @@ jobs:
             https://github.com/Elepover/pmcenter master \
             https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/pmcenter keep
           [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
+          sed -i "s/see.wtf\/pmcenter-update/api.dov.moe\/github\/Elepover\/pmcenter\/linux-x64/g" ./dest_repo/Dockerfile
       - name: Set up Docker Buildx
         if: steps.pmcenter-update.outputs.status != 'updated'
         uses: docker/setup-buildx-action@v1
