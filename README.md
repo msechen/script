@@ -1,11 +1,5 @@
 # 如果有更好的改进，请PR！共同奉献，同时努力，营造一片干净的网络环境。
 
-# # KoolProxy规则
-
-#### 介绍
-转换ABP规则(Easylist China  + CJX's Annoyance List)、Fanboy规则、AntiAd规则、Yhost规则、StevenBlack优化成koolproxy规则
-
-
 #### 规则地址一（腾讯coding，实时）
 
 # 如果有更好的改进，请PR！共同奉献，同时努力，营造一片干净的网络环境。
