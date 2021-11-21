@@ -313,3 +313,15 @@ jobs:
           bash Scripts/Sync.sh \
             https://github.com/X1a0He/jd_scripts_fixed main \
             https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/X1a0He
+
+  vpay:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep Random Time
+        run: sleep $(shuf -i 10-60 -n 1)
+      - uses: actions/checkout@v2
+      - name: Github ➡ Github
+        run: |
+          bash Scripts/Sync.sh \
+            https://gitee.com/pmhw/Vpay master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/VPay
