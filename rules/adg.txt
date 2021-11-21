@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2021-11-21T00:19:42.625Z
+! Last modified: 2021-11-21T06:05:09.855Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -3947,6 +3947,7 @@ vkcdnservice.appspot.com
 ||https://754baa76596c3d1.com
 ||https://75bb9a4031.com
 ||https://76aede7d9af.com
+||https://7705a9f168.com
 ||https://77437ee0a17f19c6085.com
 ||https://775e11b6033.com
 ||https://777a2aceac3ff.com
@@ -5001,6 +5002,7 @@ vkcdnservice.appspot.com
 ||https://apyohotayvc.com
 ||https://aqdkehbez.com
 ||https://aqjdigkqvmakz.com
+||https://aqntswfhpxwlifl.xyz
 ||https://aqpjyujihpbggj.com
 ||https://arableredressalacrity.com
 ||https://aratyr.com
@@ -5153,6 +5155,7 @@ vkcdnservice.appspot.com
 ||https://atonato.de
 ||https://atoultou.com
 ||https://atrinsic.com
+||https://attacheastely.com
 ||https://attachtranquilizer.com
 ||https://attacketslovern.info
 ||https://attackscabbagevengeance.com
@@ -5496,6 +5499,7 @@ vkcdnservice.appspot.com
 ||https://bcxamyjtnzuf.com
 ||https://bd202457b.com
 ||https://bd44.fun
+||https://bdb4ff3f81.com
 ||https://bdgffuqodbhrb.xyz
 ||https://bdyjxghwfbyups.com
 ||https://beachrule.com
@@ -5513,6 +5517,7 @@ vkcdnservice.appspot.com
 ||https://beavertron.com
 ||https://bebadu.com
 ||https://bebreloomr.com
+||https://becasp.com
 ||https://becausecheckingitaly.com
 ||https://becomeapartner.io
 ||https://becomesday.club
@@ -5775,6 +5780,7 @@ vkcdnservice.appspot.com
 ||https://bnserving.com
 ||https://bnster.com
 ||https://bnuieugbkirom.xyz
+||https://bo2ffe45ss4gie.com
 ||https://boafabie.com
 ||https://boahwswzuebmmg.com
 ||https://boajagoar.com
@@ -6125,6 +6131,7 @@ vkcdnservice.appspot.com
 ||https://canalprone.com
 ||https://cancellingteddyinch.com
 ||https://canonch.pro
+||https://canvassblanketjar.com
 ||https://canyboysho.info
 ||https://cap-cap-pop.com
 ||https://capacygre.top
@@ -6398,6 +6405,7 @@ vkcdnservice.appspot.com
 ||https://chuckledinadmissible.com
 ||https://chufudsi.net
 ||https://chugagre.com
+||https://chultoux.com
 ||https://chutsavy.net
 ||https://chvkyymv.xyz
 ||https://chygkk.com
@@ -7128,6 +7136,7 @@ vkcdnservice.appspot.com
 ||https://dddtv.xyz
 ||https://ddishucons.xyz
 ||https://ddkbxqvf.com
+||https://ddlesswale.co
 ||https://ddmax20.xyz
 ||https://ddow.xyz
 ||https://deaconrandomoptional.com
@@ -8115,6 +8124,7 @@ vkcdnservice.appspot.com
 ||https://etwxjufiijhk.com
 ||https://etzxnqfew.com
 ||https://eudsrnlcy.com
+||https://euovfldsups.xyz
 ||https://euphoniserent.xyz
 ||https://eurekaddl.cyou
 ||https://europacash.com
@@ -8709,6 +8719,7 @@ vkcdnservice.appspot.com
 ||https://fudgenine.com
 ||https://fuer.pro
 ||https://fufoatch.com
+||https://fukpgbwf.com
 ||https://fulfilledcompensatedelightful.com
 ||https://fulltraffic.net
 ||https://fundamentalcoordinatebolt.com
@@ -9822,6 +9833,7 @@ vkcdnservice.appspot.com
 ||https://ilovemakingpics.com
 ||https://ilusors.com
 ||https://ilyf4amifh.com
+||https://imaarracon.co
 ||https://imageadvantage.net
 ||https://imagineposition.com
 ||https://imbetan.info
@@ -9954,6 +9966,7 @@ vkcdnservice.appspot.com
 ||https://inscriptionothernarcotic.com
 ||https://insectadvertisesecretly.com
 ||https://insectdatabasesignificantly.com
+||https://inshelmetan.com
 ||https://insightexpress.com
 ||https://insightexpressai.com
 ||https://insitepromotion.com
@@ -10097,6 +10110,7 @@ vkcdnservice.appspot.com
 ||https://ittorchicer.com
 ||https://itweepinbelltor.com
 ||https://iu16wmye.com
+||https://iuhtdqylroanuxg.xyz
 ||https://iupot.com
 ||https://iutkryvnixptlg.com
 ||https://ivepdiwslclulq.com
@@ -10119,6 +10133,7 @@ vkcdnservice.appspot.com
 ||https://iyfnzgb.com
 ||https://iytafcpbnyauogj.xyz
 ||https://j7rzxe098g5m.com
+||https://jacied.com
 ||https://jackao.net
 ||https://jackettrain.com
 ||https://jacketzerobelieved.com
@@ -10291,6 +10306,7 @@ vkcdnservice.appspot.com
 ||https://jpzwomhbxoalxu.com
 ||https://jqcgyjwidktu.xyz
 ||https://jqk72ugyl2pz.com
+||https://jqtqqnen.top
 ||https://jqueryserve.org
 ||https://jqueryserver.com
 ||https://jsbevhlplmdan.xyz
@@ -12279,6 +12295,7 @@ vkcdnservice.appspot.com
 ||https://occultcreed.com
 ||https://occupantrookpurely.com
 ||https://occursexpertloving.com
+||https://occxfzqyhhq.com
 ||https://ocgijsxnu.xyz
 ||https://ochaugly.net
 ||https://oclgbmykr.com
@@ -13288,6 +13305,7 @@ vkcdnservice.appspot.com
 ||https://predictivadnetwork.com
 ||https://predictivadvertising.com
 ||https://predictivdisplay.com
+||https://prefaceinventorgrouping.com
 ||https://preferablycompletion.com
 ||https://preferenceshackdeduction.com
 ||https://preferredain.com
@@ -14058,6 +14076,7 @@ vkcdnservice.appspot.com
 ||https://relestar.com
 ||https://relevantairbornefantastic.com
 ||https://relevanti.com
+||https://reliablebestowedsardine.com
 ||https://reliancehamlet.com
 ||https://remainfascinatedhappy.com
 ||https://remainingshook.com
@@ -14113,6 +14132,7 @@ vkcdnservice.appspot.com
 ||https://residebroadly.com
 ||https://residelikingminister.com
 ||https://resissylvespu.info
+||https://resistancefrustrating.com
 ||https://resistcorrectly.com
 ||https://resniks.pro
 ||https://resnikscdn.pro
@@ -14482,6 +14502,7 @@ vkcdnservice.appspot.com
 ||https://ryminos.com
 ||https://rynilwnu.xyz
 ||https://rynotnfdekb.com
+||https://ryotsikes.com
 ||https://ryquhezrbhfp.com
 ||https://ryrecdiretbet.info
 ||https://ryshekeha.com
@@ -15843,6 +15864,7 @@ vkcdnservice.appspot.com
 ||https://tobestaly.com
 ||https://toboads.com
 ||https://tockhsfluqjniu.com
+||https://todayexhibition.com
 ||https://todhamilton.pro
 ||https://toeschistache.com
 ||https://toffeehierarchy.com
@@ -16242,6 +16264,7 @@ vkcdnservice.appspot.com
 ||https://unavailablebackedwaved.com
 ||https://unbodypestis.com
 ||https://unclemaidenprecise.com
+||https://uncoilszaniest.com
 ||https://uncooleserine.cam
 ||https://uncovershotexcept.com
 ||https://uncurstcrumbs.com
@@ -17492,6 +17515,7 @@ vkcdnservice.appspot.com
 ||https://yodr.net
 ||https://yofdifferents.biz
 ||https://yogascaldhighjack.com
+||https://yogurtrole.com
 ||https://yogyn.com
 ||https://yokeeroud.com
 ||https://yomeno.xyz
@@ -28266,6 +28290,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://geobar.ziffdavisinternational.com
 ||https://geoip.cookieyes.com
 ||https://geoip.nekudo.com
+||https://geoip.spotpass.io
 ||https://geolocation.outreach.com
 ||https://gi-client-tracking.goodgamestudios.com
 ||https://go.toutapp.com
@@ -36312,6 +36337,9 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Source name: EasyList China ad servers
 !
+||https://hongfachn.com
+||https://stunthedge.com
+||https://2529212.com
 ||https://00-gov.cn
 ||https://000123456789.site
 ||https://0024aaaa.com
@@ -39244,6 +39272,10 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://ggtg8.com
 ||https://runkao.net
 ||https://stunninglover.com
+||https://smncden.cn
+||https://wgqhwcg.cn
+||https://banzdw.cn
+||https://anwju4.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -42512,7 +42544,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2021-11-21T00:19:42.625Z
+! Last modified: 2021-11-21T06:05:09.855Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -46473,6 +46505,7 @@ vkcdnservice.appspot.com
 ||http://754baa76596c3d1.com
 ||http://75bb9a4031.com
 ||http://76aede7d9af.com
+||http://7705a9f168.com
 ||http://77437ee0a17f19c6085.com
 ||http://775e11b6033.com
 ||http://777a2aceac3ff.com
@@ -47527,6 +47560,7 @@ vkcdnservice.appspot.com
 ||http://apyohotayvc.com
 ||http://aqdkehbez.com
 ||http://aqjdigkqvmakz.com
+||http://aqntswfhpxwlifl.xyz
 ||http://aqpjyujihpbggj.com
 ||http://arableredressalacrity.com
 ||http://aratyr.com
@@ -47679,6 +47713,7 @@ vkcdnservice.appspot.com
 ||http://atonato.de
 ||http://atoultou.com
 ||http://atrinsic.com
+||http://attacheastely.com
 ||http://attachtranquilizer.com
 ||http://attacketslovern.info
 ||http://attackscabbagevengeance.com
@@ -48022,6 +48057,7 @@ vkcdnservice.appspot.com
 ||http://bcxamyjtnzuf.com
 ||http://bd202457b.com
 ||http://bd44.fun
+||http://bdb4ff3f81.com
 ||http://bdgffuqodbhrb.xyz
 ||http://bdyjxghwfbyups.com
 ||http://beachrule.com
@@ -48039,6 +48075,7 @@ vkcdnservice.appspot.com
 ||http://beavertron.com
 ||http://bebadu.com
 ||http://bebreloomr.com
+||http://becasp.com
 ||http://becausecheckingitaly.com
 ||http://becomeapartner.io
 ||http://becomesday.club
@@ -48301,6 +48338,7 @@ vkcdnservice.appspot.com
 ||http://bnserving.com
 ||http://bnster.com
 ||http://bnuieugbkirom.xyz
+||http://bo2ffe45ss4gie.com
 ||http://boafabie.com
 ||http://boahwswzuebmmg.com
 ||http://boajagoar.com
@@ -48651,6 +48689,7 @@ vkcdnservice.appspot.com
 ||http://canalprone.com
 ||http://cancellingteddyinch.com
 ||http://canonch.pro
+||http://canvassblanketjar.com
 ||http://canyboysho.info
 ||http://cap-cap-pop.com
 ||http://capacygre.top
@@ -48924,6 +48963,7 @@ vkcdnservice.appspot.com
 ||http://chuckledinadmissible.com
 ||http://chufudsi.net
 ||http://chugagre.com
+||http://chultoux.com
 ||http://chutsavy.net
 ||http://chvkyymv.xyz
 ||http://chygkk.com
@@ -49654,6 +49694,7 @@ vkcdnservice.appspot.com
 ||http://dddtv.xyz
 ||http://ddishucons.xyz
 ||http://ddkbxqvf.com
+||http://ddlesswale.co
 ||http://ddmax20.xyz
 ||http://ddow.xyz
 ||http://deaconrandomoptional.com
@@ -50641,6 +50682,7 @@ vkcdnservice.appspot.com
 ||http://etwxjufiijhk.com
 ||http://etzxnqfew.com
 ||http://eudsrnlcy.com
+||http://euovfldsups.xyz
 ||http://euphoniserent.xyz
 ||http://eurekaddl.cyou
 ||http://europacash.com
@@ -51235,6 +51277,7 @@ vkcdnservice.appspot.com
 ||http://fudgenine.com
 ||http://fuer.pro
 ||http://fufoatch.com
+||http://fukpgbwf.com
 ||http://fulfilledcompensatedelightful.com
 ||http://fulltraffic.net
 ||http://fundamentalcoordinatebolt.com
@@ -52348,6 +52391,7 @@ vkcdnservice.appspot.com
 ||http://ilovemakingpics.com
 ||http://ilusors.com
 ||http://ilyf4amifh.com
+||http://imaarracon.co
 ||http://imageadvantage.net
 ||http://imagineposition.com
 ||http://imbetan.info
@@ -52480,6 +52524,7 @@ vkcdnservice.appspot.com
 ||http://inscriptionothernarcotic.com
 ||http://insectadvertisesecretly.com
 ||http://insectdatabasesignificantly.com
+||http://inshelmetan.com
 ||http://insightexpress.com
 ||http://insightexpressai.com
 ||http://insitepromotion.com
@@ -52623,6 +52668,7 @@ vkcdnservice.appspot.com
 ||http://ittorchicer.com
 ||http://itweepinbelltor.com
 ||http://iu16wmye.com
+||http://iuhtdqylroanuxg.xyz
 ||http://iupot.com
 ||http://iutkryvnixptlg.com
 ||http://ivepdiwslclulq.com
@@ -52645,6 +52691,7 @@ vkcdnservice.appspot.com
 ||http://iyfnzgb.com
 ||http://iytafcpbnyauogj.xyz
 ||http://j7rzxe098g5m.com
+||http://jacied.com
 ||http://jackao.net
 ||http://jackettrain.com
 ||http://jacketzerobelieved.com
@@ -52817,6 +52864,7 @@ vkcdnservice.appspot.com
 ||http://jpzwomhbxoalxu.com
 ||http://jqcgyjwidktu.xyz
 ||http://jqk72ugyl2pz.com
+||http://jqtqqnen.top
 ||http://jqueryserve.org
 ||http://jqueryserver.com
 ||http://jsbevhlplmdan.xyz
@@ -54805,6 +54853,7 @@ vkcdnservice.appspot.com
 ||http://occultcreed.com
 ||http://occupantrookpurely.com
 ||http://occursexpertloving.com
+||http://occxfzqyhhq.com
 ||http://ocgijsxnu.xyz
 ||http://ochaugly.net
 ||http://oclgbmykr.com
@@ -55814,6 +55863,7 @@ vkcdnservice.appspot.com
 ||http://predictivadnetwork.com
 ||http://predictivadvertising.com
 ||http://predictivdisplay.com
+||http://prefaceinventorgrouping.com
 ||http://preferablycompletion.com
 ||http://preferenceshackdeduction.com
 ||http://preferredain.com
@@ -56584,6 +56634,7 @@ vkcdnservice.appspot.com
 ||http://relestar.com
 ||http://relevantairbornefantastic.com
 ||http://relevanti.com
+||http://reliablebestowedsardine.com
 ||http://reliancehamlet.com
 ||http://remainfascinatedhappy.com
 ||http://remainingshook.com
@@ -56639,6 +56690,7 @@ vkcdnservice.appspot.com
 ||http://residebroadly.com
 ||http://residelikingminister.com
 ||http://resissylvespu.info
+||http://resistancefrustrating.com
 ||http://resistcorrectly.com
 ||http://resniks.pro
 ||http://resnikscdn.pro
@@ -57008,6 +57060,7 @@ vkcdnservice.appspot.com
 ||http://ryminos.com
 ||http://rynilwnu.xyz
 ||http://rynotnfdekb.com
+||http://ryotsikes.com
 ||http://ryquhezrbhfp.com
 ||http://ryrecdiretbet.info
 ||http://ryshekeha.com
@@ -58369,6 +58422,7 @@ vkcdnservice.appspot.com
 ||http://tobestaly.com
 ||http://toboads.com
 ||http://tockhsfluqjniu.com
+||http://todayexhibition.com
 ||http://todhamilton.pro
 ||http://toeschistache.com
 ||http://toffeehierarchy.com
@@ -58768,6 +58822,7 @@ vkcdnservice.appspot.com
 ||http://unavailablebackedwaved.com
 ||http://unbodypestis.com
 ||http://unclemaidenprecise.com
+||http://uncoilszaniest.com
 ||http://uncooleserine.cam
 ||http://uncovershotexcept.com
 ||http://uncurstcrumbs.com
@@ -60018,6 +60073,7 @@ vkcdnservice.appspot.com
 ||http://yodr.net
 ||http://yofdifferents.biz
 ||http://yogascaldhighjack.com
+||http://yogurtrole.com
 ||http://yogyn.com
 ||http://yokeeroud.com
 ||http://yomeno.xyz
@@ -70882,6 +70938,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://geobar.ziffdavisinternational.com
 ||http://geoip.cookieyes.com
 ||http://geoip.nekudo.com
+||http://geoip.spotpass.io
 ||http://geolocation.outreach.com
 ||http://gi-client-tracking.goodgamestudios.com
 ||http://go.toutapp.com
@@ -78961,6 +79018,9 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Source name: EasyList China ad servers
 !
+||http://hongfachn.com
+||http://stunthedge.com
+||http://2529212.com
 ||http://00-gov.cn
 ||http://000123456789.site
 ||http://0024aaaa.com
@@ -81930,6 +81990,10 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://ggtg8.com
 ||http://runkao.net
 ||http://stunninglover.com
+||http://smncden.cn
+||http://wgqhwcg.cn
+||http://banzdw.cn
+||http://anwju4.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
