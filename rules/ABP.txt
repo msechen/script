@@ -1,9 +1,9 @@
 [Adblock Plus 2.0]
-! Checksum: BnD/nDIJx/ws2etSRNQl2w
-! Version: 202111210506
+! Checksum: VI6rf7X3x/ZpIRfkx8gecA
+! Version: 202111210526
 ! Title: EasyList China
 ! Chinese supplement for the EasyList filters
-! Last Modified: 21 Nov 2021 05:06 UTC
+! Last Modified: 21 Nov 2021 05:26 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: http://abpchina.org/forum/
 ! License: https://easylist-downloads.adblockplus.org/COPYING
@@ -13,6 +13,7 @@
 ! or via e-mail (easylist.china@gmail.com).
 !
 !-----------------------General advert blocking filters-----------------------!
+||https://stunthedge.com
 ||https://2529212.com
 ||https://00-gov.cn
 ||https://000123456789.site
@@ -12018,6 +12019,7 @@
 @@||yimg.com/ss/rapid3.js
 @@||youku.com/cms/player/userinfo/
 @@||youku.com/cms/playlog/get?
+||http://stunthedge.com
 ||http://2529212.com
 ||http://00-gov.cn
 ||http://000123456789.site
