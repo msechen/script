@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Checksum: cbfWYjhqfHUU3cuTLWRIWA
-! Version: 202111210600
+! Checksum: h4VLjyWGhXFAfkVkHWKLrQ
+! Version: 202111211100
 ! Title: Fanboy's Annoyance List
-! Last modified: 2021-11-21 06:00 UTC
+! Last modified: 2021-11-21 11:00 UTC
 ! Expires: 9 days (update frequency)
 ! Homepage: https://easylist.to/
 ! License: http://creativecommons.org/licenses/by/3.0/
@@ -831,6 +831,7 @@
 ||https://donkeymob.com 
 ||https://ecookie.nl 
 ||https://fc2.com/share/js/gdpr/
+||https://gdpr-legal-cookie.beeclever.app 
 ||https://gdpr-service.herokuapp.com 
 ||https://gdpr.studybreakmedia.com
 ||https://global.mgr.consensu.org 
@@ -2129,6 +2130,7 @@
 ||http://donkeymob.com 
 ||http://ecookie.nl 
 ||http://fc2.com/share/js/gdpr/
+||http://gdpr-legal-cookie.beeclever.app 
 ||http://gdpr-service.herokuapp.com 
 ||http://gdpr.studybreakmedia.com
 ||http://global.mgr.consensu.org 
@@ -5107,6 +5109,7 @@
 ||https://wired.com##.js-prefooter-rad
 ||https://medium.com##.js-promoCardWrapper
 ||https://euronews.com##.js-swiper-button
+||https://mail.zoho.com##.jsBookmarkExtn
 ||https://avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.js_commerce-inset-permalink
 ||https://haaretz.com##.jumping-jack-wrapper
 ||https://itwire.com##.jwDisqusArticleCounter
@@ -6709,6 +6712,7 @@
 ||https://gq-magazine.co.uk##.c-infobar-wrapper
 ||https://newstalkzb.co.nz##.c-promo
 ||https://nature.com##.c-site-messages
+||https://eater.com##.c-toaster
 ||https://politico.com##.california-playbook-sign-up-right-rail
 ||https://a16z.com##.call-to-action
 ||https://npr.org##.callout
@@ -6837,7 +6841,6 @@
 ||https://classicalite.com##.f-subscform
 ||https://newseveryday.com##.f-subscribe
 ||https://foreignaffairs.com##.fa-user-simple-register-form
-||https://huckberry.com##.fade
 ||https://innovationaus.com##.fade-bg
 ||https://slator.com##.fancybox-desktop
 ||https://christianpost.com##.fancybox-iframe
@@ -7034,7 +7037,6 @@
 ||https://answear.ua,businessoffashion.com,longreads.com,vogue.com,xconfessions.com##.modal
 ||https://abc15.com##.modal--content
 ||https://ba-bamail.com,blogtalkradio.com,breakingdefense.com,martechadvisor.com,medicalnewstoday.com,nordvpn.com,playfield.io,poolsupplies.com,pv-magazine.com##.modal-backdrop
-||https://huckberry.com##.modal-content
 ||https://atimes.com,jns.org##.modal-overlay
 ||https://blogtalkradio.com##.modal-scrollable
 ||https://campaignlive.co.uk,thirdsector.co.uk##.modalOverlay
@@ -8114,6 +8116,7 @@
 ||https://christianpost.com###social-apps
 ||https://animenewsnetwork.com###social-bookmarks
 ||https://cafemom.com###social-comment
+||https://pinetools.com###social-icons
 ||https://omgchrome.com###social-listing
 ||https://seibertron.com###social-networking
 ||https://cert.org###social-options
@@ -9772,6 +9775,7 @@
 ||https://videojug.com##.cp-alert-message
 ||https://mad-daily.com##.cp-info-bar-container
 ||https://louisvuitton.com##.cs_banner
+||https://regus.com##.css-1egprsz
 ||https://wizards.com##.css-3wNos.css-1CyK8
 ||https://argent.xyz##.css-fnrkut
 ||https://quixel.com##.css-wzviqn
@@ -9980,6 +9984,7 @@
 ||https://suncorp.com.au##.one-pixel-margin-bottom.sg-Box
 ||https://wpengine.com##.opt-in-modal
 ||https://origin.com##.origin-sitestripe
+||https://cbsnews.com##.ot-fade-in
 ||https://vmware.com##.ot-sdk-show-settings
 ||https://flashscore.co.uk,flashscore.com,soccerstand.com##.otPlaceholder
 ||https://ratemyprofessors.com##.overlay
@@ -10264,6 +10269,7 @@
 ||https://rp-online.de##.park-snackbar-cookies
 ||https://walmart.ca##.privacy-open > div > [class] > div[class ="css"]
 ||https://spot-a-shop.at,spot-a-shop.de,spot-a-shop.fi,spot-a-shop.fr,spot-a-shop.pl,spot-a-shop.se###__next > div > div > div[class ="css"]
+||https://globalblue.cn,globalblue.com,globalblue.ru##.gbnew-cookie-bar
 ||https://minhaconexao.com.br#?#section[id][class]:-abp-has(:scope > div[class] > button[class][onclick ="onClickCookiesBannerWeb"])
 ||https://eduface.ru,edumsko.ru#@#.cookies_popup
 ||https://podleze-piekielko.pl#$#abort-on-property-read cookieman
@@ -11585,6 +11591,7 @@
 ||https://iexprofs.nl,participaties.nl##.linkbar
 ||https://at5.nl,autoline-nl.be,autoline.nl,diningcity.nl,epochtimes.nl,gettyimages.nl,gids.tv,landrover.nl,nieuwsblad.be,nos.nl##.share
 ||https://europages.nl,knack.be,rtlnieuws.nl,voetbal24.be,voetbalnieuws.be##.social
+||https://bricovideo.ovh##.social-icon
 ||https://az.nl##.socials
 ||https://knack.be##.toolbar
 ||https://epochtimes.nl##.tools
@@ -12680,6 +12687,7 @@
 ||https://suomi24.fi##.s24_cc_banner-wrapper
 ||https://terveystalo.com##.st-consent-banner
 ||https://lehtodigital.fi##[class ="__ld_cookie_"]
+||https://fyndiq.fi##[class ="CoookiePopupContent__ContainerWrapper"]
 ||https://sttinfo.fi##[class ="styledBarNotification__BarNotificationWrapper"]
 ||https://dplay.fi##div[class ="notification"]
 ||https://tv.telia.fi##div[ng-show ="model.notifications"]
@@ -13283,7 +13291,7 @@
 ||https://mobilier-mirjan24.ro###window_overlay
 ||https://basilica.ro##.alert
 ||https://bancatransilvania.ro##.bannerWrapper
-||https://promenada.ro##.cookie
+||https://fitfoodway.ro,promenada.ro##.cookie
 ||https://madalinliviu.ro,samsonite.ro##.cookies
 ||https://lexus.ro##.disclaimer
 ||https://bestkids.ro##.gdprPolicy
@@ -16670,6 +16678,7 @@
 ||http://wired.com##.js-prefooter-rad
 ||http://medium.com##.js-promoCardWrapper
 ||http://euronews.com##.js-swiper-button
+||http://mail.zoho.com##.jsBookmarkExtn
 ||http://avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.js_commerce-inset-permalink
 ||http://haaretz.com##.jumping-jack-wrapper
 ||http://itwire.com##.jwDisqusArticleCounter
@@ -18272,6 +18281,7 @@
 ||http://gq-magazine.co.uk##.c-infobar-wrapper
 ||http://newstalkzb.co.nz##.c-promo
 ||http://nature.com##.c-site-messages
+||http://eater.com##.c-toaster
 ||http://politico.com##.california-playbook-sign-up-right-rail
 ||http://a16z.com##.call-to-action
 ||http://npr.org##.callout
@@ -18400,7 +18410,6 @@
 ||http://classicalite.com##.f-subscform
 ||http://newseveryday.com##.f-subscribe
 ||http://foreignaffairs.com##.fa-user-simple-register-form
-||http://huckberry.com##.fade
 ||http://innovationaus.com##.fade-bg
 ||http://slator.com##.fancybox-desktop
 ||http://christianpost.com##.fancybox-iframe
@@ -18597,7 +18606,6 @@
 ||http://answear.ua,businessoffashion.com,longreads.com,vogue.com,xconfessions.com##.modal
 ||http://abc15.com##.modal--content
 ||http://ba-bamail.com,blogtalkradio.com,breakingdefense.com,martechadvisor.com,medicalnewstoday.com,nordvpn.com,playfield.io,poolsupplies.com,pv-magazine.com##.modal-backdrop
-||http://huckberry.com##.modal-content
 ||http://atimes.com,jns.org##.modal-overlay
 ||http://blogtalkradio.com##.modal-scrollable
 ||http://campaignlive.co.uk,thirdsector.co.uk##.modalOverlay
@@ -19677,6 +19685,7 @@
 ||http://christianpost.com###social-apps
 ||http://animenewsnetwork.com###social-bookmarks
 ||http://cafemom.com###social-comment
+||http://pinetools.com###social-icons
 ||http://omgchrome.com###social-listing
 ||http://seibertron.com###social-networking
 ||http://cert.org###social-options
@@ -21336,6 +21345,7 @@
 ||http://videojug.com##.cp-alert-message
 ||http://mad-daily.com##.cp-info-bar-container
 ||http://louisvuitton.com##.cs_banner
+||http://regus.com##.css-1egprsz
 ||http://wizards.com##.css-3wNos.css-1CyK8
 ||http://argent.xyz##.css-fnrkut
 ||http://quixel.com##.css-wzviqn
@@ -21544,6 +21554,7 @@
 ||http://suncorp.com.au##.one-pixel-margin-bottom.sg-Box
 ||http://wpengine.com##.opt-in-modal
 ||http://origin.com##.origin-sitestripe
+||http://cbsnews.com##.ot-fade-in
 ||http://vmware.com##.ot-sdk-show-settings
 ||http://flashscore.co.uk,flashscore.com,soccerstand.com##.otPlaceholder
 ||http://ratemyprofessors.com##.overlay
@@ -21828,6 +21839,7 @@
 ||http://rp-online.de##.park-snackbar-cookies
 ||http://walmart.ca##.privacy-open > div > [class] > div[class ="css"]
 ||http://spot-a-shop.at,spot-a-shop.de,spot-a-shop.fi,spot-a-shop.fr,spot-a-shop.pl,spot-a-shop.se###__next > div > div > div[class ="css"]
+||http://globalblue.cn,globalblue.com,globalblue.ru##.gbnew-cookie-bar
 ||http://minhaconexao.com.br#?#section[id][class]:-abp-has(:scope > div[class] > button[class][onclick ="onClickCookiesBannerWeb"])
 ||http://eduface.ru,edumsko.ru#@#.cookies_popup
 ||http://podleze-piekielko.pl#$#abort-on-property-read cookieman
@@ -23149,6 +23161,7 @@
 ||http://iexprofs.nl,participaties.nl##.linkbar
 ||http://at5.nl,autoline-nl.be,autoline.nl,diningcity.nl,epochtimes.nl,gettyimages.nl,gids.tv,landrover.nl,nieuwsblad.be,nos.nl##.share
 ||http://europages.nl,knack.be,rtlnieuws.nl,voetbal24.be,voetbalnieuws.be##.social
+||http://bricovideo.ovh##.social-icon
 ||http://az.nl##.socials
 ||http://knack.be##.toolbar
 ||http://epochtimes.nl##.tools
@@ -24245,6 +24258,7 @@
 ||http://suomi24.fi##.s24_cc_banner-wrapper
 ||http://terveystalo.com##.st-consent-banner
 ||http://lehtodigital.fi##[class ="__ld_cookie_"]
+||http://fyndiq.fi##[class ="CoookiePopupContent__ContainerWrapper"]
 ||http://sttinfo.fi##[class ="styledBarNotification__BarNotificationWrapper"]
 ||http://dplay.fi##div[class ="notification"]
 ||http://tv.telia.fi##div[ng-show ="model.notifications"]
@@ -24848,7 +24862,7 @@
 ||http://mobilier-mirjan24.ro###window_overlay
 ||http://basilica.ro##.alert
 ||http://bancatransilvania.ro##.bannerWrapper
-||http://promenada.ro##.cookie
+||http://fitfoodway.ro,promenada.ro##.cookie
 ||http://madalinliviu.ro,samsonite.ro##.cookies
 ||http://lexus.ro##.disclaimer
 ||http://bestkids.ro##.gdprPolicy
