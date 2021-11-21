@@ -59,7 +59,7 @@ if [ -d "/tmp/source_repo" ]; then
             echo "Converting Typescript files ..."
             npm install --no-save typescript
             find ./ -name "*.ts" -exec ./node_modules/.bin/tsc {} >/dev/null 2>&1 \;
-            rm -rf node_modules
+            mv node_modules /tmp
         fi
     fi
 
