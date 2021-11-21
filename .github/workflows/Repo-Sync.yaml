@@ -47,6 +47,41 @@ jobs:
           push: true
           tags: |
             ghcr.io/dovfork/microsoft-365-admin:latest
+  
+  pmcenter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep Random Time
+        run: sleep $(shuf -i 10-60 -n 1)
+      - uses: actions/checkout@v2
+      - name: Github ➡ Github
+        id: pmcenter-update
+        run: |
+          dir=$(pwd)
+          bash Scripts/Sync.sh \
+            https://github.com/Elepover/pmcenter master \
+            https://${{ github.repository_owner }}:${{ secrets.ACTION_SECRET }}@github.com/DovFork/pmcenter keep
+          [ -f /tmp/update ] && mv /tmp/dest_repo $dir || echo "::set-output name=status::updated"
+      - name: Set up Docker Buildx
+        if: steps.pmcenter-update.outputs.status != 'updated'
+        uses: docker/setup-buildx-action@v1
+      - name: Github Docker Login
+        if: steps.pmcenter-update.outputs.status != 'updated'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: dovfork
+          password: ${{ secrets.ACTION_SECRET }}
+      - name: Build and push
+        if: steps.pmcenter-update.outputs.status != 'updated'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./dest_repo
+          file: ./dest_repo/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/dovfork/pmcenter:latest
 
   gh-card:
     runs-on: ubuntu-latest
