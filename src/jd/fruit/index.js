@@ -75,6 +75,8 @@ class Fruit extends Template {
       [
         '9675151b3f1645d2afea9afb44c44716',
         '2886e4326e104eecb117f7a32732cda3',
+        '599767762e104f77a3980598fab16a99',
+        '4569adc9a868457fb35c14e8db3572a1',
       ].forEach(code => {
         if ([currentShareCode, ...shareCodes].includes(code)) return;
         shareCodes.push(code);
@@ -97,14 +99,13 @@ class Fruit extends Template {
 
     // 获取助力人数满的奖励
     async function handleGetShareFinished() {
-      const {amount = 0} = await api.doFormBody('farmAssistInit');
+      const {amount = 0, assistFriendList, assistStageList} = await api.doFormBody('farmAssistInit');
       if (amount > 0) {
         await api.doFormBody('receiveStageEnergy');
+        return handleGetShareFinished();
       }
-      // const {masterGotFinal, masterHelpPeoples} = await api.doFormBody('masterHelpTaskInitForFarm');
-      // if (!masterGotFinal && (masterHelpPeoples.length === 5)) {
-      //   await api.doFormBody('masterGotFinishedTaskForFarm');
-      // }
+      const assistStageStr = assistStageList.map(o => `${o['assistNum']}人(总计)/${o['waterEnergy']}水滴(每阶段)`).join(', ');
+      api.log(`当前助力人数为: ${assistFriendList.length}, 收集奖励为${assistStageStr}`);
     }
 
     // 任务列表
