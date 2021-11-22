@@ -68,6 +68,8 @@ class Fruit extends Template {
     await handleDoTaskList();
     await handleDoShare();
     await handleClockIn();
+    // 默认使用水滴翻倍卡
+    await handleUseCard({type: 'doubleCard', maxTimes: Infinity});
     await logFarmInfo();
 
     // 增加默认助力码
@@ -94,6 +96,34 @@ class Fruit extends Template {
             api.log(`给 ${_.property('masterUserInfo.nickName')(helpResult) || 'unknown'} 助力成功`);
           }
         });
+      }
+    }
+
+    async function handleUseCard(targetCards) {
+      if (!targetCards) return;
+      if (_.isString(targetCards)) {
+        targetCards = {type: targetCards, maxTimes: 1};
+      }
+      targetCards = _.concat(targetCards);
+      const cardData = await api.doFormBody('myCardInfoForFarm');
+      const {cardInfos} = cardData;
+      for (const {type, maxTimes} of targetCards) {
+        const card = cardInfos.find(o => o.type === type);
+        if (type === 'doubleCard') {
+          const {farmUserPro: {totalEnergy}} = await handleInitForFarm();
+          if (totalEnergy < 100) {
+            api.log('当前水壶水滴低于100g, 请大于再进行使用翻倍卡');
+            continue;
+          }
+        }
+        if (!card) continue;
+        const {useTimesInDay} = card;
+        const limit = _.min([maxTimes || Infinity, cardData[type], useTimesInDay === -1 ? Infinity : useTimesInDay]);
+        for (let i = 0; i < limit; i++) {
+          const data = await api.doFormBody('userMyCardForFarm', {cardType: type, type: ''});
+          if (!self.isSuccess(data)) break;
+          await sleep(2);
+        }
       }
     }
 
@@ -193,12 +223,7 @@ class Fruit extends Template {
       await api.doFormBody('clockInInitForFarm').then(async data => {
         if (!self.isSuccess(data)) return;
 
-        const {todaySigned, totalSigned, gotClockInGift, themes} = data;
-        !todaySigned && await api.doFormBody('clockInForFarm', {type: 1});
-        // 总签到获取水滴
-        if (totalSigned === 7 && !gotClockInGift) {
-          await api.doFormBody('clockInForFarm', {type: 2});
-        }
+        const {todaySigned, totalSigned, gotClockInGift, themes, signCardUseTimesLimit, signCard} = data;
 
         // 限时关注得水滴
         for (const {id, hadGot} of themes) {
@@ -206,6 +231,21 @@ class Fruit extends Template {
           await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 1});
           await sleep(2);
           await api.doFormBody('clockInFollowForFarm', {id, type: 'theme', step: 2});
+        }
+
+        if (!todaySigned) {
+          await api.doFormBody('clockInForFarm', {type: 1});
+          return handleClockIn();
+        }
+
+        // 总签到获取水滴
+        if (totalSigned === 7 && !gotClockInGift) {
+          await api.doFormBody('clockInForFarm', {type: 2});
+        }
+
+        if (!signCardUseTimesLimit && signCard > 0) {
+          await handleUseCard('signCard');
+          return handleClockIn();
         }
       });
     }
