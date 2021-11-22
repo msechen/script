@@ -68,7 +68,6 @@ const SuperBrandDay = TemporarilyOffline || require('./jd/superBrand/day');
 const SuperBrandProduct = TemporarilyOffline || require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
 const RubikSCube = require('./jd/rubikSCube');
-const Kmg = require('./jd/kmg');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -124,7 +123,6 @@ async function main() {
   const shortTermActivity = [
     DDSJ,
     RubikSCube,
-    Kmg,
     SuperBrandProduct,
   ];
   const scheduleOptions = [
