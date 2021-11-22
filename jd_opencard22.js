@@ -1,42 +1,43 @@
 /*
-11.15~11.20 联合开卡 [gua_opencard68.js]
+11.18~11.23 联合开卡 [gua_opencard69.js]
 新增开卡脚本
 一次性脚本
 1.邀请一人20豆(有可能没有豆
 2.开17张 成功开1张 可能获得5京豆
   全部开完获得1次抽奖
 3.关注10京豆 获得1次抽奖
-4.加购5京豆 获得1次抽奖(默认不加购 如需加购请设置环境变量[guaopencard_addSku68]为"true"
-5.抽奖 (默认不抽奖 如需抽奖请设置环境变量[guaopencard_draw68]为"3"
+4.加购5京豆 获得1次抽奖(默认不加购 如需加购请设置环境变量[guaopencard_addSku69]为"true"
+5.抽奖 (默认不抽奖 如需抽奖请设置环境变量[guaopencard_draw69]为"3"
 填写要抽奖的次数 不足已自身次数为准
-guaopencard_draw68="3"
+guaopencard_draw69="3"
 填非数字会全都抽奖
 第一个账号助力作者 其他依次助力CK1
 第一个CK失效会退出脚本
 默认脚本不执行
 如需执行脚本请设置环境变量
-guaopencard68="true"
+guaopencard69="true"
 每个账号之间延迟 100=延迟100秒 0=延迟0秒会使用每3个账号延迟60秒
 guaopenwait_All 所有
-guaopenwait68="0"
+guaopenwait69="0"
 All变量适用
 ————————————————
-入口：[ 11.15~11.20 联合开卡 (https://3.cn/-103sN0eE)]
+入口：[ 11.18~11.23 联合开卡 (https://3.cn/103uQ-WTL)]
 请求太频繁会被黑ip
 过10分钟再执行
-11:/￥U5e9bE2d3jXdQz￥
-cron:47 1 15-20 11 *
+16:/#Z2Zdv4GHj6EuLH@
+cron:47 2 18-23 11 *
 ============Quantumultx===============
 [task_local]
-#11.15~11.20 联合开卡
-47 1 15-20 11 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard68.js, tag=11.15~11.20 联合开卡, enabled=true
+#11.18~11.23 联合开卡
+47 2 18-23 11 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard69.js, tag=11.18~11.23 联合开卡, enabled=true
 */
 let guaopencard_addSku = "false"
 let guaopencard = "true"
 let guaopenwait = "60"
 let guaopencard_draw = "0"
+let rewardBean = ''; // 京豆奖励判断 | 1=邀请 2=开卡 3=关注  | 填1,2,3
 
-const $ = new Env('11.15~11.20 联合开卡-68');
+const $ = new Env('11.18~11.23 联合开卡-69');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cleanCart = ''
@@ -61,14 +62,24 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 
-guaopencard_addSku = $.isNode() ? (process.env.guaopencard_addSku68 ? process.env.guaopencard_addSku68 : `${guaopencard_addSku}`) : ($.getdata('guaopencard_addSku68') ? $.getdata('guaopencard_addSku68') : `${guaopencard_addSku}`);
+let rewardBeanArr = [];
+rewardBean = $.isNode() ? (process.env.guaopencard_rewardBean ? process.env.guaopencard_rewardBean : `${rewardBean}`) : ($.getdata('guaopencard_rewardBean') ? $.getdata('guaopencard_rewardBean') : `${rewardBean}`);
+let rewardBeanIndex = ['','邀请','开卡','关注']
+for(let i of rewardBean && rewardBean.split(',') || []){
+  if(rewardBeanIndex[i]){
+    console.log(`开启奖励判断:${rewardBeanIndex[i]}`)
+    rewardBeanIndex[i] = ''
+    rewardBeanArr.push(parseInt(i,10) || 0)
+  }
+}
+guaopencard_addSku = $.isNode() ? (process.env.guaopencard_addSku69 ? process.env.guaopencard_addSku69 : `${guaopencard_addSku}`) : ($.getdata('guaopencard_addSku69') ? $.getdata('guaopencard_addSku69') : `${guaopencard_addSku}`);
 guaopencard_addSku = $.isNode() ? (process.env.guaopencard_addSku_All ? process.env.guaopencard_addSku_All : `${guaopencard_addSku}`) : ($.getdata('guaopencard_addSku_All') ? $.getdata('guaopencard_addSku_All') : `${guaopencard_addSku}`);
-guaopencard = $.isNode() ? (process.env.guaopencard68 ? process.env.guaopencard68 : `${guaopencard}`) : ($.getdata('guaopencard68') ? $.getdata('guaopencard68') : `${guaopencard}`);
+guaopencard = $.isNode() ? (process.env.guaopencard69 ? process.env.guaopencard69 : `${guaopencard}`) : ($.getdata('guaopencard69') ? $.getdata('guaopencard69') : `${guaopencard}`);
 guaopencard = $.isNode() ? (process.env.guaopencard_All ? process.env.guaopencard_All : `${guaopencard}`) : ($.getdata('guaopencard_All') ? $.getdata('guaopencard_All') : `${guaopencard}`);
-guaopenwait = $.isNode() ? (process.env.guaopenwait68 ? process.env.guaopenwait68 : `${guaopenwait}`) : ($.getdata('guaopenwait68') ? $.getdata('guaopenwait68') : `${guaopenwait}`);
+guaopenwait = $.isNode() ? (process.env.guaopenwait69 ? process.env.guaopenwait69 : `${guaopenwait}`) : ($.getdata('guaopenwait69') ? $.getdata('guaopenwait69') : `${guaopenwait}`);
 guaopenwait = $.isNode() ? (process.env.guaopenwait_All ? process.env.guaopenwait_All : `${guaopenwait}`) : ($.getdata('guaopenwait_All') ? $.getdata('guaopenwait_All') : `${guaopenwait}`);
 guaopenwait = parseInt(guaopenwait, 10) || 0
-guaopencard_draw = $.isNode() ? (process.env.guaopencard_draw68 ? process.env.guaopencard_draw68 : guaopencard_draw) : ($.getdata('guaopencard_draw68') ? $.getdata('guaopencard_draw68') : guaopencard_draw);
+guaopencard_draw = $.isNode() ? (process.env.guaopencard_draw69 ? process.env.guaopencard_draw69 : guaopencard_draw) : ($.getdata('guaopencard_draw69') ? $.getdata('guaopencard_draw69') : guaopencard_draw);
 guaopencard_draw = $.isNode() ? (process.env.guaopencard_draw ? process.env.guaopencard_draw : guaopencard_draw) : ($.getdata('guaopencard_draw') ? $.getdata('guaopencard_draw') : guaopencard_draw);
 guaopenwait = parseInt(guaopenwait, 10) || 0
 allMessage = ""
@@ -81,7 +92,7 @@ let activityCookie =''
 !(async () => {
   if ($.isNode()) {
     if(guaopencard+"" != "true"){
-      console.log('如需执行脚本请设置环境变量[guaopencard68]为"true"')
+      console.log('如需执行脚本请设置环境变量[guaopencard69]为"true"')
     }
     if(guaopencard+"" != "true"){
       return
@@ -96,7 +107,7 @@ let activityCookie =''
   // return
   $.appkey = '51B59BB805903DA4CE513D29EC448375'
   $.userId = '10299171'
-  $.actId = '19f25231140746df9cf2fe3_1115'
+  $.actId = '002sfydcg550d840ce832_1118'
   $.MixNicks = ''
   $.inviteNick = 'TqfETAtYMx8TBjofdFjxKF4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w=='
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -130,7 +141,7 @@ async function run() {
     $.Token = ''
     $.Pin = ''
     $.MixNick = ''
-    let flag = false
+    let flag = 1
     if($.activityEnd) return
     if($.outFlag){
       console.log('此ip已被限制，请过10分钟后再执行脚本\n')
@@ -158,17 +169,28 @@ async function run() {
     $.openList = []
     await takePostRequest('绑定');
     await takePostRequest('shopList');
+    $.rewardBean = true
     for(o of $.openList){
       $.missionType = 'openCard'
       if(o.open != true && o.openCardUrl){
         $.openCard = false
         $.joinVenderId = o.userId
         await takePostRequest('mission');
-        await $.wait(parseInt(Math.random() * 3000 + 3000, 10))
+        await $.wait(parseInt(Math.random() * 3000 + 2000, 10))
         if($.openCard == true){
           await joinShop()
           await takePostRequest('activity_load');
-          await $.wait(parseInt(Math.random() * 3000 + 3000, 10))
+          await $.wait(parseInt(Math.random() * 3000 + 2000, 10))
+          if(rewardBeanArr.includes(2)){
+            if(!$.rewardBean){
+              flag = 10
+              $.activityEnd = true
+              console.log('开卡成功，但没有京豆奖励')
+              break
+            } else flag = 11
+          }else {
+            flag = 2
+          }
           // break
         }
         $.joinVenderId = ''
@@ -177,17 +199,31 @@ async function run() {
     $.joinVenderId = ''
     if($.hasCollectShop === 0){
       // 关注
-      $.missionType = 'uniteCollectShop'
-      await takePostRequest('mission');
-      await $.wait(parseInt(Math.random() * 2000 + 3000, 10))
+      if(flag <= 2 || flag == 11){
+        $.rewardBean = false
+        $.missionType = 'uniteCollectShop'
+        await takePostRequest('mission');
+        await $.wait(parseInt(Math.random() * 2000 + 3000, 10))
+        if(rewardBeanArr.includes(3)){
+          if(!$.rewardBean){
+            flag = 13
+            $.activityEnd = true
+            console.log('关注成功，但没有京豆奖励')
+          } else flag = 12
+        }else{
+          flag = 3
+        }
+      }
     }else{
       console.log('已经关注')
     }
     if(guaopencard_addSku+"" == "true"){
-      $.missionType = 'uniteAddCart'
-      let goodsArr = []
-      if(cleanCart){
-        goodsArr = await cleanCart.clean(cookie,'https://jd.smiek.tk/jdcleancatr_21102717','')
+      if(flag != 10 && flag != 13){
+        $.missionType = 'uniteAddCart'
+        let goodsArr = []
+        if(cleanCart){
+          goodsArr = await cleanCart.clean(cookie,'https://jd.smiek.tk/jdcleancatr_21102717','')
+        }
         await takePostRequest('mission');
         await $.wait(parseInt(Math.random() * 2000 + 3000, 10))
         if(cleanCart && goodsArr !== false){
@@ -196,8 +232,9 @@ async function run() {
         }
       }
     }else{
-      console.log('如需加购请设置环境变量[guaopencard_addSku68]为"true"');
+      console.log('如需加购请设置环境变量[guaopencard_addSku69]为"true"');
     }
+    await $.wait(parseInt(Math.random() * 3000 + 2000, 10))
     await takePostRequest('activity_load');
     if(guaopencard_draw+"" !== "0"){
       $.runFalag = true
@@ -216,12 +253,22 @@ async function run() {
         }
         await $.wait(parseInt(Math.random() * 2000 + 2000, 10))
       }
-    }else console.log('如需抽奖请设置环境变量[guaopencard_draw68]为"3" 3为次数');
+    }else console.log('如需抽奖请设置环境变量[guaopencard_draw69]为"3" 3为次数');
     await takePostRequest('myAward');
     await takePostRequest('missionInviteList');
-    console.log($.MixNick)
+    if(rewardBeanArr.includes(1) && (flag == 3 || flag == 11) && !$.activityEnd){
+      let  MILcount = $.MILcount
+      let  MAcount = $.MAcount
+      await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
+      await takePostRequest('myAwards');
+      await takePostRequest('missionInviteLists');
+      if(MILcount == $.MILcount && MAcount == $.MAcount){
+        console.log('邀请没有奖励')
+        $.activityEnd = true
+        return
+      }
+    }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
-    if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     if(guaopenwait){
       if($.index != cookiesArr.length){
         console.log(`等待${guaopenwait}秒`)
@@ -237,7 +284,7 @@ async function run() {
 }
 
 async function takePostRequest(type) {
-  if($.outFlag) return
+  if ($.outFlag) return
   let domain = 'https://jinggengjcq-isv.isvjcloud.com';
   let body = ``;
   let method = 'POST'
@@ -247,80 +294,93 @@ async function takePostRequest(type) {
       url = `https://api.m.jd.com/client.action?functionId=isvObfuscator`;
       body = `body=%7B%22url%22%3A%22https%3A//jinggengjcq-isv.isvjcloud.com/fronth5/%3Flng%3D0%26lat%3D0%26sid%3D49687cd64aca2ae93aa43748a04e8f6w%26un_area%3D16_1315_1316_53522%23/pages/unitedCardNew20211010-ka/unitedCardNew20211010-ka%3FactId%3D9150e1d16b9d40_10101%22%2C%22id%22%3A%22%22%7D&uuid=b9b4ce69d42dacb64084279d51cdee764d7781fa&client=apple&clientVersion=10.1.4&st=1634100732991&sv=111&sign=67e254ffbcb13be9e12a9782c9cdf398`;
       break;
-      case 'activity_load':
-        url = `${domain}/dm/front/openCardNew/activity_load?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"jdToken": $.Token, "source": "01", "inviteNick":($.inviteNick || "")}
-        if($.joinVenderId) admJson = {...admJson, "shopId": `${$.joinVenderId}`}
-        body = taskPostUrl("/openCardNew/activity_load", admJson);
-        break;
-      case 'shopList':
-        url = `${domain}/dm/front/openCardNew/shopList?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {}
-        body = taskPostUrl("/openCardNew/shopList", admJson);
-        break;
-      case '绑定':
-        url = `${domain}/dm/front/openCardNew/complete/mission?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"missionType": "relationBind", "inviterNick":($.inviteNick || "")}
-        body = taskPostUrl("/openCardNew/complete/mission", admJson);
-        break;
-      case 'mission':
-        url = `${domain}/dm/front/openCardNew/complete/mission?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"missionType": $.missionType}
-        if($.joinVenderId) admJson = {...admJson, "shopId": $.joinVenderId}
-        body = taskPostUrl("/openCardNew/complete/mission", admJson);
-        break;
-      case '抽奖':
-        url = `${domain}/dm/front/openCardNew/draw/post?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"dataType": "draw", "usedGameNum": "2"}
-        body = taskPostUrl("/openCardNew/draw/post", admJson);
-        break;
-      case 'followShop':
-        url = `${domain}/dm/front/openCardNew/followShop?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"actId": $.actId, "missionType": "collectShop"}
-        body = taskPostUrl("/openCardNew/followShop", admJson);
-        break;
-      case 'addCart':
-        url = `${domain}/dm/front/openCardNew/addCart?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"actId": $.actId, "missionType": "addCart"}
-        body = taskPostUrl("/openCardNew/addCart", admJson);
-        break;
-      case 'myAward':
-        url = `${domain}/dm/front/openCardNew/myAwards?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"pageNo": 1,"pageSize":9999}
-        body = taskPostUrl("/openCardNew/myAwards", admJson);
-        break;
-      case 'missionInviteList':
-        url = `${domain}/dm/front/openCardNew/missionInviteList?mix_nick=${$.MixNick || $.MixNicks || ""}`;
-        admJson = {"inviteListRequest":{"actId":$.actId,"userId":10299171,"missionType":"shareAct","inviteType": 1,"buyerNick":($.MixNick || '')}}
-        body = taskPostUrl("/openCardNew/missionInviteList", admJson);
-        break;
-      default:
-        console.log(`错误${type}`);
-    }
-    let myRequest = getPostRequest(url, body, method);
-    return new Promise(async resolve => {
-      $.post(myRequest, (err, resp, data) => {
-        try {
-          if (err) {
-            if(resp && resp.statusCode && resp.statusCode == 493){
-              console.log('此ip已被限制，请过10分钟后再执行脚本\n')
-              $.outFlag = true
-            }
-            console.log(`${$.toStr(err,err)}`)
-            console.log(`${type} API请求失败，请检查网路重试`)
-          } else {
-            dealReturn(type, data);
-          }
-        } catch (e) {
-          // console.log(data);
-          console.log(e, resp)
-        } finally {
-          resolve();
-        }
-      })
-    })
+    case 'activity_load':
+      url = `${domain}/dm/front/openCardNew/activity_load?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "jdToken": $.Token, "source": "01", "inviteNick": ($.inviteNick || "") }
+      if ($.joinVenderId) admJson = { ...admJson, "shopId": `${$.joinVenderId}` }
+      body = taskPostUrl("/openCardNew/activity_load", admJson);
+      break;
+    case 'shopList':
+      url = `${domain}/dm/front/openCardNew/shopList?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = {}
+      body = taskPostUrl("/openCardNew/shopList", admJson);
+      break;
+    case '绑定':
+      url = `${domain}/dm/front/openCardNew/complete/mission?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "missionType": "relationBind", "inviterNick": ($.inviteNick || "") }
+      body = taskPostUrl("/openCardNew/complete/mission", admJson);
+      break;
+    case 'mission':
+      url = `${domain}/dm/front/openCardNew/complete/mission?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "missionType": $.missionType }
+      if ($.joinVenderId) admJson = { ...admJson, "shopId": $.joinVenderId }
+      body = taskPostUrl("/openCardNew/complete/mission", admJson);
+      break;
+    case '抽奖':
+      url = `${domain}/dm/front/openCardNew/draw/post?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "dataType": "draw", "usedGameNum": "2" }
+      body = taskPostUrl("/openCardNew/draw/post", admJson);
+      break;
+    case 'followShop':
+      url = `${domain}/dm/front/openCardNew/followShop?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "actId": $.actId, "missionType": "collectShop" }
+      body = taskPostUrl("/openCardNew/followShop", admJson);
+      break;
+    case 'addCart':
+      url = `${domain}/dm/front/openCardNew/addCart?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "actId": $.actId, "missionType": "addCart" }
+      body = taskPostUrl("/openCardNew/addCart", admJson);
+      break;
+    case 'myAward':
+      url = `${domain}/dm/front/openCardNew/myAwards?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "pageNo": 1, "pageSize": 9999 }
+      body = taskPostUrl("/openCardNew/myAwards", admJson);
+      break;
+    case 'missionInviteList':
+      url = `${domain}/dm/front/openCardNew/missionInviteList?mix_nick=${$.MixNick || $.MixNicks || ""}`;
+      admJson = { "inviteListRequest": { "actId": $.actId, "userId": 10299171, "missionType": "shareAct", "inviteType": 1, "buyerNick": ($.MixNick || '') } }
+      body = taskPostUrl("/openCardNew/missionInviteList", admJson);
+      break;
+    case 'myAwards':
+    case 'missionInviteLists':
+      break;
+    default:
+      console.log(`错误${type}`);
   }
-  
+  let myRequest = getPostRequest(url, body, method);
+  if ($.index == 1 && (type == 'missionInviteList' || type == 'myAward')) {
+    if (type == 'missionInviteList') {
+      $.MILRequest = myRequest
+    } else if (type == 'myAward') $.MARequest = myRequest
+  } else if (type == 'missionInviteLists') {
+    myRequest = $.MILRequest
+  } else if (type == 'myAwards') {
+    myRequest = $.MARequest
+  }
+
+  return new Promise(async resolve => {
+    $.post(myRequest, (err, resp, data) => {
+      try {
+        if (err) {
+          if (resp && resp.statusCode && resp.statusCode == 493) {
+            console.log('此ip已被限制，请过10分钟后再执行脚本\n')
+            $.outFlag = true
+          }
+          console.log(`${$.toStr(err, err)}`)
+          console.log(`${type} API请求失败，请检查网路重试`)
+        } else {
+          dealReturn(type, data);
+        }
+      } catch (e) {
+        // console.log(data);
+        console.log(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+
 async function dealReturn(type, data) {
   let res = ''
   try {
@@ -363,7 +423,9 @@ async function dealReturn(type, data) {
       case 'followShop':
       case 'addCart':
       case 'myAward':
+      case 'myAwards':
       case 'missionInviteList':
+      case 'missionInviteLists':
       case '抽奖':
         title = ''
         if(type == "followShop") title = '关注'
@@ -372,7 +434,16 @@ async function dealReturn(type, data) {
           if(res.success && res.success === true && res.data){
             if(res.data.status && res.data.status == 200){
               res = res.data
-              if(type != "setMixNick" && (res.msg || res.data.isOpenCard || res.data.remark)) console.log(`${title && title+":" || ""}${res.msg || res.data.isOpenCard || res.data.remark || ''}`)
+              let resMsg = res.msg || res.data.isOpenCard || res.data.remark || ''
+              if(type != "setMixNick" && (res.msg || res.data.isOpenCard || res.data.remark)) console.log(`${title && title+":" || ""}${resMsg}`)
+              if(resMsg.indexOf('开卡成功') > -1 || resMsg.indexOf('关注成功') > -1){
+                $.rewardBean = false
+                if(resMsg.indexOf('京豆') > -1){
+                  $.rewardBean = true
+                }
+              }else if(resMsg.indexOf('未完成') > -1 || resMsg.indexOf('擦肩') > -1){
+                $.runFalag = false
+              }
               if(type == "activity_load"){
                 if(res.msg || res.data.isOpenCard) {
                   if((res.msg || res.data.isOpenCard || '').indexOf('绑定成功') > -1) $.toBind = 1
@@ -393,8 +464,8 @@ async function dealReturn(type, data) {
                 }
               }else if(type == "uniteOpenCardOne"){
                 $.uniteOpenCar = res.msg || res.data.msg || ''
-              }else if(type == "myAward"){
-                console.log(`我的奖品：`)
+              }else if(type == "myAward" || type == "myAwards"){
+                if(type == "myAward") console.log(`我的奖品：`)
                 let num = 0
                 let value = 0
                 for(let i in res.data.list || []){
@@ -403,24 +474,31 @@ async function dealReturn(type, data) {
                     num++
                     value = item.awardDes
                   }else{
-                    console.log(`${item.awardName}`)
+                    if(type == "myAward") console.log(`${item.awardName}`)
                   }
                 }
-                if(num > 0) console.log(`邀请好友(${num}):${num*parseInt(value, 10) || 30}京豆`)
-              }else if(type == "missionInviteList"){
-                console.log(`邀请人数(${res.data.invitedLogList.total})`)
+                if($.index == 1 || type == "myAwards") $.MAcount = num
+                if(num > 0 && type == "myAward") console.log(`邀请好友(${num}):${num*parseInt(value, 10) || 30}京豆`)
+              }else if(type == "missionInviteList" || type == "missionInviteLists"){
+                if(type == "missionInviteList") console.log(`邀请人数(${res.data.invitedLogList.total})`)
+                if($.index == 1 || type == "missionInviteLists") $.MILcount = res.data.invitedLogList.total
               }
             }else if(res.data.msg){
               console.log(`${title || type} ${res.data.msg || ''}`)
             }else if(res.errorMessage){
               if(res.errorMessage.indexOf('火爆') >-1 ){
                 $.hotFlag = true
+              }else if(res.errorMessage.indexOf('未完成') > -1 || res.errorMessage.indexOf('擦肩') > -1){
+                $.runFalag = false
               }
               console.log(`${title || type} ${res.errorMessage || ''}`)
             }else{
               console.log(`${title || type} ${data}`)
             }
           }else if(res.errorMessage){
+            if(res.errorMessage.indexOf('未完成') > -1 || res.errorMessage.indexOf('擦肩') > -1){
+              $.runFalag = false
+            }
             console.log(`${title || type} ${res.errorMessage || ''}`)
           }else{
             console.log(`${title || type} ${data}`)
