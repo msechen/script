@@ -24,6 +24,8 @@ const SuperMarketRedeem = require('./jd/superMarket/redeem');
 const Pet = require('./jd/pet');
 const Fruit = require('./jd/fruit');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
+const FruitFarmPark = require('./jd/fruit/FarmPark');
+const FruitCollect = require('./jd/fruit/Collect');
 const Wfh = require('./jd/wfh');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
@@ -101,6 +103,7 @@ async function main() {
   const longTermActivity = [
     SignBeanHome, Sign,
     Fruit, Pet, TurnTableFarm,
+    FruitFarmPark, FruitCollect,
     Cash,
     BeanSmallBean,
     PlantBean,
