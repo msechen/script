@@ -80,7 +80,12 @@ class Pet extends Template {
       for (const shareCode of shareCodes) {
         await api.doFormBody('slaveHelp', {shareCode}).then(data => {
           if (self.isSuccess(data)) {
-            api.log(`给 ${_.property('result.masterNickName')(data) || 'unknown'} 助力成功`);
+            const {helpStatus, masterNickName} = data.result;
+            if (helpStatus === 0) {
+              api.log(`助力 ${masterNickName} 成功`);
+            } else {
+              api.log(`助力 ${masterNickName} 失败`);
+            }
           } else {
             api.log(data.message);
           }
