@@ -38,8 +38,8 @@ class PlantBean extends Template {
 
     for (const plantUuid of self.getShareCodeFn()) {
       await api.doFormBody('plantBeanIndex', {plantUuid}).then(data => {
-        const msg = _.property('data.helpShareRes.promptText')(data);
-        msg && api.log(msg);
+        const msg = _.get(data, 'data.helpShareRes.promptText', '失败');
+        api.log(`[${plantUuid}] 助力结果: ${msg}`);
       });
     }
   }

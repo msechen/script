@@ -277,10 +277,7 @@ async function main() {
   // 定时循环
   async function cronLoop() {
     await doCron(CrazyJoy);
-
-    if (nowHour % 2 === 0) {
-      await doCron(PlantBean);
-    }
+    await doCron(PlantBean);
 
     if (nowHour % 5 === 0) {
       await serialRun(Joy, doCron);
