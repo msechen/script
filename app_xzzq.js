@@ -15,6 +15,11 @@
 
 定时任务
 cron '0-59/2 * * * *'
+
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_xzzq.js
+
+注:能活多久不知道,反正上了再说
+
 */
 const $ = new Env('小猪赚钱');
 const notify = $.isNode() ? require('./sendNotify') : '';
