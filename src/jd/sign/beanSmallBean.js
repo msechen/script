@@ -32,7 +32,7 @@ class BeanSmallBean extends Template {
     const taskList = await getTaskList();
     for (let {taskId, status, subTitleName, maxTimes, times, subTaskVOS, waitDuration = 0} of taskList) {
       const {title} = subTaskVOS[0] || {};
-      if (maxTimes === times || status === 2 || ['下单抵现'].includes(title)) continue;
+      if (maxTimes === times || status === 2 || ['下单抵现', '双签领豆'].includes(title)) continue;
       waitDuration = waitDuration || _.last(subTitleName.match(/(\d+)s/));
       for (let i = times; i < maxTimes; i++) {
         const taskInfo = _.property('subTaskVOS')(await getTaskById(taskId));
@@ -46,7 +46,7 @@ class BeanSmallBean extends Template {
 
     async function doTask(taskToken, waitDuration) {
       const _do = (actionType = 0) => api.doFormBody('beanDoTask', {actionType, taskToken});
-      await _do(waitDuration && 1);
+      await _do(waitDuration ? 1 : void 0);
       if (!waitDuration) return;
       await sleep(waitDuration);
       await _do();
