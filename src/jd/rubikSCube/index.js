@@ -27,11 +27,24 @@ class RubikSCube extends Template {
   static async beforeRequest(api) {
     const self = this;
 
-    const encryptProjectId = await api.doFormBody('getInteractionHomeInfo', {'sign': 'u6vtLQ7ztxgykLEr'}).then(_.property('result.taskConfig.projectId'));
+    const {
+      taskConfig,
+      giftConfig,
+    } = await api.doFormBody('getInteractionHomeInfo', {'sign': 'u6vtLQ7ztxgykLEr'}).then(_.property('result'));
+    const {projectId: encryptProjectId} = taskConfig;
+    _.assign(api, {taskConfig, giftConfig});
     if (!encryptProjectId) return true;
 
     replaceObjectMethod(api, 'doFormBody', ([functionId, body, signData, options]) => {
-      return [functionId, _.assign({encryptProjectId, 'sourceCode': 'acexinpin0823'}, body), signData, options];
+      const baseBody = {encryptProjectId, sourceCode: 'acexinpin0823'};
+      if (_.has(body, 'ext.couponUsableGetSwitch')) {
+        _.assign(baseBody, {encryptProjectId: giftConfig.projectId});
+      }
+      body = _.assign(baseBody, body);
+      if (_.has(body, 'encryptProjectPoolId')) {
+        delete body['encryptProjectId'];
+      }
+      return [functionId, body, signData, options];
     });
   }
 
@@ -66,7 +79,7 @@ class RubikSCube extends Template {
 
             let extData = ext[extraType];
             if (isShareTask) {
-              self.isFirstLoop() && self.updateShareCodeFn(extData);
+              !completionFlag && self.isFirstLoop() && self.updateShareCodeFn(extData);
               extData = self.getShareCodeFn();
               times = 0;
             }
@@ -99,7 +112,52 @@ class RubikSCube extends Template {
         name: 'doInteractiveAssignment',
         paramFn: o => _.assign(o, {actionType: 0}),
       },
-      // TODO 输出有多少个魔方和自动兑换
+      afterGetTaskList: {
+        name: 'queryInteractiveInfo',
+        paramFn: () => ({
+          'ext': {'couponUsableGetSwitch': '1'},
+        }),
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return api.log(data.msg);
+          const exchangeRestScoreMap = {};
+          const {projectPoolId: encryptProjectPoolId} = api.taskConfig;
+          const {projectId: encryptProjectId} = api.giftConfig;
+          _.assign(exchangeRestScoreMap, await api.doFormBody('queryInteractiveRewardInfo', {
+            encryptProjectPoolId,
+            'sourceCode': 'wh5',
+            'ext': {'needPoolRewards': 1, 'needExchangeRestScore': 1},
+          }).then(_.property('exchangeRestScoreMap')));
+          _.assign(exchangeRestScoreMap, await api.doFormBody('queryInteractiveRewardInfo', {
+            encryptProjectId,
+            'ext': {'needExchangeRestScore': '1'},
+          }).then(_.property('exchangeRestScoreMap')));
+
+          const assignmentList = _.property('assignmentList')(data) || [];
+
+          for (const [id, value] of Object.entries(exchangeRestScoreMap)) {
+            const targetList = assignmentList.filter(o => o['scoreExchangeId'] === +id);
+            const {
+              exchangeRate,
+              encryptAssignmentId,
+            } = _.maxBy(targetList, o => o.rewards[0].rewardValue / o['exchangeRate']);
+            const exchangeNum = Math.floor(value / exchangeRate);
+            if (exchangeNum > 0) {
+              for (let i = 0; i < exchangeNum; i++) {
+                await api.doFormBody('doInteractiveAssignment', {
+                  encryptProjectId, encryptAssignmentId,
+                  'itemId': '',
+                  'actionType': '',
+                  'completionFlag': '',
+                  'ext': {exchangeNum: 1},
+                }).then(data => {
+                  const successRewards = _.get(data, 'rewardsInfo.successRewards');
+                  api.log(`获得${_.flatten(_.values(successRewards)).map(o => o.rewardName).join(' ')}`);
+                });
+              }
+            }
+          }
+        },
+      },
     };
   }
 }
