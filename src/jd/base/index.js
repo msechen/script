@@ -2,6 +2,7 @@ const _ = require('lodash');
 
 const Api = require('../api');
 const UserAgent = require('./UserAgent');
+const Cookie = require('../../lib/cookie');
 const {sleep, printLog, parallelRun} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
@@ -264,6 +265,27 @@ async function loopInit(data, isCron) {
   const self = this;
   let currentCookieTimes = 0;
   data = _.concat(data);
+
+  let cookieConfig = {};
+  const cookieConfigStr = getEnv('JD_COOKIE_CONFIG');
+  if (cookieConfigStr) {
+    try {
+      cookieConfig = JSON.parse(cookieConfigStr);
+    } catch (e) {}
+  }
+
+  if (!_.isEmpty(cookieConfig)) {
+    data = _.filter(data.map(o => {
+      const key = new Cookie(o.cookie).get('pt_pin');
+      if (_.has(cookieConfig, key)) {
+        const disableScriptNames = _.get(cookieConfig, `${key}.disableScriptName`, '').split(',');
+        if (disableScriptNames.includes(self.scriptName)) {
+          return '';
+        }
+      }
+      return o;
+    }));
+  }
 
   if (self.concurrent) {
     return parallelRun({

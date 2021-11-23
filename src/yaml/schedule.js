@@ -26,6 +26,7 @@ const envSecrets = _.fromPairs(_.flatten([
   ['JD_FRUIT_WATER_DISABLE', 1],
   ['JD_PET_FEED_DISABLE', 1],
   ['JD_LIVE_RED_ENVELOPE_RAIN_STOP', 1],
+  ['JD_COOKIE_CONFIG', 1],
 
   'JD_CRAZY_JOY_STOP_UPGRADE',
   'JD_JOY_FEED_INDEX',
