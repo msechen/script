@@ -278,9 +278,12 @@ async function loopInit(data, isCron) {
     data = _.filter(data.map(o => {
       const key = new Cookie(o.cookie).get('pt_pin');
       if (_.has(cookieConfig, key)) {
-        const disableScriptNames = _.get(cookieConfig, `${key}.disableScriptName`, '').split(',');
-        if (disableScriptNames.includes(self.scriptName)) {
-          return '';
+        const {scriptName: scriptNameConfig} = _.get(cookieConfig, key, {});
+        const {disable, disableShareCode} = scriptNameConfig || {};
+        const scriptName = self.scriptName;
+        if (_.concat(disable).includes(scriptName)) return '';
+        if (_.concat(disableShareCode).includes(scriptName)) {
+          o.shareCodes = [];
         }
       }
       return o;
