@@ -3,7 +3,7 @@
 # # KoolProxy规则
 
 #### 介绍
-转换AdGuard规则、StevenBlack规则、AntiAd规则、Yhost规则、坂本手机规则优化成koolproxy规则
+转换AdGuard规则、StevenBlack规则、AntiAd规则、Yhost规则、坂本手机规则优化成koolproxy规则。（ABP和fanboy规则已经剔除）
 
 
 #### 规则地址一（腾讯coding，实时）
@@ -26,7 +26,28 @@ StevenBlack规则：https://igodros.coding.net/p/ikoolproxy/d/rules/git/raw/mast
 
 IKPR规则：https://igodros.coding.net/p/ikoolproxy/d/rules/git/raw/master/rules/ikprule.txt
 
-#### 规则地址二（有缓存）
+#### 规则地址二
+
+静态规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adg.txt
+
+每日规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/daily.txt
+
+视频规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/kp.dat
+
+AdGuard规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adg.txt 
+
+Banben规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adgk.txt
+
+Anti-AD规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/antiad.txt
+
+Yhosts规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/yhosts.txt
+
+StevenBlack规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/steven.txt
+
+IKPR规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/ikprule.txt
+
+
+#### 规则地址三（有缓存）
 
 静态规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/koolproxy.txt
 
@@ -47,7 +68,7 @@ StevenBlack规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rule
 IKPR规则：https://cdn.jsdelivr.net/gh/project-lede/koolproxy@main/rules/ikprule.txt
 
 
-#### 规则地址三（有缓存）
+#### 规则地址四（有缓存）
 
 静态规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/koolproxy.txt
 
@@ -66,3 +87,4 @@ Yhosts规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/ru
 StevenBlack规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/steven.txt
 
 IKPR规则：https://raw.githubusercontents.com/project-lede/koolproxy/main/rules/ikprule.txt
+
