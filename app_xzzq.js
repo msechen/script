@@ -7,13 +7,13 @@
 青龙、V4、V2P变量填写
 
 变量名 soy_xzzq_data
-变量值 手机号&密码&User-Agent
+变量值 0&手机号&密码&User-Agent
 
-其中User-Agent为可选填写
+其中0为通知控制,1为通知,其他数字为不通知,User-Agent为可选填写
 
 多号用 @ 或 # 或 换行 隔开
 
-定时任务
+定时任务,看容量自行修改
 cron '0-59/2 * * * *'
 
 脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_xzzq.js
