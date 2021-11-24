@@ -1,4 +1,4 @@
-name: sync-FKPYW-dongge-scripts
+name: sync-Magic-scripts
 on:
   schedule:
     - cron: '*/20 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-FKPYW-dongge-scripts
+    types: sync-Magic-scripts
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-FKPYW-dongge-scripts
+      - name: sync-Magic-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/FKPYW/dongge.git"
+          source_repo: "https://github.com/walle1798/WALL.E.git"
           source_branch: "master"
-          destination_branch: "FKPYW-dongge"
+          destination_branch: "Magic"
           github_token: ${{ secrets.PAT }}
