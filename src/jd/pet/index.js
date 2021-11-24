@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 const {getMoment} = require('../../lib/moment');
 
-const {sleep} = require('../../lib/common');
+const {sleep, singleRun} = require('../../lib/common');
 
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/WiXHzdNRVxmQQdEpLo4Z4yvsiFy/index.html';
 
@@ -235,5 +235,7 @@ class Pet extends Template {
     }
   }
 }
+
+singleRun(Pet).then();
 
 module.exports = Pet;

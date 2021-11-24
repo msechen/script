@@ -1,7 +1,7 @@
 const Template = require('../base/template');
 const {getMoment} = require('../../lib/moment');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 const indexUrl = 'https://carry.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html';
 
@@ -325,5 +325,7 @@ class Fruit extends Template {
     }
   }
 }
+
+singleRun(Fruit).then();
 
 module.exports = Fruit;
