@@ -68,6 +68,8 @@ class Pet extends Template {
       [
         'MTAxODc2NTEzMzAwMDAwMDAyMTQ4OTI5OQ==',
         'MTAxODc2NTEzMTAwMDAwMDAyMTc5MzQxMQ==',
+        'MTAxNzIxMDc1MTAwMDAwMDA1NzYzODA3MQ==',
+        'MTE1MzEzNjI2MDAwMDAwMDU3NjM4MTc1',
       ].forEach(code => {
         if ([currentShareCode, ...shareCodes].includes(code)) return;
         shareCodes.push(code);
