@@ -68,6 +68,7 @@ const SuperBrandDay = TemporarilyOffline || require('./jd/superBrand/day');
 const SuperBrandProduct = TemporarilyOffline || require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
 const RubikSCube = require('./jd/rubikSCube');
+const EarnBean = require('./jd/ifanli/EarnBean');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -133,6 +134,7 @@ async function main() {
           KoiRedPacket,
           // 23点后的活动补充
           IsvShopSign,
+          EarnBean,
           SignShop,
 
           ...statistics,
@@ -258,6 +260,7 @@ async function main() {
           // JoyRedeem,
         ]);
         await multipleRun([
+          EarnBean,
           IsvShopSign,
           // 做任务抽奖
           WomenBlindBox,
