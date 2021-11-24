@@ -74,10 +74,17 @@ class Fruit extends Template {
 
     // 增加默认助力码
     function patchShareCodeWithDefault() {
-      [
+      let defaultShareCodes = [
         '9675151b3f1645d2afea9afb44c44716',
         '2886e4326e104eecb117f7a32732cda3',
-      ].forEach(code => {
+      ];
+      if (self.lastTimeInTheDay()) {
+        defaultShareCodes = defaultShareCodes.concat([
+          '599767762e104f77a3980598fab16a99',
+          '4569adc9a868457fb35c14e8db3572a1',
+        ]);
+      }
+      defaultShareCodes.forEach(code => {
         if ([currentShareCode, ...shareCodes].includes(code)) return;
         shareCodes.push(code);
       });
@@ -85,7 +92,7 @@ class Fruit extends Template {
 
     async function handleDoShare() {
       // 仅执行一次
-      if (self.doneShareTask) return;
+      if (self.doneShareTask && !self.lastTimeInTheDay()) return;
       for (const shareCode of shareCodes) {
         await sleep(2);
         await handleInitForFarm(shareCode).then(data => {
