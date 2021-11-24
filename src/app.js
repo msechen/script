@@ -65,7 +65,7 @@ const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
 const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = TemporarilyOffline || require('./jd/superBrand/day');
-const SuperBrandProduct = TemporarilyOffline || require('./jd/superBrand/Product');
+const SuperBrandProduct = require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
 const RubikSCube = require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
@@ -197,6 +197,7 @@ async function main() {
     {
       valid: 14,
       run: async () => {
+        await doRun(SuperBrandProduct);
       },
     },
     {
@@ -216,6 +217,7 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
+          SuperBrandProduct,
         ]);
       },
     },
@@ -250,6 +252,7 @@ async function main() {
           Cash,
           PlantBean,
           [PlantBean, void 0, 'cron'],
+          SuperBrandProduct,
         ]);
         // await doRun(CrazyJoy);
 

@@ -72,8 +72,10 @@ class SuperBrandProduct extends Template {
             completionCnt: times,
             waitDuration,
             ext = {},
+            completionFlag,
           } of taskList) {
             if ([].includes(assignmentType)) continue;
+            if (/会员|开卡/.test(assignmentName) && !self.lastTimeInTheDay()) continue;
 
             let list = [];
 
@@ -95,7 +97,7 @@ class SuperBrandProduct extends Template {
                 itemId,
               }, !itemId ? {completionFlag: 1} : {});
               if (extName === 'assistTaskDetail') {
-                self.isFirstLoop() && self.updateShareCodeFn(ext[extName].itemId);
+                !completionFlag && self.isFirstLoop() && self.updateShareCodeFn(ext[extName].itemId);
                 list = self.getShareCodeFn().map(patchItem);
                 times = 0;
                 maxTimes = list.length;
@@ -141,7 +143,7 @@ class SuperBrandProduct extends Template {
           api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
         },
       });
-    } else if (source === 'secondfloor') {
+    } else if (source === 'secondfloor' && self.lastTimeInTheDay()) {
       _.assign(result, {
         doRedeem: {
           name: 'superBrandTaskLottery',
