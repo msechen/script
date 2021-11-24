@@ -28,23 +28,23 @@ IKPR规则：https://igodros.coding.net/p/ikoolproxy/d/rules/git/raw/master/rule
 
 #### 规则地址二
 
-静态规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/koolproxy.txt
+静态规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/koolproxy.txt
 
-每日规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/daily.txt
+每日规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/daily.txt
 
-视频规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/kp.dat
+视频规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/kp.dat
 
-AdGuard规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adg.txt 
+AdGuard规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adg.txt 
 
-Banben规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adgk.txt
+Banben规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adgk.txt
 
-Anti-AD规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/antiad.txt
+Anti-AD规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/antiad.txt
 
-Yhosts规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/yhosts.txt
+Yhosts规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/yhosts.txt
 
-StevenBlack规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/steven.txt
+StevenBlack规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/steven.txt
 
-IKPR规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/ikprule.txt
+IKPR规则：https://ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/ikprule.txt
 
 
 #### 规则地址三（有缓存）
