@@ -28,7 +28,7 @@ IKPR规则：https://igodros.coding.net/p/ikoolproxy/d/rules/git/raw/master/rule
 
 #### 规则地址二
 
-静态规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/adg.txt
+静态规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/koolproxy.txt
 
 每日规则：https://mirror.ghproxy.com/https://github.com/project-lede/koolproxy/blob/main/rules/daily.txt
 
