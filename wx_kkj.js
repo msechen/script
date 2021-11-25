@@ -14,6 +14,8 @@
 选填变量名 soy_kkj_UA 
 变量值 请求头上的 User-Agent
 
+域名为:ydt.kxlock.com:443
+
 
 多个号用 @ 或 # 或 换行 隔开
 
