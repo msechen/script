@@ -2,7 +2,8 @@
 加改汤师爷的,在他的V2P\圈X基础加配置青龙面板
 
 软件名：果冻宝盒
-下载链接：http://sd.bhrax.com/inviter/lc8vry?userid=5806792
+
+下载链接：http://sd.bhrax.com/inviter/RcEFEs?userid=5806792
 ------
 注册填写邀请码：A523V9
 每天0.7元 ，5元提现秒到支付宝
@@ -128,7 +129,7 @@ $.message = ''
                     await $.wait(2000)
                     
                     await gdbhsp()
-
+                    await soy_gdbh_inf()
 
 
 
@@ -171,8 +172,9 @@ $.message = ''
 
                     await gdbhqd()
                     await $.wait(2000)
-                    
                     await gdbhsp()
+                    await $.wait(2000)
+                    await soy_gdbh_inf()
 
 
 
@@ -210,11 +212,7 @@ function gdbhck() {
 function gdbhqd(timeout = 0) {
     return new Promise((resolve) => {
         times = Math.round(new Date().getTime()/1000).toString();
-        
         sign = MD5_Encrypt(`member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&${mm}`)
-        
-        //url = gdbhurl.replace(/timestamp=\d+&signature=\w+/g,`timestamp=${times}&signature=${sign}`) 
-        
 
         let url = {
             url: `https://proxy.guodongbaohe.com/coins/checkin?member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
@@ -258,7 +256,6 @@ function gdbhsp(timeout = 0) {
         let url = {
             url: `https://proxy.guodongbaohe.com/coins/award?member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
             headers: gdbhhd,
-           
         }
 
         $.get(url, async (err, resp, data) => {
@@ -266,12 +263,10 @@ function gdbhsp(timeout = 0) {
                 data = JSON.parse(data)
 
                 if (data.status == 0) {
+                    console.log(`\n【看视频金币】：${data.result}`)
+                    $.message += `\n【看视频金币】：${data.result}`
 
-                    console.log(`\n【看视频金币】：${data.result}\n`)
-
-                    $.message += `【看视频金币】：${data.result}\n`
-
-                    await $.wait(30000)
+                    await $.wait(Math.floor(Math.random() * (32000 - 28000 + 1000) + 28000))
                     await gdbhsp()
                 } else {
 
@@ -284,6 +279,107 @@ function gdbhsp(timeout = 0) {
                 resolve()
             }
         }, timeout)
+    })
+}
+
+//用户信息
+function soy_gdbh_inf(){
+    times = Math.round(new Date().getTime()/1000).toString();
+    sign = MD5_Encrypt(`member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&${mm}`)
+    return new Promise((resolve, reject) => {
+        $.get({
+            url:`https://proxy.guodongbaohe.com/coins/exchange_info?member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
+            headers:gdbhhd,
+            //body:'',
+    }, async(error, response, data) => {
+           try {
+               //console.log(data)
+               let result = JSON.parse(data)
+               if(result.status==0){
+                   credits=result.result.credits;
+                   income=result.result.income
+                   
+                   if(credits>0){
+                       await soy_gdbh_exchange()
+                       await soy_gdbh_inf()
+                   }
+                   
+                   if(Math.floor(income)>=5){
+                       await soy_gdbh_apply()
+                   }
+               }else{
+                  console.log(result.result) 
+               }
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
+        })
+    })
+}
+
+//兑换
+function soy_gdbh_exchange(){
+    times = Math.round(new Date().getTime()/1000).toString();
+    sign = MD5_Encrypt(`credits=${credits}&member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&${mm}`)
+    console.log(credits)
+    return new Promise((resolve, reject) => {
+        $.get({
+            url:`https://proxy.guodongbaohe.com/coins/exchange?credits=${credits}&member_id=${id}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
+            headers:gdbhhd,
+    }, async(error, response, data) => {
+           try {
+               //console.log(data)
+               let result = JSON.parse(data)
+               if(result.status==0){
+                    console.log(`\n【兑换金币】：成功`)
+                    $.message += `【兑换金币】：成功`
+                   
+               }else{
+                  console.log(result.result) 
+               }
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
+        })
+    })
+}
+
+//提现
+function soy_gdbh_apply(){
+    times = Math.round(new Date().getTime()/1000).toString();
+    sign = MD5_Encrypt(`member_id=${id}&money=${income}&platform=${soy_gdbh_device}&timestamp=${times}&${mm}`)
+    return new Promise((resolve, reject) => {
+        $.get({
+            url:`https://proxy.guodongbaohe.com/wallet/apply?member_id=${id}&money=${income}&platform=${soy_gdbh_device}&timestamp=${times}&signature=${sign}&`,
+            headers:gdbhhd,
+            //body:'',
+    }, async(error, response, data) => {
+           try {
+               //console.log(data)
+               let result = JSON.parse(data)
+               if(result.status==0){
+                    console.log(`\n【提现】：成功`)
+                    $.message += `【提现】：成功`
+                   
+               }else{
+                  console.log(result.result) 
+               }
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
+        })
     })
 }
 
