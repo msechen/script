@@ -21,6 +21,8 @@
 
 cron 35 9,19 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/wx_kkj.js
+
 */
 
 
