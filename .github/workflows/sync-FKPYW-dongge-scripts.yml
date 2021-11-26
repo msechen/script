@@ -21,4 +21,3 @@ jobs:
           source_repo: "https://github.com/mmnvnmm/omo.git"
           source_branch: "master"
           destination_branch: "FKPYW-dongge"
-          destination_branch: "Magic"
