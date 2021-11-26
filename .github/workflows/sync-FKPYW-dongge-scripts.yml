@@ -1,0 +1,24 @@
+name: sync-FKPYW-dongge-scripts
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+@@ -8,7 +8,7 @@ on:
+  push:
+    branches: [ master ]
+  repository_dispatch:
+    types: sync-FKPYW-dongge-scripts
+jobs:
+  repo-sync:
+    env:
+@@ -21,11 +21,11 @@ jobs:
+        with:
+          persist-credentials: false
+
+      - name: sync-FKPYW-dongge-scripts
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/mmnvnmm/omo.git"
+          source_branch: "master"
+          destination_branch: "FKPYW-dongge"
+          destination_branch: "Magic"
