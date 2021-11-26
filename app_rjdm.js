@@ -8,6 +8,7 @@
 
 登录后点我的绑定微信,提现需要的
 
+V4、青龙、V2P手动添加变量（没有重写，懒，不想，也不会写）
 必要变量:
 
 变量名  soy_rjdm_Authorization
@@ -22,6 +23,7 @@ cron 37 9,19 * * *
 
 只有那个看广告的功能,测试提交那2任务显示失败,还在找办法
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_rjdm.js
 */
 
 const $ = new Env('日进斗米');
