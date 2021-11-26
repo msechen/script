@@ -2,27 +2,25 @@
 加改汤师爷的,在他的V2P\圈X基础加配置青龙面板
 
 软件名：果冻宝盒
-
-下载链接：http://sd.bhrax.com/inviter/RcEFEs?userid=5806792
+下载链接：http://sd.bhrax.com/inviter/lc8vry?userid=5806792
 ------
 注册填写邀请码：A523V9
 每天0.7元 ，5元提现秒到支付宝
 
-青龙使用方法，抓包搜索关键字coins
-# 找到以下相关参数添加环境变量
-soy_gdbh_member_id
-#在链接上有
-soy_gdbh_token
-在请求头上有x-token
 
-注意:如果是ios系统需要自行另外添加如下变量
+v4、青龙手动抓包法（v2p不支持）
 
-soy_gdbh_device
-#请求头上的 x-platform
-soy_gdbh_appid
-#请求头上的 x-appid
-soy_gdbh_UA
-#请求头上的 x-agent
+（要进视频赚前里面）域名为：proxy.guodongbaohe.com
+
+变量填写
+
+变量名 soy_gdbh_data
+
+变量值 android&member_id&token&appid&agent
+（变量值注释：platform在链接上的platform值，member_id在链接上的member_id，token为请求头上的x-token，appid为请求头上的x-appid(安卓的是这个,不知道苹果),agent为请求头上x-agent一个是可选填的的）
+
+
+多好用 # @ 换行 隔开
 
 V2P使用方法
 模板是大佬的模板未做修改,只适合重写,不适合手动添加变量,手动添加请使用青龙面板
@@ -37,6 +35,10 @@ https://proxy.guodongbaohe.com/income/mymoney
 主机名
 proxy.guodongbaohe.com
 
+注此脚本是适配青龙和V4
+注此脚本是适配青龙和V4
+注此脚本是适配青龙和V4
+
 */
 
 
@@ -47,9 +49,7 @@ let status;
 status = (status = ($.getval("gdbhstatus") || "1")) > 1 ? `${status}` : ""; // 账号扩展字符
 const gdbhhdArr = [],
     gdbhurlArr = [],
-    gdbhcount = '',
-    app_soy_gdbh_token=[],
-    app_soy_gdbh_member_id=[]
+    gdbhcount = '';
 let gdbhhd = $.getdata('gdbhhd')
 let gdbhurl = $.getdata('gdbhurl')
 let b = Math.round(new Date().getTime() / 1000).toString();
@@ -63,77 +63,46 @@ $.message = ''
     !(async () => {
         if ($.isNode()){
             
-            if(!process.env.soy_gdbh_member_id){
-        console.log(`\n【${$.name}】：未填写相应变量 soy_gdbh_member_id`);
-        return;
-    }
-    if(!process.env.soy_gdbh_token){
-        console.log(`\n【${$.name}】：未填写相应变量 soy_gdbh_token`);
+            if(!process.env.soy_gdbh_data){
+        console.log(`\n【${$.name}】：未填写相应变量 soy_gdbh_data`);
         return;
     }
             
-            if (process.env.soy_gdbh_member_id && process.env.soy_gdbh_member_id.indexOf('@') > -1) {
-        soy_gdbh_member_id = process.env.soy_gdbh_member_id.split('@');
-    } else if (process.env.soy_gdbh_member_id && process.env.soy_gdbh_member_id.indexOf('\n') > -1) {
-        soy_gdbh_member_id = process.env.soy_gdbh_member_id.split('\n');
-    } else if(process.env.soy_gdbh_member_id && process.env.soy_gdbh_member_id.indexOf('#') > -1){
-        soy_gdbh_member_id = process.env.soy_gdbh_member_id.split('#');
+            if (process.env.soy_gdbh_data && process.env.soy_gdbh_data.indexOf('@') > -1) {
+        app_soy_gdbh_data = process.env.soy_gdbh_data.split('@');
+    } else if (process.env.soy_gdbh_data && process.env.soy_gdbh_data.indexOf('\n') > -1) {
+        app_soy_gdbh_data = process.env.soy_gdbh_data.split('\n');
+    } else if(process.env.soy_gdbh_data && process.env.soy_gdbh_data.indexOf('#') > -1){
+        app_soy_gdbh_data = process.env.soy_gdbh_data.split('#');
     }else{
-        soy_gdbh_member_id = process.env.soy_gdbh_member_id.split();
+        app_soy_gdbh_data = process.env.soy_gdbh_data.split();
     };
-    Object.keys(soy_gdbh_member_id).forEach((item) => {
-        if (soy_gdbh_member_id[item]) {
-            app_soy_gdbh_member_id.push(soy_gdbh_member_id[item]);
-        };
-    }); 
     
-    if (process.env.soy_gdbh_token && process.env.soy_gdbh_token.indexOf('@') > -1) {
-        soy_gdbh_token = process.env.soy_gdbh_token.split('@');
-    } else if (process.env.soy_gdbh_token && process.env.soy_gdbh_token.indexOf('\n') > -1) {
-        soy_gdbh_token = process.env.soy_gdbh_token.split('\n');
-    } else if(process.env.soy_gdbh_token && process.env.soy_gdbh_token.indexOf('#') > -1){
-        soy_gdbh_token = process.env.soy_gdbh_token.split('#');
-    }else{
-        soy_gdbh_token = process.env.soy_gdbh_token.split();
-    };
-    Object.keys(soy_gdbh_token).forEach((item) => {
-        if (soy_gdbh_token[item]) {
-            app_soy_gdbh_token.push(soy_gdbh_token[item]);
-        };
-    });
-    
-    if(!process.env.soy_gdbh_device){
-        soy_gdbh_device='android'
-        soy_gdbh_appid='2102202714'
-        soy_gdbh_UA='JellyBox/3.8.4 (Android, Redmi K20 Pro, 11)'
-    }else{
-       soy_gdbh_device=process.env.soy_gdbh_device
-       soy_gdbh_appid=process.env.soy_gdbh_appid
-       soy_gdbh_UA=process.env.soy_gdbh_UA
-    }
     
     console.log(`\n\n=== 脚本执行 - 北京时间(UTC+8)：${new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 +
         8 * 60 * 60 * 1000).toLocaleString()} ===\n`);
         
-    console.log(`=== 共${app_soy_gdbh_member_id.length}个账号 ===\n`)
-            for (let i = 0; i < app_soy_gdbh_member_id.length; i++) {
-                if (app_soy_gdbh_member_id[i]) {
-                    id = app_soy_gdbh_member_id[i];
-                    token=app_soy_gdbh_token[i]
-                    gdbhhd={"Host":"proxy.guodongbaohe.com","x-userid":id,"x-appid":soy_gdbh_appid,"x-devid":"No-dev","x-nettype":"WIFI","x-agent":soy_gdbh_UA,"x-platform":soy_gdbh_device,"x-devtype":"no","x-token":token,"accept-encoding":"gzip","user-agent":"okhttp/3.14.9"}
+    console.log(`=== 共${app_soy_gdbh_data.length}个账号 ===\n`)
+            for (let i = 0; i < app_soy_gdbh_data.length; i++) {
+                    soy_gdbh_data=app_soy_gdbh_data[i].split('&');
+                    soy_gdbh_device=soy_gdbh_data[0]
+                    token=soy_gdbh_data[2];
+                    id = soy_gdbh_data[1];
+                    soy_gdbh_appid=soy_gdbh_data[3];
+                    agent=soy_gdbh_data[4];
+                    if(!agent){
+                       agent= 'JellyBox/3.8.4 (Android, VKY-AL00, 10)'
+                    }
+                    
+                    gdbhhd={"Host":"proxy.guodongbaohe.com","x-userid":id,"x-appid":soy_gdbh_appid,"x-devid":"No-dev","x-nettype":"WIFI","x-agent":agent,"x-platform":soy_gdbh_device,"x-devtype":"no","x-token":token,"accept-encoding":"gzip","user-agent":"okhttp/3.14.9"}
                     $.index = i + 1;
                     console.log(`\n【 果冻宝盒 账号${$.index} 】`)
-
-
                     await gdbhqd()
                     await $.wait(2000)
                     
                     await gdbhsp()
                     await soy_gdbh_inf()
-
-
-
-                }
+                
             }
     
     
