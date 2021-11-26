@@ -197,7 +197,10 @@ async function main() {
     {
       valid: 14,
       run: async () => {
-        await doRun(SuperBrandProduct);
+        await serialRun([
+          SuperBrandProduct,
+          EarnBean,
+        ]);
       },
     },
     {
@@ -253,6 +256,7 @@ async function main() {
           PlantBean,
           [PlantBean, void 0, 'cron'],
           SuperBrandProduct,
+          EarnBean,
         ]);
         // await doRun(CrazyJoy);
 
