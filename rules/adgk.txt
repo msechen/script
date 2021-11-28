@@ -1,7 +1,8 @@
-! Version: 20211120183731
+! Version: 20211127231236
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||51zrtx.com
 ||oceancode.top
 ||baimbw.cn
 ||hanyingmall.cn
@@ -11,7 +12,7 @@
 ||best-eye.cn
 ||mengyang.info
 ||yougouquanqiu.xyz
-||biduoxs.com/js/bd
+||https://51zrtx.com
 ||https://oceancode.top
 ||https://baimbw.cn
 ||https://hanyingmall.cn
@@ -12353,6 +12354,7 @@
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://51zrtx.com
 ||http://oceancode.top
 ||http://baimbw.cn
 ||http://hanyingmall.cn
