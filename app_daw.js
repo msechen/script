@@ -230,12 +230,9 @@ function soy_daw_poollist(state){
                     await soy_daw_receive()
                        
                    }
-                   if(soy_daw_box==1){
-                       await soy_daw_box_num()
-                       await soy_daw_tobox()
-                       
-                       
-                   }
+                   
+                    await soy_daw_box_num()
+                    await soy_daw_tobox()
                    /*if(soy_daw_turntable==1){
                        
                    }*/
