@@ -129,9 +129,10 @@ let app_soy_daw_token=[],app_soy_daw_UA=[]
       ).toLocaleString()} ===\n`
     );
     console.log(`===【共 ${app_soy_daw_token.length} 个账号】===\n`);
-subTitle=''
+      
 for (i = 0; i < app_soy_daw_token.length; i++) {
-    soy_daw_token = app_soy_daw_token[i].split('#')[0]
+    //soy_daw_data = app_soy_daw_token[i].split('&')
+    soy_daw_token=app_soy_daw_token[i]
     
     soy_daw_UA=app_soy_daw_UA[i]
     
@@ -142,15 +143,15 @@ for (i = 0; i < app_soy_daw_token.length; i++) {
     soy_daw_headers={"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"}
     
     $.index = i + 1;
+    subTitle=''
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
-    await soy_daw_poollist()
+    await soy_daw_poollist(1)
+    await soy_daw_poollist(0)
     
     
 };
 
-if(notify){
-    if(subTitle){await notify.sendNotify($.name, subTitle)}
-}
+//if(notify){if(subTitle){await notify.sendNotify($.name, subTitle)}}
 
 
 
@@ -177,46 +178,86 @@ function Get_data() {
     }
 }
 
-
-function soy_daw_poollist(){
+//用户信息
+function soy_daw_poollist(state){
+    let Request_data=Get_request(`channel/integral/pool?channel=dawbox-lot-android`)
     return new Promise((resolve, reject) => {
-        $.get({
-            url : `https://v3.sdk.haowusong.com/api/channel/integral/pool?channel=dawbox-android`,
-            headers : soy_daw_headers,
-            //body : ``,
-        }, async(error, response, data) => {
+        $.get(Request_data, async(error, response, data) => {
            try {
+               if(error){
+                   console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: 网络请求失败`)
+               }else{
             //console.log(data)
             let result = JSON.parse(data);
+            
             if(result.code==200){
-                //console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: ${result.msg}`)
-                ad_num=result.data.tasks['vedio_task'][0]['complete_num'];
-                can_num=result.data.player['can_num'];
-                integral_num=result.data.pool['integral_min_put_num'];
-                if(ad_num==10){
-                    if(can_num==1){
-                    let num=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
-                    await soy_daw_put(num)
-                        
-                    };
-                    console.log(`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}\n---已投DBA数量：${result.data.player['use_integral_num']}`);
-                    subTitle+=`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${result.data.player['integral_num']}\n---可提现金额：${result.data.player.money}\n---已投DBA数量：${result.data.player['use_integral_num']}`
+                //广告id
+                AD_task_id=result.data.tasks['vedio_task'][0]['task_id']
+                //广告标识
+                AD_task_channel=result.data.tasks['vedio_task'][0].channel
+                //广告标题
+                //AD_task_title=result.data.tasks['vedio_task'][0].title
+                //广告总数量
+                AD_task_contribution_num=result.data.tasks['vedio_task'][0]['contribution_num=']
+                //已完成观看数量
+                AD_task_complete_num= result.data.tasks['vedio_task'][0]['complete_num']
+                //拥有的DAB数量
+                use_integral_num=result.data.player['integral_num']
+                //可投放次数
+                use_can_num=result.data.player['can_num']
+                //最低投放
+                min_put=result.data.pool['integral_min_put_num']
+                //当前余额
+                money=result.data.player.money
+                //已投入数量
+                use_put_num=result.data.player['use_integral_num']
+               
+                 //转盘任务id
+                for(game_task of result.data.tasks['game_task']){
+                    if(game_task.title=='转盘游戏'){
+                        box_task_id=game_task.task_id
+                        box_task_channel=game_task.channel
+                    }
+                }
+                
+                if(state==0){
+                    console.log(`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${use_integral_num}\n---可提现金额：${money}\n---已观看广告次数：${AD_task_complete_num}\n---今日可投放次数：${use_can_num}\n---已投入数量：${use_put_num}`);
+                
+                    subTitle+=`\n【${$.name}---账号 ${$.index} 用户状态】: \n---我的DBA数量：${use_integral_num}\n---可提现金额：${money}\n---已观看广告次数：${AD_task_complete_num}\n---今日可投放次数：${use_can_num}\n---已投入数量：${use_put_num}`
                 }else{
-                    await soy_daw_receive();
-                    if(can_num==1){
-                    let num=Math.floor(result.data.player['integral_num']/integral_num)*integral_num
-                    await soy_daw_put(num)
-                        
-                    };
-                };
+                   if(AD_task_complete_num<10){
+                    //观看视频广告
+                    await soy_daw_receive()
+                       
+                   }
+                   if(soy_daw_box==1){
+                       await soy_daw_box_num()
+                       await soy_daw_tobox()
+                       
+                       
+                   }
+                   /*if(soy_daw_turntable==1){
+                       
+                   }*/
+                   
+                    if(use_can_num==1){
+                        //投放
+                    }else{
+                        console.log(`\n【${$.name}---账号 ${$.index} 投入瓜分】: 投放次数以上限`)
+                    }
+                   
+                    
+                } 
+                
+                
+                
                 
                 
                     
-                
             }else{
-                console.log(`\n【${$.name}---账号 ${$.index} 任务列表】: 读取失败`)
+                console.log(`\n【${$.name}---账号 ${$.index} 用户信息】: 获取失败,或者提交的token已失效`)
             };
-            
+               }
                
            }catch(e){
                console.log(e)
@@ -227,12 +268,155 @@ function soy_daw_poollist(){
     });
 };
 
+//转盘次数查询
+function soy_daw_box_num(){
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `https://v3.sdk.haowusong.com/api/channel/integral/turntable/config?channel=${box_task_channel}&task_id=${box_task_id}`,
+            headers : {"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"Content-Type": "application/json","origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"},
+            //body : ``,
+        }, async(error, response, data) => {
+           try {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==200){
+                can_video_num=result.data['lottery_num']['can_video_num']
+                if(can_video_num<5){
+                    await soy_daw_box_getnum()
+                    
+                }else{
+                  console.log(`\n【${$.name}---账号 ${$.index} 增加转盘次数】: 今日已上限`)  
+                }
+                
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 查询转盘状态】: 查询失败`)
+            }
+            
+           }catch(e){
+               console.log(e)
+           } finally {
+               resolve();
+           }
+        })
+    })
+
+}
+
+//增加转盘次数
+function soy_daw_box_getnum(){
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `https://v3.sdk.haowusong.com/api/channel/integral/turntable/video/receive`,
+            headers : {"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"Content-Type": "application/json","origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"},
+            body : `{"channel":"${box_task_channel}","task_id":"${box_task_id}"}`,
+        }, async(error, response, data) => {
+           try {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==200){
+                can_lottery_num+=1
+                let delay=Math.floor(Math.random()*(32000-28000+1000)+28000)
+                await $.wait(delay)
+                await soy_daw_box_getnum()
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 增加转盘次数】: ${result.error}`)
+            }
+            
+           }catch(e){
+               console.log(e)
+           } finally {
+               resolve();
+           }
+        })
+    })
+
+}
+//开始转盘
+function soy_daw_tobox(){
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `https://v3.sdk.haowusong.com/api/channel/integral/turntable/result`,
+            headers : {'Host' : 'v3.sdk.haowusong.com',
+            'Origin' : 'https://v3.h5.haowusong.com',
+            'Content-Type' : 'application/json',
+            'Accept-Encoding' : 'gzip, deflate, br',
+            'Connection' : 'keep-alive',
+            'Accept' : 'application/json, text/plain, */*',
+            'User-Agent' : 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+            'Accept-Language' : 'zh-CN,zh-Hans;q=0.9',
+            'Referer' : 'https://v3.h5.haowusong.com/',
+            'token' : `${soy_daw_token}`},
+            body : `{"channel":"${box_task_channel}","task_id":"${box_task_id}"}`,
+        }, async(error, response, data) => {
+           try {
+            console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==200){
+                console.log(`\n【${$.name}---账号 ${$.index} 转盘】: 转盘成功,获得 ${result.data.title}`)
+                let delay=Math.floor(Math.random()*(32000-28000+1000)+28000)
+                await $.wait(delay)
+                await soy_daw_double_box()
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 转盘】:${result.error}`)
+            }
+            
+           }catch(e){
+               console.log(e)
+           } finally {
+               resolve();
+           }
+        })
+    })
+
+}
+
+//双倍转盘
+function soy_daw_double_box(){
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `https://v3.sdk.haowusong.com/api/channel/integral/turntable/receive`,
+            headers : {'Host' : 'v3.sdk.haowusong.com',
+            'Origin' : 'https://v3.h5.haowusong.com',
+            'Content-Type' : 'application/json',
+            'Accept-Encoding' : 'gzip, deflate, br',
+            'Connection' : 'keep-alive',
+            'Accept' : 'application/json, text/plain, */*',
+            'User-Agent' : 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+            'Accept-Language' : 'zh-CN,zh-Hans;q=0.9',
+            'Referer' : 'https://v3.h5.haowusong.com/',
+            'token' : `${soy_daw_token}`},
+            body : `{"channel":"${box_task_channel}","task_id":"${box_task_id}"}`,
+        }, async(error, response, data) => {
+           try {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==200){
+                console.log(`\n【${$.name}---账号 ${$.index} 转盘双倍】: 领取双倍成功`)
+                await soy_daw_tobox()
+                
+            }else{
+                console.log(`\n【${$.name}---账号 ${$.index} 转盘双倍】: 领取失败`)
+            }
+            
+           }catch(e){
+               console.log(e)
+           } finally {
+               resolve();
+           }
+        })
+    })
+
+}
+
 function soy_daw_receive(){
     return new Promise((resolve, reject) => {
         $.post({
             url : `https://v3.sdk.haowusong.com/api/channel/integral/task/receive`,
             headers : {"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"Content-Type": "application/json","origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"},
-            body : `{"task_id":13,"channel":"dawbox-android"}`,
+            body : `{"task_id":${AD_task_id},"channel":"${AD_task_channel}"}`,
         }, async(error, response, data) => {
            try {
             //console.log(data)
@@ -240,8 +424,7 @@ function soy_daw_receive(){
             if(result.code==200){
                 console.log(`\n【${$.name}---账号 ${$.index} 视频广告】: 观看广告成功~`)
                 let delay=Math.floor(Math.random()*(63000-60000+1000)+60000)
-                console.log(`\n【${$.name}---账号 ${$.index} 继续观看广告】: 随机延时 ${delay} 毫秒...`)
-                
+                console.log(`\n【${$.name}---账号 ${$.index} 继续观看广告】: 随机延时 ${delay} ms...`)
                 await $.wait(delay)
                 await soy_daw_receive()
             }else{
@@ -259,7 +442,6 @@ function soy_daw_receive(){
 }
 
 function soy_daw_put(num){
-    //console.log(nun)
     return new Promise((resolve, reject) => {
         $.post({
             url : `https://v3.sdk.haowusong.com/api/channel/integral/put?channel=dawbox-android&num=${num}`,
@@ -287,6 +469,20 @@ function soy_daw_put(num){
 }
 
 
+function Post_request(url,body){
+    return {
+        url:`https://v3.sdk.haowusong.com/api/${url}`,
+        headers:{"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"},
+        body:body,
+    };
+};
+
+function Get_request(url){
+    return {
+        url:`https://v3.sdk.haowusong.com/api/${url}`,
+        headers:{"Host": "v3.sdk.haowusong.com","user-agent": soy_daw_UA,"token": soy_daw_token,"origin": "https://v3.h5.haowusong.com","x-requested-with": "com.baolai.youqutao","sec-fetch-site": "same-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty"},
+    };
+};
 
 function Env(t, e) {
   class s {
