@@ -85,6 +85,8 @@
 20 2,18 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1
 #选品官
 21 2,11 1-13 11 * node /scripts/jd_xpg.js >> /scripts/logs/jd_xpg.log 2>&1
+#兑换7天过期喜豆
+30 20 * * * node /scripts/jd_exchangejxbeans.js >> /scripts/logs/jd_exchangejxbeans.log 2>&1
 
 ##############长期活动##############
 # 签到
