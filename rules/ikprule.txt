@@ -16068,11 +16068,21 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||http://cibntv.net/$r@http://pl.cp31.ott.cibntv.net/playlist/m3u8?ev=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
 !直接阻止广告传输
 ||http://cibntv.net/$r@http://ykugc.cp31.ott.cibntv.net/*/*-*-*-*-*.mp4.ts?sid=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://cibntv.net/$r@http://yk-ssp-ad.cp31.ott.cibntv.net/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+|http://*/$r@http://*/*/*-*-*-*-*.mp4.ts?sid=*&sign=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 !爱奇艺视频手机客户端
-||http://iqiyi.com/$r@http://t7z.cupid.iqiyi.com/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
+!图片广告:
+|http://p9-ad-sign.byteimg.com/ad-app-package/
+!|http://pic*.iqiyipic.com/image/*/*/*/*.jpg?caplist=webp%2Cjpg
+|http://static-s.iqiyi.com/common/*/ADS/*/*/*.jpg?caplist=webp
+||http://iqiyipic.com/image/*/*/*/pv_*_em_*.webp
+||http://iqiyipic.com/image/*/*/*/pv_*_em_*.jpg?caplist=webp%2Cjpg
+!数据:
+|http://msg.video.qiyi.com/
+|http://t7z.cupid.iqiyi.com/$r@100086@100141@
 ||http://qy.net/$r@http://msg.qy.net/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
 |http://msga.cupid.iqiyi.com/scp2.gif
-|http://static-s.iqiyi.com/common/*/ADS/*/*/*.jpg?caplist=webp
+!视频广告
 ||http://iqiyi.com/$r@http://static-d.iqiyi.com/lequ/*.mp4@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||http://iqiyi.com/$r@http://tcqcloudcdncnc.inter.iqiyi.com/videos/other/*/*/*/*.mp4?dis_dz=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||http://iqiyi.com/$r@http://aliyuncdncnc.inter.iqiyi.com/videos/other/*/*/*/*.mp4?dis_dz=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
@@ -16084,7 +16094,9 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||http://gitv.tv/$r@http://msg.ptqy.gitv.tv/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
 ||http://gitv.tv/$r@http://pb.bi.gitv.tv/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
 ||http://gitv.tv/$r@http://t7z.cupid.ptqy.gitv.tv/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
-||http://gitv.tv/$r@http://mixer.cupid.ptqy.gitv.tv/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop.txt@
+|http://mixer.cupid.ptqy.gitv.tv/mixer?a=$s@"ads":@"":@
+|http://mixer.cupid.ptqy.gitv.tv/mixer?a=tv_$s@"adSlots":[{"ads":@"adSlots":[{"":@
+|http://mixer.cupid.ptqy.gitv.tv/mixer?a=tv_$s@"i":"qc_100001_100???",@"i":"qc_100001_100141",@
 |http://*/$r@http://*/videos/other/*/*/*/*.f4v?dis_k=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||http://gitv.tv/$r@http://tcqcloudcdncnc.inter.ptqy.gitv.tv/videos/ots/*/*/*/*.ts?dis_dz=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 |http://*/$r@http://*/baiducdncnc.inter.ptqy.gitv.tv/videos/ots/*/*/*/*.ts?dis_dz=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
@@ -16117,6 +16129,7 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||http://mgtv.com/$r@http://pcvideoaliyun.titan.mgtv.com/c1/*/*/*/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||http://mgtv.com/$r@http://pcvideoaliyun.titan.mgtv.com/*/*/*.m4s?*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 !今日头条
+|http://p*-ad-sign.byteimg.com/web.business.image/
 ||http://toutiaovod.com/$r@http://*.toutiaovod.com/*/*/video/tos/cn/tos-cn-ve-51/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||http://toutiaovod.com/$r@http://*.toutiaovod.com/*/*/video/tos/cn/tos-cn-ve-51-alinc2/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||http://ixigua.com/$r@http://*.ixigua.com/*/*/video/tos/cn/tos-cn-ve-4/*/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
@@ -16135,7 +16148,23 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 !咪咕视频
 |http://sf*-be-pack.pglstatp-toutiao.com/
 ||https://cmvideo.cn/$r@https://ggv.cmvideo.cn/v1/iflyad/deliverysystem/dsp/mgc_transfiles/*/*/*/*/*/*/*/*.mp4?jid=*&sjid=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+!快手APP
+!|http://tx*.a.kwimgs.com/upic/
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*.mp4?pkey=*-*-*-*-*&tag=1-*-bs-0-*-*&type=hot&clientCacheKey=*.mp4&tt=vnus&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*-*.mp4?pkey=*-*-*&tag=1-*-bs-0-*-*&type=hot&clientCacheKey=*.mp4&tt=swft&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*-*-*-*-*-*-*.mp4?pkey=*-*-*-*&tag=1-*-bs-0-*-*&type=hot&clientCacheKey=*.mp4&tt=swfth&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*-*-*-*-*-*.mp4?pkey=*-*-*-*&tag=1-*-bs-0-*-*&type=hot&clientCacheKey=*.mp4&tt=swfth&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*-*-*.mp4?tag=1-*-bs-0-*-*&clientCacheKey=*.mp4&tt=swft&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*-*-*-*-*.mp4?pkey=*-*-*-*&tag=1-*-bs-0-*-*&type=hot&clientCacheKey=*.mp4&tt=cp4&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
+||http://kwaicdn.com/$r@http://*.kwaicdn.com/ksc1/*-*-*.mp4?pkey=*-*&tag=1-*-bs-0-*-*&type=hot&clientCacheKey=*.mp4&tt=swft&di=*&bp=*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 !网页规则
+||https://alb.reddit.com/
+||https://reddit.com/api/jail/
+||https://reddit.com/counters/
+||https://redditmedia.com/gtm/jail?
+||https://redditstatic.com/desktop2x/img/renderTimingPixel.
+||https://reddit.com/timings/
+||https://ip138.com/idc/
 ||https://mmstat.com
 |https://static.klaviyo.com/onsite/js/klaviyo.js
 |http://nsclick.baidu.com/v.gif?
@@ -16237,9 +16266,9 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||https://cloudflare.com/$r@https://*.cloudflare.com/gtm.js*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/5.0-/googletagmanager_gtm.js@
 ||https://cloudflare.com/cdn-cgi/bm/cv/
 ||https://cloudflareinsights.com^$third-party
-||https://cm.bilibili.com/cm/api/fees/pc/sync/
-||https://d3.sina.com.cn$script
-||https://d4.sina.com.cn$script
+||https://cm.bilibili.com/
+||https://d3.sina.com.cn^$script
+||https://d4.sina.com.cn^$script
 ||https://data.microsoft.com/onecollector/
 |https://discord.com/api/v*/science
 ||https://doubleclick.net/$r@https://googleads.g.doubleclick.net/*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/5.0-/noop.txt@
@@ -16286,6 +16315,7 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 !||https://googlevideo.com/$r@https://*.googlevideo.com/videoplayback?*@https://cdn.jsdelivr.net/gh/Karmylr/public-cdn@main/koolproxy/AD/noop-1s.mp4@
 ||https://hdslb.com/bfs/seed/bplus-common/statistics-js/log-reporter.js
 ||https://hdslb.com/bfs/seed/log/report/log-reporter.js
+||https://hdslb.com/bfs/cm/cm-sdk/static/js/bili-collect.js
 ||https://hdslb.com/bfs/sycp/creative_img/*.jpg
 ||https://hm.baidu.com^$third-party
 ||https://huya.com/d.gif?
@@ -16371,3 +16401,4 @@ https://www.youtube.com/###player-ads
 https://www.youtube.com/##.style-scope ytd-display-ad-renderer
 https://www.youtube.com/##.style-scope ytd-rich-grid-renderer
 https://www.youtube.com/##.video-ads ytp-ad-module
+https://www.baidu.com/###content_right
