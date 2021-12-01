@@ -166,7 +166,7 @@ function soy_NFT_daySign(){
            try {
             //console.log(data)
             let result = JSON.parse(data)
-            if(code==0){
+            if(result.code==0){
                 if(result.isValid!=0){
                 await soy_NFT_getDaySign()
             }else{
