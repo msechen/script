@@ -19,6 +19,8 @@
 
 cron "35 10 * * *"
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_wdcb.js
+
 */
 
 
