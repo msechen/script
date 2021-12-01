@@ -98,7 +98,7 @@ for (i = 0; i < app_soy_NFT_data.length; i++) {
 };
 
 
-if(apptz){if ($.isNode() ){await notify.sendNotify($.name, subTitle)}};
+if ($.isNode() ){await notify.sendNotify($.name, subTitle)};
 
 
 })()
