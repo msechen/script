@@ -23,7 +23,7 @@
 const $ = new Env('NFT博物馆');
 const notify = $.isNode() ? require('./sendNotify') : '';
 
-let NFT_count = '',app_soy_NFT_data=[],user_name='',statue=''
+let NFT_count = '',app_soy_NFT_data=[],user_name='',statue='',subTitle=''
 
 
 
