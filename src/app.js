@@ -257,6 +257,7 @@ async function main() {
           [PlantBean, void 0, 'cron'],
           SuperBrandProduct,
           EarnBean,
+          Joy,
         ]);
         // await doRun(CrazyJoy);
 
