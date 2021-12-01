@@ -15,6 +15,8 @@
 
 多个号用 @ 或 # 或 换行 隔开
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_NFT.js
+
 */
 
 
