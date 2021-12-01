@@ -4,7 +4,7 @@ const Api = require('../api');
 const UserAgent = require('./UserAgent');
 const Cookie = require('../../lib/cookie');
 const {sleep, printLog, parallelRun} = require('../../lib/common');
-const {getMoment} = require('../../lib/moment');
+const {getMoment, getNextHour} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
 const {sleepTime} = require('../../lib/cron');
 
@@ -245,17 +245,10 @@ class Base {
 
   static async loopRun(nextFn) {
     const self = this;
-    const hours = _.sortBy(self.loopHours);
-
-    if (_.isEmpty(hours) || !nextFn) return;
-
-    const nowHour = self.getNowHour();
-    const targetHour = hours.find((hour, i) => {
-      const prevIndex = i - 1;
-      return nowHour < hour && nowHour >= (hours[prevIndex] || 0);
-    });
+    const targetMinute = 55;
+    const targetHour = getNextHour(self.loopHours, targetMinute);
     console.log(`[${self.getName()}] 定时${targetHour}点执行`);
-    await sleepTime([targetHour, 55]);
+    await sleepTime([targetHour, targetMinute]);
     await nextFn();
     return self.loopRun(nextFn);
   }

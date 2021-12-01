@@ -15,16 +15,21 @@ const getNowDate = (format = 'YYYY-MM-DD') => getMoment().format(format);
 const getNowHour = () => getMoment().hour();
 const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
 const getFullDate = getNowDate.bind(0, FORMAT_FULL_DATE);
+const fillInTwo = number => number < 10 ? `0${number}` : `${number}`;
 
-function getNextHour(hours) {
-  hours = _.sortBy(hours.map(hour => hour === 0 ? 24 : hour));
+function getNextHour(hours, targetMinute = 0) {
+  const joinTime = (...arg) => arg.map(fillInTwo).join(':');
+  const nowMinute = getMoment().minute();
+  hours.includes(0) && hours.push(24);
+  hours = _.sortBy(_.uniq(hours));
   const nowHour = getNowHour();
   let hour;
   for (let i = 0; i < hours.length; i++) {
     const prev = i - 1;
     if (prev < 0) continue;
-    if (nowHour < hours[i] && nowHour >= (hours[prev] || 0)) {
-      hour = hours[i];
+    const targetHour = hours[i];
+    if (joinTime(nowHour, nowMinute) < joinTime(targetHour, targetMinute) && nowHour >= (hours[prev] || 0)) {
+      hour = targetHour;
       break;
     }
   }
