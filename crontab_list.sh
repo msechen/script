@@ -55,6 +55,9 @@
 # 京喜财富岛提现
 # 10 0 * * * cd /scripts && node /scripts/jd_cfd_balloon.ts >> /scripts/logs/jd_cfd_balloon.log 2>&1
 
+# 京喜财富岛-合成游戏
+# 10 0 * * * cd /scripts && node /scripts/jd_cfd_game.ts >> /scripts/logs/jd_cfd_game.log 2>&1
+
 # 摇京豆
 5 0,23 * * * node /scripts/jd_club_lottery.js >> /scripts/logs/jd_club_lottery.log 2>&1
 
@@ -261,3 +264,6 @@
 
 # 每周质量报告
 0 0 * * 1 cd /scripts && ts-node /scripts/jd_Last_Week_income.ts >> /scripts/logs/jd_Last_Week_income.log 2>&1
+
+# 京东-锦鲤红包
+5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_redpacket.ts >> /scripts/logs/jd_jinli_redpacket.log 2>&1
