@@ -90,6 +90,7 @@ for (i = 0; i < app_soy_NFT_data.length; i++) {
     $.index = i + 1;
     
     console.log(`\n开始【第 ${$.index} 个账号任务】`);
+    await soy_NFT_offEarnings()
     await soy_NFT_home()
     
     
@@ -206,6 +207,34 @@ function soy_NFT_getDaySign(){
                 await soy_NFT_daySign()
             }else{
                console.log(`\n【${$.name}---账号 ${$.index} 收取门票】: ${result.message}`) 
+            }
+            
+               
+           }catch(e){
+               //$.logErr(e, response);
+               console.log(e, response)
+           } finally {
+               resolve();
+           }
+        })
+    })
+
+}
+
+function soy_NFT_offEarnings(){
+    return new Promise((resolve, reject) => {
+        $.get({
+            url : `http://service.nftbwg.net/login/offEarnings`,
+            headers : soy_NFT_headers,
+            //body : "",
+        }, async(error, response, data) => {
+           try {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.code==200){
+                console.log(`\n【${$.name}---账号 ${user_name} 收取离线奖励】: ${result.message},获得 ${result.data} NFT币`)
+            }else{
+               console.log(`\n【${$.name}---账号 ${$.index} 收取离线奖励】: ${result.message}`) 
             }
             
                
