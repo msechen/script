@@ -238,7 +238,7 @@ function soy_daw_poollist(state){
                    }*/
                    
                     if(use_can_num==1){
-                        //投放
+                        await soy_daw_put(use_integral_num)
                     }else{
                         console.log(`\n【${$.name}---账号 ${$.index} 投入瓜分】: 投放次数以上限`)
                     }
@@ -278,13 +278,16 @@ function soy_daw_box_num(){
             let result = JSON.parse(data)
             if(result.code==200){
                 can_video_num=result.data['lottery_num']['can_video_num']
+                can_lottery_num=result.data['lottery_num']['can_lottery_num']
+                if(can_video_num>=5&&can_lottery_num>=10){
+                    console.log(`\n【${$.name}---账号 ${$.index} 增加转盘次数】: 今日已上限`)  
+                }else{
                 if(can_video_num<5){
                     await soy_daw_box_getnum()
-                    
                 }else{
                   console.log(`\n【${$.name}---账号 ${$.index} 增加转盘次数】: 今日已上限`)  
                 }
-                
+                }
                 
             }else{
                 console.log(`\n【${$.name}---账号 ${$.index} 查询转盘状态】: 查询失败`)
@@ -312,7 +315,6 @@ function soy_daw_box_getnum(){
             //console.log(data)
             let result = JSON.parse(data)
             if(result.code==200){
-                can_lottery_num+=1
                 let delay=Math.floor(Math.random()*(32000-28000+1000)+28000)
                 await $.wait(delay)
                 await soy_daw_box_getnum()
@@ -348,7 +350,7 @@ function soy_daw_tobox(){
             body : `{"channel":"${box_task_channel}","task_id":"${box_task_id}"}`,
         }, async(error, response, data) => {
            try {
-            console.log(data)
+            //console.log(data)
             let result = JSON.parse(data)
             if(result.code==200){
                 console.log(`\n【${$.name}---账号 ${$.index} 转盘】: 转盘成功,获得 ${result.data.title}`)
