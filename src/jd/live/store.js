@@ -1,7 +1,7 @@
 // 旧的actId, 仅做记录
 const oldActIds = [
   'RRA3DTEaEEhpMCpHReXTZcWn7ejYbAV', // 12.01
-  'RRA3mYmDhvzgxdpAJuscqHt32VNDqCM', // 8.10
+  // 'RRA3mYmDhvzgxdpAJuscqHt32VNDqCM', // 8.10
   // 'RRA2ejfmREadAgZf85Lz75jCotx6dYR', // 8.09
   // 'RRA3mYmDhvzgxdpAJuscqHt32VNDqCM', // 8.08
   // 'RRA3mYmDhvzgxdpAJuscqHt32VNDqCM', // 7.29

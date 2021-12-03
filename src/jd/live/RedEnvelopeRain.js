@@ -115,13 +115,12 @@ class LiveRedEnvelopeRain extends Template {
         api.log(logMsg);
         console.log(`[${self.scriptNameDesc}] ${logMsg}`);
       }
-      targetMoment.add(4 + currentCookieTimes, 'second');
       await sleepDate(targetMoment.format());
       await noahRedRainLottery(actId);
     }
 
     async function noahRedRainLottery(actId) {
-      return api.doFormBody('noahRedRainLottery', {actId}).then(async data => {
+      return api.doFormBody('noahRedRainLottery', {actId}, void 0, {needDelay: false}).then(async data => {
         const {subCode, msg} = data;
         if (subCode === '0') {
           const {lotteryResult: {couponList, jPeasList, financeList}} = data;
