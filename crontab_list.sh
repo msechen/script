@@ -266,4 +266,4 @@
 0 0 * * 1 cd /scripts && ts-node /scripts/jd_Last_Week_income.ts >> /scripts/logs/jd_Last_Week_income.log 2>&1
 
 # 京东-锦鲤红包
-5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_redpacket.ts >> /scripts/logs/jd_jinli_redpacket.log 2>&1
+5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinlihongbao.ts >> /scripts/logs/jd_jinlihongbao.log 2>&1
