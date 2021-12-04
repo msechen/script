@@ -74,12 +74,11 @@ class Fruit extends Template {
 
     // 增加默认助力码
     function patchShareCodeWithDefault() {
-      let defaultShareCodes = [
-        '9675151b3f1645d2afea9afb44c44716',
-        '2886e4326e104eecb117f7a32732cda3',
-      ];
+      let defaultShareCodes = [];
       if (self.lastTimeInTheDay()) {
         defaultShareCodes = defaultShareCodes.concat([
+          '9675151b3f1645d2afea9afb44c44716',
+          '2886e4326e104eecb117f7a32732cda3',
           '599767762e104f77a3980598fab16a99',
           '4569adc9a868457fb35c14e8db3572a1',
         ]);
