@@ -30,7 +30,7 @@ v2p重写功能是有在里面,但是我测试没有成功过,自行测试
 REWRITE
 匹配链接（正则表达式）:http://yg.zzbzb.com/api/ms-member/sso/info
 匹配阶段:随意
-重写方式:
+重写方式:https://gitee.com/soy-tool/app-script/raw/master/app_mmyp.js
 
 MITM
 解析域名:yg.zzbzb.com
@@ -39,6 +39,8 @@ cron "25 10,13 * * *"
 
 注:不要问为什么你的v2p不能重写,这个我也解决不了,基本上我都不写这个给你
 如果能重新的就需要自行手动提现
+
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_mmyp.js
 */
 
 
