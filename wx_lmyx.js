@@ -33,6 +33,8 @@ v3.sdk.haowusong.com
 
 cron "3 0,9,17 * * *"
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/wx_lmyx.js
+
 */
 
 
