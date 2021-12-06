@@ -47,6 +47,7 @@ const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = TemporarilyOffline || require('./jd/koiRedPacket');
 const Joy = require('./jd/joy');
 const JoyRedeem = require('./jd/joy/redeem');
+const JoySign = require('./jd/joy/Sign');
 const Family = TemporarilyOffline || require('./jd/family');
 const BianPao = require('./jd/family/bianPao');
 const JxHongBao = require('./jd/family/jxHongBao');
@@ -269,6 +270,7 @@ async function main() {
         ]);
         await multipleRun([
           EarnBean,
+          JoySign,
           IsvShopSign,
           // 做任务抽奖
           WomenBlindBox,
