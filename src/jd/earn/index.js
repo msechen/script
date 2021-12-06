@@ -16,6 +16,8 @@ class Earn extends Template {
       appid: 'wh5',
       loginType: '1',
       loginWQBiz: biz,
+      g_ty: 'ls',
+      g_tk: 1756009694,
     },
   };
 
@@ -70,6 +72,7 @@ class Earn extends Template {
           for (let {
             status,
             taskId,
+            taskToken,
             maxTimes,
             times,
             waitDuration,
@@ -83,7 +86,7 @@ class Earn extends Template {
 
             let list = [];
             for (let i = times; i < maxTimes; i++) {
-              list.push({taskId});
+              list.push({taskId, taskToken});
             }
 
             result.push({list, option: {maxTimes, times, waitDuration}});
