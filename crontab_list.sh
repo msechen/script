@@ -265,5 +265,8 @@
 # 每周质量报告
 0 0 * * 1 cd /scripts && ts-node /scripts/jd_Last_Week_income.ts >> /scripts/logs/jd_Last_Week_income.log 2>&1
 
-# 京东-锦鲤红包
-5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinlihongbao.ts >> /scripts/logs/jd_jinlihongbao.log 2>&1
+# 锦鲤红包
+5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
+
+# 金榜任务
+30 22,18 * * * cd /scripts && ts-node /scripts/jd_jinbang.ts >> /scripts/logs/jd_jinbang.log 2>&1
