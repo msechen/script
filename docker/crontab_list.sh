@@ -87,6 +87,8 @@
 21 2,11 1-13 11 * node /scripts/jd_xpg.js >> /scripts/logs/jd_xpg.log 2>&1
 #兑换7天过期喜豆
 30 20 * * * node /scripts/jd_exchangejxbeans.js >> /scripts/logs/jd_exchangejxbeans.log 2>&1
+# 金榜年终奖
+5 0,2 * * * node /scripts/jd_split.js >> /scripts/logs/jd_split.log 2>&1
 
 ##############长期活动##############
 # 签到
