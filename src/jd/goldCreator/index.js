@@ -59,11 +59,11 @@ class GoldCreator extends Template {
       }
 
       function log(data) {
-        const {lotteryMsg, lotteryCode, lotteryScore} = data.result || {};
+        const {lotteryMsg, taskMsg, lotteryCode, lotteryScore} = data.result || {};
         if (lotteryCode === '0') {
           api.log(`获得豆豆: ${lotteryScore}`);
         } else {
-          api.log(lotteryMsg);
+          api.log(lotteryMsg || taskMsg);
         }
       }
     });
