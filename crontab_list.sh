@@ -269,4 +269,4 @@
 5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
 # 金榜任务
-30 22,18 * * * cd /scripts && ts-node /scripts/jd_jinbang.ts >> /scripts/logs/jd_jinbang.log 2>&1
+0 0,15 * * * cd /scripts && ts-node /scripts/jd_splitHongbao.ts >> /scripts/logs/jd_splitHongbao.log 2>&1
