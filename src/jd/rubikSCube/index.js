@@ -83,7 +83,7 @@ class RubikSCube extends Template {
               extData = self.getShareCodeFn();
               times = 0;
             }
-            let list = _.concat(extData).map(o => ({
+            let list = _.concat(extData).filter(o => o['status'] !== 2).map(o => ({
               encryptAssignmentId,
               itemId: o['itemId'] || ['advId'],
               actionType: waitDuration ? 1 : 0,
