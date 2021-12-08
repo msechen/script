@@ -235,7 +235,7 @@ class Joy extends Template {
                 await api.doPath('combat/receive', void 0, {
                   method: 'GET',
                 }).then(data => {
-                  if (!self.isSuccess(data)) return;
+                  if (!self.isSuccess(data)) return api.log(data);
                   self.log(`获取到积分: ${winCoin}`);
                 });
                 return handleRace();
