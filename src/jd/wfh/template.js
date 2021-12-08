@@ -32,11 +32,12 @@ class HarmonyTemplate extends Template {
     const self = this;
 
     // 豆豆
-    const beanInfo = _.property('data.result.userAwardsCacheDto.jBeanAwardVo.prizeName')(data);
-    beanInfo && self.log(`获取到: ${_.property('data.result.userAwardsCacheDto.jBeanAwardVo.quantity')(data)} ${beanInfo}`);
+    const quantity = _.property('data.result.userAwardsCacheDto.jBeanAwardVo.quantity')(data);
+    quantity && self.log(`获取豆豆: ${quantity}`);
+
     // 红包
-    const redPacketVO = _.property('data.result.userAwardsCacheDto.redPacketVO')(data);
-    redPacketVO && self.log(`获取到: ${_.property('data.result.userAwardsCacheDto.redPacketVO.name')(data)}`);
+    const value = _.property('data.result.userAwardsCacheDto.redPacketVO.value')(data);
+    value && self.log(`获取红包: ${value}`);
   }
 
   static apiNamesFn() {
@@ -47,7 +48,7 @@ class HarmonyTemplate extends Template {
       getTaskList: {
         name: self.getApiNames().getTaskList,
         paramFn: self.commonParamFn,
-        successFn: async (data) => {
+        successFn: async (data, api) => {
 
           if (!self.isSuccess(data)) {
             self.log('活动已过期！！！');
@@ -70,9 +71,14 @@ class HarmonyTemplate extends Template {
             browseShopVo,
             assistTaskDetailVo
           } of _.property('data.result.taskVos')(data) || []) {
-            if ([2, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
+            if (self.redeemWithTaskId && status === 3/*待抽奖*/) {
+              await api.doFormBody(self.getApiNames().doRedeem, {taskId, ...self.commonParamFn()}).then(self.logAfterRedeem.bind(self));
+              continue;
+            }
 
-            waitDuration = waitDuration || (subTitleName.match(/\d*s/) ? +subTitleName.match(/\d*s/)[0].replace(/s$/, '') : 0);
+            if ([2, 3/*待抽奖*/, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
+
+            waitDuration = waitDuration || +(_.first(/(\d*)\w/.exec(subTitleName) || 0));
 
             let list = _.concat(simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || browseShopVo || []);
 
@@ -118,7 +124,7 @@ class HarmonyTemplate extends Template {
       },
       afterGetTaskList: {
         name: self.getApiNames().afterGetTaskList,
-        paramFn: () => _.assign(self.commonParamFn(), self.redeemWithTaskId ? {taskId: self.shareTaskId} : {}),
+        paramFn: self.commonParamFn,
         successFn: data => {
           if (!self.isSuccess(data)) return false;
         },
@@ -126,7 +132,7 @@ class HarmonyTemplate extends Template {
       },
       doRedeem: {
         name: self.getApiNames().doRedeem,
-        paramFn: () => _.assign(self.commonParamFn(), self.redeemWithTaskId ? {taskId: self.shareTaskId} : {}),
+        paramFn: self.commonParamFn,
         successFn: data => {
           if (!self.isSuccess(data)) return false;
           self.logAfterRedeem(data);
@@ -134,6 +140,10 @@ class HarmonyTemplate extends Template {
         repeat: true,
       },
     };
+
+    if (self.redeemWithTaskId) {
+      delete result['doRedeem'];
+    }
 
     Object.keys(result).forEach(key => {
       if (!self.apiNames[key]) delete result[key];

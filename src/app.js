@@ -26,12 +26,12 @@ const Fruit = require('./jd/fruit');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const FruitFarmPark = require('./jd/fruit/FarmPark');
 const FruitCollect = require('./jd/fruit/Collect');
-const Wfh = require('./jd/wfh');
 const Harmony1 = require('./jd/wfh/harmony1');
 const Harmony2 = require('./jd/wfh/harmony2');
 const Harmony3 = require('./jd/wfh/harmony3');
 const Harmony4 = require('./jd/wfh/harmony4');
 const Harmony5 = require('./jd/wfh/harmony5');
+const SplitHongbao = require('./jd/wfh/splitHongbao');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
@@ -243,6 +243,7 @@ async function main() {
           SuperMarket,
           StatisticsRedEnvelope,
           LiteHappyDig,
+          SplitHongbao,
         ]);
       },
     },
