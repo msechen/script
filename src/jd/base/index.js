@@ -209,7 +209,7 @@ class Base {
     }
     this.needInApp && _.merge(options, {headers: {'user-agent': 'jdapp'}});
     this.needInAppComplete && _.merge(options, {headers: {'user-agent': this.appCompleteUserAgent}});
-    this.needInPhone && _.merge(options, {headers: {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.0(0x18000026) NetType/WIFI Language/zh_CN miniProgram'}});
+    this.needInPhone && _.merge(options, {headers: {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
 
     const api = new Api(cookie, signData, options, formatDataFn);

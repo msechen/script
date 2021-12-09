@@ -41,6 +41,7 @@
     "start:Combination": "node src/jd/combination start",
     "start:EarnBean": "node src/jd/ifanli/EarnBean start",
     "start:EarnAdvertPlugin": "node src/jd/earn/AdvertPlugin.js start",
+    "start:LookTreasure": "node src/jd/wq/LookTreasure.js start",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
     "loop:BeautyMakeup": "node src/jd/beautyMakeup loop",
     "test": "echo \"Error: no test specified\" && exit 1"

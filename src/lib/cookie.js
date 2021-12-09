@@ -20,6 +20,13 @@ class Cookie {
     this.cookieObject[key] = v || value;
   }
 
+  add(str) {
+    const newCookie = fromPairs(str);
+    _.forEach(newCookie, (value, name) => {
+      this.set(name, value);
+    });
+  }
+
   remove(name) {
     delete this.cookieObject[name];
   }

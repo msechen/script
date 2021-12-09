@@ -2,6 +2,7 @@ const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
 const _ = require('lodash');
+const Cookie = require('../../lib/cookie');
 
 class WqBase extends Template {
   static scriptName = 'WqBase';
@@ -17,9 +18,35 @@ class WqBase extends Template {
     },
   };
 
+  static isSuccess(data) {
+    return _.property('ret')(data) === 0;
+  }
+
+  static async mLoginWeb(api, rurl) {
+    return api.doGetUrl('https://wq.jd.com/mlogin/mpage/Login', {
+      resolveWithFullResponse: true,
+      followRedirect: false,
+      qs: {
+        rurl,
+      },
+    }).then(({response}) => {
+      const setCookie = response.headers['set-cookie'];
+      const loginSuccess = !!setCookie;
+      if (loginSuccess) {
+        const cookie = new Cookie(api.cookie);
+        cookie.add(setCookie);
+        api.cookie = cookie.toString();
+      } else {
+        api.log('用户未登录');
+      }
+      return loginSuccess;
+    });
+  }
+
   static apiOptions() {
     return {
       formatDataFn(data) {
+        if (!_.isString(data)) return data;
         let result = {};
         try {
           result = JSON.parse(data.replace(/try{\s*\w*\(/, '').replace(');}catch(e){}', ''));

@@ -37,10 +37,15 @@ const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
     delete rpOptions.headers.cookie;
   }
 
+  const {followRedirect} = rpOptions;
+
   return rp(rpOptions).then(result => {
     !ignorePrintLog && _printLog(result, 'success');
     return result;
   }).catch(err => {
+    if (followRedirect === false && _.get(err, 'response.statusCode') === 302) {
+      return err;
+    }
     _printLog(err, 'error');
   });
 };
