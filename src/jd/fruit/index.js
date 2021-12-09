@@ -1,4 +1,5 @@
 const Template = require('../base/template');
+const {getEnv} = require('../../lib/env');
 const {getMoment} = require('../../lib/moment');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
@@ -74,19 +75,19 @@ class Fruit extends Template {
 
     // 增加默认助力码
     function patchShareCodeWithDefault() {
-      let defaultShareCodes = [];
-      if (self.lastTimeInTheDay()) {
-        defaultShareCodes = defaultShareCodes.concat([
-          '9675151b3f1645d2afea9afb44c44716',
-          '2886e4326e104eecb117f7a32732cda3',
-          '599767762e104f77a3980598fab16a99',
-          '4569adc9a868457fb35c14e8db3572a1',
-        ]);
-      }
-      defaultShareCodes.forEach(code => {
-        if ([currentShareCode, ...shareCodes].includes(code)) return;
-        shareCodes.push(code);
-      });
+      if (getEnv('JD_FRUIT_DO_DEFAULT_SHARE_LAST') && !self.lastTimeInTheDay()) return;
+      shareCodes = getShareCodesByDefault();
+    }
+
+    function getShareCodesByDefault() {
+      const defaultShareCodes = [
+        '9675151b3f1645d2afea9afb44c44716',
+        '2886e4326e104eecb117f7a32732cda3',
+        '599767762e104f77a3980598fab16a99',
+        '4569adc9a868457fb35c14e8db3572a1',
+      ];
+      const otherDefaultShareCodes = defaultShareCodes.filter(code => code !== currentShareCode);
+      return _.uniq(shareCodes.concat(otherDefaultShareCodes));
     }
 
     async function handleDoShare() {
@@ -196,7 +197,7 @@ class Fruit extends Template {
         } = taskData;
         if (waterFriendGotAward) return;
         // 优先给 shareCode 浇水
-        for (const shareCode of shareCodes) {
+        for (const shareCode of getShareCodesByDefault()) {
           await handleWaterFriend(shareCode);
         }
         // TODO 给朋友列表浇水

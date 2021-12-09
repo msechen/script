@@ -239,6 +239,7 @@ async function main() {
       valid: 22,
       run: async () => {
         await serialRun([
+          Fruit, Pet,
           LiteEarnCoins,
           SuperMarket,
           StatisticsRedEnvelope,
