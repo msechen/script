@@ -92,13 +92,15 @@ class LiteHappyDig extends Template {
       const {rowIdx, colIdx} = filterChunks[_.random(filterChunks.length - 1)];
       await sleep(3);
       await api.doGetBody('happyDigDo', {round, rowIdx, colIdx}).then(data => {
-        const {chunk} = data.data;
+        const chunk = _.get(data, 'data.chunk');
+        if (!chunk) return api.log(data);
         const {type, value} = chunk;
         const msgList = [
           `[round:${round}]`,
         ];
         const typeName = {
           1: '优惠券',
+          2: '红包',
           3: '现金',
           4: '炸弹',
         };
@@ -210,7 +212,7 @@ class LiteHappyDig extends Template {
             'business': 'happyDigger',
           },
         }).then(data => {
-          api.log(data.data.message);
+          api.log(_.get(data, 'data.message', data));
         });
       }
     }
