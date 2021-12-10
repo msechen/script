@@ -119,7 +119,7 @@ async function main() {
   ];
   // 极速版
   const lites = [
-    LiteSign, LiteSpringReward, LiteCashSign, LiteEarnCoins, LiteHappyDig,
+    LiteSpringReward, LiteCashSign, LiteEarnCoins, LiteHappyDig,
   ];
   // 短期活动
   const shortTermActivity = [
