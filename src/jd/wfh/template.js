@@ -141,10 +141,6 @@ class HarmonyTemplate extends Template {
       },
     };
 
-    if (self.redeemWithTaskId) {
-      delete result['doRedeem'];
-    }
-
     Object.keys(result).forEach(key => {
       if (!self.apiNames[key]) delete result[key];
     });
