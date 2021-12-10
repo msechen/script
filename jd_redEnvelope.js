@@ -1,12 +1,11 @@
 /*
 暖暖红包
 cron:0 0,12,18 * * * gua_redEnvelope.js
-返利变量：gua_redEnvelope_rebateCodes，默认给脚本作者返利，若需要返利给自己，请自己修改返利变量gua_redEnvelope_rebateCodes
+若需要返利给自己，请自己修改返利变量gua_redEnvelope_rebateCodes
 例：
 export gua_redEnvelope_rebateCodes="你的返利code"
-https://u.jd.com/nLmoVvf
 */
-let rebateCodes = '' // 返利code
+let rebateCodes = 'vMMGcMq' // 返利code
 
 const $ = new Env("暖暖红包");
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
@@ -21,7 +20,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata("CookieJD"), $.getdata("CookieJD2"), ...$.toObj($.getdata("CookiesJD") || "[]").map((item) => item.cookie)].filter((item) => !!item);
 }
 rebateCodes = $.isNode() ? (process.env.gua_redEnvelope_rebateCodes ? process.env.gua_redEnvelope_rebateCodes : `${rebateCodes}`) : ($.getdata('gua_redEnvelope_rebateCodes') ? $.getdata('gua_redEnvelope_rebateCodes') : `${rebateCodes}`);
-let codeLsit = ['vLLW2XH']
+let codeLsit = ['vMMGcMq']
 if(rebateCodes){
   codeLsit = [`${rebateCodes}`]
 }
