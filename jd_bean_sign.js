@@ -16,8 +16,8 @@ const exec = require('child_process').execSync
 const fs = require('fs')
 const download = require('download');
 let resultPath = "./result.txt";
-let JD_DailyBonusPath = "./JD_DailyBonus.js";
-let outPutUrl = './';
+let JD_DailyBonusPath = "./utils/JD_DailyBonus.js";
+let outPutUrl = './utils';
 let NodeSet = 'CookieSet.json';
 let cookiesArr = [], cookie = '', allMessage = '', jrBodyArr = [], jrBody = '';
 
@@ -44,7 +44,7 @@ if ($.isNode()) {
   process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE = process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE ? process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE : 'true';
   await requireConfig();
   // 下载最新代码
-  await downFile();
+  // await downFile();
   if (!await fs.existsSync(JD_DailyBonusPath)) {
     console.log(`\nJD_DailyBonus.js 文件不存在，停止执行${$.name}\n`);
     await notify.sendNotify($.name, `本次执行${$.name}失败，JD_DailyBonus.js 文件下载异常，详情请查看日志`)
@@ -82,7 +82,7 @@ if ($.isNode()) {
       await execSign();
     }
   }
-  await deleteFile('./CookieSet.json')
+  //await deleteFile(JD_DailyBonusPath);//删除下载的JD_DailyBonus.js文件
   if ($.isNode() && allMessage && process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE === 'true') {
     $.msg($.name, '', allMessage);
     await notify.sendNotify($.name, allMessage)
