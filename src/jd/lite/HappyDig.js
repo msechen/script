@@ -38,8 +38,15 @@ class LiteHappyDig extends Template {
       client: 'H5',
       clientVersion: '1.0.0',
     };
+    const encryptH5stConfig = {
+      happyDigHome: {
+        appId: 'ce6c2',
+      },
+      happyDigHelp: {
+        appId: '8dd95',
+      },
+    };
 
-    const encryptH5st = new EncryptH5st({appId: 'ce6c2'});
     ['doFormBody', 'doGetBody'].forEach(method => {
       replaceObjectMethod(api, method, async data => {
         let [functionId, body, signData, options = {}] = data;
@@ -50,8 +57,9 @@ class LiteHappyDig extends Template {
         }
         const t = getMoment().valueOf();
         let form = _.merge({}, defaultData, {body}, {t}, options.qs || options.form);
-        // TODO 待完善 happyDigHelp appid: 8dd95
-        if (['happyDigHome'].includes(functionId)) {
+        if (functionId in encryptH5stConfig) {
+          let {encryptH5st, appId} = encryptH5stConfig[functionId];
+          !encryptH5st && (encryptH5st = new EncryptH5st({appId}));
           form = await encryptH5st.sign({functionId, ...form});
           ['_stk', '_ste'].forEach(key => {
             delete form[key];
@@ -119,12 +127,13 @@ class LiteHappyDig extends Template {
       if (self.doneShareTask) return;
       const {markedPin, inviteCode} = await api.doGetBody('happyDigHome').then(_.property('data'));
       self.updateShareCodeFn({inviter: markedPin, inviteCode});
-      for (const body of self.getShareCodeFn()) {
-        await api.doGetBody('happyDigHelp', body).then(data => {
-          if (!data.success) return api.log(data.errMsg);
-          api.log('助力成功');
-        });
-      }
+      // 只有一次助力机会
+      const body = _.first(self.getShareCodeFn());
+      if (!body) return;
+      await api.doGetBody('happyDigHelp', body).then(data => {
+        if (!data.success) return api.log(data.errMsg);
+        api.log('助力成功');
+      });
     }
 
     async function handleExchange() {
