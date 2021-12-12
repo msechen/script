@@ -92,7 +92,10 @@
 13 1,22 * * * node /scripts/jd_gold_creator.js >> /scripts/logs/jd_gold_creator.log 2>&1
 
 # 东东健康社区
-13 1,6,22 * * * node /scripts/jd_health.js >> /scripts/logs/jd_health.log 2>&1
+13 1,6,22 * * * node /scripts/jd_health2.js >> /scripts/logs/jd_health2.log 2>&1
+
+# 东东健康社区
+35 0,6,18 * * * cd /scripts && ts-node /scripts/jd_health.ts >> /scripts/logs/jd_health.log 2>&1
 
 # 东东健康社区收集能量收集
 5-45/20 * * * * node /scripts/jd_health_collect.js >> /scripts/logs/jd_health_collect.log 2>&1
@@ -224,7 +227,7 @@
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_mofang.ts >> /scripts/logs/jd_mofang.log 2>&1
 
 # 京喜app->领88元红包
-5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
+5 0,6,14 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
 
 # 极速版-发财大赢家
 1 0,8,18 * * * cd /scripts && ts-node /scripts/jd_speed_redEnvelope.ts >> /scripts/logs/jd_speed_redEnvelope.log 2>&1
