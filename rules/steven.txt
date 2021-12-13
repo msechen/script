@@ -1,6 +1,6 @@
 ! Title: StevenBlack/hosts
-! Date: 10 December 2021 02:38:18 (UTC)
-! Number of unique domains: 97,371
+! Date: 12 December 2021 16:08:21 (UTC)
+! Number of unique domains: 97,608
 !
 ||https://wizhumpgyros.com
 ||https://coccyxwickimp.com
@@ -2234,8 +2234,14 @@
 ||https://tracking.adalyser.com
 
 ! [adap.tv]
+||https://adap.tv
 ||https://ads.adap.tv
 ||https://segments.adap.tv
+||https://sync.adap.tv
+
+! [adapex.io]
+||https://adapex.io
+||https://cdn.adapex.io
 
 ! [adasiaholdings.com]
 ||https://adasiaholdings.com
@@ -2269,11 +2275,13 @@
 ||https://t.adcell.com
 
 ! [adcolony.com]
+||https://adcolony.com
 ||https://adc3-assets.adcolony.com
 ||https://adc3-launch.adcolony.com
 ||https://androidads20.adcolony.com
 ||https://androidads20staging.adcolony.com
 ||https://androidads21.adcolony.com
+||https://androidads4-3.adcolony.com
 ||https://c4d-cdn.adcolony.com
 ||https://c4dm.adcolony.com
 ||https://cpa.adcolony.com
@@ -2469,9 +2477,18 @@
 ||https://prod.adjoe.zone
 
 ! [adjust.com]
+||https://adjust.com
 ||https://s2s.adjust.com
 ||https://ulink.adjust.com
 ||https://view.adjust.com
+
+! [adjust.net.in]
+||https://adjust.net.in
+||https://app.adjust.net.in
+
+! [adjust.world]
+||https://adjust.world
+||https://app.adjust.world
 
 ! [adkernel.com]
 ||https://dsp.adkernel.com
@@ -2674,6 +2691,11 @@
 ||https://adolf.tv
 ||https://get.adolf.tv
 
+! [adop.cc]
+||https://adop.cc
+||https://appinfo.adop.cc
+||https://compass.adop.cc
+
 ! [adotmob.com]
 ||https://adserver.adotmob.com
 ||https://dmp.adotmob.com
@@ -2798,6 +2820,7 @@
 ||https://st-n.ads5-adnow.com
 
 ! [adsafeprotected.com]
+||https://adsafeprotected.com
 ||https://appvast.adsafeprotected.com
 ||https://cdn.adsafeprotected.com
 ||https://dt.adsafeprotected.com
@@ -2922,6 +2945,7 @@
 ||https://video.adspruce.com
 
 ! [adsrvr.org]
+||https://adsrvr.org
 ||https://a.adsrvr.org
 ||https://ad.adsrvr.org
 ||https://apa-sin.adsrvr.org
@@ -2949,6 +2973,7 @@
 ||https://uswdirect.adsrvr.org
 ||https://v.adsrvr.org
 ||https://va6-bid.adsrvr.org
+||https://vae-bid.adsrvr.org
 
 ! [adstage.io]
 ||https://assets.adstage.io
@@ -3137,6 +3162,7 @@
 ||https://syndication.advertiserurl.com
 
 ! [advertising.com]
+||https://advertising.com
 ||https://pxl.ace.advertising.com
 ||https://ace-tag.advertising.com
 ||https://ads.adaptv.advertising.com
@@ -3156,6 +3182,7 @@
 ||https://cmp.advertising.com
 ||https://cdn.cmp.advertising.com
 ||https://o.cmp.advertising.com
+||https://secure.leadback.advertising.com
 ||https://pixel.advertising.com
 ||https://sp.advertising.com
 ||https://tag.sp.advertising.com
@@ -3278,7 +3305,11 @@
 ! [adztec.com]
 ||https://adztec.com
 
+! [aep-email.com]
+||https://click.aep-email.com
+
 ! [aerserv.com]
+||https://aerserv.com
 ||https://ads.aerserv.com
 ||https://alpha-events.aerserv.com
 ||https://debug.aerserv.com
@@ -3329,6 +3360,7 @@
 ||https://scripts.agilone.com
 
 ! [agkn.com]
+||https://agkn.com
 ||https://aa.agkn.com
 ||https://d.agkn.com
 ||https://data.agkn.com
@@ -3527,6 +3559,7 @@
 ||https://am15.net
 
 ! [amazon-adsystem.com]
+||https://amazon-adsystem.com
 ||https://aan.amazon-adsystem.com
 ||https://aax.amazon-adsystem.com
 ||https://aax-eu-retail-direct.amazon-adsystem.com
@@ -3750,6 +3783,7 @@
 ||https://signals.ampiri.com
 
 ! [amplitude.com]
+||https://amplitude.com
 ||https://api.amplitude.com
 ||https://api2.amplitude.com
 ||https://cdn.amplitude.com
@@ -4042,6 +4076,7 @@
 ||https://appservestar.com
 
 ! [appsflyer.com]
+||https://appsflyer.com
 ||https://adrevenue.appsflyer.com
 ||https://api.appsflyer.com
 ||https://api2.appsflyer.com
@@ -4426,6 +4461,7 @@
 ||https://vn-platform.bidgear.com
 
 ! [bidr.io]
+||https://bidr.io
 ||https://media.bidr.io
 ||https://prod.bidr.io
 ||https://event.prod.bidr.io
@@ -4453,6 +4489,10 @@
 ||https://grid.bidswitch.net
 ||https://sandbox.bidswitch.net
 ||https://x.bidswitch.net
+
+! [bing.com]
+||https://bat.bing.com
+||https://c.bing.com
 
 ! [bitmango.com]
 ||https://a.bitmango.com
@@ -4614,6 +4654,7 @@
 ||https://cdn.brandmetrics.com
 
 ! [braze.com]
+||https://braze.com
 ||https://iad-01.braze.com
 ||https://andromeda.iad-01.braze.com
 ||https://ibilisk.iad-01.braze.com
@@ -5141,6 +5182,9 @@
 ! [colossusssp.com]
 ||https://colossusssp.com
 
+! [comcast.com]
+||https://collector.pabs.comcast.com
+
 ! [commander1.com]
 ||https://engage.commander1.com
 ||https://mytheresa.commander1.com
@@ -5262,6 +5306,13 @@
 ||https://vz-cdn.contentabc.com
 ||https://vz-cdn2.contentabc.com
 
+! [contentful.com]
+||https://graphql.contentful.com
+
+! [contentsquare.net]
+||https://contentsquare.net
+||https://t.contentsquare.net
+
 ! [contentstream.pl]
 ||https://contentstream.pl
 
@@ -5351,6 +5402,7 @@
 ||https://rp.crasheye.cn
 
 ! [crashlytics.com]
+||https://crashlytics.com
 ||https://api.crashlytics.com
 ||https://e.crashlytics.com
 ||https://firebase-settings.crashlytics.com
@@ -5644,6 +5696,9 @@
 ! [daumcdn.net]
 ||https://adimg.daumcdn.net
 
+! [dbankcloud.cn]
+||https://datacollector-dra.dt.dbankcloud.cn
+
 ! [dc-1.net]
 ||https://srv.dc-1.net
 
@@ -5772,6 +5827,9 @@
 ! [dewrain.site]
 ||https://int.dewrain.site
 
+! [dewrain.world]
+||https://int.dewrain.world
+
 ! [dhgate.com]
 ||https://realstats.dhgate.com
 
@@ -5837,6 +5895,12 @@
 ||https://bob.dmpxs.com
 ||https://ciq.dmpxs.com
 
+! [docusign.com]
+||https://postsign.docusign.com
+
+! [docusign.net]
+||https://telemetry.docusign.net
+
 ! [doesxyz.com]
 ||https://ufz.doesxyz.com
 
@@ -5862,6 +5926,7 @@
 ||https://uk-script.dotmetrics.net
 
 ! [doubleclick.net]
+||https://doubleclick.net
 ||https://accounts.doubleclick.net
 ||https://ad.doubleclick.net
 ||https://ad-apac.doubleclick.net
@@ -5893,6 +5958,7 @@
 ||https://static.doubleclick.net
 
 ! [doubleverify.com]
+||https://doubleverify.com
 ||https://cacp-hlb.doubleverify.com
 ||https://cdn.doubleverify.com
 ||https://cdn3.doubleverify.com
@@ -6358,11 +6424,16 @@
 ||https://sync-tm.everesttech.net
 
 ! [evidon.com]
+||https://evidon.com
 ||https://c.evidon.com
 ||https://iabmap.evidon.com
 ||https://info.evidon.com
 ||https://l.evidon.com
 ||https://l3.evidon.com
+
+! [evolv.ai]
+||https://media.evolv.ai
+||https://participants.evolv.ai
 
 ! [ex.co]
 ||https://cdn-channels-pixel.ex.co
@@ -6403,6 +6474,9 @@
 ! [experian.com]
 ||https://smetrics1.experian.com
 
+! [exponea.com]
+||https://boombit-api.exponea.com
+
 ! [extend.tv]
 ||https://extend.tv
 ||https://adserver-east.extend.tv
@@ -6414,6 +6488,7 @@
 ||https://extreme-ip-lookup.com
 
 ! [extremereach.io]
+||https://extremereach.io
 ||https://beacons.extremereach.io
 ||https://beacons2.extremereach.io
 ||https://cdn1.extremereach.io
@@ -6495,6 +6570,7 @@
 ||https://widget.fitanalytics.com
 
 ! [flashtalking.com]
+||https://flashtalking.com
 ||https://d9.flashtalking.com
 ||https://fdz.flashtalking.com
 ||https://i.flashtalking.com
@@ -6513,6 +6589,7 @@
 ||https://beacon.flow.io
 
 ! [flurry.com]
+||https://flurry.com
 ||https://adlog.flurry.com
 ||https://ads.flurry.com
 ||https://cdn.flurry.com
@@ -6537,8 +6614,14 @@
 ||https://sdk.follow-apps.com
 ||https://sor-sdk.follow-apps.com
 
+! [fomo.com]
+||https://load.fomo.com
+
 ! [footprint.net]
 ||https://king-contenido-prod.secure2.footprint.net
+
+! [footprintdns.com]
+||https://footprintdns.com
 
 ! [forbes.com]
 ||https://fuse.forbes.com
@@ -6627,6 +6710,7 @@
 ||https://leanmobi.fusetracking.com
 
 ! [fwmrm.net]
+||https://fwmrm.net
 ||https://adm.fwmrm.net
 ||https://ads.aws.fwmrm.net
 ||https://prd.ads.aws.fwmrm.net
@@ -6861,6 +6945,8 @@
 ||https://secure.gooddata.com
 
 ! [google-analytics.com]
+||https://google-analytics.com
+||https://ssl.google-analytics.com
 ||https://www.google-analytics.com
 
 ! [google.com]
@@ -6870,6 +6956,7 @@
 ||https://s0-2mdn-net.l.google.com
 
 ! [googleadservices.com]
+||https://googleadservices.com
 ||https://www.googleadservices.com
 
 ! [googleadsserving.cn]
@@ -6879,6 +6966,8 @@
 ||https://crashlyticsreports-pa.googleapis.com
 
 ! [googlesyndication.com]
+||https://googlesyndication.com
+||https://ade.googlesyndication.com
 ||https://pagead2.googlesyndication.com
 ||https://tpc.googlesyndication.com
 
@@ -6992,6 +7081,10 @@
 ||https://na.hasmobi.net
 ||https://stat.hasmobi.net
 ||https://stra.hasmobi.net
+
+! [havasedge.com]
+||https://havasedge.com
+||https://event.havasedge.com
 
 ! [hbi-ingest.net]
 ||https://hbi-ingest.net
@@ -7116,6 +7209,9 @@
 
 ! [htmedia.in]
 ||https://analytics.htmedia.in
+
+! [hulu.com]
+||https://t2.hulu.com
 
 ! [humann.com]
 ||https://segment.humann.com
@@ -7325,6 +7421,7 @@
 ||https://impression.link
 
 ! [imrworldwide.com]
+||https://imrworldwide.com
 ||https://cdn-gl.imrworldwide.com
 ||https://cloudapi.imrworldwide.com
 ||https://cm.imrworldwide.com
@@ -7523,6 +7620,7 @@
 ||https://api.innomdc.com
 
 ! [innovid.com]
+||https://innovid.com
 ||https://ag.innovid.com
 ||https://dts.innovid.com
 ||https://rtr.innovid.com
@@ -7544,6 +7642,7 @@
 ||https://cdn.insightexpress.com
 
 ! [insightexpressai.com]
+||https://insightexpressai.com
 ||https://secure.insightexpressai.com
 ||https://surveys.insightexpressai.com
 
@@ -7601,6 +7700,14 @@
 
 ! [inven.co.kr]
 ||https://ads.inven.co.kr
+
+! [invoca.net]
+||https://invoca.net
+||https://pnapi.invoca.net
+
+! [invocacdn.com]
+||https://invocacdn.com
+||https://solutions.invocacdn.com
 
 ! [ioam.de]
 ||https://config.ioam.de
@@ -7675,6 +7782,9 @@
 ||https://context.iris.tv
 ||https://ovp.iris.tv
 
+! [ironsrc.mobi]
+||https://logs.ironsrc.mobi
+
 ! [irquest.com]
 ||https://iam-agof-app.irquest.com
 
@@ -7747,6 +7857,10 @@
 ||https://jampp.com
 ||https://cdn.jampp.com
 ||https://imgx.jampp.com
+
+! [jdoqocy.com]
+||https://jdoqocy.com
+||https://www.jdoqocy.com
 
 ! [jeeng.com]
 ||https://api.jeeng.com
@@ -7850,6 +7964,7 @@
 ||https://analytics.kaltura.com
 
 ! [kampyle.com]
+||https://kampyle.com
 ||https://api-usent.kampyle.com
 ||https://assets.kampyle.com
 ||https://cdn-prod.kampyle.com
@@ -8164,6 +8279,13 @@
 ! [lg.com]
 ||https://tracking.lg.com
 
+! [lgsmartad.com]
+||https://lgsmartad.com
+||https://us.info.lgsmartad.com
+
+! [lgtvcommon.com]
+||https://aic.cdpbeacon.lgtvcommon.com
+
 ! [liadm.com]
 ||https://b-code.liadm.com
 ||https://i.liadm.com
@@ -8190,6 +8312,9 @@
 ! [lightboxcdn.com]
 ||https://s3.lightboxcdn.com
 ||https://www.lightboxcdn.com
+
+! [liiift.io]
+||https://cs.liiift.io
 
 ! [lijit.com]
 ||https://ap.lijit.com
@@ -8396,6 +8521,10 @@
 
 ! [m2appmonitor.com]
 ||https://ingest.m2appmonitor.com
+
+! [macromill.com]
+||https://macromill.com
+||https://img.macromill.com
 
 ! [madadsmedia.com]
 ||https://madadsmedia.com
@@ -8852,6 +8981,10 @@
 ||https://xiaomi-mipdx.cn.miaozhen.com
 ||https://g.jp.miaozhen.com
 
+! [micpn.com]
+||https://micpn.com
+||https://assets.micpn.com
+
 ! [microad.jp]
 ||https://microad.jp
 ||https://cdn.microad.jp
@@ -8965,6 +9098,7 @@
 ||https://panel.moat.com
 
 ! [moatads.com]
+||https://moatads.com
 ||https://apx.moatads.com
 ||https://d3.moatads.com
 ||https://dbg52463.moatads.com
@@ -9345,6 +9479,7 @@
 ||https://vik-analytics-gke.moonactive.net
 
 ! [mopub.com]
+||https://mopub.com
 ||https://ads.mopub.com
 ||https://cb.mopub.com
 ||https://mpx.mopub.com
@@ -9503,6 +9638,9 @@
 ! [nbcsports.com]
 ||https://geo.nbcsports.com
 
+! [nbcuas.com]
+||https://tracker.nbcuas.com
+
 ! [nbcuni.com]
 ||https://video-ads-module.ad-tech.nbcuni.com
 ||https://osimg.nbcuni.com
@@ -9616,6 +9754,7 @@
 ||https://api.ning.com
 
 ! [ninthdecimal.com]
+||https://ninthdecimal.com
 ||https://lciapi.ninthdecimal.com
 ||https://rtb.ninthdecimal.com
 
@@ -9720,6 +9859,10 @@
 ||https://track.omguk.com
 ||https://static.track.omguk.com
 
+! [omnilocal.ai]
+||https://api.omnilocal.ai
+||https://static.omnilocal.ai
+
 ! [omniture.com]
 ||https://api.omniture.com
 ||https://appservice5.omniture.com
@@ -9729,6 +9872,7 @@
 ||https://upload.omnivirt.com
 
 ! [omtrdc.net]
+||https://omtrdc.net
 ||https://hb.omtrdc.net
 ||https://espn.hb.omtrdc.net
 ||https://foxnews.hb.omtrdc.net
@@ -9795,6 +9939,10 @@
 ||https://geolocation.onetrust.com
 ||https://privacyportal.onetrust.com
 ||https://privacyportal-de.onetrust.com
+
+! [online-metrix.net]
+||https://online-metrix.net
+||https://aa.online-metrix.net
 
 ! [onscroll.com]
 ||https://impl.onscroll.com
@@ -10003,6 +10151,10 @@
 ! [pandora.com]
 ||https://adserver.pandora.com
 
+! [pangle.io]
+||https://pangle.io
+||https://api16-access-sg.pangle.io
+
 ! [panickycurtain.com]
 ||https://panickycurtain.com
 
@@ -10160,6 +10312,7 @@
 ||https://pixel.watch
 
 ! [placed.com]
+||https://placed.com
 ||https://api.placed.com
 ||https://p.placed.com
 ||https://panelist.placed.com
@@ -10318,6 +10471,7 @@
 ||https://cdn-resources.prfct.cc
 
 ! [pricespider.com]
+||https://locate.pricespider.com
 ||https://track.pricespider.com
 
 ! [prinit.net]
@@ -10339,6 +10493,9 @@
 
 ! [pro-market.net]
 ||https://ads.pro-market.net
+
+! [proba.ai]
+||https://api.proba.ai
 
 ! [productmadness.com]
 ||https://att.productmadness.com
@@ -10479,6 +10636,9 @@
 ||https://sulake.pushwoosh.com
 ||https://uefa.pushwoosh.com
 ||https://wetter.pushwoosh.com
+
+! [pv-cdn.net]
+||https://cf-us-popular.dash.pv-cdn.net
 
 ! [px-cloud.net]
 ||https://collector-px8fcgygk4.px-cloud.net
@@ -10644,6 +10804,7 @@
 ||https://sync.republer.com
 
 ! [researchnow.com]
+||https://researchnow.com
 ||https://tag.researchnow.com
 
 ! [reson8.com]
@@ -10688,6 +10849,9 @@
 ||https://media.revcontent.com
 ||https://publishers.revcontent.com
 ||https://trends.revcontent.com
+
+! [revenuecat.com]
+||https://api.revenuecat.com
 
 ! [revjet.com]
 ||https://ads.revjet.com
@@ -10760,6 +10924,10 @@
 ! [roblox.com]
 ||https://ads.roblox.com
 ||https://metrics.roblox.com
+
+! [rocketreach.co]
+||https://rocketreach.co
+||https://static.rocketreach.co
 
 ! [rogersmedia.com]
 ||https://analytics.rogersmedia.com
@@ -10918,6 +11086,7 @@
 ||https://us-ma.sam4m.com
 
 ! [samba.tv]
+||https://samba.tv
 ||https://ads.samba.tv
 ||https://events.cid.samba.tv
 ||https://pixel.mtrcs.samba.tv
@@ -10978,6 +11147,8 @@
 ||https://config.sdk.scopely.io
 
 ! [scorecardresearch.com]
+||https://scorecardresearch.com
+||https://ads.scorecardresearch.com
 ||https://b.scorecardresearch.com
 ||https://bs.scorecardresearch.com
 ||https://end.scorecardresearch.com
@@ -11692,6 +11863,7 @@
 ||https://s-img.steepto.com
 
 ! [stickyadstv.com]
+||https://stickyadstv.com
 ||https://ads.stickyadstv.com
 ||https://cdn.stickyadstv.com
 ||https://update.stickyadstv.com
@@ -11997,10 +12169,12 @@
 ! [tango.me]
 ||https://acme.tango.me
 
+
 ! [tapad.app]
 ||https://cdn-stg.tapad.app
 
 ! [tapad.com]
+||https://tapad.com
 ||https://assets.tapad.com
 ||https://pandg.tapad.com
 ||https://pixel.tapad.com
@@ -12106,6 +12280,7 @@
 ||https://t.teads.tv
 
 ! [tealiumiq.com]
+||https://tealiumiq.com
 ||https://collect.tealiumiq.com
 ||https://collect-ap-northeast-1.tealiumiq.com
 ||https://collect-ap-southeast-2.tealiumiq.com
@@ -12541,10 +12716,13 @@
 ||https://px.tvadsync.com
 
 ! [tvpixel.com]
+||https://tvpixel.com
 ||https://c.tvpixel.com
 ||https://p.tvpixel.com
 
 ! [tvsquared.com]
+||https://tvsquared.com
+||https://collector-12255.tvsquared.com
 ||https://collector-9306.us.tvsquared.com
 ||https://collectoru.us.tvsquared.com
 
@@ -12770,6 +12948,7 @@
 ||https://app-796db8a17c48a13b.mobileapi.usebutton.com
 
 ! [usefomo.com]
+||https://geocode.usefomo.com
 ||https://www.usefomo.com
 
 ! [useinsider.com]
@@ -12790,6 +12969,9 @@
 ! [vaicore.site]
 ||https://co.vaicore.site
 ||https://int.vaicore.site
+
+! [vaicore.store]
+||https://int.vaicore.store
 
 ! [vaicore.xyz]
 ||https://vaicore.xyz
@@ -12833,6 +13015,9 @@
 
 ! [vendimob.pl]
 ||https://vendimob.pl
+
+! [verizon.com]
+||https://sanalytics.verizon.com
 
 ! [verizonwireless.com]
 ||https://sanalytics.verizonwireless.com
@@ -13110,6 +13295,7 @@
 ||https://a.vserv.mobi
 
 ! [vungle.com]
+||https://vungle.com
 ||https://api.vungle.com
 ||https://ads.api.vungle.com
 ||https://dsp.api.vungle.com
@@ -13300,6 +13486,10 @@
 
 ! [xapads.com]
 ||https://tracking.xapads.com
+
+! [xcal.tv]
+||https://metricscollector.lp.xcal.tv
+||https://api.player.xcal.tv
 
 ! [xdrig.com]
 ||https://xdrig.com
@@ -16143,7 +16333,6 @@
 ||https://track.freemmo2017.com
 ||https://track.ultragaming.biz
 ||https://tracker.bannerflow.com
-||https://tracker.nbcuas.com
 ||https://trackertracker.com
 ||https://tracking.conduit.com
 ||https://tracking.pickyourplum.com
@@ -21551,7 +21740,6 @@
 ||https://sanalytics.tbs.com
 ||https://sanalytics.tntdrama.com
 ||https://sanalytics.trutv.com
-||https://sanalytics.verizon.com
 ||https://sanalytics.visible.com
 ||https://sanalytics.wideroe.no
 ||https://sanl.champssports.com
@@ -34691,8 +34879,8 @@
 
 ! Title: KADhosts
 ! Description: Filtry chroniace przed roznego rodzaju przekretami i oszustwami, takimi jak np. subskrypcje SMS, wirusy i falszywe sklepy internetowe. Oprocz wlasnego zestawu, zawieraja one rowniez wpisy z list stworzonych przez takie zespoly jak np. CERT Polska, legalniewsieci.pl i KNF.
-! Last modified: Thu, 09 Dec 2021, 23:10 UTC+01
-! Version: 2021.12.9.3
+! Last modified: Sun, 12 Dec 2021, 16:10 UTC+01
+! Version: 2021.12.12.1
 ! Expires: 2 days
 ! Website: https://kadantiscam.netlify.app/
 ! License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -38852,6 +39040,7 @@
 ||https://achalasiapedia.com
 ||https://achillestendonrupturepedia.com
 ||https://acrostax.com
+||https://acsa.md
 ||https://activatelearningonline.instructure.com
 ||https://actualizarelect.890m.com
 ||https://actuarialexampractice.com
@@ -38899,6 +39088,7 @@
 ||https://ae2.ifnprog.xyz
 ||https://aeasy.info
 ||https://aederem.site
+||https://aemnzsacv.000webhostapp.com
 ||https://aerilylearnt.com
 ||https://aesinv.com
 ||https://aeyefilms.com
@@ -39031,7 +39221,9 @@
 ||https://allegrolokalnie.order7secure.site
 ||https://allegrolokalnie.pl.transpbuyitemss.pw
 ||https://allegrolokalnie.site
+||https://allegrolokalnie-pl.id735267.space
 ||https://allegrolokalnie-pl.id745824.space
+||https://allegrolokalnie-pl.id756586.space
 ||https://allegrolokalnie-pl.id783425.space
 ||https://allegrolokalnie-pl.payregisway.pw
 ||https://allegrolokalnie-pl-3dsafe.id-safety.co
@@ -39174,6 +39366,7 @@
 ||https://anstewn.com
 ||https://antares.trade
 ||https://antasamsara.site
+||https://anthemicunwish.com
 ||https://anticipateasd.online
 ||https://antimonylsbuses.com
 ||https://antispam-pro.us
@@ -39221,6 +39414,7 @@
 ||https://applesofgoldretail.com
 ||https://appletoken.club
 ||https://apple-login.in
+||https://apple.fmi-iphone.support
 ||https://apple.id-care-cloud.co
 ||https://apps.co.pl
 ||https://appsdorado.com
@@ -39313,6 +39507,7 @@
 ||https://astrahorizon.com
 ||https://astralun-com.preview-domain.com
 ||https://astrocash.org
+||https://aswsdpagesah.co.vu
 ||https://atafrecle.com
 ||https://atamascoessentialism.com
 ||https://atami-japanese.com
@@ -39380,6 +39575,8 @@
 ||https://azawebspace.com
 ||https://azcybersec.com
 ||https://azedge.net
+||https://azwmscscka.rf.gd
+||https://azwpikiran.co.vu
 ||https://a-liep.org
 ||https://b2berlin.se
 ||https://b2meguy.com
@@ -39475,6 +39672,7 @@
 ||https://baseny-polska.com
 ||https://baseny-stelazowe.com
 ||https://basen-olx.waw.pl
+||https://basiakurier.top
 ||https://basicproduce.com
 ||https://bastardo.xyz
 ||https://bautroibentrong.com
@@ -39498,6 +39696,8 @@
 ||https://beauty-global-media.com
 ||https://bebevogue.com
 ||https://bedacjuzprzytym.cyou
+||https://bedcoverdrawer.com
+||https://bedcoverundefined.com
 ||https://bedziemy-zawsze.pl
 ||https://beehrm.com
 ||https://befitnees.com
@@ -39623,6 +39823,7 @@
 ||https://bhpkowalex.pl
 ||https://bialystokwsieci.xyz
 ||https://biansdesign.nl
+||https://bibirkenahujan.rf.gd
 ||https://bic-ari.site
 ||https://bidenhascovid19.co
 ||https://bideronka.is-best.net
@@ -39668,8 +39869,10 @@
 ||https://biopiracydrat.info
 ||https://bioscreencast.com
 ||https://bioslimin.pl
+||https://biosurface.fr
 ||https://birdcimbalom.com
 ||https://birdcimbalom.outroaringoutroaring.com
+||https://birdinginvoicing.com
 ||https://bireysele-basvurum-destek-kampanyalar.tk
 ||https://birox.weebly.com
 ||https://biryakarambol.com
@@ -39796,6 +39999,7 @@
 ||https://bloodrootsalve.com
 ||https://bloodwritten.pl
 ||https://bloomshakra.com
+||https://blousonsblousons.com
 ||https://blueprintglobalpartners.com
 ||https://bluesz.pl
 ||https://bmaisaveo.com
@@ -39807,6 +40011,7 @@
 ||https://bnpparibas-secure-biznes.at
 ||https://bnpsecured.online
 ||https://bobali.xyz
+||https://bobechesselvage.com
 ||https://bobigny24.com
 ||https://bobolove.pl
 ||https://bobsiot.com
@@ -39890,6 +40095,7 @@
 ||https://bramka-sms-za-darmo.pl
 ||https://branivmny.com
 ||https://brattishantimusic.com
+||https://brattishesperance.com
 ||https://bratzamocowac.site
 ||https://bravoservices.online
 ||https://brawomiasto.site
@@ -39922,6 +40128,7 @@
 ||https://broadpeakdefense.com
 ||https://brocmans.xyz
 ||https://brohoof.pl
+||https://brominatedaerogrammes.com
 ||https://bronword.site
 ||https://brooklynlilly.com
 ||https://brooksoutletsklep.com
@@ -40059,6 +40266,8 @@
 ||https://cabshub.com
 ||https://cache.server560960.nazwa.pl
 ||https://caeiriolskiaopazertyiop.xyz
+||https://cafeoverflow.com
+||https://caginessquaintness.com
 ||https://cagreeninvest.com
 ||https://caidiseya.com
 ||https://cakepress.es
@@ -40128,9 +40337,11 @@
 ||https://cavemanorganics.com
 ||https://cb01796.tmweb.ru
 ||https://cb76471.tmweb.ru
+||https://cb78283.tmweb.ru
 ||https://cbdnewsdirect.com
 ||https://cbd-and-seizures.com
 ||https://cbtsmaskristen2soe.my.id
+||https://cc75607.tmweb.ru
 ||https://ccc-office.com
 ||https://ccfundscapital.ltd
 ||https://ccgoo.xyz
@@ -40139,6 +40350,7 @@
 ||https://ccsms.in
 ||https://ccsms.xyz
 ||https://ccswpsvc.com
+||https://cd74125.tmweb.ru
 ||https://cda360.pl
 ||https://cdaflix.eu
 ||https://cdaflix.pl
@@ -40213,6 +40425,7 @@
 ||https://ceskaposta-finans.cz
 ||https://cevik01supermarkt.nl
 ||https://ceylicon.com
+||https://ceylonbag.com
 ||https://cezaevinegonder.com
 ||https://ce.capital-prg6.site
 ||https://ce.pltrade-prog3.site
@@ -40222,6 +40435,7 @@
 ||https://cg47835.tmweb.ru
 ||https://cgtn-china.com
 ||https://ch3.ifnprog.xyz
+||https://ch01147.tmweb.ru
 ||https://chacopolska.com
 ||https://chainvest.agendatr.site
 ||https://chalkmutual.info
@@ -40230,6 +40444,7 @@
 ||https://charabancthimbleriggers.info
 ||https://charlestonstork.com
 ||https://charms-tech.com
+||https://chatsex.vc
 ||https://chaveiroemgoiania.com
 ||https://chavoso.tgamesandroid.com
 ||https://chcemyschudnac.pl
@@ -40273,6 +40488,7 @@
 ||https://chupacabras100kms.com
 ||https://chwalimy.bar
 ||https://chwiejnyobserwacja.site
+||https://ci38659.tmweb.ru
 ||https://ci80153.tmweb.ru
 ||https://ciaglebrak.pl
 ||https://ciaglewiecej.pl
@@ -40370,6 +40586,7 @@
 ||https://cluka.info
 ||https://cluni.xyz
 ||https://clxitatey.com
+||https://cm68877.tmweb.ru
 ||https://cmartketgitro0.info
 ||https://cmcxxmarket.com
 ||https://cmentosrl.com
@@ -40385,6 +40602,7 @@
 ||https://coderslashadmin.com
 ||https://codewang.tk
 ||https://codigotributario.com.br
+||https://codiscoversimmeshed.com
 ||https://coequalitiesantimask.com
 ||https://cofenator.ru
 ||https://coffeedeliverys.com
@@ -40435,6 +40653,7 @@
 ||https://companynet-mbank.com
 ||https://compensationrugby.com
 ||https://competeserious.com
+||https://competitiveprep.com
 ||https://competivityapp.com
 ||https://complainarticle.com
 ||https://compostboston.com
@@ -40445,6 +40664,7 @@
 ||https://comtesl.milldrop.xyz
 ||https://com.capital-prg5.site
 ||https://com.pltrade-prog3.site
+||https://concrete-leta.com
 ||https://condescending-austin-1a040b.netlify.app
 ||https://conectpress.com
 ||https://configgle.com
@@ -40492,6 +40712,7 @@
 ||https://cosdasiezrobbic.site
 ||https://cosdlapollakkow.site
 ||https://cosmeticsstation.com
+||https://cosmochemistreevoke.com
 ||https://cospieknego.wloguje-teraz.xyz
 ||https://cossdlakazdego.website
 ||https://cossieniewydarzy.xyz
@@ -40503,7 +40724,9 @@
 ||https://cotamssiestalo.club
 ||https://cotehy.com
 ||https://cotomazncczytv.club
+||https://cotton-tod.com
 ||https://cotusiedziejeludzie.site
+||https://countappchkpoin.rf.gd
 ||https://counterpointmagazine.org
 ||https://couplefind.xyz
 ||https://coupwn.com
@@ -40684,6 +40907,7 @@
 ||https://cx95416.tmweb.ru
 ||https://cxuzbjyw6zjh.bar
 ||https://cxvihv76v7ey.bar
+||https://cyb3rs3cur1ty-pr0t3ct.000webhostapp.com
 ||https://cyberneticart.biz
 ||https://cyxos.kosmonadrova.ru
 ||https://cz1.prog-capital8.xyz
@@ -42248,6 +42472,7 @@
 ||https://decathlon-pl.site
 ||https://deckorgan.com
 ||https://decodom.com.pl
+||https://decora-pl.com
 ||https://decydujacymeble.site
 ||https://decyzie-podejmj.eu
 ||https://ded5653.inmotionhosting.com
@@ -42437,6 +42662,7 @@
 ||https://dinozaurydrut.site
 ||https://dintvort-com.preview-domain.com
 ||https://directionxanc2021.ddns.net
+||https://directlyfrappes.com
 ||https://dirproperties.com
 ||https://disaffirminggloomful.com
 ||https://disavowershummingbird.com
@@ -42635,6 +42861,7 @@
 ||https://domek200.com
 ||https://domek300.com
 ||https://domen.intertrad.xyz
+||https://domenikko-com.preview-domain.com
 ||https://domgoralskispa.pl
 ||https://domki-kopalino.com.pl
 ||https://domniespodzianek.com
@@ -42761,8 +42988,15 @@
 ||https://dpd-pl-vi.oferta-bkr.me
 ||https://dpd-pl.44112-online.sbs
 ||https://dpd-pl.74943.pw
+||https://dpd-pl.740374.space
+||https://dpd-pl.5691597-pieniadze-info.xyz
+||https://dpd-pl.6743281-pieniadze-info.xyz
+||https://dpd-pl.8364914-info-mycash.xyz
+||https://dpd-pl.9168354-pieniadze-info.xyz
 ||https://dpd-pl.hajs-onekax.click
 ||https://dpd-pl.id-3489.me
+||https://dpd-pl.info-trackcode-id578461.xyz
+||https://dpd-pl.numer-sciezki-id895643.xyz
 ||https://dpd-pl.safe-pay.site
 ||https://dpd-s.id-9431.me
 ||https://dpd.77765.space
@@ -42831,6 +43065,7 @@
 ||https://druga92.site
 ||https://drunkenboyz.za.pl
 ||https://drunt.at
+||https://drvikashkumarurologist.com
 ||https://drvooqv0b6ivi.cloudfront.net
 ||https://drwyjoz8ylty.cloudfront.net
 ||https://drx6dyfdqoorw.cloudfront.net
@@ -42881,6 +43116,7 @@
 ||https://duoi54cdyk0ms.cloudfront.net
 ||https://duologsnavigabilities.com
 ||https://duqbuf91ykkdq.cloudfront.net
+||https://durgaengworks.in
 ||https://duriankocok.com
 ||https://dutahgye3t3hw.cloudfront.net
 ||https://dutchaparel.com
@@ -43032,6 +43268,7 @@
 ||https://ec2-18-133-158-255.eu-west-2.compute.amazonaws.com
 ||https://ec2-35-178-235-52.eu-west-2.compute.amazonaws.com
 ||https://ec2-35-180-127-210.eu-west-3.compute.amazonaws.com
+||https://ec2-52-47-123-197.eu-west-3.compute.amazonaws.com
 ||https://ecampuskbds.com
 ||https://eccowyprzedaz.com
 ||https://eccowyprzedazoutlet.com
@@ -43245,6 +43482,7 @@
 ||https://etagerescrapper.com
 ||https://etestery24.pl
 ||https://etflix.us
+||https://eti.prosyst1.site
 ||https://etmf.ir
 ||https://etnasklep.pl
 ||https://etniesbuty.com
@@ -43255,6 +43493,7 @@
 ||https://eu.loonmil.site
 ||https://eu.mastercrd.xyz
 ||https://eu.newsyst.site
+||https://eu.nextah.com
 ||https://eu.povdor.site
 ||https://eu.profpoltro.site
 ||https://eu.profprorgamm.site
@@ -43280,6 +43519,8 @@
 ||https://evaksin.com
 ||https://evarest.biz
 ||https://evidete.com
+||https://evilerantimusic.com
+||https://evilerundefined.com
 ||https://evi-vest.club
 ||https://evotrade.com
 ||https://evsofla.com
@@ -43475,6 +43716,7 @@
 ||https://fanplplpgeinv1-tech.info
 ||https://fansomencal.com
 ||https://fantameca.com
+||https://fantastic-gas.com
 ||https://fantazja852.rest
 ||https://fanwestpge-pl1.info
 ||https://fanyun.com
@@ -43635,6 +43877,7 @@
 ||https://filser.co
 ||https://filthsdeferrals.com
 ||https://finalowebiznes24.space
+||https://final-technology.com
 ||https://financeapp.pl
 ||https://financemondaydealsnow.com
 ||https://financesucceed.webador.com
@@ -43829,6 +44072,8 @@
 ||https://frengoli-com.preview-domain.com
 ||https://frenzstores.com
 ||https://freshiuz.com
+||https://fresh-baron.com
+||https://fresh-mack.com
 ||https://frex.capitalkorpor.site
 ||https://frieman.pl
 ||https://friendica.info.pl
@@ -43922,6 +44167,8 @@
 ||https://ganliht3hogias.xyz
 ||https://ganoderma-peru.com
 ||https://ganter-com.preview-domain.com
+||https://gaolsoverseeded.com
+||https://gaolsprezes.com
 ||https://garazowiec.pl
 ||https://garbanda.tech
 ||https://gardenfleks.pl
@@ -43929,6 +44176,7 @@
 ||https://gartoninvest.co
 ||https://garwolin.info.pl
 ||https://gastrohurt.neostrada.pl
+||https://gastronomyroad.com
 ||https://gatunek005.rest
 ||https://gave-nitro.com
 ||https://gavirtualpd.instructure.com
@@ -44011,6 +44259,7 @@
 ||https://gazpromnft.one
 ||https://gazprom-platform.website
 ||https://gaz-flee.xyz
+||https://gc.capitalredf.site
 ||https://gcesab.com
 ||https://gcginternational.com
 ||https://gcijewel.com
@@ -44024,6 +44273,8 @@
 ||https://gedos.xyz
 ||https://geekgirlacademy.com
 ||https://geekrunners.com
+||https://geezersnooses.com
+||https://gelastungis.rf.gd
 ||https://geminies.xyz
 ||https://geminioption.com
 ||https://genesismining.uk
@@ -44141,6 +44392,7 @@
 ||https://gmarketigita8.info
 ||https://gmarketit9.info
 ||https://gn4et1.webwave.dev
+||https://gnawinglymunicipalizing.com
 ||https://gneoste.mypi.co
 ||https://gninsider.com
 ||https://go0o.me
@@ -44214,6 +44466,8 @@
 ||https://gototromso.com
 ||https://gotovo.space
 ||https://gotowedlakazdego.website
+||https://gottainfo.com
+||https://got-in.web.app
 ||https://goucjk.com
 ||https://governorofri.com
 ||https://govmexx-govproject.info
@@ -44238,6 +44492,8 @@
 ||https://grandvisionschool.com
 ||https://granita.icu
 ||https://graniteandmarblebycastillo.com
+||https://granite-jaiden.com
+||https://granite-karl.com
 ||https://graphemicshypoderm.com
 ||https://graphemicsstraightener.com
 ||https://graplinsprezes.com
@@ -44263,6 +44519,7 @@
 ||https://gremlimes9.in.ua
 ||https://gretnosk-com.preview-domain.com
 ||https://greveals.com
+||https://grievouslymilliliters.com
 ||https://grill200.com
 ||https://grimace.sbs
 ||https://grinlike.site
@@ -44352,6 +44609,7 @@
 ||https://handelpro.com
 ||https://handelpro.vip
 ||https://hangchina.vn
+||https://hangingrelatedly.com
 ||https://hanksly.pl
 ||https://hannawolska1.co.pl
 ||https://happy-pods-pl.com
@@ -44601,6 +44859,7 @@
 ||https://ideabank-logowanie.net
 ||https://ideaenvied.com
 ||https://ideainvest.info
+||https://idea-basing.com
 ||https://idea-educ.site
 ||https://idea-logowanie.at
 ||https://idea-secure-login.com
@@ -44693,6 +44952,7 @@
 ||https://inezsport.com
 ||https://inf
 ||https://inf24gz.pl
+||https://infalliblybrattish.com
 ||https://infarelinden.info
 ||https://infasd2a.is-best.net
 ||https://infa-z-polski.dnsrobotuptime.ru
@@ -44729,6 +44989,7 @@
 ||https://info7455.site
 ||https://info394290.wixsite.com
 ||https://infobore.xyz
+||https://infochat.intertrad.xyz
 ||https://infodemon.milldrop.xyz
 ||https://infodlawas.waw.pl
 ||https://infoee.gitlab.io
@@ -44839,6 +45100,7 @@
 ||https://informacje-z-gory.pl
 ||https://informacje-z-kraju.waw.pl
 ||https://informacje-z-policji.dnsrobotuptime.ru
+||https://informacyjne24wiadomosci.pl
 ||https://informacyjnefkty24.pl
 ||https://informacyjnemiasto24.rf.gd
 ||https://informacyjnie.elk.pl
@@ -44872,6 +45134,7 @@
 ||https://inform-sms.pw
 ||https://infosandiego.wixsite.com
 ||https://infoswiat.hekko24.pl
+||https://infotesla.depiinv.xyz
 ||https://infotest.milldrop.xyz
 ||https://infotext.coocoldini.xyz
 ||https://infotrade.milldrop.xyz
@@ -44985,7 +45248,9 @@
 ||https://inpostpl.com
 ||https://inpostpl.pwerew24.icu
 ||https://inpostpl.44112-online.sbs
+||https://inpostpl.dostawa-go5152.best
 ||https://inpostpl.dosta-wa24.xyz
+||https://inpostpl.kontonline-me5125.icu
 ||https://inpostpl.ko-partne99292.one
 ||https://inpostpl.krajow-online.sbs
 ||https://inpostpl.online-me.shop
@@ -45067,6 +45332,9 @@
 ||https://inpost-pl-px.id98325.me
 ||https://inpost-pl-safe.dostawa-safe.online
 ||https://inpost-pl-safe.dostawa-safe.today
+||https://inpost-pl-safe.dostawa-secure.info
+||https://inpost-pl-safe.notification-eu.com
+||https://inpost-pl-safe.notification-sender.xyz
 ||https://inpost-pl-secure3d.id-safety.co
 ||https://inpost-pl-ta.id-4365.me
 ||https://inpost-pl-tl.oferta-nsf.me
@@ -45076,19 +45344,25 @@
 ||https://inpost-pl.456345.space
 ||https://inpost-pl.579521-info-money.xyz
 ||https://inpost-pl.732145-order-info.xyz
+||https://inpost-pl.732490.space
 ||https://inpost-pl.785456-order-info.xyz
 ||https://inpost-pl.785463-money-order.xyz
 ||https://inpost-pl.794513-money-info.xyz
+||https://inpost-pl.798349.space
 ||https://inpost-pl.798675-money-info.xyz
+||https://inpost-pl.876584.space
 ||https://inpost-pl.897574-money-info.xyz
 ||https://inpost-pl.978545-money-info.xyz
 ||https://inpost-pl.2653356-offerts.xyz
 ||https://inpost-pl.2981476-cash-info.xyz
+||https://inpost-pl.4876134-pieniadze-info.xyz
 ||https://inpost-pl.5476128-order.xyz
 ||https://inpost-pl.6121800-order-info.xyz
 ||https://inpost-pl.6235482-bill-order.xyz
 ||https://inpost-pl.6352915-offerts.xyz
 ||https://inpost-pl.7982348.space
+||https://inpost-pl.8453713-mycash-info.xyz
+||https://inpost-pl.9473873-info-mycash.xyz
 ||https://inpost-pl.dostawa-id87543.xyz
 ||https://inpost-pl.dostawa-id89863.xyz
 ||https://inpost-pl.dostawa-id8496953.xyz
@@ -45097,6 +45371,7 @@
 ||https://inpost-pl.dostawa-kurier-id795141.xyz
 ||https://inpost-pl.dostawa-safe.online
 ||https://inpost-pl.dostawa-safe.today
+||https://inpost-pl.dostawa-secure.info
 ||https://inpost-pl.id-safety.co
 ||https://inpost-pl.id-safety.eu
 ||https://inpost-pl.id-safety.me
@@ -45113,6 +45388,7 @@
 ||https://inpost-pl.kurier-id8965471.xyz
 ||https://inpost-pl.kurier-id8976164.xyz
 ||https://inpost-pl.kurier-id9685481.xyz
+||https://inpost-pl.notification-sender.xyz
 ||https://inpost-pl.numer-sciezki-id498321.xyz
 ||https://inpost-pl.numer-sciezki-id548683.xyz
 ||https://inpost-pl.numer-sciezki-id698613.xyz
@@ -45153,6 +45429,7 @@
 ||https://inpost-xhk.id-3842.me
 ||https://inpost-x.id-43895.me
 ||https://inpost-zamowienie.pl
+||https://inpost.657448.space
 ||https://inpost.dostawa-orders.casa
 ||https://inpost.d-stw.xyz
 ||https://inpost.id-track-pl32157819.xyz
@@ -45207,6 +45484,7 @@
 ||https://instantreaction549.club
 ||https://instantreaction646.cyou
 ||https://instantreaction665.casa
+||https://institute.institutepages.institutepages.workers.dev
 ||https://instructvideo.com
 ||https://instrumentassertive.com
 ||https://insuredplusltd.com
@@ -45232,6 +45510,7 @@
 ||https://interpathlaboratories.com
 ||https://interrnetowenovvosci.space
 ||https://intersujaceopolskie.online
+||https://interviewquant.com
 ||https://inteza.pl
 ||https://inthmnd.fun
 ||https://intorstad.store
@@ -45304,6 +45583,7 @@
 ||https://invp.edealand.pro
 ||https://invvest-pl.website
 ||https://invxsler.com
+||https://inv-kg.web.app
 ||https://inv-poland.web.app
 ||https://inv-polska.web.app
 ||https://inv-space.info
@@ -45375,6 +45655,7 @@
 ||https://ipfwstudenthousing.com
 ||https://ipko.club
 ||https://ipko.us
+||https://ipko.xyz
 ||https://ipkobiznes.live
 ||https://ipkobiznes.uk
 ||https://ipko-bisznes.com
@@ -45635,6 +45916,7 @@
 ||https://kartowkop.xyz
 ||https://kasa-sms.pl
 ||https://kasonet.pl
+||https://kasuyte.maximizerss.xyz
 ||https://kasynopolska.wixsite.com
 ||https://kasyno-lotek.xyz
 ||https://kaszelktj.pl
@@ -45662,6 +45944,7 @@
 ||https://kedrieve.com
 ||https://kedrovan-space.preview-domain.com
 ||https://kedstrampki.com
+||https://keds-buty.com
 ||https://kedzierzyn-kozle.tonasze-miasto.co.pl
 ||https://keenpolska.com
 ||https://keenpolskasklep.com
@@ -45685,12 +45968,14 @@
 ||https://kfc-s-a.com
 ||https://kfsmradio.com
 ||https://kghm.surge.sh
+||https://kghm-invest.web.app
 ||https://kghm-project.netlify.app
 ||https://kghm-starpl.netlify.app
 ||https://kgh-ll.web.app
 ||https://kgnm.surge.sh
 ||https://kg-hm-p.firebaseapp.com
 ||https://kg-hm-p.web.app
+||https://kg-inv.web.app
 ||https://khbd.mbtuan.com
 ||https://khmernews.com
 ||https://khoinvess.newprog817.xyz
@@ -46037,6 +46322,7 @@
 ||https://ldaismfanmfjka.bar
 ||https://ldpd.id-43895.me
 ||https://lds.biz
+||https://leadersariix.com
 ||https://leaderstandard.com
 ||https://leadingchannls.com
 ||https://leadscout.com
@@ -46059,6 +46345,7 @@
 ||https://leidwozyjarodzina.site
 ||https://leilodl.com
 ||https://leisureloops.com
+||https://leitetanksejati.co.vu
 ||https://lekarz.cyou
 ||https://lekebebek.com
 ||https://lekibezrecepty.org
@@ -46087,6 +46374,7 @@
 ||https://lexingtonrifles.com
 ||https://leyber.fun
 ||https://lezrweb.com
+||https://le.pltrade-projekt7.xyz
 ||https://lfkommersiella.se
 ||https://liberalny983.rest
 ||https://libyunge.com
@@ -46130,6 +46418,7 @@
 ||https://linkpaypl.xyz
 ||https://linkplat.click
 ||https://linkssd.com
+||https://lioniserhorsily.com
 ||https://liquidityaggregator.com
 ||https://liquid-lifestyles.com
 ||https://liquorsaveltd.com
@@ -46447,6 +46736,7 @@
 ||https://main.d268vmidq0xn3.amplifyapp.com
 ||https://mainstreamdisco.site
 ||https://majacwsazystkoanraz.space
+||https://majoritytraffic.com
 ||https://makanaliabadian.ir
 ||https://makeyourmoney.space
 ||https://make-by-yourown.com
@@ -46470,6 +46760,7 @@
 ||https://mammut-polska.com
 ||https://mamuny.com
 ||https://manageitjob.com
+||https://managepage.institute.confirmspageproblems.workers.dev
 ||https://manager-paczek.fun
 ||https://manager-paczek.in.net
 ||https://manager-paczek-pl.xyz
@@ -46505,12 +46796,14 @@
 ||https://marcatecnologia.com
 ||https://marcellopiliego.it
 ||https://marcofama.it
+||https://marcotozzipolska.pl
 ||https://maregfo-com.preview-domain.com
 ||https://marekmeble.pl
 ||https://marevo.space
 ||https://margarteyo.com
 ||https://marginelite.com
 ||https://margohack.za.pl
+||https://marhujanpagi.rf.gd
 ||https://mariapolska.pl
 ||https://mariola180.co.pl
 ||https://marjoramsflimsily.com
@@ -46536,11 +46829,15 @@
 ||https://markowyperfum.pl
 ||https://marktinginfopl.com
 ||https://mark-lawchambers.com
+||https://marmalming.co.vu
+||https://marmalming1.co.vu
+||https://marmalming2.co.vu
 ||https://marmotpolskas.com
 ||https://marriageunblocked.com
 ||https://marselosq.site
 ||https://marshaledhebes.com
 ||https://marshnow.com
+||https://marsingboloung.co.vu
 ||https://martafree.se
 ||https://martenspolska.co
 ||https://martenswyprzedaz.com
@@ -46571,6 +46868,7 @@
 ||https://mattleaching.com
 ||https://matureamount.top
 ||https://maturemile.com
+||https://maturestesperance.com
 ||https://mauricechilds.com
 ||https://mavourneenpursinesses.com
 ||https://max.allprojcom.site
@@ -46621,6 +46919,7 @@
 ||https://meble.pw
 ||https://meblecilam.pl
 ||https://meblegiete.pl
+||https://meble-do-oddania.eu
 ||https://meble-oddam.pl
 ||https://meble-olx.pl
 ||https://meblomonter.pl
@@ -46682,6 +46981,7 @@
 ||https://meldunek6381.site
 ||https://meldunek9356.site
 ||https://melinho-com.preview-domain.com
+||https://melodramatistsdeselecting.com
 ||https://melodyandmoves.com
 ||https://melotion-site.preview-domain.com
 ||https://member.fullpotentialtutor.com
@@ -46692,6 +46992,7 @@
 ||https://mendeluweb-cz.000webhostapp.com
 ||https://mendicth.com
 ||https://mengero-com.preview-domain.com
+||https://mentalismnonending.com
 ||https://mentow.pl
 ||https://meotrego.xyz
 ||https://mephisto.nd.e-wro.pl
@@ -46946,6 +47247,7 @@
 ||https://mrfco.info
 ||https://mrhamdikadir.wixsite.com
 ||https://mrketinginfopl.com
+||https://ms.capitalpol.xyz
 ||https://ms.hotu.xyz
 ||https://ms10be.be
 ||https://msg2u.xyz
@@ -46968,6 +47270,7 @@
 ||https://multivod.pl
 ||https://mumbaia.icu
 ||https://munado.com
+||https://municipalizingdefoliators.com
 ||https://municipal-placement.xyz
 ||https://muqgllmqtyllhwn.com
 ||https://murarzplus.pl
@@ -46987,6 +47290,7 @@
 ||https://mxdby-mailsever-000ruiwas.web.app
 ||https://mxmz-pro1.xyz
 ||https://my.automaticprog3.xyz
+||https://my.capitalpol.xyz
 ||https://my.witamywitamy.fun
 ||https://mybank.sbs
 ||https://mybitardo-space.preview-domain.com
@@ -46999,6 +47303,12 @@
 ||https://mydreamholidaysandresorts.com
 ||https://myeforsa.pl
 ||https://myembroidery.ca
+||https://mygaz-alia.com
+||https://mygaz-christ.com
+||https://mygaz-dejuan.com
+||https://mygaz-ena.com
+||https://mygaz-jakayla.com
+||https://mygaz-wilhelm.com
 ||https://myhealthcareblog.com
 ||https://myidoll.se
 ||https://myidoll.se.oblyapp.com
@@ -47107,6 +47417,7 @@
 ||https://nasdyh1.iownprllk.xyz
 ||https://nastepnyzmudne.site
 ||https://naswoimmppodworku.space
+||https://nasyh.innovappl.xyz
 ||https://naszagazeta.xyz
 ||https://naszagdynia.xyz
 ||https://naszaprasa.digital
@@ -47161,6 +47472,7 @@
 ||https://nekkel.pl
 ||https://nekrestova-com.preview-domain.com
 ||https://nekstra.com
+||https://nem.capitalloredfd.site
 ||https://nem17.avistaserver.com
 ||https://nematrod-com.preview-domain.com
 ||https://nemci.capitalredf.site
@@ -47195,9 +47507,11 @@
 ||https://netsyncsolutions.com
 ||https://networkave.com
 ||https://neuralatlantic.com
+||https://neurkofs-com.preview-domain.com
 ||https://neurologiamt.com.br
 ||https://neurorehabtraining.com
 ||https://new.bordaaw.xyz
+||https://new.capitalpol.xyz
 ||https://new.milldrop.xyz
 ||https://new.onelinesx.xyz
 ||https://new.povdor.site
@@ -47493,6 +47807,7 @@
 ||https://npcvault.com
 ||https://np-ivest.web.app
 ||https://nsifqowf10iwhg.bar
+||https://nt.plsystem5.xyz
 ||https://ntflixo.pl
 ||https://nubilenut.com
 ||https://nudesfeed.com
@@ -47505,6 +47820,7 @@
 ||https://nvixug.webwave.dev
 ||https://nvlabel.com
 ||https://nvod.pl
+||https://nw.capitalpol.xyz
 ||https://nwb.lutonsteel.site
 ||https://nwekrash-com.preview-domain.com
 ||https://nworks.co
@@ -47682,6 +47998,7 @@
 ||https://oix-zaplata.com
 ||https://ojciec.cyou
 ||https://ojdtape.xyz
+||https://oka.toln.xyz
 ||https://okabai.com
 ||https://okazja.cyou
 ||https://okazja2021.online
@@ -47921,6 +48238,7 @@
 ||https://olx-pl.depget.com
 ||https://olx-pl.getc.icu
 ||https://olx-pl.id738095.space
+||https://olx-pl.id792356.space
 ||https://olx-pl.info
 ||https://olx-pl.ml
 ||https://olx-pl.moneta.world
@@ -47966,9 +48284,12 @@
 ||https://olx-pl.44112-online.sbs
 ||https://olx-pl.1244523.shop
 ||https://olx-pl.4325453.website
+||https://olx-pl.6743281-pieniadze-info.xyz
 ||https://olx-pl.7982348.space
+||https://olx-pl.8453713-mycash-info.xyz
 ||https://olx-pl.eu-pay.site
 ||https://olx-pl.ez-pays.ru
+||https://olx-pl.info-trackcode-id565732.xyz
 ||https://olx-pl.in-order.store
 ||https://olx-pl.iso-pay.net.ru
 ||https://olx-pl.kilka-505129.xyz
@@ -47979,6 +48300,7 @@
 ||https://olx-pl.my-dostawa.bar
 ||https://olx-pl.my-dostawa.club
 ||https://olx-pl.odbior-86128.one
+||https://olx-pl.oferta-pay.digital
 ||https://olx-pl.oferta-pay.fun
 ||https://olx-pl.oferta-pay.life
 ||https://olx-pl.oferta-pay.live
@@ -48046,6 +48368,7 @@
 ||https://olx-z.pl
 ||https://olx-zaplata.pl
 ||https://olx--pl.online
+||https://olx.657448.space
 ||https://olx.856436.space
 ||https://olx.9494854.space
 ||https://olx.com-id381949.xyz
@@ -48091,8 +48414,11 @@
 ||https://olx.pl-zamawienie.shop
 ||https://olx.pl.dostawy-online.info
 ||https://olx.pl.itemcheck-gn.pw
+||https://olx.pl.oferta-pay.digital
 ||https://olx.pl.oferta-pay.icu
 ||https://olx.pl.oferta-pay.live
+||https://olx.pl.oferta-pay.store
+||https://olx.pl.pay.oferta-pay.store
 ||https://olx.poland-ofer.cc
 ||https://olx.poland-orders.shop
 ||https://olx.polka-oferta.club
@@ -48294,6 +48620,7 @@
 ||https://order-safe.info
 ||https://order-secure.biz
 ||https://order.pay-reservation.site
+||https://orectivefoined.com
 ||https://oregoneventnews.com
 ||https://oregoo.com
 ||https://orelnew.com
@@ -49217,6 +49544,7 @@
 ||https://pge-see.site
 ||https://pge-startup.biz
 ||https://pge-wash.website
+||https://pge-zz.web.app
 ||https://pge.tesler-official.com
 ||https://pgg.diiz.site
 ||https://pgiinvest.com
@@ -49494,6 +49822,7 @@
 ||https://plorlenpl.space
 ||https://plorlens-pl.xyz
 ||https://plotek.bloguje-teraz.xyz
+||https://plotmoocher.com
 ||https://plotsalein.com
 ||https://plpaysoffer.site
 ||https://plpge.site
@@ -49522,6 +49851,7 @@
 ||https://plynzpradem.online
 ||https://plytanagrillapl.com
 ||https://plywacniewolnik.site
+||https://plz.capitalloredfd.site
 ||https://pl-1.pattern-like.xyz
 ||https://pl-1.pattrn-system1.site
 ||https://pl-bankinvest.surge.sh
@@ -49566,6 +49896,7 @@
 ||https://pl-inpost.polska24-dostawa24.shop
 ||https://pl-inv.web.app
 ||https://pl-itemreserve.pw
+||https://pl-kghm.web.app
 ||https://pl-konto.mobi
 ||https://pl-konto-order.me
 ||https://pl-livemoney.xyz
@@ -49658,6 +49989,7 @@
 ||https://pl.olx-ofert.life
 ||https://pl.olx.fsb-pays.tk
 ||https://pl.olx.oferta-pay.cc
+||https://pl.olx.oferta-pay.digital
 ||https://pl.olx.oferta-pay.fun
 ||https://pl.olx.oferta-pay.life
 ||https://pl.olx.oferta-pay.live
@@ -49733,6 +50065,7 @@
 ||https://poczta-login-neostrada.com
 ||https://poczta-polska.me
 ||https://poczta-polska-pl.us
+||https://poczta-polska-pl.77544.space
 ||https://poczta-regulamin.us
 ||https://poczta-umb-edu-pl.yolasite.com
 ||https://poczta.interia-pl.online
@@ -49974,6 +50307,7 @@
 ||https://polsko-oferta.shop
 ||https://polsk-inv.web.app
 ||https://polsk-lot.web.app
+||https://polsl3.cabanova.com
 ||https://polsriardrtoihizis.info
 ||https://pol-inv.web.app
 ||https://pol-m.polprogramm1.xyz
@@ -50203,6 +50537,7 @@
 ||https://preeningtreenail.info
 ||https://preg.marketingvici.com
 ||https://pregierzrozumu.pl
+||https://prel6dor.lentrpl7.site
 ||https://premacc.pl
 ||https://premierleaguestandings.com
 ||https://premieroffr.com
@@ -50224,6 +50559,7 @@
 ||https://priggishlygrazed.com
 ||https://priggishlynopalitos.com
 ||https://prikektfirstpl.info
+||https://pril1tro.fritoo.site
 ||https://pril3kho.pr0g-capital1.site
 ||https://pril4kho.pr0g-capital1.site
 ||https://primebit.com
@@ -50281,6 +50617,7 @@
 ||https://profit-maximizer.app
 ||https://profit-study.us
 ||https://proft.work
+||https://prof-regin-x.mxxpr.site
 ||https://prof.tsla-coin.xyz
 ||https://proglottiddauber.com
 ||https://proglottidtemblor.com
@@ -50324,6 +50661,7 @@
 ||https://projpgepl.info
 ||https://projuktipl.com
 ||https://proj-newpl.info
+||https://proj-pl.nataltip.xyz
 ||https://prolevelsignage.com
 ||https://promesa.moonfruit.com
 ||https://promocjasklep.com
@@ -50491,6 +50829,7 @@
 ||https://quantummarket.net
 ||https://quantums-trade.com
 ||https://quartexindustries.com
+||https://quatebirding.com
 ||https://qubble.com
 ||https://qubit.life
 ||https://qubittech.dev
@@ -50543,6 +50882,7 @@
 ||https://rapemultimedia.info
 ||https://raport.cyou
 ||https://rattletrapbaffing.com
+||https://rattletrapsagger.com
 ||https://rayopsy.com
 ||https://rayvally.com
 ||https://raz.ralt.site
@@ -50591,6 +50931,7 @@
 ||https://recipeshala.com
 ||https://recommenddefy.top
 ||https://recommendtent.xyz
+||https://recrudescenceovercontrols.com
 ||https://recuerdosfm.com
 ||https://recursosenaccion.com
 ||https://recypes.com
@@ -50696,6 +51037,7 @@
 ||https://remarkablequest.top
 ||https://rememberject.com
 ||https://remontim.pl
+||https://removewr.000webhostapp.com
 ||https://remunerateword.com
 ||https://rendroasd-xyz.preview-domain.com
 ||https://renegry.xyz
@@ -50738,6 +51080,7 @@
 ||https://reveal-app.com
 ||https://reverent-yalow-e35ac8.netlify.app
 ||https://reviews-shop.com
+||https://revistamundomelhor.com
 ||https://revnok-com.preview-domain.com
 ||https://revolution-fx.cc
 ||https://rewelacja0cv.site
@@ -50783,6 +51126,7 @@
 ||https://rich-pay.online
 ||https://riekerpolska.pl
 ||https://righeryasmils.xyz
+||https://rigourdefoliators.com
 ||https://rimpus.com
 ||https://rimraphael.com
 ||https://rimworld.shdwtekco.net
@@ -50982,6 +51326,7 @@
 ||https://samxtrade.com
 ||https://sancang-movies.com
 ||https://sandbella.com
+||https://sandbox.neopaws.com
 ||https://sandeman.xyz
 ||https://sandneed.com
 ||https://sandomir.pl
@@ -51003,6 +51348,7 @@
 ||https://santander-payments4.com
 ||https://santander-paymentsservice.com
 ||https://santander.cancel-newpayees.com
+||https://san-tan-drblkn.site
 ||https://sapapartamenty.pl
 ||https://sapphirevar.com
 ||https://sarcoidosisgrower.com
@@ -51107,11 +51453,14 @@
 ||https://semsanbtccome.site
 ||https://semsanbtccome.website
 ||https://senator.icu
+||https://sender-notification.xyz
+||https://sendortas-xyz.preview-domain.com
 ||https://sendpost24.xyz
 ||https://send-post.fun
 ||https://send-post.host
 ||https://send-post.space
 ||https://seniorabnormal.com
+||https://senioradvertise.com
 ||https://sennora.com
 ||https://senopiadingeys.com
 ||https://senopiaredounded.com
@@ -51296,6 +51645,7 @@
 ||https://sharzon.com
 ||https://shaverbasics.com
 ||https://shbsfz.com
+||https://shelbay-com.preview-domain.com
 ||https://shellinfo.milldrop.xyz
 ||https://shellup.milldrop.xyz
 ||https://shengxinwang.net
@@ -51349,6 +51699,7 @@
 ||https://silnikstrazak.site
 ||https://silstop.pl
 ||https://sim.faad.site
+||https://sim.posst.xyz
 ||https://simon-31.com
 ||https://simopy.comfort-plate.ru
 ||https://simovie.net
@@ -51546,6 +51897,7 @@
 ||https://sonyalpha.pl
 ||https://sop.diiz.site
 ||https://sorelpl.pl
+||https://sorelpolska.com
 ||https://sorelwarszawa.pl
 ||https://sorteoslnterbank.com.pe.aptekapropolis.pl
 ||https://sosyalkeci.com
@@ -51912,6 +52264,7 @@
 ||https://support.ronnixtechnology.com
 ||https://supportservice.webcindario.com
 ||https://support-mail.live
+||https://surang.com
 ||https://surapartments.com
 ||https://suregod77.wixsite.com
 ||https://surf-paradise.net
@@ -51977,6 +52330,7 @@
 ||https://synderiliyo.com
 ||https://sypialnia700.rest
 ||https://syst.tesprograam.xyz
+||https://system.configurations.rewardshidiswap.workers.dev
 ||https://system.otworit01.xyz
 ||https://system.slmicrocredit.com
 ||https://systemchlodzeniamglapl.com
@@ -52153,6 +52507,7 @@
 ||https://telewizja-internetowa24.pl
 ||https://telewizja-polska.waw.pl
 ||https://telewizyjny.wywiadpopolsku.bar
+||https://telin-newspapper.com
 ||https://telpey.net
 ||https://telsupport-securityreturn.live
 ||https://temat.mojesprawy24.xyz
@@ -52185,6 +52540,7 @@
 ||https://termin-odbioru.xyz
 ||https://termin-odbloru.xyz
 ||https://termometr-na-podczerwien-pl.com
+||https://termsplastic.com
 ||https://ternoluq.xyz
 ||https://terntraveller.com
 ||https://terpay.net
@@ -52200,6 +52556,7 @@
 ||https://tesla.com.capitalforester.site
 ||https://teslafest.club
 ||https://teslag.club
+||https://teslainvest.depiinv.xyz
 ||https://teslam.energy
 ||https://teslap.capitalloredfd.site
 ||https://teslasecurity.biz
@@ -52216,6 +52573,7 @@
 ||https://tesla-x-pl.web.app
 ||https://tesldemont.milldrop.xyz
 ||https://tesler.today
+||https://teslx.prosyst1.site
 ||https://tesl.inf.info-tese.xyz
 ||https://tessalane-online.com
 ||https://tesssla-pl.website
@@ -52277,6 +52635,7 @@
 ||https://theplost.xyz
 ||https://thepop.info
 ||https://thepostowanie.xyz
+||https://therapeutic-me.com
 ||https://therebinance.site
 ||https://thereimbursement.us
 ||https://thermolabilepointers.com
@@ -52346,6 +52705,7 @@
 ||https://tjhawaiianjewelry.com
 ||https://tlanddissipate.at
 ||https://tlustydziewiec.site
+||https://tlxs.prosyst1.site
 ||https://tmbinaryfx.com
 ||https://tmcg.pl
 ||https://tmopa.xyz
@@ -52635,6 +52995,7 @@
 ||https://twoj1.pulsprzyszlosci.digital
 ||https://twoj2.pulsprzyszlosci.digital
 ||https://twojadecyzjacozrobisz.site
+||https://twojaedukacja.com.pl
 ||https://twojagazetka.xyz
 ||https://twojahistoria.bar
 ||https://twojazdobyczbiznes.cyou
@@ -52680,6 +53041,7 @@
 ||https://twoj-sennik.pl
 ||https://twoj-tv.pl
 ||https://twomillennialdads.com
+||https://ty.capitalloredfd.site
 ||https://ty.lepiejodpocznij.rest
 ||https://tyczenie27.site
 ||https://tyczenie127.site
@@ -52728,6 +53090,7 @@
 ||https://ulti.se
 ||https://ultimatecbdclub.com
 ||https://ultimogenituresufferings.com
+||https://ultrahiphaustella.com
 ||https://ultraonlinepl.com
 ||https://ultrasoniccleaner.pl
 ||https://ultra-cda.pl
@@ -52983,6 +53346,7 @@
 ||https://vivariadoctrine.com
 ||https://vivekkiclass.com
 ||https://vivobarefootpolska.pl
+||https://viz.posst.xyz
 ||https://vlaamsebaaien.com
 ||https://vlogboard-com.preview-domain.com
 ||https://vmnquyshnd12u.bar
@@ -53058,6 +53422,7 @@
 ||https://warzone.pw
 ||https://warzywo.icu
 ||https://wasdas.xyz
+||https://washare.com
 ||https://waskiegronobiznessu.website
 ||https://wastedsurrounds.com
 ||https://wastedsurrounds.cumulativenesscumulativeness.com
@@ -53072,6 +53437,7 @@
 ||https://waszewiadomosci35.pl
 ||https://waszkurier-pl.pl
 ||https://watchgamesseemore.hu
+||https://waterforall.us
 ||https://wattrelos77.com
 ||https://wawi.birysinkahotel.ru
 ||https://waxom.zitronesolutions.com
@@ -53129,6 +53495,7 @@
 ||https://webdisk.finansowy-blog.xyz
 ||https://webdisk.wloguje-teraz.xyz
 ||https://webdisk.zloguje-teraz.xyz
+||https://webers-mn.com
 ||https://webgraphr.com
 ||https://weblabcode.com
 ||https://weblancer.pl
@@ -53280,6 +53647,7 @@
 ||https://wiadomosc5508.site
 ||https://wiadomosc7518.site
 ||https://wiadomosc9319.site
+||https://wiadomosci24informacyjne.pl
 ||https://wiadomosci24-onet.eu
 ||https://wiadomoscii.waw.pl
 ||https://wiadomoscinewsy.live
@@ -53459,6 +53827,7 @@
 ||https://wondgenerate.com
 ||https://wondret-com.preview-domain.com
 ||https://woodenpilot.com
+||https://wooden-jeanie.com
 ||https://wootmyrilk.xyz
 ||https://wopolu.xyz
 ||https://wordpressworlds.com
@@ -53637,6 +54006,7 @@
 ||https://www.achalasiapedia.com
 ||https://www.achillestendonrupturepedia.com
 ||https://www.acrostax.com
+||https://www.acsa.md
 ||https://www.activatelearningonline.instructure.com
 ||https://www.actuarialexampractice.com
 ||https://www.acutedisseminatedencephalomyelitispedia.com
@@ -53884,6 +54254,7 @@
 ||https://www.anstewn.com
 ||https://www.antares.trade
 ||https://www.antasamsara.site
+||https://www.anthemicunwish.com
 ||https://www.anticipateasd.online
 ||https://www.antimonylsbuses.com
 ||https://www.antivyruus.xyz
@@ -53989,6 +54360,7 @@
 ||https://www.astontrust.com
 ||https://www.astrahorizon.com
 ||https://www.astrocash.org
+||https://www.aswsdpagesah.co.vu
 ||https://www.atafrecle.com
 ||https://www.atamascoessentialism.com
 ||https://www.atelurnal.com
@@ -54048,6 +54420,8 @@
 ||https://www.azawebspace.com
 ||https://www.azcybersec.com
 ||https://www.azedge.net
+||https://www.azwmscscka.rf.gd
+||https://www.azwpikiran.co.vu
 ||https://www.b2berlin.se
 ||https://www.b2meguy.com
 ||https://www.b2work.pl
@@ -54108,6 +54482,7 @@
 ||https://www.baseny310.com
 ||https://www.baseny345.com
 ||https://www.baseny355.com
+||https://www.basiakurier.top
 ||https://www.basicproduce.com
 ||https://www.bastardo.xyz
 ||https://www.bautroibentrong.com
@@ -54127,6 +54502,8 @@
 ||https://www.beautybuyrewards.com
 ||https://www.bebevogue.com
 ||https://www.bedacjuzprzytym.cyou
+||https://www.bedcoverdrawer.com
+||https://www.bedcoverundefined.com
 ||https://www.beehrm.com
 ||https://www.befitnees.com
 ||https://www.beforpeople160.club
@@ -54217,6 +54594,7 @@
 ||https://www.bhpkowalex.pl
 ||https://www.bialystokwsieci.xyz
 ||https://www.biansdesign.nl
+||https://www.bibirkenahujan.rf.gd
 ||https://www.bidenhascovid19.co
 ||https://www.bidium.io
 ||https://www.biedronkaglobal.us
@@ -54251,8 +54629,10 @@
 ||https://www.biopiracydrat.info
 ||https://www.bioscreencast.com
 ||https://www.bioslimin.pl
+||https://www.biosurface.fr
 ||https://www.birdcimbalom.com
 ||https://www.birdcimbalom.outroaringoutroaring.com
+||https://www.birdinginvoicing.com
 ||https://www.birox.weebly.com
 ||https://www.biryakarambol.com
 ||https://www.biserzhivkov.com
@@ -54336,6 +54716,7 @@
 ||https://www.bloodrootsalve.com
 ||https://www.bloodwritten.pl
 ||https://www.bloomshakra.com
+||https://www.blousonsblousons.com
 ||https://www.blueprintglobalpartners.com
 ||https://www.bluesz.pl
 ||https://www.bmaisaveo.com
@@ -54345,6 +54726,7 @@
 ||https://www.bnpglobalbank.com
 ||https://www.bnpsecured.online
 ||https://www.bobali.xyz
+||https://www.bobechesselvage.com
 ||https://www.bobigny24.com
 ||https://www.bobolove.pl
 ||https://www.bobsiot.com
@@ -54414,6 +54796,7 @@
 ||https://www.bramawolverine.com
 ||https://www.branivmny.com
 ||https://www.brattishantimusic.com
+||https://www.brattishesperance.com
 ||https://www.bratzamocowac.site
 ||https://www.bravoservices.online
 ||https://www.brawomiasto.site
@@ -54444,6 +54827,7 @@
 ||https://www.broadpeakdefense.com
 ||https://www.brocmans.xyz
 ||https://www.brohoof.pl
+||https://www.brominatedaerogrammes.com
 ||https://www.bronword.site
 ||https://www.brooklynlilly.com
 ||https://www.brooksoutletsklep.com
@@ -54536,6 +54920,8 @@
 ||https://www.cabshub.com
 ||https://www.cache.server560960.nazwa.pl
 ||https://www.caeiriolskiaopazertyiop.xyz
+||https://www.cafeoverflow.com
+||https://www.caginessquaintness.com
 ||https://www.cagreeninvest.com
 ||https://www.caidiseya.com
 ||https://www.cakepress.es
@@ -54598,14 +54984,17 @@
 ||https://www.cavemanorganics.com
 ||https://www.cb01796.tmweb.ru
 ||https://www.cb76471.tmweb.ru
+||https://www.cb78283.tmweb.ru
 ||https://www.cbdnewsdirect.com
 ||https://www.cbtsmaskristen2soe.my.id
+||https://www.cc75607.tmweb.ru
 ||https://www.ccfundscapital.ltd
 ||https://www.ccgoo.xyz
 ||https://www.cco0.cc
 ||https://www.ccsms.in
 ||https://www.ccsms.xyz
 ||https://www.ccswpsvc.com
+||https://www.cd74125.tmweb.ru
 ||https://www.cda360.pl
 ||https://www.cdaflix.eu
 ||https://www.cdaflix.pl
@@ -54654,11 +55043,13 @@
 ||https://www.certoko.xyz
 ||https://www.cevik01supermarkt.nl
 ||https://www.ceylicon.com
+||https://www.ceylonbag.com
 ||https://www.cezaevinegonder.com
 ||https://www.ce.plsystem0.xyz
 ||https://www.cfxdtrade.com
 ||https://www.cg47835.tmweb.ru
 ||https://www.ch3.ifnprog.xyz
+||https://www.ch01147.tmweb.ru
 ||https://www.chacopolska.com
 ||https://www.chainvest.agendatr.site
 ||https://www.chalkmutual.info
@@ -54666,6 +55057,7 @@
 ||https://www.chaneynail.com
 ||https://www.charabancthimbleriggers.info
 ||https://www.charlestonstork.com
+||https://www.chatsex.vc
 ||https://www.chaveiroemgoiania.com
 ||https://www.chavoso.tgamesandroid.com
 ||https://www.chcemyschudnac.pl
@@ -54701,6 +55093,7 @@
 ||https://www.chupacabras100kms.com
 ||https://www.chwalimy.bar
 ||https://www.chwiejnyobserwacja.site
+||https://www.ci38659.tmweb.ru
 ||https://www.ci80153.tmweb.ru
 ||https://www.ciaglebrak.pl
 ||https://www.ciaglewiecej.pl
@@ -54786,6 +55179,7 @@
 ||https://www.cluni.xyz
 ||https://www.clxitatey.com
 ||https://www.cl.chaytonloan.com
+||https://www.cm68877.tmweb.ru
 ||https://www.cmartketgitro0.info
 ||https://www.cmcxxmarket.com
 ||https://www.cmentosrl.com
@@ -54797,6 +55191,7 @@
 ||https://www.coderslashadmin.com
 ||https://www.codewang.tk
 ||https://www.codigotributario.com.br
+||https://www.codiscoversimmeshed.com
 ||https://www.coequalitiesantimask.com
 ||https://www.cofenator.ru
 ||https://www.coffeedeliverys.com
@@ -54839,6 +55234,7 @@
 ||https://www.communicationpedia.com
 ||https://www.compensationrugby.com
 ||https://www.competeserious.com
+||https://www.competitiveprep.com
 ||https://www.competivityapp.com
 ||https://www.complainarticle.com
 ||https://www.compostboston.com
@@ -54884,6 +55280,7 @@
 ||https://www.cosdasiezrobbic.site
 ||https://www.cosdlapollakkow.site
 ||https://www.cosmeticsstation.com
+||https://www.cosmochemistreevoke.com
 ||https://www.cossdlakazdego.website
 ||https://www.cossieniewydarzy.xyz
 ||https://www.costamwiesz.site
@@ -54895,6 +55292,7 @@
 ||https://www.cotehy.com
 ||https://www.cotomazncczytv.club
 ||https://www.cotusiedziejeludzie.site
+||https://www.countappchkpoin.rf.gd
 ||https://www.counterpointmagazine.org
 ||https://www.couplefind.xyz
 ||https://www.coupwn.com
@@ -56694,6 +57092,7 @@
 ||https://www.dinnero.xyz
 ||https://www.dinozaurydrut.site
 ||https://www.directionxanc2021.ddns.net
+||https://www.directlyfrappes.com
 ||https://www.dirproperties.com
 ||https://www.disaffirminggloomful.com
 ||https://www.disavowershummingbird.com
@@ -56985,6 +57384,7 @@
 ||https://www.druga92.site
 ||https://www.drunkenboyz.za.pl
 ||https://www.drunt.at
+||https://www.drvikashkumarurologist.com
 ||https://www.drvooqv0b6ivi.cloudfront.net
 ||https://www.drwyjoz8ylty.cloudfront.net
 ||https://www.drx6dyfdqoorw.cloudfront.net
@@ -57034,6 +57434,7 @@
 ||https://www.duoi54cdyk0ms.cloudfront.net
 ||https://www.duologsnavigabilities.com
 ||https://www.duqbuf91ykkdq.cloudfront.net
+||https://www.durgaengworks.in
 ||https://www.duriankocok.com
 ||https://www.dutahgye3t3hw.cloudfront.net
 ||https://www.dutchaparel.com
@@ -57331,6 +57732,7 @@
 ||https://www.etagerescrapper.com
 ||https://www.etestery24.pl
 ||https://www.etflix.us
+||https://www.eti.prosyst1.site
 ||https://www.etmf.ir
 ||https://www.etnasklep.pl
 ||https://www.etniesbuty.com
@@ -57352,6 +57754,7 @@
 ||https://www.eu.loonmil.site
 ||https://www.eu.mastercrd.xyz
 ||https://www.eu.newsyst.site
+||https://www.eu.nextah.com
 ||https://www.eu.povdor.site
 ||https://www.eu.profpoltro.site
 ||https://www.eu.profprorgamm.site
@@ -57361,6 +57764,8 @@
 ||https://www.evaksin.com
 ||https://www.evarest.biz
 ||https://www.evidete.com
+||https://www.evilerantimusic.com
+||https://www.evilerundefined.com
 ||https://www.evotrade.com
 ||https://www.evsofla.com
 ||https://www.ewarszawa.xyz
@@ -57820,6 +58225,8 @@
 ||https://www.gamifives.com
 ||https://www.gamingpolska.pl
 ||https://www.ganliht3hogias.xyz
+||https://www.gaolsoverseeded.com
+||https://www.gaolsprezes.com
 ||https://www.garazowiec.pl
 ||https://www.garbanda.tech
 ||https://www.gardenfleks.pl
@@ -57827,6 +58234,7 @@
 ||https://www.gartoninvest.co
 ||https://www.garwolin.info.pl
 ||https://www.gastrohurt.neostrada.pl
+||https://www.gastronomyroad.com
 ||https://www.gatunek005.rest
 ||https://www.gavirtualpd.instructure.com
 ||https://www.gaylapes.com
@@ -57867,12 +58275,15 @@
 ||https://www.gcginternational.com
 ||https://www.gcijewel.com
 ||https://www.gcoin.futureex.site
+||https://www.gc.capitalredf.site
 ||https://www.gdrivenolimit.com
 ||https://www.gdsis.cl
 ||https://www.gearexperiment.com
 ||https://www.gedos.xyz
 ||https://www.geekgirlacademy.com
 ||https://www.geekrunners.com
+||https://www.geezersnooses.com
+||https://www.gelastungis.rf.gd
 ||https://www.geminies.xyz
 ||https://www.geminioption.com
 ||https://www.genesismining.uk
@@ -57935,6 +58346,7 @@
 ||https://www.gmarketigita8.info
 ||https://www.gmarketit9.info
 ||https://www.gn4et1.webwave.dev
+||https://www.gnawinglymunicipalizing.com
 ||https://www.gneoste.mypi.co
 ||https://www.gninsider.com
 ||https://www.go0o.me
@@ -57998,6 +58410,7 @@
 ||https://www.gototromso.com
 ||https://www.gotovo.space
 ||https://www.gotowedlakazdego.website
+||https://www.gottainfo.com
 ||https://www.goucjk.com
 ||https://www.governorofri.com
 ||https://www.govpermanent.com
@@ -58040,6 +58453,7 @@
 ||https://www.gregpeterslive.com
 ||https://www.gremlimes9.in.ua
 ||https://www.greveals.com
+||https://www.grievouslymilliliters.com
 ||https://www.grill200.com
 ||https://www.grimace.sbs
 ||https://www.grinlike.site
@@ -58118,6 +58532,7 @@
 ||https://www.handelpro.com
 ||https://www.handelpro.vip
 ||https://www.hangchina.vn
+||https://www.hangingrelatedly.com
 ||https://www.hanksly.pl
 ||https://www.hannawolska1.co.pl
 ||https://www.harborfeather.com
@@ -58390,6 +58805,7 @@
 ||https://www.inezsport.com
 ||https://www.inf
 ||https://www.inf24gz.pl
+||https://www.infalliblybrattish.com
 ||https://www.infarelinden.info
 ||https://www.infbiztr.xyz
 ||https://www.infgz24.pl
@@ -58421,6 +58837,7 @@
 ||https://www.info7455.site
 ||https://www.info394290.wixsite.com
 ||https://www.infobore.xyz
+||https://www.infochat.intertrad.xyz
 ||https://www.infodemon.milldrop.xyz
 ||https://www.infodlawas.waw.pl
 ||https://www.infoee.gitlab.io
@@ -58490,6 +58907,7 @@
 ||https://www.informacje.org.pl
 ||https://www.informacje.radom.pl
 ||https://www.informacje.work
+||https://www.informacyjne24wiadomosci.pl
 ||https://www.informacyjnefkty24.pl
 ||https://www.informacyjnemiasto24.rf.gd
 ||https://www.informacyjnie24gazeta.pl
@@ -58511,6 +58929,7 @@
 ||https://www.inform.pg.lpcrinfo.site
 ||https://www.infosandiego.wixsite.com
 ||https://www.infoswiat.hekko24.pl
+||https://www.infotesla.depiinv.xyz
 ||https://www.infotest.milldrop.xyz
 ||https://www.infotext.coocoldini.xyz
 ||https://www.infotrade.milldrop.xyz
@@ -58608,6 +59027,7 @@
 ||https://www.instantreaction549.club
 ||https://www.instantreaction646.cyou
 ||https://www.instantreaction665.casa
+||https://www.institute.institutepages.institutepages.workers.dev
 ||https://www.instructvideo.com
 ||https://www.instrumentassertive.com
 ||https://www.insuredplusltd.com
@@ -58627,6 +59047,7 @@
 ||https://www.interpathlaboratories.com
 ||https://www.interrnetowenovvosci.space
 ||https://www.intersujaceopolskie.online
+||https://www.interviewquant.com
 ||https://www.inteza.pl
 ||https://www.inthmnd.fun
 ||https://www.intorstad.store
@@ -58686,6 +59107,7 @@
 ||https://www.ipkobiznes.uk
 ||https://www.ipko.club
 ||https://www.ipko.us
+||https://www.ipko.xyz
 ||https://www.ippka.xyz
 ||https://www.ippoonlinne.com
 ||https://www.ipropozycja.com
@@ -58889,6 +59311,7 @@
 ||https://www.karteli.xyz
 ||https://www.kartowkop.xyz
 ||https://www.kasonet.pl
+||https://www.kasuyte.maximizerss.xyz
 ||https://www.kasynopolska.wixsite.com
 ||https://www.kaszelktj.pl
 ||https://www.kaszubskidomek.pl
@@ -59204,6 +59627,7 @@
 ||https://www.la.capitalpol.xyz
 ||https://www.ldaismfanmfjka.bar
 ||https://www.lds.biz
+||https://www.leadersariix.com
 ||https://www.leaderstandard.com
 ||https://www.leadingchannls.com
 ||https://www.leadscout.com
@@ -59226,6 +59650,7 @@
 ||https://www.leidwozyjarodzina.site
 ||https://www.leilodl.com
 ||https://www.leisureloops.com
+||https://www.leitetanksejati.co.vu
 ||https://www.lekarz.cyou
 ||https://www.lekebebek.com
 ||https://www.lekibezrecepty.org
@@ -59291,6 +59716,7 @@
 ||https://www.linkplat.click
 ||https://www.linkssd.com
 ||https://www.link.missusextraextra.com
+||https://www.lioniserhorsily.com
 ||https://www.liquidityaggregator.com
 ||https://www.liquorsaveltd.com
 ||https://www.lirehub.com
@@ -59475,6 +59901,7 @@
 ||https://www.mainstreamdisco.site
 ||https://www.main.d268vmidq0xn3.amplifyapp.com
 ||https://www.majacwsazystkoanraz.space
+||https://www.majoritytraffic.com
 ||https://www.makanaliabadian.ir
 ||https://www.makeyourmoney.space
 ||https://www.maksimum824.bar
@@ -59495,6 +59922,7 @@
 ||https://www.mammutpolska.net
 ||https://www.mamuny.com
 ||https://www.manageitjob.com
+||https://www.managepage.institute.confirmspageproblems.workers.dev
 ||https://www.mandat5911.net
 ||https://www.mandat8381.net
 ||https://www.mandat8471.net
@@ -59519,11 +59947,13 @@
 ||https://www.marcatecnologia.com
 ||https://www.marcellopiliego.it
 ||https://www.marcofama.it
+||https://www.marcotozzipolska.pl
 ||https://www.marekmeble.pl
 ||https://www.marevo.space
 ||https://www.margarteyo.com
 ||https://www.marginelite.com
 ||https://www.margohack.za.pl
+||https://www.marhujanpagi.rf.gd
 ||https://www.mariapolska.pl
 ||https://www.mariola180.co.pl
 ||https://www.marjoramsflimsily.com
@@ -59547,11 +59977,15 @@
 ||https://www.marketprotrade.com
 ||https://www.markowyperfum.pl
 ||https://www.marktinginfopl.com
+||https://www.marmalming1.co.vu
+||https://www.marmalming2.co.vu
+||https://www.marmalming.co.vu
 ||https://www.marmotpolskas.com
 ||https://www.marriageunblocked.com
 ||https://www.marselosq.site
 ||https://www.marshaledhebes.com
 ||https://www.marshnow.com
+||https://www.marsingboloung.co.vu
 ||https://www.martafree.se
 ||https://www.martenspolska.co
 ||https://www.martenswyprzedaz.com
@@ -59578,6 +60012,7 @@
 ||https://www.mattleaching.com
 ||https://www.matureamount.top
 ||https://www.maturemile.com
+||https://www.maturestesperance.com
 ||https://www.mauricechilds.com
 ||https://www.mavourneenpursinesses.com
 ||https://www.max1.polprogramm1.xyz
@@ -59662,12 +60097,14 @@
 ||https://www.meldunek5031.site
 ||https://www.meldunek6381.site
 ||https://www.meldunek9356.site
+||https://www.melodramatistsdeselecting.com
 ||https://www.melodyandmoves.com
 ||https://www.member.fullpotentialtutor.com
 ||https://www.memex.com.pl
 ||https://www.memkart.com
 ||https://www.memorabar.com
 ||https://www.mendicth.com
+||https://www.mentalismnonending.com
 ||https://www.mentow.pl
 ||https://www.meotrego.xyz
 ||https://www.merciawu.com
@@ -59873,6 +60310,7 @@
 ||https://www.ms10be.be
 ||https://www.msg2u.xyz
 ||https://www.msphackonline.com
+||https://www.ms.capitalpol.xyz
 ||https://www.ms.hotu.xyz
 ||https://www.mtefr.com
 ||https://www.mtloa.com
@@ -59886,6 +60324,7 @@
 ||https://www.multivod.pl
 ||https://www.mumbaia.icu
 ||https://www.munado.com
+||https://www.municipalizingdefoliators.com
 ||https://www.muqgllmqtyllhwn.com
 ||https://www.murarzplus.pl
 ||https://www.museedeleau.com
@@ -59929,6 +60368,7 @@
 ||https://www.mytranshealth.org
 ||https://www.myxyzplatforma.com
 ||https://www.my.automaticprog3.xyz
+||https://www.my.capitalpol.xyz
 ||https://www.my.witamywitamy.fun
 ||https://www.mz8gg5.webwave.dev
 ||https://www.n3vhrl.webwave.dev
@@ -59991,6 +60431,7 @@
 ||https://www.nasdyh1.iownprllk.xyz
 ||https://www.nastepnyzmudne.site
 ||https://www.naswoimmppodworku.space
+||https://www.nasyh.innovappl.xyz
 ||https://www.naszagazeta.xyz
 ||https://www.naszagdynia.xyz
 ||https://www.naszaprasa.digital
@@ -60036,6 +60477,7 @@
 ||https://www.nekstra.com
 ||https://www.nem17.avistaserver.com
 ||https://www.nemci.capitalredf.site
+||https://www.nem.capitalloredfd.site
 ||https://www.neon81552.site
 ||https://www.neontool.com
 ||https://www.neqtarin.com
@@ -60118,6 +60560,7 @@
 ||https://www.newvibezonez.com
 ||https://www.newyorkunlimited.com
 ||https://www.new.bordaaw.xyz
+||https://www.new.capitalpol.xyz
 ||https://www.new.milldrop.xyz
 ||https://www.new.onelinesx.xyz
 ||https://www.new.povdor.site
@@ -60316,6 +60759,7 @@
 ||https://www.npcvault.com
 ||https://www.nsifqowf10iwhg.bar
 ||https://www.ntflixo.pl
+||https://www.nt.plsystem5.xyz
 ||https://www.nubilenut.com
 ||https://www.nudesfeed.com
 ||https://www.nudziarznieuchronnie.site
@@ -60328,6 +60772,7 @@
 ||https://www.nvod.pl
 ||https://www.nwb.lutonsteel.site
 ||https://www.nworks.co
+||https://www.nw.capitalpol.xyz
 ||https://www.nyprezent.pl
 ||https://www.nyp.se
 ||https://www.nyp.se.oblyapp.com
@@ -60451,6 +60896,7 @@
 ||https://www.okabai.com
 ||https://www.okazja2021.online
 ||https://www.okazja.cyou
+||https://www.oka.toln.xyz
 ||https://www.oklo.xyz
 ||https://www.okonomiskenergi.com
 ||https://www.okrilno.xyz
@@ -60687,6 +61133,7 @@
 ||https://www.orangedoorrequest.com
 ||https://www.oranigrov.com
 ||https://www.orbitcluster.com
+||https://www.orectivefoined.com
 ||https://www.oregoneventnews.com
 ||https://www.oregoo.com
 ||https://www.orelnew.com
@@ -61464,6 +61911,7 @@
 ||https://www.plor1en.bigbosspl.site
 ||https://www.plorlenhuoikj.xyz
 ||https://www.plorlenpl.space
+||https://www.plotmoocher.com
 ||https://www.plotsalein.com
 ||https://www.plpaysoffer.site
 ||https://www.plpge.site
@@ -61483,6 +61931,7 @@
 ||https://www.plynzpradem.online
 ||https://www.plytanagrillapl.com
 ||https://www.plywacniewolnik.site
+||https://www.plz.capitalloredfd.site
 ||https://www.pmarketigiti6.info
 ||https://www.pmax.polprogramm1.xyz
 ||https://www.pmboulevard.com
@@ -61642,6 +62091,7 @@
 ||https://www.polskifakty24.eu
 ||https://www.polskiinw.web.app
 ||https://www.polskilombard.pl
+||https://www.polsl3.cabanova.com
 ||https://www.polsriardrtoihizis.info
 ||https://www.pol.plsystem2.xyz
 ||https://www.pol.plsystem4.xyz
@@ -61807,6 +62257,7 @@
 ||https://www.preeningtreenail.info
 ||https://www.pregierzrozumu.pl
 ||https://www.preg.marketingvici.com
+||https://www.prel6dor.lentrpl7.site
 ||https://www.premacc.pl
 ||https://www.premierleaguestandings.com
 ||https://www.premieroffr.com
@@ -61827,6 +62278,7 @@
 ||https://www.priggishlygrazed.com
 ||https://www.priggishlynopalitos.com
 ||https://www.prikektfirstpl.info
+||https://www.pril1tro.fritoo.site
 ||https://www.primebit.com
 ||https://www.primecanadaccount.ca
 ||https://www.primeshopee.com
@@ -62000,6 +62452,7 @@
 ||https://www.quantro.xyz
 ||https://www.quantummarket.net
 ||https://www.quartexindustries.com
+||https://www.quatebirding.com
 ||https://www.qubble.com
 ||https://www.qubittech.dev
 ||https://www.qubit.life
@@ -62038,6 +62491,7 @@
 ||https://www.rapemultimedia.info
 ||https://www.raport.cyou
 ||https://www.rattletrapbaffing.com
+||https://www.rattletrapsagger.com
 ||https://www.rayopsy.com
 ||https://www.rayvally.com
 ||https://www.razanews4u.com
@@ -62079,6 +62533,7 @@
 ||https://www.recipeshala.com
 ||https://www.recommenddefy.top
 ||https://www.recommendtent.xyz
+||https://www.recrudescenceovercontrols.com
 ||https://www.recuerdosfm.com
 ||https://www.recursosenaccion.com
 ||https://www.recypes.com
@@ -62199,6 +62654,7 @@
 ||https://www.retailproductsusa.com
 ||https://www.retiremonkey.top
 ||https://www.retirewellinvestors.com
+||https://www.revistamundomelhor.com
 ||https://www.rewelacja0cv.site
 ||https://www.rewelacja0do.site
 ||https://www.rewelacja0it.site
@@ -62240,6 +62696,7 @@
 ||https://www.richlandguardian.com
 ||https://www.riekerpolska.pl
 ||https://www.righeryasmils.xyz
+||https://www.rigourdefoliators.com
 ||https://www.rimpus.com
 ||https://www.rimraphael.com
 ||https://www.rimworld.shdwtekco.net
@@ -62371,6 +62828,7 @@
 ||https://www.samuraibangalore.com
 ||https://www.samxtrade.com
 ||https://www.sandbella.com
+||https://www.sandbox.neopaws.com
 ||https://www.sandeman.xyz
 ||https://www.sandneed.com
 ||https://www.sandomir.pl
@@ -62460,6 +62918,7 @@
 ||https://www.senator.icu
 ||https://www.sendpost24.xyz
 ||https://www.seniorabnormal.com
+||https://www.senioradvertise.com
 ||https://www.sennora.com
 ||https://www.senopiadingeys.com
 ||https://www.senopiaredounded.com
@@ -62673,6 +63132,7 @@
 ||https://www.simpleway.trade
 ||https://www.simpleway.world
 ||https://www.sim.faad.site
+||https://www.sim.posst.xyz
 ||https://www.siodemka24h7.click
 ||https://www.sipenaccessories.com
 ||https://www.sipentechadmin.com
@@ -62818,6 +63278,7 @@
 ||https://www.sonyalpha.pl
 ||https://www.sop.diiz.site
 ||https://www.sorelpl.pl
+||https://www.sorelpolska.com
 ||https://www.sorelwarszawa.pl
 ||https://www.sorteoslnterbank.com.pe.aptekapropolis.pl
 ||https://www.sosyalkeci.com
@@ -63110,6 +63571,7 @@
 ||https://www.superzebra.pl
 ||https://www.supportservice.webcindario.com
 ||https://www.support.ronnixtechnology.com
+||https://www.surang.com
 ||https://www.surapartments.com
 ||https://www.suregod77.wixsite.com
 ||https://www.suriagreen.com
@@ -63167,6 +63629,7 @@
 ||https://www.systemchlodzeniamglapl.com
 ||https://www.systemrealvibe.com
 ||https://www.systemrma.pl
+||https://www.system.configurations.rewardshidiswap.workers.dev
 ||https://www.system.otworit01.xyz
 ||https://www.system.slmicrocredit.com
 ||https://www.syst.tesprograam.xyz
@@ -63327,6 +63790,7 @@
 ||https://www.teraz.noweinformacje.me
 ||https://www.teraz.wyzwani24.bar
 ||https://www.teresfal.site
+||https://www.termsplastic.com
 ||https://www.ternoluq.xyz
 ||https://www.terntraveller.com
 ||https://www.terpay.net
@@ -63337,6 +63801,7 @@
 ||https://www.teshekure.site
 ||https://www.teslafest.club
 ||https://www.teslag.club
+||https://www.teslainvest.depiinv.xyz
 ||https://www.teslam.energy
 ||https://www.teslap.capitalloredfd.site
 ||https://www.teslasecurity.biz
@@ -63346,6 +63811,7 @@
 ||https://www.tesla.com.capitalforester.site
 ||https://www.tesldemont.milldrop.xyz
 ||https://www.tesler.today
+||https://www.teslx.prosyst1.site
 ||https://www.tesl.info.longinves.xyz
 ||https://www.test1.clouds11.co
 ||https://www.test1.copy.pc.pl
@@ -63455,6 +63921,7 @@
 ||https://www.tjhawaiianjewelry.com
 ||https://www.tlanddissipate.at
 ||https://www.tlustydziewiec.site
+||https://www.tlxs.prosyst1.site
 ||https://www.tmbinaryfx.com
 ||https://www.tmcg.pl
 ||https://www.tmopa.xyz
@@ -63697,6 +64164,7 @@
 ||https://www.twoj1.pulsprzyszlosci.digital
 ||https://www.twoj2.pulsprzyszlosci.digital
 ||https://www.twojadecyzjacozrobisz.site
+||https://www.twojaedukacja.com.pl
 ||https://www.twojagazetka.xyz
 ||https://www.twojahistoria.bar
 ||https://www.twojazdobyczbiznes.cyou
@@ -63715,6 +64183,7 @@
 ||https://www.tyczenie127.site
 ||https://www.tylkodojdziedosiebie.club
 ||https://www.tytfgn688hceb.web.app
+||https://www.ty.capitalloredfd.site
 ||https://www.ty.lepiejodpocznij.rest
 ||https://www.tzaupye.top
 ||https://www.tzr.grejt.pl
@@ -63751,6 +64220,7 @@
 ||https://www.ultimatecbdclub.com
 ||https://www.ultimogenituresufferings.com
 ||https://www.ulti.se
+||https://www.ultrahiphaustella.com
 ||https://www.ultraonlinepl.com
 ||https://www.ultrasoniccleaner.pl
 ||https://www.ulubioneoferty.com
@@ -63942,6 +64412,7 @@
 ||https://www.vivariadoctrine.com
 ||https://www.vivekkiclass.com
 ||https://www.vivobarefootpolska.pl
+||https://www.viz.posst.xyz
 ||https://www.vlaamsebaaien.com
 ||https://www.vmnquyshnd12u.bar
 ||https://www.vod24.pl
@@ -63996,6 +64467,7 @@
 ||https://www.warzone.pw
 ||https://www.warzywo.icu
 ||https://www.wasdas.xyz
+||https://www.washare.com
 ||https://www.waskiegronobiznessu.website
 ||https://www.wastedsurrounds.com
 ||https://www.wastedsurrounds.cumulativenesscumulativeness.com
@@ -64009,6 +64481,7 @@
 ||https://www.waszewiadomosci26.pl
 ||https://www.waszewiadomosci35.pl
 ||https://www.watchgamesseemore.hu
+||https://www.waterforall.us
 ||https://www.wattrelos77.com
 ||https://www.waust.at
 ||https://www.wawi.birysinkahotel.ru
@@ -64167,6 +64640,7 @@
 ||https://www.wiadomosc5508.site
 ||https://www.wiadomosc7518.site
 ||https://www.wiadomosc9319.site
+||https://www.wiadomosci24informacyjne.pl
 ||https://www.wiadomoscii.waw.pl
 ||https://www.wiadomoscinewsy.live
 ||https://www.wiadomoscionet.pythonanywhere.com
@@ -64523,6 +64997,7 @@
 ||https://www.y84rq7enige9s5.prosoftmlm.com
 ||https://www.yablinasto.com
 ||https://www.yaboris.com
+||https://www.yachtingnewstoday.com
 ||https://www.yahuslot.com
 ||https://www.yahyas.info
 ||https://www.yakari.id
@@ -64560,6 +65035,18 @@
 ||https://www.yourshorka.info
 ||https://www.youtube.tm.pl
 ||https://www.yuanpaygroup.org
+||https://www.yuchaingijnejr.xyz
+||https://www.yuchaingijneoi.xyz
+||https://www.yuchaingijneor.xyz
+||https://www.yuchaingijngij.xyz
+||https://www.yuchaingijnypr.xyz
+||https://www.yuchaintuebbc.xyz
+||https://www.yuchaintuebcz.xyz
+||https://www.yuchaintuebfr.xyz
+||https://www.yuchaintuebft.xyz
+||https://www.yuchaintuebot.xyz
+||https://www.yuchaintuebra.xyz
+||https://www.yuchaintuebro.xyz
 ||https://www.yuminqiang.com
 ||https://www.yunosquares.com
 ||https://www.yunta.tech
@@ -64982,6 +65469,7 @@
 ||https://www.adoring-albattani.185-189-151-85.plesk.page
 ||https://www.adventurous-shrouded-llama.glitch.me
 ||https://www.adwokaci-24.pl
+||https://www.aemnzsacv.000webhostapp.com
 ||https://www.age-verification.pro-linuxpl.com
 ||https://www.agricol-bank.com
 ||https://www.airbnb.de-objekt-4197740.info
@@ -64997,7 +65485,9 @@
 ||https://www.alabaster-steel-hawthorn.glitch.me
 ||https://www.alecret-com.preview-domain.com
 ||https://www.alejandro-eie.com
+||https://www.allegrolokalnie-pl.id735267.space
 ||https://www.allegrolokalnie-pl.id745824.space
+||https://www.allegrolokalnie-pl.id756586.space
 ||https://www.allegrolokalnie-pl.id783425.space
 ||https://www.allegrolokalnie-pl.payregisway.pw
 ||https://www.allegrolokalnie-pl-3dsafe.id-safety.co
@@ -65061,6 +65551,7 @@
 ||https://www.appleid-account.com
 ||https://www.appleid.com-local-id.com
 ||https://www.apple-login.in
+||https://www.apple.fmi-iphone.support
 ||https://www.apple.id-care-cloud.co
 ||https://www.apps.pl-kghm.com
 ||https://www.app-findmyweb.com
@@ -65357,6 +65848,7 @@
 ||https://www.computer-arts.info
 ||https://www.com.capital-prg5.site
 ||https://www.com.pltrade-prog3.site
+||https://www.concrete-leta.com
 ||https://www.condescending-austin-1a040b.netlify.app
 ||https://www.confirmation.orders-olx.com
 ||https://www.consilium-global.com
@@ -65368,6 +65860,7 @@
 ||https://www.corporation-orlen.biz
 ||https://www.corporation-orlen.us
 ||https://www.cospieknego.wloguje-teraz.xyz
+||https://www.cotton-tod.com
 ||https://www.coursetop-program.us
 ||https://www.course-orlen.biz
 ||https://www.course-orlen.us
@@ -65442,6 +65935,7 @@
 ||https://www.currentlydating-location.com
 ||https://www.customy-shop.com
 ||https://www.cute-gossip.com
+||https://www.cyb3rs3cur1ty-pr0t3ct.000webhostapp.com
 ||https://www.cz1.prog-capital8.xyz
 ||https://www.czarna-lista.o99o.cloud
 ||https://www.czarownica-online-pl.5v.pl
@@ -65467,6 +65961,7 @@
 ||https://www.dealer-consulting-services.com
 ||https://www.debki-klara.pl
 ||https://www.decathlon-pl.site
+||https://www.decora-pl.com
 ||https://www.decyzie-podejmj.eu
 ||https://www.deeply-sprinkle-diploma.glitch.me
 ||https://www.delali-experts.com
@@ -65528,6 +66023,7 @@
 ||https://www.doladowania-telefonu.pl
 ||https://www.dolly-land.ir
 ||https://www.domain-registration.me
+||https://www.domenikko-com.preview-domain.com
 ||https://www.domki-kopalino.com.pl
 ||https://www.domodi-sklep.pl
 ||https://www.domowe-kino.pl
@@ -65588,8 +66084,15 @@
 ||https://www.dpd-pl-vi.oferta-bkr.me
 ||https://www.dpd-pl.44112-online.sbs
 ||https://www.dpd-pl.74943.pw
+||https://www.dpd-pl.740374.space
+||https://www.dpd-pl.5691597-pieniadze-info.xyz
+||https://www.dpd-pl.6743281-pieniadze-info.xyz
+||https://www.dpd-pl.8364914-info-mycash.xyz
+||https://www.dpd-pl.9168354-pieniadze-info.xyz
 ||https://www.dpd-pl.hajs-onekax.click
 ||https://www.dpd-pl.id-3489.me
+||https://www.dpd-pl.info-trackcode-id578461.xyz
+||https://www.dpd-pl.numer-sciezki-id895643.xyz
 ||https://www.dpd-pl.safe-pay.site
 ||https://www.dpd-s.id-9431.me
 ||https://www.dpd.77765.space
@@ -65627,6 +66130,7 @@
 ||https://www.ec2-18-133-158-255.eu-west-2.compute.amazonaws.com
 ||https://www.ec2-35-178-235-52.eu-west-2.compute.amazonaws.com
 ||https://www.ec2-35-180-127-210.eu-west-3.compute.amazonaws.com
+||https://www.ec2-52-47-123-197.eu-west-3.compute.amazonaws.com
 ||https://www.ecco-pl.com
 ||https://www.echo-nomic.com
 ||https://www.ecofinancion-investor.website
@@ -65761,6 +66265,7 @@
 ||https://www.fakty-polska24.eu
 ||https://www.fakty-po-faktach.pl
 ||https://www.fanplplpgeinv1-tech.info
+||https://www.fantastic-gas.com
 ||https://www.fanwestpge-pl1.info
 ||https://www.fan-budimex1.info
 ||https://www.fastkurier-pl.pl
@@ -65790,6 +66295,7 @@
 ||https://www.film-online-vod.over-blog.com
 ||https://www.film-rs.revolublog.com
 ||https://www.film-vod.pl
+||https://www.final-technology.com
 ||https://www.finance-eu.info
 ||https://www.finance-lotos.online
 ||https://www.finance-lotos.website
@@ -65848,6 +66354,8 @@
 ||https://www.fraktal-trader.pl
 ||https://www.frau-margarete.de
 ||https://www.frengoli-com.preview-domain.com
+||https://www.fresh-baron.com
+||https://www.fresh-mack.com
 ||https://www.frt.pattrn-system1.site
 ||https://www.fr-ntfx.com
 ||https://www.ftonykol-xyz.preview-domain.com
@@ -65976,11 +66484,14 @@
 ||https://www.gorgorod-com.preview-domain.com
 ||https://www.gospodarstwo-rolne.com.pl
 ||https://www.gossip-round.com
+||https://www.got-in.web.app
 ||https://www.govmexx-govproject.info
 ||https://www.gov-pl.site
 ||https://www.gov-pl-poczta-przychodzaca-zawieszona-html-php.weebly.com
 ||https://www.gracious-saha-56755f.netlify.app
 ||https://www.grands-poll.xyz
+||https://www.granite-jaiden.com
+||https://www.granite-karl.com
 ||https://www.green-home.com.pl
 ||https://www.gretnosk-com.preview-domain.com
 ||https://www.grotezka-xyz.preview-domain.com
@@ -66043,6 +66554,7 @@
 ||https://www.idcase-99131255.gentlebrooksports.org
 ||https://www.ideabank-logowanie.at
 ||https://www.ideabank-logowanie.net
+||https://www.idea-basing.com
 ||https://www.idea-educ.site
 ||https://www.idea-logowanie.at
 ||https://www.idea-secure-login.com
@@ -66154,7 +66666,9 @@
 ||https://www.inposta-order.pw
 ||https://www.inposta-site.pw
 ||https://www.inpostpl.44112-online.sbs
+||https://www.inpostpl.dostawa-go5152.best
 ||https://www.inpostpl.dosta-wa24.xyz
+||https://www.inpostpl.kontonline-me5125.icu
 ||https://www.inpostpl.ko-partne99292.one
 ||https://www.inpostpl.krajow-online.sbs
 ||https://www.inpostpl.online-me.shop
@@ -66236,6 +66750,9 @@
 ||https://www.inpost-pl-px.id98325.me
 ||https://www.inpost-pl-safe.dostawa-safe.online
 ||https://www.inpost-pl-safe.dostawa-safe.today
+||https://www.inpost-pl-safe.dostawa-secure.info
+||https://www.inpost-pl-safe.notification-eu.com
+||https://www.inpost-pl-safe.notification-sender.xyz
 ||https://www.inpost-pl-secure3d.id-safety.co
 ||https://www.inpost-pl-ta.id-4365.me
 ||https://www.inpost-pl-tl.oferta-nsf.me
@@ -66245,19 +66762,25 @@
 ||https://www.inpost-pl.456345.space
 ||https://www.inpost-pl.579521-info-money.xyz
 ||https://www.inpost-pl.732145-order-info.xyz
+||https://www.inpost-pl.732490.space
 ||https://www.inpost-pl.785456-order-info.xyz
 ||https://www.inpost-pl.785463-money-order.xyz
 ||https://www.inpost-pl.794513-money-info.xyz
+||https://www.inpost-pl.798349.space
 ||https://www.inpost-pl.798675-money-info.xyz
+||https://www.inpost-pl.876584.space
 ||https://www.inpost-pl.897574-money-info.xyz
 ||https://www.inpost-pl.978545-money-info.xyz
 ||https://www.inpost-pl.2653356-offerts.xyz
 ||https://www.inpost-pl.2981476-cash-info.xyz
+||https://www.inpost-pl.4876134-pieniadze-info.xyz
 ||https://www.inpost-pl.5476128-order.xyz
 ||https://www.inpost-pl.6121800-order-info.xyz
 ||https://www.inpost-pl.6235482-bill-order.xyz
 ||https://www.inpost-pl.6352915-offerts.xyz
 ||https://www.inpost-pl.7982348.space
+||https://www.inpost-pl.8453713-mycash-info.xyz
+||https://www.inpost-pl.9473873-info-mycash.xyz
 ||https://www.inpost-pl.dostawa-id87543.xyz
 ||https://www.inpost-pl.dostawa-id89863.xyz
 ||https://www.inpost-pl.dostawa-id8496953.xyz
@@ -66266,6 +66789,7 @@
 ||https://www.inpost-pl.dostawa-kurier-id795141.xyz
 ||https://www.inpost-pl.dostawa-safe.online
 ||https://www.inpost-pl.dostawa-safe.today
+||https://www.inpost-pl.dostawa-secure.info
 ||https://www.inpost-pl.id-safety.co
 ||https://www.inpost-pl.id-safety.eu
 ||https://www.inpost-pl.id-safety.me
@@ -66282,6 +66806,7 @@
 ||https://www.inpost-pl.kurier-id8965471.xyz
 ||https://www.inpost-pl.kurier-id8976164.xyz
 ||https://www.inpost-pl.kurier-id9685481.xyz
+||https://www.inpost-pl.notification-sender.xyz
 ||https://www.inpost-pl.numer-sciezki-id498321.xyz
 ||https://www.inpost-pl.numer-sciezki-id548683.xyz
 ||https://www.inpost-pl.numer-sciezki-id698613.xyz
@@ -66322,6 +66847,7 @@
 ||https://www.inpost-xhk.id-3842.me
 ||https://www.inpost-x.id-43895.me
 ||https://www.inpost-zamowienie.pl
+||https://www.inpost.657448.space
 ||https://www.inpost.dostawa-orders.casa
 ||https://www.inpost.d-stw.xyz
 ||https://www.inpost.id-track-pl32157819.xyz
@@ -66395,6 +66921,7 @@
 ||https://www.invi-q.web.app
 ||https://www.invi-z.web.app
 ||https://www.invvest-pl.website
+||https://www.inv-kg.web.app
 ||https://www.inv-poland.web.app
 ||https://www.inv-polska.web.app
 ||https://www.inv-space.info
@@ -66508,16 +67035,19 @@
 ||https://www.kasa-sms.pl
 ||https://www.kasyno-lotek.xyz
 ||https://www.kedrovan-space.preview-domain.com
+||https://www.keds-buty.com
 ||https://www.kedzierzyn-kozle.tonasze-miasto.co.pl
 ||https://www.keen-polska.com
 ||https://www.kevin-yousef.se
 ||https://www.ke-res.online
 ||https://www.kfc-s-a.com
+||https://www.kghm-invest.web.app
 ||https://www.kghm-project.netlify.app
 ||https://www.kghm-starpl.netlify.app
 ||https://www.kgh-ll.web.app
 ||https://www.kg-hm-p.firebaseapp.com
 ||https://www.kg-hm-p.web.app
+||https://www.kg-inv.web.app
 ||https://www.kierowca-gov.info.pl
 ||https://www.kierowca-info.pl
 ||https://www.kinofilm-tv.pl
@@ -66598,6 +67128,7 @@
 ||https://www.lending-for-europe.eu
 ||https://www.lendos-com.preview-domain.com
 ||https://www.leondred-com.preview-domain.com
+||https://www.le.pltrade-projekt7.xyz
 ||https://www.life-maxipro1.xyz
 ||https://www.liquid-lifestyles.com
 ||https://www.littlebaby-shop.com
@@ -66767,6 +67298,7 @@
 ||https://www.mdelivery.olx-pl.link
 ||https://www.mdelivery.olx-pl.services
 ||https://www.mdpd.id-9431.me
+||https://www.meble-do-oddania.eu
 ||https://www.meble-oddam.pl
 ||https://www.meble-olx.pl
 ||https://www.mediaexpert-sale.pl
@@ -66848,6 +67380,12 @@
 ||https://www.mxmz-pro1.xyz
 ||https://www.mybitardo-space.preview-domain.com
 ||https://www.mychina-news.com
+||https://www.mygaz-alia.com
+||https://www.mygaz-christ.com
+||https://www.mygaz-dejuan.com
+||https://www.mygaz-ena.com
+||https://www.mygaz-jakayla.com
+||https://www.mygaz-wilhelm.com
 ||https://www.myprojekt1-trade.site
 ||https://www.my-dostawa-olx.pl
 ||https://www.my-olx.pl
@@ -66893,6 +67431,7 @@
 ||https://www.netflix-update.platnosci.tttt-security.com
 ||https://www.netflix.pl.sri-india.com
 ||https://www.netrix-com.preview-domain.com
+||https://www.neurkofs-com.preview-domain.com
 ||https://www.newbudimex-inpl.info
 ||https://www.newbud-project1.info
 ||https://www.newenergy-pgeproject.info
@@ -67116,6 +67655,7 @@
 ||https://www.olx-pl.depget.com
 ||https://www.olx-pl.getc.icu
 ||https://www.olx-pl.id738095.space
+||https://www.olx-pl.id792356.space
 ||https://www.olx-pl.info
 ||https://www.olx-pl.ml
 ||https://www.olx-pl.moneta.world
@@ -67161,9 +67701,12 @@
 ||https://www.olx-pl.44112-online.sbs
 ||https://www.olx-pl.1244523.shop
 ||https://www.olx-pl.4325453.website
+||https://www.olx-pl.6743281-pieniadze-info.xyz
 ||https://www.olx-pl.7982348.space
+||https://www.olx-pl.8453713-mycash-info.xyz
 ||https://www.olx-pl.eu-pay.site
 ||https://www.olx-pl.ez-pays.ru
+||https://www.olx-pl.info-trackcode-id565732.xyz
 ||https://www.olx-pl.in-order.store
 ||https://www.olx-pl.iso-pay.net.ru
 ||https://www.olx-pl.kilka-505129.xyz
@@ -67174,6 +67717,7 @@
 ||https://www.olx-pl.my-dostawa.bar
 ||https://www.olx-pl.my-dostawa.club
 ||https://www.olx-pl.odbior-86128.one
+||https://www.olx-pl.oferta-pay.digital
 ||https://www.olx-pl.oferta-pay.fun
 ||https://www.olx-pl.oferta-pay.life
 ||https://www.olx-pl.oferta-pay.live
@@ -67241,6 +67785,7 @@
 ||https://www.olx-z.pl
 ||https://www.olx-zaplata.pl
 ||https://www.olx--pl.online
+||https://www.olx.657448.space
 ||https://www.olx.856436.space
 ||https://www.olx.9494854.space
 ||https://www.olx.com-id381949.xyz
@@ -67286,8 +67831,11 @@
 ||https://www.olx.pl-zamawienie.shop
 ||https://www.olx.pl.dostawy-online.info
 ||https://www.olx.pl.itemcheck-gn.pw
+||https://www.olx.pl.oferta-pay.digital
 ||https://www.olx.pl.oferta-pay.icu
 ||https://www.olx.pl.oferta-pay.live
+||https://www.olx.pl.oferta-pay.store
+||https://www.olx.pl.pay.oferta-pay.store
 ||https://www.olx.poland-ofer.cc
 ||https://www.olx.poland-orders.shop
 ||https://www.olx.polka-oferta.club
@@ -67666,6 +68214,7 @@
 ||https://www.pge-see.site
 ||https://www.pge-startup.biz
 ||https://www.pge-wash.website
+||https://www.pge-zz.web.app
 ||https://www.pge.tesler-official.com
 ||https://www.pgn-marketing.com
 ||https://www.pgn-platform.com
@@ -67806,6 +68355,7 @@
 ||https://www.pl-inpost.polska24-dostawa24.shop
 ||https://www.pl-inv.web.app
 ||https://www.pl-itemreserve.pw
+||https://www.pl-kghm.web.app
 ||https://www.pl-konto.mobi
 ||https://www.pl-konto-order.me
 ||https://www.pl-livemoney.xyz
@@ -67903,6 +68453,7 @@
 ||https://www.poczta-login-neostrada.com
 ||https://www.poczta-polska.me
 ||https://www.poczta-polska-pl.us
+||https://www.poczta-polska-pl.77544.space
 ||https://www.poczta-regulamin.us
 ||https://www.poczta-umb-edu-pl.yolasite.com
 ||https://www.poczta.interia-pl.online
@@ -68130,6 +68681,7 @@
 ||https://www.profit-bussines.website
 ||https://www.profit-maximizer.app
 ||https://www.profit-study.us
+||https://www.prof-regin-x.mxxpr.site
 ||https://www.prof.tsla-coin.xyz
 ||https://www.programm-pat.xyz
 ||https://www.programtop-group.us
@@ -68145,6 +68697,7 @@
 ||https://www.project-orlen.us
 ||https://www.projekt-plnewspge1.info
 ||https://www.proj-newpl.info
+||https://www.proj-pl.nataltip.xyz
 ||https://www.promocja-dla-ciebie.com
 ||https://www.promoda-sklep.com.pl
 ||https://www.promoda-sklep.pl
@@ -68234,6 +68787,7 @@
 ||https://www.rejestracja-dostawy.com
 ||https://www.rejestracja-ogloszenia.com
 ||https://www.rejestr.5p.pl
+||https://www.removewr.000webhostapp.com
 ||https://www.rendroasd-xyz.preview-domain.com
 ||https://www.reset-your-device.com
 ||https://www.restore-payp.com
@@ -68320,6 +68874,7 @@
 ||https://www.santander-payments4.com
 ||https://www.santander-paymentsservice.com
 ||https://www.santander.cancel-newpayees.com
+||https://www.san-tan-drblkn.site
 ||https://www.sategrom-com.preview-domain.com
 ||https://www.saucony-polska.pl
 ||https://www.saucony-sklep.com
@@ -68352,6 +68907,8 @@
 ||https://www.seks-telefon.com
 ||https://www.seletor-xyz.preview-domain.com
 ||https://www.selfstorage-nuernberg.com
+||https://www.sender-notification.xyz
+||https://www.sendortas-xyz.preview-domain.com
 ||https://www.send-post.fun
 ||https://www.send-post.host
 ||https://www.send-post.space
@@ -68375,6 +68932,7 @@
 ||https://www.shakh-music.com
 ||https://www.shared-fluttering-ankylosaurus.glitch.me
 ||https://www.sharp-gossip.com
+||https://www.shelbay-com.preview-domain.com
 ||https://www.shift-holdings.com
 ||https://www.shopshop-pl.com
 ||https://www.shops.2021cheapsale.com
@@ -68551,6 +69109,7 @@
 ||https://www.teleskopmonokularowy-pl.com
 ||https://www.telewizja-internetowa24.pl
 ||https://www.telewizja-polska.waw.pl
+||https://www.telin-newspapper.com
 ||https://www.telsupport-securityreturn.live
 ||https://www.tento-com.preview-domain.com
 ||https://www.teresyop-com.preview-domain.com
@@ -68581,6 +69140,7 @@
 ||https://www.thecrypto-genius.net
 ||https://www.theone-lotto.com
 ||https://www.thepacifica-group.com
+||https://www.therapeutic-me.com
 ||https://www.the-bitcoinrevolution.com
 ||https://www.the-bitcoins-code.com
 ||https://www.the-bitcoins-evolution.net
@@ -68783,6 +69343,7 @@
 ||https://www.webdisk.finansowy-blog.xyz
 ||https://www.webdisk.wloguje-teraz.xyz
 ||https://www.webdisk.zloguje-teraz.xyz
+||https://www.webers-mn.com
 ||https://www.webmail.2blogi-zfinansowe.xyz
 ||https://www.webmail.bl2ogi-finansowe.xyz
 ||https://www.webmail.bl6ogi-finansowe.xyz
@@ -68855,6 +69416,7 @@
 ||https://www.woja-punktowa.eu
 ||https://www.wolaklosza.is-best.net
 ||https://www.wondret-com.preview-domain.com
+||https://www.wooden-jeanie.com
 ||https://www.world-flags.cn
 ||https://www.world-leader.website
 ||https://www.world-poland.biz
@@ -68966,6 +69528,7 @@
 ||https://www.xn--online-mbk-r1b3921g.com
 ||https://www.xn--pasaer-spb.pl
 ||https://www.xn--pekaobizns24-9d6f.com
+||https://www.xn--pko24-k11bwg.com
 ||https://www.x-adam.com
 ||https://www.x-alp.pl
 ||https://www.x-hosepl2.com
@@ -69231,6 +69794,7 @@
 ||https://xn--online-mbk-r1b3921g.com
 ||https://xn--pasaer-spb.pl
 ||https://xn--pekaobizns24-9d6f.com
+||https://xn--pko24-k11bwg.com
 ||https://xokldfa3rmogi9gkdsp.xyz
 ||https://xorexkorentut.com
 ||https://xprogdep.site
@@ -69249,6 +69813,7 @@
 ||https://ya.sv
 ||https://yablinasto.com
 ||https://yaboris.com
+||https://yachtingnewstoday.com
 ||https://yahuslot.com
 ||https://yahyas.info
 ||https://yakari.id
@@ -69309,6 +69874,18 @@
 ||https://yrehrher.001www.com
 ||https://yuanpaygroup.org
 ||https://yuan-online.com
+||https://yuchaingijnejr.xyz
+||https://yuchaingijneoi.xyz
+||https://yuchaingijneor.xyz
+||https://yuchaingijngij.xyz
+||https://yuchaingijnypr.xyz
+||https://yuchaintuebbc.xyz
+||https://yuchaintuebcz.xyz
+||https://yuchaintuebfr.xyz
+||https://yuchaintuebft.xyz
+||https://yuchaintuebot.xyz
+||https://yuchaintuebra.xyz
+||https://yuchaintuebro.xyz
 ||https://yuminqiang.com
 ||https://yunosquares.com
 ||https://yunta.tech
@@ -74638,7 +75215,6 @@
 ||https://www.onestat.com  #[Tracking.Cookie]
 ||https://www.onestatfree.com
 ||https://404.online.net
-||https://aa.online-metrix.net
 ||https://h.online-metrix.net
 ||https://sayac.onlinewebstats.com
 ||https://lifemediahouse1.onlinewelten.com
@@ -76202,7 +76778,6 @@
 ||https://ads.patch.com
 ! [America Online][AS1668][64.236.0.0 - 64.236.255.255]
 ||https://glb.adtechus.com
-||https://advertising.com
 ||https://uk.at.atwola.com
 ||https://helios.fvn.no
 ||https://ads.intergi.com
@@ -77396,7 +77971,6 @@
 ||https://2542116.fls.doubleclick.net
 ||https://4053494.fls.doubleclick.net
 ||https://4236808.fls.doubleclick.net
-||https://ade.googlesyndication.com
 ! [Google / DoubleClick][AS6432][216.73.80.0 - 216.73.95.255]
 ||https://www3.webhostingtalk.com
 ! [Google][AS15169][23.236.128.0 - 23.251.159.255]
@@ -77421,7 +77995,6 @@
 ||https://clickserve.dartsearch.net
 ||https://clickserve.eu.dartsearch.net
 ||https://clickserve.uk.dartsearch.net
-||https://doubleclick.net
 ||https://ad-g.doubleclick.net
 ||https://ad2.doubleclick.net
 ||https://ad.ae.doubleclick.net
@@ -77505,8 +78078,6 @@
 ||https://fls.au.doubleclick.net
 ||https://www.doubleclickbygoogle.com
 ||https://video-stats.video.google.com
-||https://google-analytics.com
-||https://ssl.google-analytics.com
 ||https://4.afs.googleadservices.com
 ||https://pagead2.googleadservices.com
 ||https://partner.googleadservices.com
@@ -78528,8 +79099,6 @@
 ||https://analytics.atdmt.com
 ||https://c1.atdmt.com
 ||https://h.atdmt.com
-||https://bat.bing.com
-||https://c.bing.com
 ||https://analytics.breakingnews.com
 ||https://analytics.live.com
 ||https://digg.analytics.live.com  #[WebBug]
@@ -79399,7 +79968,6 @@
 ||https://pixel.sitescout.com
 ! [Peer 1][AS13768][209.15.0.0 - 209.15.255.255]
 ||https://appie.com
-||https://adsrvr.org
 ||https://btprmnav.com
 ||https://btnativedirect.com
 ||https://pixel-a.basis.net
@@ -80436,7 +81004,6 @@
 ||https://tarno.tradedoubler.com
 ! [Theplanet.com][AS21844][173.255.192.0 - 174.123.255.255]
 ||https://24counter.com
-||https://flurry.com  #[Mobile Ads]
 ||https://dev.flurry.com
 ||https://da.newstogram.com  #[WebBug]
 ||https://redirectingat.com  #[SkimLinks]
@@ -80549,7 +81116,6 @@
 ! [Tiggee][AS16552][208.94.144.0 - 208.94.151.255]
 ! [Tinet SpA / Akamai][AS3257][2.18.176.0 - 2.18.191.255]
 ! [Tinet SpA][AS3257][23.192.0.0 - 23.223.255.255]
-||https://ads.scorecardresearch.com
 ! [Tinet SpA][AS8612][213.200.36.0 - 213.205.39.255]
 ||https://ma211-r.analytics.edgesuite.net
 ||https://sitestats.tiscali.co.uk  #[WebBug]
@@ -80672,7 +81238,6 @@
 ||https://www.dpbolvw.net
 ||https://www.emjcd.com
 ||https://www.ftjcfx.com  #[WebBug]
-||https://www.jdoqocy.com
 ||https://www.kqzyfj.com
 ||https://www.lduhtrp.net  #[WebBug]
 ||https://qksrv.com
@@ -81908,7 +82473,7 @@
 ! PGP fingerprint: 0B4C F801 E8FF E9A3 A602  D2C7 9C36 93B2 30B3 1BDA #
 ! Every link reported should be considered harmefull and should       #
 ! result in an unwanted malware download. Use this file carefully    #
-! Generated at: 2021-12-09 08:06:58                                   #
+! Generated at: 2021-12-12 16:47:39                                   #
 !######################################################################
 ||https://021414243.com
 ||https://1566xueshe.com
@@ -81930,7 +82495,6 @@
 ||https://adithyainstitute.in
 ||https://admin121.com
 ||https://admissions.hitam.org
-||https://adongrowlandschools.sc.ke
 ||https://adrianinsulationllc.com
 ||https://ads.gameofselling.com
 ||https://aemaupsmoorkanad.in
@@ -81952,14 +82516,13 @@
 ||https://ameri-hvac.com
 ||https://amigurumisfeliz.com
 ||https://amlakkhanehma.com
-||https://amzrouting.com
 ||https://anarcdevelopers.com
 ||https://ankurbpatel.com
+||https://apcweb.com.ar
 ||https://app.asnethome.net
 ||https://appdone.ir
 ||https://application.app.br
 ||https://app.valluva.com
-||https://aqilahrozigenesh.com
 ||https://arabeak.com
 ||https://archicadofficial.kweb.hk
 ||https://archicadofficial.sonaaone.com
@@ -81967,7 +82530,6 @@
 ||https://arodagira.com.br
 ||https://arribacorazones.com
 ||https://asesoriainternacional.com.mx
-||https://a.sjmall.top
 ||https://ask-an-electrician.com
 ||https://asnethome.net
 ||https://astria-theme.indodevmatech.com
@@ -81990,11 +82552,9 @@
 ||https://bismillahcomputerstore.com
 ||https://bitcoin-king.inversionesinmobiliariashs.com
 ||https://bitit.org
-||https://bitstorebolivia.com
 ||https://biz2books.com
 ||https://bizwithmayor.com.ng
 ||https://blog.manipalinn.com
-||https://blog.stetgzs.cn
 ||https://blog.uposit.me
 ||https://blueflamemarket.com
 ||https://boardingschoolsoftware.com
@@ -82016,7 +82576,6 @@
 ||https://casaviva.com.pe
 ||https://cattlepartners.com
 ||https://centrichotel.com
-||https://centuaryfabindia.com
 ||https://chabelolandscapingandtreeservice.com
 ||https://chhaganlalandco.com
 ||https://chhetrapal.edu.np
@@ -82029,8 +82588,7 @@
 ||https://clickittechnologies.com
 ||https://clinicagreenhouse.com.br
 ||https://clubdelmecanico.com
-||https://coin-coin-coin-2.com
-||https://colonna.ac.ug
+||https://coin-coin-data-6.com
 ||https://compunet.my
 ||https://comxtreme.com
 ||https://conades.org
@@ -82042,7 +82600,6 @@
 ||https://creditrepairfocus.com
 ||https://crowdcap.xyz
 ||https://cryptinc.uk.nf
-||https://cuoihoitugia.com
 ||https://cursos.voxu.group
 ||https://cvrcakgrupa.com
 ||https://daamakpk.com
@@ -82050,23 +82607,17 @@
 ||https://damadbarber.com
 ||https://danaprasetio.online
 ||https://dancetvshow.com
-||https://daniew06.top
 ||https://dankandvape.com
-||https://danwyk16.top
-||https://danzlu15.top
 ||https://darmexico.org
 ||https://datanetpc.com.pe
 ||https://datenex.com
 ||https://daystar.ac.ke
 ||https://dbind.in
-||https://ddl8.data.hu
-||https://dekasitkimya.com
 ||https://demetria.com.ar
 ||https://demo.abisoftgt.com
 ||https://dentalclinicbangalore.ldsc.in
 ||https://desawisatacisaat.com
 ||https://destinazionecuba.it
-||https://detoxdietsupplements.com
 ||https://dev-chintesh.flywheelsites.com
 ||https://dev-landing.psikologicare.com
 ||https://dexteritysolution.com
@@ -82082,6 +82633,7 @@
 ||https://diplomadomedicosgenerales.com
 ||https://djanguswest.com.br
 ||https://djinganenfulbe.com
+||https://dnn.alibuf.com
 ||https://doraflores.com.br
 ||https://dotheswap.org
 ||https://dreamcast.co.in
@@ -82090,12 +82642,9 @@
 ||https://drkarnikatiwari.com
 ||https://drymetal.com.br
 ||https://dubairepairs.ae
-||https://duocphamct.com
-||https://dx.dett.cn
 ||https://e3commerce.net
 ||https://ebmspa.cl
 ||https://ecologicformaturas.com.br
-||https://ecowin55.com
 ||https://educaplus-zg.com
 ||https://edufinder.alakmalak.ca
 ||https://egpp.pl
@@ -82121,33 +82670,32 @@
 ||https://expresdrill.com.mx
 ||https://externadoporfiriobarbajacob.co
 ||https://externadoporfiriobarbajacob.edu.co
+||https://extractjob.com
 ||https://eytenenergy.us.com
 ||https://faciliusinc.com
 ||https://farmcityltd.com
 ||https://farms.cl
 ||https://file-coin-data-5.com
-||https://fire.hypersys-server.com.ar
 ||https://fleacontrol.co.nz
-||https://flickerme.club
 ||https://floodauckland.co.nz
 ||https://fmm-tracking.appsdemo.xyz
 ||https://fmplusnepal.com
 ||https://formationspnlhypnose.com
+||https://formula-smaku.com
 ||https://fortcomfurniture.com
 ||https://fourspear.com
-||https://fruityx.tk
 ||https://fsaa.com.br
 ||https://fundacionequilibrium.com.co
 ||https://fursa-admin.indodevmatech.com
 ||https://fursa-api.indodevmatech.com
 ||https://fusionlogistics.com.ng
 ||https://futursof.com
-||https://game4486.worldhosts.fun
 ||https://gasket.digitalcitrakreatif.com
 ||https://geil.com.co
 ||https://gepacunesp.org
 ||https://getinitiative.xyz
 ||https://ght.mcqsmentor.com
+||https://g.nxxxn.ga
 ||https://goeltec.com
 ||https://go.iscpelsalvador.org
 ||https://goldenrice.in
@@ -82155,7 +82703,6 @@
 ||https://gotonow.com.co
 ||https://grampalikadabhadi.in
 ||https://griecoscoastfarm.com
-||https://gzesa.net
 ||https://haidarysurgical.com
 ||https://hairspirationsbeauties.com
 ||https://hamzatradersbkr.com
@@ -82164,9 +82711,8 @@
 ||https://h.dett.cn
 ||https://highart.top
 ||https://highnlow.my
+||https://hingangaongrampanchayat-km.in
 ||https://hipercapcampinas.com.br
-||https://hipma.unikom.ac.id
-||https://hispanicaidgroup.org
 ||https://holzhausbauen.eu
 ||https://hospedeoculto.com.br
 ||https://host-coin-data-1.com
@@ -82179,6 +82725,7 @@
 ||https://htcharitytrust.org
 ||https://humvegetarian.w3.eyeteam.vn
 ||https://huuchin.ariun.mn
+||https://hxoptical.net
 ||https://hydromet.gov.bz
 ||https://ilisla.com
 ||https://imugi.com.br
@@ -82187,7 +82734,6 @@
 ||https://indiabid.in
 ||https://indohyundai.com
 ||https://infineonbd.net
-||https://infohybrid.com
 ||https://innovatechindia.in
 ||https://innovins.co.in
 ||https://insectcontrol.co.nz
@@ -82203,7 +82749,6 @@
 ||https://investpre.com.br
 ||https://ipage.com.ar
 ||https://irc2022.com
-||https://irishrunningclub.com
 ||https://islbelize.com
 ||https://itexcellence.la
 ||https://itstorebd.com
@@ -82236,10 +82781,11 @@
 ||https://kryptos.com.co
 ||https://ksu.appsdemo.xyz
 ||https://kumarsteels.net
-||https://kurumsal.avantajbulvari.com
 ||https://labsendeavor.com
+||https://lafortaleza941.com
 ||https://laptopfix.com.mx
 ||https://laracommerce.riptware.com
+||https://lastminutehotelbooking.com
 ||https://ldsc.in
 ||https://learn.bsdi-bd.org
 ||https://legaladhikar.com
@@ -82275,7 +82821,6 @@
 ||https://matrix.traveladventour.mx
 ||https://matrixvfx.com
 ||https://maynadelices.com
-||https://mbsolutions.ge
 ||https://meant4greatness.hopto.org
 ||https://medeq.indodevmatech.com
 ||https://med-smi.com
@@ -82286,7 +82831,7 @@
 ||https://mikhospitality.com.np
 ||https://milehighequity.com
 ||https://missionschool.com.ng
-||https://mkontakt.az
+||https://mktcomunica.com.br
 ||https://mobilikit.com.br
 ||https://modamooo.com
 ||https://mohammadsheikh.com
@@ -82305,16 +82850,13 @@
 ||https://multisyserp.com.br
 ||https://mundodoingles.com.br
 ||https://mvdtours.com
-||https://my.dexserver.com
 ||https://myhobbyjapan.com
 ||https://mylifehome.com.tr
 ||https://my.tortona.tv
 ||https://naanayam.co.in
-||https://nationtv.world
 ||https://ncbaebwp.edu.pk
 ||https://neosmayorista.com
 ||https://new.drceight.com
-||https://newsaarctech.com
 ||https://news.uposit.me
 ||https://ngthanhquang.com
 ||https://nikamclasses.com
@@ -82328,13 +82870,11 @@
 ||https://nordvpn.setbizsolutions.com
 ||https://northeastbulletinnews.in
 ||https://notariafranciscovaras.cl
-||https://notyouraveragecookie.com
 ||https://obpcarapiraca.com.br
 ||https://offersforchange.com
 ||https://oficinaslibreros.com
 ||https://oldmanrager.com
 ||https://olliveiras.com
-||https://onebusinesssuccess.xyz
 ||https://onxon77.com
 ||https://opengrowthnew.ehostinguk.com
 ||https://orbitprotector.com
@@ -82350,12 +82890,12 @@
 ||https://paradisegc.net
 ||https://paxz.tk
 ||https://pebblesofhope.org
-||https://pekopekopeko.top
 ||https://perfectenergy.in
 ||https://pesanku.com
 ||https://petset.com.pk
 ||https://peuhaf03.top
-||https://phantomwallet.site
+||https://peukid07.top
+||https://peuxuq08.top
 ||https://phatthalung.drr.go.th
 ||https://pilotscience.com
 ||https://piloxia.com
@@ -82367,8 +82907,8 @@
 ||https://prakritikoirala.com.np
 ||https://pranavanandasevashram.org
 ||https://prettyrealpodcast.com
-||https://privacy-tools-for-you-777.com
 ||https://privacytools-for-you-777.com
+||https://proapsoluciones.com.ar
 ||https://profesores.uiwbajio.mx
 ||https://promointl.ae
 ||https://promomobilnissan.com
@@ -82389,6 +82929,7 @@
 ||https://rakibul.maantheme.com
 ||https://rapaduratec.com.br
 ||https://rastreo.controlgps.net
+||https://rawlogic.flywheelsites.com
 ||https://rayfrankoenvivo.com
 ||https://realdatasolutions.net
 ||https://renegociascore.com.br
@@ -82418,17 +82959,16 @@
 ||https://sekolahkarir.appsdemo.xyz
 ||https://serscay.com.ar
 ||https://services-cns.com
+||https://shaadishenanigans.com
 ||https://shabram.shabramtablewater.ng
 ||https://shadigames.com
 ||https://shayarworld.com
 ||https://sherwinclothing.com
-||https://shopallcars.com
 ||https://shop.creativeideaindia.com
-||https://shunda321.com
 ||https://sidewinderconversions.com
-||https://significancestudio.club
 ||https://simsbulksms.com
 ||https://sjakararts.in
+||https://skilledmonger.in
 ||https://skiyodldev.com
 ||https://skprecision.in
 ||https://smartlaw.ro
@@ -82439,7 +82979,6 @@
 ||https://soslegal.com.pe
 ||https://soswebservicos.com.br
 ||https://sottraining.com
-||https://spain.brazilsouth.cloudapp.azure.com
 ||https://sparklescake.com
 ||https://spipvtltd.com
 ||https://spptti-timur.com
@@ -82461,7 +83000,6 @@
 ||https://tawsilapp.com
 ||https://taxiservicekarnal.com
 ||https://teakyacht.com
-||https://tech332.synology.me
 ||https://techgear.com.br
 ||https://tech-sy.com.co
 ||https://tecnologicojuanjui.edu.pe
@@ -82479,18 +83017,15 @@
 ||https://thekilhastattoo.com.br
 ||https://thekitchwarecompany.com
 ||https://theolympic.co.nz
+||https://theperfumeplus.com
 ||https://thetrendskill.com
 ||https://thewatchcompany.com.af
 ||https://theweddingstorys.com
 ||https://tienda.alfrio.cl
-||https://tigan.cf
 ||https://topsdemo.co.in
-||https://tractorandinas.com
 ||https://tradingview.tqatur.com
 ||https://tranquilcloudtemple.com
 ||https://transferencia.co
-||https://transportationonline.club
-||https://transportationpro.world
 ||https://trencharquitetura.com.br
 ||https://tukclassespracticeweb.co.ke
 ||https://tumaafricasafaris.com
@@ -82501,17 +83036,16 @@
 ||https://ubuntu-inc.com
 ||https://ujx.komawai.ru
 ||https://umami-learning.com
-||https://unic11m.top
 ||https://unicupload.top
 ||https://universalenterprises-epc.com
 ||https://uposit.me
 ||https://upwportugal.com
+||https://vagas.oito5.com.br
 ||https://valeryone.com
 ||https://valtyca.com
 ||https://vaos.com.co
 ||https://vavis.co.in
 ||https://vectordon.com
-||https://viajandocontaiger.com
 ||https://vicssa.us
 ||https://villalonavala.in
 ||https://vinaychoithani.com
@@ -82529,6 +83063,8 @@
 ||https://wearjora.com
 ||https://webonclicks.com.au
 ||https://webtrader.co
+||https://wecare.com.vn
+||https://weddingphotographerinagra.com
 ||https://weddingphotographyjaipur.com
 ||https://weiterbildungs-shop.com
 ||https://whotnews.com.ng
@@ -82540,26 +83076,19 @@
 ||https://wptest.softwave.lk
 ||https://www.21robo.com
 ||https://www.chrelisa.com
-||https://www.crownpacificpartners.com
 ||https://www.diplomadomedicosgenerales.com
-||https://www.duoyuhudong.cn
 ||https://www.fitrahhanniah.sch.id
-||https://www.maticstoday.com
+||https://www.korekt2002.com
 ||https://www.mundusline.com
 ||https://www.ofatomaringa.com.br
-||https://www.pasionportufuturo.pe
 ||https://www.rrbsec.org
 ||https://www.snkre.com
 ||https://www.tradeinsights.net
 ||https://www.vergelijkeenproduct.nl
 ||https://xenergi.net
 ||https://xhamster-deutsch.biz
-||https://xj.91liebian.top
-||https://xn--cheggl-videos-fr-apotheken-d0c.de
 ||https://yates.ticondigital.com
-||https://ynw0871.com
 ||https://zaparetech.com
-||https://zbc.vn
 ||https://zero61drone.com.br
 ||https://zurieskinclinic.com
 
@@ -83924,7 +84453,6 @@
 ||https://o.addthis.com
 ||https://okcounter.com
 ||https://omniture.theglobeandmail.com
-||https://omtrdc.net
 ||https://one.123counters.com
 ||https://oss-crules.marketscore.com
 ||https://oss-survey.marketscore.com
@@ -84038,7 +84566,6 @@
 ||https://s48.sitemeter.com
 ||https://sa.jumptap.com
 ||https://sclk.org
-||https://scorecardresearch.com
 ||https://scrooge.channelcincinnati.com
 ||https://scrooge.channeloklahoma.com
 ||https://scrooge.click10.com
@@ -86227,7 +86754,6 @@
 ||https://fe3-gc.imrworldwide.com
 ||https://fe3-uk.imrworldwide.com
 ||https://fe4-uk.imrworldwide.com
-||https://imrworldwide.com
 ||https://rc-au.imrworldwide.com
 ||https://redsheriff.com
 ||https://server-ca.imrworldwide.com
@@ -88736,7 +89262,6 @@
 ||https://ad9digital.checkm8.com
 ||https://adagiobanner.s3.amazonaws.com
 ||https://adaos-ads.net
-||https://adap.tv
 ||https://adapd.com
 ||https://adb.wp.pl
 ||https://adbers.com
@@ -90356,7 +90881,6 @@
 ||https://afunnygames.com
 ||https://agardomains.com
 ||https://agisdayra.com
-||https://agkn.com
 ||https://agriturismoilcascinone.com
 ||https://agt.net
 ||https://ahzahg6ohb.com
@@ -90385,7 +90909,6 @@
 ||https://altfarm.mediaplex.com
 ||https://alxsite.com
 ||https://amazinggreentechshop.com
-||https://amazon-adsystem.com
 ||https://amch.questionmarket.com
 ||https://americansingles.click-url.com
 ||https://amobil.online
@@ -92453,7 +92976,6 @@
 ||https://inpagevideo.nl
 ||https://input.insights.gravity.com
 ||https://ins-offer.com
-||https://insightexpressai.com
 ||https://insightxe.pittsburghlive.com
 ||https://insightxe.vtsgonline.com
 ||https://installer.zutrack.com
@@ -98570,7 +99092,6 @@
 ||https://adck.crooz.jp
 ||https://adcloud.jp
 ||https://adclr.jp
-||https://adcolony.com
 ||https://adcrops.net
 ||https://adcv.jp
 ||https://addelivery.seedapp.jp
@@ -98726,7 +99247,6 @@
 ||https://api.unthem.com
 ||https://api.webpush.jp
 ||https://app-c.net
-||https://app.adjust.net.in
 ||https://appad02.mbsp.jp
 ||https://appier.mobi
 ||https://appier.net
@@ -98921,7 +99441,6 @@
 ||https://counter.monkeybanana2.com
 ||https://counter.monkeybanana3.com
 ||https://cpmly.com
-||https://crashlytics.com
 ||https://creative.prf.hn
 ||https://creativecarrer.com
 ||https://creatives.gunosy.com
@@ -99055,7 +99574,6 @@
 ||https://go.inmobi.com
 ||https://go.pushnative.com
 ||https://golds.lp.mydas.mobi
-||https://googleadservices.com
 ||https://gravity.com
 ||https://grvspn.com
 ||https://gsspat.jp
@@ -99121,7 +99639,6 @@
 ||https://img.fluct.jp.eimg.jp
 ||https://img.i2i.jp
 ||https://img.ll.impact-ad.jp
-||https://img.macromill.com
 ||https://img.mobee2.jp
 ||https://img.yomereba.com
 ||https://img1.nend.net
@@ -99295,7 +99812,6 @@
 ||https://mjjbag78.com
 ||https://mk.ca-conv.amoad.com
 ||https://mmaaxx.com
-||https://moatads.com
 ||https://mobile-android.lfstmedia.com
 ||https://mobylog.jp
 ||https://moncler.onlineshop.jp.net
@@ -99620,7 +100136,6 @@
 ||https://sy.ameblo.jp
 ||https://sync-dsp.ad-m.asia
 ||https://sync-tapi.admatrix.jp
-||https://sync.adap.tv
 ||https://sync.shinobi.jp
 ||https://system.litaheart.com
 ||https://t.82comb.net
@@ -99682,7 +100197,6 @@
 ||https://vizury.com
 ||https://vsc.send.microad.jp
 ||https://vuittonu.com
-||https://vungle.com
 ||https://w.zenback.jp
 ||https://wa-track.com
 ||https://watch9.com
@@ -99818,19 +100332,19 @@
 
 !###############################################################
 ! abuse.ch URLhaus Host file                                   #
-! Last updated: 2021-12-10 02:34:15 (UTC)                      #
+! Last updated: 2021-12-12 15:54:26 (UTC)                      #
 !                                                              #
 ! Terms Of Use: https://urlhaus.abuse.ch/api/                  #
 ! For questions please contact urlhaus [at] abuse.ch           #
 !###############################################################
 !
 ||https://007298.xyz
+||https://1008691.com
 ||https://2.indexsinas.me
 ||https://225km.com
 ||https://360.lcy2zzx.pw
 ||https://360down7.miiyun.cn
 ||https://360sma.com
-||https://3littlestarslandscapes.com
 ||https://5buckshop.ml
 ||https://5bwo.komawai.ru
 ||https://77st.net
@@ -99839,9 +100353,8 @@
 ||https://97nation.com
 ||https://9cc0.ilrkr.ru
 ||https://a.komawai.ru
+||https://a.sjmall.top
 ||https://a3ium.davaohorizon.com
-||https://aaandtconsult.com
-||https://aamalaya.com
 ||https://aarsaindustries.com
 ||https://aayushivfraipur.com
 ||https://abissnet.net
@@ -99859,18 +100372,16 @@
 ||https://afavoritacouros.com.br
 ||https://afhaenterprises.com
 ||https://afnan-amc.com
-||https://agemn.co.za
+||https://afrimedspecialist.com
 ||https://agrosanus.com.tr
 ||https://ah.btp-inc.ca
 ||https://akdvidyalaya.com
+||https://aladainexpress.com
 ||https://alberts.diamondrelationscrm.us
 ||https://aldahwiprivatehospital.com
 ||https://aldtec.net.br
-||https://alea-prevention.com
 ||https://alemelektronik.com
 ||https://alena1971.es
-||https://alexdubai.com.aldiabsteel.com
-||https://aljizan.in
 ||https://allforcreative.com.au
 ||https://allgconnect.com.br
 ||https://allhomesrealestate.com.au
@@ -99878,22 +100389,16 @@
 ||https://amarinderkhaira.com
 ||https://amarteargentina.com.ar
 ||https://amazingdestinationasia.com
-||https://amazonuts.com.br
-||https://ambgroup.in
-||https://amedcambodia.com
 ||https://ammico.com
 ||https://amooma.sourcetaggers.com
+||https://amranhvac.com
 ||https://amyconcepts.com
 ||https://andreaskisauer.com
 ||https://andres.ug
 ||https://anexo.app.yeshua.com.br
 ||https://anicert.cn
-||https://animalcare.ga
 ||https://animapet.it
-||https://animationstyles.com
-||https://ansv.org.br
 ||https://antivirf.ru
-||https://aotlbd.com
 ||https://apexdesigns.co.in
 ||https://api-ms.cobainaja.id
 ||https://api.cstdevs.com
@@ -99901,60 +100406,50 @@
 ||https://api.servisexxx.com
 ||https://apoolcondo.com
 ||https://app.northerntrader.net
-||https://app.samadhaanapp.com
 ||https://app.sonder.lgbt
 ||https://apps.saintsoporte.com
 ||https://appsmanager.alert.com.mt
 ||https://aquasail.virvazir.com
-||https://archideas.cl
 ||https://ardmtshidayatulfirdaus.inas.web.id
 ||https://areyoulivingwell.com
 ||https://arguiushfguspgp.from-va.com
 ||https://arrangerz.in
 ||https://arrkcelebrations.com
 ||https://arshadbrother.com
-||https://arthurandverd.com.ng
 ||https://artursemth.com
 ||https://arushagems.com
 ||https://aryansinghdadiala.com
 ||https://asavarzesh.ir
-||https://asd.edu.au
 ||https://ashutoshgauttam.com
 ||https://ashwagandha.co.in
+||https://asilbeauty.ch
 ||https://ask-regard.call-save.biz
-||https://assentstore.com
 ||https://assets.dsztfso.cn
 ||https://asu.com.vn
-||https://atienna.it
 ||https://auditis.com.br
 ||https://aulist.com
 ||https://auto60.in
-||https://autoalborz.com
 ||https://autofficinaguerreri.it
+||https://autostock.swadeshishop.com
 ||https://avadhanagames.com
+||https://avaviacao.com.br
 ||https://avpra.com
 ||https://azerbaijan-tourism.com
 ||https://azmeasurement.com
-||https://b2bphonebook.com
 ||https://b2gnegocios.com
 ||https://backgrounds.pk
 ||https://badeggdesign.com
-||https://badiesnord.com
 ||https://baldcover.com
 ||https://ballatstone.com
 ||https://bangkok-orchids.com
-||https://bank.zanderscloud.com.ng
 ||https://barkodsolutions.com
-||https://basmanatrans.com
 ||https://bbia.co.uk
-||https://bearcatpumps.com.cn
-||https://beautimira.com
 ||https://bec.demo.myitas.net
 ||https://bedroomhome.xyz
 ||https://bedroomnow.xyz
 ||https://beem.id
-||https://behsaude.com
 ||https://benwellgroup.co.uk
+||https://berdikarijaya.xyz
 ||https://bespokeweddings.ie
 ||https://bestcreditsociety.com
 ||https://beta.profissaopiloto.com.br
@@ -99962,33 +100457,33 @@
 ||https://bgreen.com.vn
 ||https://bharattank.me
 ||https://bharattimeslive.com
-||https://bibliophilic.in
 ||https://bigmikesupplies.co.za
 ||https://bigs.bikershop.biz
 ||https://bike.ideait.it
 ||https://billing.rahitechnosoft.com
-||https://bimbelintensif.com
-||https://bingaloo.net
-||https://biosafepro.in
 ||https://biotechhawaii.com
-||https://bitcoinbillionnaire.com
 ||https://bitllab.com.br
 ||https://bitmex-trade.com
+||https://bitstorebolivia.com
+||https://bks.tv
 ||https://blacktargstore.com.br
 ||https://blanche.gr
 ||https://bleskoindustries.com
+||https://blockafricaentertainment.com
 ||https://blog.drmostafafouadivf.com
 ||https://blog.grnstore.com
 ||https://blog.megafina.com
+||https://blog.stetgzs.cn
 ||https://blog.takbelit.com
 ||https://blog2.okvips.com
+||https://blushmagazineonline.com
 ||https://bmss.org.in
 ||https://bnbwealth.net
 ||https://bobcatminer-store.e-mantra.in
 ||https://bombaytrader.com
-||https://boncointunisie.com
 ||https://bouhertmaoutdoors.tn
 ||https://bpa.vn
+||https://brandscapesolutions.com
 ||https://breakingbread.modelacademy.co.in
 ||https://briar.com.my
 ||https://brickwholesaler.com
@@ -99996,31 +100491,26 @@
 ||https://bridgesfoundationrepair.com
 ||https://brightmega.com
 ||https://brightstarshop.com
-||https://brindesdesipat.com.br
 ||https://buigiaphat.com.vn
 ||https://bujogradba.com
 ||https://bullseyemedia.in
 ||https://bunge.skybitvest.com
-||https://buysrilankan.lk
+||https://buscascolegios.diit.cl
 ||https://c.kamisime.ru
-||https://c.oooooooooo.ga
 ||https://caballo.com.au
 ||https://cage-mw.com
-||https://camargospainting.com
 ||https://camminachetipassa.it
-||https://captainrobbo.com
+||https://canislupus.pk
 ||https://caragudigital.com.mx
 ||https://careergg.virvazir.com
 ||https://careeroccupant.xyz
 ||https://cariustadz.org
-||https://carthunt.in
 ||https://cbn.hypervoizd.com
 ||https://cdaonline.com.ar
 ||https://cdim9.com
 ||https://cdn.riowt.top
-||https://cdn.tmooc.cn
-||https://certification.jacsai.org
-||https://cetf.rafilda.ru
+||https://cees-ease.com
+||https://centuaryfabindia.com
 ||https://cgp3solutions.co.za
 ||https://ch1.spacermodem.com
 ||https://chafferimpex.com
@@ -100034,8 +100524,8 @@
 ||https://cifeer.net
 ||https://ciidental.com.ec
 ||https://cimcpatna.com
-||https://cinetico.in
 ||https://ciroflores.com
+||https://citihits.lk
 ||https://citiqproperties.co.za
 ||https://client.meetsusolutions.com
 ||https://cloud.fc.co.mz
@@ -100043,22 +100533,17 @@
 ||https://cm-arquitetos.com
 ||https://cobhamplasteringservices.co.uk
 ||https://cocojojo-pet.com
-||https://coheneu.de
-||https://coin-coin-data-6.com
 ||https://cokhithienan.vn
-||https://colchoespitol.com.br
 ||https://colinde.pricesne.com
+||https://colombe-fm.org
+||https://colonna.ac.ug
 ||https://colonna.ug
-||https://comistery.club
 ||https://community.reimclub.com
 ||https://computec-zim.com.mx
 ||https://computerpart.in
-||https://config.cqhbkjzx.com
-||https://connect.rio.br
 ||https://conquestcapital.co.ke
 ||https://cookery.irooniafile.ir
 ||https://copelandscapes.com
-||https://cosmedhealthcare.com
 ||https://count.mail.163.com.impactmedfoundation.com
 ||https://courses.sibmbpreinduction.com
 ||https://courtneyjones.ac.ug
@@ -100066,17 +100551,17 @@
 ||https://cp-saofacundo.pt
 ||https://cpanel.shivay.net
 ||https://craftorch.jp
+||https://crearechile.cl
 ||https://creationskateboards.com
 ||https://crecerco.com
 ||https://creditoimpostaformazione.it
 ||https://cresvin.com
 ||https://cricket.theglobalindia.net
 ||https://crittersbythebay.com
+||https://crm.bursakavram.com
 ||https://crmfarko.manivelasst.com
 ||https://crmroche.manivelasst.com
 ||https://cropupcreatives.com
-||https://crownadvertising.ca
-||https://crownglassgallery.in
 ||https://crownmart.in
 ||https://cryptodbllc.com
 ||https://cryptoforextrading56.com
@@ -100086,66 +100571,55 @@
 ||https://custominsure.com
 ||https://cutting-tools.in
 ||https://cynkon.kairoscs.net
-||https://d.gogamed.com
 ||https://d.komawai.ru
 ||https://d.powerofwish.com
 ||https://d9.99ddd.com
 ||https://da.alibuf.com
 ||https://daga999.com
 ||https://dainesearredamenti.it
-||https://dalefloresvzla.com.ve
 ||https://danaevara.com
 ||https://dashb.mcqsmentor.com
 ||https://dashboard.khholdings.co.za
 ||https://data.cdevelop.org
 ||https://data.green-iraq.com
-||https://datainsightmag.com
 ||https://dato.social
 ||https://davidmcguinness.info
 ||https://daxinghuo.com
+||https://ddms.in
 ||https://deagroup-ks.com
-||https://deckoface.in
-||https://deepakelectricals.com
+||https://debdekor.hu
 ||https://deesellsparadise.com
 ||https://dekovizyon.com
 ||https://demo.aakar360.com
 ||https://demo.energianmittaus.fi
 ||https://demo.fontecsys.net
-||https://demo.jmcnet.com
 ||https://demo.nhabe360.com
 ||https://demo.shooes.in
-||https://demo.sp289.com
 ||https://dental.xiaoxiao.media
-||https://deproduction.xyz
 ||https://dermato2016.com.br
 ||https://desbloqueia.com
-||https://designandtechnologyskills.com
 ||https://designerliving.co.za
-||https://destinymc.co.za
+||https://destinychild.com.ng
 ||https://dev.crystalclearvapestore.co.uk
 ||https://dev.sebpo.net
+||https://dev2.alumnia.id
 ||https://developer.wiredcampus.in
 ||https://development.goipcloud.co.ke
 ||https://dezcom.com
-||https://dharlafashionsltd.com
 ||https://dhtsw.dhtinc.in
 ||https://diamantesviagens.com.br
 ||https://diamond-api.princeboateng.org
-||https://diginhance.com
 ||https://digirays.in
-||https://digitalwebsydney.com.au
 ||https://divinevirginhair.store
-||https://djobsprinting.com
 ||https://djtransport.ch
 ||https://dl.1003b.56a.com
 ||https://dl.9xu.com
 ||https://dl.installcdn-aws.com
 ||https://dl.pandasecur.com
 ||https://dlgkseed.com
-||https://dmcromania.ro
 ||https://dmequest.com
-||https://dmgholdings.co.ke
 ||https://dnziplik.com.tr
+||https://dodsonimaging.com
 ||https://doncedyhall.com
 ||https://dongnaitw.com
 ||https://dosman.pl
@@ -100154,28 +100628,25 @@
 ||https://down.rxgif.cn
 ||https://down.webbora.com
 ||https://down.yjhyjl.cn
-||https://download.5866.com
 ||https://download.doumaibiji.cn
 ||https://download.pdf00.cn
 ||https://download2.info
+||https://downloads.bcweb.org.uk
 ||https://downloads.dd.com.mt
-||https://dparkltd.com
 ||https://dracristianecoelho.med.br
 ||https://dreamwatchevent.com
 ||https://driftedu.com
 ||https://drive.google.com.it-barcelona.com
-||https://driworksatacado.com.br
 ||https://drsha.innovativesolutions.mobi
 ||https://drshashirawat.com
-||https://drvikashkumarurologist.com
 ||https://du-wizards.com
 ||https://dukaree.com
 ||https://dulichsinhcafe.com.vn
-||https://dumagus.com
-||https://durmagcc.com
 ||https://dutapp.wisolve.co.za
+||https://dx.dett.cn
 ||https://dx.qqyewu.com
 ||https://e-learning.iskandariah.perubatan.org
+||https://e-mart.pk
 ||https://e-weddingcardswala.in
 ||https://e6tfvc.federguda.ru
 ||https://easecloud.com.br
@@ -100183,14 +100654,10 @@
 ||https://easyboard.co.in
 ||https://easybrand.vn
 ||https://easyviettravel.vn
-||https://ebooksofsuccess.com
 ||https://ecim.azneomedia.ro
 ||https://ecitynewsattingal.com
-||https://ecole.pyc.ci
 ||https://econews.site
 ||https://ecsbusinesscollege.com
-||https://editdictionary.com
-||https://editionandco.world
 ||https://edola.ariun.mn
 ||https://edu.pmvanini.rs.gov.br
 ||https://educacriativa.com.br
@@ -100200,88 +100667,80 @@
 ||https://elbuzdwine.ru
 ||https://eldoretwagonhotel.co.ke
 ||https://elektrum.es
-||https://eletronicainformaticaecia.com
 ||https://elevatedfashion.co.uk
-||https://elinerenata.com
-||https://eliteskullsmilsimcwb.com.br
 ||https://ema.cabinetkbg.com
 ||https://emaids.co.za
 ||https://emegablog.com
 ||https://emia.nu
+||https://en.baoend.com
 ||https://en.dsdkochoracin.com.mk
+||https://enceplon.com
 ||https://endoinstruments.co.uk
 ||https://ergotherapeia-kalamata.gr
+||https://erraid-gt.com
 ||https://eslomingenieria.com.ar
 ||https://esportesht.com.br
 ||https://estiloymadera.com.py
-||https://estudiogflz.com.ar
 ||https://eusouchio.com.br
 ||https://excavatorgroup.com
+||https://excelconsultants.pk
 ||https://exilum.com
 ||https://expansion360.net
-||https://extractjob.com
 ||https://f.gogamef.com
 ||https://faai-international.com
 ||https://falpeapn.com.br
 ||https://familydentist.site
-||https://fastboyfenders.com
 ||https://fc.co.mz
-||https://fejat.se
+||https://fcca.ezicrea.com
 ||https://felicienne.nl
 ||https://felionaris.com
-||https://feridolin.com
 ||https://file-file-host4.com
 ||https://filmfestival.sourcetaggers.com
 ||https://filmscarpc.co.uk
 ||https://finconsulting.us
 ||https://fineart.golf
-||https://fineit.com.np
+||https://firewood.integrio.dev
+||https://fisio.rshasto.com
 ||https://fitrahhanniah.sch.id
-||https://fizik.tv.tr
+||https://flexiclay.org
+||https://flyingbuddhadesign.com
 ||https://fooduto.com
 ||https://forummediallc.com
 ||https://foto.kathybossa.com
 ||https://fotoobjetivo.com
 ||https://foundationrepairhoustontx.net
-||https://foursigns.online
 ||https://foxeps.com.br
 ||https://freesoftwares.ml
+||https://fruityx.tk
 ||https://fscloud.su
 ||https://fse.in.ua
 ||https://fsnaturais.com.br
-||https://fuckghost.com
 ||https://fuentesbrothersconcrete.com
 ||https://fullelectronica.com.ar
 ||https://funletters.net
 ||https://furyx.de
-||https://futbolpr.com
 ||https://g.popmonster.ru
-||https://gaidov.bg
 ||https://gan-n.cloud-downloader.com
-||https://gasmin.com
+||https://gayatrisahdev.com
 ||https://gbsports.kiev.ua
-||https://geektechtips.xyz
 ||https://geethanjaliinstitutions.com
 ||https://geetjewels.in
-||https://georgemclaughlin.ca
-||https://geraldsailer.com
-||https://get.bozail.com
-||https://gettier.in
 ||https://gfmodd1.webselffiles01.com
 ||https://ghaziabadplots.in
 ||https://giadinhviet.com
 ||https://gmvadmission.org
-||https://goalsuccesstips.com
 ||https://gocnhotaichinh.com
 ||https://godubai.club
 ||https://godzuwaglobalventures.com
 ||https://goldcountrycalifornia.com
 ||https://goldenasiacapital.com
+||https://goodmarketinggroup.com
 ||https://gopedsweden.se
 ||https://governorofrhodeisland.com
 ||https://gp.gamebuy768.com
 ||https://gpoleri.com.ar
 ||https://grand-element.ru
+||https://grandspree.com
 ||https://greenhillsacademy.org
 ||https://greenpackages.biz
 ||https://greenpayindia.com
@@ -100293,44 +100752,35 @@
 ||https://gs.monerorx.com
 ||https://gsmcommerce.net
 ||https://gt-max.com.my
-||https://guialuze.com
 ||https://guillermomanrique.com.mx
-||https://gulfstreamchem.com
 ||https://gwcrresearch.org
 ||https://gym.quicksoft.in
-||https://hadrielphotography.com
+||https://gzesa.net
 ||https://hagebakken.no
 ||https://hanafoodco.com
-||https://happytreeservices.com
 ||https://hashtagmedia.co.in
 ||https://hb888.luminati-china.net
 ||https://hdkamera2003.hu
-||https://hdvideoresmiuygulama7288.site
-||https://healthanalyst.xyz
 ||https://heldenbos.nl
 ||https://hellogorgeous.com.au
 ||https://herchinfitout.com.sg
 ||https://hhaward.org
 ||https://higservpe.com.br
 ||https://himganic.com
-||https://hingangaongrampanchayat-km.in
 ||https://hireout.today
-||https://historyshop.xyz
 ||https://hitstation.nl
 ||https://hmpmall.co.kr
 ||https://hongluosi.com
 ||https://honours.com.ng
-||https://hookafrica.com
 ||https://hookedupboatclub.com
 ||https://hopefoundationindia.in
 ||https://hordlepc.com
 ||https://horticolatom.com.mx
 ||https://hospital.shuleyanguonline.co.ke
 ||https://hostingparacolombia.com
-||https://hotel-martenshoek.nl
-||https://hotelhadieh.ir
 ||https://hotelluxura.com
 ||https://houseatthebeachinoc.com
+||https://houseofartis.com
 ||https://housereviews.xyz
 ||https://houstonshutters.site
 ||https://howimetyourdata.com
@@ -100340,9 +100790,10 @@
 ||https://htownbars.com
 ||https://humanresourceslifeline.com
 ||https://hunggiang.vn
+||https://huntcrypto1998b.com
 ||https://iamjitenpatel.com
 ||https://ibooking.campaignhub.net
-||https://icedecastella.com.br
+||https://ibraheems.pk
 ||https://icgsame.cf
 ||https://idcard.northerntrader.net
 ||https://idilsoft.com
@@ -100356,10 +100807,10 @@
 ||https://impernasa.com
 ||https://import-group.az
 ||https://in-softs.com
+||https://inblue.co.in
 ||https://incrediblepixels.com
 ||https://incredicole.com
 ||https://indiaexpress24.com
-||https://indonesiangassociety.com
 ||https://indonesias.me
 ||https://indrasbikaner.com
 ||https://informativemind.com
@@ -100369,55 +100820,47 @@
 ||https://inorte.com.br
 ||https://inpackpouch.com
 ||https://insightcameraclub.com
+||https://instalaar.com
 ||https://insumo.vn
-||https://insurance.showcase-dengage.online
 ||https://integratedsystems.com.ng
 ||https://interviewsetup.com
 ||https://inventiontimestamp.com
 ||https://inventory.sourcetaggers.com
 ||https://inversiones.paneltg.com
-||https://investmenthub.world
 ||https://invoice.99p.ru
 ||https://ipokerist.site
 ||https://iptel.cy
 ||https://isaac.co.mz
 ||https://isaac.mikhailmotoringschool.com
-||https://israfont.co.il
 ||https://istanbulcilingircim.com
 ||https://iswaryaites.com
 ||https://italux.com.br
 ||https://itamaracaprojetorenascer.com.br
 ||https://itc-demo.softgig.co.ke
-||https://iyyappahospitals.com
-||https://jainsonsfoods.com
 ||https://jamshed.pk
 ||https://jardinaix.fr
 ||https://java.waterflowergarden.com
 ||https://jay.diamondrelationscrm.us
 ||https://jb-club.com
 ||https://jcedu.org
-||https://jcloud.my
 ||https://jcon.in
 ||https://jcsproductions.ci
+||https://jdkems.com
 ||https://jebs.net.au
 ||https://jeffdahlke.com
 ||https://jennwolfemtb.com
 ||https://jhayesconsulting.com
-||https://jiffyhair.com
+||https://jiaoyuzixun.cn
 ||https://jimbaran-village.myitas.net
 ||https://jingyaotrading.simply.com.sg
-||https://jklairesolutions.com
 ||https://jnanbharati.com
-||https://joomla.hamibusiness.com
-||https://jorashop.com
+||https://joseallende.net
 ||https://joseys.in
 ||https://jpcleaningservices2.davaohorizon.com
 ||https://jqueri-web.at
 ||https://jsipk.com
 ||https://jspa.mcqsmentor.com
-||https://jtbexpress.com
 ||https://juancarloshernandez.us
-||https://jumpwins.com
 ||https://jusconew.wiredcampus.in
 ||https://justinscott.com.au
 ||https://kadigital.co.uk
@@ -100431,35 +100874,28 @@
 ||https://kayodeoguta.com
 ||https://kc.dett.cn
 ||https://kensingtondriving.com
-||https://khautrangyte.com.vn
 ||https://khbd.41319.top
-||https://kibanka.site
 ||https://kickofflaos.com
-||https://kiemsaphia.com.vn
-||https://kiemtientugame.com
+||https://kidsparadise.com.bd
 ||https://kimyen.net
 ||https://kingsquare.pk
 ||https://klija.net
 ||https://klom.mcqsmentor.com
 ||https://km.popmonster.ru
-||https://knopsguide.xyz
 ||https://kodekode.ac.ug
 ||https://korrectconceptservices.com
 ||https://kp72samaj.com
-||https://kr5d.rafilda.ru
 ||https://krainikovvlad.eternalhost.info
 ||https://krisbadminton.com
 ||https://krishnapowers.com
-||https://krusevo.gov.mk
 ||https://ksansari.pk
 ||https://kumawatbook.com
+||https://kurumsal.avantajbulvari.com
 ||https://kutegiagoc.com
-||https://lacemeup.org
+||https://ladex.in
 ||https://lady-melia.com
-||https://lafortaleza941.com
 ||https://lameguard.ru
 ||https://lasermobilesounds.co.uk
-||https://lastminutehotelbooking.com
 ||https://latinaked.club
 ||https://lawcollegerjn.in
 ||https://lawfirm.paperbirdtech.com
@@ -100470,9 +100906,9 @@
 ||https://leasiacherise.com
 ||https://lefilsdepub.com
 ||https://legend.nu
-||https://lemondedulivre.com
 ||https://lennart.serv.se
 ||https://lestesteux.ca
+||https://libera.co.id
 ||https://library.arihantmbainstitute.ac.in
 ||https://lidamtour.com
 ||https://lindnerelektroanlagen.de
@@ -100480,11 +100916,9 @@
 ||https://linkintec.cn
 ||https://liquidallure.shop
 ||https://litespeak.pl
-||https://littlefranchise.xyz
 ||https://livehelpco.com
 ||https://livetrack.in
 ||https://lm.stagingarea.co.za
-||https://lmpp-law.com
 ||https://lms.cstdevs.com
 ||https://location-voitures.ma
 ||https://locatsp.com.br
@@ -100492,40 +100926,33 @@
 ||https://lokmanbd.com
 ||https://longcheckdo.com
 ||https://loydsspice.co.uk
+||https://lp.kravastaksometrs.lv
 ||https://ls-droid.com
 ||https://ltc.typoten.com
 ||https://luminouspneuma.com
-||https://luoicauthang.com
+||https://luxporn.cc
 ||https://luxurycompacthomes.com.au
-||https://luxurymx.com.mx
 ||https://m-technics.kz
 ||https://m.ashiwenhua.net
 ||https://m.metrocardz.com
+||https://m.vintplay.com
 ||https://m2.komaiasowu.ru
 ||https://m8.popmonster.ru
 ||https://macmor-media.com.au
-||https://madaniislamicschool.com
 ||https://madeireiranovaalianca.com.br
 ||https://madicon.co.za
-||https://magic-tiles-stain-remover.com
-||https://mail.bs-eiendomme.co.za
-||https://mail.edaak.in
 ||https://mail.petshopq8.com
 ||https://mailer.srkcommunication.biz
-||https://mainhosters.com
+||https://maintenance.alumnia.id
 ||https://maison-du-parc.com
 ||https://makeupuccino.com
-||https://mallzman.com
 ||https://maltepecastajanslari.bykmedya.com
 ||https://mamabearcoffee.com
 ||https://management.safec.sn
 ||https://manjaridyte.com
 ||https://manjarpayanes.com
 ||https://maquinadosgutierrez.com
-||https://mar-cell.com
-||https://marcin.clockwork-bits.pl
 ||https://marcyovcx.ru
-||https://marialservice.com
 ||https://mario-sunjic.com
 ||https://mariobrown.net
 ||https://marksidfgs.ug
@@ -100535,17 +100962,19 @@
 ||https://matisaas.ac.ug
 ||https://matiti.ug
 ||https://matong47.com
-||https://mbelectrical.co.za
 ||https://mbgrm.com
+||https://mbsolutions.ge
+||https://mealbox.com.pk
 ||https://mechanoesis.gr
 ||https://mechring.analogcloudtech.com
 ||https://media-server.skyinternet.com.pk
-||https://meenahealthcare.com
-||https://meetappearance.club
+||https://medianews.ge
 ||https://meetinvestment.club
 ||https://meeweb.com
+||https://megagynreformas.com.br
 ||https://megamart.afnan-amc.com
 ||https://melhoraragora.com
+||https://memomex.co
 ||https://merchantbli.myitas.net
 ||https://metro.fingerbus.cn
 ||https://meuoculosnanet.com.br
@@ -100557,13 +100986,12 @@
 ||https://microhub.analogcloudtech.com
 ||https://microtel.se
 ||https://mikhailmotoringschool.com
-||https://mindfulnesseating.com
-||https://minstruire.fr
 ||https://miplataformaeducativa.com
 ||https://mirror.mypage.sk
 ||https://misterson.com
 ||https://mistydeblasiophotography.com
-||https://mktcomunica.com.br
+||https://mjimperial.com
+||https://mkontakt.az
 ||https://mktf.mx
 ||https://mladtehnik.com
 ||https://mmd.cityhelpcall.com
@@ -100575,25 +101003,24 @@
 ||https://moe.xiaomitq.com
 ||https://morrobaydrugandgift.com
 ||https://morrysbagels.com
-||https://movieintheatre.xyz
+||https://mos-app.myitas.net
 ||https://mpesa.shuleyanguonline.co.ke
 ||https://mr-mahmoud-hassan.com
 ||https://mtmusicaemercado.com.br
+||https://mtwealth.in
 ||https://mudahnyahamil.com
 ||https://multiairsrl.com.ar
 ||https://multilevelcarparkingindia.com
 ||https://musetype.com
 ||https://musicnote.soundcast.me
-||https://muzimbiti.xigubo.co.mz
 ||https://mvdlimos.com
 ||https://mwu.com.mx
 ||https://mxadmin.wiredcampus.in
+||https://myenterprises.co.in
 ||https://myfreekart.com
 ||https://mymlql.com
 ||https://mysura.it
-||https://mytrains.tk
 ||https://naeemacademy.com
-||https://nafasfitness.com
 ||https://najadriver.najasoftware.com.br
 ||https://nasapaul.com
 ||https://nattawut-gamefowl.com
@@ -100601,8 +101028,8 @@
 ||https://navratangemlab.com
 ||https://ncrplacement.com
 ||https://necocheasexshop.com
-||https://neginraeisi.ir
 ||https://neodigital.se
+||https://neofunkyjunky.com
 ||https://neoxora.lk
 ||https://nettube.com.br
 ||https://networkwheels.co.za
@@ -100612,55 +101039,44 @@
 ||https://nextdigitalday.ru
 ||https://ngdaycare.co.za
 ||https://nghebao.com
-||https://nhaider.com
 ||https://nhorangtreem.com
 ||https://nitropixel.com.br
 ||https://niwf.sourcetaggers.com
 ||https://njtiledesigncenter.com
 ||https://nmkonline.com
-||https://noithattuannga.com
 ||https://nomadicbees.com
 ||https://noonimpex.com
-||https://northcourtrealestate.com
 ||https://notebookparcalari.com
+||https://notyouraveragecookie.com
 ||https://nouveau.kamanews.net
-||https://ns1.the-widyantos.com
 ||https://nsb.org.uk
+||https://nyrachocolates.com
 ||https://oceancitymdforsalebyowner.com
 ||https://oceancityrentalbyowner.com
 ||https://oceanstall.com
-||https://ocmdbeachrentals.com
 ||https://octoil.net
 ||https://office365.bellboyindia.com
 ||https://offlineclubz.com
-||https://oficiox.com
-||https://ohereza.rw
 ||https://ohsewgorgeous.co.uk
-||https://oknoplastik.sk
 ||https://old.cybers.com.ua
 ||https://old.liceum9.ru
 ||https://oleholeh.memangbeda.website
-||https://oliverrubber.in
 ||https://ombrapiatta.com
 ||https://oms.pappai.com
 ||https://omscoc.pappai.com
-||https://ongthanhnam.com
+||https://onetechs.com.my
 ||https://oniondq7shlx5o67t64ljuzisyp34s3n7vepnhc5ijt5hjh107.com
 ||https://online.creedglobal.in
 ||https://onyx-food.com
 ||https://opened.today
-||https://opqual.mg
 ||https://oracle.zzhreceive.top
-||https://orbit10x.com
 ||https://order.redroseofbristol.com
-||https://ordereasy.hk
 ||https://ordersofmagnetude.com
 ||https://orientgatewayltd.com
 ||https://orsan.gruporhynous.com
 ||https://oshosanzen.in
 ||https://outdoortacklebox.com
 ||https://ovni.chat
-||https://oyeeeautos.com
 ||https://ozadowear.com
 ||https://ozemag.com
 ||https://p-sea.com
@@ -100690,42 +101106,41 @@
 ||https://payerrealty.com
 ||https://payments.atifsiddiqui.me
 ||https://pedicollections.com
+||https://pesteco.com
 ||https://petknorra.com
-||https://peulnm16.top
-||https://peuori05.top
+||https://peufga06.top
+||https://peuvbo18.top
 ||https://phasdesign.com
 ||https://phuket-expat-vaccinations.com
 ||https://physiciansofwoodmere.com
 ||https://physicsbyfiziks.org
 ||https://piemontesasaffitti.e-bill.it
 ||https://pikasho.com
+||https://pink99.com
 ||https://pivot-to-virtual.com
 ||https://plasfan.ind.br
 ||https://playground.oaklife.ca
 ||https://plive.today
 ||https://pole.com.vc
-||https://polmediko.pl
+||https://polymathadvisors.com
 ||https://popmonster.ru
-||https://portuguese.icc.holdings
 ||https://posmicrosystems.com
-||https://pouryaferedi.ir
 ||https://ppdb.fitrahhanniah.sch.id
-||https://ppdb.smk-ciptaskill.sch.id
 ||https://pranam.analogcloudtech.com
 ||https://pre.griffinsinternationalschool.in
-||https://predictexpert.com
 ||https://predskolskaustanovastonogica.rs
 ||https://prestasicash.com.ar
 ||https://prestigehomeautomation.net
+||https://pretorian.ac.ug
 ||https://prevenzioneformazionelavoro.it
 ||https://primemed.shop
 ||https://principedicanosa.name
 ||https://prochemindia.com
 ||https://projeniolustur.com
 ||https://promas.com
-||https://promo.cervicalix.net
 ||https://promo.jenevi.store
 ||https://promoversdubai.com
+||https://prontonet.com.ng
 ||https://prosoc.nl
 ||https://protechasia.com
 ||https://provantagemtn.co.za
@@ -100733,17 +101148,14 @@
 ||https://prueba2.adivertirse.com.mx
 ||https://psb.sunandrajat.or.id
 ||https://punjabdevelopersassociation.com.pk
-||https://puntamimarlik.com.tr
-||https://puskestawangmangu.karanganyarkab.go.id
 ||https://pvcprinting.co.uk
 ||https://pzainteriors.com
 ||https://qrmenu.ionoxwebstudio.com
 ||https://qsport.precogtech.com
-||https://querocar.com
 ||https://quickbooks.thormobilemanagement.com
 ||https://quinielanfl.excellsusgroup.com
 ||https://qwc.com.br
-||https://racons.in
+||https://radiogabriela.com.br
 ||https://radionetprovedor.com.br
 ||https://rahigo.com
 ||https://rainbowisp.info
@@ -100752,56 +101164,49 @@
 ||https://randallregistrars-ea.com
 ||https://rangsay.com
 ||https://rankinonthelake.com
-||https://rapture2.romangrey.net
 ||https://raquelhelena.com.br
 ||https://rashika.ascarvalho.co.za
 ||https://ratemyfenancialadvisor.com
-||https://ratita9001.ml
 ||https://reach-book.com
 ||https://realtymarketgh.com
-||https://regalplast.com
-||https://registroenlinea.mx
+||https://redbats.co.in
 ||https://reifenquick.de
 ||https://reju888.com
 ||https://relaxindulge.co.nz
 ||https://renatalaranjo.com
 ||https://renehavis.com.ua
-||https://renentlimited.com
 ||https://reseller.itechbrasil.com
 ||https://restaurantechezdaniel.com
-||https://resultsrma.com
 ||https://retailelectricprovider.com
 ||https://retailexpertscloud.com
 ||https://retailjar.com
 ||https://retracker.host
 ||https://returndaily.com
+||https://revelationestate.com
 ||https://ricambi.fixtofix.it
 ||https://rinaefoundation.org.za
 ||https://rinkaisystem-ht.com
+||https://rnkworkshop.com
+||https://ro4drunner.com
 ||https://romanianpoints.com
 ||https://room.sginicaragua.org
 ||https://roshanzamir.ir
 ||https://roshnijewellery.com
 ||https://rositaslatinflavor.com
 ||https://rs-toolkit.mikestclair.org
-||https://rubycityvietnam.com
+||https://rtspak.com
 ||https://ruisgood.ru
+||https://rumanpay.in
 ||https://rushwaylimousine.com
 ||https://rusyacastajanslari.bykmedya.com
 ||https://s.51shijuan.com
 ||https://safcol-colors.com
-||https://sainzim.co.za
 ||https://sales.reoprime.com
 ||https://salonways.com
 ||https://sample3.khushiyonkazariya.in
 ||https://sandbox.boatcancunparadise.com
-||https://sankataclub.com.np
-||https://sarmala-fusion.ro
-||https://sasystemsuk.com
 ||https://satisfactionapp.club
-||https://savethegym.com
 ||https://savoybd.com
-||https://sayaansourcing.com
 ||https://sbuilding.com.br
 ||https://scarfaceindustries.com
 ||https://scffirm.com
@@ -100816,26 +101221,22 @@
 ||https://seguridadares.cl
 ||https://sejadahkhaulah.com
 ||https://seminario-sg.com
-||https://seminarska.ga
 ||https://senbiaojita.com
 ||https://sencalli.com
 ||https://seniorweekoc.net
+||https://sensenetwork.com.my
 ||https://sericaasia.com
 ||https://server.easysalepage.in.th
 ||https://service.easytrace.mn
-||https://serviciovirtual.com.ar
 ||https://servidor.indommus.com
 ||https://servitecempilhadeira.com.br
 ||https://sexologistpakistan.net
 ||https://sgessy.com.br
-||https://shaadishenanigans.com
-||https://shadesnshadows.com.np
 ||https://shadihub.hmrngroup.com
 ||https://shaguun.com
 ||https://shaheentbfoundation.com
 ||https://shahikhana.cstdevs.com
 ||https://shahu66.com
-||https://sheshkantfoundation.org
 ||https://shikshapay.in
 ||https://shop.mediasova.ru
 ||https://short.extrafandome.com
@@ -100844,45 +101245,36 @@
 ||https://sige.brisainformatica.com.br
 ||https://sigma-web.ci
 ||https://signatureads.co.in
+||https://significancestudio.club
 ||https://siili.net
-||https://sikandercorp.com
-||https://silveroaktechnovations.com
 ||https://simgftesting.kabtakalar.id
 ||https://sindicato1ucm.cl
-||https://singsamut.ac.th
 ||https://sistelligent.com
 ||https://siwannews.in
-||https://skilledmonger.in
 ||https://skilltik.com
-||https://sman2xiiikk.sch.id
-||https://smartcontracts.co.za
+||https://sman1paguyaman.sch.id
 ||https://smarthouseforum.ru
 ||https://smpn1tolitoli.sch.id
-||https://smruthishettigar.com
+||https://sms.rioeasycollect.com
 ||https://snkre.com
 ||https://sodovip88.com
 ||https://soft.110route.com
 ||https://solarforafrica.net
-||https://solveit.ie
 ||https://source3.boys4dayz.com
-||https://sovip86.com
 ||https://spa.grupokayros.org
 ||https://spaceframe.mobi.space-frame.co.za
-||https://spanish.icc.holdings
 ||https://sparcalabar.lightzillion.com
 ||https://spent.com.pl
 ||https://spetsesyachtcharter.gr
 ||https://spf.org.rs
+||https://sphiwondonimusic.com
 ||https://spiceoils.a1oilindia.in
 ||https://spices.com.sg
 ||https://spitiwanderer.com
 ||https://src1.minibai.com
-||https://srisaitranslations.in
-||https://sscgk.online
 ||https://sspbluebox.com
 ||https://st.devcodin.com
 ||https://stackdigital.co.uk
-||https://stage.manipalinn.com
 ||https://staging.apparelpunch.com
 ||https://start360up.com
 ||https://starticris.com
@@ -100891,30 +101283,25 @@
 ||https://steelhorns.net
 ||https://stemartoursandtravels.com
 ||https://sticker.jewsjuice.com
-||https://stoneyouth.club
 ||https://story-life.net
 ||https://stroysudexpertiza.ru
 ||https://studiomam.se
 ||https://styledbylinda.com.au
 ||https://submissions.tentcityrecords.net
-||https://sunlifeglobal.com
-||https://sunuhabitat.com
 ||https://sunukoomthies.com
 ||https://supplementwater.in
 ||https://support.clz.kr
 ||https://support.ionoxwebstudio.com
 ||https://supportit.online
 ||https://surirapatt.com
-||https://suriyecastajanslari.bykmedya.com
 ||https://suryatp.com
 ||https://suwayd.com
 ||https://suyashhospitalraipur.com
 ||https://swift-order.com
-||https://swim.romangrey.net
 ||https://swwbia.com
 ||https://t.honker.info
+||https://tabloidpengusaha.com
 ||https://taka.com.mx
-||https://tamilkalyanam.net
 ||https://tanlayseong.com
 ||https://tarravalleyfoods.com.au
 ||https://taxclubpk.com
@@ -100923,11 +101310,9 @@
 ||https://techgms.com
 ||https://techybhai.online
 ||https://teenbikiniguide.com
-||https://temnozap.com.br
 ||https://temptmag.com
 ||https://terracondivisa.farsiprossimofaenza.org
 ||https://test.adventser.com
-||https://test.crystaltrading.pk
 ||https://test.effectivenutrition.website
 ||https://test.fontecsys.net
 ||https://test.lakecountygazette.net
@@ -100937,45 +101322,38 @@
 ||https://testing-istudiophoto.davaohorizon.com
 ||https://thaayagam.com
 ||https://tharringtonsponsorship.com
-||https://theappliancesindia.com
-||https://thebox.sd
 ||https://thecircumcisioncentre.com
+||https://theerl.com
 ||https://thegift.live
-||https://thehealthymummy.com.au
 ||https://thehotelshowdev.bitkit.dk
 ||https://thekrishnagroup.com
-||https://themodernindustries.com
-||https://theperfumeplus.com
+||https://themessage1009.com
 ||https://thepunchlineexpose.com
 ||https://thesensescollection.com
 ||https://theverybestofeverything.com
 ||https://thienhatcoffee.com
-||https://thingapp.xyz
-||https://thinglabs.club
 ||https://thosewebbs.com
-||https://thrushintl.com
 ||https://tianangdep.com
 ||https://ticboutique.com
-||https://tigerandlily.nl
+||https://tigan.cf
 ||https://timamollo.co.za
 ||https://timegonebuy.com
 ||https://tirocertomc.com.br
 ||https://tixit.app
 ||https://tixit.band
-||https://tixit.live
 ||https://tk.w3.eyeteam.vn
 ||https://tnk-moflad.com
 ||https://todoapp.cstdevs.com
 ||https://tonydong.com
 ||https://tonyzone.com
 ||https://tools.reimclub.com
-||https://top10hotels.xyz
 ||https://torresquinterocorp.com
 ||https://tracker-one.com.au
 ||https://trade.voxu.group
 ||https://tradingview-brokers.learnforcareer.com
 ||https://tradingview-network.carmencalusha.com
 ||https://traidingview.safetywatchers.club
+||https://transportationonline.club
 ||https://transworldacademy.in
 ||https://traveladmin.sourcetaggers.com
 ||https://travels.cdtscorp.com
@@ -100984,21 +101362,17 @@
 ||https://treinecomigojacibarbosa.com.br
 ||https://trello2.missiondmc.com
 ||https://trivalleylimousine.com
-||https://troiaconstruct.ro
 ||https://try.justprintbd.com
-||https://tukangserviceberkah.com
 ||https://tuonglinh.com.vn
 ||https://tupperware.michaelroberge.ca
-||https://tutorials.bhangero.com
 ||https://tuzlacastajanslari.bykmedya.com
 ||https://twinings.grupoformax.net
-||https://ublisportal.com
 ||https://ublretailerdemo.cstdevs.com
-||https://uedeveloper.com
+||https://ubnglobal.com
 ||https://uisusa.uisusa.com
 ||https://ukguk71.ru
 ||https://ultimate-24.de
-||https://unicornhardware.in
+||https://unic11m.top
 ||https://unicorpbrunei.com
 ||https://unifashion.app.krazyit.com.au
 ||https://unisoftcc.com
@@ -101008,36 +101382,29 @@
 ||https://update.myiphost.com
 ||https://updatedtechinformer.com
 ||https://usecatoutlet.com.br
-||https://usful.net
 ||https://uyomall.lightzillion.com
 ||https://uzzepay.com.br
-||https://vagas.oito5.com.br
 ||https://vaynhanh247.net
 ||https://ve0.popmonster.ru
 ||https://vectarts.com
-||https://velocidadeinternet.oito5.com.br
 ||https://vemartsa.com
 ||https://venveo.wordpressdeveloper.info
 ||https://vfocus.net
 ||https://vg.gurusoftware.in
 ||https://vibetec.com.br
 ||https://victorysanitizer.com
-||https://vihaconsultancy.com
+||https://view.pasarjaya.co.id
 ||https://villatera.com
+||https://vinkolventures.com
 ||https://vintres.com.br
 ||https://violinstop.com
-||https://viphco.ir
-||https://viralbeauty.id
-||https://virasea.ir
 ||https://virtualoperationss.com
 ||https://virtuleverage.com
 ||https://visam.info
-||https://vitaway.org
 ||https://vivationdesign.com
 ||https://viveirodoiscorregos.com.br
 ||https://vksales.com
 ||https://vmpcinformatica.com.br
-||https://vnamazon.vn
 ||https://volkscantonalbank.com
 ||https://vologroup.com.br
 ||https://vplatform.ae
@@ -101048,61 +101415,45 @@
 ||https://w1.zypaint.com
 ||https://waddilovehighschool.com
 ||https://wakanaija.com.ng
-||https://walkindrivetoday.com
-||https://warsh-impex.com
 ||https://washatsanjose.com
 ||https://waskitaprecast.co.id
 ||https://wdows.com
-||https://wduvf2u.rafilda.ru
 ||https://wearsweetbomb.com
 ||https://web.geomegasoft.net
 ||https://web.innoservwebsites.in
-||https://webapoteka.test.tbstaging.dev
+||https://webewox.com
 ||https://webpro.marketing
 ||https://webschool.quicksoft.in
-||https://weddingcameramen.com
-||https://weddingphotographerinagra.com
 ||https://weinsteincounseling.com
 ||https://whizcraft.co.uk
-||https://wildtrust.mediadevstaging.com
 ||https://winonvulkan.ringhio.net
 ||https://winonvulkan.syrox-kosova.com
-||https://wintrue.cn
 ||https://wishesconcierge.com
 ||https://wolfgang-brodte.de
 ||https://wolfram-electric.com
 ||https://wordpress.baishuweb.com
 ||https://worldofjain.com
-||https://wp-websites.com.au
 ||https://wp.billows7.top
 ||https://wp.readhere.in
-||https://wpwebfarm.com
-||https://wsgsq8.com
 ||https://wta.cz
 ||https://ww2.kbs.web.id
 ||https://www.91yudao.com
 ||https://www.adorerealtech.com
-||https://www.ahhf.co.uk
 ||https://www.al-wahd.com
 ||https://www.alertsecurities.in
 ||https://www.andrepaixaoconsultoria.com.br
-||https://www.asperiaclinic.com
-||https://www.avesplanet.com
 ||https://www.bahadur.com.pk
 ||https://www.bazaar-shahr-alborz.ir
-||https://www.behanaa.co.il
 ||https://www.bitllab.com.br
-||https://www.bluemochatea.com
 ||https://www.bpbj.id
-||https://www.busokay.com
 ||https://www.cellas.sk
-||https://www.citorytech.com
-||https://www.corsocom.com
 ||https://www.cursossemana.com
 ||https://www.dacui.online
 ||https://www.datapolish.com
 ||https://www.dental.xiaoxiao.media
 ||https://www.dijitalegitim.biltekokullari.com
+||https://www.duoyuhudong.cn
+||https://www.easyquizzydownloads.ru
 ||https://www.empowercareer.com
 ||https://www.enc-tech.com
 ||https://www.errenekstijn.nl
@@ -101113,7 +101464,6 @@
 ||https://www.fistwarrior.com
 ||https://www.funpress.ir
 ||https://www.garibaldidal1970.com
-||https://www.gethealthyproject.com
 ||https://www.godfathersjunk.com
 ||https://www.greenpayindia.com
 ||https://www.gsmcommerce.net
@@ -101123,8 +101473,6 @@
 ||https://www.hollow-sections.net
 ||https://www.hsecaravans.co.uk
 ||https://www.hseda.com
-||https://www.hydromet.gov.bz
-||https://www.hyperz.top
 ||https://www.idj.no
 ||https://www.ipokerist.site
 ||https://www.isatechnology.com
@@ -101134,22 +101482,19 @@
 ||https://www.kjcpromo.com
 ||https://www.ks.cn
 ||https://www.landing.yetiapp.ec
-||https://www.laporanmasyarakat.com
 ||https://www.mfevr.com
 ||https://www.moharrampartners.com
-||https://www.mojochamps.com
-||https://www.motorwinding.in
 ||https://www.mutebimetalworks.com
 ||https://www.nesthomes.co.ke
 ||https://www.northeastbulletinnews.in
-||https://www.nouvelleesthetique.it
 ||https://www.opolis.io
 ||https://www.orientgatewayltd.com
 ||https://www.oronoziparraguirre.com
+||https://www.partytime.gr
+||https://www.pasionportufuturo.pe
 ||https://www.pcsinsurance.co.in
 ||https://www.plug2field.com
 ||https://www.prestasicash.com.ar
-||https://www.primariajupinesti.ro
 ||https://www.publicolor-rr.com.br
 ||https://www.qsbinternational.com
 ||https://www.quanminvip.cn
@@ -101158,16 +101503,13 @@
 ||https://www.roofing.galacticleads.com
 ||https://www.rubazar.pro
 ||https://www.saf-oil.ru
-||https://www.scentscharming.com
 ||https://www.seida.info
 ||https://www.sindicato1ucm.cl
 ||https://www.siriusblackshop.com
 ||https://www.skyscan.com
 ||https://www.soho-siegburg.de
 ||https://www.sota-france.fr
-||https://www.starcountry.net
 ||https://www.sterlitecamotech.com
-||https://www.techventuras.com
 ||https://www.teknoarge.com
 ||https://www.teleargentina.com
 ||https://www.toplevel.com.br
@@ -101176,17 +101518,18 @@
 ||https://www.viverosvila.es
 ||https://www.vulkanwin.techibandhu.com
 ||https://www.weinsteincounseling.com
+||https://www.wfinance.com.br
 ||https://www.wpkms.com
 ||https://www.x2vn.com
 ||https://www.yafa-coach.co.il
 ||https://www.ysbaojia.com
 ||https://x.233sy.cn
-||https://xarites.ro
-||https://xaynhathanhnam.com
+||https://xia.ddcch4ckserver.top
 ||https://xingular.io
-||https://xkdopbbdwi.com
+||https://xj.91liebian.top
+||https://xk.996is.com
+||https://xk1.996is.com
 ||https://xre.popmonster.ru
-||https://xxx247.nl
 ||https://xz.8dashi.com
 ||https://yashfans.com
 ||https://yasminkozmetik.com
@@ -101196,17 +101539,16 @@
 ||https://yourpathfinder.com.au
 ||https://yp.hnggzyjy.cn
 ||https://ytvnews.info
-||https://yuntibao.com
+||https://yunalink.ir
 ||https://yzkzixun.com
-||https://zad-boisdutroncay.org
-||https://zaiqathespicestore.com
+||https://zbc.vn
 ||https://zealwellness.in
 ||https://zeytinburnucastajanslari.bykmedya.com
 ||https://ziengineeringco.com
-||https://zina-boutique.com
 ||https://zofer.com.br
 ||https://zsadvocacia.com
-! Number of entries: 1825
+||https://zz.690tx.com
+! Number of entries: 1506
 ! End URLHaus
 
 ! Start yoyo.org
@@ -101216,14 +101558,14 @@
 ! For more information about this list, see: https://pgl.yoyo.org/adservers/
 ! ----
 ! last updated:   Tue, 07 Dec 2021 13:54:21 GMT
-! entries:        3697
+! entries:        3687
 ! format:         hosts (hosts -- in hosts file format)
 ! this URL:       https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0
 ! Patreon:        https://patreon.com/blocklist
 ! other formats:  https://pgl.yoyo.org/adservers/formats.php
 ! policy:         https://pgl.yoyo.org/adservers/policy.php
 !
-! start date:    Sat, 15 Dec 2001 00:00:00
+! start date:    Mon, 17 Dec 2001 00:00:00
 ||https://1-1ads.com
 ||https://101com.com
 ||https://101order.com
@@ -101257,7 +101599,6 @@
 ||https://77tracking.com
 ||https://82o9v830.com
 ||https://a.aproductmsg.com
-||https://a.consumer.net
 ||https://a.muloqot.uz
 ||https://a.sakh.com
 ||https://a.ucoz.ru
@@ -101418,7 +101759,6 @@
 ||https://adjix.com
 ||https://adjug.com
 ||https://adjuggler.com
-||https://adjust.com
 ||https://adjustnetwork.com
 ||https://adk2.co
 ||https://adk2.com
@@ -101609,7 +101949,6 @@
 ||https://ads.quoka.de
 ||https://ads.radialserver.com
 ||https://ads.radio1.lv
-||https://ads.rcncdn.de
 ||https://ads.rcs.it
 ||https://ads.recoletos.es
 ||https://ads.samsung.com
@@ -101675,7 +102014,6 @@
 ||https://ads3.virtual-nights.com
 ||https://ads4.virtual-nights.com
 ||https://ads5.virtual-nights.com
-||https://adsafeprotected.com
 ||https://adsatt.abc.starwave.com
 ||https://adsbydelema.com
 ||https://adscale.de
@@ -101818,7 +102156,6 @@
 ||https://adzone.temp.co.za
 ||https://adzones.com
 ||https://adzrevads.com
-||https://aerserv.com
 ||https://af-ad.co.uk
 ||https://affec.tv
 ||https://affili.net
@@ -101862,7 +102199,6 @@
 ||https://ambiguousquilt.com
 ||https://ambitiousagreement.com
 ||https://americash.com
-||https://amplitude.com
 ||https://analytics.adpost.org
 ||https://analytics.algoepico.net
 ||https://analytics.bitrix.info
@@ -101902,7 +102238,6 @@
 ||https://apolloprogram.io
 ||https://app.pendo.io
 ||https://appboycdn.com
-||https://appsflyer.com
 ||https://aps.hearstnp.com
 ||https://apture.com
 ||https://apu.samsungelectronics.com
@@ -102015,7 +102350,6 @@
 ||https://bfmio.com
 ||https://bhcumsc.com
 ||https://bidclix.com
-||https://bidr.io
 ||https://bidtellect.com
 ||https://big-bang-ads.com
 ||https://bigbangmedia.com
@@ -102318,7 +102652,6 @@
 ||https://domaining.in
 ||https://domainsteam.de
 ||https://domdex.com
-||https://doubleverify.com
 ||https://doubtfulrainstorm.com
 ||https://downloadr.xyz
 ||https://dpgawov.com
@@ -102331,7 +102664,6 @@
 ||https://dsp.colpirio.com
 ||https://dsp.io
 ||https://dstillery.com
-||https://e-adimages.scrippsnetworks.com
 ||https://e-m.fr
 ||https://e-planning.net
 ||https://e.kde.cz
@@ -102357,7 +102689,6 @@
 ||https://elephantqueue.com
 ||https://elitedollars.com
 ||https://elitetoplist.com
-||https://elthamely.com
 ||https://em1.yoursantander.co.uk
 ||https://email-clk.adguard.com
 ||https://email-opn.adguard.com
@@ -102448,7 +102779,6 @@
 ||https://ffxcam.fairfax.com.au
 ||https://fimserve.com
 ||https://findcommerce.com
-||https://findepended.com
 ||https://findyourcasino.com
 ||https://fineoffer.net
 ||https://fireworkadservices.com
@@ -102459,7 +102789,6 @@
 ||https://fixel.ai
 ||https://flairadscpc.com
 ||https://flakyfeast.com
-||https://flashtalking.com
 ||https://fleshlightcash.com
 ||https://flexbanner.com
 ||https://flimsycircle.com
@@ -102538,7 +102867,6 @@
 ||https://goingplatinum.com
 ||https://gondolagnome.com
 ||https://googleanalytics.com
-||https://googlesyndication.com
 ||https://gorgeousground.com
 ||https://gothamads.com
 ||https://gotraffic.net
@@ -102673,7 +103001,6 @@
 ||https://information.com
 ||https://inner-active.com
 ||https://innocentwax.com
-||https://innovid.com
 ||https://inquisitiveinvention.com
 ||https://inringtone.com
 ||https://insgly.net
@@ -102715,7 +103042,6 @@
 ||https://jaizouji.com
 ||https://jauchuwa.net
 ||https://jcount.com
-||https://jdoqocy.com
 ||https://jinkads.de
 ||https://joetec.net
 ||https://js.users.51.la
@@ -102768,7 +103094,6 @@
 ||https://lfeeder.com
 ||https://lfstmedia.com
 ||https://lgad.cjpowercast.com.edgesuite.net
-||https://lgsmartad.com
 ||https://li.alibris.com
 ||https://li.azstarnet.com
 ||https://li.dailycaller.com
@@ -102927,7 +103252,6 @@
 ||https://moneyexpert.co.uk
 ||https://monsterpops.com
 ||https://mookie1.com
-||https://mopub.com
 ||https://motionspots.com
 ||https://mousestats.com
 ||https://movad.net
@@ -103035,7 +103359,6 @@
 ||https://onenetworkdirect.com
 ||https://onestat.com
 ||https://onestatfree.com
-||https://online-metrix.net
 ||https://online.miarroba.com
 ||https://onlinecash.com
 ||https://onlinecashmethod.com
@@ -103067,7 +103390,6 @@
 ||https://otto-images.developershed.com
 ||https://overconfidentfood.com
 ||https://overture.com
-||https://owebanalytics.com
 ||https://owebmoney.ru
 ||https://owlsr.us
 ||https://owneriq.net
@@ -103129,7 +103451,6 @@
 ||https://pimproll.com
 ||https://piquantpigs.com
 ||https://pixel.digitru.st
-||https://placed.com
 ||https://plardi.com
 ||https://plausible.mangadex.org
 ||https://plausibleio.workers.dev
@@ -103471,7 +103792,6 @@
 ||https://sponsorpro.de
 ||https://sponsors.thoughtsmedia.com
 ||https://spookysleet.com
-||https://sportsad.net
 ||https://spot.fitness.com
 ||https://spotlessstamp.com
 ||https://springaftermath.com
@@ -103492,7 +103812,6 @@
 ||https://stalesummer.com
 ||https://standingnest.com
 ||https://starffa.com
-||https://start.freeze.com
 ||https://stat-track.com
 ||https://stat.cliche.se
 ||https://stat.dyna.ultraweb.hu
@@ -103519,7 +103838,6 @@
 ||https://steadfastsystem.com
 ||https://stepplane.com
 ||https://stickssheep.com
-||https://stickyadstv.com
 ||https://stiffgame.com
 ||https://storesurprise.com
 ||https://storetail.io
@@ -103573,7 +103891,6 @@
 ||https://tamgrt.com
 ||https://tangerinenet.biz
 ||https://tangibleteam.com
-||https://tapad.com
 ||https://tapfiliate.com
 ||https://tapinfluence.com
 ||https://tapjoy.com
@@ -103589,7 +103906,6 @@
 ||https://tcads.net
 ||https://tealeaf.com
 ||https://tealium.com
-||https://tealiumiq.com
 ||https://tedioustooth.com
 ||https://teenrevenue.com
 ||https://teenyvolcano.com
@@ -103643,6 +103959,7 @@
 ||https://topgamesites.net
 ||https://toplist.pornhost.com
 ||https://toplista.mw.hu
+||https://toplistcity.com
 ||https://topping.com.ua
 ||https://toprebates.com
 ||https://topsir.com
@@ -103718,7 +104035,6 @@
 ||https://travis.bosscasinos.com
 ||https://trck.a8.net
 ||https://trcked.me
-||https://trcking4wdm.de
 ||https://trcklion.com
 ||https://trekdata.com
 ||https://tremendoustime.com
@@ -103829,7 +104145,6 @@
 ||https://warmafterthought.com
 ||https://waryfog.com
 ||https://wateryvan.com
-||https://wd-track.de
 ||https://wdfl.co
 ||https://wearbasin.com
 ||https://web-redirecting.com
