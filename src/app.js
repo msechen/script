@@ -70,6 +70,7 @@ const SuperBrandProduct = TemporarilyOffline || require('./jd/superBrand/Product
 const DDSJ = require('./jd/ddsj');
 const RubikSCube = require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
+const Factory = require('./jd/wfh/Factory');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -116,6 +117,7 @@ async function main() {
     [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
     SuperBrandDay,
     GoldCreator,
+    Factory,
   ];
   // 极速版
   const lites = [
@@ -192,6 +194,7 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
+          Factory,
         ]);
       },
     },
@@ -260,6 +263,7 @@ async function main() {
           EarnBean,
           Joy,
           Fruit, Pet,
+          Factory,
         ]);
         // await doRun(CrazyJoy);
 
@@ -291,6 +295,7 @@ async function main() {
   // 定时循环
   async function cronLoop() {
     await doCron(CrazyJoy);
+    await doCron(Factory);
     await doCron(PlantBean);
 
     if (nowHour % 5 === 0) {

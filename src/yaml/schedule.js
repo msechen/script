@@ -43,7 +43,7 @@ const envSecrets = _.fromPairs(_.flatten([
   'JD_PET_SHARE_CODE',
   'JD_CASH_SHARE_CODE',
   'JD_BEAN_SHARE_CODE',
-  'JD_JDFACTORY_SHARE_CODE',
+  'JD_FACTORY_SHARE_CODE',
   'JD_STALL_SHARE_CODE',
   'JD_STALL_SS',
   'JD_STALL_CRON_SS',

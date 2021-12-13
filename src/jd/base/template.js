@@ -16,9 +16,13 @@ class Template extends Base {
 
   static updateShareCodeFn(shareCode, isCurrent = true) {
     const self = this;
-    const shareCodeTaskList = self.shareCodeTaskList;
+    const shareCodeUniqIteratee = self.shareCodeUniqIteratee;
+    let shareCodeTaskList = self.shareCodeTaskList;
     shareCodeTaskList.splice(isCurrent ? self.currentCookieTimes : shareCodeTaskList.length, 0, shareCode);
-    self.shareCodeTaskList = _.uniqBy(shareCodeTaskList, self.shareCodeUniqIteratee);
+    if (shareCodeUniqIteratee) {
+      shareCodeTaskList = shareCodeTaskList.map(code => _.isObject(code) ? code : {[shareCodeUniqIteratee]: code});
+    }
+    self.shareCodeTaskList = _.uniqBy(shareCodeTaskList, shareCodeUniqIteratee);
   }
 
   // 获取 shareCode
@@ -70,8 +74,8 @@ class Template extends Base {
   static initShareCodeTaskList(shareCodes) {
     const self = this;
     // 通用处理
-    shareCodes.concat(self.defaultShareCodes).forEach((code, index) => {
-      self.updateShareCodeFn(code, index === 0);
+    shareCodes.concat(self.defaultShareCodes).forEach(code => {
+      self.updateShareCodeFn(code, false);
     });
     self.defaultShareCodes = [];
   }

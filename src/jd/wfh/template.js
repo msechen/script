@@ -21,12 +21,19 @@ class HarmonyTemplate extends Template {
 
   static apiNames = {};
 
+  static shareCodeUniqIteratee = 'taskToken';
+
   static getApiNames() {
     return this._.assign({}, defaultApiNames, this.apiNames);
   };
 
-  static async afterDoWaitTask(data, api) {
-  }
+  static async beforeDoTask(api, taskId) {}
+
+  static async afterDoTask(api, data) {}
+
+  static async afterDoWaitTask(api, data) {}
+
+  static async afterGetTaskList(api, data) {}
 
   static logAfterRedeem(data) {
     const self = this;
@@ -51,26 +58,21 @@ class HarmonyTemplate extends Template {
         successFn: async (data, api) => {
 
           if (!self.isSuccess(data)) {
-            self.log('活动已过期！！！');
+            api.log(`活动异常 ${JSON.stringify(data)}`);
             return [];
           }
 
           const result = [];
 
-          for (let {
-            subTitleName = '',
-            status,
-            taskId,
-            maxTimes,
-            times,
-            waitDuration,
-            simpleRecordInfoVo,
-            productInfoVos,
-            followShopVo,
-            shoppingActivityVos,
-            browseShopVo,
-            assistTaskDetailVo
-          } of _.property('data.result.taskVos')(data) || []) {
+          for (const task of _.property('data.result.taskVos')(data) || []) {
+            let {
+              subTitleName = '',
+              status,
+              taskId,
+              maxTimes,
+              times,
+              waitDuration,
+            } = task;
             if (self.redeemWithTaskId && status === 3/*待抽奖*/) {
               await api.doFormBody(self.getApiNames().doRedeem, {taskId, ...self.commonParamFn()}).then(self.logAfterRedeem.bind(self));
               continue;
@@ -78,17 +80,21 @@ class HarmonyTemplate extends Template {
 
             if ([2, 3/*待抽奖*/, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
 
-            waitDuration = waitDuration || +(_.first(/(\d*)\w/.exec(subTitleName) || 0));
+            await self.beforeDoTask(api, taskId);
 
-            let list = _.concat(simpleRecordInfoVo || productInfoVos || followShopVo || shoppingActivityVos || browseShopVo || []);
+            waitDuration = waitDuration || +(_.last(/(\d*)[s|秒]/.exec(subTitleName)) || 0);
+
+            let list = self.getListMatchVo(task);
 
             // 邀请助力
             if (taskId === self.shareTaskId) {
-              const shareCodeTaskList = self.shareCodeTaskList;
-              if (!_.map(shareCodeTaskList, 'taskToken').includes(assistTaskDetailVo.taskToken)) {
-                shareCodeTaskList.push(assistTaskDetailVo);
+              if (self.doneShareTask) {
+                continue;
               }
+              self.updateShareCodeFn(list[0], true);
               list = self.getShareCodeFn();
+              times = 0;
+              maxTimes = list.length;
             }
 
             list = list.filter(o => o.status !== 2).map(o => _.assign({
@@ -110,25 +116,26 @@ class HarmonyTemplate extends Template {
       doTask: {
         name: self.getApiNames().doTask,
         paramFn: o => o,
-        successFn(data, api) {
+        async successFn(data, api) {
           // 增加点延迟
-          return sleep(2);
+          await sleep();
+          await self.afterDoTask(api, data);
         },
       },
       doWaitTask: {
         name: self.getApiNames().doWaitTask,
         paramFn: o => _.assign(o, {actionType: 0}),
         successFn(data, api) {
-          return self.afterDoWaitTask(data, api);
+          return self.afterDoWaitTask(api, data);
         },
       },
       afterGetTaskList: {
         name: self.getApiNames().afterGetTaskList,
         paramFn: self.commonParamFn,
-        successFn: data => {
+        async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
+          await self.afterGetTaskList(api, data);
         },
-        repeat: true,
       },
       doRedeem: {
         name: self.getApiNames().doRedeem,
