@@ -556,6 +556,7 @@ async function distributeBeanActivity() {
       if ($.hasOpen) await getUserTuanInfo()
     }
     if ($.tuan && $.tuan.hasOwnProperty('assistedPinEncrypted') && $.assistStatus !== 3) {
+      console.log(`\n【京东账号${$.index}（${$.nickName || $.UserName}）的【赚京豆-瓜分京豆】好友互助码为${$.tuan}\n`)
       $.tuanList.push($.tuan);
       // const code = Object.assign($.tuan, {"time": Date.now()});
       // $.http.post({
