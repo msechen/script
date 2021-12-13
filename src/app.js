@@ -244,7 +244,6 @@ async function main() {
           SuperMarket,
           StatisticsRedEnvelope,
           LiteHappyDig,
-          SplitHongbao,
         ]);
       },
     },
