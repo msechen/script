@@ -224,6 +224,7 @@ async function composePearlState(type) {
                       //   }
                       // }
                       await composePearlAward(data.strDT, beaconType, size)
+                      await $.wait(2000)
                     }
                   }
                   let strLT = data.oPT[data.ddwCurTime % data.oPT.length]
@@ -781,7 +782,7 @@ async function requestAlgo() {
       "expandParams": ""
     })
   }
-  new Promise(async resolve => {
+  return new Promise(async resolve => {
     $.post(options, (err, resp, data) => {
       try {
         if (err) {
