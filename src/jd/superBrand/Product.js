@@ -68,6 +68,7 @@ class SuperBrandProduct extends Template {
             encryptAssignmentId,
             assignmentType,
             assignmentName,
+            assignmentDesc,
             assignmentTimesLimit: maxTimes,
             completionCnt: times,
             waitDuration,
@@ -89,12 +90,14 @@ class SuperBrandProduct extends Template {
 
             if (!_.isEmpty(ext)) {
               const extName = ext['extraType'];
+              let dropDownChannel = assignmentDesc.match('下拉') ? 1 : void 0;
               const patchItem = itemId => _.assign({
                 encryptProjectId: api.encryptProjectId,
                 encryptAssignmentId,
                 assignmentType,
                 actionType: 0,
                 itemId,
+                dropDownChannel,
               }, !itemId ? {completionFlag: 1} : {});
               if (extName === 'assistTaskDetail') {
                 !completionFlag && self.isFirstLoop() && self.updateShareCodeFn(ext[extName].itemId);
