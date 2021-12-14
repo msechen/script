@@ -1,4 +1,4 @@
-name: sync-JDTASK_V2P-scripts
+name: sync-elecV2P
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-JDTASK_V2P-scripts
+    types: sync-elecV2P
 jobs:
   repo-sync:
     env:
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-JDTASK_V2P-scripts
+      - name: sync-elecV2P
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/CenBoMin/JDTASK_V2P.git"
-          source_branch: "main"
-          destination_branch: "JDTASK_V2P"
+          source_repo: "https://github.com/elecV2/elecV2P.git"
+          source_branch: "master"
+          destination_branch: "elecV2P"
           github_token: ${{ secrets.PAT }}
