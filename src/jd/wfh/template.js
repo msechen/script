@@ -79,7 +79,7 @@ class HarmonyTemplate extends Template {
               continue;
             }
 
-            if ([2, 3/*待抽奖*/, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
+            if ([2, 4].includes(status) || self.skipTaskIds.includes(taskId)) continue;
 
             await self.beforeDoTask(api, taskId);
 

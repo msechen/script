@@ -33,6 +33,9 @@ const Harmony3 = require('./jd/wfh/harmony3');
 const Harmony4 = require('./jd/wfh/harmony4');
 const Harmony5 = require('./jd/wfh/harmony5');
 const SplitHongbao = require('./jd/wfh/splitHongbao');
+const Health = require('./jd/wfh/Health');
+const HealthShare = require('./jd/wfh/HealthShare');
+const HealthSign = require('./jd/wfh/HealthSign');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
@@ -152,6 +155,11 @@ async function main() {
           // Harmony3,
           Harmony4,
           Harmony5,
+        ]);
+        await multipleRun([
+          HealthSign,
+          HealthShare,
+          Health,
         ]);
       },
     },
@@ -275,6 +283,7 @@ async function main() {
           // JoyRedeem,
         ]);
         await multipleRun([
+          [Health, void 0, 'cron'],
           EarnBean,
           JoySign,
           SignTurnTable,
@@ -299,6 +308,7 @@ async function main() {
     await doCron(CrazyJoy);
     await doCron(Factory);
     await doCron(PlantBean);
+    await doCron(Health);
 
     if (nowHour % 5 === 0) {
       await serialRun(Joy, doCron);

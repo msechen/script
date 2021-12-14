@@ -7,7 +7,7 @@ class Health extends HarmonyTemplate {
   static scriptNameDesc = '健康社区';
   static shareCodeTaskList = [];
   static times = 3;
-  static skipTaskIds = [9/*西医亚健康测评*/, 14/*下单有礼*/, 35/*中医健康体质测评*/];
+  static skipTaskIds = [9/*西医亚健康测评*/, 14/*下单有礼*/, 35/*中医健康体质测评*/, 74/*开通品牌会员*/];
   static commonParamFn = () => ({'channelId': 1});
   static apiNames = {
     getTaskList: 'jdhealth_getTaskDetail',
@@ -28,7 +28,8 @@ class Health extends HarmonyTemplate {
 
     if (currentScore < minPoints) return;
 
-    await sleep(5);
+    // 兑换放在零点开始
+    if (self.getNowHour() !== 0) return;
     await api.doFormBody('jdhealth_getCommodities').then(data => {
       if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
       const {jBeans} = data.data.result;
