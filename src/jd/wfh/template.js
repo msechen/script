@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
 
 const defaultApiNames = {
   getTaskList: 'interact_template_getHomeData',
@@ -97,7 +98,17 @@ class HarmonyTemplate extends Template {
               maxTimes = list.length;
             }
 
-            list = list.filter(o => o.status !== 2).map(o => _.assign({
+            list = list.filter(o => {
+              const {status, beginTime, endTime} = o;
+              // 限时任务
+              if (beginTime && endTime) {
+                const nowTime = getMoment().format('HH:mm:ss');
+                if (nowTime < beginTime || nowTime > endTime) {
+                  return false;
+                }
+              }
+              return status !== 2;
+            }).map(o => _.assign({
               taskId,
               actionType: waitDuration ? 1 : 0,
             }, _.pick(o, ['itemId', 'taskToken']), self.commonParamFn()));
