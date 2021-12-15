@@ -633,7 +633,10 @@ class BeautyMakeup extends Template {
       await sendMessage(wsMsg.init);
       await sendMessage(wsMsg.get_benefit);
       // 500豆
-      wsMsg.to_exchange.msg.args.benefit_id = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 100000) || {})['id'] || 9;
+      const benefitId = (benefitData.find(o => o['name'].match('京豆') && +o.coins === 100000) || {})['id'];
+      // 活动已下线, 默认是9
+      if (!benefitId) return;
+      wsMsg.to_exchange.msg.args.benefit_id = benefitId;
       await sleepTime(24);
       sendMessage(wsMsg.to_exchange);
       await sleep(5);
