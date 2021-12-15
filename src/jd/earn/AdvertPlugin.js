@@ -79,7 +79,7 @@ class EarnAdvertPlugin extends Earn {
           message,
         ];
         if (result) {
-          const {friend, msg} = result;
+          const {friend = inviteId, msg} = result;
           msgs.push(`助力 ${friend}, 结果为: ${msg}`);
         }
         api.log(msgs.join(' '));
