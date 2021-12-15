@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const {getNowDate, getNowHour} = require('./lib/moment');
 const {getCookieData, updateProcessEnv} = require('./lib/env');
+const {sleepTime} = require('./lib/cron');
 updateProcessEnv();
 const {
   multipleRun,
@@ -43,7 +44,6 @@ const StatisticsBean = require('./jd/statistics/bean');
 const StatisticsRedEnvelope = require('./jd/statistics/RedEnvelope');
 const Ssjj = TemporarilyOffline || require('./jd/ssjj'); // 没什么收益, 所以进行移除
 const IsvShopSign = TemporarilyOffline || require('./jd/isv/shopSign');
-const CrazyJoy = TemporarilyOffline || require('./jd/crazyJoy');
 const SecondKillRedPacket = require('./jd/secondKill/redPacket');
 const DreamFactory = TemporarilyOffline || require('./jd/dreamFactory');
 const JxCfd = TemporarilyOffline || require('./jd/jxCfd');
@@ -219,7 +219,6 @@ async function main() {
     {
       valid: 15,
       run: async () => {
-        await doRun(CrazyJoy);
       },
     },
     {
@@ -274,14 +273,15 @@ async function main() {
           Fruit, Pet,
           Factory,
         ]);
-        // await doRun(CrazyJoy);
 
         // 24点后定时启动
-        await multipleRun([
+        // 本身自带定时任务的脚本
+        multipleRun([
           SignShop,
           // SuperMarketRedeem,
           // JoyRedeem,
         ]);
+        await sleepTime(24);
         await multipleRun([
           [Health, void 0, 'cron'],
           EarnBean,
@@ -305,17 +305,18 @@ async function main() {
 
   // 定时循环
   async function cronLoop() {
-    await doCron(CrazyJoy);
-    await doCron(Factory);
-    await doCron(PlantBean);
-    await doCron(Health);
+    await serialRun([
+      Factory,
+      PlantBean,
+      Health,
+    ], doCron);
 
     if (nowHour % 5 === 0) {
       await serialRun(Joy, doCron);
     }
 
     if (nowHour % 6 === 0) {
-      await doCron(SuperMarket);
+      await serialRun(SuperMarket, doCron);
     }
   }
 }

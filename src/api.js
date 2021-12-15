@@ -18,7 +18,7 @@ let errorOutput = [];
 async function multipleRun(targets, onceDelaySecond = 1) {
   return parallelRun({
     list: targets,
-    runFn: doRun,
+    runFn: item => doRun(..._.concat(item)),
     onceDelaySecond,
   });
 }
