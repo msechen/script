@@ -5,7 +5,7 @@
 const _ = require('lodash');
 const path = require('path');
 const fs = require('fs');
-const {getLogFile, sleep, parallelRun} = require('./lib/common');
+const {getLogFile, sleep, parallelRun, getFileContent, getSortLogContent} = require('./lib/common');
 const {getNowDate, getMoment} = require('./lib/moment');
 const {getCookieData} = require('./lib/env');
 const {doPolling} = require('./lib/cron');
@@ -63,16 +63,17 @@ async function doCron1(target, index = 0) {
 }
 
 async function sendNotify({sendYesterdayLog = false, subjects = []}) {
-  const getFileContent = filePath => fs.existsSync(filePath) ? fs.readFileSync(filePath) : '';
-  const resultContent = getFileContent(path.resolve(__dirname, '../dist/result.txt'));
+  const sortLogByName = content => getSortLogContent('name', content);
   const contents = [];
   if (sendYesterdayLog) {
     const yesterdayLog = getLogFile('app', getMoment().subtract(1, 'd').format('YYYY-MM-DD'));
-    contents.push(getFileContent(yesterdayLog));
+    contents.push(sortLogByName(getFileContent(yesterdayLog)));
     contents.push(`${getNowDate()}-start--------------------------\n`);
   }
-  contents.push(getFileContent(getLogFile('app')));
-  contents.push(resultContent);
+  contents.push(sortLogByName());
+  // result.txt 不再输出
+  // const resultContent = getFileContent(path.resolve(__dirname, '../dist/result.txt'));
+  // contents.push(resultContent);
 
   const [mainSubject = 'lazy_script', ...otherSubject] = subjects;
   const getSubject = (str = mainSubject) => [str].concat(otherSubject).join('_');

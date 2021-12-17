@@ -25,24 +25,49 @@ const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
 const cleanLog = (fileName) => {
   fs.writeFileSync(getLogFile(fileName), '');
 };
+const extractLogToObject = str => {
+  if (!str) return;
+  const [, time, name, type, cookie, msg] = /^(\d{2}:\d{2}:\d{2}) \[(.*)] \[(\w*)] \[(\d)] (.*)/.exec(str);
+  return {time, name, type, cookie, msg, origin: str};
+};
 
+const getFileContent = (filePath, defaultValue = '') => fs.existsSync(filePath) ? fs.readFileSync(filePath) : defaultValue;
 const _getAbsolutePath = (fileName, dirname) => dirname ? path.resolve(dirname, fileName) : fileName;
 // 将json写入文件中
 const writeFileJSON = (data, fileName, dirname) => fs.writeFileSync(_getAbsolutePath(fileName, dirname), JSON.stringify(data), {encoding: 'utf-8'});
 const readFileJSON = (fileName, dirname, defaultValue = {}) => {
   const absolutePath = _getAbsolutePath(fileName, dirname);
-  if (!fs.existsSync(absolutePath)) return defaultValue;
-  const data = fs.readFileSync(absolutePath).toString();
+  const data = getFileContent(absolutePath);
   if (!data) return defaultValue;
   let result;
   try {
-    result = JSON.parse(data);
+    result = JSON.parse(data.toString());
   } catch (e) {
     console.log(e);
   }
   result = result || defaultValue;
   return result;
 };
+
+function getSortLogContent(groupType, content) {
+  content = (content || getFileContent(getLogFile('app'))).toString()
+  const array = content.split(/[\n|\r]/);
+  let result = _.filter(array).map(extractLogToObject);
+  if (groupType) {
+    const groupTypes = _.concat(groupType);
+    const _group = (array, types) => {
+      if (_.isEmpty(types)) return array;
+      const type = types.shift();
+      const object = _.groupBy(array, type);
+      _.forEach(object, (o, key) => {
+        object[key] = _group(o, _.concat(types));
+      });
+      return _.flattenDeep(_.values(object));
+    };
+    result = _group(result, groupTypes);
+  }
+  return _.map(result, 'origin').join('\n');
+}
 
 async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySecond = 0}) {
   return Promise.all(list.map((item, index) => new Promise(async resolve => {
@@ -209,7 +234,10 @@ module.exports = {
   getLogFile,
   printLog,
   cleanLog,
+  extractLogToObject,
+  getSortLogContent,
 
+  getFileContent,
   writeFileJSON,
   readFileJSON,
 
