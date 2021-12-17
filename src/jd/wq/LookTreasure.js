@@ -40,14 +40,15 @@ class LookTreasure extends WqBase {
     await self.beforeRequest(api);
 
     await handleDrawFans();
+    await handleDrawFans('activetemporary', {backendId: 'xwvgk9scllsa5doeeerao'});
     await handleDrawVideo();
 
     // https://wqs.jd.com/sns/202009/22/fansactivecopy/index.html
-    async function handleDrawFans() {
-      const {first, ownprize: ownPrize, prize} = await api.doGetPath('query_copytemporary');
+    async function handleDrawFans(funSuffix = 'copytemporary', qs) {
+      const {first, ownprize: ownPrize, prize} = await api.doGetPath(`query_${funSuffix}`, qs);
       // TODO 通过比较 ownPrize 和 prize
       if (first === 0) {
-        await api.doGetPath('draw_copytemporary').then(data => {
+        await api.doGetPath(`draw_${funSuffix}`, qs).then(data => {
           if (!self.isSuccess(data)) return api.log('抽取失败');
           const {sPrizeDesc, sPrizeName} = data['prize'];
           api.log(`[fans] 抽到${sPrizeDesc}: ${sPrizeName}`);
