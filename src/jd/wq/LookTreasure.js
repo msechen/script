@@ -2,6 +2,7 @@ const WqBase = require('./index');
 
 const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../lib/common');
 const _ = require('lodash');
+const {getRealUrl} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
 const indexUrl = 'https://wqs.jd.com/sns/202009/22/fansactivecopy/index.html';
@@ -39,8 +40,8 @@ class LookTreasure extends WqBase {
     if (!loginSuccess) return;
     await self.beforeRequest(api);
 
+    await handleDrawFansActive({url: 't.saihuitong.com/url/RRZV7r'});
     await handleDrawFans();
-    await handleDrawFans('activetemporary', {backendId: 'xwvgk9scllsa5doeeerao'});
     await handleDrawVideo();
 
     // https://wqs.jd.com/sns/202009/22/fansactivecopy/index.html
@@ -54,6 +55,19 @@ class LookTreasure extends WqBase {
           api.log(`[fans] 抽到${sPrizeDesc}: ${sPrizeName}`);
         });
       }
+    }
+
+    // https://wqs.jd.com/sns/202109/22/fansactiveall/index.html?qwer=SQWT
+    // https://wqs.jd.com/sns/202109/22/fansactiveall/index.html?qwer=JRYX01
+    async function handleDrawFansActive({url, uuid}) {
+      if (url) {
+        !/^http[s]:\/\//.test(url) && (url = `https://${url}`);
+        const realUrl = await getRealUrl(url);
+        uuid = new URL(realUrl).searchParams.get('qwer');
+      }
+      const {backEnd: backendId} = await api.doGetPath('query_tempactivconfig', {uuid});
+      if (!backendId) return api.log(`[${uuid}] 获取出错`);
+      await handleDrawFans('activetemporary', {backendId});
     }
 
     // https://wqs.jd.com/sns/202108/03/videofangrowth/index.html
