@@ -27,3 +27,5 @@ ql raw 发布的脚本地址
 
 5.tg频道:https://t.me/soy_pull
 
+6.QQ群:105579620
+
