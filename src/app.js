@@ -73,7 +73,7 @@ const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = TemporarilyOffline || require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
-const RubikSCube = require('./jd/rubikSCube');
+const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
 
