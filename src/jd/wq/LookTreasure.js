@@ -61,7 +61,6 @@ class LookTreasure extends WqBase {
     // https://wqs.jd.com/sns/202109/22/fansactiveall/index.html?qwer=JRYX01
     async function handleDrawFansActive({url, uuid}) {
       if (url) {
-        !/^http[s]:\/\//.test(url) && (url = `https://${url}`);
         const realUrl = await getRealUrl(url);
         uuid = new URL(realUrl).searchParams.get('qwer');
       }

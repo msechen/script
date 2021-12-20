@@ -50,7 +50,7 @@ const readFileJSON = (fileName, dirname, defaultValue = {}) => {
 };
 
 function getSortLogContent(groupType, content) {
-  content = (content || getFileContent(getLogFile('app'))).toString()
+  content = (content || getFileContent(getLogFile('app'))).toString();
   const array = content.split(/[\n|\r]/);
   let result = _.filter(array).map(extractLogToObject);
   if (groupType) {
@@ -86,6 +86,7 @@ async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySeco
  * @return {Promise<string>}
  */
 async function getRealUrl(uri, after200Fn, options = {}) {
+  !/^http[s]:\/\//.test(uri) && (uri = `https://${uri}`);
   _.assign(options, {
     uri, followRedirect: false,
     resolveWithFullResponse: true,
@@ -111,7 +112,7 @@ async function getRealUrl(uri, after200Fn, options = {}) {
     }
   }).catch(function (error) {
     const res = error.response;
-    if (res.statusCode === 302) {
+    if (_.get(res, 'statusCode') === 302) {
       const realUrl = _.property('headers.location')(res);
       console.log('真正的URL地址如下:');
       console.log(realUrl);
@@ -126,7 +127,17 @@ function getOriginDataFromFile(filePath) {
 }
 
 function getUrlDataFromFile(filePath) {
-  return _.filter(getOriginDataFromFile(filePath), str => str.startsWith('http'));
+  const array = getOriginDataFromFile(filePath);
+  return array.map(str => str.match(/[\u4e00-\u9fa5]/) ? '' : /^http[s]:\/\//.test(str) ? str : `https://${str}`)
+  .filter(str => {
+    let result = !!str;
+    try {
+      new URL(str);
+    } catch (e) {
+      result = false;
+    }
+    return result;
+  });
 }
 
 /**
