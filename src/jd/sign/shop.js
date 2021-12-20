@@ -38,7 +38,6 @@ class SignShop extends Template {
     // token, venderId, id
     let shopInfos = [
       '3BE673EBCAA2E55765668E15A4BA172B',
-      'F468F2F3D10CBCF3050FD66082E328F4',
       'EDB0A15DD9D240B15E4A9F8E8311B431',
       // 脚本新增插入位置
     ];
