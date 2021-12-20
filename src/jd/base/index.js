@@ -35,6 +35,7 @@ class Base {
   static needInJxApp = false; // 添加 userAgent
   static needOriginH5 = false; // 添加 headers.origin
   static needInPhone = false; // 添加 userAgent
+  static needOriginProMd = false; // 添加 origin 和 referrer
   static apiOptions = {
     signData: {},
     options: {},
@@ -211,6 +212,12 @@ class Base {
     this.needInAppComplete && _.merge(options, {headers: {'user-agent': this.appCompleteUserAgent}});
     this.needInPhone && _.merge(options, {headers: {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
+    this.needOriginProMd && _.merge(options, {
+      headers: {
+        origin: 'https://pro.m.jd.com',
+        referrer: 'https://pro.m.jd.com/',
+      },
+    });
 
     const api = new Api(cookie, signData, options, formatDataFn);
     if (requestFnName) {

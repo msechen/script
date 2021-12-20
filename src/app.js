@@ -17,6 +17,7 @@ const {
 const Common = require('./jd/base/common');
 
 const Sign = require('./jd/sign');
+const Sign1 = require('./jd/sign/Sign1');
 const SignShop = require('./jd/sign/shop');
 const SignRemote = require('./jd/sign/remote');
 const SignTurnTable = require('./jd/sign/TurnTable');
@@ -287,6 +288,7 @@ async function main() {
           EarnBean,
           JoySign,
           SignTurnTable,
+          Sign1,
           IsvShopSign,
           // 做任务抽奖
           WomenBlindBox,
