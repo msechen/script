@@ -132,7 +132,7 @@ let strCKFile = '/ql/scripts/CKName_cache.json';
 let Fileexists = fs.existsSync(strCKFile);
 let TempCK = [];
 if (Fileexists) {
-    console.log("加载sendNotify,检测到别名缓存文件，载入...");
+//     console.log("加载sendNotify,检测到别名缓存文件，载入...");
     TempCK = fs.readFileSync(strCKFile, 'utf-8');
     if (TempCK) {
         TempCK = TempCK.toString();
@@ -143,7 +143,7 @@ let strUidFile = './CK_WxPusherUid.json';
 let UidFileexists = fs.existsSync(strUidFile);
 let TempCKUid = [];
 if (UidFileexists) {
-    console.log("检测到WxPusherUid文件，载入...");
+//     console.log("检测到WxPusherUid文件，载入...");
     TempCKUid = fs.readFileSync(strUidFile, 'utf-8');
     if (TempCKUid) {
         TempCKUid = TempCKUid.toString();
