@@ -13,7 +13,7 @@
 const querystring = require('querystring');
 const exec = require('child_process').exec;
 const $ = new Env();
-const timeout = 15000; //超时时间(单位毫秒)
+const timeout = 150000; //超时时间(单位毫秒)
 
 // =======================================go-cqhttp通知设置区域===========================================
 //gobot_url 填写请求地址http://127.0.0.1/send_private_msg
