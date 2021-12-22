@@ -55,6 +55,7 @@ class BeautyMakeup extends Template {
     let autoSellData = {};
     const productMaxProduceSameTimes = 4;
     let beanPackageExchanged = false;
+    let beanExChangeFailed = false;
 
     const serverNotReturn = () => _.isEmpty(userData) || _.isEmpty(productList);
 
@@ -302,7 +303,12 @@ class BeautyMakeup extends Template {
     async function onMessage(result) {
       if (result === 'pong') return;
       const {data, code, msg, action} = JSON.parse(result) || {};
-      if (code !== 200) return api.log(`${action}请求失败, msg: ${msg}`);
+      if (code !== 200) {
+        if (action === 'to_exchange') {
+          beanExChangeFailed = true;
+        }
+        return api.log(`${action}请求失败, msg: ${msg}`);
+      }
 
       const allActions = {
         async check_up(data) {
@@ -662,6 +668,10 @@ class BeautyMakeup extends Template {
           if (userData['coins'] < +coins) continue;
           await sendMessage(wsMsg.to_exchange);
           await sleep(5);
+          if (beanExChangeFailed) {
+            beanExChangeFailed = false;
+            break;
+          }
         }
       }
       benefitData = [];
