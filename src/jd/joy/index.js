@@ -59,6 +59,9 @@ class Joy extends Template {
       const scriptReg = /<script type="text\/javascript" src="([^><]+\/(app_\w+_\.js))">/gm;
       const appScriptUrl = scriptReg.exec(data)[1];
       return api.doGetFileContent(appScriptUrl).then(jsContent => {
+        // 新的获取方法
+        let invokeKey = matchMiddle(jsContent, {reg: /"\/pet\/"],\w="(\w*)",/});
+        if (invokeKey) return invokeKey;
         jsContent = jsContent.replace(/.*(?=".css")/, '');
         const jdDogKey = 'jdDog_jdDog';
         const jdDogIndex = matchMiddle(jsContent, {reg: /"(\d+)":\s*"jdDog_jdDog",/});

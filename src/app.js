@@ -287,7 +287,7 @@ async function main() {
         await multipleRun([
           [Health, void 0, 'cron'],
           EarnBean,
-          JoySign,
+          // JoySign,
           SignTurnTable,
           Sign1,
           IsvShopSign,
