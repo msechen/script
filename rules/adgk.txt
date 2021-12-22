@@ -1,17 +1,22 @@
-! Version: 20211206004044
+! Version: 20211220225935
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||fjisu2.com/js/huimi-
+mxshm.top$$script[tag-content="ads_"]
+||tgwopez.cn
+||qj202.cc
+||fpbbdx2.bmcx.com
+||7x24s.com
 ||chenshengyu.cn
 ||75dr.com/js/script/wap.js
 ||75dr.com/js/c.js
 ||75dr.com/js/m.js
-||75dr.com/js/btj.js
-||xdwqq.cn
-||wuxiqiangheng.com
-||lvhqntk.cn
-||zgystsd.com
-||ioomb.cn
+||https://fjisu2.com/js/huimi-
+||https://tgwopez.cn
+||https://qj202.cc
+||https://fpbbdx2.bmcx.com
+||https://7x24s.com
 ||https://chenshengyu.cn
 ||https://75dr.com/js/script/wap.js
 ||https://75dr.com/js/c.js
@@ -12376,6 +12381,11 @@
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://fjisu2.com/js/huimi-
+||http://tgwopez.cn
+||http://qj202.cc
+||http://fpbbdx2.bmcx.com
+||http://7x24s.com
 ||http://chenshengyu.cn
 ||http://75dr.com/js/script/wap.js
 ||http://75dr.com/js/c.js
@@ -24412,6 +24422,7 @@
 ||http://lzthjd.cn
 ||http://caoys1998.xyz
 ||http://magicflute.club
+||https://mxshm.top$$script[tag-content="ads_"]
 ||https://m.baidu.com,www.baidu.com##div[tpl*="ball"]
 ||https://baijiahao.baidu.com##.headDeflectorContainer
 ||https://www.baidu.com,m.baidu.com##.listbox
@@ -32281,6 +32292,7 @@
 ||https://ruanyifeng.com$$script[tag-content="background"]
 ||https://manhuatai.com$$div[class="acgn-dynamic-content"]
 ||https://yse1234.com/template/phone/imagess/sdfwe.js
+||http://mxshm.top$$script[tag-content="ads_"]
 ||http://m.baidu.com,www.baidu.com##div[tpl*="ball"]
 ||http://baijiahao.baidu.com##.headDeflectorContainer
 ||http://www.baidu.com,m.baidu.com##.listbox

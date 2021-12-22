@@ -41,23 +41,23 @@
 ! ------20211------
 |https://www.bilibili.com##a[href*="cm.bilibili.com"][data-target-url]:not([data-target-url*=".bili"])
 |https://www.chinaz.com##.header-media__text,#setHomeTonglanCMedia,.meta__right,#setPbottomMedia
-||https://file.myqcloud.com$r@/https:\/\/adstore\-.*\.file\.myqcloud\.com\/frontVideo\/.*/@https://cdn.jsdelivr.net/gh/houzi-/CDN/5.0-/noop-0.1s.mp4@
-|https://7mmtv.tv/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('iframe[width="728"][height="90"],iframe[width="300"][height="250"]')</script>@
+||https://file.myqcloud.com$r@/https:\/\/adstore\-.*\.file\.myqcloud\.com\/frontVideo\/.*/@https://raw.iqiq.io/houzi-/CDN/master/5.0-/noop-0.1s.mp4@
+|https://7mmtv.tv/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('iframe[width="728"][height="90"],iframe[width="300"][height="250"]')</script>@
 !||https://v.smtcdns.com$r@https://*.v.smtcdns.com/variety.tc.qq.com/*.mp4?*sdtfrom=*@https://kp.cmcc.download/5.0/noop-0.1s.mp3@
 |http://www.wuhan.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/emCupid/adg_cn/block_Baiduunion.user.js"></script>@
 |https://www.hao6v.tv/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/emCupid/adg_cn/block_Baiduunion.user.js"></script>@
-|https://www.bilibili.com$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide_mini.js"></script><script>fuckcss('.ex-card-common:has(.gg-icon) { remove: true; }')</script>@
-|https://ddrk.me$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('setConstant%%%Object.prototype.ads%%%null')</script>@
+|https://www.bilibili.com$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide_mini.js"></script><script>fuckcss('.ex-card-common:has(.gg-icon) { remove: true; }')</script>@
+|https://ddrk.me$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('setConstant%%%Object.prototype.ads%%%null')</script>@
 
 |https://www.555dy7.com##body > div.container > div > div:nth-child(7) > div > div > div,body > div.container > div > div:nth-child(5) > div > div > div,body > div.container > div > div:nth-child(2) > div > div > div
 |https://www.555dy7.com/vodplay$s@tips = new Array(2);@fuck = new Array(2);@
 |https://www.51byl.com/$s@var t = setTimeout(adsUp,5000);@var t = setTimeout(adsUp,1000);@
 |https://51byl.com/$s@var t = setTimeout(adsUp,5000);@var t = setTimeout(adsUp,1000);@
-|https://bbs.pcbeta.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('.a_pt')</script>@
-|https://tieba.baidu.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('.fengchao-wrap-feed,[id="pagelet_frs-aside/pagelet/fengchao_ad"]')</script>@
-!|https://v.qq.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('jsonPrune%%%ad')</script>@
-|http://www.zhenbuka3.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('adjustSetTimeout%%%CloseAd%%%%%%0.02')</script><script>fuckcss('preventSetTimeout%%%ad_load_fail')</script><script>fuckcss('img[id="hth616"]')</script>@
-|https://www.mp4er.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('adjustSetInterval%%%timerAdCountdown%%%%%%0.02')</script><script>fuckcss('adjustSetInterval')</script><script>fuckcss('abortOnPropertyRead%%%onload')</script><script>fuckcss('setConstant%%%canRunAds%%%true')</script><script>fuckcss('setConstant%%%onload%%%null')</script>@
+|https://bbs.pcbeta.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('.a_pt')</script>@
+|https://tieba.baidu.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('.fengchao-wrap-feed,[id="pagelet_frs-aside/pagelet/fengchao_ad"]')</script>@
+!|https://v.qq.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('jsonPrune%%%ad')</script>@
+|http://www.zhenbuka3.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('adjustSetTimeout%%%CloseAd%%%%%%0.02')</script><script>fuckcss('preventSetTimeout%%%ad_load_fail')</script><script>fuckcss('img[id="hth616"]')</script>@
+|https://www.mp4er.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/fuckcss.min.js"></script><script>fuckcss('adjustSetInterval%%%timerAdCountdown%%%%%%0.02')</script><script>fuckcss('adjustSetInterval')</script><script>fuckcss('abortOnPropertyRead%%%onload')</script><script>fuckcss('setConstant%%%canRunAds%%%true')</script><script>fuckcss('setConstant%%%onload%%%null')</script>@
 
 !@@@@|https://app-sc.miguvideo.com/
 !@@@@|https://display-h5-sc.miguvideo.com/
@@ -75,13 +75,13 @@
 ||https://criteo.com^
 |https://www.javbus.com/ads
 ! -----------------------
-|https://www.ett.cc/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script>${2}@
-|https://www.javbus.com/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('.col-xs-12.col-md-4.text-center.ptb10')</script>${2}@
-|https://m.cnbeta.com/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('div[data-role="content"] > div[style^="text-align:"],a[href^="http://click.aliyun.com/"],.cooperation,.cbv:not(#cb_share),.cbimage-fixed,.adsbygoogle')</script>${2}@
-|https://m.ithome.com/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('.placeholder:has(> a > .plc-con > .plc-footer > .tip-gray)')</script>${2}@
-|https://cdn.taboola.com$r@https://cdn.taboola.com/libtrc/impl*.js@https://cdn.jsdelivr.net/gh/houzi-/CDN/5.0-/3x2.png@
-|https://v2ex.com$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('.sidebar_units,.sidebar_compliance,.adsbygoogle,.fr > a[href^="https://www.digitalocean.com/"]')</script>${2}@
-|https://ssl.jcbdfyy.cn$r@https://ssl.jcbdfyy.cn/js/tb.min.js*@https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js@
+|https://www.ett.cc/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script>${2}@
+|https://www.javbus.com/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('.col-xs-12.col-md-4.text-center.ptb10')</script>${2}@
+|https://m.cnbeta.com/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('div[data-role="content"] > div[style^="text-align:"],a[href^="http://click.aliyun.com/"],.cooperation,.cbv:not(#cb_share),.cbimage-fixed,.adsbygoogle')</script>${2}@
+|https://m.ithome.com/$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('.placeholder:has(> a > .plc-con > .plc-footer > .tip-gray)')</script>${2}@
+|https://cdn.taboola.com$r@https://cdn.taboola.com/libtrc/impl*.js@https://raw.iqiq.io/houzi-/CDN/master/5.0-/3x2.png@
+|https://v2ex.com$s@/((?<!<!--)(?=<html[^>]*?>)[\W\S]*?<head[^>]*?>|<meta[^>]+?name[^>]+?>|<meta[^>]+?charset[^>]+?>)([\s]{1,2}|)/@${1}${2}<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('.sidebar_units,.sidebar_compliance,.adsbygoogle,.fr > a[href^="https://www.digitalocean.com/"]')</script>${2}@
+|https://ssl.jcbdfyy.cn$r@https://ssl.jcbdfyy.cn/js/tb.min.js*@https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js@
 |https://m.77kpp.com$s@function advert@function advert_fuck@
 ! -----------------------
 |https://www.right.com.cn/forum##img[src="https://www.right.com.cn/logo/zbz-1.gif"],#threadlisttableid > tbody:nth-child(10)
@@ -99,8 +99,8 @@
 |https://www.baidu.com/s?$s@id="?00?"@id="Fuck Ad" style="display:none"@
 |https://m.baidu.com/$s@class="ec_r_????????????????"@id="ec_r_????????????????" style="display:none"@
 |https://www.baidu.com/$s@class="ec_r_????????????????"@id="ec_r_????????????????" style="display:none"@
-|https://m.baidu.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('#header > div:nth-child(7):not([id])')</script>@
-|https://www.baidu.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('#header > div:nth-child(7):not([id])')</script>@
+|https://m.baidu.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('#header > div:nth-child(7):not([id])')</script>@
+|https://www.baidu.com/$s@</head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('#header > div:nth-child(7):not([id])')</script>@
 ! ---- test rules ----
 !x  -----------------------------------------------------------------------------------------------------------------
 @@@@|https://pic.yefu365.com
@@ -120,7 +120,7 @@
 |https://ci.phncdn.com/www-static/js/vmobile/flipbook.js?
 |https://static.trafficjunky.com/
 |https://www.vfthr.com/servlet/events?type=
-!|https://cn.pornhub.com/$s@<head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide.js"></script><script>fuckcss('abortOnPropertyRead,	smpop,setConstant,	HTMLElement.prototype.attachShadow	null,abortOnPropertyWrite,	isAdblockOn,a[href^="http://ads.trafficjunky.net/"],.video-wrapper > #player + [class],.removeAdsStyle,.adsbytrafficjunky,.ad-link,#pb_template')</script><script src="https://cdn.jsdelivr.net/gh/houzi-/CDN/5.0-/window.open-defuser.js"></script>@
+!|https://cn.pornhub.com/$s@<head>@<script type="text/javascript" src="https://raw.iqiq.io/houzi-/CDN/master/KP-/hide.js"></script><script>fuckcss('abortOnPropertyRead,	smpop,setConstant,	HTMLElement.prototype.attachShadow	null,abortOnPropertyWrite,	isAdblockOn,a[href^="http://ads.trafficjunky.net/"],.video-wrapper > #player + [class],.removeAdsStyle,.adsbytrafficjunky,.ad-link,#pb_template')</script><script src="https://raw.iqiq.io/houzi-/CDN/master/5.0-/window.open-defuser.js"></script>@
 ! ---- 2020-09-16 ----
 |http://*/adright.$domain=elecfans.com
 |http://d1.5h.com^
