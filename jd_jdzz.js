@@ -9,11 +9,14 @@
 [task_local]
 # 京东赚赚
 10 0 * * * jd_jdzz.js, tag=京东赚赚, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdzz.png, enabled=true
+
 ================Loon==============
 [Script]
 cron "10 0 * * *" script-path=jd_jdzz.js,tag=京东赚赚
+
 ===============Surge=================
 京东赚赚 = type=cron,cronexp="10 0 * * *",wake-system=1,timeout=3600,script-path=jd_jdzz.js
+
 ============小火箭=========
 京东赚赚 = type=cron,script-path=jd_jdzz.js, cronexpr="10 0 * * *", timeout=3600, enable=true
  */
@@ -21,7 +24,7 @@ const $ = new Env('京东赚赚');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-let helpAuthor=true; // 帮助作者
+const randomCount = $.isNode() ? 20 : 5;
 let jdNotify = true; // 是否关闭通知，false打开通知推送，true关闭通知推送
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message = '', allMessage = '';
@@ -89,21 +92,18 @@ async function jdWish() {
   $.assistStatus = 0;
   await getTaskList(true)
 
-  //await helpFriends()
+  // await helpFriends()
   await getUserInfo()
   $.nowBean = parseInt($.totalBeanNum)
   $.nowNum = parseInt($.totalNum)
   for (let i = 0; i < $.taskList.length; ++i) {
     let task = $.taskList[i]
-    if (task['taskId'] === 1 && task['status'] !== 2) {
+    if (task['taskId'] !== 3 && task['status'] !== 2) {
       console.log(`去做任务：${task.taskName}`)
-      await doTask({"taskId": task['taskId'],"mpVersion":"3.4.0"})
-    } else if (task['taskId'] !== 3 && task['status'] !== 2) {
-      console.log(`去做任务：${task.taskName}`)
-      if(task['itemId'])
-        await doTask({"itemId":task['itemId'],"taskId":task['taskId'],"mpVersion":"3.4.0"})
+      if (task['itemId'])
+        await doTask({ "itemId": task['itemId'], "taskId": task['taskId'], "taskToken": task["taskToken"], "mpVersion": "3.4.0" })
       else
-        await doTask({"taskId": task['taskId'],"mpVersion":"3.4.0"})
+        await doTask({ "taskId": task['taskId'], "taskToken": task["taskToken"], "mpVersion": "3.4.0" })
       await $.wait(3000)
     }
   }
@@ -138,11 +138,11 @@ function getUserInfo() {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-             if (data.data.shareTaskRes) {
-               console.log(`\n【京东账号${$.index}（${$.nickName || $.UserName}）的${$.name}好友互助码】${data.data.shareTaskRes.itemId}\n`);
-             } else {
-               console.log(`\n\n已满5人助力或助力功能已下线,故暂时无${$.name}好友助力码\n\n`)
-             }
+            // if (data.data.shareTaskRes) {
+            //   console.log(`\n【京东账号${$.index}（${$.nickName || $.UserName}）的${$.name}好友互助码】${data.data.shareTaskRes.itemId}\n`);
+            // } else {
+            //   console.log(`\n\n已满5人助力或助力功能已下线,故暂时无${$.name}好友助力码\n\n`)
+            // }
           }
         }
       } catch (e) {
@@ -164,11 +164,14 @@ function getTaskList(flag = false) {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-            $.taskList = data.data.taskDetailResList
             $.totalNum = data.data.totalNum
+            $.taskList = data?.data?.taskDetailResList ?? []
+            if (data.data.signTaskRes) {
+              $.taskList.push(data.data.signTaskRes)
+            }
             $.totalBeanNum = data.data.totalBeanNum
-            if (flag && $.taskList.filter(item => !!item && item['taskId']=== 3) && $.taskList.filter(item => !!item && item['taskId']=== 3).length) {
-              console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${$.taskList.filter(item => !!item && item['taskId']=== 3)[0]['itemId']}\n`);
+            if (flag && $.taskList.filter(item => !!item && item['taskId'] === 3) && $.taskList.filter(item => !!item && item['taskId'] === 3).length) {
+              console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${$.taskList.filter(item => !!item && item['taskId'] === 3)[0]['itemId']}\n`);
             }
           }
         }
@@ -224,16 +227,14 @@ async function helpFriends() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-        $.get({url: `https://github.com/DX3242/RandomShareCode/raw/main/JD_Jdzz.json`,headers:{
-          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-        }, 'timeout': 10000}, (err, resp, data) => {
+    $.get({url: `https://code.chiang.fun/api/v1/jd/jdzz/read/${randomCount}/`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (data) {
-            console.log(`随机取助力码放到您固定的互助码后面(不影响已有固定互助)`)
+            console.log(`随机取${randomCount}个码放到您固定的互助码后面(不影响已有固定互助)`)
             data = JSON.parse(data);
           }
         }
@@ -344,9 +345,9 @@ function taskPostUrl(function_id, body = {}) {
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
-      url: "https://me-api.jd.com/user_new/info/GetJDUserInfoUnion",
+      url: "https://wq.jd.com/user_new/info/GetJDUserInfoUnion?sceneval=2",
       headers: {
-        Host: "me-api.jd.com",
+        Host: "wq.jd.com",
         Accept: "*/*",
         Connection: "keep-alive",
         Cookie: cookie,
@@ -363,15 +364,15 @@ function TotalBean() {
         } else {
           if (data) {
             data = JSON.parse(data);
-            if (data['retcode'] === "1001") {
+            if (data['retcode'] === 1001) {
               $.isLogin = false; //cookie过期
               return;
             }
-            if (data['retcode'] === "0" && data.data && data.data.hasOwnProperty("userInfo")) {
+            if (data['retcode'] === 0 && data.data && data.data.hasOwnProperty("userInfo")) {
               $.nickName = data.data.userInfo.baseInfo.nickname;
             }
           } else {
-            $.log('京东服务器返回空数据');
+            console.log('京东服务器返回空数据');
           }
         }
       } catch (e) {
