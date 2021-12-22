@@ -205,6 +205,7 @@ async function main() {
         await serialRun([
           Fruit, Pet,
           Factory,
+          PlantBean,
         ]);
       },
     },
@@ -225,7 +226,6 @@ async function main() {
     {
       valid: 16,
       run: async () => {
-        await doRun(PlantBean);
       },
     },
     {
@@ -233,6 +233,7 @@ async function main() {
       run: async () => {
         await serialRun([
           Fruit, Pet,
+          PlantBean,
           SuperBrandProduct,
         ]);
       },

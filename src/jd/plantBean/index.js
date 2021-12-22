@@ -127,7 +127,7 @@ class PlantBean extends Template {
           }
           const stop = _.isEmpty(bubbleInfos);
           if (stop) {
-            self.log(`成长值为: ${growth}`);
+            api.log(`成长值为: ${growth}`);
             return false;
           }
         },
@@ -139,29 +139,30 @@ class PlantBean extends Template {
   static async doCron(api) {
     const self = this;
 
-    const data = await api.doFormBody('plantBeanIndex').then(data => data.data);
+    const plantBeanIndexData = await api.doFormBody('plantBeanIndex');
+    const data = _.get(plantBeanIndexData, 'data', {});
     const {roundList = []} = data;
+
+    if (_.isEmpty(roundList)) {
+      return api.log(plantBeanIndexData);
+    }
 
     const {roundId} = getCurrentRound(data);
 
     if (!roundId) {
-      return self.log('获取 roundId 出错');
+      return api.log('获取 roundId 出错');
     }
 
     // 收集定时豆液
     if (+_.property('timeNutrientsRes.nutrCount')(data) > 0) {
-      await api.doFormBody('receiveNutrients', {roundId}).then(data => {
-        if (!self.isSuccess(data)) return;
-        const nutrients = _.get(data, 'data.nutrients');
-        nutrients && self.log(`收集到营养液: ${nutrients}`);
-      });
+      await handleReceiveNutrients();
     }
 
     // 获取豆豆
     if (self.getNowHour() >= 10) {
       for (const {roundId, awardState, dateDesc} of roundList) {
         if (awardState !== '5') continue;
-        await api.doFormBody('receivedBean', {roundId}).then(data => self.log(`${dateDesc} 获得的豆豆: ${_.property('data.awardBean')(data)}`));
+        await api.doFormBody('receivedBean', {roundId}).then(data => api.log(`${dateDesc} 获得的豆豆: ${_.property('data.awardBean')(data)}`));
       }
     }
     if (self.getNowHour() >= 22) {
@@ -182,6 +183,15 @@ class PlantBean extends Template {
         }).then(data => _.property('collectResult')(data) === '1');
         if (!loop) break;
       }
+    }
+
+    async function handleReceiveNutrients(maxTimes = 2) {
+      if (maxTimes <= 0) return;
+      return api.doFormBody('receiveNutrients', {roundId}).then(data => {
+        if (!self.isSuccess(data)) return handleReceiveNutrients(--maxTimes);
+        const nutrients = _.get(data, 'data.nutrients');
+        nutrients && api.log(`收集到营养液: ${nutrients}`);
+      });
     }
   }
 }
