@@ -23,6 +23,8 @@
 
 cron 25 9,12 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_zyEb.js
+
 */
 
 
