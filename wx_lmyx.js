@@ -2,7 +2,7 @@
 
 项目名称:链萌优选
 
-项目注册地址(微信打开):https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx592b7bf2a9f7f003&redirect_uri=https://v3.sdk.haowusong.com/api/auth/wechat/sharelogin&response_type=code&scope=snsapi_userinfo&state=AAABOSA9,lmyxbox-android#wechat_redirect
+项目注册地址(微信打开):https://gitee.com/soy-tool/app-script/raw/master/picture/lmyx.jpg
 
 看广告获得分红币,分红模式,目前微信授权即可,不需要实名(11/06)
 
