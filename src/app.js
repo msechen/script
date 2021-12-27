@@ -70,7 +70,7 @@ const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
 const Joy20210805 = require('./jd/joy/20210805');
-const SuperBrandDay = TemporarilyOffline || require('./jd/superBrand/day');
+const SuperBrandDay = require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
 const DDSJ = require('./jd/ddsj');
 const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
@@ -120,7 +120,6 @@ async function main() {
     VipClubShake,
     SuperMarket,
     [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
-    SuperBrandDay,
     GoldCreator,
     Factory,
   ];
@@ -257,6 +256,7 @@ async function main() {
           SuperMarket,
           StatisticsRedEnvelope,
           LiteHappyDig,
+          SuperBrandDay,
         ]);
       },
     },
