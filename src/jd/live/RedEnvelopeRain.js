@@ -121,7 +121,7 @@ class LiveRedEnvelopeRain extends Template {
 
     async function noahRedRainLottery(actId) {
       return api.doFormBody('noahRedRainLottery', {actId}, void 0, {needDelay: false}).then(async data => {
-        const {subCode, msg} = data;
+        const {subCode, msg = ''} = data;
         if (subCode === '0') {
           const {lotteryResult: {couponList, jPeasList, financeList}} = data;
           _.concat(couponList, jPeasList, financeList).forEach(o => {
