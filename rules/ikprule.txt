@@ -16047,6 +16047,8 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 |https://www.cmdy5.com/js/waptb.js
 |https://www.cmdy5.com/js/shoujiindex.js
 |https://cmdyimg.tjyjj.cn/js/
+!test
+|http://router.houzi-blog.top:3090/$s@<div class="img">@@
 !优酷视频手机客户端
 |http://vali-g1.cp31.ott.cibntv.net/youku/*/*-*-*-*-*.mp4?sid=
 |http://*/$r@http://*/youku/*/*-*-*-*-*.mp4?sid=*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
@@ -16133,7 +16135,7 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||http://pglstatp-toutiao.com/$r@http://*.pglstatp-toutiao.com/*/*/video/tos/cn/tos-cn-*-*/*/toutiao.mp4@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 |http://adsmind.ugdtimg.com/$r@http://adsmind.ugdtimg.com/ads_svp_video__*.f40.mp4?*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 !百度贴吧
-|http://nadvideo2.baidu.com/$r@http://nadvideo2.baidu.com/*.mp4@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
+|http://nadvideo2.baidu.com/$r@http://nadvideo2.baidu.com/*.mp4*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 !埋堆堆APP
 ||http://mddcloud.com.cn/$r@http://qiniufile.mddcloud.com.cn/prod/video/*/*/*.mp4@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 |http://pgdt.ugdtimg.com/gdt/*/*.jpg/*?ck=*
@@ -16159,6 +16161,10 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 !||http://bilivideo.com/$r@http://upos-sz-mirrorcoso1.bilivideo.com/upgcxcode/*/*/*/*-1-*.m4s?e=*&uipk=5&nbs=1&deadline=*&gen=playurlv2&os=coso1bv&oi=*&trid=*&platform=android&upsig=*&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=*&bvc=vod&nettype=1&orderid=0,2&bw=*&logo=*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 !||http://bilivideo.com/$r@http://upos-sz-mirrorkodoo1.bilivideo.com/upgcxcode/*/*/*/*-1-*.m4s?e=*&uipk=5&nbs=1&deadline=*&gen=playurlv2&os=kodoo1bv&oi=*&trid=*&platform=android&upsig=*&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=*&bvc=vod&nettype=1&orderid=0,2&bw=*&logo=*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 !网页规则
+|https://event.csdn.net^
+|https://dup.baidustatic.com^
+||https://googlevideo.com/$r@https://*.googlevideo.com/videoplayback?expire=*&ei=*-*&ip=*&id=*-*-*&itag=*&source=youtube&requiressl=yes&mh=QX&mm=*&mn=*-*-*&ms=*&mv=m&mvi=*&pl=*&ctier=L*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
+||https://googlevideo.com/$r@https://*.googlevideo.com/videoplayback?expire=*&ei=*-*&ip=*&id=*-*-*&itag=*&aitags=*&source=youtube&requiressl=yes&mh=QX&mm=*&mn=*-*-*&ms=*&mv=m&mvi=*&pl=*&ctier=L*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 |https://adservice.google.com^
 |https://sentry.adguard.com/api/247/security/?sentry_key=
 ||http://adash.m.taobao.com/rest/sur?ak=
@@ -17312,7 +17318,7 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||https://googlevideo.com/$r@https://*.googlevideo.com/videoplayback?expire=*&ei=*&ip=*&id=*&itag=*&aitags=*&source=youtube&requiressl=yes&ctier=L*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 ||https://googlevideo.com/$r@https://*.googlevideo.com/videoplayback?expire=*&ei=*&ip=*&id=*&itag=*&source=youtube&requiressl=yes&ctier=L*@https://cdn.jsdelivr.net/gh/gorhill/uBlock@master/src/web_accessible_resources/noop-1s.mp4@
 ||https://googlevideo.com/generate_204$image
-||https://googlevideo.com/generate_204$image
+||https://googlevideo.com/generate_204?conn2$image
 ||https://googlevideo.com/ptracking?pltype=adhost
 ||https://googlevideo.com/videogoodput?
 ||https://hao123.com/images-ab/track.gif?
@@ -17332,7 +17338,6 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||https://im-x.jd.com/dsp/np?log=
 ||https://images.sohu.com/bill/
 ||https://imrworldwide.com^
-||https://ingest.sentry.io^$third-party
 ||https://ip138.com/banner/
 ||https://ip138.com/idc/
 ||https://iper2.com^$third-party
@@ -17403,7 +17408,6 @@ tieba.com##.carousel_item_img,[class="l_post l_post_bright j_l_post clearfix "],
 ||https://s.go.sohu.com/adgtr/?callback=
 ||https://s.n-mc.co/js/adcde.js
 ||https://s.ssl.qhres.com/ssl/ab77b6ea7f3fbf79.js
-||https://s.youtube.com/api/stats/watchtime?adformat
 ||https://s1.hdslb.com/bfs/seed/blive/blfe-link-shortassets/dist/component.statistics/log-reporter.js
 ||https://s3.bmp.ovh/imgs/*/*/*.png
 ||https://s4elk8ir1exrkc.com^
