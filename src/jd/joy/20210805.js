@@ -27,10 +27,17 @@ const updateQsOption = (eid, fp, configCode) => {
   'f9b97a78ead44f94e6d3308f30454c2e'));
 
 [
-  '9fdb6cdb7e974b22994ea774ea566470',
+  // 已过期的活动
+  // '9fdb6cdb7e974b22994ea774ea566470',
 ].forEach(updateQsOption.bind(0,
   '2CE5CIUVPRYAFGD6L6PD2FBCU3DKNUH537GU4DPDOV4F5JV5AWWX3KDXWDV2K4CVD62ZBPAHZV6ZLHU6TPQ5HWLVNU',
   '8324292268138617d7719f7d211f67ef'));
+
+[
+  'eba16f94628547cdb20170920b813164',
+].forEach(updateQsOption.bind(0,
+  'G37CAEULUZLTRDCUURES5BDFX73WXBLRSG3LIKN6JTL75T5BUG7YYLPPOV2ZUS55SF7BAJEA36WVJSJSMUHUESY27M',
+  'f9b97a78ead44f94e6d3308f30454c2e'));
 
 class Joy20210805 extends Template {
   static scriptName = 'Joy20210805';
@@ -67,12 +74,10 @@ class Joy20210805 extends Template {
 
   static beforeRequest(api) {
     api.getTaskListTimes = 0;
-    // 仅在第一次更新configCode
-    if (api.currentCookieTimes === 0) {
-      const {configCode} = api.configData || {};
-      const index = configDataList.findIndex(o => o.configCode === configCode);
-      api.configData = configDataList[index + 1] || configDataList[0];
-    }
+
+    const {configCode} = api.configData || {};
+    const index = configDataList.findIndex(o => o.configCode === configCode);
+    api.configData = configDataList[index + 1] || configDataList[0];
 
     replaceObjectMethod(api, 'doGetPath', ([functionId, qs, options]) => {
       _.assign(qs, api.configData);
@@ -98,7 +103,8 @@ class Joy20210805 extends Template {
 
           if (!self.isSuccess(data)) return [];
 
-          const {data: {moduleBaseInfo: {beginTime, endTime}}} = data;
+          const {data: {moduleBaseInfo = {}}} = data;
+          const {beginTime, endTime} = moduleBaseInfo;
           if (getMoment().isBefore(beginTime) || getMoment().isAfter(endTime)) {
             api.log(`${api.options.qs.configCode} 活动已结束`);
             return [];
