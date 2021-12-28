@@ -92,9 +92,9 @@
 # 省钱大赢家翻翻乐2
 20 0,6-23 * * * node /scripts/jd_big_winner.js >> /scripts/logs/jd_big_winner.log 2>&1
 # 整点京豆雨
-0 0-23/1 * * * node /scripts/jd_redRain.js >> /scripts/logs/jd_redRain.log 2>&1
+0 * * * * node /scripts/jd_redRain.js >> /scripts/logs/jd_redRain.log 2>&1
 # 半点京豆雨
-30 0-23/1 * * * node /scripts/jd_redRain_half.js >> /scripts/logs/jd_redRain_half.log 2>&1
+31 18-23/1 * * * node /scripts/jd_redRain_half.js >> /scripts/logs/jd_redRain_half.log 2>&1
 
 ##############长期活动##############
 # 签到
