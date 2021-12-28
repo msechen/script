@@ -7,6 +7,7 @@ const Cookie = require('../../lib/cookie');
 const JDJRValidator = require('../../lib/JDJRValidator');
 const path = require('path');
 const CryptoJS = require('crypto-js');
+const EncryptH5st = require('../../lib/EncryptH5st');
 
 const reqSources = ['weapp', 'h5'];
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2wuqXrZrhygTQzYA7VufBEpj4amH/index.html';
@@ -77,10 +78,48 @@ class Joy extends Template {
       });
     });
     invokeKey && (api.options.qs.invokeKey = invokeKey);
+    const encryptH5stConfigs = [
+      ['petGetPetTaskConfig', '922a5'],
+      ['giftGetBeanConfigs', 'd67c8'],
+      ['petEnterRoom', '2bba1'],
+    ];
     ['doPath', 'doGetPath'].forEach(method => {
-      replaceObjectMethod(api, method, args => {
+      replaceObjectMethod(api, method, async args => {
+        !api.originQs && (api.originQs = _.clone(api.options.qs));
+        !api.options.qs && (api.options.qs = _.clone(api.originQs));
+        const {reqSource} = api.originQs;
         _.assign(api.options.headers, encrypt(api.options.qs.invokeKey));
-        return args;
+        const [functionId, form, options = {}] = args;
+        const targetConfig = encryptH5stConfigs.find(([fun]) => fun.toLowerCase().match(_.first(functionId.split('/')).toLowerCase()));
+        if (targetConfig) {
+          _.merge(options, {
+            uri: 'https://api.m.jd.com/api',
+            method: 'POST',
+            headers: {
+              origin: 'https://pro.m.jd.com',
+              referrer: 'https://pro.m.jd.com/',
+            },
+            qs: {
+              client: '',
+              clientVersion: '',
+              appid: 'jdchoujiang_h5',
+            },
+          });
+          const t = getMoment().valueOf();
+          let qs = _.merge({}, {body: {reqSource}}, {t}, options.qs);
+          let [fun, appId, encryptH5st] = targetConfig;
+          !encryptH5st && (encryptH5st = new EncryptH5st({appId}));
+          qs = await encryptH5st.sign({functionId: fun, ...qs});
+          ['_stk', '_ste'].forEach(key => {
+            delete qs[key];
+          });
+          _.merge(qs, {
+            functionId: fun,
+          });
+          delete api.options.qs;
+          options.qs = qs;
+        }
+        return [functionId, form, options];
       });
     });
     api.options.qs.reqSource = reqSources[this.currentTimes - 1];
@@ -110,10 +149,10 @@ class Joy extends Template {
           // 签到和助力都需要手动到小程序
 
           // 助力
-          // self.updateShareCodeFn(new Cookie(api.cookie).get('pt_pin'));
-          // const list = self.getShareCodeFn();
-          // for (const friendPin of list) {
-          //   await api.doGetPath('helpFriend', _.assign({friendPin, reqSource: reqSources[0]}, encrypt()));
+          // const {pin} = await api.doPath('enterRoom/h5', void 0, {body: {}}).then(_.property('data'));
+          // self.updateShareCodeFn(pin);
+          // for (const friendPin of self.getShareCodeFn()) {
+          //   await api.doGetPath('helpFriend', {friendPin, reqSource: reqSources[1]});
           // }
 
           // 限时货架
@@ -292,7 +331,7 @@ class Joy extends Template {
 
 async function doFeed(api, taskType) {
   return api.doGetPath('getFood', {taskType}).then(data => {
-    data.errorCode === 'received' && Joy.log(`获得${data.data}g狗粮`);
+    data.errorCode === 'received' && api.log(`获得${data.data}g狗粮`);
   });
 }
 
