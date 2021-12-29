@@ -40,7 +40,8 @@ class LookTreasure extends WqBase {
     if (!loginSuccess) return;
     await self.beforeRequest(api);
 
-    await handleDrawFansActive({url: 't.saihuitong.com/url/RRZV7r'});
+    await handleDrawFansActive({uuid: 'SQWT'});
+    await handleDrawFansActive({uuid: 'JRYX01'});
     await handleDrawFans();
     await handleDrawVideo();
 
