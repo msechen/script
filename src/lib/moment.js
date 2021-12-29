@@ -16,25 +16,17 @@ const getNowHour = () => getMoment().hour();
 const getNowTime = getNowDate.bind(0, 'HH:mm:ss');
 const getFullDate = getNowDate.bind(0, FORMAT_FULL_DATE);
 const fillInTwo = number => number < 10 ? `0${number}` : `${number}`;
+const parseHour = str => str ? +/(\d*)/.exec(str)[0] : str;
 
-function getNextHour(hours, targetMinute = 0) {
+function getNextHour(hours, targetMinute = 0, loop = true) {
   const joinTime = (...arg) => arg.map(fillInTwo).join(':');
   const nowMinute = getMoment().minute();
   hours.includes(0) && hours.push(24);
-  hours = _.sortBy(_.uniq(hours));
   const nowHour = getNowHour();
-  let hour;
-  for (let i = 0; i < hours.length; i++) {
-    const prev = i - 1;
-    if (prev < 0) continue;
-    const targetHour = hours[i];
-    if (joinTime(nowHour, nowMinute) < joinTime(targetHour, targetMinute) && nowHour >= (hours[prev] || 0)) {
-      hour = targetHour;
-      break;
-    }
-  }
-
-  return hour;
+  const nowTime = joinTime(nowHour, nowMinute);
+  const timeArray = _.uniq([nowTime, ...hours.map(hour => joinTime(hour, targetMinute))]).sort();
+  const index = timeArray.findIndex(v => v === nowTime);
+  return parseHour(timeArray[index + 1] || (loop ? timeArray[0] : void 0));
 }
 
 module.exports = {
