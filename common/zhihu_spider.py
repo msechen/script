@@ -177,10 +177,10 @@ def get_zhihu_earnings(start, end, cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException:
-        return -100, -100
+        return -1000, 0
 
     if 'error' in res.text:
-        return -1000, -1000
+        return -1000, 0
 
     json = res.json()
 
@@ -206,7 +206,7 @@ def get_jingfen_earnings(start, end, cookie):
         return "接口异常"
 
     if 'login' in res.text:
-        return 0, -10000
+        return -10000, 0
 
     json = res.json()
 
