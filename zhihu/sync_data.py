@@ -14,10 +14,10 @@ g_like2 = 0
 g_like3 = 0
 g_like4 = 0
 
-g_like1_yestoday = 22336
-g_like2_yestoday = 17115
-g_like3_yestoday = 10303
-g_like4_yestoday = 2412
+g_like1_yestoday = 0
+g_like2_yestoday = 0
+g_like3_yestoday = 0
+g_like4_yestoday = 0
 
 # 更新知乎问题的阅读量
 def update_zhihu_question():
@@ -218,12 +218,16 @@ def query_zhijia_pay_2():
 def query_today_earnings():
     zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
     jingfen_earnings1, num3, jingfen_earnings2, num4 = query_jingfen_earnings()
-    redpacket = query_jingfen_redpacket()
+    # redpacket = query_jingfen_redpacket()
     zhijia_pay, num5 = query_zhijia_pay()
 
-    total = int(num1 + num2 + num3 + num4 - num5)
+    total = int(num1 + num2 + - num5)
 
-    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + redpacket + "\n" + zhijia_pay
+    # return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + zhijia_pay
+
+    # total = int(num1 + num2 + num3 + num4 - num5)
+
+    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + zhijia_pay
 
 # 查询今日总收入
 def query_today_earnings_2():
@@ -257,25 +261,25 @@ def get_zhihu_like(total):
     inc2_today = like2 - g_like2_yestoday
     g_like2 = like2
 
-    txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/356450592').replace(" 人赞同了该文章","")
+    txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/340848190').replace(" 人赞同了该文章","")
     like3 = int(txt3.replace(",", ""))
     inc3 = like3 - g_like3
     inc3_today = like3 - g_like3_yestoday
     g_like3 = like3
 
-    txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592').replace(" 人赞同了该文章","")
-    like4 = int(txt4.replace(",", ""))
-    inc4 = like4 - g_like4
-    inc4_today = like4 - g_like4_yestoday
-    g_like4 = like4
+    # txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592').replace(" 人赞同了该文章","")
+    # like4 = int(txt4.replace(",", ""))
+    # inc4 = like4 - g_like4
+    # inc4_today = like4 - g_like4_yestoday
+    # g_like4 = like4
 
     if total:
         g_like1_yestoday = like1
         g_like2_yestoday = like2
         g_like3_yestoday = like3
-        g_like4_yestoday = like4
+        # g_like4_yestoday = like4
 
-    return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")" + '\n' + txt4  + "(+" + str(inc4) + ")"  + "(+" + str(inc4_today) + ")"
+    return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")"
 
 
 # 查询文章点赞数
