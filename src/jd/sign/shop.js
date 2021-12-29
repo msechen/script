@@ -38,12 +38,10 @@ class SignShop extends Template {
     // token, venderId, id
     let shopInfos = [
       'E0E000F7FFCC76BD6B5BD2E62F445670',
-      '4101794DF8B076B2EAEE29E9A986540A',
       '03B4F891150FB4EBC1231233F8A8C912',
       'DA5D2FBC54C6C6D8597E10388BAE7449',
       '4A5E3981110C0BC21018E291032F8815',
       '7E01F24A06CF6857C40C53DC4CA71581',
-      '67BE917CB7C0C4A6E0AFE6B62C93943B',
       // 脚本新增插入位置
     ];
 
@@ -70,9 +68,13 @@ class SignShop extends Template {
     // 补全shopInfos
     async function updateShopInfos(addOtherInfo = true) {
       shopInfos = shopInfos.map(v => _.concat(v));
+      // 同时请求的情况下接口做了限制
+      // {"code":"-1","echo":"com.jd.jsf.gd.error.RpcException: [JSF-22211]Invocation of com.jd.interact.center.client.api.color.service.read.ShopSignActivityReadService.getActivityInfo of app: is over invoke limit:[20], please wait next period or add upper limit."}
+      await sleep(api.currentCookieTimes * 2 * shopInfos.length);
       for (let shopInfo of shopInfos) {
         if (shopInfo.length !== 1) continue;
         const token = shopInfo[0];
+        await sleep(2);
         await getActivityInfo(token).then(async data => {
           if (!self.isSuccess(data)) {
             logShopSignInfo(`${token}: 402 已经失效`);
