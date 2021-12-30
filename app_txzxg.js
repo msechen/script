@@ -14,18 +14,20 @@ app和微信任务都做,有个别的任务可能不做,而且也做不了,不�
 
 自行抓包变量填写:
 
+app/微信小程序 抓包时找带有这个 https://wzq.tenpay.com 的链接,要点获取脚本界面抓
+
 变量名:soy_txzxg_data
 变量值:url@wzq_qluin@UA
 注释:url为app抓包时的整个链接,wzq_qluin为微信抓包时的cookie里面找它的值就是,UA为抓包时的User-Agent(选填)
 app抓包时的链接大概如:https://wzq.tenpay.com/cgi-bin/activity_xxx.fcgi?action=home&type=xxx&actid=xxx&invite_code=&_=xxx&openid=xxx&fskey=xxx&channel=1&access_token=xxx&_appName=xxx&_appver=xxx&_osVer=xxx&_devId=xxx
 大概时这样,反正一定要有openi、fskey,当然你变量第一个参数填openid=xxx&fskey=xxx也可以
 
-app/微信小程序 抓包时找带有这个 https://wzq.tenpay.com 的链接
+
 
 多好用 # 或换行隔开
 ------------------------
 
-由于写v2p的重写处理数据太麻烦,所以干脆没有了
+由于写v2p处理数据太麻烦,所以干脆没有了
 
 ------------------------
 
@@ -40,8 +42,1384 @@ cron 0 11,18,22 * * *
 const $ = new Env('腾讯自选股');
 const notify = $.isNode() ? require('./sendNotify') : '';
 
-var _0xodI='jsjiami.com.v6',_0xodI_=['_0xodI'],_0x550c=[_0xodI,'\x69\x73\x4e\x6f\x64\x65','\x65\x6e\x76','\x73\x6f\x79\x5f\x74\x78\x7a\x78\x67\x5f\x64\x61\x74\x61','\x6c\x6f\x67','\x6e\x61\x6d\x65','\u3011\uff1a\u672a\u63d0\u4f9b\u53d8\u91cf\x20\x73\x6f\x79\x5f\x74\x78\x7a\x78\x67\x5f\x64\x61\x74\x61','\x69\x6e\x64\x65\x78\x4f\x66','\x73\x70\x6c\x69\x74','\x67\x65\x74\x64\x61\x74\x61','\x0a\x3d\x3d\x3d\x20\u811a\u672c\u6267\u884c\x20\x2d\x20\u5317\u4eac\u65f6\u95f4\uff1a','\x67\x65\x74\x54\x69\x6d\x65','\x67\x65\x74\x54\x69\x6d\x65\x7a\x6f\x6e\x65\x4f\x66\x66\x73\x65\x74','\x74\x6f\x4c\x6f\x63\x61\x6c\x65\x53\x74\x72\x69\x6e\x67','\x20\x3d\x3d\x3d\x0a','\x3d\x3d\x3d\u3010\u5171\x20','\x6c\x65\x6e\x67\x74\x68','\x20\u4e2a\u8d26\u53f7\u3011\x3d\x3d\x3d\x0a','\x69\x6e\x64\x65\x78','\x6f\x70\x65\x6e\x69\x64\x3d','\x66\x73\x6b\x65\x79\x3d','\x0a\u5f00\u59cb\u3010\u7b2c\x20','\x20\u4e2a\u8d26\u53f7\u4efb\u52a1\u3011','\u3011\uff1a\u53d8\u91cf\u4e2d\u6ca1\u6709\u627e\u5230\x20\x6f\x70\x65\x6e\x69\x64\u3001\x66\x73\x6b\x65\x79\x20\u6570\u636e','\x63\x61\x74\x63\x68','\x6c\x6f\x67\x45\x72\x72','\x66\x69\x6e\x61\x6c\x6c\x79','\x64\x6f\x6e\x65','\x75\x72\x6c','\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x74\x61\x73\x6b\x5f\x64\x61\x69\x6c\x79\x2e\x66\x63\x67\x69\x3f','\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x74\x61\x73\x6b\x5f\x63\x6f\x6e\x74\x69\x6e\x75\x65\x2e\x66\x63\x67\x69\x3f','\x73\x65\x74\x64\x61\x74\x61','\x54\x78\x53\x74\x6f\x63\x6b\x41\x70\x70\x55\x72\x6c','\u83b7\u53d6\x54\x78\x53\x74\x6f\x63\x6b\x41\x70\x70\x55\x72\x6c\u6210\u529f\x3a\x20','\x6d\x73\x67','\x73\x74\x72\x69\x6e\x67\x69\x66\x79','\x68\x65\x61\x64\x65\x72\x73','\x54\x78\x53\x74\x6f\x63\x6b\x41\x70\x70\x48\x65\x61\x64\x65\x72','\u83b7\u53d6\x54\x78\x53\x74\x6f\x63\x6b\x41\x70\x70\x48\x65\x61\x64\x65\x72\u6210\u529f\x3a\x20','\x54\x78\x53\x74\x6f\x63\x6b\x57\x78\x48\x65\x61\x64\x65\x72','\u83b7\u53d6\x54\x78\x53\x74\x6f\x63\x6b\x57\x78\x48\x65\x61\x64\x65\x72\u6210\u529f\x3a\x20','\x4d\x6f\x7a\x69\x6c\x6c\x61\x2f\x35\x2e\x30\x20\x28\x4c\x69\x6e\x75\x78\x3b\x20\x41\x6e\x64\x72\x6f\x69\x64\x20\x38\x2e\x31\x3b\x20\x50\x41\x52\x2d\x41\x4c\x30\x30\x20\x42\x75\x69\x6c\x64\x2f\x48\x55\x41\x57\x45\x49\x50\x41\x52\x2d\x41\x4c\x30\x30\x3b\x20\x77\x76\x29\x20\x41\x70\x70\x6c\x65\x57\x65\x62\x4b\x69\x74\x2f\x35\x33\x37\x2e\x33\x36\x20\x28\x4b\x48\x54\x4d\x4c\x2c\x20\x6c\x69\x6b\x65\x20\x47\x65\x63\x6b\x6f\x29\x20\x56\x65\x72\x73\x69\x6f\x6e\x2f\x34\x2e\x30\x20\x43\x68\x72\x6f\x6d\x65\x2f\x35\x37\x2e\x30\x2e\x32\x39\x38\x37\x2e\x31\x33\x32\x20\x4d\x51\x51\x42\x72\x6f\x77\x73\x65\x72\x2f\x36\x2e\x32\x20\x54\x42\x53\x2f\x30\x34\x34\x33\x30\x34\x20\x6e\x61\x6d\x65\x20\x53\x61\x66\x61\x72\x69\x2f\x35\x33\x37\x2e\x33\x36\x20\x4d\x69\x63\x72\x6f\x4d\x65\x73\x73\x65\x6e\x67\x65\x72\x2f\x36\x2e\x37\x2e\x33\x2e\x31\x33\x36\x30\x28\x30\x78\x32\x36\x30\x37\x30\x33\x33\x33\x29','\x6d\x61\x74\x63\x68','\x61\x63\x63\x65\x73\x73\x5f\x74\x6f\x6b\x65\x6e','\x35\x32\x5f','\x61\x70\x70\x4e\x61\x6d\x65','\x24\x7b\x61\x70\x70\x5f\x61\x70\x70\x4e\x61\x6d\x65\x7d','\x61\x70\x70\x76\x65\x72','\x24\x7b\x61\x70\x70\x5f\x61\x70\x70\x76\x65\x72\x7d','\x64\x65\x76\x49\x64','\x64\x61\x69\x6c\x79','\x41\x50\x50\u65e5\u5e38\u4efb\u52a1','\x74\x61\x73\x6b\x5f\x64\x61\x69\x6c\x79','\x72\x6f\x75\x74\x69\x6e\x65','\x70\x75\x73\x68','\u5fae\u4fe1\u65e5\u5e38\u4efb\u52a1','\x6e\x65\x77\x73\x5f\x73\x68\x61\x72\x65','\x74\x61\x73\x6b\x5f\x35\x30\x5f\x31\x31\x31\x31','\x74\x61\x73\x6b\x5f\x35\x31\x5f\x31\x31\x31\x31','\x74\x61\x73\x6b\x5f\x35\x30\x5f\x31\x31\x30\x30','\x74\x61\x73\x6b\x5f\x35\x31\x5f\x31\x31\x30\x30','\x74\x61\x73\x6b\x5f\x36\x36\x5f\x31\x31\x31\x30','\x74\x61\x73\x6b\x5f\x35\x30\x5f\x31\x31\x31\x30','\x74\x61\x73\x6b\x5f\x35\x31\x5f\x31\x31\x31\x30','\x74\x61\x73\x6b\x5f\x35\x31\x5f\x31\x31\x31\x32','\x74\x61\x73\x6b\x5f\x35\x31\x5f\x31\x31\x31\x33','\x74\x61\x73\x6b\x5f\x35\x30\x5f\x31\x30\x33\x32','\x74\x61\x73\x6b\x5f\x35\x31\x5f\x31\x30\x33\x32','\u6233\u725b\u4efb\u52a1','\x72\x6f\x63\x6b\x5f\x62\x75\x6c\x6c\x69\x73\x68','\u5f00\u5b9d\u7bb1','\x6f\x70\x65\x6e\x5f\x62\x6f\x78','\u5f00\u76f2\u76d2','\x6f\x70\x65\x6e\x5f\x62\x6c\x69\x6e\x64\x62\x6f\x78','\u67e5\u8be2\u76ae\u80a4\u6570\u91cf','\x71\x75\x65\x72\x79\x5f\x62\x6c\x69\x6e\x64\x62\x6f\x78','\u5356\u76ae\u80a4','\x73\x65\x6c\x6c\x5f\x73\x6b\x69\x6e','\u5582\u957f\u725b','\x66\x65\x65\x64','\x77\x61\x69\x74','\x72\x6f\x75\x6e\x64','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f','\x61\x63\x74\x69\x76\x69\x74\x79','\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x68\x6f\x6d\x65\x26\x74\x79\x70\x65\x3d','\x74\x79\x70\x65','\x26\x61\x63\x74\x69\x64\x3d','\x61\x63\x74\x69\x64','\x26\x69\x6e\x76\x69\x74\x65\x5f\x63\x6f\x64\x65\x3d\x26\x5f\x3d','\x26\x6f\x70\x65\x6e\x69\x64\x3d','\x26\x66\x73\x6b\x65\x79\x3d','\x26\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x61\x63\x63\x65\x73\x73\x5f\x74\x6f\x6b\x65\x6e\x3d','\x26\x5f\x61\x70\x70\x4e\x61\x6d\x65\x3d','\x26\x5f\x61\x70\x70\x76\x65\x72\x3d','\x26\x5f\x6f\x73\x56\x65\x72\x3d','\x26\x5f\x64\x65\x76\x49\x64\x3d','\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x6a\x73\x6f\x6e\x2c\x20\x74\x65\x78\x74\x2f\x70\x6c\x61\x69\x6e\x2c\x20\x2a\x2f\x2a','\x6b\x65\x65\x70\x2d\x61\x6c\x69\x76\x65','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x2f\x70\x61\x67\x65\x2f\x77\x65\x6c\x77\x61\x72\x65\x43\x65\x6e\x74\x65\x72\x2f','\x67\x7a\x69\x70\x2c\x20\x64\x65\x66\x6c\x61\x74\x65\x2c\x20\x62\x72','\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d','\x7a\x68\x2d\x63\x6e','\x67\x65\x74','\u817e\u8baf\u81ea\u9009\u80a1\x3a\x20\x41\x50\x49\u67e5\u8be2\u8bf7\u6c42\u5931\u8d25\x20\u203c\ufe0f\u203c\ufe0f','\x70\x61\x72\x73\x65','\x72\x65\x74\x63\x6f\x64\x65','\x74\x61\x73\x6b\x5f\x70\x6b\x67','\x74\x61\x73\x6b\x73','\x74\x69\x64','\x74\x61\x73\x6b\x4e\x61\x6d\x65','\x5b\x61\x63\x74\x69\x64\x3d','\x5d\u67e5\u8be2\u5931\u8d25\uff1a','\x72\x65\x74\x6d\x73\x67','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x74\x61\x73\x6b\x2e\x66\x63\x67\x69\x3f\x69\x64\x3d','\x26\x74\x69\x64\x3d','\x26\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x61\x63\x74\x69\x6f\x6e\x3d\x74\x61\x73\x6b\x73\x74\x61\x74\x75\x73\x26\x5f\x72\x6e\x64\x74\x69\x6d\x65\x3d','\x2a\x2f\x2a','\x68\x74\x74\x70\x3a\x2f\x2f\x7a\x69\x78\x75\x61\x6e\x67\x75\x61\x70\x70\x2e\x66\x69\x6e\x61\x6e\x63\x65\x2e\x71\x71\x2e\x63\x6f\x6d','\x67\x7a\x69\x70\x2c\x64\x65\x66\x6c\x61\x74\x65','\x7a\x68\x2d\x48\x61\x6e\x73\x2d\x43\x4e\x3b\x71\x3d\x31\x2c\x20\x65\x6e\x2d\x43\x4e\x3b\x71\x3d\x30\x2e\x39','\x5b\x61\x63\x74\x69\x64\x3a','\x2c\x69\x64\x3a','\x2c\x74\x69\x64\x3a','\x5d\u5df2\u5b8c\u6210\x0a','\u72b6\u6001\u67e5\u8be2\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x74\x61\x73\x6b\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x74\x61\x73\x6b\x74\x69\x63\x6b\x65\x74\x26\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x61\x63\x74\x69\x64\x3d','\x26\x5f\x72\x6e\x64\x74\x69\x6d\x65\x3d','\x74\x61\x73\x6b\x5f\x74\x69\x63\x6b\x65\x74','\u7533\u8bf7\u7968\u636e\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x74\x61\x73\x6b\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x74\x61\x73\x6b\x64\x6f\x6e\x65\x26\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x61\x63\x74\x69\x64\x3d','\x26\x69\x64\x3d','\x26\x74\x61\x73\x6b\x5f\x74\x69\x63\x6b\x65\x74\x3d','\x5d\x3a\u83b7\u5f97\x20','\x72\x65\x77\x61\x72\x64\x5f\x64\x65\x73\x63','\x5d\u672a\u5b8c\u6210\uff1a','\x3b\x77\x7a\x71\x5f\x71\x6c\x73\x6b\x65\x79\x3d','\x3b\x77\x7a\x71\x5f\x71\x6c\x75\x69\x6e\x3d','\u67e5\u8be2\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x74\x61\x73\x6b\x2e\x66\x63\x67\x69\x3f\x74\x3d','\x5f\x68\x35\x76\x65\x72\x3d\x32\x2e\x30\x2e\x31\x26\x61\x63\x74\x69\x64\x3d','\x26\x61\x63\x74\x69\x6f\x6e\x3d\x74\x61\x73\x6b\x73\x74\x61\x74\x75\x73','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d','\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x78\x2d\x77\x77\x77\x2d\x66\x6f\x72\x6d\x2d\x75\x72\x6c\x65\x6e\x63\x6f\x64\x65\x64','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x6d\x70\x2f\x76\x32\x2f\x69\x6e\x64\x65\x78\x2e\x68\x74\x6d\x6c','\x70\x6f\x73\x74','\x26\x61\x63\x74\x69\x6f\x6e\x3d\x74\x61\x73\x6b\x74\x69\x63\x6b\x65\x74','\x26\x61\x63\x74\x69\x6f\x6e\x3d\x74\x61\x73\x6b\x64\x6f\x6e\x65','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x73\x68\x61\x72\x65\x2e\x66\x63\x67\x69\x3f\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x61\x63\x74\x69\x6f\x6e\x3d\x71\x75\x65\x72\x79\x5f\x73\x68\x61\x72\x65\x5f\x63\x6f\x64\x65\x26\x73\x68\x61\x72\x65\x5f\x74\x79\x70\x65\x3d','\x73\x68\x61\x72\x65\x5f\x63\x6f\x64\x65','\u83b7\u53d6\u7528\u6237\x41\x50\x50\u7684','\u4e92\u52a9\u7801\x3a\x20','\u4e92\u52a9\u7801\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x73\x68\x61\x72\x65\x2e\x66\x63\x67\x69\x3f\x74\x3d','\x5f\x68\x35\x76\x65\x72\x3d\x32\x2e\x30\x2e\x31\x26\x61\x63\x74\x69\x6f\x6e\x3d\x71\x75\x65\x72\x79\x5f\x73\x68\x61\x72\x65\x5f\x63\x6f\x64\x65\x26\x73\x68\x61\x72\x65\x5f\x74\x79\x70\x65\x3d','\u83b7\u53d6\u7528\u6237\u5fae\u4fe1\u7684','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x73\x68\x61\x72\x65\x2e\x66\x63\x67\x69\x3f','\x77\x7a\x71\x5f\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x34\x30\x30\x31\x30\x30\x30\x30\x31\x31\x2e\x2e\x3b\x71\x6c\x61\x70\x70\x69\x64\x3d\x77\x78\x39\x63\x66\x38\x63\x36\x37\x30\x65\x62\x64\x36\x38\x63\x65\x34\x3b\x71\x6c\x73\x6b\x65\x79\x3d\x76\x30\x62\x61\x38\x32\x39\x37\x39\x31\x35\x36\x31\x37\x64\x34\x61\x35\x61\x30\x34\x65\x35\x36\x33\x66\x63\x30\x36\x66\x39\x32\x3b\x71\x6c\x75\x69\x6e\x3d\x30\x38\x35\x65\x39\x38\x35\x38\x65\x65\x64\x38\x62\x37\x34\x39\x38\x37\x32\x35\x38\x36\x32\x31\x61\x40\x77\x78\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x3b\x71\x71\x5f\x6c\x6f\x67\x74\x79\x70\x65\x3d\x31\x36\x3b\x77\x78\x5f\x73\x65\x73\x73\x69\x6f\x6e\x5f\x74\x69\x6d\x65\x3d\x31\x36\x33\x35\x36\x30\x30\x39\x38\x36\x30\x30\x30\x3b\x77\x7a\x71\x5f\x71\x6c\x61\x70\x70\x69\x64\x3d\x77\x78\x39\x63\x66\x38\x63\x36\x37\x30\x65\x62\x64\x36\x38\x63\x65\x34\x3b\x77\x7a\x71\x5f\x71\x6c\x73\x6b\x65\x79\x3d\x76\x30\x62\x61\x38\x32\x39\x37\x39\x31\x35\x36\x31\x37\x64\x34\x61\x35\x61\x30\x34\x65\x35\x36\x33\x66\x63\x30\x36\x66\x39\x32\x3b\x77\x7a\x71\x5f\x71\x6c\x75\x69\x6e\x3d\x6f\x73\x2d\x70\x70\x75\x41\x76\x41\x6c\x6a\x75\x31\x38\x4b\x63\x57\x50\x76\x74\x6e\x77\x7a\x74\x5f\x48\x7a\x51\x3b\x7a\x78\x67\x5f\x6f\x70\x65\x6e\x69\x64\x3d\x6f\x41\x30\x47\x62\x6a\x75\x36\x41\x4e\x5f\x62\x58\x6a\x5a\x38\x6c\x49\x41\x6d\x78\x30\x4f\x32\x75\x50\x5a\x63','\x4d\x6f\x7a\x69\x6c\x6c\x61\x2f\x35\x2e\x30\x20\x28\x69\x50\x68\x6f\x6e\x65\x3b\x20\x43\x50\x55\x20\x69\x50\x68\x6f\x6e\x65\x20\x4f\x53\x20\x31\x34\x5f\x31\x20\x6c\x69\x6b\x65\x20\x4d\x61\x63\x20\x4f\x53\x20\x58\x29\x20\x41\x70\x70\x6c\x65\x57\x65\x62\x4b\x69\x74\x2f\x36\x30\x35\x2e\x31\x2e\x31\x35\x20\x28\x4b\x48\x54\x4d\x4c\x2c\x20\x6c\x69\x6b\x65\x20\x47\x65\x63\x6b\x6f\x29\x20\x4d\x6f\x62\x69\x6c\x65\x2f\x31\x35\x45\x31\x34\x38\x20\x4d\x69\x63\x72\x6f\x4d\x65\x73\x73\x65\x6e\x67\x65\x72\x2f\x38\x2e\x30\x2e\x37\x28\x30\x78\x31\x38\x30\x30\x30\x37\x33\x33\x29\x20\x4e\x65\x74\x54\x79\x70\x65\x2f\x34\x47\x20\x4c\x61\x6e\x67\x75\x61\x67\x65\x2f\x7a\x68\x5f\x43\x4e','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x6d\x70\x2f\x76\x32\x2f\x69\x6e\x64\x65\x78\x2e\x68\x74\x6d\x6c\x3f\x73\x74\x61\x74\x5f\x64\x61\x74\x61\x3d\x34\x30\x30\x33\x30\x30\x30\x30\x31\x31','\x5f\x68\x35\x76\x65\x72\x3d\x32\x2e\x30\x2e\x31\x26\x61\x63\x74\x69\x6f\x6e\x3d\x73\x68\x61\x72\x65\x5f\x63\x6f\x64\x65\x5f\x69\x6e\x66\x6f\x26\x73\x68\x61\x72\x65\x5f\x74\x79\x70\x65\x3d','\x26\x73\x68\x61\x72\x65\x5f\x63\x6f\x64\x65\x3d','\x73\x68\x61\x72\x65\x5f\x63\x6f\x64\x65\x5f\x69\x6e\x66\x6f','\x73\x74\x61\x74\x75\x73','\u4e92\u52a9\u6210\u529f\uff1a\u5bf9\u65b9\u6635\u79f0\x20','\x6e\x69\x63\x6b\x6e\x61\x6d\x65','\u5df2\u7ecf\u4e92\u52a9\u8fc7\u4e86\x0a','\x2d\x2d\x2d\x2d','\u3011\x3a\x20','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x7a\x71\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x73\x69\x67\x6e\x5f\x74\x61\x73\x6b\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x64\x3d','\x26\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x74\x79\x70\x65\x3d\x77\x65\x6c\x66\x61\x72\x65\x5f\x73\x69\x67\x6e\x26\x61\x63\x74\x69\x6f\x6e\x3d\x68\x6f\x6d\x65\x26\x5f\x3d','\x66\x6f\x72\x62\x69\x64\x64\x65\x6e\x5f\x63\x6f\x64\x65','\x64\x61\x74\x65','\u7528\u6237\u4eca\u5929\u5df2\u7b7e\u5230\x0a','\u7528\u6237\u5df2\u8fde\u7eed\u7b7e\u5230','\x63\x6f\x6e\x74\x69\x6e\x75\x65\x5f\x73\x69\x67\x6e\x5f\x64\x61\x79\x73','\u5929\uff0c\u603b\u7b7e\u5230\u5929\u6570','\x74\x6f\x74\x61\x6c\x5f\x73\x69\x67\x6e\x5f\x64\x61\x79\x73','\x6c\x6f\x74\x74\x6f\x5f\x63\x68\x61\x6e\x63\x65','\x6c\x6f\x74\x74\x6f\x5f\x74\x69\x63\x6b\x65\x74','\u7528\u6237\u67e5\u8be2\u7b7e\u5230\u4fe1\u606f\u5931\u8d25\uff0c\u53ef\u80fd\u5df2\u9ed1\u53f7\uff1a','\x66\x6f\x72\x62\x69\x64\x64\x65\x6e\x5f\x72\x65\x61\x73\x6f\x6e','\u7528\u6237\u67e5\u8be2\u7b7e\u5230\u4fe1\u606f\u5931\u8d25\uff1a','\x26\x63\x68\x61\x6e\x6e\x65\x6c\x3d\x31\x26\x61\x63\x74\x69\x6f\x6e\x3d\x73\x69\x67\x6e\x64\x6f\x6e\x65\x26\x64\x61\x74\x65\x3d','\x26\x5f\x3d','\u7b7e\u5230\u83b7\u5f97\x20','\u7b7e\u5230\u65f6\u95f4\x3a','\u7b7e\u5230\u5931\u8d25\uff1a','\x26\x61\x63\x74\x69\x6f\x6e\x3d\x61\x77\x61\x72\x64\x26\x72\x65\x77\x61\x72\x64\x5f\x74\x69\x63\x6b\x65\x74\x3d','\u83b7\u5f97\u8fde\u7eed\u7b7e\u5230\u5956\u52b1\uff1a\x20','\u9886\u53d6\u8fde\u7eed\u7b7e\u5230\u5956\u52b1\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x79\x65\x61\x72\x5f\x70\x61\x72\x74\x79\x2e\x66\x63\x67\x69\x3f\x74\x79\x70\x65\x3d\x62\x75\x6c\x6c\x69\x73\x68\x26\x61\x63\x74\x69\x6f\x6e\x3d','\x61\x63\x74\x69\x6f\x6e','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x2f\x70\x61\x67\x65\x2f\x72\x61\x69\x73\x65\x62\x75\x6c\x6c\x2f','\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d','\x7a\x68\x2d\x43\x4e\x2c\x7a\x68\x2d\x48\x61\x6e\x73\x3b\x71\x3d\x30\x2e\x39','\x72\x65\x77\x61\x72\x64\x5f\x69\x6e\x66\x6f','\u83b7\u5f97\x3a\x20','\x72\x61\x6e\x64\x6f\x6d','\x61\x77\x61\x72\x64\x5f\x64\x65\x73\x63','\x73\x6b\x69\x6e\x5f\x69\x6e\x66\x6f','\x73\x6b\x69\x6e\x5f\x64\x65\x73\x63','\x73\x6b\x69\x6e\x5f\x6c\x69\x73\x74','\x73\x6b\x69\x6e\x5f\x6e\x75\x6d','\x26\x73\x6b\x69\x6e\x5f\x74\x79\x70\x65\x3d','\x73\x6b\x69\x6e\x5f\x74\x79\x70\x65','\x66\x65\x65\x64\x5f\x72\x65\x77\x61\x72\x64\x5f\x69\x6e\x66\x6f','\x6c\x65\x76\x65\x6c\x5f\x75\x70\x5f\x73\x74\x61\x74\x75\x73','\u957f\u725b\u5347\u7ea7\u5230\u7b49\u7ea7','\x75\x70\x64\x61\x74\x65\x5f\x6e\x65\x77\x5f\x6c\x65\x76\x65\x6c','\uff0c\u83b7\u5f97\x3a\x20','\x6c\x65\x76\x65\x6c\x5f\x72\x65\x77\x61\x72\x64\x5f\x69\x6e\x66\x6f','\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x5f\x79\x65\x61\x72\x5f\x70\x61\x72\x74\x79\x2e\x66\x63\x67\x69\x3f\x69\x6e\x76\x69\x74\x65\x5f\x63\x6f\x64\x65\x3d\x26\x68\x65\x6c\x70\x5f\x63\x6f\x64\x65\x3d\x26\x73\x68\x61\x72\x65\x5f\x64\x61\x74\x65\x3d\x26\x74\x79\x70\x65\x3d\x62\x75\x6c\x6c\x69\x73\x68\x26\x61\x63\x74\x69\x6f\x6e\x3d\x68\x6f\x6d\x65\x26\x61\x63\x74\x69\x64\x3d\x31\x31\x30\x35\x26\x5f\x3d','\u7528\u6237\x20','\x20\u53ef\u80fd\u5df2\u9ed1\u53f7\uff1a','\u957f\u725b\u72b6\u6001\uff1a','\u7b49\u7ea7\x3a\x20','\x62\x75\x6c\x6c\x69\x73\x68\x5f\x69\x6e\x66\x6f','\x6c\x65\x76\x65\x6c','\u4e0b\u4e00\u7ea7\u9700\u8981\u7ecf\u9a8c\x3a\x20','\x6e\x65\x78\x74\x5f\x6c\x65\x76\x65\x6c\x5f\x65\x78\x70','\u73b0\u6709\u7ecf\u9a8c\x3a\x20','\x65\x78\x70\x5f\x76\x61\x6c\x75\x65','\u73b0\u6709\u725b\u6c14\x3a\x20','\x62\x75\x6c\x6c\x69\x73\x68\x5f\x76\x61\x6c\x75\x65','\u67e5\u8be2\u957f\u725b\u72b6\u6001\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x73\x68\x6f\x70\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x68\x6f\x6d\x65\x5f\x76\x32\x26\x74\x79\x70\x65\x3d\x32\x26\x5f\x3d','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x61\x63\x74\x69\x76\x69\x74\x79\x2f\x70\x61\x67\x65\x2f\x65\x78\x63\x68\x61\x6e\x67\x65\x52\x69\x67\x68\x74\x73\x2f','\x73\x68\x6f\x70\x5f\x61\x73\x73\x65\x74','\x61\x6d\x6f\x75\x6e\x74','\x63\x61\x73\x68','\x69\x74\x65\x6d\x5f\x69\x64','\u63d0\u73b0\u5217\u8868\u83b7\u53d6\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x73\x68\x6f\x70\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x6f\x72\x64\x65\x72\x5f\x74\x69\x63\x6b\x65\x74\x26\x74\x79\x70\x65\x3d\x32\x26\x5f\x3d','\x74\x69\x63\x6b\x65\x74','\u63d0\u73b0\u7968\u636e\u7533\u8bf7\u5931\u8d25\uff1a','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x7a\x71\x61\x63\x74\x30\x33\x2e\x74\x65\x6e\x70\x61\x79\x2e\x63\x6f\x6d\x2f\x63\x67\x69\x2d\x62\x69\x6e\x2f\x73\x68\x6f\x70\x2e\x66\x63\x67\x69\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x6f\x72\x64\x65\x72\x26\x74\x79\x70\x65\x3d\x32\x26\x74\x69\x63\x6b\x65\x74\x3d','\x26\x69\x74\x65\x6d\x5f\x69\x64\x3d','\u63d0\u73b0\u7ed3\u679c\x3a','\u67e5\u8be2\u5269\u4f59\u91d1\u989d\uff1a\x0a','\u63d0\u73b0\u5931\u8d25\uff1a','\x67\x65\x74\x46\x75\x6c\x6c\x59\x65\x61\x72','\x67\x65\x74\x4d\x6f\x6e\x74\x68','\x67\x65\x74\x44\x61\x74\x65','\x67\x65\x74\x48\x6f\x75\x72\x73','\x67\x65\x74\x4d\x69\x6e\x75\x74\x65\x73','\x67\x65\x74\x53\x65\x63\x6f\x6e\x64\x73','\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74','\x74\x6f\x53\x74\x72\x69\x6e\x67','\x73\x75\x62\x73\x74\x72','\x72\x65\x70\x6c\x61\x63\x65','\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65','\x74\x6f\x4c\x6f\x77\x65\x72\x43\x61\x73\x65','\x6a\x49\x4f\x73\x6a\x69\x61\x74\x49\x47\x6d\x69\x78\x2e\x63\x6f\x6d\x2e\x76\x70\x65\x54\x36\x66\x65\x6c\x71\x46\x75\x3d\x3d'];function _0x56ae(_0x1931d2,_0x4bccb5){_0x1931d2=~~'0x'['concat'](_0x1931d2['slice'](0x0));var _0x229481=_0x550c[_0x1931d2];return _0x229481;};(function(_0x37b1e4,_0xc04186){var _0x381bcf=0x0;for(_0xc04186=_0x37b1e4['shift'](_0x381bcf>>0x2);_0xc04186&&_0xc04186!==(_0x37b1e4['pop'](_0x381bcf>>0x3)+'')['replace'](/[IOtIGxpeTfelqFu=]/g,'');_0x381bcf++){_0x381bcf=_0x381bcf^0xc76b4;}}(_0x550c,_0x56ae));let bullStatusFlag=0x0,app_soy_txzxg_data=[];!(async()=>{if($[_0x56ae('0')]()){if(!process[_0x56ae('1')][_0x56ae('2')]){console[_0x56ae('3')]('\x0a\u3010'+$[_0x56ae('4')]+_0x56ae('5'));return;}if(process[_0x56ae('1')][_0x56ae('2')]&&process[_0x56ae('1')][_0x56ae('2')][_0x56ae('6')]('\x0a')>-0x1){app_soy_txzxg_data=process[_0x56ae('1')][_0x56ae('2')][_0x56ae('7')]('\x0a');}else if(process[_0x56ae('1')][_0x56ae('2')]&&process[_0x56ae('1')][_0x56ae('2')][_0x56ae('6')]('\x23')>-0x1){app_soy_txzxg_data=process[_0x56ae('1')][_0x56ae('2')][_0x56ae('7')]('\x23');}else{app_soy_txzxg_data=process[_0x56ae('1')][_0x56ae('2')][_0x56ae('7')]();};}else{if(!$[_0x56ae('8')](_0x56ae('2'))){console[_0x56ae('3')]('\x0a\u3010'+$[_0x56ae('4')]+_0x56ae('5'));return;}if($[_0x56ae('8')](_0x56ae('2'))&&$[_0x56ae('8')](_0x56ae('2'))[_0x56ae('6')]('\x0a')>-0x1){app_soy_txzxg_data=$[_0x56ae('8')](_0x56ae('2'))[_0x56ae('7')]('\x0a');}else if($[_0x56ae('8')](_0x56ae('2'))&&$[_0x56ae('8')](_0x56ae('2'))[_0x56ae('6')]('\x23')>-0x1){app_soy_txzxg_data=$[_0x56ae('8')](_0x56ae('2'))[_0x56ae('7')]('\x23');}else{app_soy_txzxg_data=$[_0x56ae('8')](_0x56ae('2'))[_0x56ae('7')]();};}console[_0x56ae('3')](_0x56ae('9')+new Date(new Date()[_0x56ae('a')]()+new Date()[_0x56ae('b')]()*0x3c*0x3e8+0x8*0x3c*0x3c*0x3e8)[_0x56ae('c')]()+_0x56ae('d'));console[_0x56ae('3')](_0x56ae('e')+app_soy_txzxg_data[_0x56ae('f')]+_0x56ae('10'));for(i=0x0;i<app_soy_txzxg_data[_0x56ae('f')];i++){$[_0x56ae('11')]=i+0x1;if(app_soy_txzxg_data[i][_0x56ae('6')](_0x56ae('12'))>-0x1&&app_soy_txzxg_data[i][_0x56ae('6')](_0x56ae('13'))>-0x1){await get_u_info();console[_0x56ae('3')](_0x56ae('14')+$[_0x56ae('11')]+_0x56ae('15'));todayDate=formatDateTime(new Date());await signStatus(0x7d2,0x0);await get_apptask();await get_wxtask();await get_Share();await bullTask();await orderQuery();}else{console[_0x56ae('3')]('\x0a\u3010'+$[_0x56ae('4')]+_0x56ae('16'));return;}};})()[_0x56ae('17')](_0x530eb7=>$[_0x56ae('18')](_0x530eb7))[_0x56ae('19')](()=>$[_0x56ae('1a')]());async function get_appdata(){if($request[_0x56ae('1b')][_0x56ae('6')](_0x56ae('1c'))>-0x1||$request[_0x56ae('1b')][_0x56ae('6')](_0x56ae('1d'))>-0x1){if($request[_0x56ae('1b')][_0x56ae('6')](_0x56ae('12'))>-0x1){$[_0x56ae('1e')]($request[_0x56ae('1b')],_0x56ae('1f'));$[_0x56ae('3')](_0x56ae('20')+$request[_0x56ae('1b')]+'\x0a');$[_0x56ae('21')](_0x56ae('20')+$request[_0x56ae('1b')]+'\x0a');$[_0x56ae('1e')](JSON[_0x56ae('22')]($request[_0x56ae('23')]),_0x56ae('24'));$[_0x56ae('3')](_0x56ae('25')+JSON[_0x56ae('22')]($request[_0x56ae('23')])+'\x0a');$[_0x56ae('21')](_0x56ae('25')+JSON[_0x56ae('22')]($request[_0x56ae('23')])+'\x0a');}else{$[_0x56ae('1e')](JSON[_0x56ae('22')]($request[_0x56ae('23')]),_0x56ae('26'));$[_0x56ae('3')](_0x56ae('27')+JSON[_0x56ae('22')]($request[_0x56ae('23')])+'\x0a');$[_0x56ae('21')](_0x56ae('25')+JSON[_0x56ae('22')]($request[_0x56ae('23')])+'\x0a');}}}async function get_u_info(){soy_txzxg_data=app_soy_txzxg_data[i][_0x56ae('7')]('\x40');let _0x2b1f27=soy_txzxg_data[0x0];wzq_qluin=soy_txzxg_data[0x1];soy_txzxg_UA=soy_txzxg_data[0x2];if(!soy_txzxg_UA){soy_txzxg_UA=_0x56ae('28');}app_openid=_0x2b1f27[_0x56ae('29')](/openid=([\w-]+)/)[0x1];app_fskey=_0x2b1f27[_0x56ae('29')](/fskey=([\w-]+)/)[0x1];if(_0x2b1f27[_0x56ae('6')](_0x56ae('2a'))>-0x1){app_token=_0x2b1f27[_0x56ae('29')](/access_token=([\w-]+)/)[0x1];}else{app_token=_0x56ae('2b')+MD5_Encrypt(app_openid)+MD5_Encrypt(app_fskey);}if(_0x2b1f27[_0x56ae('6')](_0x56ae('2c'))>-0x1){app_appName=_0x2b1f27[_0x56ae('29')](/_appName=([\w\.,-]+)/)[0x1];}else{app_appName=_0x56ae('2d');}if(_0x2b1f27[_0x56ae('6')](_0x56ae('2e'))>-0x1){app_appver=_0x2b1f27[_0x56ae('29')](/_appver=([\w\.,-]+)/)[0x1];}else{app_appver=_0x56ae('2f');}if(_0x2b1f27[_0x56ae('6')](_0x56ae('30'))>-0x1){app_devId=_0x2b1f27[_0x56ae('29')](/_devId=([\w-]+)/)[0x1];}else{app_devId=MD5_Encrypt(app_openid+app_appver);}if(_0x2b1f27[_0x56ae('6')](_0x56ae('30'))>-0x1){app_osVer=_0x2b1f27[_0x56ae('29')](/_osVer=([\w\.,-]+)/)[0x1];}else{app_osVer='\x31\x30';}}async function get_apptask(){appActidArray={'daily':[0x44d,0x451,0x457,0x458,0x459],'newbie':[0x3ff,0x409]};appTaskArray={'daily':[],'newbie':[]};for(let _0x46f0a5=0x0;_0x46f0a5<appActidArray[_0x56ae('31')][_0x56ae('f')];_0x46f0a5++){app_taskItem={'taskName':_0x56ae('32'),'activity':_0x56ae('33'),'type':_0x56ae('34'),'actid':appActidArray[_0x56ae('31')][_0x46f0a5]};appTaskArray[_0x56ae('31')][_0x56ae('35')](app_taskItem);}for(let _0x5e7238=0x0;_0x5e7238<appTaskArray[_0x56ae('31')][_0x56ae('f')];_0x5e7238++){await appTaskList(appTaskArray[_0x56ae('31')][_0x5e7238]);}}async function get_wxtask(){let _0x3f3d41={'daily':[0x44c,0x456],'newbie':[0x408]};let _0x567193={'daily':[],'newbie':[]};for(let _0x191e91=0x0;_0x191e91<_0x3f3d41[_0x56ae('31')][_0x56ae('f')];_0x191e91++){wx_taskItem={'taskName':_0x56ae('36'),'activity':_0x56ae('33'),'type':_0x56ae('34'),'actid':_0x3f3d41[_0x56ae('31')][_0x191e91]};_0x567193[_0x56ae('31')][_0x56ae('35')](wx_taskItem);}for(let _0x3d9717=0x0;_0x3d9717<_0x567193[_0x56ae('31')][_0x56ae('f')];_0x3d9717++){await wxTaskList(_0x567193[_0x56ae('31')][_0x3d9717]);}}async function get_Share(){userAppShareTaskList={'daily':[_0x56ae('37'),_0x56ae('38'),_0x56ae('39')]};userAppShareCodeArr={'daily':{},'newbie':{},'bull_invite':[],'bull_help':[],'guess_invite':[],'guess_ticket':[],'guess_time':[]};userWxShareTaskList={'daily':[_0x56ae('3a'),_0x56ae('3b'),_0x56ae('3c'),_0x56ae('3d'),_0x56ae('3e'),_0x56ae('3f'),_0x56ae('40')],'newbie':[_0x56ae('41'),_0x56ae('42')]};userWxShareCodeArr={'daily':{},'newbie':{}};for(let _0x2b814e=0x0;_0x2b814e<userAppShareTaskList[_0x56ae('31')][_0x56ae('f')];_0x2b814e++){await appShareTaskReq(userAppShareTaskList[_0x56ae('31')][_0x2b814e],_0x56ae('31'));}for(let _0x5a594b=0x0;_0x5a594b<userAppShareTaskList[_0x56ae('31')][_0x56ae('f')];_0x5a594b++){shareTaskName=userAppShareTaskList[_0x56ae('31')][_0x5a594b];if(userAppShareCodeArr[_0x56ae('31')][shareTaskName]){await wxShareTaskDone(shareTaskName,userAppShareCodeArr[_0x56ae('31')][shareTaskName]);}}for(let _0x1459bb=0x0;_0x1459bb<userWxShareTaskList[_0x56ae('31')][_0x56ae('f')];_0x1459bb++){await wxShareTaskReq(userWxShareTaskList[_0x56ae('31')][_0x1459bb],_0x56ae('31'));}for(let _0x43dd5b=0x0;_0x43dd5b<userWxShareTaskList[_0x56ae('31')][_0x56ae('f')];_0x43dd5b++){shareTaskName=userWxShareTaskList[_0x56ae('31')][_0x43dd5b];if(userWxShareCodeArr[_0x56ae('31')][shareTaskName]&&userWxShareCodeArr[_0x56ae('31')][shareTaskName]){await wxShareTaskDone(shareTaskName,userWxShareCodeArr[_0x56ae('31')][shareTaskName]);}}}async function bullTask(){let _0x2c3711={'rock_bullish':{'taskName':_0x56ae('43'),'action':_0x56ae('44'),'actid':0x451},'open_box':{'taskName':_0x56ae('45'),'action':_0x56ae('46'),'actid':0x451},'open_blindbox':{'taskName':_0x56ae('47'),'action':_0x56ae('48'),'actid':0x451},'query_blindbox':{'taskName':_0x56ae('49'),'action':_0x56ae('4a'),'actid':0x451},'sell_skin':{'taskName':_0x56ae('4b'),'action':_0x56ae('4c'),'actid':0x451},'feed':{'taskName':_0x56ae('4d'),'action':_0x56ae('4e'),'actid':0x451}};await bullStatus();if(bullStatusFlag){await bullTaskDone(_0x2c3711[_0x56ae('44')]);for(let _0x445e25=0x0;_0x445e25<0xa;_0x445e25++){await bullTaskDone(_0x2c3711[_0x56ae('46')]);await $[_0x56ae('4f')](0x1388);}await bullTaskDone(_0x2c3711[_0x56ae('48')]);await bullTaskDone(_0x2c3711[_0x56ae('4a')]);await bullTaskDone(_0x2c3711[_0x56ae('4e')]);}}async function appTaskList(_0x117c99){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0xfbd5ad=>{let _0x2e8caf={'\x75\x72\x6c':_0x56ae('51')+_0x117c99[_0x56ae('52')]+_0x56ae('53')+_0x117c99[_0x56ae('54')]+_0x56ae('55')+_0x117c99[_0x56ae('56')]+_0x56ae('57')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Connection':_0x56ae('60'),'Referer':_0x56ae('61'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('63'),'Accept-Language':_0x56ae('64')}};$[_0x56ae('65')](_0x2e8caf,async(_0x16f976,_0x409789,_0x992c77)=>{try{if(_0x16f976){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x16f976));$[_0x56ae('18')](_0x16f976);}else{let _0x3fe430=JSON[_0x56ae('67')](_0x992c77);if(_0x3fe430[_0x56ae('68')]==0x0){if(_0x3fe430[_0x56ae('69')]!=null){let _0x1adfee=_0x3fe430[_0x56ae('69')][_0x56ae('f')];for(let _0x11545a=0x0;_0x11545a<_0x1adfee;_0x11545a++){if(_0x3fe430[_0x56ae('69')][_0x11545a][_0x56ae('6a')]&&_0x3fe430[_0x56ae('69')][_0x11545a][_0x56ae('6a')][0x0]){let _0x5d38ae=_0x3fe430[_0x56ae('69')][_0x11545a][_0x56ae('6a')][_0x56ae('f')];for(let _0x204173=0x0;_0x204173<_0x5d38ae;_0x204173++){resultItem=_0x3fe430[_0x56ae('69')][_0x11545a][_0x56ae('6a')][_0x204173];task_id=resultItem['\x69\x64'];task_tid=resultItem[_0x56ae('6b')];await appTaskStatus(_0x117c99,task_id,task_tid);}}}}}else{console[_0x56ae('3')](_0x117c99[_0x56ae('6c')]+_0x56ae('6d')+_0x117c99[_0x56ae('56')]+_0x56ae('6e')+_0x3fe430[_0x56ae('6f')]);}}}catch(_0x4c3845){$[_0x56ae('18')](_0x4c3845,_0x409789);}finally{_0xfbd5ad();}});});}async function appTaskStatus(_0x3c20b2,_0x439340,_0x53613a){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise((_0x508b47,_0x50f687)=>{let _0x128aa6={'\x75\x72\x6c':_0x56ae('70')+_0x439340+_0x56ae('71')+_0x53613a+_0x56ae('55')+_0x3c20b2[_0x56ae('56')]+_0x56ae('72')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('73'),'Connection':_0x56ae('60'),'Referer':_0x56ae('74'),'Accept-Encoding':_0x56ae('75'),'Host':_0x56ae('63'),'Accept-Language':_0x56ae('76')}};$[_0x56ae('65')](_0x128aa6,async(_0x28d814,_0x4e67ab,_0x1c693e)=>{try{if(_0x28d814){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x28d814));$[_0x56ae('18')](_0x28d814);}else{let _0x5d86e9=JSON[_0x56ae('67')](_0x1c693e);await $[_0x56ae('4f')](0x64);if(_0x5d86e9[_0x56ae('68')]==0x0){if(_0x5d86e9[_0x56ae('1a')]==0x0){await appTaskticket(_0x3c20b2,_0x439340,_0x53613a);}else{$[_0x56ae('3')](_0x3c20b2[_0x56ae('6c')]+_0x56ae('77')+_0x3c20b2[_0x56ae('56')]+_0x56ae('78')+_0x439340+_0x56ae('79')+_0x53613a+_0x56ae('7a'));}}else{$[_0x56ae('3')](_0x3c20b2[_0x56ae('6c')]+_0x56ae('7b')+_0x5d86e9[_0x56ae('6f')]+'\x0a');}}}catch(_0x1cca9f){$[_0x56ae('18')](_0x1cca9f,_0x4e67ab);}finally{_0x508b47();}});});}async function appTaskticket(_0x49eed0,_0x1627a7,_0x5854cc){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise((_0x51aaf7,_0x5adf8f)=>{let _0x453360={'\x75\x72\x6c':_0x56ae('7c')+_0x49eed0[_0x56ae('56')]+_0x56ae('7d')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('73'),'Connection':_0x56ae('60'),'Referer':_0x56ae('74'),'Accept-Encoding':_0x56ae('75'),'Host':_0x56ae('63'),'Accept-Language':_0x56ae('76')}};$[_0x56ae('65')](_0x453360,async(_0x3528b7,_0x4f1e60,_0x5211e3)=>{try{if(_0x3528b7){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x3528b7));$[_0x56ae('18')](_0x3528b7);}else{let _0xc8c264=JSON[_0x56ae('67')](_0x5211e3);await $[_0x56ae('4f')](0x64);if(_0xc8c264[_0x56ae('68')]==0x0&&_0xc8c264[_0x56ae('7e')]){await appTaskDone(_0x49eed0,_0xc8c264[_0x56ae('7e')],_0x1627a7,_0x5854cc);}else{$[_0x56ae('3')](_0x49eed0[_0x56ae('6c')]+_0x56ae('7f')+_0xc8c264[_0x56ae('6f')]+'\x0a');}}}catch(_0x412a72){$[_0x56ae('18')](_0x412a72,_0x4f1e60);}finally{_0x51aaf7();}});});}async function appTaskDone(_0x4257c9,_0x5150a4,_0x1b0b98,_0x295763){return new Promise((_0x243d12,_0x4edbb0)=>{let _0x1148a1={'\x75\x72\x6c':_0x56ae('80')+_0x4257c9[_0x56ae('56')]+_0x56ae('81')+_0x1b0b98+_0x56ae('71')+_0x295763+_0x56ae('82')+_0x5150a4+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('73'),'Connection':_0x56ae('60'),'Referer':_0x56ae('74'),'Accept-Encoding':_0x56ae('75'),'Host':_0x56ae('63'),'Accept-Language':_0x56ae('76')}};$[_0x56ae('65')](_0x1148a1,async(_0x235f8f,_0xcbc8b2,_0x12ccdb)=>{try{if(_0x235f8f){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x235f8f));$[_0x56ae('18')](_0x235f8f);}else{let _0x4c46c1=JSON[_0x56ae('67')](_0x12ccdb);await $[_0x56ae('4f')](0x64);if(_0x4c46c1[_0x56ae('68')]==0x0){$[_0x56ae('3')]('\u5b8c\u6210'+_0x4257c9[_0x56ae('6c')]+_0x56ae('77')+_0x4257c9[_0x56ae('56')]+_0x56ae('78')+_0x1b0b98+_0x56ae('79')+_0x295763+_0x56ae('83')+_0x4c46c1[_0x56ae('84')]+'\x0a');}else{$[_0x56ae('3')](_0x4257c9[_0x56ae('6c')]+_0x56ae('77')+_0x4257c9[_0x56ae('56')]+_0x56ae('78')+_0x1b0b98+_0x56ae('79')+_0x295763+_0x56ae('85')+_0x4c46c1[_0x56ae('6f')]+'\x0a');}}}catch(_0x332367){$[_0x56ae('18')](_0x332367,_0xcbc8b2);}finally{_0x243d12();}});});}async function wxTaskList(_0x40fc56){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x336dc3=>{let _0xc4c230={'\x75\x72\x6c':_0x56ae('51')+_0x40fc56[_0x56ae('52')]+_0x56ae('53')+_0x40fc56[_0x56ae('54')]+_0x56ae('55')+_0x40fc56[_0x56ae('56')]+_0x56ae('57')+rndtime,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Connection':_0x56ae('60'),'Referer':_0x56ae('61'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('63'),'Accept-Language':_0x56ae('64'),'Cookie':_0x56ae('12')+app_openid+_0x56ae('86')+app_fskey+_0x56ae('87')+wzq_qluin}};$[_0x56ae('65')](_0xc4c230,async(_0x45108c,_0x53a6a1,_0x260f4b)=>{try{if(_0x45108c){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x45108c));$[_0x56ae('18')](_0x45108c);}else{let _0x42b959=JSON[_0x56ae('67')](_0x260f4b);if(_0x42b959[_0x56ae('68')]==0x0){if(_0x42b959[_0x56ae('69')]&&_0x42b959[_0x56ae('69')][0x0]){let _0x2973d3=_0x42b959[_0x56ae('69')][_0x56ae('f')];for(let _0x16e5b9=0x0;_0x16e5b9<_0x2973d3;_0x16e5b9++){let _0x492543=_0x42b959[_0x56ae('69')][_0x16e5b9][_0x56ae('6a')][_0x56ae('f')];for(let _0x1d6834=0x0;_0x1d6834<_0x492543;_0x1d6834++){resultItem=_0x42b959[_0x56ae('69')][_0x16e5b9][_0x56ae('6a')][_0x1d6834];task_id=resultItem['\x69\x64'];task_tid=resultItem[_0x56ae('6b')];await $[_0x56ae('4f')](0x64);await wxTaskStatus(_0x40fc56,task_id,task_tid);}}}}else{console[_0x56ae('3')](_0x40fc56[_0x56ae('6c')]+_0x56ae('88')+_0x42b959[_0x56ae('6f')]);}}}catch(_0x2b9c01){$[_0x56ae('18')](_0x2b9c01,_0x53a6a1);}finally{_0x336dc3();}});});}async function wxTaskStatus(_0x5ac73d,_0x3b4a9f,_0x36e975){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise((_0xf0a802,_0x56acca)=>{let _0x5ea541={'\x75\x72\x6c':_0x56ae('89')+rndtime,'\x62\x6f\x64\x79':_0x56ae('8a')+_0x5ac73d[_0x56ae('56')]+_0x56ae('81')+_0x3b4a9f+_0x56ae('71')+_0x36e975+_0x56ae('8b'),'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Origin':_0x56ae('8c'),'Accept-Encoding':_0x56ae('62'),'Cookie':_0x56ae('12')+app_openid+_0x56ae('86')+app_fskey+_0x56ae('87')+wzq_qluin,'Content-Type':_0x56ae('8d'),'Host':_0x56ae('63'),'Connection':_0x56ae('60'),'User-Agent':soy_txzxg_UA,'Referer':_0x56ae('8e'),'Accept-Language':_0x56ae('64')}};$[_0x56ae('8f')](_0x5ea541,async(_0x5b74c3,_0xb6e411,_0x21e592)=>{try{if(_0x5b74c3){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x5b74c3));$[_0x56ae('18')](_0x5b74c3);}else{let _0x11ac43=JSON[_0x56ae('67')](_0x21e592);await $[_0x56ae('4f')](0x64);if(_0x11ac43[_0x56ae('68')]==0x0){if(_0x11ac43[_0x56ae('1a')]==0x0){await wxTaskticket(_0x5ac73d,_0x3b4a9f,_0x36e975);}else{$[_0x56ae('3')](_0x5ac73d[_0x56ae('6c')]+_0x56ae('77')+_0x5ac73d[_0x56ae('56')]+_0x56ae('78')+_0x3b4a9f+_0x56ae('79')+_0x36e975+_0x56ae('7a'));}}else{$[_0x56ae('3')](_0x5ac73d[_0x56ae('6c')]+_0x56ae('7b')+_0x11ac43[_0x56ae('6f')]+'\x0a');}}}catch(_0x16341a){$[_0x56ae('18')](_0x16341a,_0xb6e411);}finally{_0xf0a802();}});});}async function wxTaskticket(_0x3a9a85,_0x501050,_0x329d88){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x30ef6e=>{let _0x28e60a={'\x75\x72\x6c':_0x56ae('89')+rndtime,'\x62\x6f\x64\x79':_0x56ae('8a')+_0x3a9a85[_0x56ae('56')]+_0x56ae('90'),'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Origin':_0x56ae('8c'),'Accept-Encoding':_0x56ae('62'),'Cookie':_0x56ae('12')+app_openid+_0x56ae('86')+app_fskey+_0x56ae('87')+wzq_qluin,'Content-Type':_0x56ae('8d'),'Host':_0x56ae('63'),'Connection':_0x56ae('60'),'Referer':_0x56ae('8e'),'Accept-Language':_0x56ae('64')}};$[_0x56ae('8f')](_0x28e60a,async(_0x1756c7,_0x5ce99d,_0x23b447)=>{try{if(_0x1756c7){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x1756c7));$[_0x56ae('18')](_0x1756c7);}else{let _0x4f4d2d=JSON[_0x56ae('67')](_0x23b447);await $[_0x56ae('4f')](0x64);if(_0x4f4d2d[_0x56ae('68')]==0x0&&_0x4f4d2d[_0x56ae('7e')]){await wxTaskDone(_0x3a9a85,_0x4f4d2d[_0x56ae('7e')],_0x501050,_0x329d88);}else{$[_0x56ae('3')](_0x3a9a85[_0x56ae('6c')]+_0x56ae('7f')+_0x4f4d2d[_0x56ae('6f')]+'\x0a');}}}catch(_0x4c788f){$[_0x56ae('18')](_0x4c788f,_0x5ce99d);}finally{_0x30ef6e();}});});}async function wxTaskDone(_0x6ba2be,_0x1707dc,_0x413190,_0x3f2f40){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise((_0x3c75b9,_0x3f8124)=>{let _0x586510={'\x75\x72\x6c':_0x56ae('89')+rndtime,'\x62\x6f\x64\x79':_0x56ae('8a')+_0x6ba2be[_0x56ae('56')]+_0x56ae('71')+_0x3f2f40+_0x56ae('81')+_0x413190+_0x56ae('82')+_0x1707dc+_0x56ae('91'),'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Origin':_0x56ae('8c'),'Accept-Encoding':_0x56ae('62'),'Cookie':_0x56ae('12')+app_openid+_0x56ae('86')+app_fskey+_0x56ae('87')+wzq_qluin,'Content-Type':_0x56ae('8d'),'Host':_0x56ae('63'),'Connection':_0x56ae('60'),'Referer':_0x56ae('8e'),'Accept-Language':_0x56ae('64')}};$[_0x56ae('8f')](_0x586510,async(_0x4672e1,_0x16313e,_0x2ad54b)=>{try{if(_0x4672e1){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x4672e1));$[_0x56ae('18')](_0x4672e1);}else{let _0x2469d1=JSON[_0x56ae('67')](_0x2ad54b);await $[_0x56ae('4f')](0x64);if(_0x2469d1[_0x56ae('68')]==0x0){$[_0x56ae('3')]('\u5b8c\u6210'+_0x6ba2be[_0x56ae('6c')]+_0x56ae('77')+_0x6ba2be[_0x56ae('56')]+_0x56ae('78')+_0x413190+_0x56ae('79')+_0x3f2f40+_0x56ae('83')+_0x2469d1[_0x56ae('84')]+'\x0a');await $[_0x56ae('4f')](0x2710);}else{$[_0x56ae('3')](_0x6ba2be[_0x56ae('6c')]+_0x56ae('77')+_0x6ba2be[_0x56ae('56')]+_0x56ae('78')+_0x413190+_0x56ae('79')+_0x3f2f40+_0x56ae('85')+_0x2469d1[_0x56ae('6f')]+'\x0a');}}}catch(_0x45b03c){$[_0x56ae('18')](_0x45b03c,_0x16313e);}finally{_0x3c75b9();}});});}async function appShareTaskReq(_0x5416a9,_0x3c313d){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x2427d5=>{let _0x23b25b={'\x75\x72\x6c':_0x56ae('92')+_0x5416a9+_0x56ae('7d')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Connection':_0x56ae('60'),'Referer':_0x56ae('61'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('63'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('64')}};$[_0x56ae('65')](_0x23b25b,async(_0x2fea95,_0x34f7b5,_0x59e46f)=>{try{if(!userAppShareCodeArr[_0x3c313d][_0x5416a9]){userAppShareCodeArr[_0x3c313d][_0x5416a9]=[];}if(_0x2fea95){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x2fea95));$[_0x56ae('18')](_0x2fea95);}else{let _0x59aa7b=JSON[_0x56ae('67')](_0x59e46f);if(_0x59aa7b[_0x56ae('68')]==0x0){userAppShareCodeArr[_0x3c313d][_0x5416a9][_0x56ae('35')](_0x59aa7b[_0x56ae('93')]);$[_0x56ae('3')](_0x56ae('94')+_0x5416a9+_0x56ae('95')+_0x59aa7b[_0x56ae('93')]+'\x0a');}else{$[_0x56ae('3')](_0x56ae('94')+_0x5416a9+_0x56ae('96')+_0x59aa7b[_0x56ae('6f')]+'\x0a');userAppShareCodeArr[_0x3c313d][_0x5416a9][_0x56ae('35')]('');}await $[_0x56ae('4f')](0x3e8);}}catch(_0x4014c7){$[_0x56ae('18')](_0x4014c7,_0x34f7b5);}finally{_0x2427d5();}});});}async function wxShareTaskReq(_0x2aaf07,_0x27d1f5){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise((_0x2415fe,_0x399def)=>{let _0x98c62c={'\x75\x72\x6c':_0x56ae('97')+rndtime,'\x62\x6f\x64\x79':_0x56ae('98')+_0x2aaf07,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Origin':_0x56ae('8c'),'Accept-Encoding':_0x56ae('62'),'Cookie':_0x56ae('12')+app_openid+_0x56ae('86')+app_fskey+_0x56ae('87')+wzq_qluin,'Content-Type':_0x56ae('8d'),'Host':_0x56ae('63'),'Connection':_0x56ae('60'),'Referer':_0x56ae('8e'),'Accept-Language':_0x56ae('64')}};$[_0x56ae('8f')](_0x98c62c,async(_0x26cb76,_0x374f0b,_0x34a791)=>{try{if(!userWxShareCodeArr[_0x27d1f5][_0x2aaf07]){userWxShareCodeArr[_0x27d1f5][_0x2aaf07]=[];}if(_0x26cb76){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x26cb76));$[_0x56ae('18')](_0x26cb76);}else{let _0x2650eb=JSON[_0x56ae('67')](_0x34a791);if(_0x2650eb[_0x56ae('68')]==0x0){userWxShareCodeArr[_0x27d1f5][_0x2aaf07][_0x56ae('35')](_0x2650eb[_0x56ae('93')]);$[_0x56ae('3')](_0x56ae('99')+_0x2aaf07+_0x56ae('95')+_0x2650eb[_0x56ae('93')]+'\x0a');}else{$[_0x56ae('3')](_0x56ae('99')+_0x2aaf07+_0x56ae('96')+_0x2650eb[_0x56ae('6f')]+'\x0a');userWxShareCodeArr[_0x27d1f5][_0x2aaf07][_0x56ae('35')]('');}}}catch(_0x1fcfe6){$[_0x56ae('18')](_0x1fcfe6,_0x374f0b);}finally{_0x2415fe();}});});}function wxShareTaskDone(_0x5822a7,_0x5c3b6f){return new Promise((_0x523d08,_0x1015aa)=>{$[_0x56ae('8f')]({'\x75\x72\x6c':_0x56ae('9a'),'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Origin':_0x56ae('8c'),'Accept-Encoding':_0x56ae('62'),'Cookie':_0x56ae('9b'),'Content-Type':_0x56ae('8d'),'Host':_0x56ae('63'),'Connection':_0x56ae('60'),'User-Agent':_0x56ae('9c'),'Referer':_0x56ae('9d'),'Accept-Language':_0x56ae('64')},'\x62\x6f\x64\x79':_0x56ae('9e')+_0x5822a7+_0x56ae('9f')+_0x5c3b6f},async(_0x3b5bda,_0x5a1848,_0x43c397)=>{let _0x5526a7=JSON[_0x56ae('67')](_0x43c397);if(_0x5526a7[_0x56ae('68')]==0x0){if(_0x5526a7[_0x56ae('a0')]&&_0x5526a7[_0x56ae('a0')][_0x56ae('a1')]==0x1){$[_0x56ae('3')](_0x5822a7+_0x56ae('a2')+_0x5526a7[_0x56ae('a0')][_0x56ae('a3')]+'\x0a');}else if(_0x5526a7[_0x56ae('6f')]=='\x4f\x4b'){$[_0x56ae('3')](_0x5822a7+_0x56ae('a4'));}else{console[_0x56ae('3')](_0x5526a7);}}else{console[_0x56ae('3')]('\x0a\u3010'+$[_0x56ae('4')]+_0x56ae('a5')+title+_0x56ae('a6')+_0x5526a7[_0x56ae('6f')]);}_0x523d08();});});}async function signStatus(_0x238c24,_0x25931e){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x57f0ad=>{let _0x2272bc={'\x75\x72\x6c':_0x56ae('a7')+_0x238c24+_0x56ae('a8')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Connection':_0x56ae('60'),'Referer':_0x56ae('61'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('63'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('64')}};$[_0x56ae('65')](_0x2272bc,async(_0x370b5e,_0x1ba457,_0x424f1b)=>{try{if(_0x370b5e){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x370b5e));$[_0x56ae('18')](_0x370b5e);}else{let _0x446e6=JSON[_0x56ae('67')](_0x424f1b);if(_0x446e6[_0x56ae('68')]==0x0){if(!_0x446e6[_0x56ae('a9')]){if(_0x25931e==0x0){for(let _0x3942fd=0x0;_0x3942fd<_0x446e6[_0x56ae('69')][_0x56ae('6a')][_0x56ae('f')];_0x3942fd++){resultItem=_0x446e6[_0x56ae('69')][_0x56ae('6a')][_0x3942fd];if(resultItem[_0x56ae('aa')]==todayDate){if(resultItem[_0x56ae('a1')]==0x0){await $[_0x56ae('4f')](0xc8);}else{$[_0x56ae('3')](_0x56ae('ab'));}}}}else if(_0x25931e==0x1){$[_0x56ae('3')](_0x56ae('ac')+_0x446e6[_0x56ae('69')][_0x56ae('ad')]+_0x56ae('ae')+_0x446e6[_0x56ae('69')][_0x56ae('af')]+'\u5929\x0a');if(_0x446e6[_0x56ae('b0')]==0x1&&_0x446e6[_0x56ae('b1')]){await $[_0x56ae('4f')](0xc8);}}}else{console[_0x56ae('3')](_0x56ae('b2')+_0x446e6[_0x56ae('b3')]+'\x0a');}}else{console[_0x56ae('3')](_0x56ae('b4')+_0x446e6[_0x56ae('6f')]);}}}catch(_0x2bf85d){$[_0x56ae('18')](_0x2bf85d,_0x1ba457);}finally{_0x57f0ad();}});});}async function signtask(_0x4eda8f){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x3b7213=>{let _0x549e03={'\x75\x72\x6c':_0x56ae('a7')+_0x4eda8f+_0x56ae('b5')+todayDate+_0x56ae('b6')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Connection':_0x56ae('60'),'Referer':_0x56ae('61'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('63'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('64')}};$[_0x56ae('65')](_0x549e03,async(_0x40eb5d,_0x4f2594,_0x1b637c)=>{try{if(_0x40eb5d){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x40eb5d));$[_0x56ae('18')](_0x40eb5d);}else{let _0xa288e4=JSON[_0x56ae('67')](_0x1b637c);if(_0xa288e4[_0x56ae('68')]==0x0){$[_0x56ae('3')](_0x56ae('b7')+_0xa288e4[_0x56ae('84')]+'\x0a');$[_0x56ae('3')](_0x56ae('b8')+time(rndtime)+'\x0a');await $[_0x56ae('4f')](0x1388);}else{$[_0x56ae('3')](_0x56ae('b9')+_0xa288e4[_0x56ae('6f')]);}await signStatus(_0x4eda8f,0x1);}}catch(_0x39070b){$[_0x56ae('18')](_0x39070b,_0x4f2594);}finally{_0x3b7213();}});});}async function sign7daysAward(_0x16b578,_0x569528){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0xdeb5e4=>{let _0x3f0d64={'\x75\x72\x6c':_0x56ae('a7')+_0x16b578+_0x56ae('ba')+_0x569528+_0x56ae('b6')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('5f'),'Connection':_0x56ae('60'),'Referer':_0x56ae('61'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('63'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('64')}};$[_0x56ae('65')](_0x3f0d64,async(_0x469035,_0x2977a7,_0x55a599)=>{try{if(_0x469035){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x469035));$[_0x56ae('18')](_0x469035);}else{let _0x1d0a78=JSON[_0x56ae('67')](_0x55a599);if(_0x1d0a78[_0x56ae('68')]==0x0){$[_0x56ae('3')](_0x56ae('bb')+_0x1d0a78[_0x56ae('84')]+'\x0a');}else{$[_0x56ae('3')](_0x56ae('bc')+_0x1d0a78[_0x56ae('6f')]);}await $[_0x56ae('4f')](0x3e8);}}catch(_0x5d6a48){$[_0x56ae('18')](_0x5d6a48,_0x2977a7);}finally{_0xdeb5e4();}});});}async function bullTaskDone(_0x10aa22,_0x3f507c=''){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x40e2da=>{let _0x131da8={'\x75\x72\x6c':_0x56ae('bd')+_0x10aa22[_0x56ae('be')]+_0x56ae('55')+_0x10aa22[_0x56ae('56')]+_0x3f507c+_0x56ae('b6')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('73'),'Connection':_0x56ae('60'),'Referer':_0x56ae('bf'),'Host':_0x56ae('c0'),'User-Agent':soy_txzxg_UA,'Accept-Encoding':_0x56ae('62'),'Accept-Language':_0x56ae('c1')}};$[_0x56ae('65')](_0x131da8,async(_0x38892b,_0xcbbea0,_0x21d082)=>{try{if(_0x38892b){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x38892b));$[_0x56ae('18')](_0x38892b);}else{let _0x4e5dec=JSON[_0x56ae('67')](_0x21d082);if(_0x4e5dec[_0x56ae('68')]==0x0){if(_0x4e5dec[_0x56ae('a9')]>0x0){$[_0x56ae('3')]('\u7ed3\u675f'+_0x10aa22[_0x56ae('6c')]+'\uff1a'+_0x4e5dec[_0x56ae('b3')]+'\x0a');}else if(_0x4e5dec[_0x56ae('c2')]){$[_0x56ae('3')](_0x10aa22[_0x56ae('6c')]+_0x56ae('c3')+_0x4e5dec[_0x56ae('c2')][0x0][_0x56ae('84')]+'\x0a');await $[_0x56ae('4f')](Math[_0x56ae('c4')]()*0x7d0+0x1b58);await bullTaskDone(_0x10aa22);}else if(_0x4e5dec[_0x56ae('c5')]){$[_0x56ae('3')](_0x10aa22[_0x56ae('6c')]+_0x56ae('c3')+_0x4e5dec[_0x56ae('c5')]+'\x0a');await $[_0x56ae('4f')](Math[_0x56ae('c4')]()*0x3e8+0x7d0);await bullTaskDone(_0x10aa22,_0x3f507c);}else if(_0x4e5dec[_0x56ae('c6')]){$[_0x56ae('3')](_0x10aa22[_0x56ae('6c')]+_0x56ae('c3')+_0x4e5dec[_0x56ae('c6')][_0x56ae('c7')]+'\x0a');await $[_0x56ae('4f')](Math[_0x56ae('c4')]()*0x7d0+0xbb8);await bullTaskDone(_0x10aa22);}else if(_0x4e5dec[_0x56ae('c8')]&&_0x4e5dec[_0x56ae('c8')][0x0]){let _0x18dccf=_0x4e5dec[_0x56ae('c8')][_0x56ae('f')];for(let _0x49baaa=0x0;_0x49baaa<_0x18dccf;_0x49baaa++){let _0x111e21=_0x4e5dec[_0x56ae('c8')][_0x49baaa];if(_0x111e21[_0x56ae('c9')]>0x1){await bullTaskDone(bullTaskArray[_0x56ae('4c')],_0x56ae('ca')+_0x111e21[_0x56ae('cb')]);}}}else if(_0x4e5dec[_0x56ae('cc')]){$[_0x56ae('3')](_0x10aa22[_0x56ae('6c')]+_0x56ae('c3')+_0x4e5dec[_0x56ae('cc')][_0x56ae('84')]+'\x0a');if(_0x4e5dec[_0x56ae('cd')]==0x1){$[_0x56ae('3')](_0x56ae('ce')+_0x4e5dec[_0x56ae('cf')]+_0x56ae('d0')+_0x4e5dec[_0x56ae('d1')][_0x56ae('84')]+'\x0a');}await $[_0x56ae('4f')](Math[_0x56ae('c4')]()*0xbb8+0x1770);await bullTaskDone(_0x10aa22);}else{console[_0x56ae('3')](_0x4e5dec);}}else{$[_0x56ae('3')](_0x10aa22[_0x56ae('6c')]+_0x56ae('d2')+_0x4e5dec[_0x56ae('6f')]+'\x0a');}}}catch(_0x55b69e){$[_0x56ae('18')](_0x55b69e,_0xcbbea0);}finally{_0x40e2da();}});});}async function bullStatus(){bullStatusFlag=0x0;rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x89d2cb=>{let _0x2f79fb={'\x75\x72\x6c':_0x56ae('d3')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('73'),'Connection':_0x56ae('60'),'Referer':_0x56ae('bf'),'Host':_0x56ae('c0'),'User-Agent':soy_txzxg_UA,'Accept-Encoding':_0x56ae('62'),'Accept-Language':_0x56ae('c1')}};$[_0x56ae('65')](_0x2f79fb,async(_0x2b97fc,_0x307d13,_0x5d74e9)=>{try{if(_0x2b97fc){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x2b97fc));$[_0x56ae('18')](_0x2b97fc);}else{let _0xb324df=JSON[_0x56ae('67')](_0x5d74e9);if(_0xb324df[_0x56ae('68')]==0x0){if(_0xb324df[_0x56ae('a9')]){$[_0x56ae('3')](_0x56ae('d4')+nickname[numUser]+_0x56ae('d5')+_0xb324df[_0x56ae('b3')]+'\x0a');}else{bullStatusFlag=0x1;$[_0x56ae('3')](_0x56ae('d6'));$[_0x56ae('3')](_0x56ae('d7')+_0xb324df[_0x56ae('d8')][_0x56ae('d9')]);$[_0x56ae('3')](_0x56ae('da')+_0xb324df[_0x56ae('d8')][_0x56ae('db')]);$[_0x56ae('3')](_0x56ae('dc')+_0xb324df[_0x56ae('d8')][_0x56ae('dd')]);$[_0x56ae('3')](_0x56ae('de')+_0xb324df[_0x56ae('d8')][_0x56ae('df')]);}}else{$[_0x56ae('3')](_0x56ae('e0')+_0xb324df[_0x56ae('6f')]+'\x0a');}}}catch(_0x1ee9d3){$[_0x56ae('18')](_0x1ee9d3,_0x307d13);}finally{_0x89d2cb();}});});}async function orderQuery(){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise((_0x4f7907,_0x26a204)=>{let _0x49fd0e={'\x75\x72\x6c':_0x56ae('e1')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Accept':_0x56ae('73'),'Connection':_0x56ae('60'),'Referer':_0x56ae('e2'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('c0'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('c1')}};$[_0x56ae('65')](_0x49fd0e,async(_0x2d5e00,_0x5b78a8,_0x54cf62)=>{try{if(_0x2d5e00){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x2d5e00));$[_0x56ae('18')](_0x2d5e00);}else{let _0x1feb9=JSON[_0x56ae('67')](_0x54cf62);if(_0x1feb9[_0x56ae('68')]==0x0){coinInfo=_0x1feb9[_0x56ae('e3')][_0x56ae('e4')];if(_0x1feb9[_0x56ae('e3')][_0x56ae('e4')]>=0x2710){let _0x22d31f=_0x1feb9[_0x56ae('e5')][0x0][_0x56ae('e6')];await cashTicket(_0x22d31f);}}else{$[_0x56ae('3')](_0x56ae('e7')+task[_0x56ae('6f')]+'\x0a');}}}catch(_0x316b51){$[_0x56ae('18')](_0x316b51,_0x5b78a8);}finally{_0x4f7907();}});});}async function cashTicket(_0x505ffd){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x3c691f=>{let _0x1542e8={'\x75\x72\x6c':_0x56ae('e8')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Connection':_0x56ae('60'),'Referer':_0x56ae('e2'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('c0'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('c1')}};$[_0x56ae('65')](_0x1542e8,async(_0x153de1,_0x51a987,_0x233e48)=>{try{if(_0x153de1){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x153de1));$[_0x56ae('18')](_0x153de1);}else{let _0x54658d=JSON[_0x56ae('67')](_0x233e48);if(_0x54658d[_0x56ae('68')]==0x0){await getcash(_0x54658d[_0x56ae('e9')],_0x505ffd);}else{$[_0x56ae('3')](_0x56ae('ea')+task[_0x56ae('6f')]+'\x0a');}}}catch(_0x294c49){$[_0x56ae('18')](_0x294c49,_0x51a987);}finally{_0x3c691f();}});});}async function getcash(_0x32617d,_0x1cc73e){rndtime=Math[_0x56ae('50')](new Date()[_0x56ae('a')]());return new Promise(_0x4a87a0=>{let _0x283c59={'\x75\x72\x6c':_0x56ae('eb')+_0x32617d+_0x56ae('ec')+_0x1cc73e+_0x56ae('b6')+rndtime+_0x56ae('58')+app_openid+_0x56ae('59')+app_fskey+_0x56ae('5a')+app_token+_0x56ae('5b')+app_appName+_0x56ae('5c')+app_appver+_0x56ae('5d')+app_osVer+_0x56ae('5e')+app_devId,'\x68\x65\x61\x64\x65\x72\x73':{'Connection':_0x56ae('60'),'Referer':_0x56ae('e2'),'Accept-Encoding':_0x56ae('62'),'Host':_0x56ae('c0'),'User-Agent':soy_txzxg_UA,'Accept-Language':_0x56ae('c1')}};$[_0x56ae('65')](_0x283c59,async(_0x4869c1,_0x374964,_0x22c591)=>{try{if(_0x4869c1){console[_0x56ae('3')](_0x56ae('66'));console[_0x56ae('3')](JSON[_0x56ae('22')](_0x4869c1));$[_0x56ae('18')](_0x4869c1);}else{let _0x22ce87=JSON[_0x56ae('67')](_0x22c591);if(_0x22ce87[_0x56ae('68')]==0x0){$[_0x56ae('3')](_0x56ae('ed')+_0x22ce87[_0x56ae('6f')]);$[_0x56ae('3')](_0x56ae('ee'));}else{$[_0x56ae('3')](_0x56ae('ef')+_0x22ce87[_0x56ae('6f')]+'\x0a');}}}catch(_0x513d92){$[_0x56ae('18')](_0x513d92,_0x374964);}finally{_0x4a87a0();}});});}function formatDateTime(_0x25ba4e){var _0xf40862=new Date(_0x25ba4e);var _0x163c3f=_0xf40862[_0x56ae('f0')]();var _0x37d5c9=_0xf40862[_0x56ae('f1')]()+0x1;_0x37d5c9=_0x37d5c9<0xa?'\x30'+_0x37d5c9:_0x37d5c9;var _0x4739ed=_0xf40862[_0x56ae('f2')]();_0x4739ed=_0x4739ed<0xa?'\x30'+_0x4739ed:_0x4739ed;var _0x3a14d7=_0xf40862[_0x56ae('f3')]();_0x3a14d7=_0x3a14d7<0xa?'\x30'+_0x3a14d7:_0x3a14d7;var _0x37390b=_0xf40862[_0x56ae('f4')]();var _0x103ad9=_0xf40862[_0x56ae('f5')]();_0x37390b=_0x37390b<0xa?'\x30'+_0x37390b:_0x37390b;_0x103ad9=_0x103ad9<0xa?'\x30'+_0x103ad9:_0x103ad9;return''+_0x163c3f+_0x37d5c9+_0x4739ed;};function MD5_Encrypt(_0x4175a6){function _0x541af6(_0x4175a6,_0x541af6){return _0x4175a6<<_0x541af6|_0x4175a6>>>0x20-_0x541af6;}function _0x3a0b30(_0x4175a6,_0x541af6){var _0x3a0b30,_0x4c8d75,_0x1ca7c8,_0x4fc371,_0x3468a4;return _0x1ca7c8=0x80000000&_0x4175a6,_0x4fc371=0x80000000&_0x541af6,_0x3a0b30=0x40000000&_0x4175a6,_0x4c8d75=0x40000000&_0x541af6,_0x3468a4=(0x3fffffff&_0x4175a6)+(0x3fffffff&_0x541af6),_0x3a0b30&_0x4c8d75?0x80000000^_0x3468a4^_0x1ca7c8^_0x4fc371:_0x3a0b30|_0x4c8d75?0x40000000&_0x3468a4?0xc0000000^_0x3468a4^_0x1ca7c8^_0x4fc371:0x40000000^_0x3468a4^_0x1ca7c8^_0x4fc371:_0x3468a4^_0x1ca7c8^_0x4fc371;}function _0x279c19(_0x4175a6,_0x541af6,_0x3a0b30){return _0x4175a6&_0x541af6|~_0x4175a6&_0x3a0b30;}function _0x5952c8(_0x4175a6,_0x541af6,_0x3a0b30){return _0x4175a6&_0x3a0b30|_0x541af6&~_0x3a0b30;}function _0x3259dc(_0x4175a6,_0x541af6,_0x3a0b30){return _0x4175a6^_0x541af6^_0x3a0b30;}function _0x8f68ec(_0x4175a6,_0x541af6,_0x3a0b30){return _0x541af6^(_0x4175a6|~_0x3a0b30);}function _0x36dc4f(_0x4175a6,_0x5952c8,_0x3259dc,_0x8f68ec,_0x36dc4f,_0x3fae71,_0x200f3e){return _0x4175a6=_0x3a0b30(_0x4175a6,_0x3a0b30(_0x3a0b30(_0x279c19(_0x5952c8,_0x3259dc,_0x8f68ec),_0x36dc4f),_0x200f3e)),_0x3a0b30(_0x541af6(_0x4175a6,_0x3fae71),_0x5952c8);}function _0x368a12(_0x4175a6,_0x279c19,_0x3259dc,_0x8f68ec,_0x36dc4f,_0x368a12,_0x23ef4e){return _0x4175a6=_0x3a0b30(_0x4175a6,_0x3a0b30(_0x3a0b30(_0x5952c8(_0x279c19,_0x3259dc,_0x8f68ec),_0x36dc4f),_0x23ef4e)),_0x3a0b30(_0x541af6(_0x4175a6,_0x368a12),_0x279c19);}function _0x556344(_0x4175a6,_0x279c19,_0x5952c8,_0x8f68ec,_0x36dc4f,_0x368a12,_0x556344){return _0x4175a6=_0x3a0b30(_0x4175a6,_0x3a0b30(_0x3a0b30(_0x3259dc(_0x279c19,_0x5952c8,_0x8f68ec),_0x36dc4f),_0x556344)),_0x3a0b30(_0x541af6(_0x4175a6,_0x368a12),_0x279c19);}function _0x336518(_0x4175a6,_0x279c19,_0x5952c8,_0x3259dc,_0x36dc4f,_0x368a12,_0x556344){return _0x4175a6=_0x3a0b30(_0x4175a6,_0x3a0b30(_0x3a0b30(_0x8f68ec(_0x279c19,_0x5952c8,_0x3259dc),_0x36dc4f),_0x556344)),_0x3a0b30(_0x541af6(_0x4175a6,_0x368a12),_0x279c19);}function _0x2e0e9b(_0x4175a6){for(var _0x541af6,_0x3a0b30=_0x4175a6[_0x56ae('f')],_0x279c19=_0x3a0b30+0x8,_0x5952c8=(_0x279c19-_0x279c19%0x40)/0x40,_0x3259dc=0x10*(_0x5952c8+0x1),_0x8f68ec=new Array(_0x3259dc-0x1),_0x36dc4f=0x0,_0x368a12=0x0;_0x3a0b30>_0x368a12;)_0x541af6=(_0x368a12-_0x368a12%0x4)/0x4,_0x36dc4f=_0x368a12%0x4*0x8,_0x8f68ec[_0x541af6]=_0x8f68ec[_0x541af6]|_0x4175a6[_0x56ae('f6')](_0x368a12)<<_0x36dc4f,_0x368a12++;return _0x541af6=(_0x368a12-_0x368a12%0x4)/0x4,_0x36dc4f=_0x368a12%0x4*0x8,_0x8f68ec[_0x541af6]=_0x8f68ec[_0x541af6]|0x80<<_0x36dc4f,_0x8f68ec[_0x3259dc-0x2]=_0x3a0b30<<0x3,_0x8f68ec[_0x3259dc-0x1]=_0x3a0b30>>>0x1d,_0x8f68ec;}function _0x1cb20a(_0x4175a6){var _0x541af6,_0x3a0b30,_0x279c19='',_0x5952c8='';for(_0x3a0b30=0x0;0x3>=_0x3a0b30;_0x3a0b30++)_0x541af6=_0x4175a6>>>0x8*_0x3a0b30&0xff,_0x5952c8='\x30'+_0x541af6[_0x56ae('f7')](0x10),_0x279c19+=_0x5952c8[_0x56ae('f8')](_0x5952c8[_0x56ae('f')]-0x2,0x2);return _0x279c19;}function _0x1d046c(_0x4175a6){_0x4175a6=_0x4175a6[_0x56ae('f9')](/\r\n/g,'\x0a');for(var _0x541af6='',_0x3a0b30=0x0;_0x3a0b30<_0x4175a6[_0x56ae('f')];_0x3a0b30++){var _0x279c19=_0x4175a6[_0x56ae('f6')](_0x3a0b30);0x80>_0x279c19?_0x541af6+=String[_0x56ae('fa')](_0x279c19):_0x279c19>0x7f&&0x800>_0x279c19?(_0x541af6+=String[_0x56ae('fa')](_0x279c19>>0x6|0xc0),_0x541af6+=String[_0x56ae('fa')](0x3f&_0x279c19|0x80)):(_0x541af6+=String[_0x56ae('fa')](_0x279c19>>0xc|0xe0),_0x541af6+=String[_0x56ae('fa')](_0x279c19>>0x6&0x3f|0x80),_0x541af6+=String[_0x56ae('fa')](0x3f&_0x279c19|0x80));}return _0x541af6;}var _0xb376ed,_0x49a6b2,_0x5d1159,_0x3a459c,_0x58efc5,_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7=[],_0x17e311=0x7,_0x156a0b=0xc,_0x2e1adc=0x11,_0x25eb44=0x16,_0x3d2bb0=0x5,_0xb8c15=0x9,_0x3d02ae=0xe,_0x5871d7=0x14,_0x26f1c6=0x4,_0x421b6c=0xb,_0x23ff8c=0x10,_0x43403c=0x17,_0x4d305a=0x6,_0x38d95a=0xa,_0x439f25=0xf,_0x333d3c=0x15;for(_0x4175a6=_0x1d046c(_0x4175a6),_0x4043e7=_0x2e0e9b(_0x4175a6),_0x43cb0=0x67452301,_0x255ed6=0xefcdab89,_0x58d5fd=0x98badcfe,_0x171a69=0x10325476,_0xb376ed=0x0;_0xb376ed<_0x4043e7[_0x56ae('f')];_0xb376ed+=0x10)_0x49a6b2=_0x43cb0,_0x5d1159=_0x255ed6,_0x3a459c=_0x58d5fd,_0x58efc5=_0x171a69,_0x43cb0=_0x36dc4f(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x0],_0x17e311,0xd76aa478),_0x171a69=_0x36dc4f(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x1],_0x156a0b,0xe8c7b756),_0x58d5fd=_0x36dc4f(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x2],_0x2e1adc,0x242070db),_0x255ed6=_0x36dc4f(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x3],_0x25eb44,0xc1bdceee),_0x43cb0=_0x36dc4f(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x4],_0x17e311,0xf57c0faf),_0x171a69=_0x36dc4f(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x5],_0x156a0b,0x4787c62a),_0x58d5fd=_0x36dc4f(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x6],_0x2e1adc,0xa8304613),_0x255ed6=_0x36dc4f(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x7],_0x25eb44,0xfd469501),_0x43cb0=_0x36dc4f(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x8],_0x17e311,0x698098d8),_0x171a69=_0x36dc4f(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x9],_0x156a0b,0x8b44f7af),_0x58d5fd=_0x36dc4f(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xa],_0x2e1adc,0xffff5bb1),_0x255ed6=_0x36dc4f(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0xb],_0x25eb44,0x895cd7be),_0x43cb0=_0x36dc4f(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0xc],_0x17e311,0x6b901122),_0x171a69=_0x36dc4f(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0xd],_0x156a0b,0xfd987193),_0x58d5fd=_0x36dc4f(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xe],_0x2e1adc,0xa679438e),_0x255ed6=_0x36dc4f(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0xf],_0x25eb44,0x49b40821),_0x43cb0=_0x368a12(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x1],_0x3d2bb0,0xf61e2562),_0x171a69=_0x368a12(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x6],_0xb8c15,0xc040b340),_0x58d5fd=_0x368a12(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xb],_0x3d02ae,0x265e5a51),_0x255ed6=_0x368a12(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x0],_0x5871d7,0xe9b6c7aa),_0x43cb0=_0x368a12(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x5],_0x3d2bb0,0xd62f105d),_0x171a69=_0x368a12(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0xa],_0xb8c15,0x2441453),_0x58d5fd=_0x368a12(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xf],_0x3d02ae,0xd8a1e681),_0x255ed6=_0x368a12(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x4],_0x5871d7,0xe7d3fbc8),_0x43cb0=_0x368a12(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x9],_0x3d2bb0,0x21e1cde6),_0x171a69=_0x368a12(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0xe],_0xb8c15,0xc33707d6),_0x58d5fd=_0x368a12(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x3],_0x3d02ae,0xf4d50d87),_0x255ed6=_0x368a12(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x8],_0x5871d7,0x455a14ed),_0x43cb0=_0x368a12(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0xd],_0x3d2bb0,0xa9e3e905),_0x171a69=_0x368a12(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x2],_0xb8c15,0xfcefa3f8),_0x58d5fd=_0x368a12(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x7],_0x3d02ae,0x676f02d9),_0x255ed6=_0x368a12(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0xc],_0x5871d7,0x8d2a4c8a),_0x43cb0=_0x556344(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x5],_0x26f1c6,0xfffa3942),_0x171a69=_0x556344(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x8],_0x421b6c,0x8771f681),_0x58d5fd=_0x556344(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xb],_0x23ff8c,0x6d9d6122),_0x255ed6=_0x556344(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0xe],_0x43403c,0xfde5380c),_0x43cb0=_0x556344(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x1],_0x26f1c6,0xa4beea44),_0x171a69=_0x556344(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x4],_0x421b6c,0x4bdecfa9),_0x58d5fd=_0x556344(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x7],_0x23ff8c,0xf6bb4b60),_0x255ed6=_0x556344(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0xa],_0x43403c,0xbebfbc70),_0x43cb0=_0x556344(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0xd],_0x26f1c6,0x289b7ec6),_0x171a69=_0x556344(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x0],_0x421b6c,0xeaa127fa),_0x58d5fd=_0x556344(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x3],_0x23ff8c,0xd4ef3085),_0x255ed6=_0x556344(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x6],_0x43403c,0x4881d05),_0x43cb0=_0x556344(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x9],_0x26f1c6,0xd9d4d039),_0x171a69=_0x556344(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0xc],_0x421b6c,0xe6db99e5),_0x58d5fd=_0x556344(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xf],_0x23ff8c,0x1fa27cf8),_0x255ed6=_0x556344(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x2],_0x43403c,0xc4ac5665),_0x43cb0=_0x336518(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x0],_0x4d305a,0xf4292244),_0x171a69=_0x336518(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x7],_0x38d95a,0x432aff97),_0x58d5fd=_0x336518(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xe],_0x439f25,0xab9423a7),_0x255ed6=_0x336518(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x5],_0x333d3c,0xfc93a039),_0x43cb0=_0x336518(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0xc],_0x4d305a,0x655b59c3),_0x171a69=_0x336518(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0x3],_0x38d95a,0x8f0ccc92),_0x58d5fd=_0x336518(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0xa],_0x439f25,0xffeff47d),_0x255ed6=_0x336518(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x1],_0x333d3c,0x85845dd1),_0x43cb0=_0x336518(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x8],_0x4d305a,0x6fa87e4f),_0x171a69=_0x336518(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0xf],_0x38d95a,0xfe2ce6e0),_0x58d5fd=_0x336518(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x6],_0x439f25,0xa3014314),_0x255ed6=_0x336518(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0xd],_0x333d3c,0x4e0811a1),_0x43cb0=_0x336518(_0x43cb0,_0x255ed6,_0x58d5fd,_0x171a69,_0x4043e7[_0xb376ed+0x4],_0x4d305a,0xf7537e82),_0x171a69=_0x336518(_0x171a69,_0x43cb0,_0x255ed6,_0x58d5fd,_0x4043e7[_0xb376ed+0xb],_0x38d95a,0xbd3af235),_0x58d5fd=_0x336518(_0x58d5fd,_0x171a69,_0x43cb0,_0x255ed6,_0x4043e7[_0xb376ed+0x2],_0x439f25,0x2ad7d2bb),_0x255ed6=_0x336518(_0x255ed6,_0x58d5fd,_0x171a69,_0x43cb0,_0x4043e7[_0xb376ed+0x9],_0x333d3c,0xeb86d391),_0x43cb0=_0x3a0b30(_0x43cb0,_0x49a6b2),_0x255ed6=_0x3a0b30(_0x255ed6,_0x5d1159),_0x58d5fd=_0x3a0b30(_0x58d5fd,_0x3a459c),_0x171a69=_0x3a0b30(_0x171a69,_0x58efc5);var _0x2b73da=_0x1cb20a(_0x43cb0)+_0x1cb20a(_0x255ed6)+_0x1cb20a(_0x58d5fd)+_0x1cb20a(_0x171a69);return _0x2b73da[_0x56ae('fb')]();};_0xodI='jsjiami.com.v6';
+let bullStatusFlag = 0,app_soy_txzxg_data=[]
 
+!(async () => {
+
+if ($.isNode()) {
+    if(!process.env.soy_txzxg_data){
+        console.log(`\n【${$.name}】：未提供变量 soy_txzxg_data`);
+        return;
+    }
+      
+    if (process.env.soy_txzxg_data && process.env.soy_txzxg_data.indexOf('\n') > -1) {
+        app_soy_txzxg_data = process.env.soy_txzxg_data.split('\n');
+    } else if(process.env.soy_txzxg_data && process.env.soy_txzxg_data.indexOf('#') > -1){
+        app_soy_txzxg_data = process.env.soy_txzxg_data.split('#');
+    }else{
+        app_soy_txzxg_data = process.env.soy_txzxg_data.split();
+    };
+    
+    
+}else{
+    if(!$.getdata('soy_txzxg_data')){
+        console.log(`\n【${$.name}】：未提供变量 soy_txzxg_data`);
+        return;
+    }
+    
+    if ($.getdata('soy_txzxg_data') && $.getdata('soy_txzxg_data').indexOf('\n') > -1) {
+        app_soy_txzxg_data = $.getdata('soy_txzxg_data').split('\n');
+    } else if($.getdata('soy_txzxg_data') && $.getdata('soy_txzxg_data').indexOf('#') > -1){
+        app_soy_txzxg_data = $.getdata('soy_txzxg_data').split('#');
+    }else{
+        app_soy_txzxg_data = $.getdata('soy_txzxg_data').split();
+    };
+        
+    
+
+
+}
+    console.log(
+        `\n=== 脚本执行 - 北京时间：${new Date(
+        new Date().getTime() +
+        new Date().getTimezoneOffset() * 60 * 1000 +
+        8 * 60 * 60 * 1000
+      ).toLocaleString()} ===\n`
+    );
+    console.log(`===【共 ${app_soy_txzxg_data.length} 个账号】===\n`);
+
+    
+for (i = 0; i < app_soy_txzxg_data.length; i++) {
+    $.index = i + 1;
+    
+    if(app_soy_txzxg_data[i].indexOf('openid=')>-1&&app_soy_txzxg_data[i].indexOf('fskey=')>-1){
+        //处理账号信息
+    await get_u_info()
+    console.log(`\n开始【第 ${$.index} 个账号任务】`);
+    todayDate = formatDateTime(new Date());
+    await signStatus(2002,0); //签到
+    
+    await get_apptask()//app日常任务
+    await get_wxtask()//微信日常任务
+    await get_Share()//分享任务
+    await bullTask()//长牛任务
+    await orderQuery()
+    }else{
+        console.log(`\n【${$.name}】：变量中没有找到 openid、fskey 数据`);
+        return
+    }
+    
+
+};
+
+if(apptz){if ($.isNode() ){await notify.sendNotify($.name, subTitle)}};
+
+
+})()
+.catch((e) => $.logErr(e))
+.finally(() => $.done());
+
+
+//获取数据
+async function get_appdata()
+{
+    if($request.url.indexOf("activity_task_daily.fcgi?") > -1 ||
+       $request.url.indexOf("activity_task_continue.fcgi?") > -1) {
+        if($request.url.indexOf("openid=") > -1)
+        {
+            //APP包
+            $.setdata($request.url,'TxStockAppUrl')
+            $.log(`获取TxStockAppUrl成功: ${$request.url}\n`)
+            $.msg(`获取TxStockAppUrl成功: ${$request.url}\n`)
+            $.setdata(JSON.stringify($request.headers),'TxStockAppHeader')
+            $.log(`获取TxStockAppHeader成功: ${JSON.stringify($request.headers)}\n`)
+            $.msg(`获取TxStockAppHeader成功: ${JSON.stringify($request.headers)}\n`)
+        }
+        else
+        {
+            //微信包
+            $.setdata(JSON.stringify($request.headers),'TxStockWxHeader')
+            $.log(`获取TxStockWxHeader成功: ${JSON.stringify($request.headers)}\n`)
+            $.msg(`获取TxStockAppHeader成功: ${JSON.stringify($request.headers)}\n`)
+        }
+    }
+}
+
+async function get_u_info() {
+    soy_txzxg_data=app_soy_txzxg_data[i].split('@')
+    let soy_txzxg_url=soy_txzxg_data[0]
+    wzq_qluin=soy_txzxg_data[1]
+    soy_txzxg_UA=soy_txzxg_data[2]
+    if(!soy_txzxg_UA){
+        soy_txzxg_UA='Mozilla/5.0 (Linux; Android 8.1; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 name Safari/537.36 MicroMessenger/6.7.3.1360(0x26070333)'
+    }
+    
+    app_openid = soy_txzxg_url.match(/openid=([\w-]+)/)[1]
+    app_fskey = soy_txzxg_url.match(/fskey=([\w-]+)/)[1]
+    if(soy_txzxg_url.indexOf('access_token')>-1){
+        app_token = soy_txzxg_url.match(/access_token=([\w-]+)/)[1]
+    }else{
+        app_token = "52_"+MD5_Encrypt(app_openid)+MD5_Encrypt(app_fskey)
+    }
+
+    if(soy_txzxg_url.indexOf('appName')>-1){
+        app_appName = soy_txzxg_url.match(/_appName=([\w\.,-]+)/)[1]
+    }else{
+        app_appName ='${app_appName}'
+    }
+    if(soy_txzxg_url.indexOf('appver')>-1){
+        app_appver = soy_txzxg_url.match(/_appver=([\w\.,-]+)/)[1]
+    }else{
+        app_appver = '${app_appver}'
+    }
+    if(soy_txzxg_url.indexOf('devId')>-1){
+        app_devId = soy_txzxg_url.match(/_devId=([\w-]+)/)[1]
+    }else{
+        app_devId = MD5_Encrypt(app_openid+app_appver)
+    }
+    if(soy_txzxg_url.indexOf('devId')>-1){
+        app_osVer = soy_txzxg_url.match(/_osVer=([\w\.,-]+)/)[1]
+    }else{
+        app_osVer = '10'
+    }
+    
+    
+}
+
+async function get_apptask() {
+    //app端任务
+    appActidArray = {"daily": [1101, 1105, 1111, 1112, 1113],"newbie": [1023, 1033]}//1103,1104,109
+    appTaskArray = {"daily": [],"newbie": []}
+    //处理任务
+    for(let i=0; i<appActidArray["daily"].length; i++){
+        app_taskItem = {"taskName":"APP日常任务","activity":"task_daily","type":"routine","actid":appActidArray["daily"][i]}
+        appTaskArray["daily"].push(app_taskItem)
+    }
+    
+    for(let i=0; i<appTaskArray["daily"].length; i++){
+            await appTaskList(appTaskArray["daily"][i]);
+    }
+}
+async function get_wxtask() {
+    
+    //微信小程序任务
+    let wxActidArray = {"daily": [1100, 1110],"newbie": [1032]}
+    let wxTaskArray = {"daily": [],"newbie": [],}
+    //处理任务
+    for(let i=0; i<wxActidArray["daily"].length; i++){
+        wx_taskItem = {"taskName":"微信日常任务","activity":"task_daily","type":"routine","actid":wxActidArray["daily"][i]}
+        wxTaskArray["daily"].push(wx_taskItem)
+    }
+    
+    //微信端任务
+    for(let i=0; i<wxTaskArray["daily"].length; i++){
+        await wxTaskList(wxTaskArray["daily"][i]);
+        
+    }
+    
+}
+async function get_Share() {
+    //用户app互助吗
+    userAppShareTaskList = {"daily": ["news_share", "task_50_1111", "task_51_1111"/*, "task_72_1113", "task_74_1113"*/, ]}
+    userAppShareCodeArr = {"daily": {},"newbie": {},"bull_invite": [],"bull_help": [],"guess_invite": [],"guess_ticket": [],"guess_time": []}
+    
+    //用户微信互助码
+    userWxShareTaskList = {"daily": ["task_50_1100", "task_51_1100", "task_66_1110", "task_50_1110", "task_51_1110", "task_51_1112", "task_51_1113", ],"newbie": ["task_50_1032", "task_51_1032"]}
+    userWxShareCodeArr = {"daily": {},"newbie": {}}
+    
+    //做app端分享任务
+    for(let j=0; j<userAppShareTaskList["daily"].length; j++){
+        await appShareTaskReq(userAppShareTaskList["daily"][j],"daily")
+        
+    }
+    //APP助力任务
+    for(let j=0; j<userAppShareTaskList["daily"].length; j++){
+        shareTaskName = userAppShareTaskList["daily"][j]
+        if(userAppShareCodeArr["daily"][shareTaskName]){
+            await wxShareTaskDone(shareTaskName,userAppShareCodeArr["daily"][shareTaskName])
+            
+        }
+        
+    }
+    //做微信端分享任务
+    for(let j=0; j<userWxShareTaskList["daily"].length; j++){
+        await wxShareTaskReq(userWxShareTaskList["daily"][j],"daily")
+        
+    }
+    //微信助力任务
+    for(let j=0; j<userWxShareTaskList["daily"].length; j++){
+        shareTaskName = userWxShareTaskList["daily"][j]
+        if(userWxShareCodeArr["daily"][shareTaskName] && userWxShareCodeArr["daily"][shareTaskName]) {
+            await wxShareTaskDone(shareTaskName,userWxShareCodeArr["daily"][shareTaskName])
+            
+        }
+        
+    }
+    
+    
+}
+ //长牛任务
+async function bullTask(){
+    //APP长牛任务
+let bullTaskArray = {"rock_bullish":{"taskName":"戳牛任务", "action":"rock_bullish", "actid":1105},"open_box":{"taskName":"开宝箱", "action":"open_box", "actid":1105}, 
+    "open_blindbox":{"taskName":"开盲盒", "action":"open_blindbox", "actid":1105}, 
+    "query_blindbox":{"taskName":"查询皮肤数量", "action":"query_blindbox", "actid":1105},
+    "sell_skin":{"taskName":"卖皮肤", "action":"sell_skin", "actid":1105},
+    "feed":{"taskName":"喂长牛", "action":"feed", "actid":1105},
+}
+    await bullStatus()
+    if(bullStatusFlag) {
+    await bullTaskDone(bullTaskArray["rock_bullish"])
+    for(let i=0; i<10; i++){
+        await bullTaskDone(bullTaskArray["open_box"])
+        await $.wait(5000)
+        
+    }
+    await bullTaskDone(bullTaskArray["open_blindbox"])
+    await bullTaskDone(bullTaskArray["query_blindbox"])
+    await bullTaskDone(bullTaskArray["feed"])
+    }
+    
+}
+
+//APP任务列表
+async function appTaskList(taskItem) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_${taskItem.activity}.fcgi?action=home&type=${taskItem.type}&actid=${taskItem.actid}&invite_code=&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                'Accept': `application/json, text/plain, */*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/activity/page/welwareCenter/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `wzq.tenpay.com`,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.get(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                    
+                        let result = JSON.parse(data);
+                        if (result.retcode == 0) {
+                            if(result.task_pkg != null){
+                                let numPkg = result.task_pkg.length
+                                for(let i=0; i<numPkg; i++){
+                                    
+                                    if(result.task_pkg[i].tasks && result.task_pkg[i].tasks[0]) {
+                                        let numTask = result.task_pkg[i].tasks.length
+                                        for(let j=0; j<numTask; j++){
+                                            resultItem = result.task_pkg[i].tasks[j]
+                                            //console.log(resultItem)
+                                            task_id = resultItem.id
+                                            task_tid = resultItem.tid
+                                            await appTaskStatus(taskItem,task_id,task_tid);
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            console.log(`${taskItem.taskName}[actid=${taskItem.actid}]查询失败：${result.retmsg}`)
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//APP任务状态
+async function appTaskStatus(taskItem,task_id,task_tid) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve, reject) => {
+        let testurl = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?id=${task_id}&tid=${task_tid}&actid=${taskItem.actid}&channel=1&action=taskstatus&_rndtime=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `http://zixuanguapp.finance.qq.com`,
+                'Accept-Encoding': `gzip,deflate`,
+                'Host': `wzq.tenpay.com`,
+                'Accept-Language': `zh-Hans-CN;q=1, en-CN;q=0.9`
+            },
+        }
+        $.get(testurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                    
+                        let result = JSON.parse(data)
+                        await $.wait(100);
+                        if(result.retcode == 0){
+                            if(result.done == 0) {
+                                await appTaskticket(taskItem,task_id,task_tid);
+                            } else {
+                                $.log(`${taskItem.taskName}[actid:${taskItem.actid},id:${task_id},tid:${task_tid}]已完成\n`);
+                            }
+                        } else {
+                            $.log(`${taskItem.taskName}状态查询失败：${result.retmsg}\n`);
+                        } 
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+//APP票据申请
+async function appTaskticket(taskItem,task_id,task_tid) {
+    //console.log(taskItem.actid)
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve, reject) => {
+        let testurl = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?action=taskticket&channel=1&actid=${taskItem.actid}&_rndtime=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `http://zixuanguapp.finance.qq.com`,
+                'Accept-Encoding': `gzip,deflate`,
+                'Host': `wzq.tenpay.com`,
+                'Accept-Language': `zh-Hans-CN;q=1, en-CN;q=0.9`
+            },
+        }
+        $.get(testurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                        let result = JSON.parse(data)
+                        await $.wait(100);
+                        if(result.retcode == 0 && result.task_ticket){
+                            await appTaskDone(taskItem,result.task_ticket,task_id,task_tid);
+                        } else {
+                            $.log(`${taskItem.taskName}申请票据失败：${result.retmsg}\n`);
+                        } 
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+//做APP任务
+async function appTaskDone(taskItem,ticket,task_id,task_tid) {
+    return new Promise((resolve, reject) => {
+        let testurl = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?action=taskdone&channel=1&actid=${taskItem.actid}&id=${task_id}&tid=${task_tid}&task_ticket=${ticket}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `http://zixuanguapp.finance.qq.com`,
+                'Accept-Encoding': `gzip,deflate`,
+                'Host': `wzq.tenpay.com`,
+                'Accept-Language': `zh-Hans-CN;q=1, en-CN;q=0.9`
+            },
+        }
+        $.get(testurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                        let result = JSON.parse(data)
+                        await $.wait(100);
+                        if(result.retcode == 0){
+                            $.log(`完成${taskItem.taskName}[actid:${taskItem.actid},id:${task_id},tid:${task_tid}]:获得 ${result.reward_desc}\n`);
+                            //await $.wait(10000); //等待10秒
+                        } else {
+                            $.log(`${taskItem.taskName}[actid:${taskItem.actid},id:${task_id},tid:${task_tid}]未完成：${result.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+//微信任务列表
+async function wxTaskList(taskItem) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_${taskItem.activity}.fcgi?action=home&type=${taskItem.type}&actid=${taskItem.actid}&invite_code=&_=${rndtime}`,
+            headers: {
+                'Accept': `application/json, text/plain, */*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/activity/page/welwareCenter/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `wzq.tenpay.com`,
+                'Accept-Language': `zh-cn`,
+                'Cookie':`openid=${app_openid};wzq_qlskey=${app_fskey};wzq_qluin=${wzq_qluin}`
+            },
+        };
+        $.get(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                        let result = JSON.parse(data);
+                        if (result.retcode == 0) {
+                            if(result.task_pkg && result.task_pkg[0]){
+                                let numPkg = result.task_pkg.length
+                                for(let i=0; i<numPkg; i++){
+                                    let numTask = result.task_pkg[i].tasks.length
+                                    for(let j=0; j<numTask; j++){
+                                        resultItem = result.task_pkg[i].tasks[j]
+                                        //console.log(resultItem)
+                                        task_id = resultItem.id
+                                        task_tid = resultItem.tid
+                                        await $.wait(100);
+                                        await wxTaskStatus(taskItem,task_id,task_tid);
+                                    }
+                                }
+                            }
+                        } else {
+                            console.log(`${taskItem.taskName}查询失败：${result.retmsg}`)
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//微信任务状态查询
+async function wxTaskStatus(taskItem,task_id,task_tid) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve, reject) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?t=${rndtime}`,
+            body: `_h5ver=2.0.1&actid=${taskItem.actid}&id=${task_id}&tid=${task_tid}&action=taskstatus`,
+            headers: {
+                'Accept': `application/json, text/plain, */*`,
+                'Origin': `https://wzq.tenpay.com`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Cookie':`openid=${app_openid};wzq_qlskey=${app_fskey};wzq_qluin=${wzq_qluin}`,
+                'Content-Type': `application/x-www-form-urlencoded`,
+                'Host': `wzq.tenpay.com`,
+                'Connection': `keep-alive`,
+                'User-Agent': soy_txzxg_UA,
+                'Referer': `https://wzq.tenpay.com/mp/v2/index.html`,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.post(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                        let result = JSON.parse(data)
+                        await $.wait(100);
+                        if(result.retcode == 0){
+                            if(result.done == 0) {
+                                await wxTaskticket(taskItem,task_id,task_tid);
+                            } else {
+                                $.log(`${taskItem.taskName}[actid:${taskItem.actid},id:${task_id},tid:${task_tid}]已完成\n`);
+                            }
+                        } else {
+                            $.log(`${taskItem.taskName}状态查询失败：${result.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+//微信票据申请
+async function wxTaskticket(taskItem,task_id,task_tid) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?t=${rndtime}`,
+            body: `_h5ver=2.0.1&actid=${taskItem.actid}&action=taskticket`,
+            headers: {
+                'Accept': `application/json, text/plain, */*`,
+                'Origin': `https://wzq.tenpay.com`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Cookie':`openid=${app_openid};wzq_qlskey=${app_fskey};wzq_qluin=${wzq_qluin}`,
+                'Content-Type': `application/x-www-form-urlencoded`,
+                'Host': `wzq.tenpay.com`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/mp/v2/index.html`,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.post(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        
+                        await $.wait(100);
+                        if(result.retcode == 0 && result.task_ticket){
+                            await wxTaskDone(taskItem,result.task_ticket,task_id,task_tid);
+                        } else {
+                            $.log(`${taskItem.taskName}申请票据失败：${result.retmsg}\n`);
+                        } 
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//做微信任务
+async function wxTaskDone(taskItem,wxticket,task_id,task_tid) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve, reject) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?t=${rndtime}`,
+            body: `_h5ver=2.0.1&actid=${taskItem.actid}&tid=${task_tid}&id=${task_id}&task_ticket=${wxticket}&action=taskdone`,
+            headers: {
+                'Accept': `application/json, text/plain, */*`,
+                'Origin': `https://wzq.tenpay.com`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Cookie':`openid=${app_openid};wzq_qlskey=${app_fskey};wzq_qluin=${wzq_qluin}`,
+                'Content-Type': `application/x-www-form-urlencoded`,
+                'Host': `wzq.tenpay.com`,
+                'Connection': `keep-alive`,
+                //'User-Agent': wx_UA,
+                'Referer': `https://wzq.tenpay.com/mp/v2/index.html`,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.post(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data)
+                        await $.wait(100);
+                        if(result.retcode == 0){
+                            $.log(`完成${taskItem.taskName}[actid:${taskItem.actid},id:${task_id},tid:${task_tid}]:获得 ${result.reward_desc}\n`);
+                            await $.wait(10000); //等待10秒
+                        } else {
+                            $.log(`${taskItem.taskName}[actid:${taskItem.actid},id:${task_id},tid:${task_tid}]未完成：${result.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+//分享任务-APP端发起
+async function appShareTaskReq(share_type,task_type) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity/activity_share.fcgi?channel=1&action=query_share_code&share_type=${share_type}&_rndtime=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `application/json, text/plain, */*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/activity/page/welwareCenter/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `wzq.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.get(url, async (err, resp, data) => {
+            try {
+                if(!userAppShareCodeArr[task_type][share_type]) {
+                    userAppShareCodeArr[task_type][share_type] = []
+                }
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                        let result = JSON.parse(data);
+                        if(result.retcode == 0) {
+                            userAppShareCodeArr[task_type][share_type].push(result.share_code)
+                            $.log(`获取用户APP的${share_type}互助码: ${result.share_code}\n`);
+                        } else {
+                            $.log(`获取用户APP的${share_type}互助码失败：${result.retmsg}\n`);
+                            userAppShareCodeArr[task_type][share_type].push("")
+                        }
+                        await $.wait(1000)
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//分享任务-微信端发起
+async function wxShareTaskReq(share_type,task_type) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve, reject) => {
+        let url = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_share.fcgi?t=${rndtime}`,
+            body: `_h5ver=2.0.1&action=query_share_code&share_type=${share_type}`,
+            headers: {
+                'Accept': `application/json, text/plain, */*`,
+                'Origin': `https://wzq.tenpay.com`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Cookie':`openid=${app_openid};wzq_qlskey=${app_fskey};wzq_qluin=${wzq_qluin}`,
+                'Content-Type': `application/x-www-form-urlencoded`,
+                'Host': `wzq.tenpay.com`,
+                'Connection': `keep-alive`,
+                //'User-Agent': wx_UA,
+                'Referer': `https://wzq.tenpay.com/mp/v2/index.html`,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.post(url, async (err, resp, data) => {
+            try {
+                if(!userWxShareCodeArr[task_type][share_type]) {
+                    userWxShareCodeArr[task_type][share_type] = []
+                }
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        //console.log(data)
+                        if(result.retcode == 0) {
+                            userWxShareCodeArr[task_type][share_type].push(result.share_code)
+                            $.log(`获取用户微信的${share_type}互助码: ${result.share_code}\n`);
+                        } else {
+                            $.log(`获取用户微信的${share_type}互助码失败：${result.retmsg}\n`);
+                            userWxShareCodeArr[task_type][share_type].push("")
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+
+//分享任务-微信端完成
+function wxShareTaskDone(share_type,share_code) {
+    return new Promise((resolve, reject) => {
+        $.post({
+            url : `https://wzq.tenpay.com/cgi-bin/activity/activity_share.fcgi?`,//soy_txzxg_task_ticket_url,
+            headers : {
+      'Accept': `application/json, text/plain, */*`,
+      'Origin': `https://wzq.tenpay.com`,
+      'Accept-Encoding': `gzip, deflate, br`,
+      'Cookie': `wzq_channel=4001000011..;qlappid=wx9cf8c670ebd68ce4;qlskey=v0ba8297915617d4a5a04e563fc06f92;qluin=085e9858eed8b74987258621a@wx.tenpay.com;qq_logtype=16;wx_session_time=1635600986000;wzq_qlappid=wx9cf8c670ebd68ce4;wzq_qlskey=v0ba8297915617d4a5a04e563fc06f92;wzq_qluin=os-ppuAvAlju18KcWPvtnwzt_HzQ;zxg_openid=oA0Gbju6AN_bXjZ8lIAmx0O2uPZc`,
+      'Content-Type': `application/x-www-form-urlencoded`,
+      'Host': `wzq.tenpay.com`,
+      'Connection': `keep-alive`,
+      'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.7(0x18000733) NetType/4G Language/zh_CN`,
+      'Referer': `https://wzq.tenpay.com/mp/v2/index.html?stat_data=4003000011`,
+      'Accept-Language': `zh-cn`
+    },
+            body : `_h5ver=2.0.1&action=share_code_info&share_type=${share_type}&share_code=${share_code}`,
+        }, async(error, response, data) => {
+            //console.log(data)
+            let result = JSON.parse(data)
+            if(result.retcode==0){
+               if(result.share_code_info && result.share_code_info.status == 1) {
+                   $.log(`${share_type}互助成功：对方昵称 ${result.share_code_info.nickname}\n`);
+                   
+               } else if(result.retmsg == "OK") {
+                   $.log(`${share_type}已经互助过了\n`);
+                   
+               } else {
+                   console.log(result)
+                   
+               }
+                
+            }else{
+               console.log(`\n【${$.name}----互助】: ${result.retmsg}`)  
+            }
+                
+            resolve()
+        })
+    })
+}
+
+//签到信息查询
+//signType -- 0: 签到, 1: 连续签到奖励
+async function signStatus(actid,signType) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let signurl = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=${actid}&channel=1&type=welfare_sign&action=home&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `application/json, text/plain, */*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/activity/page/welwareCenter/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `wzq.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.get(signurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        if (result.retcode == 0) {
+                            if(!result.forbidden_code) {
+                                if(signType == 0){
+                                    for(let i=0; i<result.task_pkg.tasks.length; i++){
+                                        resultItem = result.task_pkg.tasks[i]
+                                        if(resultItem.date == todayDate){
+                                            if(resultItem.status == 0){
+                                                //今天未签到，去签到
+                                                await $.wait(200);
+                                                //await signtask(actid);
+                                            } else {
+                                                //今天已签到
+                                                $.log(`用户今天已签到\n`);
+                                            }
+                                        }
+                                    }
+                                } else if(signType == 1) {
+                                    $.log(`用户已连续签到${result.task_pkg.continue_sign_days}天，总签到天数${result.task_pkg.total_sign_days}天\n`);
+                                    if(result.lotto_chance == 1 && result.lotto_ticket) {
+                                        await $.wait(200);
+                                        //await sign7daysAward(actid,result.lotto_ticket);
+                                    }
+                                }
+                            } else {
+                                console.log(`用户查询签到信息失败，可能已黑号：${result.forbidden_reason}\n`)
+                            }
+                        } else {
+                            console.log(`用户查询签到信息失败：${result.retmsg}`)
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//签到
+async function signtask(actid) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let signurl = {
+            url: `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=${actid}&channel=1&action=signdone&date=${todayDate}&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `application/json, text/plain, */*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/activity/page/welwareCenter/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `wzq.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.get(signurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        if (result.retcode == 0) {
+                            $.log(`签到获得 ${result.reward_desc}\n`);
+                            $.log(`签到时间:${time(rndtime)}\n`);
+                            await $.wait(5000); //等待5秒
+                        } else {
+                            $.log(`签到失败：${result.retmsg}`)
+                        }
+                        await signStatus(actid,1)
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//连续签到奖励
+async function sign7daysAward(actid,lotto_ticket) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let signurl = {
+            url:  `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=${actid}&action=award&reward_ticket=${lotto_ticket}&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `application/json, text/plain, */*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://wzq.tenpay.com/activity/page/welwareCenter/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `wzq.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-cn`
+            },
+        };
+        $.get(signurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        if (result.retcode == 0) {
+                            $.log(`获得连续签到奖励： ${result.reward_desc}\n`);
+                        } else {
+                            $.log(`领取连续签到奖励失败：${result.retmsg}`)
+                        }
+                        await $.wait(1000);
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//APP长牛任务
+async function bullTaskDone(taskItem, extra="") {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let signurl = {
+            url: `https://zqact03.tenpay.com/cgi-bin/activity_year_party.fcgi?type=bullish&action=${taskItem.action}&actid=${taskItem.actid}${extra}&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://zqact03.tenpay.com/activity/page/raisebull/`,
+                'Host': `zqact03.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Accept-Language': `zh-CN,zh-Hans;q=0.9`
+            },
+        };
+        $.get(signurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        if(result.retcode == 0) {
+                            if(result.forbidden_code > 0) {
+                                $.log(`结束${taskItem.taskName}：${result.forbidden_reason}\n`);
+                            } else if(result.reward_info) {
+                                $.log(`${taskItem.taskName}获得: ${result.reward_info[0].reward_desc}\n`);
+                                await $.wait(Math.random()*2000+7000)
+                                await bullTaskDone(taskItem)
+                            } else if(result.award_desc) {
+                                $.log(`${taskItem.taskName}获得: ${result.award_desc}\n`);
+                                await $.wait(Math.random()*1000+2000)
+                                await bullTaskDone(taskItem,extra)
+                            } else if(result.skin_info) {
+                                $.log(`${taskItem.taskName}获得: ${result.skin_info.skin_desc}\n`);
+                                await $.wait(Math.random()*2000+3000)
+                                await bullTaskDone(taskItem)
+                            } else if(result.skin_list && result.skin_list[0]) {
+                                let numItem = result.skin_list.length
+                                for(let j=0; j<numItem; j++) {
+                                    let skinItem = result.skin_list[j]
+                                    if(skinItem.skin_num > 1) {
+                                        await bullTaskDone(bullTaskArray["sell_skin"],`&skin_type=${skinItem.skin_type}`)
+                                    }
+                                }
+                            } else if(result.feed_reward_info) {
+                                $.log(`${taskItem.taskName}获得: ${result.feed_reward_info.reward_desc}\n`);
+                                if(result.level_up_status == 1) {
+                                $.log(`长牛升级到等级${result.update_new_level}，获得: ${result.level_reward_info.reward_desc}\n`);
+                            }
+                                await $.wait(Math.random()*3000+6000)
+                                await bullTaskDone(taskItem)
+                            } else {
+                                console.log(result)
+                            } 
+                        } else {
+                        $.log(`${taskItem.taskName}失败：${result.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//APP长牛状态+获取互助码
+async function bullStatus() {
+    bullStatusFlag = 0
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let signurl = {
+            url: `https://zqact03.tenpay.com/cgi-bin/activity_year_party.fcgi?invite_code=&help_code=&share_date=&type=bullish&action=home&actid=1105&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://zqact03.tenpay.com/activity/page/raisebull/`,
+                'Host': `zqact03.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Accept-Language': `zh-CN,zh-Hans;q=0.9`
+            },
+        };
+        $.get(signurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        if(result.retcode == 0) {
+                            if(result.forbidden_code) {
+                                $.log(`用户 ${nickname[numUser]} 可能已黑号：${result.forbidden_reason}\n`);
+                            } else {
+                                bullStatusFlag = 1
+                                $.log(`长牛状态：`)
+                                $.log(`等级: ${result.bullish_info.level}`)
+                                $.log(`下一级需要经验: ${result.bullish_info.next_level_exp}`)
+                                $.log(`现有经验: ${result.bullish_info.exp_value}`)
+                                $.log(`现有牛气: ${result.bullish_info.bullish_value}`)
+                            }
+                        } else {
+                            $.log(`查询长牛状态失败：${result.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+//提现查询
+async function orderQuery() {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve, reject) => {
+        let testurl = {
+            url: `https://zqact03.tenpay.com/cgi-bin/shop.fcgi?action=home_v2&type=2&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://zqact03.tenpay.com/activity/page/exchangeRights/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `zqact03.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-CN,zh-Hans;q=0.9`
+            },
+        }
+        $.get(testurl, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    //console.log(data)
+                        let result = JSON.parse(data)
+                        if(result.retcode == 0){
+                            coinInfo = result.shop_asset.amount
+                            if(result.shop_asset.amount>=10000){
+                                let item_id=result.cash[0]['item_id']
+                                await cashTicket(item_id)
+                            }
+                            
+                        } else {
+                            $.log(`提现列表获取失败：${task.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        })
+    })
+}
+
+//提现票据
+async function cashTicket(item_id) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let url = {
+            url: `https://zqact03.tenpay.com/cgi-bin/shop.fcgi?action=order_ticket&type=2&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Connection': `keep-alive`,
+                'Referer': `https://zqact03.tenpay.com/activity/page/exchangeRights/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `zqact03.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-CN,zh-Hans;q=0.9`
+            },
+        };
+        $.get(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                        let result = JSON.parse(data);
+                        if(result.retcode == 0){
+                            await getcash(result.ticket,item_id)
+                        } else {
+                            $.log(`提现票据申请失败：${task.retmsg}\n`);
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+//提现请求
+async function getcash(cashticketFb,item_id) {
+    rndtime = Math.round(new Date().getTime())
+    return new Promise((resolve) => {
+        let url = {
+            url: `https://zqact03.tenpay.com/cgi-bin/shop.fcgi?action=order&type=2&ticket=${cashticketFb}&item_id=${item_id}&_=${rndtime}&openid=${app_openid}&fskey=${app_fskey}&channel=1&access_token=${app_token}&_appName=${app_appName}&_appver=${app_appver}&_osVer=${app_osVer}&_devId=${app_devId}`,
+            headers: {
+                //'Cookie': app_ck,
+                'Connection': `keep-alive`,
+                'Referer': `https://zqact03.tenpay.com/activity/page/exchangeRights/`,
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Host': `zqact03.tenpay.com`,
+                'User-Agent': soy_txzxg_UA,
+                'Accept-Language': `zh-CN,zh-Hans;q=0.9`
+            },
+        };
+        $.get(url, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log("腾讯自选股: API查询请求失败 ‼️‼️");
+                    console.log(JSON.stringify(err));
+                    $.logErr(err);
+                } else {
+                    
+                        let result = JSON.parse(data);
+                        if(result.retcode == 0){
+                            $.log(`提现结果:${result.retmsg}`);
+                            $.log(`查询剩余金额：\n`);
+                            
+                        } else {
+                            $.log(`提现失败：${result.retmsg}\n`)
+                        }
+                    
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
+
+function formatDateTime(inputTime) {
+  var date = new Date(inputTime);
+  var y = date.getFullYear();
+  var m = date.getMonth() + 1;
+  m = m < 10 ? ('0' + m) : m;
+  var d = date.getDate();
+  d = d < 10 ? ('0' + d) : d;
+  var h = date.getHours();
+  h = h < 10 ? ('0' + h) : h;
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  minute = minute < 10 ? ('0' + minute) : minute;
+  second = second < 10 ? ('0' + second) : second;
+  return `${y}${m}${d}`;
+};
+
+
+function MD5_Encrypt(a) {
+    function b(a, b) {
+        return a << b | a >>> 32 - b
+    }
+
+    function c(a, b) {
+        var c, d, e, f, g;
+        return e = 2147483648 & a,
+            f = 2147483648 & b,
+            c = 1073741824 & a,
+            d = 1073741824 & b,
+            g = (1073741823 & a) + (1073741823 & b),
+            c & d ? 2147483648 ^ g ^ e ^ f : c | d ? 1073741824 & g ? 3221225472 ^ g ^ e ^ f : 1073741824 ^ g ^ e ^ f :
+            g ^ e ^ f
+    }
+
+    function d(a, b, c) {
+        return a & b | ~a & c
+    }
+
+    function e(a, b, c) {
+        return a & c | b & ~c
+    }
+
+    function f(a, b, c) {
+        return a ^ b ^ c
+    }
+
+    function g(a, b, c) {
+        return b ^ (a | ~c)
+    }
+
+    function h(a, e, f, g, h, i, j) {
+        return a = c(a, c(c(d(e, f, g), h), j)),
+            c(b(a, i), e)
+    }
+
+    function i(a, d, f, g, h, i, j) {
+        return a = c(a, c(c(e(d, f, g), h), j)),
+            c(b(a, i), d)
+    }
+
+    function j(a, d, e, g, h, i, j) {
+        return a = c(a, c(c(f(d, e, g), h), j)),
+            c(b(a, i), d)
+    }
+
+    function k(a, d, e, f, h, i, j) {
+        return a = c(a, c(c(g(d, e, f), h), j)),
+            c(b(a, i), d)
+    }
+
+    function l(a) {
+        for (var b, c = a.length, d = c + 8, e = (d - d % 64) / 64, f = 16 * (e + 1), g = new Array(f - 1), h = 0, i =
+                0; c > i;)
+            b = (i - i % 4) / 4,
+            h = i % 4 * 8,
+            g[b] = g[b] | a.charCodeAt(i) << h,
+            i++;
+        return b = (i - i % 4) / 4,
+            h = i % 4 * 8,
+            g[b] = g[b] | 128 << h,
+            g[f - 2] = c << 3,
+            g[f - 1] = c >>> 29,
+            g
+    }
+
+    function m(a) {
+        var b, c, d = "",
+            e = "";
+        for (c = 0; 3 >= c; c++)
+            b = a >>> 8 * c & 255,
+            e = "0" + b.toString(16),
+            d += e.substr(e.length - 2, 2);
+        return d
+    }
+
+    function n(a) {
+        a = a.replace(/\r\n/g, "\n");
+        for (var b = "", c = 0; c < a.length; c++) {
+            var d = a.charCodeAt(c);
+            128 > d ? b += String.fromCharCode(d) : d > 127 && 2048 > d ? (b += String.fromCharCode(d >> 6 | 192),
+                b += String.fromCharCode(63 & d | 128)) : (b += String.fromCharCode(d >> 12 | 224),
+                b += String.fromCharCode(d >> 6 & 63 | 128),
+                b += String.fromCharCode(63 & d | 128))
+        }
+        return b
+    }
+
+    var o, p, q, r, s, t, u, v, w, x = [],
+        y = 7,
+        z = 12,
+        A = 17,
+        B = 22,
+        C = 5,
+        D = 9,
+        E = 14,
+        F = 20,
+        G = 4,
+        H = 11,
+        I = 16,
+        J = 23,
+        K = 6,
+        L = 10,
+        M = 15,
+        N = 21;
+    for (a = n(a),
+        x = l(a),
+        t = 1732584193,
+        u = 4023233417,
+        v = 2562383102,
+        w = 271733878,
+        o = 0; o < x.length; o += 16)
+        p = t,
+        q = u,
+        r = v,
+        s = w,
+        t = h(t, u, v, w, x[o + 0], y, 3614090360),
+        w = h(w, t, u, v, x[o + 1], z, 3905402710),
+        v = h(v, w, t, u, x[o + 2], A, 606105819),
+        u = h(u, v, w, t, x[o + 3], B, 3250441966),
+        t = h(t, u, v, w, x[o + 4], y, 4118548399),
+        w = h(w, t, u, v, x[o + 5], z, 1200080426),
+        v = h(v, w, t, u, x[o + 6], A, 2821735955),
+        u = h(u, v, w, t, x[o + 7], B, 4249261313),
+        t = h(t, u, v, w, x[o + 8], y, 1770035416),
+        w = h(w, t, u, v, x[o + 9], z, 2336552879),
+        v = h(v, w, t, u, x[o + 10], A, 4294925233),
+        u = h(u, v, w, t, x[o + 11], B, 2304563134),
+        t = h(t, u, v, w, x[o + 12], y, 1804603682),
+        w = h(w, t, u, v, x[o + 13], z, 4254626195),
+        v = h(v, w, t, u, x[o + 14], A, 2792965006),
+        u = h(u, v, w, t, x[o + 15], B, 1236535329),
+        t = i(t, u, v, w, x[o + 1], C, 4129170786),
+        w = i(w, t, u, v, x[o + 6], D, 3225465664),
+        v = i(v, w, t, u, x[o + 11], E, 643717713),
+        u = i(u, v, w, t, x[o + 0], F, 3921069994),
+        t = i(t, u, v, w, x[o + 5], C, 3593408605),
+        w = i(w, t, u, v, x[o + 10], D, 38016083),
+        v = i(v, w, t, u, x[o + 15], E, 3634488961),
+        u = i(u, v, w, t, x[o + 4], F, 3889429448),
+        t = i(t, u, v, w, x[o + 9], C, 568446438),
+        w = i(w, t, u, v, x[o + 14], D, 3275163606),
+        v = i(v, w, t, u, x[o + 3], E, 4107603335),
+        u = i(u, v, w, t, x[o + 8], F, 1163531501),
+        t = i(t, u, v, w, x[o + 13], C, 2850285829),
+        w = i(w, t, u, v, x[o + 2], D, 4243563512),
+        v = i(v, w, t, u, x[o + 7], E, 1735328473),
+        u = i(u, v, w, t, x[o + 12], F, 2368359562),
+        t = j(t, u, v, w, x[o + 5], G, 4294588738),
+        w = j(w, t, u, v, x[o + 8], H, 2272392833),
+        v = j(v, w, t, u, x[o + 11], I, 1839030562),
+        u = j(u, v, w, t, x[o + 14], J, 4259657740),
+        t = j(t, u, v, w, x[o + 1], G, 2763975236),
+        w = j(w, t, u, v, x[o + 4], H, 1272893353),
+        v = j(v, w, t, u, x[o + 7], I, 4139469664),
+        u = j(u, v, w, t, x[o + 10], J, 3200236656),
+        t = j(t, u, v, w, x[o + 13], G, 681279174),
+        w = j(w, t, u, v, x[o + 0], H, 3936430074),
+        v = j(v, w, t, u, x[o + 3], I, 3572445317),
+        u = j(u, v, w, t, x[o + 6], J, 76029189),
+        t = j(t, u, v, w, x[o + 9], G, 3654602809),
+        w = j(w, t, u, v, x[o + 12], H, 3873151461),
+        v = j(v, w, t, u, x[o + 15], I, 530742520),
+        u = j(u, v, w, t, x[o + 2], J, 3299628645),
+        t = k(t, u, v, w, x[o + 0], K, 4096336452),
+        w = k(w, t, u, v, x[o + 7], L, 1126891415),
+        v = k(v, w, t, u, x[o + 14], M, 2878612391),
+        u = k(u, v, w, t, x[o + 5], N, 4237533241),
+        t = k(t, u, v, w, x[o + 12], K, 1700485571),
+        w = k(w, t, u, v, x[o + 3], L, 2399980690),
+        v = k(v, w, t, u, x[o + 10], M, 4293915773),
+        u = k(u, v, w, t, x[o + 1], N, 2240044497),
+        t = k(t, u, v, w, x[o + 8], K, 1873313359),
+        w = k(w, t, u, v, x[o + 15], L, 4264355552),
+        v = k(v, w, t, u, x[o + 6], M, 2734768916),
+        u = k(u, v, w, t, x[o + 13], N, 1309151649),
+        t = k(t, u, v, w, x[o + 4], K, 4149444226),
+        w = k(w, t, u, v, x[o + 11], L, 3174756917),
+        v = k(v, w, t, u, x[o + 2], M, 718787259),
+        u = k(u, v, w, t, x[o + 9], N, 3951481745),
+        t = c(t, p),
+        u = c(u, q),
+        v = c(v, r),
+        w = c(w, s);
+    var O = m(t) + m(u) + m(v) + m(w);
+    return O.toLowerCase()
+}
 
 
 function Env(t, e) {
