@@ -221,12 +221,9 @@ def query_today_earnings():
     # redpacket = query_jingfen_redpacket()
     zhijia_pay, num5 = query_zhijia_pay()
 
-    total = int(num1 + num2 + - num5)
+    total = int(num1 + num2 + num3 + num4 - num5)
 
     # return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + zhijia_pay
-
-    # total = int(num1 + num2 + num3 + num4 - num5)
-
     return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + zhijia_pay
 
 # 查询今日总收入
