@@ -1,7 +1,8 @@
-! Version: 20211220225935
+! Version: 20220101005349
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||ga2.3dmgame.com
 ||fjisu2.com/js/huimi-
 mxshm.top$$script[tag-content="ads_"]
 ||tgwopez.cn
@@ -11,7 +12,7 @@ mxshm.top$$script[tag-content="ads_"]
 ||chenshengyu.cn
 ||75dr.com/js/script/wap.js
 ||75dr.com/js/c.js
-||75dr.com/js/m.js
+||https://ga2.3dmgame.com
 ||https://fjisu2.com/js/huimi-
 ||https://tgwopez.cn
 ||https://qj202.cc
@@ -3624,7 +3625,6 @@ mxshm.top$$script[tag-content="ads_"]
 ||https://zhidian3g.cn
 ||https://zqzxz.com
 ||https://nxrhs.com
-||https://yunos.com
 ||https://95558000.com
 ||https://2345.cn
 ||https://ad4game.com
@@ -12381,6 +12381,7 @@ mxshm.top$$script[tag-content="ads_"]
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://ga2.3dmgame.com
 ||http://fjisu2.com/js/huimi-
 ||http://tgwopez.cn
 ||http://qj202.cc
@@ -16067,7 +16068,6 @@ mxshm.top$$script[tag-content="ads_"]
 ||http://zhidian3g.cn
 ||http://zqzxz.com
 ||http://nxrhs.com
-||http://yunos.com
 ||http://95558000.com
 ||http://2345.cn
 ||http://ad4game.com
