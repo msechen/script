@@ -14,15 +14,13 @@ app和微信任务都做,有个别的任务可能不做,而且也做不了,不�
 
 自行抓包变量填写:
 
-app/微信小程序 抓包时找带有这个 https://wzq.tenpay.com 的链接,要点获取脚本界面抓
-
 变量名:soy_txzxg_data
 变量值:url@wzq_qluin@UA
 注释:url为app抓包时的整个链接,wzq_qluin为微信抓包时的cookie里面找它的值就是,UA为抓包时的User-Agent(选填)
 app抓包时的链接大概如:https://wzq.tenpay.com/cgi-bin/activity_xxx.fcgi?action=home&type=xxx&actid=xxx&invite_code=&_=xxx&openid=xxx&fskey=xxx&channel=1&access_token=xxx&_appName=xxx&_appver=xxx&_osVer=xxx&_devId=xxx
 大概时这样,反正一定要有openi、fskey,当然你变量第一个参数填openid=xxx&fskey=xxx也可以
 
-
+app/微信小程序 抓包时找带有这个 https://wzq.tenpay.com 的链接
 
 多好用 # 或换行隔开
 ------------------------
@@ -111,8 +109,6 @@ for (i = 0; i < app_soy_txzxg_data.length; i++) {
     
 
 };
-
-if ($.isNode() ){await notify.sendNotify($.name, subTitle)};
 
 
 })()
@@ -261,7 +257,7 @@ async function get_Share() {
  //长牛任务
 async function bullTask(){
     //APP长牛任务
-let bullTaskArray = {"rock_bullish":{"taskName":"戳牛任务", "action":"rock_bullish", "actid":1105},"open_box":{"taskName":"开宝箱", "action":"open_box", "actid":1105}, 
+bullTaskArray = {"rock_bullish":{"taskName":"戳牛任务", "action":"rock_bullish", "actid":1105},"open_box":{"taskName":"开宝箱", "action":"open_box", "actid":1105}, 
     "open_blindbox":{"taskName":"开盲盒", "action":"open_blindbox", "actid":1105}, 
     "query_blindbox":{"taskName":"查询皮肤数量", "action":"query_blindbox", "actid":1105},
     "sell_skin":{"taskName":"卖皮肤", "action":"sell_skin", "actid":1105},
@@ -1062,7 +1058,7 @@ async function bullStatus() {
                         let result = JSON.parse(data);
                         if(result.retcode == 0) {
                             if(result.forbidden_code) {
-                                $.log(`用户 ${nickname[numUser]} 可能已黑号：${result.forbidden_reason}\n`);
+                                $.log(`用户可能已黑号：${result.forbidden_reason}\n`);
                             } else {
                                 bullStatusFlag = 1
                                 $.log(`长牛状态：`)
@@ -1112,7 +1108,7 @@ async function orderQuery() {
                         let result = JSON.parse(data)
                         if(result.retcode == 0){
                             coinInfo = result.shop_asset.amount
-                            if(result.shop_asset.amount>=10000){
+                            if(result.shop_asset.amount>=48000){
                                 let item_id=result.cash[0]['item_id']
                                 await cashTicket(item_id)
                             }
