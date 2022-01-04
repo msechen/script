@@ -196,18 +196,13 @@ function pigPetUserBag() {
                     console.log(`${item.goodsName}        ${item.count}g`);
                   }
                   for (let item of data.resultData.resultData.goods) {
-                    if (item.count >= 20) {
-                      let i = 50
-                      console.log(`\n每次运行最多喂食50次`)
-                      do {
-                        console.log(`\n10秒后开始喂食${item.goodsName}，当前数量为${item.count}g`)
-                        await $.wait(10000);
-                        await pigPetAddFood(item.sku);
-                        if ($.finish) break
-                        item.count = item.count - 20
-                        i--
-                      } while (item.count >= 20 && i > 0)
-                      if ($.finish) break
+                    $.remain = item.count
+                    for (let i = 1; i < item.count/20 ; i++) {
+                      console.log(`10秒后开始喂食${item.goodsName}，当前数量为${$.remain}g`)
+                      $.remain -= 20
+                      await $.wait(10000);
+                      await pigPetAddFood(item.sku);
+                      if ($.result == 90) break;
                     }
                   }
                 } else {
