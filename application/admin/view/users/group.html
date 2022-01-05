@@ -61,9 +61,8 @@ height:120px;
             <td class='text-left nowrap'>{$vo.wxid}</td>
             <td class='text-left nowrap'>{$vo.robot_wxid}</td>
             <td class='text-left nowrap'>
-                <a data-dbclick class="layui-btn layui-btn-xs" data-title="编辑菜单" data-modal='{:url("admin/users/edit_users")}?id={$vo.wxid}'>修改群名</a>
-                <a data-dbclick class="layui-btn layui-btn-xs" style="background:red;" data-title="编辑菜单" data-modal='{:url("admin/users/edit_users")}?id={$vo.wxid}'>修改群公告</a>
-                <a data-dbclick class="layui-btn layui-btn-xs" style="background:blue;" data-title="向{$vo.nickname}发送消息" data-modal='{:url("admin/users/send_message")}?to_wxid={$vo.wxid}&robot_wxid={$vo.robot_wxid}'>发送消息</a>
+                <a data-dbclick class="layui-btn layui-btn-xs" data-title="修改【{$vo.nickname}】群资料" data-modal='{:url("admin/users/edit_group")}?to_wxid={$vo.wxid}&robot_wxid={$vo.robot_wxid}'>修改群资料</a>
+                <a data-dbclick class="layui-btn layui-btn-xs" style="background:blue;" data-title="向【{$vo.nickname}】发送消息" data-modal='{:url("admin/users/send_message")}?to_wxid={$vo.wxid}&robot_wxid={$vo.robot_wxid}'>发送消息</a>
             </td>
         </tr>
         {/foreach}

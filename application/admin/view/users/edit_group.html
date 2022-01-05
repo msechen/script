@@ -6,10 +6,16 @@
 <form class="layui-form layui-card" action="{:request()->url()}" data-auto="true" method="post" autocomplete="off">
     <div class="layui-card-body">
         <div class="layui-form-item">
-            <label class="layui-form-label label-required">消息内容</label>
+            <label class="layui-form-label">群名称</label>
             <div class="layui-input-block">
-                <textarea name="content" required placeholder="请输入消息内容" value="" class="layui-input" style="height:250px"></textarea>
-                <input type="hidden" name="_csrf_" value="{:systoken('admin/users/edit_users')}">
+                <input name="group_name" placeholder="请输入群名称" value="" class="layui-input">
+                <input type="hidden" name="_csrf_" value="{:systoken('admin/users/edit_group')}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">群公告</label>
+            <div class="layui-input-block">
+                <textarea name="group_notice" placeholder="请输入公告内容" value="" class="layui-input" style="height:250px"></textarea>
             </div>
         </div>
     </div>
@@ -17,7 +23,7 @@
     <input name="to_wxid" type="hidden" value="{$to_wxid}">
     <div class="hr-line-dashed"></div>
     <div class="layui-form-item text-center">
-        <button class="layui-btn" type='submit'>发送</button>
+        <button class="layui-btn" type='submit'>修改</button>
         <button class="layui-btn layui-btn-danger" type='button' data-close>取消</button>
     </div>
 

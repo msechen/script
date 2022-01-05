@@ -129,6 +129,32 @@ class Users extends Controller
     }
 
     /**
+     * 修改群信息
+     *@auth true
+     *@menu true
+     */
+    public function edit_group(){
+        $robot_wxid = input('get.robot_wxid/s','');
+        $to_wxid = input('get.to_wxid/s','');
+        if(request()->isPost()){
+            $group_name = input('post.group_name/s','');
+            $group_notice = input('post.group_notice/s','');
+            if($group_name!=''){
+                $params = array("event"=>"EditGroupName","robot_wxid"=>$robot_wxid,"group_wxid"=>$to_wxid,"msg"=>$group_name);
+                $resp =post_json_data(config('intranet_communication'),$params);
+            }
+            if($group_notice!=''){
+                $params = array("event"=>"EditGroupNotice","robot_wxid"=>$robot_wxid,"group_wxid"=>$to_wxid,"msg"=>str_replace("\r\n","\n",$group_notice));
+                $resp =post_json_data(config('intranet_communication'),$params);
+            }
+            $this->success('修改成功');
+        }
+        $this->assign('robot_wxid',$robot_wxid);
+        $this->assign('to_wxid',$to_wxid);
+        return $this->fetch();
+    }
+
+    /**
      * 发送消息
      *@auth true
      *@menu true
@@ -139,7 +165,7 @@ class Users extends Controller
         if(request()->isPost()){
             $content = input('post.content/s','');
             if($content=='') return $this->error('请求异常');
-            $params = array("event"=>"SendTextMsg","robot_wxid"=>$robot_wxid,"to_wxid"=>$to_wxid,"msg"=>$content);
+            $params = array("event"=>"SendTextMsg","robot_wxid"=>$robot_wxid,"to_wxid"=>$to_wxid,"msg"=>str_replace("\r\n","\n",$content));
             $resp =post_json_data(config('intranet_communication'),$params);
             if($resp['result']['msg']=='successful'){
                 $this->success('发送成功');
