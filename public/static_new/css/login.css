@@ -1,0 +1,121 @@
+input[type=button], input[type=submit], input[type=file], button {
+    cursor: pointer; -webkit-appearance: none;
+}
+.login-title{
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: #fff;
+    padding: 1rem 4%;
+    margin-top: 2rem;
+}
+.form-container{
+    padding: 1.5rem 0;
+    width: 92%;
+    margin: 0 4%;
+}
+.form-input{
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: .5rem 0;
+    background: none;
+    opacity: 1;
+    -webkit-text-fill-color: currentcolor;
+    font-size: 1rem; 
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-align: inherit;
+    text-indent: inherit;
+    text-transform: inherit;
+    text-shadow: inherit;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    margin-bottom: 1rem;
+}
+
+.form-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .9rem; 
+}
+
+.form-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .9rem; 
+}
+
+.form-input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .9rem; 
+}
+
+.form-input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .9rem; 
+}
+.form-input:focus{ 
+    outline:none;
+}
+.form-remember{
+    margin-left: 1.2rem;
+    line-height: 1rem;
+    font-size: .85rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+.form-buttom{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    background-color: hsla(0,0%,100%,.2);
+    color: #fff;
+    padding: .6rem 0;
+    border-radius: 10rem;
+    text-align: center;
+    cursor: pointer
+}
+.form-container>p{
+    text-align: center;
+}
+.form-container>p>a{
+    color: #fff;
+    font-size: .85rem;
+}
+.checkbox-input {
+    float: left;
+    background: none;
+    height: .8rem;
+    width: .8rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 100rem;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+.icon-delete,.icon-eye{
+    cursor: pointer
+}
+/*忘记密码*/
+.gobackindex{
+    padding: 1rem 1rem 0 1rem;
+    color: #fff;
+    font-size: .85rem;
+    cursor: pointer
+}
+.gobackindex>a{
+    color: #fff;
+}
+.right-icon{
+    position: absolute;
+    color: #fff;
+    font-size: .85rem;
+    right: 0;
+    top: .5rem;
+    cursor: pointer
+}
+
+/*公共*/
+.icon-position{
+    width: 100%;
+    position: relative;
+}

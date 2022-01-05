@@ -1,0 +1,21 @@
+<form class="layui-form layui-card" action="{:request()->url()}" data-auto="true" method="post" autocomplete="off">
+    <div class="layui-card-body">
+        <div class="layui-form-item">
+            <label class="layui-form-label label-required">消息内容</label>
+            <div class="layui-input-block">
+                <input name="content" required placeholder="请输入消息内容" value="" class="layui-input">
+                <input type="hidden" name="_csrf_" value="{:systoken('admin/users/edit_users')}">
+            </div>
+        </div>
+    </div>
+    <input name="robot_wxid" type="hidden" value="{$robot_wxid}">
+    <input name="to_wxid" type="hidden" value="{$to_wxid}">
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        <button class="layui-btn" type='submit'>修改</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-close>取消</button>
+    </div>
+
+    <script>window.form.render();</script>
+
+</form>

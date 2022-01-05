@@ -1,0 +1,262 @@
+body{
+    background-color: #f8f8f8;
+    margin-bottom: 65px;
+}
+.header{
+    width: 100%;
+    color: #fff;
+    position: fixed;
+    top:0;
+    z-index: 99;
+}
+.header>p{
+    width: 96%;
+    margin: 0 2%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+}
+.my-info{
+    margin-top: 45px;
+    color: #fff;
+    padding: 10px;
+    min-height: 105px;
+}
+.my-mian{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 10px 15px 10px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+}
+.my-tx{
+    width: 61px;
+    height: 61px;
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 61px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+}
+.my-name{
+    padding-left: 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.name{
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+}
+.badge-v1{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../img/badge-v_01.png");
+}
+.badge-v2{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../images/my/badge-v_02.png");
+}
+.badge-v3{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../images/my/badge-v_03.png");
+}
+.badge-v4{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../images/my/badge-v_04.png");
+}
+.badge-v5{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../images/my/badge-v_05.png");
+}.badge-v6{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../images/my/badge-v_06.png");
+}
+.badge-v7{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url("../images/my/badge-v_07.png");
+}
+    position: absolute;
+    content: "";
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: 179px 17px;
+    right: -18px;
+    top: 4px;
+    background-image: url(data:image/png;base64,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);
+}
+.code{
+    font-size: 12px;
+    margin-top: 3px;
+}
+.my-id{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -15px;
+    padding: 0 10px;
+    font-size: 8px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #fff;
+    border-radius: 2500px;
+}
+.my-money{
+    margin-top: -25px;
+    position: relative;
+    z-index: 10;
+    padding-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    min-height: 50px;
+}
+.wallet{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+.wallet>img{
+    height: 50px;
+    width: 50px;
+}
+.wallet>p{
+    margin-top: -10px;
+    font-size: 12px;
+    color: #000;
+}
+.balance{
+    color: rgb(118, 105, 253)!important;
+    font-weight: bold;
+    margin-top: 0!important;
+}
+.balance2{
+    color: rgb(255, 156, 54)!important;
+    font-weight: bold;
+    margin-top: 0!important;
+}
+.balance3{
+    color: rgb(233, 103, 255)!important;
+    font-weight: bold;
+    margin-top: 0!important;
+}
+.balance4{
+    color: rgb(255, 54, 63)!important;
+    font-weight: bold;
+    margin-top: 0!important;
+}
+.my-meun{
+    overflow: hidden;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.my-meun>a>.meun-item{
+    font-size: 15px;
+    padding-right: 45px;
+    position: relative;
+    /* display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; */
+    padding: 0 15px;
+    height: 50px;
+    background-color: #fff;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.my-meun>a>.meun-item>img{
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-top: -3px;
+}
+.my-meun>a>.meun-item>span{
+    line-height: 50px;
+    margin-left: 5px;
+}
+.my-meun>a>.meun-item>icon{
+    color: #000;
+    position: absolute;
+    right: 15px;
+    top:17px;
+}
+.logout{
+    padding: 15px;
+}
+.logout>a>p{
+    text-align: center;
+    color: #8799a3;
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #8799a3;
+    border-radius: 2500px;
+}

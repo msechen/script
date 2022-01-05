@@ -1,0 +1,52 @@
+body{
+    margin-bottom: 65px;
+}
+.header{
+    width: 100%;
+    color: #fff;
+    position: fixed;
+    top:0;
+    z-index: 99;
+    position: relative;
+}
+.goback{
+    position: absolute;
+    color: #fff;
+    left: 2%;
+    height: 46px;
+    line-height: 46px;
+}
+.goback>a{
+    color: #fff;
+    font-size: 14px;
+}
+.header>p{
+    width: 96%;
+    margin: 0 2%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+}
+.team-chart{
+    margin-top: 15px;
+    padding: 15px;
+    color: #fff;
+    position: relative;
+    min-height: 100px;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.team-item{
+    padding: 10px 0;
+    float: left;
+    width: 50%;
+}
+.team-item-desc{
+    font-size: 12px;
+    opacity: .75;
+}
+.team-item-num{
+    font-weight: 500;
+    margin-top: 5px;
+}

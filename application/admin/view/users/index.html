@@ -1,0 +1,95 @@
+{extend name='main'}
+
+{block name="content"}
+<style>
+.layui-table-cell{
+    height: auto !important;
+}
+.layui-table img {
+width: 120px;
+height:120px;
+}
+.contain {
+            font-family: ‘ Microsoft YaHei ’;
+            margin: 15px auto;
+            width: 900px;
+        }
+
+        table {
+            border: 1px solid #e3e6e8;
+            border-collapse: collapse;
+            display: table;
+            table-layout: fixed;
+            text-align: center;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #e3e6e8;
+            height: 38px;
+            line-height: 38px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    
+        .layui-layer {
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+</style>
+<div class="think-box-shadow">
+    {include file='users/index_search'}
+    <table class="layui-table margin-top-15" lay-filter="tab" lay-skin="line">
+        {notempty name='robot_list'}
+        <thead>
+        <tr>
+            <th lay-data="{field:'headimgurl',width:130}" class='text-left nowrap'>头像</th>
+            <th lay-data="{field:'wxid',width:180}" class='text-left nowrap'>微信ID</th>
+            <th lay-data="{field:'wx_num',width:150}" class='text-left nowrap'>微信号</th>
+            <th lay-data="{field:'nickname',width:120}" class='text-left nowrap'>昵称</th>
+            <th lay-data="{field:'signature',width:150}" class='text-left nowrap'>个性签名</th>
+            <th lay-data="{field:'login_time'}" class='text-left nowrap'>登录时间</th>
+            <th lay-data="{field:'edit',fixed: 'right'}" class='text-left nowrap'>操作</th>
+        </tr>
+        </thead>
+        {/notempty}
+        <tbody>
+        {foreach $robot_list as $key=>$vo}
+        <tr>
+            <td class='text-left nowrap'><img src="{$vo.headimgurl}"></td>
+            <td class='text-left nowrap'>{$vo.wxid}</td>
+            <td class='text-left nowrap'>{$vo.wx_num}</td>
+            <td class='text-left nowrap'>{$vo.nickname}</td>
+            <td class='text-left nowrap'>{$vo.signature}</td>
+            <td class='text-left nowrap'>{$vo.login_time|format_datetime}</td>
+            <td class='text-left nowrap'>
+                <a data-dbclick class="layui-btn layui-btn-xs" data-title="编辑菜单" data-modal='{:url("admin/users/edit_users")}?id={$vo.wxid}'>编 辑</a>
+                <a data-dbclick class="layui-btn layui-btn-xs" style="background:blue;" data-title="添加关键词" data-modal='{:url("admin/reply/add_reply")}?id={$vo.wxid}'>添加关键词</a>
+                <a data-dbclick class="layui-btn layui-btn-xs" style="background:#6cb51d;" data-title="添加定时任务" data-modal='{:url("admin/task/add_task")}?id={$vo.wxid}'>添加定时任务</a>
+                <br>
+                <a data-dbclick class="layui-btn layui-btn-xs" style="background:orange;" data-open='{:url("admin/users/friend")}?id={$vo.wxid}'>查看好友</a>
+                <a data-dbclick class="layui-btn layui-btn-xs" style="background:brown;" data-open='{:url("admin/users/group")}?id={$vo.wxid}'>查看群组</a>
+                
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    <script>
+        var table = layui.table;
+        //转换静态表格
+        var limit = Number('{$Think.get.limit}');
+        if(limit==0) limit=20;
+        table.init('tab', {
+            cellMinWidth:120,
+            skin: 'line,row',
+            size: 'lg',
+            limit: limit
+        });
+    </script>
+    {empty name='robot_list'}<span class="notdata">没有记录哦</span>{else}{$pagehtml|raw|default=''}{/empty}
+
+</div>
+{/block}

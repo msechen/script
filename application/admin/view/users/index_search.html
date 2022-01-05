@@ -1,0 +1,34 @@
+
+<fieldset>
+    <legend>条件搜索</legend>
+    <form class="layui-form layui-form-pane form-search" action="{:request()->url()}" onsubmit="return false" method="get" autocomplete="off">
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">微信id</label>
+            <div class="layui-input-inline">
+                <input name="wxid" value="{$Think.get.wxid|default=''}" placeholder="请输入微信id" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">微信号</label>
+            <div class="layui-input-inline">
+                <input name="wx_num" value="{$Think.get.wx_num|default=''}" placeholder="请输入微信号" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-inline">
+                <input name="nickname" value="{$Think.get.nickname|default=''}" placeholder="请输入昵称" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-inline">
+            <button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button>
+        </div>
+    </form>
+</fieldset>
+
+<script>
+    var test = "{$Think.get.is_jia|default='0'}";
+    $("#selectList").find("option[value="+test+"]").prop("selected",true);
+    form.render()
+</script>

@@ -1,0 +1,86 @@
+{extend name='main'}
+
+{block name="content"}
+<style>
+        table {
+            border: 1px solid #e3e6e8;
+            border-collapse: collapse;
+            display: table;
+            table-layout: fixed;
+            text-align: center;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #e3e6e8;
+            height: 38px;
+            line-height: 38px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    
+        .layui-layer {
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+</style>
+<div class="think-box-shadow">
+
+    <table class="layui-table margin-top-15" lay-skin="line">
+        {notempty name='list'}
+        <thead>
+        <tr>
+            <th class='text-left nowrap'>ID</th>
+            <th class='text-left nowrap'>任务内容</th>
+            <th class='text-left nowrap'>执行间隔</th>
+            <th class='text-left nowrap'>上次执行时间</th>
+            <th class='text-left nowrap'>机器人ID</th>
+            <th class='text-left nowrap'>添加时间</th>
+            <th class='text-left nowrap'>操作</th>
+        </tr>
+        </thead>
+        {/notempty}
+        <tbody>
+        {foreach $list as $key=>$vo}
+        <tr>
+            <td class='text-left nowrap'>{$vo.id}</td>
+            <td class='text-left nowrap'>{$vo.task_content}</td>
+            <td class='text-left nowrap'>{$vo.run_interval}分钟</td>
+            <td class='text-left nowrap'>{$vo.run_time|format_datetime}</td>
+            <td class='text-left nowrap'>{$vo.robot_wxid}</td>
+            <td class='text-left nowrap'>
+                {$vo.add_time|format_datetime}
+            </td>
+            <td class='text-left nowrap'>
+                <a class="layui-btn layui-btn-xs layui-btn" data-modal='{:url("admin/task/edit_task")}?id={$vo.id}&robot_wxid={$vo.robot_wxid}' style='background:green;'>编辑</a>
+                <a class="layui-btn layui-btn-xs layui-btn" style='background:red;' onClick="delete_task({$vo.id})">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+
+    {empty name='list'}<span class="notdata">没有记录哦</span>{else}{$pagehtml|raw|default=''}{/empty}
+
+</div>
+<script>
+    function delete_task(id){
+        layer.confirm("确认要删除吗，删除后不能恢复",{ title: "删除确认" },function(index){
+            $.ajax({
+                type: 'POST',
+                url: "{:url('delete_task')}",
+                data: {
+                    'id': id,
+                    '_csrf_': "{:systoken('admin/task/delete_task')}"
+                },
+                success:function (res) {
+                    layer.msg(res.info,{time:2500});
+                    location.reload();
+                }
+            });
+        },function(){});
+    }
+</script>
+{/block}

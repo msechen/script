@@ -1,0 +1,396 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/**********会员首页**********/
+/**************************/
+/******页头******/
+/*------主体------*/
+.user-top{ width: 100%; background:url(../images/user_bg.png) no-repeat center; background-size: cover; position: relative;}
+
+
+/*------消息按钮------*/
+.user-header .header-msg{ width:1.8rem; height:1.8rem; background:url(../images/icon_header_msg.svg) no-repeat center; background-size:.8rem auto; overflow:hidden; display:block; position:absolute; z-index:1000; left:0; top:0;}
+.user-header .header-msg a{ width: 100%; height: 100%; display: block;}
+
+/*------设置按钮------*/
+.user-header .header-setting{ width:1.8rem; height: 1.8rem; position: absolute; right: 0; top: 0;}
+.user-header .header-setting a{ width: 100%; height: 100%;  background: url(../images/icon_header_setting.svg) no-repeat center; background-size: .9rem auto; display: block; position: relative;}
+.user-header .header-setting i{ width:.35rem; height: .35rem; background: #f00; border-radius: 50%; display: block; position: absolute; right: .4rem; top: .4rem;}
+
+/*------会员信息------*/
+.user-info{ overflow: hidden; padding: 2rem 1rem 2rem 1rem;}
+.user-info a{ color: #fff; overflow: hidden; display: block;}
+
+.user-info .user-photo{ width: 2.8rem; height: 2.8rem; border: #fff .1rem solid; border-radius: 50%; overflow: hidden; margin: 0 auto;}
+.user-info .user-photo img{ width:100%; height: 100%;}
+
+.user-info h3{ font-size: .64rem; text-align: center; padding: .3rem 0 0 0;}
+
+/*------信用等级------*/
+.user-level{ width: 100%; text-align: center;}
+.user-level i{ width:.6rem; height: .6rem; background: url(../images/icon_heart.svg) no-repeat center; background-size: .52rem auto; display: inline-block;}
+
+/*------余额------*/
+.user-wallet{ width:auto; background: #fff; border-radius: .18rem; box-shadow: 0 .2rem .6rem rgba(185,196,213,.4); overflow: hidden; position: absolute; left: .46rem; right: .46rem; bottom: -1.3rem;}
+.user-wallet li{ width: 50%; text-align: center; overflow: hidden; float: left; position: relative; padding: .5rem 0;}
+.user-wallet li:first-child:after{ width: .06rem; height: 1rem; content: ''; background: #eee; position: absolute; right: 0; top: 1rem;}
+
+.user-wallet li a{ display: block;}
+.user-wallet li h3{ font-size: .8rem; color: #111;}
+.user-wallet li span{ font-size: .56rem; color: #999;}
+
+
+/******内容主体******/
+/*------主体------*/
+.user-container{ width: 100%; margin-top: 2rem; clear: both;}
+
+.index-panel{ width: auto; background: #fff; border-radius: .18rem; overflow: hidden; margin: 0 .46rem;}
+.index-title{ width:100%; line-height: 1.2rem; font-size: .58rem; color: #333; position: relative; padding: 0 .4rem 0 .86rem;}
+.index-title:before{ width: .16rem; height: .7rem; content: ''; background: #548ffc; border-radius: .08rem; position: absolute; left: .4rem; top: .25rem;}
+
+
+/******会员主菜单******/
+/*------菜单列表------*/
+.main-menu{ width: 100%; overflow: hidden; padding: .4rem 0 .3rem 0;}
+.main-menu li{ width:25%; overflow: hidden; float: left;}
+.main-menu li a{ display: block;}
+.main-menu li span{ width:100%; font-size: .52rem; color: #777; text-align: center; display: block;}
+
+.main-menu li i{ width: 1.8rem; height: 1.8rem; display: block; margin: 0 auto; position: relative; }
+.main-menu li i:before{ width: .85rem; height: .85rem; content: ''; border-radius: .16rem; position: absolute; left: 0; top: .16rem; z-index: 1;}
+.main-menu li i:after{ width: 1.8rem; height: 1.8rem; content: ''; background-position: center; background-repeat: no-repeat; background-size: 2rem auto; position: absolute; z-index: 2; left: 0; top: 0;}
+
+/*------菜单图标------*/
+.main-menu li i.icon-transferin:after{ background-image: url(../images/cz.png);}
+.main-menu li i.icon-transferout:after{ background-image: url(../images/lib.png);}
+.main-menu li i.icon-buy:after{ background-image: url(../images/tx.png);}
+.main-menu li i.icon-sell:after{ background-image: url(../images/yq.png);}
+
+.main-menu li i.icon-transferin:before, .main-menu li i.icon-transferout:before{ background: #cae9ff;}
+.main-menu li i.icon-buy:before, .main-menu li i.icon-sell:before{ background: #e6e2ff;}
+
+
+/******会员小菜单******/
+/*------菜单列表------*/
+.index-menu{ width: 100%; overflow: hidden;}
+.index-menu li{ width: 100%; border-bottom: #f4f4f4 .05rem solid; overflow: hidden;}
+.index-menu li:last-child{ border-bottom: none;}
+
+.index-menu li a{ width: 100%; line-height: 1.6rem; overflow: hidden; display: block; position: relative; padding: 0 1.1rem 0 2rem;}
+.index-menu li a:after{ width: 1.1rem; height: 1.6rem; content: ''; background: url(../img/icon_arrow.svg) no-repeat center; background-size: .7rem; position: absolute; right: 0; top: 0;}
+.index-menu li span{ width: 100%; font-size: .52rem; color: #777; display: block}
+
+.index-menu li i{ width: 2rem; height: 1.6rem; background-position: center; background-repeat: no-repeat; background-size: .8rem auto; display: block; position: absolute; left: 0; top: 0;}
+
+/*------菜单图标------*/
+.index-menu li .index-menu-1 i{ background-image: url(../images/menu/icon_menu_1.svg);}
+.index-menu li .index-menu-2 i{ background-image: url(../images/menu/icon_menu_2.svg);}
+.index-menu li .index-menu-3 i{ background-image: url(../images/menu/icon_menu_3.svg);}
+
+
+/******会员菜单：暂未开放******/
+.coming-soon-content{ width: auto; text-align: center; overflow: hidden; padding: 1rem .6rem;}
+.coming-soon-content img{ width: 2.5rem;}
+.coming-soon-content p{ font-size: .56rem; text-align: center; margin-top: .5rem;}
+
+.popup .popup-box.coming-soon .popup-submit button{ width: 60%; float: none; margin: 0 auto; display: block;}
+/*------底部图标------*/
+.Home {
+   
+    background: url(../img/sy1.png) no-repeat;
+   
+    background-size: 30px;
+}
+
+/******公告******/
+/*------主体------*/
+.index-announce{ width: 100%; border-bottom: #f4f4f4 .08rem solid; overflow: hidden; padding: .2rem 2rem .2rem 2.6rem; position: relative;}
+.index-announce:after{ width: 2.6rem; height: 1.7rem; content: ''; background: url(../images/icon_announce.svg) no-repeat center; background-size: 2rem auto; position: absolute; left: 0; top: .2rem;}
+
+.announce-more{ width: 2rem; height: 1.7rem; line-height: 1.7rem; font-size: .52rem; color: #aaa; text-align: center; display: block; position: absolute; right: 0; top: .2rem;}
+
+/*------列表------*/
+.announce-box{ width: 100%; overflow: hidden;}
+.announce-box ul{ height: 1.7rem; white-space: nowrap; overflow: hidden;}
+/*.announce-box li{ height: 100%; line-height: 1.7rem; font-size: .56rem; display: inline-block; vertical-align: top; padding-right: 1rem;}*/
+.announce-box li{ width: 100%; height: 100%; line-height: 1.7rem; font-size: .56rem; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+
+.announce-box li a{ color: #333; white-space: nowrap;}
+.announce-box li span{ color: #aaa; font-size: .52rem; margin-right: .2rem;}
+
+/******底部固定导航******/
+/*------主体------*/
+.nav{ width: 100%; height: 2.2rem; background: #fff; position: fixed; left: 0; bottom: 0;}
+.nav li{ width: 33.333333%; float: left; position: relative;}
+.nav li a{ display: block;}
+.nav li i{ width: 1.2rem; height: 1.15rem; display: block; margin: 0 auto;}
+.nav li span{ font-size: .52rem; color: #333; text-align: center; display: block;}
+
+/*------左右小图标------*/
+.nav li .nav-assets, .nav li .nav-shop{ width: 2rem; height: 100%; padding: .2rem 0 0 0; margin: 0 auto;}
+.nav li .nav-assets i{ background: url(../images/icon_nav_asset.svg) no-repeat center; background-size: 1rem auto;}
+.nav li .nav-shop i{ background: url(../images/icon_nav_shop.svg) no-repeat center; background-size: 1.1rem auto;}
+
+/*------中间扫码按钮------*/
+.nav li .scan-btn{ width: 3.4rem; height: 3.4rem; border-radius: 50%; background: linear-gradient(-45deg,#7e67ff,#49a7ff); background: -webkit-linear-gradient(top left,#49a7ff,#7e67ff); box-shadow: 0 -.1rem .8rem rgba(88,135,251,.7); overflow: hidden; margin: 0 auto; margin-top: -1.3rem;}
+.nav li .scan-btn i{ width: 3.4rem; height: 3.4rem; background: url(../images/icon_scan.svg) no-repeat center; background-size: 1.8rem auto;}
+
+/*.nav li .scan-btn i{ width: 2.54rem; height: 2.54rem; border-radius: 50%; background: linear-gradient(-45deg,#7e67ff,#49a7ff); background: -webkit-linear-gradient(top left,#49a7ff,#7e67ff); box-shadow: 0 -.1rem .8rem rgba(88,135,251,.7); overflow: hidden; margin: 0 auto; margin-top: -1.24rem; position: relative;}
+.nav li .scan-btn i:after{ width: 2.54rem; height: 2.54rem; content: ''; background: url(../images/icon_scan.svg) no-repeat center; background-size: 1.4rem auto; position: absolute; left: 0; top: 0;}
+*/
+
+
+
+/**********会员设置**********/
+/**************************/
+/******设置菜单******/
+/*------主体------*/
+.setting-menu{ width: 100%; background: #fff; overflow: hidden; position: relative;}
+
+.setting-menu a{ width:100%; color: #111; border-bottom: #f1f1f1 1px solid; display: block; padding: .3rem 5rem .3rem 2rem; position: relative;}
+.setting-menu a:after{ width: .5rem; height: 1.4rem; content: ''; background: url(../img/icon_arrow.svg) no-repeat center; background-size: .8rem auto; position: absolute; right:.3rem; top:.3rem;}
+.setting-menu a:last-child{ border: none;}
+
+/*------列表------*/
+.setting-menu i{ width: 1.2rem; height: 1.4rem; background-position: center; background-repeat: no-repeat; background-size: .86rem auto; display: block; position: absolute; left: .4rem; top: .3rem;}
+.setting-menu h3{ line-height: 1.4rem; font-size: .56rem;}
+.setting-menu span{ line-height: 1.4rem; font-size: .5rem; color: #999; position: absolute; right: 1.2rem; top: .3rem;}
+
+.setting-menu em.remind{ width:.35rem; height: .35rem; background: #fa5e6a; border-radius: 50%; display: block; position: absolute; right: 1.2rem; top: .8rem;}
+.setting-menu em.new-version{ line-height: .6rem; color: #fff; background: #fa5e6a; border-radius: .3rem; margin-left: .2rem; padding: 0 .3rem;}
+
+/*------列表图标------*/
+.setting-menu a.setting-menu-1 i{ background-image: url(../images/setting/user_icon_1.svg);}
+.setting-menu a.setting-menu-2 i{ background-image: url(../images/setting/user_icon_2.svg);}
+.setting-menu a.setting-menu-3 i{ background-image: url(../images/setting/user_icon_3.svg);}
+.setting-menu a.setting-menu-4 i{ background-image: url(../images/setting/user_icon_4.svg);}
+.setting-menu a.setting-menu-5 i{ background-image: url(../images/setting/user_icon_5.svg); background-size: .96rem auto;}
+.setting-menu a.setting-menu-6 i{ background-image: url(../images/setting/user_icon_6.svg); background-size: .96rem auto;}
+.setting-menu a.setting-menu-7 i{ background-image: url(../images/setting/user_icon_7.svg);}
+.setting-menu a.setting-menu-8 i{ background-image: url(../images/setting/user_icon_8.svg);}
+.setting-menu a.setting-menu-9 i{ background-image: url(../images/setting/user_icon_9.svg);}
+.setting-menu a.setting-menu-10 i{ background-image: url(../images/setting/user_icon_10.svg); background-size: .76rem auto;}
+.setting-menu a.setting-menu-11 i{ background-image: url(../images/setting/user_icon_11.svg);}
+.setting-menu a.setting-menu-12 i{ background-image: url(../images/setting/user_icon_12.svg);}
+.setting-menu a.setting-menu-13 i{ background-image: url(../images/setting/user_icon_13.svg);}
+.setting-menu a.setting-menu-14 i{ background-image: url(../images/setting/user_icon_14.svg);}
+.setting-menu a.setting-menu-15 i{ background-image: url(../images/setting/user_icon_15.svg);}
+.setting-menu a.setting-menu-16 i{ background-image: url(../images/setting/user_icon_16.svg);}
+.setting-menu a.setting-menu-17 i{ background-image: url(../images/setting/user_icon_17.svg); background-size: .8rem auto;}
+
+/*------个人信息和设置头像------*/
+.setting-menu.setting-photo{ min-height: 3.6rem; background: linear-gradient(90deg,#27a6fa,#8e71f5); background: -webkit-linear-gradient(left,#27a6fa,#8e71f5); padding: .4rem .5rem .5rem 4rem;}
+
+.setting-menu.setting-photo .setting-img{ width: 2.6rem; height: 2.6rem; border-radius: 50%; overflow: hidden; position: absolute; left: .5rem; top: .3rem;}
+.setting-menu.setting-photo .setting-img img{ width: 100%;}
+.setting-menu.setting-photo h1{ font-size: .76rem; color: #fff; padding: 0 0 .2rem 0;}
+
+.setting-menu.setting-photo span{ font-size: .52rem; color: #fff; top: 1rem; right: .5rem;}
+
+/*------信用等级------*/
+.setting-menu.setting-photo h3, .setting-menu.setting-photo i{ height: .8rem; display: block; float: left;}
+.setting-menu.setting-photo h3{ line-height: .8rem; font-size: .56rem; color: #fff; margin-right: .2rem;}
+.setting-menu.setting-photo i{ width:.66rem; background: url(../images/icon_heart.svg) no-repeat center; background-size: .54rem auto; position: relative; top: 0; left: 0;}
+
+/*------退出登录------*/
+.logout{ width: 100%; overflow: hidden; padding: 0 0 .8rem 0;}
+.logout a{ width: 100%; font-size: .56rem; color: #2487ff; text-align: center; background: #fff; display: block; padding: .4rem;}
+
+
+
+/**********文章样式**********/
+/**************************/
+/******列表******/
+.article-box{ width: 100%; position: relative;}
+
+.article-list{ width:100%; color: #111; background: #fff; display: block; padding: .4rem 1.8rem .4rem .5rem; margin-bottom: .3rem; position: relative;}
+.article-list:after{ width: .5rem; height: 1.4rem; content: ''; background: url(../img/icon_arrow.svg) no-repeat center; background-size: .8rem auto; position: absolute; right:.3rem; top:.6rem;}
+
+.article-list h3{ width: 100%; height: 1rem; line-height: 1rem; font-size: .6rem; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.article-list p{ color: #999; margin-top: .1rem;}
+
+.article-list em.remind{ width:.35rem; height: .35rem; background: #fa5e6a; border-radius: 50%; display: block; position: absolute; right: 1.2rem; top: 1.15rem;}
+
+/******正文******/
+.article{ width: 100%; background: #fff; overflow: hidden; padding: .5rem .7rem;}
+.article .article-title{ font-size: .72rem; text-align: center; padding: .3rem 0;}
+.article .article-time{ font-size: .56rem; text-align: center; color: #999;}
+
+.article .article-content{ overflow: hidden; padding: 1rem 0 .8rem 0;}
+.article .article-content p{ line-height: 1.8em; font-size: .52rem; color: #555; text-indent: 1.04rem; text-align: justify; margin-top: .15rem;}
+
+
+
+/**********会员资金相关**********/
+/**************************/
+/******银行卡管理******/
+/*------添加银行卡按钮------*/
+.add-bankcard{ width: 100%; overflow: hidden; padding: 1.5rem .5rem 0 .5rem;}
+.add-bankcard a{ color: #859ead; text-align: center; background: #fff; border: #c8cfd2 1px solid; border-radius: .3rem; display: block; padding: .3rem;}
+.add-bankcard i, .add-bankcard span{ height: 1rem; line-height: 1rem; display: inline-block; vertical-align: top;}
+.add-bankcard i{ width: 1.2rem;background: url(../images/icon_card.png) no-repeat center; background-size: auto .8rem;}
+
+/*------添加银行卡表单------*/
+.bankcard-form .form-label{ width: 4rem;}
+
+/*------银行卡列表------*/
+.bankcard-list{ width:100%;}
+.bankcard-list li{  width:auto; background: #fff; border-radius: .25rem; box-shadow: 0 0 6px rgba(0, 0, 0, .15); overflow: hidden; position: relative; margin: .6rem .5rem; z-index: 1;}
+
+.bankcard-list .bankcard-list-box{ width: 100%; display: block; position: relative;}
+.bankcard-list .bankcard-list-box h3{ width: 100%; font-size: .6rem; color: #fff; background: linear-gradient(90deg,#5cadfe,#8584f7); background: -webkit-linear-gradient(left,#5cadfe,#8584f7); padding: .3rem .6rem;}
+.bankcard-list .bankcard-list-box p{ font-size: .56rem; color: #666; display: block; padding: .6rem;}
+.bankcard-list .bankcard-list-box span{ font-size: .4rem; color: #46a9fd; border: #46a9fd 1px solid; border-radius: .1rem; padding: 0 .1rem; display: inline-block; margin-right: .2rem;}
+
+.bankcard-list button{ color: #aaa; border: #ddd 1px solid; border-radius: .2rem; padding: .1rem .5rem; position: absolute; right: .6rem; bottom: .45rem; z-index: 2;}
+
+
+/******选择国家******/
+/*------国家列表------*/
+.region{ padding: 3.16rem 0 1.6rem 0;}
+.current-region{ width: 100%; line-height: 1.4rem; color: #777; background: #fff; border-bottom: #eee 1px solid; padding: 0 .5rem; position: fixed; left: 0; top: 1.76rem; z-index: 99;}
+
+.region-list{ width: 100%; background: #fff; border-top: #eee 1px solid; border-bottom: #eee 1px solid; overflow: hidden; padding: 0 0 0 .5rem;}
+.region-list li{ width: 100%; height: 1.7rem; line-height: 1.7rem; border-bottom: #eee 1px solid; position: relative;}
+.region-list li:last-child{ border-bottom: none;}
+
+/*------选择框------*/
+.region-list li label, .region-list input[type='radio']{ width:100%; height: 1.7rem; position: absolute; left: 0; top: 0;}
+.region-list li label{ font-size: .56rem; z-index: 1;}
+.region-list input[type='radio']{ opacity: 0; z-index: 2}
+
+.region-list input:checked+label::after{ width: 1rem; height: 1rem; content: ''; background: url(../images/icon_check.svg) no-repeat center; background-size: .55rem auto; position: absolute; right: .5rem; top: .35rem;}
+.region-list input:checked+label{ color: #46a9fd;}
+
+/*------提交------*/
+.region-sumbit{ width:100%; height: 1.65rem; position: fixed; left: 0; bottom: 0; z-index: 999;}
+.region-sumbit button{ width: 100%; height: 100%; font-size: .56rem; color: #fff; background: #46a9fd;}
+
+
+/******我的资产******/
+/*------余额------*/
+.assets-balance{ width: 100%; background: #fff; border-bottom: #f1f1f1 1px solid; overflow: hidden; position: relative;}
+.assets-balance:after{ width: 1.1rem; height: 1.1rem; content: ''; background: url(../images/arrow_double.svg) no-repeat center; background-size: 1.1rem auto; position: absolute; left: 45%; top: .9rem;}
+
+.assets-balance li{ width: 50%; text-align: center; overflow: hidden; float: left; padding: .6rem 1rem .6rem .5rem;}
+.assets-balance li:last-child{ padding: .6rem .5rem .6rem 1rem;}
+
+.assets-balance li p{ line-height: .6rem; font-size: .56rem; color: #999; display: block;}
+.assets-balance li h3{ width: 100%; height: 1rem; font-size: .8rem; color: #333; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block; margin-top: .1rem;}
+
+.assets-balance li p.assets-unit span{ display: inline-block; padding: 0 .6rem 0 0; position: relative;}
+.assets-balance li p.assets-unit span:after{ width: 0; height: 0; content: ''; border-left:.18rem solid transparent; border-right:.18rem solid transparent; border-top:.18rem solid #bbb; display: block; position: absolute; right: 0; top: .25rem;}
+
+/*------资产列表------*/
+.assets-title{ width: 100%; font-size: .5rem; color: #333; padding: .3rem .5rem;}
+
+.assets-list{ width: 100%; background: #fff; border-top: #f1f1f1 1px solid; overflow: hidden;}
+.assets-list li{ width: 50%; border-right: #f1f1f1 1px solid; border-bottom: #f1f1f1 1px solid; overflow: hidden; padding: .5rem; float: left;}
+.assets-list span{ font-size: .52rem; color: #666;}
+.assets-list h3{ font-size: .76rem; color: #46a9fd;}
+
+
+
+/**********分享相关**********/
+/**************************/
+/******分享******/
+/*------页面主体------*/
+.share-bg{ min-height: 100%; background: url(../images/share_bg.jpg) no-repeat center; background-size: cover;}
+
+.share-header{ background: none;}
+
+/*------分享二维码------*/
+.share-qrcode{ width: 100%; overflow: hidden; padding: 3rem 0 0 0;}
+.share-qrcode img{ display: block; margin: 0 auto;}
+.share-qrcode img.qrcode-img{ width: 9rem; height: 9rem; margin-top: 2rem;}
+.share-qrcode p{ font-size: .6rem; color: #fff; text-align: center; padding: 2rem 2rem 0 2rem;}
+
+/*------复制地址------*/
+.share-address{ width: 100%; overflow: hidden; padding: 1rem 0;}
+.share-address button{ width: 8rem; line-height: 1.4rem; font-size: .56rem; color: #fff; text-align: center; background: rgba(255,255,255,.4); border-radius: .7rem; display: block; margin: 0 auto;}
+
+
+
+/**********反馈建议**********/
+/**************************/
+/******反馈表单******/
+/*------主体------*/
+.feedback-form{ width: 100%; overflow: hidden;}
+.feedback-form h3{ width: 100%; font-size: .56rem; color: #333; padding: .5rem .5rem .3rem .5rem;}
+
+/*------反馈类型------*/
+.feedback-type{ border-top: none;}
+.feedback-type li{ height: 1.5rem; line-height: 1.5rem;}
+
+.feedback-type li label, .feedback-type input[type='radio']{ height: 1.5rem;}
+.feedback-type li label{ font-size: .52rem; color: #777;}
+.feedback-type input:checked+label::after{ top: .3rem;}
+
+/*------上传图片------*/
+.feedback-form .upload-photo h3{ padding: 0 0 .5rem 0;}
+/**********商城模块**********/
+/**************************/
+/******收货地址******/
+/*------无收货地址------*/
+.no-address{ width: 100%; height: 15rem; overflow: hidden; padding-top: 8rem;}
+.no-address i{ width: 2rem; height: 2rem; background: url(../images/icon_location.svg) no-repeat center; background-size: 2rem auto; display: block; margin: 0 auto;}
+.no-address p{ font-size: .52rem; color: #666; text-align: center; margin-top: .8rem;}
+
+/*------地址列表------*/
+.address-list{ width: 100%; overflow: hidden; position: relative;}
+.address{ width: 100%; background: #fff; overflow: hidden; padding: 0 .5rem;}
+
+.address .address-list-content{ width: 100%; border-bottom: #f1f1f1 1px solid; overflow: hidden; padding: .6rem 0;}
+.address .address-list-content h3{ font-size: .64rem; color: #111; float: left;}
+.address .address-list-content span{ font-size: .6rem; color: #111; display: block; float: right;}
+.address .address-list-content p{ width: 100%; font-size: .52rem; color: #777; overflow: hidden; padding-top: .3rem; clear: both;}
+
+/*------地址列表操作------*/
+.address .address-list-toolbar{ width: 100%; overflow: hidden; padding: .2rem 0;}
+.address .address-list-toolbar .default-address{ float:left;}
+.address .address-list-toolbar .default-address .set-default{ padding: .22rem;}
+.address .address-list-toolbar .default-address .set-default i{ width:.74rem; height:.74rem; background:url(../images/icon_check_white.svg) #46a9fd no-repeat center; background-size:.5rem auto; border-radius: 50%; display: block; float: left;}
+
+.address .address-list-toolbar .address-operate{ float: right;}
+.address .address-list-toolbar .address-operate a{ line-height: 1.2rem; color: #555; display: block; margin-left: 1rem; float: left;}
+
+
+/******店铺申请审核中******/
+.shop-apply{ width: 100%; background: url(../images/user_bg.png) no-repeat center top; background-size: 100% 100%; overflow: hidden; padding: 1rem;}
+.shop-apply i{ width: 5rem; height: 5rem; background: url(../images/icon_verify.png) no-repeat center; background-size: 100% auto; display: block; margin: 0 auto;}
+.shop-apply h1{ font-size: .56rem; color: #fff; text-align: center; padding-top: .5rem;}
+.shop-apply span{ font-size: .6rem; color: #f00;}
+
+
+/******店铺资料******/
+.shop-card{ width: 100%; text-align: center; color: #fff; background: url(../images/user_bg.png) no-repeat center top; background-size: cover; overflow: hidden; padding: 1.5rem 1rem;}
+.shop-card h1{ font-size: 1.1rem; padding: 0 0 .5rem 0;}
+.shop-card p{ font-size: .6rem;}
+
+.enter-shop{ width: 100%; padding: .5rem;}
+.enter-shop a{ width: 100%; height: 1.6rem; line-height: 1.6rem; font-size: .6rem; color: #fff; text-align: center; background: #46adfc; border-radius: .2rem; display: block;}
+
+
+/******店铺产品管理******/
+/*------产品列表------*/
+.product-container{ overflow-x: hidden; overflow-y: auto; position: absolute; left: 0; top: 1.8rem; right: 0; bottom: 2.1rem;}
+.product{ width: 100%; position: relative;}
+
+.product-box{ width:100%; border-bottom:#eee 1px solid; background:#fff; overflow:hidden; position:relative; margin-bottom: .3rem;}
+.product-box a{ width:100%; display:block; overflow:hidden;}
+.product-box img{ width:4.4rem; height:4.4rem;}
+
+.product-box .product-info{ width:10.6rem; overflow:hidden; padding:.4rem .5rem 0 .6rem;}
+.product-box .product-info h3{ height:1.6rem; line-height:.8rem; font-weight:normal; font-size:.56rem; color:#333; -webkit-line-clamp:2; overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical;}
+.product-box .product-info p{ font-size:.64rem; color:#fc0a0a; margin-top:.4rem;}
+.product-box .product-info span{ font-size:.5rem; color:#999;}
+
+.product-box .product-edit{ position: absolute; right: .5rem; bottom: .5rem;}
+.product-box .product-edit a, .product-box .product-edit span{ width: auto; line-height: 1rem; font-size: .52rem; color: #999; border: #ddd 1px solid; border-radius: .2rem; display: block; float: left; padding: 0 .3rem; margin-left: .3rem;}
+
+/*------添加产品表格------*/
+.product-form .upload-photo{ padding: .5rem .3rem;}
+.product-form .upload-photo h3{ font-size: .56rem; color: #333; padding: 0 0 .3rem 0;}
+
+.product-form .textarea-group{ padding: .5rem .3rem .3rem .3rem;}

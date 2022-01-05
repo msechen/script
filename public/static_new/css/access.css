@@ -1,0 +1,144 @@
+body{
+    background-color: #f8f8f8;
+    margin-bottom: 65px;
+}
+.header{
+    width: 100%;
+    color: #fff;
+    position: fixed;
+    top:0;
+    z-index: 99;
+    position: relative;
+}
+.goback{
+    position: absolute;
+    color: #fff;
+    left: 2%;
+    height: 46px;
+    line-height: 46px;
+}
+.goback>a{
+    color: #fff;
+    font-size: 14px;
+}
+.header>p{
+    width: 96%;
+    margin: 0 2%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+}
+.access-info{
+    margin-top: -1px;
+    color: #fff;
+    padding: 10px;
+    min-height: 120px;
+}
+.access-mian{
+    padding: 10px 10px 15px 10px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+}
+.access-mian>span{
+    font-size: 12px;
+    opacity: .7;
+}
+.access-mian>p{
+    font-weight: 500;
+    font-size: 28px;
+}
+.access-money{
+    margin-top: -25px;
+    position: relative;
+    z-index: 10;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    height: 70px;
+}
+.access-item{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.access-item>span{
+    font-size: 15px;
+}
+.access-item>img{
+    margin: 10px 0;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
+.access-list{
+    margin: 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-right: 5px;
+    height: 70px;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.access-list>.number{
+    position: absolute;
+    width: calc(100% - 48px - 30px - 60px - 10px);
+    line-height: 1.6em;
+    left: 0;
+}
+.access-list>.number>.order-id{
+    font-size: 15px;
+}
+.access-list>.number>.time{
+    font-size: 12px;
+    color: #aaa;
+}
+.access-list>.status{
+    position: relative;
+    border: 0px;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 15px;
+    font-size: 12px;
+    height: 32px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    overflow: visible;
+    margin-left: 0;
+    -webkit-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+    margin-right: 0;
+    border-radius: 2500px;
+}

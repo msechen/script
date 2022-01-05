@@ -1,0 +1,41 @@
+{extend name='main'}
+
+{block name="content"}
+
+<form onsubmit="return false;" data-auto="true" method="post" class='layui-form layui-card' autocomplete="off">
+
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this">基本配置</li>
+        </ul>
+        <div class="layui-tab-content" >
+
+            <div class="layui-tab-item layui-show" >
+                <div class="layui-card-body padding-40 layui-col-md8">
+                    <label class="layui-form-item block relative">
+                        <span class="color-green margin-right-10">内网通讯地址</span>
+                        <input name="intranet_communication" required value="{:config('intranet_communication')}" class="layui-input">
+                        <p class="help-block">内网地址:端口</p>
+                    </label>
+                    <label class="layui-form-item block relative">
+                        <span class="color-green margin-right-10">远程处理接口</span>
+                        <input name="remote_communication" required value="{:config('remote_communication')}" class="layui-input">
+                        <p class="help-block">远程地址</p>
+                    </label>
+                    <label class="layui-form-item block relative">
+                        <span class="color-green margin-right-10">远程处理端口</span>
+                        <input name="remote_communication_port" required value="{:config('remote_communication_port')}" class="layui-input">
+                        <p class="help-block">远程端口</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item text-center margin-top-20">
+            <button class="layui-btn" type="submit">保存配置</button>
+        </div>
+    </div>
+</form>
+<script>
+</script>
+
+{/block}

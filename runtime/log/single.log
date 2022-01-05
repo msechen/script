@@ -1,0 +1,308 @@
+---------------------------------------------------------------
+
+[2022-01-05T15:09:51+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[运行时间：0.096938s] [吞吐率：10.32req/s] [内存消耗：4,128.23kb] [文件加载：78]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/json;charset=utf-8',
+  'accept' => '*/*',
+  'accept-language' => 'zh-cn',
+  'authorization' => '666666',
+  'referer' => 'http://manage.robot.com/index/index/index',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'name' => 'iHttp',
+  'ver' => '1.1.0.0|5.2.7',
+  'udid' => '853ee697c4843c7992d02c6bda78cd6f',
+  'content-length' => '284',
+  'host' => 'manage.robot.com',
+)
+[ info ] [ PARAM ] array (
+  'event' => 'EventFriendMsg',
+  'robot_wxid' => 'wxid_rqn31uwmjug922',
+  'robot_name' => '胖妞',
+  'type' => '1',
+  'from_wxid' => 'wxid_vk1drxylxh522',
+  'from_name' => '缘来是张雅琪吖',
+  'final_from_wxid' => 'wxid_vk1drxylxh522',
+  'final_from_name' => '缘来是张雅琪吖',
+  'to_wxid' => 'wxid_rqn31uwmjug922',
+  'msg' => '123',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:09:51+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[运行时间：0.069213s] [吞吐率：14.45req/s] [内存消耗：4,153.09kb] [文件加载：81]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/json;charset=utf-8',
+  'accept' => '*/*',
+  'accept-language' => 'zh-cn',
+  'authorization' => '666666',
+  'referer' => 'http://manage.robot.com/index/index/index',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'name' => 'iHttp',
+  'ver' => '1.1.0.0|5.2.7',
+  'udid' => '853ee697c4843c7992d02c6bda78cd6f',
+  'content-length' => '238',
+  'host' => 'manage.robot.com',
+)
+[ info ] [ PARAM ] array (
+  'event' => 'EventSendOutMsg',
+  'robot_wxid' => 'wxid_rqn31uwmjug922',
+  'robot_name' => '',
+  'type' => '1',
+  'from_wxid' => 'wxid_rqn31uwmjug922',
+  'from_name' => '',
+  'final_from_wxid' => 'wxid_rqn31uwmjug922',
+  'final_from_name' => '',
+  'to_wxid' => 'wxid_vk1drxylxh522',
+  'msg' => '456',
+)
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:10:00+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[运行时间：0.091289s] [吞吐率：10.95req/s] [内存消耗：4,102.97kb] [文件加载：78]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/json;charset=utf-8',
+  'accept' => '*/*',
+  'accept-language' => 'zh-cn',
+  'authorization' => '666666',
+  'referer' => 'http://manage.robot.com/index/index/index',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'name' => 'iHttp',
+  'ver' => '1.1.0.0|5.2.7',
+  'udid' => '853ee697c4843c7992d02c6bda78cd6f',
+  'content-length' => '288',
+  'host' => 'manage.robot.com',
+)
+[ info ] [ PARAM ] array (
+  'event' => 'EventFriendMsg',
+  'robot_wxid' => 'wxid_rqn31uwmjug922',
+  'robot_name' => '胖妞',
+  'type' => '1',
+  'from_wxid' => 'wxid_vk1drxylxh522',
+  'from_name' => '缘来是张雅琪吖',
+  'final_from_wxid' => 'wxid_vk1drxylxh522',
+  'final_from_name' => '缘来是张雅琪吖',
+  'to_wxid' => 'wxid_rqn31uwmjug922',
+  'msg' => 'redis',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:10:01+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[运行时间：0.069820s] [吞吐率：14.32req/s] [内存消耗：4,153.54kb] [文件加载：81]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/json;charset=utf-8',
+  'accept' => '*/*',
+  'accept-language' => 'zh-cn',
+  'authorization' => '666666',
+  'referer' => 'http://manage.robot.com/index/index/index',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'name' => 'iHttp',
+  'ver' => '1.1.0.0|5.2.7',
+  'udid' => '853ee697c4843c7992d02c6bda78cd6f',
+  'content-length' => '283',
+  'host' => 'manage.robot.com',
+)
+[ info ] [ PARAM ] array (
+  'event' => 'EventSendOutMsg',
+  'robot_wxid' => 'wxid_rqn31uwmjug922',
+  'robot_name' => '',
+  'type' => '1',
+  'from_wxid' => 'wxid_rqn31uwmjug922',
+  'from_name' => '',
+  'final_from_wxid' => 'wxid_rqn31uwmjug922',
+  'final_from_name' => '',
+  'to_wxid' => 'wxid_vk1drxylxh522',
+  'msg' => '是一种cache方式~
+
+你知道吗？？？',
+)
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:11:57+08:00] 192.168.179.1 GET manage.robot.com/index/index/test
+[运行时间：0.081902s] [吞吐率：12.21req/s] [内存消耗：4,036.93kb] [文件加载：76]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'manage.robot.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,ja;q=0.8,en-US;q=0.7,en;q=0.6,es;q=0.5',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'cookie' => 'sd563dbb7=tjd5ebnheb0ubaddm5jmenacd1; page-limit=20; sa6b5db11=ifcpokt394uo5rb4t1q2l3vid5; admin_user=think%3A%7B%22id%22%3A%2210000%22%2C%22username%22%3A%22admin%22%2C%22password%22%3A%22b5be656a7060dd3525027d6763c33ca0%22%2C%22qq%22%3A%2222222222%22%2C%22mail%22%3A%2223559738%2540qq.com%22%2C%22phone%22%3A%2218537095101%22%2C%22login_at%22%3A%222022-01-05%2B14%253A47%253A58%22%2C%22login_ip%22%3A%22192.168.179.1%22%2C%22login_num%22%3A%221184%22%2C%22authorize%22%3A%22%22%2C%22tags%22%3A%22%22%2C%22desc%22%3A%22%25E5%25AF%25B9%25E7%259C%25BC%25E7%2586%258A%22%2C%22status%22%3A%221%22%2C%22is_deleted%22%3A0%2C%22create_at%22%3A%222015-11-13%2B15%253A14%253A22%22%7D',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:11:58+08:00] 192.168.179.1 GET manage.robot.com/index/index/test
+[运行时间：0.081133s] [吞吐率：12.33req/s] [内存消耗：4,036.93kb] [文件加载：76]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'manage.robot.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,ja;q=0.8,en-US;q=0.7,en;q=0.6,es;q=0.5',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'cookie' => 'sd563dbb7=tjd5ebnheb0ubaddm5jmenacd1; page-limit=20; sa6b5db11=ifcpokt394uo5rb4t1q2l3vid5; admin_user=think%3A%7B%22id%22%3A%2210000%22%2C%22username%22%3A%22admin%22%2C%22password%22%3A%22b5be656a7060dd3525027d6763c33ca0%22%2C%22qq%22%3A%2222222222%22%2C%22mail%22%3A%2223559738%2540qq.com%22%2C%22phone%22%3A%2218537095101%22%2C%22login_at%22%3A%222022-01-05%2B14%253A47%253A58%22%2C%22login_ip%22%3A%22192.168.179.1%22%2C%22login_num%22%3A%221184%22%2C%22authorize%22%3A%22%22%2C%22tags%22%3A%22%22%2C%22desc%22%3A%22%25E5%25AF%25B9%25E7%259C%25BC%25E7%2586%258A%22%2C%22status%22%3A%221%22%2C%22is_deleted%22%3A0%2C%22create_at%22%3A%222015-11-13%2B15%253A14%253A22%22%7D',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:12:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[运行时间：0.091892s] [吞吐率：10.88req/s] [内存消耗：4,099.27kb] [文件加载：78]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/json;charset=utf-8',
+  'accept' => '*/*',
+  'accept-language' => 'zh-cn',
+  'authorization' => '666666',
+  'referer' => 'http://manage.robot.com/index/index/index',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'name' => 'iHttp',
+  'ver' => '1.1.0.0|5.2.7',
+  'udid' => '853ee697c4843c7992d02c6bda78cd6f',
+  'content-length' => '277',
+  'host' => 'manage.robot.com',
+)
+[ info ] [ PARAM ] array (
+  'event' => 'EventGroupMsg',
+  'robot_wxid' => 'wxid_rqn31uwmjug922',
+  'robot_name' => '',
+  'type' => '1',
+  'from_wxid' => '18221469840@chatroom',
+  'from_name' => '可爱猫交流群',
+  'final_from_wxid' => 'wxid_xq2w7jl6cbi811',
+  'final_from_name' => 'TNanko',
+  'to_wxid' => 'wxid_rqn31uwmjug922',
+  'msg' => '[捂脸][捂脸]',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+---------------------------------------------------------------
+
+[2022-01-05T15:12:59+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[运行时间：0.110568s] [吞吐率：9.04req/s] [内存消耗：4,085.79kb] [文件加载：78]
+[ info ] [ LANG ] /mnt/hgfs/centosVM/Manage_WXRobot_Web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'Keep-Alive',
+  'content-type' => 'application/json;charset=utf-8',
+  'accept' => '*/*',
+  'accept-language' => 'zh-cn',
+  'authorization' => '666666',
+  'referer' => 'http://manage.robot.com/index/index/index',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'name' => 'iHttp',
+  'ver' => '1.1.0.0|5.2.7',
+  'udid' => '853ee697c4843c7992d02c6bda78cd6f',
+  'content-length' => '3066',
+  'host' => 'manage.robot.com',
+)
+[ info ] [ PARAM ] array (
+  'event' => 'EventGroupMsg',
+  'robot_wxid' => 'wxid_rqn31uwmjug922',
+  'robot_name' => '',
+  'type' => '49',
+  'from_wxid' => '18221469840@chatroom',
+  'from_name' => '可爱猫交流群',
+  'final_from_wxid' => 'wxid_xq2w7jl6cbi811',
+  'final_from_name' => 'TNanko',
+  'to_wxid' => 'wxid_rqn31uwmjug922',
+  'msg' => '<?xml version="1.0"?>
+<msg>
+	<appmsg appid="" sdkver="0">
+		<title>还是用这个吧</title>
+		<des />
+		<action />
+		<type>57</type>
+		<showtype>0</showtype>
+		<soundtype>0</soundtype>
+		<mediatagname />
+		<messageext />
+		<messageaction />
+		<content />
+		<contentattr>0</contentattr>
+		<url />
+		<lowurl />
+		<dataurl />
+		<lowdataurl />
+		<songalbumurl />
+		<songlyric />
+		<appattach>
+			<totallen>0</totallen>
+			<attachid />
+			<emoticonmd5></emoticonmd5>
+			<fileext />
+			<cdnthumbaeskey />
+			<aeskey></aeskey>
+		</appattach>
+		<extinfo />
+		<sourceusername />
+		<sourcedisplayname />
+		<thumburl />
+		<md5 />
+		<statextstr />
+		<directshare>0</directshare>
+		<refermsg>
+			<type>3</type>
+			<svrid>8723611801147566489</svrid>
+			<fromusr>wxid_xq2w7jl6cbi811</fromusr>
+			<chatusr>wxid_xq2w7jl6cbi811</chatusr>
+			<displayname>TNanko</displayname>
+			<content>&lt;msg&gt;&lt;img hdlength="0" length="13924" hevc_mid_size="13924" cdnbigimgurl="" cdnmidimgurl="308184020100047830760201000204a5a59c2802032f5d030204a230f0b7020461d53af70451777875706c6f61645f31383232313436393834304063686174726f6f6d313438345f313634313336343231345f33626662326436632d623163342d346137662d623165392d626434643938323336383933020401290a020201000405004c56fb00" aeskey="f73840c5abaae3b84a6fff98ae3bba35" cdnthumburl="308184020100047830760201000204a5a59c2802032f5d030204a230f0b7020461d53af70451777875706c6f61645f31383232313436393834304063686174726f6f6d313438345f313634313336343231345f33626662326436632d623163342d346137662d623165392d626434643938323336383933020401290a020201000405004c56fb00" cdnthumblength="2577" cdnthumbwidth="120" cdnthumbheight="67" cdnthumbaeskey="f73840c5abaae3b84a6fff98ae3bba35" encryver="1" md5="0d99b6c3b3eb017e3118b60387b5aa81" filekey="18221469840@chatroom1484_1641364214" uploadcontinuecount="0"/&gt;&lt;appinfo&gt;&lt;appid&gt;&lt;/appid&gt;&lt;appname&gt;&lt;/appname&gt;&lt;version&gt;0&lt;/version&gt;&lt;isforceupdate&gt;1&lt;/isforceupdate&gt;&lt;mediatagname&gt;&lt;/mediatagname&gt;&lt;messageext&gt;&lt;/messageext&gt;&lt;messageaction&gt;&lt;/messageaction&gt;&lt;/appinfo&gt;&lt;/msg&gt;</content>
+			<msgsource>&lt;msgsource&gt;&lt;bizflag&gt;0&lt;/bizflag&gt;&lt;sec_msg_node&gt;&lt;uuid&gt;&lt;![CDATA[ff613ecc259bc45b8257a06b26d757c9_]]&gt;&lt;/uuid&gt;&lt;/sec_msg_node&gt;&lt;/msgsource&gt;</msgsource>
+		</refermsg>
+	</appmsg>
+	<fromusername>wxid_xq2w7jl6cbi811</fromusername>
+	<scene>0</scene>
+	<appinfo>
+		<version>1</version>
+		<appname />
+	</appinfo>
+	<commenturl />
+</msg>',
+)
+[ info ] [ DB ] INIT mysql

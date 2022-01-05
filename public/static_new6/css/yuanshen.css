@@ -1,0 +1,210 @@
+@font-face {
+    font-family: "element-icons";
+    src: url('/static_new6/element-icons.woff') format('woff'),
+      url('/static_new6/element-icons.woff') format('truetype');
+  }
+
+  .demo-carousel {
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 2.5vh;
+    background-color: #ce3c39;
+    ;
+    padding: 10px 5px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .5);
+    margin-bottom: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+    font-family: 'Microsoft YaHei';
+  }
+
+  /*.title img {*/
+  /*  width: 10vh;*/
+    /*height: 80px;*/
+  /*  margin-right: 10px;*/
+  /*}*/
+
+  #app {
+    max-width: 100vh;
+    margin: 0 auto;
+    box-shadow: 0 -3px 5px 0 rgba(0, 0, 0, .5);
+    min-height: 100vh;
+  }
+
+  .title h1 {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .hint {
+    font-size: 2vh;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .rcode {
+    width: 20vh;
+  }
+
+  .layui-form-label.label-required-prev:after {
+    content: "*";
+    color: red;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+  }
+
+
+  .cus {
+    display: flex;
+    width: 80vh;
+    flex-wrap: wrap;
+    justify-content: left
+  }
+
+  select[multiple]+.layui-form-select>.layui-select-title>input.layui-input {
+    border-bottom: 0
+  }
+
+  select[multiple]+.layui-form-select dd {
+    padding: 0;
+  }
+
+  select[multiple]+.layui-form-select .layui-form-checkbox[lay-skin=primary] {
+    margin: 0 !important;
+    display: block;
+    line-height: 36px !important;
+    position: relative;
+    padding-left: 26px;
+  }
+
+  select[multiple]+.layui-form-select .layui-form-checkbox[lay-skin=primary] span {
+    line-height: 36px !important;
+    float: none;
+  }
+
+  select[multiple]+.layui-form-select .layui-form-checkbox[lay-skin=primary] i {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    margin-top: 9px;
+  }
+
+  .multiSelect {
+    line-height: normal;
+    height: auto;
+    padding: 4px 10px;
+    overflow: hidden;
+    min-height: 38px;
+    margin-top: -38px;
+    left: 0;
+    z-index: 99;
+    position: relative;
+    background: none;
+  }
+
+  .multiSelect a {
+    padding: 2px 5px;
+    background: #908e8e;
+    border-radius: 2px;
+    color: #fff;
+    display: block;
+    line-height: 20px;
+    height: 20px;
+    margin: 2px 5px 2px 0;
+    float: left;
+  }
+
+  .multiSelect a span {
+    float: left;
+  }
+
+  .multiSelect a i {
+    float: left;
+    display: block;
+    margin: 2px 0 0 2px;
+    border-radius: 2px;
+    width: 8px;
+    height: 8px;
+    padding: 4px;
+    position: relative;
+    -webkit-transition: all .3s;
+    transition: all .3s
+  }
+
+  .multiSelect a i:before,
+  .multiSelect a i:after {
+    position: absolute;
+    left: 8px;
+    top: 2px;
+    content: '';
+    height: 12px;
+    width: 1px;
+    background-color: #fff
+  }
+
+  .multiSelect a i:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+  }
+
+  .multiSelect a i:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+  }
+
+  .multiSelect a i:hover {
+    background-color: #545556;
+  }
+
+  .multiOption {
+    display: inline-block;
+    padding: 0 5px;
+    cursor: pointer;
+    color: #999;
+  }
+
+  .multiOption:hover {
+    color: #5FB878
+  }
+
+
+
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-fanxuan:before {
+    content: "\e837";
+  }
+
+  .icon-quanxuan:before {
+    content: "\e623";
+  }
+
+  .icon-qingkong:before {
+    content: "\e63e";
+  }
+
+  .layui-form-checkbox span {
+    margin-left: 10px;
+  }

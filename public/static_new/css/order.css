@@ -1,0 +1,70 @@
+body{
+    background-color: #f8f8f8;
+    margin-bottom: 65px;
+}
+.header{
+    width: 100%;
+    color: #fff;
+    position: fixed;
+    top:0;
+    z-index: 99;
+}
+.header>p{
+    width: 96%;
+    margin: 0 2%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+}
+.order{
+    margin-top: 16px;
+    padding: 15px;
+}
+.start{
+    width: 100%;
+    color: #fff;
+    border-radius: 2500px;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.stop{
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 2500px;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.remark{
+    margin-top: 30px;
+    background: #fff;
+    width: 100%;
+    min-height: 100px;
+}
+.remark>p{
+    padding: 15px;
+    font-size: 12px;
+}
+.remark>.remark-info{
+    margin: 0 15px;
+    font-size: 14px;
+    border-top: 1px solid rgba(0, 0, 0, .1)
+}
+.remark>.remark-info>p{
+    padding: 15px 0;
+    color: #8799a3;
+}
+.start-order .dialog-content-bd{
+    padding: 5px 15px!important;
+}
+.start-order .info-text{
+    font-size: 40px!important;
+    font-weight: bold!important;
+}
+.start-order{
+    display: none;
+}

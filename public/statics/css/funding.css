@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+/**********数字资产子栏目**********/
+/**********众筹**********/
+/**************************/
+/******页面内容主体******/
+.funding-container{ padding: 4.8rem 0 1.6rem 0; position: relative;}
+
+
+/******众筹进度******/
+/*------主体------*/
+.funding-title{ width: 100%; background: #fff; overflow: hidden; position: fixed; left: 0; top: 1.76rem; z-index:999;}
+.funding-title li{ width: 33.333333%; text-align: center; overflow: hidden; float: left;}
+
+.funding-title li a{ width: 100%; border-right: #eee 1px solid; overflow: hidden; display: block; padding: .3rem;}
+.funding-title li:last-child a{ border-right: none;}
+
+.funding-title li i, .funding-title li span{ display: block; margin: 0 auto;}
+.funding-title li i{ width: 1.2rem; height: 1.2rem; background-position: center; background-repeat: no-repeat; background-size: .94rem auto;}
+.funding-title li span{ font-size: .52rem; color: #999;}
+
+.funding-title li a.active span{ color: #46adfc;}
+
+/*------图标------*/
+.funding-title li .funding-progress-1 i{ background-image: url(../images/icon_time_1.png);}
+.funding-title li .funding-progress-2 i{ background-image: url(../images/icon_time_2.png);}
+.funding-title li .funding-progress-3 i{ background-image: url(../images/icon_time_3.png);}
+
+
+/******众筹列表******/
+/*------主体------*/
+.funding-list{ width: 100%; background: #fff; overflow: hidden; padding: .5rem;}
+
+/*------上半部分：基本信息------*/
+.funding-list .funding-list-info{ width: 100%; min-height: 2.5rem; border-bottom: #f1f1f1 1px solid; overflow: hidden; padding: 0 3rem .5rem 2.5rem; position: relative;}
+.funding-list .funding-list-info .funding-list-logo{ width: 2rem; height: 2rem; border-radius: .2rem; overflow: hidden; position: absolute; left: 0; top: 0;}
+.funding-list .funding-list-info .funding-list-logo img{ width: 100%;}
+
+.funding-list .funding-list-info h1{ font-size: .56rem;}
+.funding-list .funding-list-info p{ font-size: .45rem; color: #666; padding-top: .1rem;}
+.funding-list .funding-list-info p b{ font-weight: normal; color: #aaa;}
+.funding-list .funding-list-info h3{ font-size: .5rem; color: #aaa; padding-top: .15rem;}
+.funding-list .funding-list-info h3 b{ font-weight: normal; color: #333;}
+
+.funding-list .funding-list-time{ position: absolute; right: 0; top: 0;}
+.funding-list .funding-list-time span{ font-size: .56rem; background-repeat: no-repeat; background-position: 0 .15rem; background-size: .6rem; display: block; position: relative; padding: 0 0 0 .8rem;}
+
+/*------中间部分：数据------*/
+.funding-list .funding-list-details{ width: auto; overflow:hidden; padding: .3rem 0;}
+.funding-list .funding-list-details li{ width: 33.3333333%; text-align: center; overflow: hidden; float: left;}
+.funding-list .funding-list-details li:first-child{ text-align: left;}
+.funding-list .funding-list-details li:last-child{ text-align: right;}
+
+.funding-list .funding-list-details span{ font-size: .5rem; color: #aaa;}
+.funding-list .funding-list-details h3{ font-size: .54rem; color: #555;}
+
+/*------下半部分------*/
+.funding-list .funding-list-bottom{ width: 100%; overflow: hidden; padding:.2rem 0 0 0;}
+
+.funding-list .funding-list-bottom .funding-list-progress{ overflow: hidden; padding:.2rem 0 0 0; float: left;}
+.progress-bar{ width: 8.5rem; height: .32rem; background: #e5e5e5; border-radius: .16rem; float:left; margin: .14rem 0;}
+.progress-bar span{ height:100%; background: -webkit-linear-gradient(left,#14eedc,#45acfb); border-radius: .16rem; display: block;}
+.progress-bar-tips{ line-height: .6rem; font-size: .48rem; color: #555; float: left; padding: 0 .3rem;}
+
+.funding-list .funding-list-bottom .funding-list-btn{ float: right;}
+.funding-list .funding-list-bottom .funding-list-btn button{ height: 1rem; font-size: .52rem; color: #fff; background: #ffcb18; border-radius: .15rem; padding: 0 .3rem;}
+.funding-list .funding-list-bottom .funding-list-btn button:disabled{ color: #d4d4d4; background: #e6e6e6;}
+
+/*------不同状态的列表------*/
+.funding-comingsoon .funding-list-time span{ color: #ff7b94; background-image: url(../images/icon_status_1.png);}
+
+.funding-ongoing .funding-list-time span{ color: #18c481; background-image: url(../images/icon_status_2.png);}
+
+.funding-finish .funding-list-time span{ color: #999; background-image: url(../images/icon_status_3.png);}
+
+
+/******众筹记录******/
+/*------主体------*/
+.funding-record{ width: 100%; background: #fff; border-bottom: #f1f1f1 1px solid; overflow: hidden;}
+
+/*------标题：时间/状态------*/
+.funding-record-title{ width: 100%; border-bottom: #eee 1px solid; overflow: hidden; padding: .3rem .5rem;}
+.funding-record-title span{ font-size: .52rem; color: #999; display: block;}
+
+.funding-record-title span.funding-record-status{ color: #46adfc;}
+
+/*------订单内容------*/
+.funding-record-info{ width: 100%;}
+.funding-record-info a{ width: 100%; min-height: 3.6rem; overflow: hidden; display: block; padding: .6rem .5rem .6rem 3rem; position: relative;}
+
+.funding-record-info .funding-record-photo{ width: 2rem; height: 2rem; border-radius: .2rem; overflow: hidden; position: absolute; left: .5rem; top: .6rem;}
+.funding-record-info .funding-record-photo img{ width: 100%;}
+
+.funding-record-info .funding-record-content{ width: 6rem;}
+.funding-record-info .funding-record-content h3{ font-size: .56rem; color: #333; padding-bottom: .3rem;}
+.funding-record-info .funding-record-content p{ font-size: .5rem; color: #999;}
+
+/*------订单总价------*/
+.funding-record-info .funding-record-number{ text-align: right; position: absolute; right: .5rem; top: 1rem;}
+.funding-record-info .funding-record-number h1{ font-size: .68rem; color: #111;}
+.funding-record-info .funding-record-number span{ font-size: .45rem; color: #aaa; display: block;}
+
+/*------订单操作------*/
+.funding-record-operate{ width: 100%; border-top: #eee 1px solid; overflow: hidden; padding: .2rem .5rem;}
+.funding-record-operate li{ float: right;}
+.funding-record-operate li a{ height: 1.1rem; line-height: 1.1rem; font-size: .52rem; color: #999; border: #ddd 1px solid; border-radius: .55rem; display: block; float: left; margin-left: .3rem; padding: 0 .6rem;}
+.funding-record-operate li a.active{ color:#333;}
+
+
+/******众筹记录详情******/
+/*------主体------*/
+.funding-record-name{ width: 100%; background: url(../img/user_bg.png) no-repeat center top; background-size: cover; overflow: hidden; padding: .5rem 0 0 0;}
+
+.funding-record-name .funding-record-photo{ width: 2.5rem; height: 2.5rem; border-radius: .2rem; overflow: hidden; margin: 0 auto;}
+.funding-record-name .funding-record-photo img{ width: 100%;}
+
+.funding-record-name h3{ font-size: .56rem; color: #fff; text-align: center; overflow: hidden; padding: .5rem;}
+
+/*------详情------*/
+.funding-record-details{ width: 100%; background: #fff; overflow: hidden;}
+.funding-record-details h3{ font-size: .6rem; color: #46adfc; padding: .4rem .5rem;}
+
+.funding-record-details li{ width: 100%; font-size: .56rem; border-bottom: #f1f1f1 1px solid; overflow: hidden; padding: .4rem .5rem; display: table; position:relative;}
+.funding-record-details label{ width: 4rem; color: #aaa; display: table-cell;}
+.funding-record-details span{ color: #333; display: table-cell;}
+.funding-record-details span.funding-record-status{ color: #46adfc;}
+.funding-record-details span.funding-record-price{ font-size: .7rem; color: #f80;}
+
+.funding-record-details .funding-list-progress{ position:absolute; right:.5rem; top:.4rem;}
+.funding-record-details .progress-bar{ width: 5rem;}
+.funding-record-details .progress-bar span{ display:block;}
+
+
+
+/**********V宝中心**********/
+/**************************/
+/******V宝主体******/
+.vpay-container{ padding:1.76rem 0 1.6rem 0;}
+
+
+/******V宝账户信息******/
+/*------主体------*/
+.vpay-account{ width: 100%; background: url(../img/user_bg.png) no-repeat center top; background-size: 100% 100%; overflow: hidden;}
+
+/*------昨日收益------*/
+.vpay-account .vpay-account-balance{ text-align: center; color: #fff; overflow: hidden; padding: 1rem;}
+.vpay-account .vpay-account-balance span{ font-size: .5rem; display: block;}
+.vpay-account .vpay-account-balance h1{ font-size: 1.2rem; padding:.2rem;}
+
+/*------可用资产------*/
+.vpay-account .vpay-account-details{ width: 100%; overflow: hidden;}
+.vpay-account .vpay-account-details li{ width: 50%; float: left; position: relative;}
+.vpay-account .vpay-account-details li:first-child:after{ width:1px; height: .8rem; content: ''; background: rgba(255, 255, 255, .3); position: absolute; right: 0; top: .9rem;}
+
+.vpay-account .vpay-account-details li a{ width: 100%; color: #fff; text-align: center; background: rgba(255, 255, 255, .1); display: block; overflow: hidden; padding: .4rem 0;}
+
+.vpay-account .vpay-account-details li span{ font-size: .5rem; display: block;}
+.vpay-account .vpay-account-details li h3{ font-size: .72rem;}
+
+
+/******V宝账户记录******/
+/*------记录列表------*/
+.vpay-record{ width: 100%; overflow: hidden;}
+.vpay-record .tab-title{ position:relative; left:auto; top:auto;}
+
+.vpay-list{ margin-top: .08rem;}
+
+/*------转入/转出按钮------*/
+.vpay-toolbar{ width: 100%; position: fixed; left: 0; bottom: 0; z-index:999;}
+.vpay-toolbar a{ width: 50%; height: 1.6rem; line-height: 1.6rem; font-size: .56rem; text-align: center; color: #fff; display: block; float: left;} 
+.vpay-toolbar a:first-child{ background: #46a9fd;}
+.vpay-toolbar a:last-child{ background: #ffba00;}

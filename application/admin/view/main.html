@@ -1,0 +1,62 @@
+<div class="layui-card layui-bg-gray">
+    {block name='style'}{/block}
+
+    <style>
+        .layui-tab-card>.layui-tab-title .layui-this {
+            background-color: #fff;
+        }
+    </style>
+    <!--<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="test1">-->
+        <!--<ul class="layui-tab-title">-->
+            <!--<li lay-id="/admin/users/index" class="layui-this">网站设置</li>-->
+            <!--<li lay-id="/admin/deal/order_list">用户基本管理</li>-->
+            <!--<li lay-id="222">权限分配</li>-->
+            <!--<li lay-id="222">全部历史商品管理文字长一点试试</li>-->
+            <!--<li lay-id="222">全部历史商品管理文字长一点试试</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+            <!--<li lay-id="222">订单管理</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+
+    {notempty name='title'}
+    <div class="layui-card-header layui-anim layui-anim-fadein notselect">
+        <span class="layui-icon layui-icon-next font-s10 color-desc margin-right-5"></span>{$title|default=''}
+        <div class="pull-right">{block name='button'}{/block}</div>
+    </div>
+    {/notempty}
+
+
+
+
+    <div class="layui-card-body layui-anim layui-anim-upbit">{block name='content'}{/block}</div>
+    {block name='script'}{/block}
+</div>
+<script>
+//    layui.use('element', function(){
+//        var element = layui.element;
+//
+//        element.tabAdd('demo', {
+//            title: '选项卡的标题'
+//            ,content: '选项卡的内容' //支持传入html
+//            ,id: '选项卡标题的lay-id属性值'
+//        });
+//
+//        //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//        var layid = location.hash.replace(/^#test1=/, '');
+//        element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+//
+//        //监听Tab切换，以改变地址hash值
+//        element.on('tab(test1)', function(){
+//            location.hash = ''+ this.getAttribute('lay-id');
+//        });
+//    });
+
+</script>
