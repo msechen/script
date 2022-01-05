@@ -15,8 +15,8 @@ app和微信任务都做,有个别的任务可能不做,而且也做不了,不�
 自行抓包变量填写:
 
 变量名:soy_txzxg_data
-变量值:url@wzq_qluin@UA
-注释:url为app抓包时的整个链接,wzq_qluin为微信抓包时的cookie里面找它的值就是,UA为抓包时的User-Agent(选填)
+变量值:5@url@wzq_qluin@UA
+注释:1或5(为提现金额)&url为app抓包时的整个链接,wzq_qluin为微信抓包时的cookie里面找它的值就是,UA为抓包时的User-Agent(选填)
 app抓包时的链接大概如:https://wzq.tenpay.com/cgi-bin/activity_xxx.fcgi?action=home&type=xxx&actid=xxx&invite_code=&_=xxx&openid=xxx&fskey=xxx&channel=1&access_token=xxx&_appName=xxx&_appver=xxx&_osVer=xxx&_devId=xxx
 大概时这样,反正一定要有openi、fskey,当然你变量第一个参数填openid=xxx&fskey=xxx也可以
 
@@ -143,9 +143,13 @@ async function get_appdata()
 
 async function get_u_info() {
     soy_txzxg_data=app_soy_txzxg_data[i].split('@')
-    let soy_txzxg_url=soy_txzxg_data[0]
-    wzq_qluin=soy_txzxg_data[1]
-    soy_txzxg_UA=soy_txzxg_data[2]
+    tx_je=soy_txzxg_data[0]
+    soy_txzxg_url=soy_txzxg_data[1]
+    wzq_qluin=soy_txzxg_data[2]
+    soy_txzxg_UA=soy_txzxg_data[3]
+    if(tx_je!=1&&tx_je!=5){
+        tx_je=1
+    }
     if(!soy_txzxg_UA){
         soy_txzxg_UA='Mozilla/5.0 (Linux; Android 8.1; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 name Safari/537.36 MicroMessenger/6.7.3.1360(0x26070333)'
     }
@@ -1107,11 +1111,19 @@ async function orderQuery() {
                     //console.log(data)
                         let result = JSON.parse(data)
                         if(result.retcode == 0){
-                            coinInfo = result.shop_asset.amount
-                            if(result.shop_asset.amount>=48000){
+                            coinInfo = result.shop_asset.amount//现在金币
+                            if(tx_je==1){
+                               if(coinInfo>=result.cash[0].coins){
                                 let item_id=result.cash[0]['item_id']
                                 await cashTicket(item_id)
+                            } 
+                            }else{
+                              if(coinInfo>=result.cash[1].coins){
+                                let item_id=result.cash[1]['item_id']
+                                await cashTicket(item_id)
+                            }  
                             }
+                            
                             
                         } else {
                             $.log(`提现列表获取失败：${task.retmsg}\n`);
