@@ -65,7 +65,6 @@ height:120px;
             <td class='text-left nowrap'>{$vo.signature}</td>
             <td class='text-left nowrap'>{$vo.login_time|format_datetime}</td>
             <td class='text-left nowrap'>
-                <a data-dbclick class="layui-btn layui-btn-xs" data-title="编辑菜单" data-modal='{:url("admin/users/edit_users")}?id={$vo.wxid}'>编 辑</a>
                 <a data-dbclick class="layui-btn layui-btn-xs" style="background:blue;" data-title="添加关键词" data-modal='{:url("admin/reply/add_reply")}?id={$vo.wxid}'>添加关键词</a>
                 <a data-dbclick class="layui-btn layui-btn-xs" style="background:#6cb51d;" data-title="添加定时任务" data-modal='{:url("admin/task/add_task")}?id={$vo.wxid}'>添加定时任务</a>
                 <br>
