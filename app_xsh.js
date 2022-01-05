@@ -20,6 +20,8 @@
 
 cron "25 6-13 * * *"
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_xsh.js
+
 */
 
 const $ = new Env('鑫生活');
