@@ -35,7 +35,7 @@ class Task extends Command
                     "event" => 'SendTextMsg',
                     "robot_wxid" => $task['robot_wxid'],
                     "to_wxid" => $group,
-                    "msg" => $task['task_content']
+                    "msg" => str_replace("\r\n","\n",$task['task_content'])
                 ];
                 $resp =post_json_data(config('intranet_communication'),$params);
                 $output->writeln($group.'群组发送成功！时间：'.$now_time);
