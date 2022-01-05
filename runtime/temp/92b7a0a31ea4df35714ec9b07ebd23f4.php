@@ -1,0 +1,6 @@
+<?php /*a:1:{s:82:"/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/admin/view/users/edit_group.html";i:1641373619;}*/ ?>
+<style>
+    .layui-input, .layui-select {
+    line-height: initial;
+}
+</style><form class="layui-form layui-card" action="<?php echo request()->url(); ?>" data-auto="true" method="post" autocomplete="off"><div class="layui-card-body"><div class="layui-form-item"><label class="layui-form-label">群名称</label><div class="layui-input-block"><input name="group_name" placeholder="请输入群名称" value="" class="layui-input"><input type="hidden" name="_csrf_" value="<?php echo systoken('admin/users/edit_group'); ?>"></div></div><div class="layui-form-item"><label class="layui-form-label">群公告</label><div class="layui-input-block"><textarea name="group_notice" placeholder="请输入公告内容" value="" class="layui-input" style="height:250px"></textarea></div></div></div><input name="robot_wxid" type="hidden" value="<?php echo htmlentities($robot_wxid); ?>"><input name="to_wxid" type="hidden" value="<?php echo htmlentities($to_wxid); ?>"><div class="hr-line-dashed"></div><div class="layui-form-item text-center"><button class="layui-btn" type='submit'>修改</button><button class="layui-btn layui-btn-danger" type='button' data-close>取消</button></div><script>window.form.render();</script></form>

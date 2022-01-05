@@ -1,0 +1,6 @@
+<?php /*a:1:{s:84:"/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/admin/view/users/send_message.html";i:1641371457;}*/ ?>
+<style>
+    .layui-input, .layui-select {
+    line-height: initial;
+}
+</style><form class="layui-form layui-card" action="<?php echo request()->url(); ?>" data-auto="true" method="post" autocomplete="off"><div class="layui-card-body"><div class="layui-form-item"><label class="layui-form-label label-required">消息内容</label><div class="layui-input-block"><textarea name="content" required placeholder="请输入消息内容" value="" class="layui-input" style="height:250px"></textarea><input type="hidden" name="_csrf_" value="<?php echo systoken('admin/users/edit_users'); ?>"></div></div></div><input name="robot_wxid" type="hidden" value="<?php echo htmlentities($robot_wxid); ?>"><input name="to_wxid" type="hidden" value="<?php echo htmlentities($to_wxid); ?>"><div class="hr-line-dashed"></div><div class="layui-form-item text-center"><button class="layui-btn" type='submit'>发送</button><button class="layui-btn layui-btn-danger" type='button' data-close>取消</button></div><script>window.form.render();</script></form>

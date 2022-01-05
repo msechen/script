@@ -6,3 +6,823 @@
 
 [2022-01-05T15:10:01+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
 [ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:13:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:23:38+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:23:45+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:40:46+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:45:59+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:46:02+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:46:42+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:47:20+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:47:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:47:31+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:47:43+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:47:55+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:48:08+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:54:02+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:54:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:54:45+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:55:29+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:55:32+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:57:30+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:57:34+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:57:50+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T15:58:05+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:09:17+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:09:22+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:09:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:10:03+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:10:38+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:10:42+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:20:12+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:20:16+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:20:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:20:32+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:27:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:29:29+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:30:15+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:30:35+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:30:46+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:31:23+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:31:40+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:31:46+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:31:54+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:31:57+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:32:10+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:32:57+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:33:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:33:32+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:35:00+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:35:41+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:36:02+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:41:47+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:41:52+08:00] 192.168.179.1 POST manage.robot.com/admin/users/send_message.html?to_wxid=24279014823@chatroom&robot_wxid=wxid_rqn31uwmjug922&spm=m-74-75-76&open_type=modal
+[ error ] [2]var_dump() expects at least 1 parameter, 0 given[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/admin/controller/Users.php:142]
+---------------------------------------------------------------
+
+[2022-01-05T16:42:49+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:42:57+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:43:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:43:52+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:44:03+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:44:08+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:44:38+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:44:45+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:44:54+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:45:08+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:46:18+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:46:59+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:47:06+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:48:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:48:35+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:48:38+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:48:49+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:49:18+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:49:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:49:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:49:35+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:00+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:06+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:14+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:16+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:23+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:50+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:51+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:50:58+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:51:12+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T16:51:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:03:04+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:05:04+08:00] 192.168.179.1 GET manage.robot.com/admin/users/edit_group.html?id=24279014823@chatroom&spm=m-74-75-76&open_type=modal
+[ error ] [8]未定义变量: to_wxid[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/admin/controller/Users.php:152]
+---------------------------------------------------------------
+
+[2022-01-05T17:17:48+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:19:32+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:19:32+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:20:04+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:20:09+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:20:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:20:31+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:20:31+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:25:14+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:25:14+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:25:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:25:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:26:37+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:29:50+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:30:53+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:07+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:17+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:22+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:31+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:43+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:31:46+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:32:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:32:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:32:29+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:34:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:34:36+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:35:43+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T17:35:51+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:18+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:18+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:18+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:20+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:20+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:20+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:20+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:20+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:22+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:22+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:22+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:23+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:23+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:23+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:24+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:24+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:24+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:25+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:26+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:29+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:29+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:30+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:30+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:30+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:30+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:33+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:33+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:38:33+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:39:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:39:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:39:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:42:36+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T18:42:36+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:00:04+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:00:08+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:00:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:07:15+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:07:19+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:07:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:07:40+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:07:41+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:07:59+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:08:02+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:08:04+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:09:58+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:10:02+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:13:18+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:13:21+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:19:51+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:19:52+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:24:27+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:24:36+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:25:10+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:53:46+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T19:53:47+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:03:28+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:03:57+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:04:07+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:04:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:12:22+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:12:30+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:17:05+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:17:08+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:17:41+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:20:11+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
+---------------------------------------------------------------
+
+[2022-01-05T20:20:13+08:00] 192.168.179.1 POST manage.robot.com/index/index/index
+[ error ] [8]未定义数组索引: EventSendOutMsg[/mnt/hgfs/centosVM/Manage_WXRobot_Web/application/index/controller/Index.php:287]
