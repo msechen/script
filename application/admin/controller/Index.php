@@ -194,19 +194,6 @@ class Index extends Controller
     }
 
 
-    public function order_info()
-    {
-        if (!NodeService::islogin()) {
-            $this->error('需要登录才能操作哦！');
-        }
-
-
-        $deposit = db('xy_deposit')->where('status',1)->count('id');
-        $recharge = db('xy_recharge')->where('status',1)->count('id');
-        echo json_encode(['deposit'=>$deposit,'recharge'=>$recharge]);
-
-    }
-
     public function clear()
     {
         $isVersion = $this->Update(0);
