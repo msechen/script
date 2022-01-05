@@ -257,6 +257,7 @@ async function main() {
           StatisticsRedEnvelope,
           LiteHappyDig,
           SuperBrandDay,
+          SecondKillRedPacket,
         ]);
       },
     },
