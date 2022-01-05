@@ -186,7 +186,7 @@ class Index extends Controller
     {
         $version = config("version");
         $isHtml = $isreturn?0:1;
-        $con = '已经是最新版，搭建找对眼熊';
+        $con = '已经是最新版';
         session('check_update_version',1);
         if($isreturn ) return $con;
 
