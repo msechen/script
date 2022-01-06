@@ -1,16 +1,16 @@
-name: jd_sign
+name: sync-freefq
 on:
-  schedule:
-    - cron: '0 */2 * * *'
   workflow_dispatch:
+  schedule:
+    - cron: '5 */4 * * *'
   watch:
     types: started
   repository_dispatch:
-    types: sync-jd_sign
+    types: sync-freefq
 jobs:
   repo-sync:
     env:
-      PAT: ${{ secrets.PAT }} 
+      PAT: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -18,12 +18,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-jd_sign
+      - name: sync-freefq
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/chiupam/jd_sign.git"
-          source_branch: "main"
-          destination_branch: "jd_sign"
+          source_repo: "https://github.com/freefq/free.git"
+          source_branch: "master"
+          destination_branch: "freefq"
           github_token: ${{ secrets.PAT }}
-      
