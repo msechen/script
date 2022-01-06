@@ -27,6 +27,8 @@ soy_yhxq_UA
 
 cron 13 0-23/2 * * *
 
+脚本地址：https://gitee.com/soy-tool/app-script/raw/master/app_yhxq.js
+
 */
 
 
