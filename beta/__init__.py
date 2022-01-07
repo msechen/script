@@ -6,7 +6,7 @@ import logging
 JD_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 CONFIG_DIR = f'{JD_DIR}/config'
 SCRIPTS_DIR = f'{JD_DIR}/scripts'
-OWN_DIR = f'{JD_DIR}/own'
+OWN_DIR = f'{JD_DIR}/own' if os.environ.get('JD_DIR') else f'{JD_DIR}/scripts'
 BOT_DIR = f'{JD_DIR}/jbot'
 _DiyScripts = f'{JD_DIR}/diyscripts'
 LOG_DIR = f'{JD_DIR}/log'

@@ -12,6 +12,7 @@ from ..bot.utils import V4, QL
 
 bot_id = int(TOKEN.split(':')[0])
 
+
 @jdbot.on(events.NewMessage(from_users=chat_id, pattern=r'^/start$'))
 async def myhello(event):
     try:
@@ -48,7 +49,7 @@ async def myhello(event):
     /list 列出本程序拓展的功能。
     
     此外，直接发送文件至BOT，会让您选择保存到目标文件夹，支持保存并运行。发送以 .git 结尾的链接开始添加仓库。发送以 .js .sh .py结尾的已raw链接开始下载文件。发送格式为 key="value" 或者 key='value' 的消息开始添加环境变量。'''
-        elif QL:
+        else:
             msg = '''使用方法如下：
     /help 获取命令，可直接发送至botfather。
     /start 开始使用本程序。

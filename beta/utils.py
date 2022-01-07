@@ -8,8 +8,8 @@ def load_module(module, path):
     files = os.listdir(path)
     for file in files:
         try:
-            if file.endswith('.py'):
-                filename = file.replace('.py', '')
+            if file.endswith('.py') or file.endswith('.pyc'):
+                filename = file.replace('.py', '').replace('.pyc', '')
                 name = "jbot.{}.{}".format(module, filename)
                 spec = importlib.util.spec_from_file_location(name, path+file)
                 load = importlib.util.module_from_spec(spec)

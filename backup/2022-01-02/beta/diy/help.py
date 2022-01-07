@@ -7,8 +7,8 @@ import sys
 
 from telethon import events
 
-from .. import chat_id, jdbot, logger, TOKEN
-from ..bot.utils import V4, QL
+from JD_Diy.beta import chat_id, jdbot, logger, TOKEN
+from JD_Diy.beta.bot.utils import V4, QL
 
 bot_id = int(TOKEN.split(':')[0])
 

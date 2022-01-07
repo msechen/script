@@ -32,6 +32,8 @@ myjoinTeam_chatIds = myids(diybotset['myjoinTeam_chatId'], my_chat_id)
 
 shoptokenIds = myids(diybotset['shoptokenId'], my_chat_id)
 
+listenerIds = myids(diybotset['listenerId'], my_chat_id)
+
 QL8, QL2 = False, False
 if os.path.exists('/ql/config/env.sh'):
     QL8 = True

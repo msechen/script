@@ -16,8 +16,8 @@ diybot_repo_user=$root/repo/diybot/beta/diy/user.py
 diybot_diy_user=$root/jbot/diy/user.py
 diybot_repo_diy=$root/repo/diybot/beta/diy/diy.py
 diybot_diy_diy=$root/jbot/diy/diy.py
-diybot_repo_hello=$root/repo/diybot/beta/__main__.py
-diybot_diy_hello=$root/jbot/__main__.py
+#diybot_repo_hello=$root/repo/diybot/beta/__main__.py
+#diybot_diy_hello=$root/jbot/__main__.py
 if [ $# = 1 ];then
   up=$1
 else
@@ -113,10 +113,10 @@ file_diy() {
   fi
 }
 
-file_hello() {
-  echo "修改启动问候语文件"
-  cp -f $diybot_repo_hello $diybot_diy_hello
-}
+#file_hello() {
+#  echo "修改启动问候语文件"
+#  cp -f $diybot_repo_hello $diybot_diy_hello
+#}
 
 copy() {
   echo "拉取diy机器人文件进入 $root/jbot/diy 目录"
@@ -145,7 +145,7 @@ main() {
   file_diybotset
   file_user
   file_diy
-  file_hello
+#  file_hello
   copy
   start
 }
