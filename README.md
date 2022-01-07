@@ -1,5 +1,5 @@
 # Manage_WXRobot_Web
- 一套管理微信机器人的web程序
+ 一套管理微信机器人的web程序-基于[可爱猫](http://www.keaimao.com.cn) & [ihttp插件](https://gitee.com/ikam/http-sdk)
 
 因为身边有朋友、客户需要做可视化的管理微信机器人工具。所以我用tp5开发了一套...
 
