@@ -86,7 +86,7 @@ async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySeco
  * @return {Promise<string>}
  */
 async function getRealUrl(uri, after200Fn, options = {}) {
-  !/^http[s]:\/\//.test(uri) && (uri = `https://${uri}`);
+  !/^https?:\/\//.test(uri) && (uri = `https://${uri}`);
   _.assign(options, {
     uri, followRedirect: false,
     resolveWithFullResponse: true,
@@ -128,7 +128,7 @@ function getOriginDataFromFile(filePath) {
 
 function getUrlDataFromFile(filePath) {
   const array = getOriginDataFromFile(filePath);
-  return array.map(str => str.match(/[\u4e00-\u9fa5]/) ? '' : /^http[s]:\/\//.test(str) ? str : `https://${str}`)
+  return array.map(str => str.match(/[\u4e00-\u9fa5]/) ? '' : /^https?:\/\//.test(str) ? str : `https://${str}`)
   .filter(str => {
     let result = !!str;
     try {

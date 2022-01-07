@@ -153,7 +153,7 @@ class Api {
   }
 
   doGetFileContent(uri, options) {
-    !/^http(s)+/.test(uri) && (uri = `https:${uri}`);
+    !/^https?/.test(uri) && (uri = `https:${uri}`);
     return this.commonDo(_.merge({
       ignorePrintLog: true,
       uri,
