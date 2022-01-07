@@ -20,6 +20,11 @@ class Index extends Base
     }
     
     public function test(){
+        $msg='送39';
+        $send_api='https://duodkandian.com/test/send_dd?uid='.str_replace('送','',$msg);
+        $resp=file_get_contents($send_api);
+        echo $resp;
+        exit();
         readRobotKeyword('wxid_rqn31uwmjug922','123');
         exit();
         echo(date('Y-m-d H:i:s'));
@@ -63,7 +68,7 @@ class Robot{
             'douyin' =>1,
             'replay_text'=>1,
             'replay_video'=>1,
-            'keyword_reply'=>1
+            'keyword_reply'=>1,
         ],
         'EventFriendMsg'=> [//私聊消息事件（收到私聊消息时，运行这里）
             'music' => 1,
@@ -75,7 +80,8 @@ class Robot{
             'replay_emjoy_msg'=>1,
             'replay_link_msg'=>1,
             'replay_music_msg'=>1,
-            'keyword_reply'=>1
+            'keyword_reply'=>1,
+            'duoduo_send'=>1
         ],
         'EventReceivedTransfer'=> [//收到转账事件（收到好友转账时，运行这里）
         ],
@@ -302,6 +308,19 @@ class Robot{
         }
         //处理完事件返回要怎么做
         return $response;
+    }
+    
+    //赠送小黄车指令
+    public function duoduo_send($request){
+        $msg = trim($request['msg']);
+        if($request['from_wxid']=='wxid_yw50xr3odmmv22'){
+            if(strstr($msg,'送')){
+                $send_api='https://duodkandian.com/test/send_dd?uid='.str_replace('送','',$msg);
+                $resp=file_get_contents($send_api);
+                return SendTextMsg($request,$resp);
+            }
+        }
+        return false;
     }
     
     //关键词回复
