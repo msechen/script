@@ -30,7 +30,7 @@ class Quan extends Command
                     "robot_wxid" => $robot_wxid,
                     "to_wxid" => $group,
                     "msg" => [
-                        "url"=>'https://manage.robot.com/mtwm.jpg',
+                        "url"=>'http://manage.robot.com/mtwm.jpg',
                         "name"=>'mtwm.jpg'
                     ]
                 ];
