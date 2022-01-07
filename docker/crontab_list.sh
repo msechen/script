@@ -89,6 +89,8 @@
 25 3,9,20 * * * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
 #jd_opencard3
 35 4,8,22 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
+#jd_opencard3
+15 1,5,19 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 省钱大赢家翻翻乐2
@@ -99,8 +101,12 @@
 31 18-23/1 * * * node /scripts/jd_redRain_half.js >> /scripts/logs/jd_redRain_half.log 2>&1
 #超级无线店铺签到
 31 1 * * * node /scripts/jd_sevenDay.js >> /scripts/logs/jd_sevenDay.log 2>&1
-#店铺签到
-15 2,14 * * * node /scripts/jd_dpqd.js >> /scripts/logs/jd_dpqd.log 2>&1
+#见缝插针
+15 10 * * * node /scripts/jd_jfcz.js >> /scripts/logs/jd_jfcz.log 2>&1
+#集“年味卡”，享年货盛宴
+0 0,8 * * * node /scripts/jd_lzdz1_customized.js >> /scripts/logs/jd_lzdz1_customized.log 2>&1
+#年货盛宴 春节集福攻略
+0 0,8 * * * node /scripts/jd_lzdz1_customized2.js >> /scripts/logs/jd_lzdz1_customized2.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
