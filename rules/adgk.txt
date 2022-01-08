@@ -1,17 +1,29 @@
-! Version: 20220101005349
+! Version: 20220105174003
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
-||ga2.3dmgame.com
-||fjisu2.com/js/huimi-
-mxshm.top$$script[tag-content="ads_"]
-||tgwopez.cn
-||qj202.cc
-||fpbbdx2.bmcx.com
-||7x24s.com
-||chenshengyu.cn
-||75dr.com/js/script/wap.js
-||75dr.com/js/c.js
+m.sm.cn$$div[ad_dot_url="adclick"]
+||g.alicdn.com/alilog
+||image.uc.cn/s/uae/g/2p/wolong_ad_tpl
+||sm-tc.cn
+||image-ad.sm.cn
+||sm.cn/adclick
+||sm.cn/conn
+||zm.sm-tc.cn
+||fourier.taobao.com
+||sugs.m.sm.cn
+||https://g.alicdn.com/alilog
+||https://image.uc.cn/s/uae/g/2p/wolong_ad_tpl
+||https://sm-tc.cn
+||https://image-ad.sm.cn
+||https://sm.cn/adclick
+||https://sm.cn/conn
+||https://zm.sm-tc.cn
+||https://sugs.m.sm.cn
+||https://gayeah.cn
+||https://a.spush.com
+||https://ahov1.top
+||https://bbs.zhanzhangwo.com/img/*.gif
 ||https://ga2.3dmgame.com
 ||https://fjisu2.com/js/huimi-
 ||https://tgwopez.cn
@@ -870,7 +882,6 @@ mxshm.top$$script[tag-content="ads_"]
 ||https://w.cnzz.com
 ||https://c.cnzz.com
 ||https://a.cnzz.com
-||https://m.sm.cn
 ||https://data.video.ptqy.gitv.tv/videos/other/$redirect=noopmp4-1s
 ||https://atm.cp31.ott.cibntv.net$media,redirect=noopmp4-1s
 ||https://cpoml.iask.sina.com.cn $empty
@@ -4612,7 +4623,6 @@ mxshm.top$$script[tag-content="ads_"]
 ||https://id6.me
 ||https://iyes.youku.com
 ||https://sub.ykimg.com
-||https://sm.cn $app=com.youku.phone
 ||https://m.sfscooter.cn
 ||https://m.zosue.cn
 ||https://soup.v.qq.com
@@ -12381,6 +12391,18 @@ mxshm.top$$script[tag-content="ads_"]
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://g.alicdn.com/alilog
+||http://image.uc.cn/s/uae/g/2p/wolong_ad_tpl
+||http://sm-tc.cn
+||http://image-ad.sm.cn
+||http://sm.cn/adclick
+||http://sm.cn/conn
+||http://zm.sm-tc.cn
+||http://sugs.m.sm.cn
+||http://gayeah.cn
+||http://a.spush.com
+||http://ahov1.top
+||http://bbs.zhanzhangwo.com/img/*.gif
 ||http://ga2.3dmgame.com
 ||http://fjisu2.com/js/huimi-
 ||http://tgwopez.cn
@@ -13257,7 +13279,6 @@ mxshm.top$$script[tag-content="ads_"]
 ||http://w.cnzz.com
 ||http://c.cnzz.com
 ||http://a.cnzz.com
-||http://m.sm.cn
 ||http://data.video.ptqy.gitv.tv/videos/other/$redirect=noopmp4-1s
 ||http://img.piaosugo.com*.jpg
 ||http://atm.cp31.ott.cibntv.net$media,redirect=noopmp4-1s
@@ -17067,7 +17088,6 @@ mxshm.top$$script[tag-content="ads_"]
 ||http://id6.me
 ||http://iyes.youku.com
 ||http://sub.ykimg.com
-||http://sm.cn $app=com.youku.phone
 ||http://m.sfscooter.cn
 ||http://m.zosue.cn
 ||http://soup.v.qq.com
@@ -24422,6 +24442,7 @@ mxshm.top$$script[tag-content="ads_"]
 ||http://lzthjd.cn
 ||http://caoys1998.xyz
 ||http://magicflute.club
+||https://m.sm.cn$$div[ad_dot_url="adclick"]
 ||https://mxshm.top$$script[tag-content="ads_"]
 ||https://m.baidu.com,www.baidu.com##div[tpl*="ball"]
 ||https://baijiahao.baidu.com##.headDeflectorContainer
@@ -32292,6 +32313,7 @@ mxshm.top$$script[tag-content="ads_"]
 ||https://ruanyifeng.com$$script[tag-content="background"]
 ||https://manhuatai.com$$div[class="acgn-dynamic-content"]
 ||https://yse1234.com/template/phone/imagess/sdfwe.js
+||http://m.sm.cn$$div[ad_dot_url="adclick"]
 ||http://mxshm.top$$script[tag-content="ads_"]
 ||http://m.baidu.com,www.baidu.com##div[tpl*="ball"]
 ||http://baijiahao.baidu.com##.headDeflectorContainer
