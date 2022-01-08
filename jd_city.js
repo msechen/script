@@ -251,7 +251,7 @@ function city_lotteryAward() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: `https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/city.json`, 'timeout': 10000}, (err, resp, data) => {
+    $.get({url: `https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/city.json`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
