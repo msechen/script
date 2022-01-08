@@ -710,7 +710,7 @@ function getJDHealth(){
 function getJdCity(inviteId, flag = false) {
   let body = {"lbsCity":"19","realLbsCity":"1601","inviteId":inviteId,"headImg":"","userName":""}
   return new Promise((resolve) => {
-    $.post(CitytaskPostUrl("city_getHomeData",body), async (err, resp, data) => {
+    $.post(CitytaskPostUrl("city_getHomeDatav1",body), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -738,7 +738,7 @@ function getJdCity(inviteId, flag = false) {
                 }
               }
             } else {
-              console.log(`\n\ncity_getHomeData失败:${JSON.stringify(data)}\n`)
+              console.log(`\n\ncity_getHomeDatav1失败:${JSON.stringify(data)}\n`)
             }
           }
         }
