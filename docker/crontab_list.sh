@@ -84,13 +84,21 @@
 #京东小魔方--收集兑换
 31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
 #jd_opencard1
-45 0,6,15 * * * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
+30 2 3-9/2 1 * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
-25 3,9,20 * * * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
+30 1 6-31/2,31 1 * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
 #jd_opencard3
-35 4,8,22 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
-#jd_opencard3
-15 1,5,19 * * * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
+30 1 5-25/2,26 1 * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
+#jd_opencard4
+30 13 1-31/5,31 1,2 * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
+#jd_opencard5
+30 2 1,11-31/3 1,2 * node /scripts/jd_opencard5.js >> /scripts/logs/jd_opencard5.log 2>&1
+#jd_opencard6
+30 2 28,7-27/3 1 * node /scripts/jd_opencard6.js >> /scripts/logs/jd_opencard6.log 2>&1
+#jd_opencard7
+30 10 27,7-27/3 1 * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
+#jd_opencard8
+30 3 9-15/3 1 * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 省钱大赢家翻翻乐2
@@ -103,10 +111,6 @@
 31 1 * * * node /scripts/jd_sevenDay.js >> /scripts/logs/jd_sevenDay.log 2>&1
 #见缝插针
 15 10 * * * node /scripts/jd_jfcz.js >> /scripts/logs/jd_jfcz.log 2>&1
-#集“年味卡”，享年货盛宴
-0 0,8 * * * node /scripts/jd_lzdz1_customized.js >> /scripts/logs/jd_lzdz1_customized.log 2>&1
-#年货盛宴 春节集福攻略
-0 0,8 * * * node /scripts/jd_lzdz1_customized2.js >> /scripts/logs/jd_lzdz1_customized2.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
