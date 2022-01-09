@@ -1,0 +1,7 @@
+[配置]
+远程接口=http://manage.robot.com/index/index/index
+服务端口=8090
+调试模式=真
+服务开关=真
+授权密钥=666666
+通信鉴权=真

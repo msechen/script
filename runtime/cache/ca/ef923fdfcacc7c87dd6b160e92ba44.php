@@ -1,4 +1,4 @@
 <?php
 //000000000000
  exit();?>
-456
+think_serialize:N;

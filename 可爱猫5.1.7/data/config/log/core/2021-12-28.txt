@@ -1,0 +1,157 @@
+2021-12-28 02:21:22.394 信息:[初始化] Initializing Complete
+2021-12-28 02:21:22.394 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:21:22.394 信息:[初始化] Version Verification, Start
+2021-12-28 02:21:23.130 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:21:23.132 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:21:38.383 信息:[初始化] Initializing Complete
+2021-12-28 02:21:38.384 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:21:38.384 信息:[初始化] Version Verification, Start
+2021-12-28 02:21:38.757 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:21:38.761 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:21:38.787 信息:[初始化] Version Verification, Tab: \car\lollipop.dll isExist: 真 Old: 58bcd191467dfcf67bfd48560ceb0b21 Now: cfdb93af9097239c6056c4277e443821
+2021-12-28 02:21:39.888 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:21:40.342 信息:[初始化] Open v candy
+2021-12-28 02:21:40.359 信息:[初始化] Open v candy, sta：-3
+2021-12-28 02:21:40.360 信息:[初始化] Open v candy, staError
+2021-12-28 02:22:06.437 信息:[初始化] Initializing Complete
+2021-12-28 02:22:06.438 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:22:06.438 信息:[初始化] Version Verification, Start
+2021-12-28 02:22:06.854 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:22:06.857 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:22:06.925 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:22:07.316 信息:[初始化] Open v candy
+2021-12-28 02:22:07.333 信息:[初始化] Open v candy, sta：-3
+2021-12-28 02:22:07.333 信息:[初始化] Open v candy, staError
+2021-12-28 02:24:33.512 信息:[初始化] Initializing Complete
+2021-12-28 02:24:33.513 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:24:33.513 信息:[初始化] Version Verification, Start
+2021-12-28 02:24:33.804 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:24:33.808 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:24:33.871 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:24:34.292 信息:[初始化] Open v candy
+2021-12-28 02:24:34.313 信息:[初始化] Open v candy, sta：1
+2021-12-28 02:24:34.313 信息:[初始化] Open v candy, Comlpete
+2021-12-28 02:24:34.313 信息:[初始化] Create Log, Start
+2021-12-28 02:24:34.321 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 02:24:34.365 信息:[初始化] Create Log Panel Complete, c at 366446327
+2021-12-28 02:24:36.815 信息:[初始化] have full
+2021-12-28 02:24:36.815 信息:[初始化] Create Windows, Start
+2021-12-28 02:37:09.235 信息:[应用心跳-结束] 应用: demo51.cat.dll  信号量: 1
+2021-12-28 02:37:24.157 信息:[初始化] Initializing Complete
+2021-12-28 02:37:24.158 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:37:24.158 信息:[初始化] Version Verification, Start
+2021-12-28 02:37:25.156 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:37:25.159 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:37:25.218 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:37:25.599 信息:[初始化] Open v candy
+2021-12-28 02:37:25.615 信息:[初始化] Open v candy, sta：1
+2021-12-28 02:37:25.615 信息:[初始化] Open v candy, Comlpete
+2021-12-28 02:37:25.615 信息:[初始化] Create Log, Start
+2021-12-28 02:37:25.621 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 02:37:25.668 信息:[初始化] Create Log Panel Complete, c at 366446327
+2021-12-28 02:37:25.992 信息:[初始化] have full
+2021-12-28 02:37:25.992 信息:[初始化] Create Windows, Start
+2021-12-28 02:38:45.137 信息:[应用心跳-结束] 应用: httpAPI.cat.dll  信号量: 1
+2021-12-28 02:38:59.722 信息:[初始化] Initializing Complete
+2021-12-28 02:38:59.723 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:38:59.723 信息:[初始化] Version Verification, Start
+2021-12-28 02:39:00.023 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:39:00.026 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:39:00.097 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:39:00.503 信息:[初始化] Open v candy
+2021-12-28 02:39:00.520 信息:[初始化] Open v candy, sta：1
+2021-12-28 02:39:00.520 信息:[初始化] Open v candy, Comlpete
+2021-12-28 02:39:00.520 信息:[初始化] Create Log, Start
+2021-12-28 02:39:00.526 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 02:39:00.571 信息:[初始化] Create Log Panel Complete, c at 366446327
+2021-12-28 02:39:00.920 信息:[初始化] have full
+2021-12-28 02:39:00.920 信息:[初始化] Create Windows, Start
+2021-12-28 02:41:51.709 信息:[应用心跳-结束] 应用: demo51.cat.dll  信号量: 1
+2021-12-28 02:41:55.677 信息:[初始化] Initializing Complete
+2021-12-28 02:41:55.677 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:41:55.677 信息:[初始化] Version Verification, Start
+2021-12-28 02:41:56.190 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:41:56.193 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:41:56.264 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:41:56.677 信息:[初始化] Open v candy
+2021-12-28 02:41:56.694 信息:[初始化] Open v candy, sta：1
+2021-12-28 02:41:56.694 信息:[初始化] Open v candy, Comlpete
+2021-12-28 02:41:56.694 信息:[初始化] Create Log, Start
+2021-12-28 02:41:56.701 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 02:41:56.748 信息:[初始化] Create Log Panel Complete, c at 366511863
+2021-12-28 02:41:57.196 信息:[初始化] have full
+2021-12-28 02:41:57.196 信息:[初始化] Create Windows, Start
+2021-12-28 02:43:11.737 信息:[应用心跳-结束] 应用: demo51.cat.dll  信号量: 1
+2021-12-28 02:43:26.410 信息:[初始化] Initializing Complete
+2021-12-28 02:43:26.411 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:43:26.411 信息:[初始化] Version Verification, Start
+2021-12-28 02:43:26.690 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:43:26.693 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:43:26.758 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:43:27.157 信息:[初始化] Open v candy
+2021-12-28 02:43:27.174 信息:[初始化] Open v candy, sta：1
+2021-12-28 02:43:27.174 信息:[初始化] Open v candy, Comlpete
+2021-12-28 02:43:27.174 信息:[初始化] Create Log, Start
+2021-12-28 02:43:27.180 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 02:43:27.227 信息:[初始化] Create Log Panel Complete, c at 365659895
+2021-12-28 02:43:27.725 信息:[初始化] have full
+2021-12-28 02:43:27.726 信息:[初始化] Create Windows, Start
+2021-12-28 02:52:45.897 信息:[应用心跳-结束] 应用: demo51.cat.dll  信号量: 1
+2021-12-28 02:52:58.169 信息:[初始化] Initializing Complete
+2021-12-28 02:52:58.170 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 02:52:58.170 信息:[初始化] Version Verification, Start
+2021-12-28 02:53:09.599 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 02:53:09.602 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 02:53:09.667 信息:[初始化] Version Verification, is Complete
+2021-12-28 02:53:10.059 信息:[初始化] Open v candy
+2021-12-28 02:53:10.076 信息:[初始化] Open v candy, sta：1
+2021-12-28 02:53:10.076 信息:[初始化] Open v candy, Comlpete
+2021-12-28 02:53:10.076 信息:[初始化] Create Log, Start
+2021-12-28 02:53:10.086 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 02:53:10.133 信息:[初始化] Create Log Panel Complete, c at 365332215
+2021-12-28 02:53:10.529 信息:[初始化] have full
+2021-12-28 02:53:10.529 信息:[初始化] Create Windows, Start
+2021-12-28 03:00:56.901 信息:[初始化] Create Window, Complete
+2021-12-28 03:03:37.737 信息:[应用心跳-结束] 应用: iHttp.cat.dll  信号量: 1
+2021-12-28 03:03:44.437 信息:[初始化] Initializing Complete
+2021-12-28 03:03:44.437 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 03:03:44.437 信息:[初始化] Version Verification, Start
+2021-12-28 03:03:55.818 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 03:03:55.821 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 03:03:55.880 信息:[初始化] Version Verification, is Complete
+2021-12-28 03:03:56.320 信息:[初始化] Open v candy
+2021-12-28 03:03:56.335 信息:[初始化] Open v candy, sta：1
+2021-12-28 03:03:56.335 信息:[初始化] Open v candy, Comlpete
+2021-12-28 03:03:56.336 信息:[初始化] Create Log, Start
+2021-12-28 03:03:56.342 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 03:03:56.387 信息:[初始化] Create Log Panel Complete, c at 365397751
+2021-12-28 03:03:56.789 信息:[初始化] have full
+2021-12-28 03:03:56.789 信息:[初始化] Create Windows, Start
+2021-12-28 03:54:42.176 信息:[初始化] Initializing Complete
+2021-12-28 03:54:42.176 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 03:54:42.176 信息:[初始化] Version Verification, Start
+2021-12-28 03:54:53.688 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 03:54:53.688 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 03:54:53.754 信息:[初始化] Version Verification, is Complete
+2021-12-28 03:54:54.172 信息:[初始化] Open v candy
+2021-12-28 03:54:54.190 信息:[初始化] Open v candy, sta：1
+2021-12-28 03:54:54.190 信息:[初始化] Open v candy, Comlpete
+2021-12-28 03:54:54.190 信息:[初始化] Create Log, Start
+2021-12-28 03:54:54.195 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 03:54:54.241 信息:[初始化] Create Log Panel Complete, c at 364218103
+2021-12-28 03:54:54.627 信息:[初始化] have full
+2021-12-28 03:54:54.627 信息:[初始化] Create Windows, Start
+2021-12-28 04:06:36.311 信息:[初始化] Initializing Complete
+2021-12-28 04:06:36.311 信息:[初始化] Load Config Complete, debug at 
+2021-12-28 04:06:36.311 信息:[初始化] Version Verification, Start
+2021-12-28 04:06:47.890 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2021-12-28 04:06:47.893 信息:[初始化] Version Verification, jpg length: 4055
+2021-12-28 04:06:47.958 信息:[初始化] Version Verification, is Complete
+2021-12-28 04:06:48.389 信息:[初始化] Open v candy
+2021-12-28 04:06:48.406 信息:[初始化] Open v candy, sta：1
+2021-12-28 04:06:48.406 信息:[初始化] Open v candy, Comlpete
+2021-12-28 04:06:48.406 信息:[初始化] Create Log, Start
+2021-12-28 04:06:48.412 信息:[初始化] Create Log, Init Queue and Config
+2021-12-28 04:06:48.461 信息:[初始化] Create Log Panel Complete, c at 365790967
+2021-12-28 04:06:48.901 信息:[初始化] have full
+2021-12-28 04:06:48.901 信息:[初始化] Create Windows, Start

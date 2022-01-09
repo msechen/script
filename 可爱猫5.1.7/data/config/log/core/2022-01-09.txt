@@ -1,0 +1,28 @@
+2022-01-09 14:39:00.550 信息:[初始化] Initializing Complete
+2022-01-09 14:39:00.550 信息:[初始化] Load Config Complete, debug at 
+2022-01-09 14:39:00.550 信息:[初始化] Version Verification, Start
+2022-01-09 14:39:11.887 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2022-01-09 14:39:11.891 信息:[初始化] Version Verification, jpg length: 4055
+2022-01-09 14:39:11.984 信息:[初始化] Version Verification, is Complete
+2022-01-09 14:39:12.395 信息:[初始化] Open v candy
+2022-01-09 14:39:12.413 信息:[初始化] Open v candy, sta：1
+2022-01-09 14:39:12.413 信息:[初始化] Open v candy, Comlpete
+2022-01-09 14:39:12.413 信息:[初始化] Create Log, Start
+2022-01-09 14:39:12.420 信息:[初始化] Create Log, Init Queue and Config
+2022-01-09 14:39:12.475 信息:[初始化] Create Log Panel Complete, c at 359696119
+2022-01-09 14:39:12.915 信息:[初始化] have full
+2022-01-09 14:39:12.915 信息:[初始化] Create Windows, Start
+2022-01-09 16:15:21.462 信息:[初始化] Initializing Complete
+2022-01-09 16:15:21.463 信息:[初始化] Load Config Complete, debug at 
+2022-01-09 16:15:21.463 信息:[初始化] Version Verification, Start
+2022-01-09 16:15:21.861 信息:[初始化] Version Verification, Complate has jpg: 33tSC2IGo=
+2022-01-09 16:15:21.864 信息:[初始化] Version Verification, jpg length: 4055
+2022-01-09 16:15:21.929 信息:[初始化] Version Verification, is Complete
+2022-01-09 16:15:22.317 信息:[初始化] Open v candy
+2022-01-09 16:15:22.333 信息:[初始化] Open v candy, sta：1
+2022-01-09 16:15:22.333 信息:[初始化] Open v candy, Comlpete
+2022-01-09 16:15:22.333 信息:[初始化] Create Log, Start
+2022-01-09 16:15:22.338 信息:[初始化] Create Log, Init Queue and Config
+2022-01-09 16:15:22.383 信息:[初始化] Create Log Panel Complete, c at 359892727
+2022-01-09 16:15:22.859 信息:[初始化] have full
+2022-01-09 16:15:22.859 信息:[初始化] Create Windows, Start

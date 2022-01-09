@@ -15,17 +15,17 @@
                     <label class="layui-form-item block relative">
                         <span class="color-green margin-right-10">内网通讯地址</span>
                         <input name="intranet_communication" required value="{:config('intranet_communication')}" class="layui-input">
-                        <p class="help-block">内网地址:端口</p>
+                        <p class="help-block">内网地址:端口，你可以填写127.0.0.1、localhost、内网ip、公网ip，实在分不清，你就写公网ip</p>
                     </label>
                     <label class="layui-form-item block relative">
-                        <span class="color-green margin-right-10">远程处理接口</span>
+                        <span class="color-green margin-right-10">机器人运行所在ip</span>
                         <input name="remote_communication" required value="{:config('remote_communication')}" class="layui-input">
-                        <p class="help-block">远程地址</p>
+                        <p class="help-block">如果在机器人本机运行，修改为127.0.0.1或者localhost，若外网访问改为运行机器人的服务器外网ip</p>
                     </label>
                     <label class="layui-form-item block relative">
-                        <span class="color-green margin-right-10">远程处理端口</span>
+                        <span class="color-green margin-right-10">机器人运行所在端口</span>
                         <input name="remote_communication_port" required value="{:config('remote_communication_port')}" class="layui-input">
-                        <p class="help-block">远程端口</p>
+                        <p class="help-block">端口，默认8090。如果你不懂，就默认就行。</p>
                     </label>
                 </div>
             </div>

@@ -119,9 +119,9 @@ class Reply extends Controller
             $res=db('xy_reply')->where('id',$id)->delete();
             if($res){
                 //获取最新的关键词集
-                $replys=array_column(db('xy_reply')->where('wxid',$robot_wxid)->field('question')->select(),'question');
+                $replys=array_column(db('xy_reply')->where('wxid',$reply['wxid'])->field('question')->select(),'question');
                 Cache::store('redis')->set('robot_keyword_'.$reply['wxid'], $replys);//修改缓存-存储机器人的关键词-机器人id
-                db('xy_reply_robot')->where('robot_wxid',$robot_wxid)->update(['replys'=>json_encode($replys,true)]);//更改数据库存储
+                db('xy_reply_robot')->where('robot_wxid',$reply['wxid'])->update(['replys'=>json_encode($replys,true)]);//更改数据库存储
                 return $this->success('删除成功!');
             }else return $this->error('删除失败');
         }

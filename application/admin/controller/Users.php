@@ -52,6 +52,7 @@ class Users extends Controller
                 "login_time"=>$v['login_time'],
                 "signature"=>$v['signature'],
                 "backgroundimgurl"=>$v['backgroundimgurl'],
+                'status'=>1
             ];
             $robot_serviced_for_group_data=[
                 'robot_wxid'=>$v['wxid'],
