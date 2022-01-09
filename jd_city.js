@@ -34,13 +34,19 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let inviteCodes = [
-  '-ryUXq4PNGBLYxvCQ9mU8eM0bnBlSOHt@-ryUIdZPJxwDI2GTNpyju1DkGjFtILY',
-  '-ryUXq4PNGBLYxvCQ9mU8eM0bnBlSOHt@-ryUIdZPJxwDI2GTNpyju1DkGjFtILY'
+  '',
+  ''
 ]
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
+  }
+  readShareCodeRes = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/city.json')
+  if (!readShareCodeRes) {
+    $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/city.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
+    await $.wait(1000)
+    readShareCodeRes = await getAuthorShareCode('https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/city.json')
   }
   await requireConfig();
   if (exchangeFlag) {
@@ -248,27 +254,36 @@ function city_lotteryAward() {
     })
   })
 }
-function readShareCode() {
-  console.log(`开始`)
+function getAuthorShareCode(url) {
   return new Promise(async resolve => {
-    $.get({url: `https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/city.json`, 'timeout': 10000}, (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
-        } else {
-          if (data) {
-            data = JSON.parse(data);
+    const options = {
+      url: `${url}?${new Date()}`, "timeout": 10000, headers: {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+      }
+    };
+    if ($.isNode() && process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
+      const tunnel = require("tunnel");
+      const agent = {
+        https: tunnel.httpsOverHttp({
+          proxy: {
+            host: process.env.TG_PROXY_HOST,
+            port: process.env.TG_PROXY_PORT * 1
           }
-        }
+        })
+      }
+      Object.assign(options, { agent })
+    }
+    $.get(options, async (err, resp, data) => {
+      try {
+        resolve(JSON.parse(data))
       } catch (e) {
-        $.logErr(e, resp)
+        // $.logErr(e, resp)
       } finally {
-        resolve(data);
+        resolve();
       }
     })
-    await $.wait(10000);
-    resolve()
+    await $.wait(10000)
+    resolve();
   })
 }
 //格式化助力码
@@ -283,7 +298,6 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-    const readShareCodeRes = await readShareCode();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...(readShareCodeRes.data || []), ...$.newShareCodes])];
     }
