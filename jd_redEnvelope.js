@@ -121,8 +121,7 @@ function mainInfo() {
           let res = $.toObj(data, data);
           if (typeof res == "object") {
             if (res.code == 0 && res.data && res.data.shareUrl) {
-              console.log(JSON.stringify(res.data.shareUrl))
-              $.shareCode = (res.data.shareUrl.match(/$.code\?s=([^&]+)/) && res.data.shareUrl.match(/$.code\?s=([^&]+)/)[1]) || "";
+              $.shareCode = res.data.shareUrl.match(/\?s=([^&]+)/) && res.data.shareUrl.match(/\?s=([^&]+)/)[1] || ''
               console.log("助力码:" + $.shareCode);
             }
           } else {
