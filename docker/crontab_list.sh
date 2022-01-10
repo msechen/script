@@ -114,7 +114,7 @@
 # 城城分现金
 10 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 # 京享红包
-0 * * * * node /scripts/jd_redEnvelope.js.js >> /scripts/logs/jd_redEnvelope.js.log 2>&1
+1 10,20,21 * * * node /scripts/jd_redEnvelope.js.js >> /scripts/logs/jd_redEnvelope.js.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
