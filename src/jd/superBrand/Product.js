@@ -5,7 +5,7 @@ const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
-const source = 'secondfloor';
+const source = 'pk';
 
 class SuperBrandProduct extends Template {
   static scriptName = 'SuperBrandProduct';
@@ -16,18 +16,21 @@ class SuperBrandProduct extends Template {
   static times = 2;
   static needInAppComplete = true;
 
-  static apiOptions = {
-    options: {
-      qs: {
-        appid: 'ProductZ4Brand',
-        client: 'wh5',
-        body: {source},
-        uuid: this.getUUid(),
+  static apiOptions() {
+    return {
+      options: {
+        qs: {
+          appid: 'ProductZ4Brand',
+          client: 'wh5',
+          body: {source},
+          uuid: this.getUUid(),
+          t: getMoment().valueOf(),
+        },
+        headers: {
+          origin: 'https://prodev.m.jd.com',
+        },
       },
-      headers: {
-        origin: 'https://prodev.m.jd.com',
-      },
-    },
+    };
   };
 
   static apiExtends = {
@@ -63,7 +66,14 @@ class SuperBrandProduct extends Template {
 
           const result = [];
 
-          const taskList = _.property('data.result.taskList')(data) || [];
+          let taskList = _.property('data.result.taskList')(data) || [];
+          const pkTaskName = '选队赠送热力值';
+          if (source === 'pk') {
+            const index = taskList.findIndex(o => o['assignmentName'] === pkTaskName);
+            if (index > -1) {
+              taskList = taskList.splice(index, 1).concat(taskList);
+            }
+          }
           for (let {
             encryptAssignmentId,
             assignmentType,
@@ -76,12 +86,20 @@ class SuperBrandProduct extends Template {
             completionFlag,
           } of taskList) {
             if ([].includes(assignmentType)) continue;
-            if (/会员|开卡/.test(assignmentName) && !self.lastTimeInTheDay()) continue;
+            if (/会员|开卡/.test(assignmentName) && !self.firstTimeInTheDay()) continue;
 
             let list = [];
 
             // 分享海报
             if (assignmentName.match('海报')) {
+              ext['extraType'] = 'list';
+              ext['list'] = [{
+                itemId: null,
+              }];
+            }
+
+            if (assignmentName === pkTaskName && !completionFlag) {
+              await api.doGetBodyMP('superBrandPkJoinTeam', {'pre': 'pre', 'teamName': 'left'});
               ext['extraType'] = 'list';
               ext['list'] = [{
                 itemId: null,
@@ -136,14 +154,16 @@ class SuperBrandProduct extends Template {
 
     if (source === 'card') {
       _.assign(result, {
-        name: 'showSecondFloorCardInfo',
-        async successFn(data, api) {
-          if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
-          const {activityCardInfo} = _.get(data, 'data.result');
-          const {cardPackList, divideTimeStr} = activityCardInfo;
-          const enableDivide = cardPackList.every(({num}) => num > 0);
-          const cardLog = '已收集卡片数: ' + cardPackList.map(({num, cardType}) => `${num}张卡片${cardType}`).join(', ');
-          api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
+        afterGetTaskList: {
+          name: 'showSecondFloorCardInfo',
+          async successFn(data, api) {
+            if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
+            const {activityCardInfo} = _.get(data, 'data.result');
+            const {cardPackList, divideTimeStr} = activityCardInfo;
+            const enableDivide = cardPackList.every(({num}) => num > 0);
+            const cardLog = '已收集卡片数: ' + cardPackList.map(({num, cardType}) => `${num}张卡片${cardType}`).join(', ');
+            api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
+          },
         },
       });
     } else if (source === 'secondfloor' && self.lastTimeInTheDay()) {
