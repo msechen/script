@@ -85,7 +85,7 @@ let inviteCodes = [
           }
           if (res['data']['result']['toasts']) {
             if (res['data']['result']['toasts'][0]) {
-              console.log(`助力 【${shareCodes[j]}】:${res.data.result.toasts[0].msg}`)
+              console.log(`助力 【${$.newShareCodes[i]}】:${res.data.result.toasts[0].msg}`)
             } else {
               console.log(`未知错误，跳出`)
               break
