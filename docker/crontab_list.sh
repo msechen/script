@@ -121,6 +121,8 @@
 23 11,20 * * * node /scripts/jd_superBrand.js >> /scripts/logs/jd_superBrand.log 2>&1
 # 天天压岁钱
 57 2 * * * node /scripts/jd_dayday_ysq.js >> /scripts/logs/jd_dayday_ysq.log 2>&1
+#炸年兽
+33 0,6-23/2 * * * node /scripts/jd_travel.js.js >> /scripts/logs/jd_travel.js.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
