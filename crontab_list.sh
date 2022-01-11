@@ -247,10 +247,7 @@
 0 0,17 * * * sh /scripts/docker/shareCode/xtg.sh && cd /scripts && ts-node /scripts/jd_xtg.ts >> /scripts/logs/jd_xtg.log 2>&1
 
 # xxxx
-59 19 11 11 * cd /scripts/logs && node /scripts/logs/dreamFactoryProduct.js >> /scripts/logs/dreamFactoryProduct.log 2>&1
-
-# xxxx
-59 7,15,23 * * * cd /scripts/logs && node /scripts/logs/joy_bean.js >> /scripts/logs/joy_bean.log 2>&1
+59 9 12 1 * cd /scripts/logs && ts-node /scripts/logs/jxmc.ts >> /scripts/logs/jxmc_q.log 2>&1
 
 # 京享红包
 # 0 0,12,18 * * * node /scripts/jd_jingxianghongbao.js >> /scripts/logs/jd_jingxianghongbao.log 2>&1
