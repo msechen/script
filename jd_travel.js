@@ -7,7 +7,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = '', message, helpCodeArr = [], expandHelpArr = [],teamLeaderArr = [], helpPinArr = [], wxCookie = "";
 let wxCookieArr = process.env.WXCookie?.split("@") || []
 const teamPlayerAutoTeam = {}
-const jdCookieNode = $.isNode() ? require('./jdCookie1.js') : '';
+const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const appid = $.appid = "50089"
 let teamMap = {}
 let userToTeamMap = {}
