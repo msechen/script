@@ -76,6 +76,7 @@ const DDSJ = TemporarilyOffline || require('./jd/ddsj');
 const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
+const FuQiqan = require('./jd/fuQian');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -286,6 +287,7 @@ async function main() {
         ]);
         await sleepTime(24);
         await multipleRun([
+          FuQiqan,
           [Health, void 0, 'cron'],
           EarnBean,
           // JoySign,
