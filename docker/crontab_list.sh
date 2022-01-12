@@ -99,6 +99,8 @@
 30 10 27,7-27/3 1 * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
 #jd_opencard8
 30 3 9-15/3 1 * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
+#jd_opencard9
+30 3 13-20/3 1 * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 省钱大赢家翻翻乐2
