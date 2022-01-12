@@ -16,4 +16,10 @@ echo -e "" >>$mergedListFile
 cat $customListFile >>$mergedListFile
 
 
-
+zero205Git="/scripts/logs/other_scripts/zero205/README.md"
+if [ -f "$zero205Git" ]; then
+  git -C /scripts/logs/other_scripts/zero205 reset --hard
+  git -C /scripts/logs/other_scripts/zero205 pull
+else
+  git clone https://github.com/zero205/JD_tencent_scf.git /scripts/logs/other_scripts/zero205
+fi
