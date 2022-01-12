@@ -15,8 +15,8 @@ def load_module(module, path):
                 load = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(load)
                 sys.modules[f"jbot.{module}.{filename}"] = load
-                logger.info(f"Bot加载-->{filename}-->完成")
+                logger.info(f"加载成功  {filename}")
         except Exception as e:
-            logger.info(f"Bot加载失败-->{file}-->{str(e)}")
+            logger.info(f"加载失败  {file}  {str(e)}")
             continue
 
