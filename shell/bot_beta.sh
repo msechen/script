@@ -93,7 +93,8 @@ init() {
     cp -f $repo_path/config/bot.json $root/config
   fi
   if [[ ! -f $file_botset ]]; then
-    cp -f $repo_path/config/botset.json $root/config
+    cp -f $repo_path/beta/set.json $root/config
+    mv -f $root/config/set.json $root/config/botset.json
   else
     sed -i 's/user": "True"/user": "False"/' $file_botset
     echo "为安全起见，关闭user监控，请使用 /user 手动开启！"
