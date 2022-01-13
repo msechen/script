@@ -59,9 +59,9 @@ async def bot_get_file(event):
                     else:
                         backup_file(f'{res}/{filename}')
                         await jdbot.download_media(event.message, res)
-                        with open(f'{res}/{filename}', 'r', encoding='utf-8') as f:
-                            resp = f.read()
-                        if res2 == 'yes':
+                        if res2 == 'yes': 
+                            with open(f'{res}/{filename}', 'r', encoding='utf-8') as f:
+                                resp = f.read()
                             await add_cron(jdbot, conv, resp, filename, msg, SENDER, markup, res)
                         else:
                             await jdbot.edit_message(msg, f'{filename}已保存到{res}文件夹')
