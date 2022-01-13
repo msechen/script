@@ -31,12 +31,14 @@ backup() {
   cp -rf $root/jbot/* $root/repo/backup/$(date +\%m\%d\%H\%M)
   rm -rf $root/jbot/*
   rm -rf $root/repo/diybot
+  cd $root
 }
 
 env() {
   echo "1、安装bot依赖..."
   apk --no-cache add -f zlib-dev gcc jpeg-dev python3-dev musl-dev freetype-dev
-  echo "bot依赖安装成功..."
+  echo -e "bot依赖安装成功...\n"
+  cd $root
 }
 
 bot() {
@@ -52,7 +54,7 @@ bot() {
     rm -f $dir_diybot/beta/diy/diy.py
   fi
   cp -rf $dir_diybot/beta/* $dir_jbot
-  echo "bot文件下载成功..."
+  echo -e "bot文件下载成功...\n"
   if [[ ! -f $file_bot ]]; then
     cp -f $dir_diybot/config/bot.json $root/config
   fi
@@ -61,7 +63,7 @@ bot() {
     mv -f $root/config/set.json $root/config/botset.json
   else
     sed -i 's/user": "True"/user": "False"/' $file_botset
-    echo "为安全起见，关闭user监控，请使用 /user 手动开启！"
+    echo -e "为安全起见，关闭user监控，请使用 /user 手动开启！\n"
   fi
   if [[ ! -f $file_diybotset ]]; then
     cp -f $dir_diybot/config/diybotset.json $root/config
@@ -69,6 +71,7 @@ bot() {
     sed -i 's/key_1/listenerId/' $file_diybotset
     sed -i 's/value_1/-1001630980165/' $file_diybotset
   fi
+  cd $root
 }
 
 packages() {
@@ -76,23 +79,20 @@ packages() {
   cd $dir_jbot
   /usr/bin/python3 -m pip install --upgrade pip
   pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/
-  pip3 --default-timeout=100 install -r requirements.txt --no-cache-dir
-  echo "python3依赖安装成功..."
+  pip3  --no-cache-dir --default-timeout=100 install -r requirements.txt
+  echo -e "python3依赖安装成功...\n"
+  cd $root
 }
 
 start() {
   echo "4、启动bot程序..."
-  cd $root
-  if [ ! -d $root/log/bot ]; then
-    mkdir $root/log/bot
-  fi
-  if [[ -z $(grep -E "123456789" $root/config/bot.json) ]]; then
-    cd $root/jbot || exit; pm2 start ecosystem.config.js
-    cd $root || exit; pm2 restart jbot
+  if [[ -z $(grep -E "123456789" $file_bot) ]]; then
+    cd $dir_jbot || exit; pm2 start ecosystem.config.js
     echo "bot启动成功..."
   else
-    echo "配置 $root/config/bot.json 后再次运行本程序即可启动机器人"
+    echo "配置 $file_bot 后再次运行本程序即可启动机器人"
   fi
+  cd $root
 }
 
 main() {
