@@ -113,8 +113,6 @@
 31 1 * * * node /scripts/jd_sevenDay.js >> /scripts/logs/jd_sevenDay.log 2>&1
 #见缝插针
 15 10 * * * node /scripts/jd_jfcz.js >> /scripts/logs/jd_jfcz.log 2>&1
-# 城城分现金
-10 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 # 京享红包
 0 0,10,20 * * * node /scripts/jd_nhRedEnvelope.js >> /scripts/logs/jd_nhRedEnvelope.log 2>&1
 # 年货签到
