@@ -116,7 +116,7 @@
 # 城城分现金
 10 * * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 # 京享红包
-0 0,10,20,22 * * * node /scripts/jd_nhRedEnvelope.js >> /scripts/logs/jd_nhRedEnvelope.log 2>&1
+0 0,10,20 * * * node /scripts/jd_nhRedEnvelope.js >> /scripts/logs/jd_nhRedEnvelope.log 2>&1
 # 年货签到
 0 8 * * * node /scripts/jd_nh_sign.js >> /scripts/logs/jd_nh_sign.log 2>&1
 # 特务z
