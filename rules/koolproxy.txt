@@ -1,7 +1,7 @@
 ﻿!x  -----------------------------------------------------------------------------------------------------------------
 !x  -----[KoolProxy 3.8.5]
-!x  -----update[rules]: 2021-12-25 10:30
-!x  -----update[video]: 2022-01-01 23:18
+!x  -----update[rules]: 2022-01-09 00:30
+!x  -----update[video]: 2022-01-09 00:57
 !x  -----Thanks: From lvba Rule Group
 !x  -----Thanks for help: <yiclear> <adbyby> <adm> <adblock> <adguard>
 !x  -----------------------------------------------------------------------------------------------------------------
@@ -108,6 +108,7 @@
 @@|http://d.x77918.com/qt/in.js
 @@|http://device.qq.com
 @@|http://d1.sina.com.cn/zhuyan/jiaqing/F1/f1ad_nav_bg.jpg$image
+@@|http://dldir1v6.qq.com
 @@|http://dl.static.iqiyi.com/hz/IQIYIsetup
 @@|http://dp.gtimg.cn/discuzpic/0/discuz_qqgame_gamebbs_qq_com_forum_$domain=gamebbs.qq.com
 @@|http://dvs.china.com/crossdomain.xml
@@ -443,7 +444,9 @@
 @@@@|https://api.yuedu.iqiyi.com
 @@@@|https://api.sports.163.com
 @@@@|https://account.zhihu.com
+@@@@|https://acc.qq.com
 @@@@|https://api.car.autohome.com.cn
+@@@@|https://api.im.qcloud.com
 @@@@|https://al.autohome.com.cn
 @@@@|https://alogs.umeng.com
 @@@@|https://api.k.sohu.com
@@ -455,14 +458,19 @@
 @@@@|https://api.douban.com
 @@@@|https://api.twitter.com
 @@@@|https://appcloud.zhihu.com
+@@@@|https://appcfg.v.qq.com
 @@@@|https://amonsul.douban.com
 @@@@|https://baidustatic.com$domain=xoyo.com
-@@@@|https://baiducdnct.inter.iqiyi.com/
-@@@@|https://bizapi.csdn.net/download-console-api/
+@@@@|https://baiducdnct.inter.iqiyi.com
+@@@@|https://bar-i.iqiyi.com
+@@@@|https://bizapi.csdn.net/download-console-api
 @@@@|https://cache.video.iqiyi.com
+@@@@|https://cmts.iqiyi.com
 @@@@|https://comment-card.iqiyi.com
 @@@@|https://comment.api.163.com
 @@@@|https://comment-api.smzdm.com
+@@@@|https://control-i.iqiyi.com
+@@@@|https://config.ab.qq.com
 @@@@|https://c.m.163.com
 @@@@|https://cmx.autohome.com.cn
 @@@@|https://comic.iqiyi.com
@@ -484,12 +492,15 @@
 @@@@|https://df.tanx.com
 @@@@|https://du-feige.iqiyi.com
 @@@@|https://device.qq.com
+@@@@|https://dldir1v6.qq.com
 @@@@|https://ef-dongfeng.tanx.com
 @@@@|https://emoticon-sns.iqiyi.com
 @@@@|https://e-p4p.163.com
 @@@@|https://frodo.douban.com
 @@@@|https://game.163.com
+@@@@|https://gateway.icloud.com.cn
 @@@@|https://haojia-api.smzdm.com
+@@@@|https://i.vip.iqiyi.com
 @@@@|https://ifs.tanx.com
 @@@@|https://iqid.iqiyi.com
 !@@@@|https://iyes.youku.com
@@ -503,6 +514,7 @@
 @@@@|https://img1.mydrivers.com
 @@@@|https://img3.doubanio.com
 @@@@|https://image.gamersky.com
+@@@@|https://imgcache.qq.com
 @@@@|https://imgs.gamersky.com
 @@@@|https://imgcache.qq.com
 @@@@|https://iface2.iqiyi.com/fusion
@@ -519,6 +531,9 @@
 @@@@|https://msga.cupid.iqiyi.com/
 @@@@|https://music.httpdns.c.163.com/
 @@@@|https://messaging.zhihu.com
+@@@@|https://metrics.icloud.com
+@@@@|https://mpaas.iqiyi.com
+@@@@|https://mesh.if.iqiyi.com
 @@@@|https://mail.sohu.com/fe/
 @@@@|https://m.ads.sohu.com
 !@@@@|https://m.atm.youku.com
@@ -526,7 +541,10 @@
 @@@@||https://mkey.163.com
 !@@@@|https://mi.gdt.qq.com
 @@@@|https://passport.iqiyi.com
+@@@@|https://pcw-api-tool.iqiyi.com
+@@@@|https://pcw-api.iqiyi.com
 @@@@|https://puma-api.iqiyi.com
+@@@@|https://puui.qpic.cn
 @@@@|https://paopao.iqiyi.com
 @@@@|https://passport.mydrivers.com
 @@@@|https://image.xingyan.panda.tv
@@ -542,8 +560,12 @@
 @@@@|https://res-danmu.youku.com
 @@@@|https://scs-hcdn.iqiyi.com
 @@@@|https://static-s.iqiyi.com
+@@@@|https://static.g.iqiyi.com
+@@@@|https://stc.iqiyipic.com
 @@@@|https://serv.vip.iqiyi.com
+@@@@|https://security.iqiyi.com
 @@@@|https://sns-follow.iqiyi.com
+@@@@|https://sns-comment.iqiyi.com
 @@@@|https://search.video.iqiyi.com
 @@@@|https://sns-paopao.iqiyi.com
 @@@@|https://subscription.iqiyi.com
@@ -552,11 +574,15 @@
 @@@@|https://static.zhihu.com
 !@@@@|https://s.youtube.com/api/
 @@@@|https://tcqcloudcdnct.inter.iqiyi.com
+@@@@|https://tpa-hcdn.iqiyi.com
+@@@@||https://trace.qq.com
 @@@@|https://time.video.iqiyi.com
 @@@@||https://twitter.com
 @@@@|https://uop.umeng.com
+@@@@||https://video.iqiyi.com
 @@@@|https://vthumb.youku.com
 @@@@|https://vals.atm.youku.com/dot/video?
+!@@@@|https://vv6.video.qq.com
 @@@@|https://www.google.com
 !@@@@|https://youtubei.googleapis.com
 !@@@@|https://www.qidian.com/Javascript/ChapterPageHeader.js?t
@@ -4552,6 +4578,7 @@
 ||https://sogoucdn.com/nstatic/js/tmallskin_
 ||https://ssl-youtube.2cnt.net
 ||https://static.arm.youku.com/idea/
+||https://stgowan.com
 |https://stats.chinaz.com/news.js
 ||https://tanx.com^$third-party,domain=~tmall.com|~uc123.com|~taobao.com
 ||https://taboola.com/libtrc/cnbeta-english/loader.js
@@ -12221,6 +12248,7 @@ zznews.cn##.ad:not([style="margin-top:0px;padding-top:0px;"]),.ad1000-60
 |https://www.cnbeta.com/articles/$s@<section class="mt5 cber" style="display:none">*</section>@@
 |https://www.cnbeta.com/assets/js/pages/article.js?v=$s@var CheckBlock=function(options)@@
 |https://www.gaoqingkong.com/$s@var paypopupURL@@
+|https://www.libvio.com/$s@</head>@<link rel="stylesheet" href="https://limbopro.com/CSS/libvio.css" type="text/css">@
 |https://www.nfmovies.com/js/play.js$s@var adsPage@//var adsPage@
 |https://www.nfmovies.com/js/play.js$s@var adsPausePage@//var adsPausePage@
 |https://www.nfmovies.com/$s@<span>关闭</span>@@

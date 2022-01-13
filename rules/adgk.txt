@@ -1,17 +1,22 @@
-! Version: 20220105174003
+! Version: 20220112173207
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+abmedia.io##a.sc-bnXvFD
+abmedia.io##div.kOQza
+||syndication.twitter.com
+||vas-hl-x.snssdk.com
+||mercury-sdk.snssdk.com
+||dm-*.toutiao.com
+||onewsvod.com
+||novel.pangolin-sdk-toutiao.com
+||yximgs.com
 m.sm.cn$$div[ad_dot_url="adclick"]
-||g.alicdn.com/alilog
-||image.uc.cn/s/uae/g/2p/wolong_ad_tpl
-||sm-tc.cn
-||image-ad.sm.cn
-||sm.cn/adclick
-||sm.cn/conn
-||zm.sm-tc.cn
-||fourier.taobao.com
-||sugs.m.sm.cn
+||https://vas-hl-x.snssdk.com
+||https://mercury-sdk.snssdk.com
+||https://onewsvod.com
+||https://novel.pangolin-sdk-toutiao.com
+||https://yximgs.com
 ||https://g.alicdn.com/alilog
 ||https://image.uc.cn/s/uae/g/2p/wolong_ad_tpl
 ||https://sm-tc.cn
@@ -4511,7 +4516,6 @@ m.sm.cn$$div[ad_dot_url="adclick"]
 ||https://n.mark.letv.com
 ||https://static.app.m.letv.com
 ||https://test.ark.letv.com
-||https://api.danmu.tv.sohu.com
 ||https://click.hd.sohu.com.cn
 ||https://click2.hd.sohu.com
 ||https://count.vrs.sohu.com
@@ -12391,6 +12395,12 @@ m.sm.cn$$div[ad_dot_url="adclick"]
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://vas-hl-x.snssdk.com
+||http://mercury-sdk.snssdk.com
+||http://dm-*.toutiao.com
+||http://onewsvod.com
+||http://novel.pangolin-sdk-toutiao.com
+||http://yximgs.com
 ||http://g.alicdn.com/alilog
 ||http://image.uc.cn/s/uae/g/2p/wolong_ad_tpl
 ||http://sm-tc.cn
@@ -16976,7 +16986,6 @@ m.sm.cn$$div[ad_dot_url="adclick"]
 ||http://n.mark.letv.com
 ||http://static.app.m.letv.com
 ||http://test.ark.letv.com
-||http://api.danmu.tv.sohu.com
 ||http://click.hd.sohu.com.cn
 ||http://click2.hd.sohu.com
 ||http://count.vrs.sohu.com
@@ -24442,6 +24451,8 @@ m.sm.cn$$div[ad_dot_url="adclick"]
 ||http://lzthjd.cn
 ||http://caoys1998.xyz
 ||http://magicflute.club
+||https://abmedia.io##a.sc-bnXvFD
+||https://abmedia.io##div.kOQza
 ||https://m.sm.cn$$div[ad_dot_url="adclick"]
 ||https://mxshm.top$$script[tag-content="ads_"]
 ||https://m.baidu.com,www.baidu.com##div[tpl*="ball"]
@@ -32313,6 +32324,8 @@ m.sm.cn$$div[ad_dot_url="adclick"]
 ||https://ruanyifeng.com$$script[tag-content="background"]
 ||https://manhuatai.com$$div[class="acgn-dynamic-content"]
 ||https://yse1234.com/template/phone/imagess/sdfwe.js
+||http://abmedia.io##a.sc-bnXvFD
+||http://abmedia.io##div.kOQza
 ||http://m.sm.cn$$div[ad_dot_url="adclick"]
 ||http://mxshm.top$$script[tag-content="ads_"]
 ||http://m.baidu.com,www.baidu.com##div[tpl*="ball"]
