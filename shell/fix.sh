@@ -35,6 +35,7 @@ fix2() {
 
 fix3() {
   if [ -d "/jd" ]; then root=/jd; else root=/ql; fi
+  python3 $root/repo/diybot/other/upgrade_all_packages.py
   rm -rf $root/jbot/__pycache__
   rm -rf $root/jbot/bot/__pycache__
   rm -rf $root/jbot/diy/__pycache__
@@ -49,14 +50,8 @@ back() {
     dir=$(ls -t | head -1 | awk '{print $1}')
     rm -rf $root/jbot/*
     cp -rf "${root}/repo/backup/${dir}/*" $root/jbot
-    cd $root || exit
-    if [ -d "/ql" ]; then
-      ps -ef | grep "python3 -m jbot" | grep -v grep | awk '{print $1}' | xargs kill -9 2>/dev/null
-      nohup python3 -m jbot > $root/log/bot/bot.log 2>&1 &
-    else
-      cd $root/jbot || exit; pm2 start ecosystem.config.js
-      cd $root; pm2 restart jbot
-    fi
+    cd $root/jbot || exit; pm2 start ecosystem.config.js
+    cd $root; pm2 restart jbot
   else
     echo "你没有做备份！无法回滚！"
   fi
@@ -83,3 +78,4 @@ main() {
 }
 
 main
+exit 0
