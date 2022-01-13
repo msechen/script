@@ -77,6 +77,7 @@ const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
 const FuQiqan = require('./jd/fuQian');
+const SuperBox = require('./jd/superBox');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -133,6 +134,7 @@ async function main() {
     DDSJ,
     RubikSCube,
     SuperBrandProduct,
+    SuperBox,
   ];
   const scheduleOptions = [
     {
