@@ -5,11 +5,12 @@ const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
-const source = 'pk';
+const sources = ['secondfloor', 'card', 'pk'];
+let source;
 
 class SuperBrandProduct extends Template {
   static scriptName = 'SuperBrandProduct';
-  static scriptNameDesc = '物特';
+  static scriptNameDesc = '特物Z';
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
@@ -42,13 +43,24 @@ class SuperBrandProduct extends Template {
   };
 
   static async beforeRequest(api) {
-    const {
-      encryptProjectId,
-      activityId,
-    } = await api.doGetBodyMP('showSecondFloorCardInfo').then(_.property('data.result.activityBaseInfo')) || {};
-    if (!encryptProjectId) return true;
-    _.assign(api.options.qs.body, {activityId});
-    api.encryptProjectId = encryptProjectId;
+    if (source) return _update();
+    let stop;
+    for (const _source of sources) {
+      stop = await _update(source = _source);
+      if (!stop) break;
+    }
+    return stop;
+
+    async function _update(source) {
+      source && (api.options.qs.body.source = source);
+      const {
+        encryptProjectId,
+        activityId,
+      } = await api.doGetBodyMP('showSecondFloorCardInfo').then(_.property('data.result.activityBaseInfo')) || {};
+      if (!encryptProjectId) return true;
+      _.assign(api.options.qs.body, {activityId});
+      api.encryptProjectId = encryptProjectId;
+    }
   }
 
   static apiNamesFn() {
@@ -67,9 +79,10 @@ class SuperBrandProduct extends Template {
           const result = [];
 
           let taskList = _.property('data.result.taskList')(data) || [];
-          const pkTaskName = '选队赠送热力值';
-          if (source === 'pk') {
-            const index = taskList.findIndex(o => o['assignmentName'] === pkTaskName);
+          const isPkTask = name => /选队|送热力值|站队/.test(name);
+          const pkSource = source === 'pk';
+          if (pkSource) {
+            const index = taskList.findIndex(o => isPkTask(o['assignmentName']));
             if (index > -1) {
               taskList = taskList.splice(index, 1).concat(taskList);
             }
@@ -98,7 +111,7 @@ class SuperBrandProduct extends Template {
               }];
             }
 
-            if (assignmentName === pkTaskName && !completionFlag) {
+            if (isPkTask(assignmentName) && !completionFlag) {
               await api.doGetBodyMP('superBrandPkJoinTeam', {'pre': 'pre', 'teamName': 'left'});
               ext['extraType'] = 'list';
               ext['list'] = [{
@@ -117,8 +130,14 @@ class SuperBrandProduct extends Template {
                 itemId,
                 dropDownChannel,
               }, !itemId ? {completionFlag: 1} : {});
+              if (pkSource && extName === 'assistTaskDetail' && self.isFirstLoop() && self.getNowHour() >= 20) {
+                await api.doGetBodyMP('superBrandTaskLottery', {
+                  encryptAssignmentId,
+                  tag: 'divide',
+                }).then(api.log);
+              }
               if (extName === 'assistTaskDetail') {
-                !completionFlag && self.isFirstLoop() && self.updateShareCodeFn(ext[extName].itemId);
+                self.firstTimeInTheDay() && !completionFlag && self.isFirstLoop() && self.updateShareCodeFn(ext[extName].itemId);
                 list = self.getShareCodeFn().map(patchItem);
                 times = 0;
                 maxTimes = list.length;
