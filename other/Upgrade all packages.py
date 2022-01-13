@@ -1,12 +1,11 @@
-from subprocess import call
-
+import subprocess
 import pkg_resources
 
 
 def main():
-    dists = [d for d in pkg_resources.working_set]
+    dists = [_ for _ in pkg_resources.working_set]
     for dist in dists:
-        call("pip install --upgrade " + dist.project_name, shell=True)
+        subprocess.call("pip install --upgrade " + dist.project_name, shell=True)
 
 
 if __name__ == '__main__':
