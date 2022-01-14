@@ -3,16 +3,29 @@ import sys
 from asyncio import exceptions
 
 import requests
-from telethon import events
+from telethon import events, Button
 
 from .update import version, botlog
 from .. import chat_id, jdbot, logger, JD_DIR, BOT_SET
+from ..bot.utils import press_event
 
 
 @jdbot.on(events.NewMessage(from_users=chat_id, pattern=r'^/upbot$'))
 async def myupbot(event):
-    msg = await jdbot.send_message(chat_id, "【前瞻计划】\n\n准备更新程序")
     try:
+        SENDER = event.sender.id
+        buttons = [Button.inline("是", "yes"), Button.inline("取消", "cancel")]
+        async with jdbot.conversation(SENDER, timeout=180) as conversation:
+            msg = await conversation.send_message("前瞻计划及其不稳定，确定需要升级吗？", buttons=buttons)
+            byte = await conversation.wait_event(press_event(SENDER))
+            res = bytes.decode(byte.data)
+            if res == "cancel":
+                await jdbot.edit_message(msg, "取消升级")
+                return
+            else:
+                await jdbot.delete_messages(chat_id, msg)
+            conversation.cancel()
+        msg = await jdbot.send_message(chat_id, "【前瞻计划】\n\n准备更新程序")
         url = "https://raw.githubusercontent.com/chiupam/JD_Diy/master/shell/bot_beta.sh"
         if '下载代理' in BOT_SET.keys() and str(BOT_SET['下载代理']).lower() != 'false' and 'github' in url:
             url = f'{str(BOT_SET["下载代理"])}/{url}'
