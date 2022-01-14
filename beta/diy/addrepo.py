@@ -345,7 +345,7 @@ async def myrepo(event):
                 status = '启用'
                 try:
                     _id = data['_id']
-                except:
+                except KeyError:
                     _id = data['id']
                 if data['status'] == 1:
                     status = '禁用'

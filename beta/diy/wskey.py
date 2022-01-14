@@ -136,8 +136,8 @@ async def myaddwskey(event):
                 if data:
                     try:
                         body = {"value": message, "name": "JD_WSCK", "_id": data[0]['_id']}
-                    except:
-                        body = {"value": message, "name": "JD_WSCK", "_id": data[0]['id']}
+                    except KeyError:
+                        body = {"value": message, "name": "JD_WSCK", "id": data[0]['id']}
                     put(url, headers=headers, json=body)
                     text += f"更新wskey成功！pin为：{pt_pin}\n"
                 else:

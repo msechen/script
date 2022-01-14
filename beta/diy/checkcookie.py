@@ -85,7 +85,7 @@ async def mycheckcookie(event):
                     if len(cookies) != len_cooke:
                         try:
                             changes.append([data['remarks'] if 'remarks' in data.keys() else '未备注', '&'.join(cookies), data['_id']])
-                        except:
+                        except KeyError:
                             changes.append([data['remarks'] if 'remarks' in data.keys() else '未备注', '&'.join(cookies), data['id']])
                 else:
                     cknum = datas.index(data) + 1
@@ -94,13 +94,13 @@ async def mycheckcookie(event):
                         res += f"账号{cknum}-{check}有效\n"
                         try:
                             valids.append([data['_id'], data['remarks'] if 'remarks' in data.keys() else '未备注', cknum])
-                        except:
+                        except KeyError:
                             valids.append([data['id'], data['remarks'] if 'remarks' in data.keys() else '未备注', cknum])
                     else:
                         res += f"账号{cknum}已过期\n"
                         try:
                             expireds.append([data['_id'], cknum])
-                        except:
+                        except KeyError:
                             expireds.append([data['id'], cknum])
                     msg = await jdbot.edit_message(msg, res)
                     await asyncio.sleep(1)
@@ -118,13 +118,13 @@ async def mycheckcookie(event):
                     res += f"账号{cknum}-{check}有效\n"
                     try:
                         valids.append([data['_id'], data['nickname'], cknum])
-                    except:
+                    except KeyError:
                         valids.append([data['id'], data['nickname'], cknum])
                 else:
                     res += f"账号{cknum}已过期\n"
                     try:
                         expireds.append([data['_id'], cknum])
-                    except:
+                    except KeyError:
                         expireds.append([data['id'], cknum])
                 msg = await jdbot.edit_message(msg, res)
                 await asyncio.sleep(1)

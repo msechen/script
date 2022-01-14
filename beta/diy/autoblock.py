@@ -69,7 +69,7 @@ async def block(event):
                     url = 'http://127.0.0.1:5600/api/envs/disable'
                     try:
                         requests.put(url, headers=headers, json=[data['_id']])
-                    except:
+                    except KeyError:
                         requests.put(url, headers=headers, json=[data['id']])
                     await jdbot.edit_message(msg, f"pin为{pt_pin}的账号屏蔽成功！")
                     break
