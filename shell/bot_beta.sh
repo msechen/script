@@ -19,7 +19,9 @@ git_clone() {
     local branch=$3
     [[ $branch ]] && local cmd="-b $branch "
     echo "开始克隆仓库 $url 到 $dir"
+    # shellcheck disable=SC2086
     git clone $cmd $url $dir
+    # shellcheck disable=SC2034
     exit_status=$?
 }
 
@@ -27,10 +29,13 @@ backup() {
   if [ ! -d $root/repo/backup ]; then 
     mkdir $root/repo/backup
   fi
+  # shellcheck disable=SC2046
   mkdir $root/repo/backup/$(date +\%m\%d\%H\%M)
+  # shellcheck disable=SC2046
   cp -rf $root/jbot/* $root/repo/backup/$(date +\%m\%d\%H\%M)
   rm -rf $root/jbot/*
   rm -rf $root/repo/diybot
+  # shellcheck disable=SC2164
   cd $root
 }
 
@@ -38,7 +43,7 @@ env() {
   echo "1、安装bot依赖..."
   apk --no-cache add -f zlib-dev gcc jpeg-dev python3-dev musl-dev freetype-dev
   echo -e "bot依赖安装成功...\n"
-  cd $root
+  cd $root || exit
 }
 
 bot() {
@@ -49,7 +54,7 @@ bot() {
   if [ -d ${dir_jbot} ]; then
     backup
   fi
-  git_clone ${url} ${dir_diybot} "main"
+  git_clone "${url}" ${dir_diybot} "main"
   if [ -f $dir_jbot/diy/diy.py ]; then
     rm -f $dir_diybot/beta/diy/diy.py
   fi
@@ -71,16 +76,17 @@ bot() {
     sed -i 's/key_1/listenerId/' $file_diybotset
     sed -i 's/value_1/-1001630980165/' $file_diybotset
   fi
-  cd $root
+  cd $root || exit
 }
 
 packages() {
   echo "3、安装python3依赖..."
-  cd $dir_jbot
+  cd $dir_jbot || exit
   /usr/bin/python3 -m pip install --upgrade pip
   pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/
   pip3  --no-cache-dir --default-timeout=100 install -r requirements.txt
   echo -e "python3依赖安装成功...\n"
+  # shellcheck disable=SC2164
   cd $root
 }
 
@@ -92,7 +98,7 @@ start() {
   else
     echo "配置 $file_bot 后再次运行本程序即可启动机器人"
   fi
-  cd $root
+  cd $root || exit
 }
 
 main() {
