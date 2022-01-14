@@ -22,7 +22,6 @@ async def my_cmd(event):
             /cmd jup     # 更新所有脚本
             /cmd jcode   # 导出所有互助码
             /cmd jcsv    # 记录豆豆变化情况
-            不建议直接使用cmd命令执行脚本，请使用/node或/snode
             '''
             await jdbot.send_message(chat_id, msg)
         else:
@@ -34,5 +33,4 @@ async def my_cmd(event):
 
 
 if ch_name:
-    jdbot.add_event_handler(my_cmd, events.NewMessage(
-        chats=chat_id, pattern=BOT_SET['命令别名']['cmd']))
+    jdbot.add_event_handler(my_cmd, events.NewMessage(chats=chat_id, pattern=BOT_SET['命令别名']['cmd']))
