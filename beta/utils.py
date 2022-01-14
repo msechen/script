@@ -19,4 +19,3 @@ def load_module(module, path):
         except Exception as e:
             logger.info(f"加载失败  {file}  {str(e)}")
             continue
-

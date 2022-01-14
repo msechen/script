@@ -1,23 +1,12 @@
 import asyncio
 import os
-from os.path import exists
 
-from telethon import TelegramClient, events
-
-from .. import API_HASH, API_ID, BOT, PROXY_START, PROXY_TYPE, connectionType, jdbot, chat_id, CONFIG_DIR
-from ..bot.utils import V4
-import json
-import os
-import re
-import sys
-import time
-from asyncio import exceptions
-
-import requests
+from telethon import TelegramClient
 from telethon import events, Button
 
-from .. import chat_id, jdbot, logger, TOKEN
-from ..bot.utils import press_event, V4, CONFIG_SH_FILE, row, split_list, AUTH_FILE, get_cks
+from .. import API_HASH, API_ID, BOT, PROXY_START, PROXY_TYPE, connectionType, CONFIG_DIR
+from .. import chat_id, jdbot
+from ..bot.utils import press_event, V4, row, split_list
 
 if BOT.get('proxy_user') and BOT['proxy_user'] != "代理的username,有则填写，无则不用动":
     proxy = {

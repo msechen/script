@@ -8,7 +8,9 @@ import os
 import re
 import traceback
 
-from .. import chat_id, jdbot, logger, LOG_DIR
+from .. import chat_id, jdbot, logger, LOG_DIR, TOKEN
+
+bot_id = int(TOKEN.split(":")[0])
 
 
 async def execute(msg, info, exectext):
