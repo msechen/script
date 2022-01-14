@@ -299,7 +299,7 @@
 12 0-23/6 * * * node /scripts/logs/other_scripts/zero205/jd_plantBean.js >> /scripts/logs/other_logs/zero205/jd_plantBean.log 2>&1
 
 # 京东保价
-41 23 * * * node /scripts/logs/other_scripts/zero205/jd_price.js >> /scripts/logs/other_logs/zero205/jd_price.log 2>&1
+#41 23 * * * node /scripts/logs/other_scripts/zero205/jd_price.js >> /scripts/logs/other_logs/zero205/jd_price.log 2>&1
 
 # 京东极速版红包
 20 0,22 * * * node /scripts/logs/other_scripts/zero205/jd_speed_redpocke.js >> /scripts/logs/other_logs/zero205/jd_speed_redpocke.log 2>&1
