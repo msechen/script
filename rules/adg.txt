@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-01-13T00:23:57.640Z
+! Last modified: 2022-01-14T10:29:30.000Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -13,6 +13,7 @@
 !
 ! The rules with hints are at the end of file
 !
+||https://gecko.me
 ||https://ad.bluepartner.eu
 ||https://clenchedyouthmatching.com
 ||https://unpleasantconcrete.com
@@ -9623,6 +9624,7 @@ vkcdnservice.appspot.com
 ||https://guardedfebruaryenclosed.com
 ||https://guardiandigitalcomparison.co.uk
 ||https://guardssentinelcreepy.com
+||https://guerrilla-links.com
 ||https://guffawdecipher.com
 ||https://guffawsister.com
 ||https://guffsview.com
@@ -11751,6 +11753,7 @@ vkcdnservice.appspot.com
 ||https://maxonclick.com
 ||https://maxserving.com
 ||https://mayhemabjure.com
+||https://maymooth-stopic.com
 ||https://mayordiminution.com
 ||https://maze4aem56jf.com
 ||https://mazzappa.fun
@@ -21337,6 +21340,7 @@ vkcdnservice.appspot.com
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||https://fwpixel.com
 ||https://cdn.adt567.net
 ||https://smartlify.com
 ||https://analytics.styria.hr
@@ -25558,6 +25562,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||https://metrika.kontur.ru
+||https://api-stg.ensonhaber.com
 ||https://matomo.a1.by
 ||https://d1stxfv94hrhia.cloudfront
 ||https://stt.nimbusweb.me
@@ -27834,6 +27840,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://adblockrelief.com
 ||https://adhslx.com
 ||https://adinte.jp
+||https://adobetarget.com
 ||https://adoric-om.com
 ||https://adregain.com
 ||https://adregain.ru
@@ -28042,7 +28049,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://fstrk.net
 ||https://ftz.io
 ||https://fullcircleinsights.com
-||https://fwpixel.com
 ||https://gaconnector.com
 ||https://gameanalytics.com
 ||https://gammachug.com
@@ -36093,6 +36099,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://handy-ads.de
 ||https://heias.com
 ||https://highad.de
+||https://hot59.de
 ||https://hovg.de
 ||https://ibanner.de
 ||https://iias.eu
@@ -36351,6 +36358,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Source name: ABPindo ad servers
 !
+||https://1486050000.rsc.cdn77.org
 ||https://188affiliates.com
 ||https://1b969cef84d93b43.com
 ||https://34667c8ece5.com
@@ -36541,6 +36549,8 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://whjibbprhng.com
 ||https://window-close.cf
 ||https://window-close.ga
+||https://www.bekdbxdhrffnj.com
+||https://www.seyevjpcjkcnka.com
 ||https://x-tags.net
 ||https://yesads.com
 ||https://yhig.info
@@ -36552,9 +36562,9 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: hostsVN
 ! Description: The filter contains ad and tracking networks in Vietnam.
-! Last modified: 12 Jan 2022 15:36 UTC+7
-! Version: 2201121536
-! Blocked: 1.042 rules
+! Last modified: 14 Jan 2022 09:47 UTC+7
+! Version: 2201140947
+! Blocked: 1.044 rules
 ! Expires: 1 days (update frequency)
 !
 ||https://24h-ad.24hstatic.com
@@ -36590,6 +36600,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://adtima-video.zascdn.me
 ||https://adtima.vn
 ||https://adx.vn
+||https://aiactiv.io
 ||https://ambient-platform.com
 ||https://ambientdsp.com
 ||https://analytics.zapps.vn
@@ -37517,6 +37528,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://garena.fan
 ||https://garera.vn
 ||https://garrena.vn
+||https://giftcode-lienquanmobile-vn.com
 ||https://giftcode-mobilelienquan.com
 ||https://irduwhojas.ga
 ||https://kaurroot.com
@@ -37554,6 +37566,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://01fen.com
 ||https://022aifang.com
 ||https://025suyu.com
+||https://ywak.com.cn
 ||https://0451106.com
 ||https://04zl.cn
 ||https://0516bm.com
@@ -38381,6 +38394,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://idianfang.com
 ||https://idoc58.com
 ||https://idy666.com
+||https://ieecheng.com
 ||https://ifufen.com
 ||https://ijir.cn
 ||https://il8r.com
@@ -38588,6 +38602,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://lizehuandian.top
 ||https://llguandongyan.com
 ||https://llqss.top
+||https://llyqy.top
 ||https://lm213.com
 ||https://lm245.com
 ||https://lm335.com
@@ -39778,6 +39793,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://1.pncdn.cn
 ||https://1.qjhm.net
 ||https://1.rr95.com
+||https://1.shopit.cn
 ||https://1.sj33.net
 ||https://1.soufy.cn
 ||https://1.tecbbs.com
@@ -40502,8 +40518,17 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://ggtg8.com
 ||https://runkao.net
 ||https://stunninglover.com
-||https://nbslx.mobi
-||https://wswh.club
+||https://alnko.cn
+||https://iwwl.vip
+||https://shaiban.wang
+||https://kyle.pub
+||https://xakywl.xyz
+||https://rctxwpn.cn
+||https://ldogre.top
+||https://rctxprz.cn
+||https://fpreld.cn
+||https://sl00ufi.cn
+||https://clfmm.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -41674,6 +41699,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://jttcbj.cn
 ||https://jun01.oss-cn-beijing.aliyuncs.com
 ||https://justwkj.xyz
+||https://jwvjcr.cn
 ||https://jx3yixi.club
 ||https://jxin.xyz
 ||https://jxzz.tech
@@ -41809,6 +41835,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://mzwfu.xyz
 ||https://n258.cc
 ||https://nbpyfog.cn
+||https://nbslx.mobi
 ||https://ncgywud.cn
 ||https://ndfdwrg.cn
 ||https://ndfsl.com
@@ -41875,6 +41902,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://popwang.top
 ||https://powerchase.online
 ||https://priry.com
+||https://proko.cn
 ||https://propsad.com
 ||https://psl93qx.site
 ||https://ptujvmq.cn
@@ -41919,6 +41947,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qzgs99.cn
 ||https://rcjww9.xyz
 ||https://rctxcsi.cn
+||https://rctxczy.cn
 ||https://rctxijo.cn
 ||https://rctxiqx.cn
 ||https://rctxjbv.cn
@@ -42117,6 +42146,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://wpqsmse.cn
 ||https://ws-expo.cn
 ||https://wsrrfoa.cn
+||https://wswh.club
 ||https://wswh.xyz
 ||https://wulian.in
 ||https://wuwai.art
@@ -44339,8 +44369,9 @@ charlestownwyllie.oaklawnnonantum.com
 @@||vcentry3.valuecommerce.ne.jp
 ! Fixing the issue with "Wi-Fi" connection mark when you configure private DNS on Android 9
 ! Once you enable private DNS, Android 9 starts resolving random domains looking like
-! `*-dnsotls-ds.metric.gstatic.com` (for instance, `a5a6380f-dnsotls-ds.metric.gstatic.com`).
-@@dnsotls-ds.metric.gstatic.com
+! `*-*-ds.metric.gstatic.com` (for instance, `a5a6380f-dnsotls-ds.metric.gstatic.com`).
+! Here you can check how it's used by Android: https://cs.android.com/search?q=ds.metric.gstatic.com
+@@-ds.metric.gstatic.com
 @@||id.i2i.jp
 @@||thumbnail.thench.net
 @@||validate.perfdrive.com
@@ -44465,7 +44496,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-01-13T00:23:57.640Z
+! Last modified: 2022-01-14T10:29:30.000Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -44477,6 +44508,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! The rules with hints are at the end of file
 !
+||http://gecko.me
 ||http://ad.bluepartner.eu
 ||http://clenchedyouthmatching.com
 ||http://unpleasantconcrete.com
@@ -54102,6 +54134,7 @@ vkcdnservice.appspot.com
 ||http://guardedfebruaryenclosed.com
 ||http://guardiandigitalcomparison.co.uk
 ||http://guardssentinelcreepy.com
+||http://guerrilla-links.com
 ||http://guffawdecipher.com
 ||http://guffawsister.com
 ||http://guffsview.com
@@ -56230,6 +56263,7 @@ vkcdnservice.appspot.com
 ||http://maxonclick.com
 ||http://maxserving.com
 ||http://mayhemabjure.com
+||http://maymooth-stopic.com
 ||http://mayordiminution.com
 ||http://maze4aem56jf.com
 ||http://mazzappa.fun
@@ -65832,6 +65866,7 @@ vkcdnservice.appspot.com
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||http://fwpixel.com
 ||http://cdn.adt567.net
 ||http://smartlify.com
 ||http://analytics.styria.hr
@@ -70077,6 +70112,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||http://metrika.kontur.ru
+||http://api-stg.ensonhaber.com
 ||http://matomo.a1.by
 ||http://d1stxfv94hrhia.cloudfront
 ||http://stt.nimbusweb.me
@@ -72411,6 +72448,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://adblockrelief.com
 ||http://adhslx.com
 ||http://adinte.jp
+||http://adobetarget.com
 ||http://adoric-om.com
 ||http://adregain.com
 ||http://adregain.ru
@@ -72619,7 +72657,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://fstrk.net
 ||http://ftz.io
 ||http://fullcircleinsights.com
-||http://fwpixel.com
 ||http://gaconnector.com
 ||http://gameanalytics.com
 ||http://gammachug.com
@@ -80703,6 +80740,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://handy-ads.de
 ||http://heias.com
 ||http://highad.de
+||http://hot59.de
 ||http://hovg.de
 ||http://ibanner.de
 ||http://iias.eu
@@ -80961,6 +80999,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Source name: ABPindo ad servers
 !
+||http://1486050000.rsc.cdn77.org
 ||http://188affiliates.com
 ||http://1b969cef84d93b43.com
 ||http://34667c8ece5.com
@@ -81151,6 +81190,8 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://whjibbprhng.com
 ||http://window-close.cf
 ||http://window-close.ga
+||http://www.bekdbxdhrffnj.com
+||http://www.seyevjpcjkcnka.com
 ||http://x-tags.net
 ||http://yesads.com
 ||http://yhig.info
@@ -81162,9 +81203,9 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: hostsVN
 ! Description: The filter contains ad and tracking networks in Vietnam.
-! Last modified: 12 Jan 2022 15:36 UTC+7
-! Version: 2201121536
-! Blocked: 1.042 rules
+! Last modified: 14 Jan 2022 09:47 UTC+7
+! Version: 2201140947
+! Blocked: 1.044 rules
 ! Expires: 1 days (update frequency)
 !
 ||http://24h-ad.24hstatic.com
@@ -81201,6 +81242,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://adtima-video.zascdn.me
 ||http://adtima.vn
 ||http://adx.vn
+||http://aiactiv.io
 ||http://ambient-platform.com
 ||http://ambientdsp.com
 ||http://analytics.zapps.vn
@@ -82131,6 +82173,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://garena.fan
 ||http://garera.vn
 ||http://garrena.vn
+||http://giftcode-lienquanmobile-vn.com
 ||http://giftcode-mobilelienquan.com
 ||http://irduwhojas.ga
 ||http://kaurroot.com
@@ -82168,6 +82211,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://01fen.com
 ||http://022aifang.com
 ||http://025suyu.com
+||http://ywak.com.cn
 ||http://0451106.com
 ||http://04zl.cn
 ||http://0516bm.com
@@ -82996,6 +83040,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://idianfang.com
 ||http://idoc58.com
 ||http://idy666.com
+||http://ieecheng.com
 ||http://ifufen.com
 ||http://ijir.cn
 ||http://il8r.com
@@ -83203,6 +83248,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://lizehuandian.top
 ||http://llguandongyan.com
 ||http://llqss.top
+||http://llyqy.top
 ||http://lm213.com
 ||http://lm245.com
 ||http://lm335.com
@@ -84409,6 +84455,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://1.pncdn.cn
 ||http://1.qjhm.net
 ||http://1.rr95.com
+||http://1.shopit.cn
 ||http://1.sj33.net
 ||http://1.soufy.cn
 ||http://1.tecbbs.com
@@ -85152,8 +85199,17 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://ggtg8.com
 ||http://runkao.net
 ||http://stunninglover.com
-||http://nbslx.mobi
-||http://wswh.club
+||http://alnko.cn
+||http://iwwl.vip
+||http://shaiban.wang
+||http://kyle.pub
+||http://xakywl.xyz
+||http://rctxwpn.cn
+||http://ldogre.top
+||http://rctxprz.cn
+||http://fpreld.cn
+||http://sl00ufi.cn
+||http://clfmm.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
@@ -86324,6 +86380,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://jttcbj.cn
 ||http://jun01.oss-cn-beijing.aliyuncs.com
 ||http://justwkj.xyz
+||http://jwvjcr.cn
 ||http://jx3yixi.club
 ||http://jxin.xyz
 ||http://jxzz.tech
@@ -86459,6 +86516,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://mzwfu.xyz
 ||http://n258.cc
 ||http://nbpyfog.cn
+||http://nbslx.mobi
 ||http://ncgywud.cn
 ||http://ndfdwrg.cn
 ||http://ndfsl.com
@@ -86525,6 +86583,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://popwang.top
 ||http://powerchase.online
 ||http://priry.com
+||http://proko.cn
 ||http://propsad.com
 ||http://psl93qx.site
 ||http://ptujvmq.cn
@@ -86569,6 +86628,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://qzgs99.cn
 ||http://rcjww9.xyz
 ||http://rctxcsi.cn
+||http://rctxczy.cn
 ||http://rctxijo.cn
 ||http://rctxiqx.cn
 ||http://rctxjbv.cn
@@ -86767,6 +86827,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://wpqsmse.cn
 ||http://ws-expo.cn
 ||http://wsrrfoa.cn
+||http://wswh.club
 ||http://wswh.xyz
 ||http://wulian.in
 ||http://wuwai.art
@@ -88995,8 +89056,9 @@ charlestownwyllie.oaklawnnonantum.com
 @@||vcentry3.valuecommerce.ne.jp
 ! Fixing the issue with "Wi-Fi" connection mark when you configure private DNS on Android 9
 ! Once you enable private DNS, Android 9 starts resolving random domains looking like
-! `*-dnsotls-ds.metric.gstatic.com` (for instance, `a5a6380f-dnsotls-ds.metric.gstatic.com`).
-@@dnsotls-ds.metric.gstatic.com
+! `*-*-ds.metric.gstatic.com` (for instance, `a5a6380f-dnsotls-ds.metric.gstatic.com`).
+! Here you can check how it's used by Android: https://cs.android.com/search?q=ds.metric.gstatic.com
+@@-ds.metric.gstatic.com
 @@||id.i2i.jp
 @@||thumbnail.thench.net
 @@||validate.perfdrive.com
