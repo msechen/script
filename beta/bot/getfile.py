@@ -21,20 +21,20 @@ async def bot_get_file(event):
         ):
             return
         SENDER = event.sender_id
-        cmdtext = None
+        cmdtext = False
         if V4:
             buttons = [
                 Button.inline('放入config', data=CONFIG_DIR),
-                Button.inline('放入scripts', data=SCRIPTS_DIR),
-                Button.inline('放入OWN文件夹', data=DIY_DIR),
+                Button.inline('仅放入scripts', data=SCRIPTS_DIR),
+                Button.inline('仅放入own文件夹', data=DIY_DIR),
                 Button.inline('放入scripts并运行', data='node1'),
-                Button.inline('放入OWN并运行', data='node'),
+                Button.inline('放入own并运行', data='node'),
                 Button.inline('取消', data='cancel')
             ]
         else:
             buttons = [
                 Button.inline('放入config', data=CONFIG_DIR),
-                Button.inline('放入scripts', data=SCRIPTS_DIR),
+                Button.inline('仅放入scripts', data=SCRIPTS_DIR),
                 Button.inline('放入scripts并运行', data='node1'),
                 Button.inline('取消', data='cancel')
             ]
@@ -68,7 +68,6 @@ async def bot_get_file(event):
                     await add_cron(jdbot, conversation, resp, filename, msg, SENDER, buttons, DIY_DIR)
                 else:
                     await jdbot.edit_message(msg, '脚本已保存到DIY文件夹，并成功运行')
-                conversation.cancel()
             elif res1 == "node1":
                 backup_file(f'{SCRIPTS_DIR}/{filename}')
                 await jdbot.download_media(event.message, SCRIPTS_DIR)
@@ -82,7 +81,6 @@ async def bot_get_file(event):
                     await add_cron(jdbot, conversation, resp, filename, msg, SENDER, buttons, SCRIPTS_DIR)
                 else:
                     await jdbot.edit_message(msg, '脚本已保存到SCRIPTS文件夹，并成功运行')
-                conversation.cancel()
             else:
                 backup_file(f'{res1}/{filename}')
                 await jdbot.download_media(event.message, res1)
@@ -95,8 +93,9 @@ async def bot_get_file(event):
                     await add_cron(jdbot, conversation, resp, filename, msg, SENDER, buttons, res1)
                 else:
                     await jdbot.edit_message(msg, f'{filename}已保存到{res1}文件夹')
-            if cmdtext:
-                await cmd(cmdtext)
+            conversation.cancel()
+        if cmdtext:
+            await cmd(cmdtext)
     except asyncio.TimeoutError:
         await jdbot.edit_message(msg, '选择已超时，对话已停止')
     except Exception as e:
