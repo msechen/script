@@ -67,7 +67,10 @@ async def block(event):
             for data in datas:
                 if pt_pin in data['value'] and "pt_key" in data['value']:
                     url = 'http://127.0.0.1:5600/api/envs/disable'
-                    requests.put(url, headers=headers, json=[data['_id']])
+                    try:
+                        requests.put(url, headers=headers, json=[data['_id']])
+                    except:
+                        requests.put(url, headers=headers, json=[data['id']])
                     await jdbot.edit_message(msg, f"pin为{pt_pin}的账号屏蔽成功！")
                     break
         else:

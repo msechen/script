@@ -194,7 +194,10 @@ async def ql_block(sender):
                         cookie = data['value']
                         remarks = data['nickname']
                         status = data['status']
-                        _id = data['_id']
+                        try:
+                            _id = data['_id']
+                        except:
+                            _id = data['id']
                         cookiedatas.append([cknum, cookie, remarks, status, _id])
                 except:
                     ql_version = '2.8+'
@@ -205,7 +208,10 @@ async def ql_block(sender):
                     }
                     datas = requests.get(url, params=body, headers=headers).json()['data']
                     for data in datas:
-                        cookiedatas.append([datas.index(data) + 1, data['value'], data['remarks'] if 'remarks' in data.keys() else "未备注", '启用' if data['status'] == 0 else '禁用', data['_id']])
+                        try:
+                            cookiedatas.append([datas.index(data) + 1, data['value'], data['remarks'] if 'remarks' in data.keys() else "未备注", '启用' if data['status'] == 0 else '禁用', data['_id']])
+                        except:
+                            cookiedatas.append([datas.index(data) + 1, data['value'], data['remarks'] if 'remarks' in data.keys() else "未备注", '启用' if data['status'] == 0 else '禁用', data['id']])
                 if res == 'query start and stop status':
                     message = "目前启停状态\n\n"
                     for cookiedata in cookiedatas:

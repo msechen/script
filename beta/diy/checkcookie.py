@@ -83,17 +83,25 @@ async def mycheckcookie(event):
                         msg = await jdbot.edit_message(msg, res)
                         await asyncio.sleep(1)
                     if len(cookies) != len_cooke:
-                        changes.append(
-                            [data['remarks'] if 'remarks' in data.keys() else '未备注', '&'.join(cookies), data['_id']])
+                        try:
+                            changes.append([data['remarks'] if 'remarks' in data.keys() else '未备注', '&'.join(cookies), data['_id']])
+                        except:
+                            changes.append([data['remarks'] if 'remarks' in data.keys() else '未备注', '&'.join(cookies), data['id']])
                 else:
                     cknum = datas.index(data) + 1
                     check = await checkCookie(cookie)
                     if check:
                         res += f"账号{cknum}-{check}有效\n"
-                        valids.append([data['_id'], data['remarks'] if 'remarks' in data.keys() else '未备注', cknum])
+                        try:
+                            valids.append([data['_id'], data['remarks'] if 'remarks' in data.keys() else '未备注', cknum])
+                        except:
+                            valids.append([data['id'], data['remarks'] if 'remarks' in data.keys() else '未备注', cknum])
                     else:
                         res += f"账号{cknum}已过期\n"
-                        expireds.append([data['_id'], cknum])
+                        try:
+                            expireds.append([data['_id'], cknum])
+                        except:
+                            expireds.append([data['id'], cknum])
                     msg = await jdbot.edit_message(msg, res)
                     await asyncio.sleep(1)
         else:
@@ -108,10 +116,16 @@ async def mycheckcookie(event):
                 check = await checkCookie(data['value'])
                 if check:
                     res += f"账号{cknum}-{check}有效\n"
-                    valids.append([data['_id'], data['nickname'], cknum])
+                    try:
+                        valids.append([data['_id'], data['nickname'], cknum])
+                    except:
+                        valids.append([data['id'], data['nickname'], cknum])
                 else:
                     res += f"账号{cknum}已过期\n"
-                    expireds.append([data['_id'], cknum])
+                    try:
+                        expireds.append([data['_id'], cknum])
+                    except:
+                        expireds.append([data['id'], cknum])
                 msg = await jdbot.edit_message(msg, res)
                 await asyncio.sleep(1)
         if V4:

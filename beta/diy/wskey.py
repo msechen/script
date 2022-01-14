@@ -134,7 +134,10 @@ async def myaddwskey(event):
                 body = {'searchValue': pin + "wskey="}
                 data = get(url, headers=headers, params=body).json()['data']
                 if data:
-                    body = {"value": message, "name": "JD_WSCK", "_id": data[0]['_id']}
+                    try:
+                        body = {"value": message, "name": "JD_WSCK", "_id": data[0]['_id']}
+                    except:
+                        body = {"value": message, "name": "JD_WSCK", "_id": data[0]['id']}
                     put(url, headers=headers, json=body)
                     text += f"更新wskey成功！pin为：{pt_pin}\n"
                 else:

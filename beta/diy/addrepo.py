@@ -343,7 +343,10 @@ async def myrepo(event):
                 command = data['command']
                 schedule = data['schedule']
                 status = '启用'
-                _id = data['_id']
+                try:
+                    _id = data['_id']
+                except:
+                    _id = data['id']
                 if data['status'] == 1:
                     status = '禁用'
                 datas.append([name, command, schedule, status, _id])
