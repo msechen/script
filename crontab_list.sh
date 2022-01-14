@@ -254,7 +254,7 @@
 0 7 * * * node /scripts/logs/other_scripts/zero205/jd_speed_sign.js >> /scripts/logs/other_logs/zero205/jd_speed_sign.log 2>&1
 
 # 特务Z，默认选择左边战队
-23 10,14,20 * * * node /scripts/logs/other_scripts/zero205/jd_superBrand.js >> /scripts/logs/other_logs/zero205/jd_superBrand.log 2>&1
+23 8,9 * * * node /scripts/logs/other_scripts/zero205/jd_productZ4Brand.js >> /scripts/logs/other_logs/zero205/jd_productZ4Brand.log 2>&1
 
 # 京东生鲜每日抽奖，可抽奖获得京豆
 10 7 * * * node /scripts/logs/other_scripts/zero205/jd_sxLottery.js >> /scripts/logs/other_logs/zero205/jd_sxLottery.log 2>&1
@@ -318,3 +318,12 @@
 
 # 京东金榜
 13 6 * * * node /scripts/logs/other_scripts/zero205/jd_gold_sign.js >> /scripts/logs/other_logs/zero205/jd_gold_sign.log 2>&1
+
+# 天天压岁钱
+33 0,14,20 * * * node /scripts/logs/other_scripts/zero205/jx_ttysq.js >> /scripts/logs/other_logs/zero205/jx_ttysq.log 2>&1
+
+# 白条抽奖
+10 9 13-31,1-7 1,2 * node /scripts/logs/other_scripts/zero205/jd_bt_sign.js >> /scripts/logs/other_logs/zero205/jd_bt_sign.log 2>&1
+
+# 会场红包
+0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_nhs_rpb.js >> /scripts/logs/other_logs/zero205/jd_nhs_rpb.log 2>&1
