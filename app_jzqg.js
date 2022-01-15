@@ -15,6 +15,8 @@
 
 cron "0-59/30 * * *"
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_jzqg.js
+
 */
 
 
