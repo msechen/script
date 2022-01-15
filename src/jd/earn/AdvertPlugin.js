@@ -38,7 +38,8 @@ class EarnAdvertPlugin extends Earn {
     await self.beforeRequest(api);
 
     const dayStart = self.getNowHour() === 12;
-    const inviteId = getEnv('JD_EARNADVERTPLUGIN_INVITEID', api.currentCookieTimes) || 'Sv_h1QhgY81XeKR6b1A';
+    const inviteId = getEnv('JD_EARNADVERTPLUGIN_INVITEID', api.currentCookieTimes);
+    if (!inviteId) return;
     let failUrlData = [];
 
     if (!dayStart) {
