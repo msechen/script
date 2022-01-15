@@ -7,14 +7,8 @@
 # 收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
-# 领京豆额外奖励
-10 0,12,22 * * * node /scripts/jd_bean_home.js >> /scripts/logs/jd_bean_home.log 2>&1
-
 # 早上领京豆
 0 8 * * * cd /scripts && ts-node /scripts/jd_getUp.ts >> /scripts/logs/jd_getUp.log 2>&1
-
-# 京东多合一签到
-7 0,17 * * * cd /scripts && ts-node /scripts/jd_bean_sign.ts >> /scripts/logs/jd_bean_sign_ts.log 2>&1
 
 # 京东双签
 1 0,9,12 * * * cd /scripts && ts-node /scripts/jd_bean_box.ts >> /scripts/logs/jd_bean_box.log 2>&1
@@ -64,9 +58,6 @@
 # 京东家庭号
 1 12,23 * * * node /scripts/jd_family.js >> /scripts/logs/jd_family.log 2>&1
 
-# 京东食力街
-10 0 * * * python3 /scripts/jd_foodRunning.py >> /scripts/logs/jd_foodRuning.log 2>&1
-
 # 东东农场
 5 6-18/6 * * * node /scripts/jd_fruit.js >> /scripts/logs/jd_fruit.log 2>&1
 
@@ -109,9 +100,6 @@
 # 幸运大转盘
 4 10 * * * node /scripts/jd_market_lottery.js >> /scripts/logs/jd_market_lottery.log 2>&1
 
-# 5G超级盲盒
-0 0,1-23/3 * * * node /scripts/jd_mohe.js >> /scripts/logs/jd_mohe.log 2>&1
-
 # 京东摇钱树
 3 0-23/2 * * * cd /scripts && ts-node /scripts/jd_moneyTree.ts >> /scripts/logs/jd_moneyTree.log 2>&1
 
@@ -132,9 +120,6 @@
 
 # 进店领豆
 10 0 * * * node /scripts/jd_shop.js >> /scripts/logs/jd_shop.log 2>&1
-
-# ✈️天天加速
-8 0-23/3 * * * node /scripts/jd_speed.js >> /scripts/logs/jd_speed.log 2>&1
 
 # 京东极速版红包
 20 0,22 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
@@ -168,9 +153,6 @@
 
 # 极速版-发财大赢家
 1 0,8,18 * * * cd /scripts && ts-node /scripts/jd_speed_redEnvelope.ts >> /scripts/logs/jd_speed_redEnvelope.log 2>&1
-
-# 城城分现金
-0 0-23/1 * * * cd /scripts && ts-node /scripts/jd_city1.ts >> /scripts/logs/jd_city1.log 2>&1
 
 # 京东饭粒
 5 0,12,22 * * * cd /scripts && ts-node /scripts/jd_ifanli.ts >> /scripts/logs/jd_ifanli.log 2>&1
@@ -207,9 +189,6 @@
 
 # 众筹许愿池
 40 0,2 * * * node /scripts/logs/other_scripts/zero205/jd_wish.js >> /scripts/logs/other_logs/zero205/jd_wish.log 2>&1
-
-# 会场红包
-0 0,10,20 * * * node /scripts/logs/other_scripts/zero205/jd_nhs_rp.js >> /scripts/logs/other_logs/zero205/jd_nhs_rp.log 2>&1
 
 # 京东通天塔--签到
 3 0 * * * node /scripts/logs/other_scripts/zero205/jd_m_sign.js >> /scripts/logs/other_logs/zero205/jd_m_sign.log 2>&1
@@ -267,12 +246,6 @@
 
 # 美丽研究院
 20 7,12,19 * * * node /scripts/logs/other_scripts/zero205/jd_beauty.js >> /scripts/logs/other_logs/zero205/jd_beauty.log 2>&1
-
-# 京东金融-天天提鹅
-10 * * * * node /scripts/logs/other_scripts/zero205/jd_daily_egg.js >> /scripts/logs/other_logs/zero205/jd_daily_egg.log 2>&1
-
-# 东东世界兑换
-0 0 * * * node /scripts/logs/other_scripts/zero205/jd_ddworld_exchange.js >> /scripts/logs/other_logs/zero205/jd_ddworld_exchange.log 2>&1
 
 # 东东农场->东东乐园
 30 7 * * * node /scripts/logs/other_scripts/zero205/jd_ddly.js >> /scripts/logs/other_logs/zero205/jd_ddly.log 2>&1
