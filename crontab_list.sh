@@ -327,3 +327,6 @@
 
 # 会场红包
 0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_nhs_rpb.js >> /scripts/logs/other_logs/zero205/jd_nhs_rpb.log 2>&1
+
+# 秒杀-狂撒三亿京豆
+0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_babel_sign.js >> /scripts/logs/other_logs/zero205/jd_babel_sign.log 2>&1
