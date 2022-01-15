@@ -38,6 +38,7 @@ class Sign1 extends Template {
       'https://pro.m.jd.com/mall/active/ZrH7gGAcEkY2gH8wXqyAPoQgk6t/index.html',
       'https://pro.m.jd.com/mall/active/kPM3Xedz1PBiGQjY4ZYGmeVvrts/index.html',
       'https://prodev.m.jd.com/mall/active/46xH2FEswob1Eibj3tJMTTfpJvA/index.html',
+      'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
     ];
 
     for (const url of urlArray) {
