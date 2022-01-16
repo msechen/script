@@ -166,6 +166,8 @@
 # 锦鲤红包
 5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
+# 萌虎摇摇乐
+0 0,9,16 * * * cd /scripts && ts-node /scripts/jd_tiger.ts >> /scripts/logs/jd_tiger.log 2>&1
 
 ##################################################### 自定 ########################################################
 
@@ -303,6 +305,3 @@
 
 # 秒杀-狂撒三亿京豆
 0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_babel_sign.js >> /scripts/logs/other_logs/zero205/jd_babel_sign.log 2>&1
-
-# 萌虎摇摇乐
-0 0,12,18 * * * node /scripts/logs/other_scripts/zero205/jd_tiger.js >> /scripts/logs/other_logs/zero205/jd_tiger.log 2>&1
