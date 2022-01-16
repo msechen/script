@@ -1,7 +1,7 @@
 ﻿!x  -----------------------------------------------------------------------------------------------------------------
 !x  -----[KoolProxy 3.8.5]
-!x  -----update[rules]: 2022-01-09 00:30
-!x  -----update[video]: 2022-01-09 00:57
+!x  -----update[rules]: 2022-01-16 09:30
+!x  -----update[video]: 2022-01-16 08:00
 !x  -----Thanks: From lvba Rule Group
 !x  -----Thanks for help: <yiclear> <adbyby> <adm> <adblock> <adguard>
 !x  -----------------------------------------------------------------------------------------------------------------
@@ -4257,6 +4257,7 @@
 |https://static.oschina.net/uploads/cooperation/
 |https://statics.woozooo.com/img/p1091.js
 |https://statics.aizhan.com/jsa/zone.js
+|https://static.gg.uuu9.com/js/main/a.js
 |https://stats.chinaz.com/newshome/$image
 |https://stats.chinaz.com/tool*.gif$image
 |https://stats.chinaz.com/tool_img/tool_$script
@@ -7540,6 +7541,7 @@
 ||user.xmp.stat.kankan.com/?u=*=
 ||usingde.com$third-party
 ||uu9090.net/adcg/|$image
+||uuu9.com/yoyo_
 ||uucm.cn
 ||uvcourse.net
 ||uw9377.com
@@ -11947,6 +11949,7 @@ zznews.cn##.ad:not([style="margin-top:0px;padding-top:0px;"]),.ad1000-60
 ||https://twitter.com##.suggested-tweet-stream-container,.stream-item[data-item-type="tweet"][data-item-id*=":"]
 ||https://t66y.com##.tips,#footer > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1)
 ||https://t66y.cc,https://t66y.com##DIV > A > IMG[src^="http://www.t66y.cc/img/"]:first-child,DIV.container > DIV > A[rel="nofollow"],blockquote img[onclick^="window.open('http://www.viidii.info/"],blockquote .f16
+||https://uuu9.com###top,div[class^="ad_140"]
 ||https://v2ex.com##.adsbygoogle
 ||https://xd0.com##.HtmlMoKua.two-thirds,.HtmlMoKua > .themeauthor
 ||https://xd0.com##[href="http://yunchangkm.999ka.cn/"],[height="100"]
@@ -11984,6 +11987,7 @@ zznews.cn##.ad:not([style="margin-top:0px;padding-top:0px;"]),.ad1000-60
 |https://www.feng.com##DIV.wea_d_960_80,DIV[class^="wep_e_"][class$="0"],DIV.wep_e_wrap.clearfix,div.header_treasure,div.wea_d_panel_980.a_t,DIV.wrap.bbs_treasure > DIV.inner > UL[style],img[src^="http://bbs.feng.com/aodoo3/view.php?what=zone:"],div.left_light,div[class^="ad_90-"],img[src^="http://yes1.feng.com/view.php?what=zone:1"],img[src^="http://yes1.feng.com/view.php?what=zone:4"],img[src^="/images_new/ad-"],div.ad_1000,div.dd305,.a_pt,.store_products_wrap,.new_showyes
 |https://www.hao123.com##.navrecommend-top,.ad-icon,#top-anim,.widget-hlbar > span,#guesslikesite-block,.bar-text,a[class^="gameyixing-link-"],#layout-guess,#append,#hao123-gw11,[style^="background: url(https://gss0.bdstatic.com/"]
 |https://www.ithome.com##div[style="text-align:center"],#hd_float1
+|https://www.iqiyi.com##div[data-adzone]
 |https://www.qdmm.com##div[id^="div_1003"]
 |https://www.speedtest.cn##.right-bottom-pop
 |https://www.right.com.cn##.wp.a_h
@@ -12237,6 +12241,7 @@ zznews.cn##.ad:not([style="margin-top:0px;padding-top:0px;"]),.ad1000-60
 |https://91mjw.com/$s@</head>@<link rel="stylesheet" href="https://limbopro.com/CSS/91mjw.css" type="text/css"><script type="text/javascript"  src="//limbopro.com/Adguard/91mjw.js"></script>@
 |https://bbs.feng.com/$s@<div><script type="text/javascript">*<!-- header start -->@<!-- header start -->@
 |https://club.m.autohome.com.cn/$s@display: block!important;@display: none!important;@
+|https://otheve.beacon.qq.com/analytics/$s@/^.*$/@{"msg": "success"}@
 |https://g.pconline.com.cn/$s@"display:block!important;"@"display:none!important;"@
 |https://ip.cn/$s@.height() > 100@@
 |https://javfan.one/$s@</body>@<link rel="stylesheet" href="https://limbopro.com/CSS/javfan.css" type="text/css"><script type="text/javascript" src="//limbopro.com/Adguard/javfan.js"></script></body>@
