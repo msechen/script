@@ -148,6 +148,9 @@
 #女装盲盒
 35 1,23 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 
+#京东试用
+16 2 * * * node /scripts/jd_try.js >> /scripts/logs/jd_try.log 2>&1
+
 # 京东魔方
 0 0,17 * * * cd /scripts && ts-node /scripts/jd_mofang.ts >> /scripts/logs/jd_mofang.log 2>&1
 
