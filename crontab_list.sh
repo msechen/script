@@ -169,9 +169,6 @@
 # 锦鲤红包
 5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
-# 萌虎摇摇乐
-0 0,9,16 * * * cd /scripts && ts-node /scripts/jd_tiger.ts >> /scripts/logs/jd_tiger.log 2>&1
-
 ##################################################### 自定 ########################################################
 
 # xxxx
