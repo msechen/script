@@ -42,7 +42,8 @@ class FuQian extends Template {
       assignmentName,
     } of assignmentList) {
       if (getMoment().isBefore(assignmentStartTime) || getMoment().isAfter(assignmentEndTime) || completionFlag) continue;
-      await api.doFormBody('doInteractiveAssignment', {encryptAssignmentId, completionFlag: true}).then(data => {
+      const ext = assignmentName === '签到' ? void 0 : {'exchangeNum': 1};
+      await api.doFormBody('doInteractiveAssignment', {encryptAssignmentId, completionFlag: true, ext}).then(data => {
         const rewardsInfo = _.get(data, 'rewardsInfo', {});
         api.log(`[${assignmentName}] 获得: ${JSON.stringify(rewardsInfo)}`);
       });
