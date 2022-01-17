@@ -27,7 +27,7 @@ const CHLSJ_PATH = path.resolve(__dirname, './chlsj');
 const FORM_PATH = path.resolve(__dirname, './form');
 const JD_CHLSJ_PATH = `${CHLSJ_PATH}/jd`;
 const JD_FORM_PATH = `${FORM_PATH}/jd`;
-const cashFormKeys = ['body', 'clientVersion', 'sign', 'st', 'sv', 'client', 'openudid'];
+const cashFormKeys = ['body', 'clientVersion', 'sign', 'st', 'sv', 'client', 'openudid', 'ef', 'ep'];
 const cash = {
   functionIds: ['cash_homePage', 'cash_sign', 'cash_doTask', 'cash_getRedPacket'],
   cash_homePage: [],

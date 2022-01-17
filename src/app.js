@@ -78,6 +78,7 @@ const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
 const FuQiqan = require('./jd/fuQian');
 const SuperBox = require('./jd/superBox');
+const XinruiYear = require('./jd/xinrui/year');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -135,6 +136,7 @@ async function main() {
     RubikSCube,
     SuperBrandProduct,
     SuperBox,
+    XinruiYear,
   ];
   const scheduleOptions = [
     {
