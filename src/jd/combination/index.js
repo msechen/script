@@ -6,7 +6,7 @@ const {getSign} = require('./encrypt');
 const {replaceObjectMethod} = require('../../lib/common');
 
 const indexUrl = 'https://prodev.m.jd.com/mall/active/2VyRHGE7jM1igBJcrjoB6ak1JJWV/index.html';
-const activityId = 14;
+const activityId = 17;
 
 class Combination extends Template {
   static scriptName = 'Combination';
@@ -16,6 +16,7 @@ class Combination extends Template {
   static commonParamFn = () => ({});
   static times = 1;
   static needInAppComplete = true;
+  static concurrent = true;
 
   static apiOptions = {
     options: {
