@@ -13,6 +13,7 @@ global._ = _;
 
 // [app,client,clientVersion,uuid;wifi;...]
 const appCompleteUserAgent = 'jdapp;iPhone;10.1.6;14.8;c6993893af46e44aa14818543914768cf2509fbf;network/wifi;model/iPhone13,3;addressid/682688717;appBuild/167841;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1';
+const appUserAgentNotUUID = 'jdapp;iPhone;10.3.0;;;M/5.0;appBuild/167903;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22YzY5EJC4EJDrZtG2ZJG0YWOnDNqnENU0CzunDNc2EQDwCtUmEWZsZq%3D%3D%22%2C%22sv%22%3A%22CJUkCI4n%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A1642487788%2C%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;'
 
 class Base {
   static _ = _;
@@ -30,6 +31,7 @@ class Base {
   static isWh5 = false; // 添加signData
   static needInApp = true; // 添加 userAgent
   static needInAppComplete = false; // 添加 userAgent
+  static needInAppComplete1 = false; // 添加 userAgent
   static appCompleteUserAgent = appCompleteUserAgent;
   static needInSpeedApp = false; // 添加 userAgent
   static needInJxApp = false; // 添加 userAgent
@@ -210,6 +212,7 @@ class Base {
     }
     this.needInApp && _.merge(options, {headers: {'user-agent': 'jdapp'}});
     this.needInAppComplete && _.merge(options, {headers: {'user-agent': this.appCompleteUserAgent}});
+    this.needInAppComplete1 && _.merge(options, {headers: {'user-agent': appUserAgentNotUUID}});
     this.needInPhone && _.merge(options, {headers: {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}});
     this.needOriginH5 && _.merge(options, {headers: {origin: 'https://h5.m.jd.com'}});
     this.needOriginProMd && _.merge(options, {

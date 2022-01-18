@@ -9,22 +9,23 @@ class Coupon extends Template {
   static times = 1;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
+  static needOriginProMd = true;
+  static needInAppComplete1 = true;
 
-  static apiOptions = {
-    options: {
-      uri: 'https://api.m.jd.com/api',
-      qs: {
-        appid: 'u',
-        client: 'apple',
-        clientVersion: '8.3.6',
+  static apiOptions() {
+    return {
+      options: {
+        uri: 'https://api.m.jd.com/api',
+        qs: {
+          _: getMoment().valueOf(),
+          loginType: 2,
+          appid: 'u',
+          client: 'apple',
+          clientVersion: '8.3.6',
+        },
       },
-      method: 'GET',
-      headers: {
-        origin: 'https://story.m.jd.com',
-        referer: 'https://story.m.jd.com',
-      },
-    },
-  };
+    };
+  }
 
   static isSuccess(data) {
     return this._.property('code')(data) === 200;
@@ -33,13 +34,14 @@ class Coupon extends Template {
   static async doMain(api) {
     const self = this;
 
-    const unionActId = '31125';
+    const unionActId = '31137';
 
     await listCouponSupporter({pageSize: -1}).then(list => {
-      const helpSituation = list.map(o => o.nickName + ': ' + getMoment(o.time).format('YYYY-MM-DD HH:mm:ss'));
-      console.log(helpSituation);
+      const helpSituation = list.map(o => `${o.nickName || 'unknown'} 助力: ${o.score}(${getMoment(o.time).format('YYYY-MM-DD HH:mm:ss')})`);
+      const write = str => require('fs').writeFileSync(require('path').resolve(__dirname, `output${api.currentCookieTimes}.txt`), str);
+      write(`${helpSituation.join('\n')}`);
       const allScore = _.reduce(list.map(o => o.score), (accumulator, currentValue) => accumulator + currentValue);
-      self.log(`总分数为: ${allScore}, 总人数为: ${list.length}`);
+      self.log(`总分数为: ${allScore.toFixed(2)}, 总人数为: ${list.length}`);
     });
 
     // 展示助力情况
@@ -49,14 +51,11 @@ class Coupon extends Template {
         needLoop = true;
         pageSize = 10;
       }
-      return api.doFunctionId('listCouponSupporter', {
-        qs: {
-          body: JSON.stringify({
-            pageNo, pageSize,
-            unionActId,
-            type: 0,
-          }),
-        },
+      return api.doGetBody('listCouponSupporter', {
+        pageNo, pageSize,
+        unionActId,
+        type: 0,
+        eid: '-1',
       }).then(async data => {
         if (!self.isSuccess(data)) return;
         const list = _.property('data.result')(data) || [];
