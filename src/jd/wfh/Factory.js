@@ -101,6 +101,11 @@ class Factory extends HarmonyTemplate {
     await api.doFormBody('jdfactory_collectElectricity').then(data => {
       api.log(`定时获取到的电量为 ${_.property('data.result.electricityValue')(data)}`);
     });
+
+    // 充电, 按需进行
+    async function handleAddEnergy() {
+      await api.doFormBody('jdfactory_addEnergy');
+    }
   }
 }
 
