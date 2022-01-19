@@ -101,10 +101,8 @@ class XinruiYear extends Template {
 
     if (self.isFirstLoop()) {
       await handleSign();
-      await handleDoTask();
     }
-
-    await handleDoShare();
+    await handleDoTask();
 
     if (self.isLastLoop()) {
       await handleRepairSign();
@@ -135,6 +133,9 @@ class XinruiYear extends Template {
         ['关注并浏览店铺', 'view_shop', 'shop_id'],
       ];
       for (const {id, title, info, left: times, right: maxTimes} of taskList) {
+        if (/邀请/.test(title)) {
+          await handleDoShare();
+        }
         if (/邀请|开卡/.test(title)) continue;
         const target = config.find(array => array[0] === title);
         if (!target || _.isEmpty(info)) continue;
