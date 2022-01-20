@@ -172,6 +172,9 @@
 # 天天压岁钱
 5 0,9,18 * * * cd /scripts && ts-node /scripts/jd_ysq.ts >> /scripts/logs/jd_ysq.log 2>&1
 
+# 京东下拉
+15 1,22 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
