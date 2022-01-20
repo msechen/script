@@ -313,4 +313,4 @@
 0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_babel_sign.js >> /scripts/logs/other_logs/zero205/jd_babel_sign.log 2>&1
 
 # 萌虎摇摇乐
-0 0,10,20 * * * node /scripts/logs/other_scripts/zero205/jd_mhyyl.js >> /scripts/logs/other_logs/zero205/jd_mhyyl.log 2>&1
+0 0,12,18 * * * node /scripts/logs/other_scripts/zero205/jd_mhyyl.js >> /scripts/logs/other_logs/zero205/jd_mhyyl.log 2>&1
