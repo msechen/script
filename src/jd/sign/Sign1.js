@@ -39,37 +39,45 @@ class Sign1 extends Template {
       'https://pro.m.jd.com/mall/active/kPM3Xedz1PBiGQjY4ZYGmeVvrts/index.html',
       'https://prodev.m.jd.com/mall/active/46xH2FEswob1Eibj3tJMTTfpJvA/index.html',
       'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
+      'https://prodev.m.jd.com/mall/active/2QUxWHx5BSCNtnBDjtt5gZTq7zdZ/index.html',
     ];
 
-    for (const url of urlArray) {
-      const actId = url.split('/')[url.split('/').length - 2];
-      const encryptProjectId = await getParamFromUrl(url, actId);
-      if (!encryptProjectId) continue;
-      const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList'));
-      for (const {encryptAssignmentId, ext, completionFlag} of assignmentList) {
-        if (!ext || completionFlag) continue;
-        const {itemId} = ext[ext['extraType']];
-        await api.doFormBody('doInteractiveAssignment', {
-          encryptProjectId,
-          encryptAssignmentId,
-          itemId,
-          completionFlag: true,
-        }).then(data => {
-          const msgs = [
-            `[${actId}]`,
-          ];
-          if (!self.isSuccess(data)) {
-            msgs.push(data.msg);
-          } else {
-            const {rewardsInfo: {successRewards, failRewards}} = data;
-            if (_.isEmpty(successRewards)) {
-              msgs.push(`签到失败 ${failRewards[0].msg}`);
+    for (let i = 0; i < 3; i++) {
+      await handleSign();
+      await sleep(3);
+    }
+
+    async function handleSign() {
+      for (const url of urlArray) {
+        const actId = url.split('/')[url.split('/').length - 2];
+        const encryptProjectId = await getParamFromUrl(url, actId);
+        if (!encryptProjectId) continue;
+        const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList'));
+        for (const {encryptAssignmentId, ext, completionFlag} of assignmentList) {
+          if (!ext || completionFlag) continue;
+          const {itemId} = ext[ext['extraType']];
+          await api.doFormBody('doInteractiveAssignment', {
+            encryptProjectId,
+            encryptAssignmentId,
+            itemId,
+            completionFlag: true,
+          }).then(data => {
+            const msgs = [
+              `[${actId}]`,
+            ];
+            if (!self.isSuccess(data)) {
+              msgs.push(data.msg);
             } else {
-              msgs.push(`签到成功 ${_.flatten(_.values(successRewards)).map(o => o.rewardName).join(' ')}`);
+              const {rewardsInfo: {successRewards, failRewards}} = data;
+              if (_.isEmpty(successRewards)) {
+                msgs.push(`签到失败 ${failRewards[0].msg}`);
+              } else {
+                msgs.push(`签到成功 ${_.flatten(_.values(successRewards)).map(o => o.rewardName).join(' ')}`);
+              }
             }
-          }
-          api.log(msgs.join(' '));
-        });
+            api.log(msgs.join(' '));
+          });
+        }
       }
     }
 
