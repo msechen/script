@@ -39,24 +39,52 @@ class StatisticsRedEnvelope extends Template {
         limitName: '',
       },
     };
-    const todayExpireTime = getMoment(`${getNowDate()} 23:59:59`).valueOf() / 1000;
+    const getExpireTime = (day = 1) => getMoment().add('day', day).set({
+      h: 0,
+      m: 0,
+      s: 0,
+      millisecond: 0,
+    }).valueOf() / 1000;
     const sumRedList = list => formatNumber(_.sum(list.map(o => +o['balance'])) || 0);
 
-    Object.values(redSorted).forEach(o => {
-      const {limitName} = o;
-      const targetReds = redList.filter(({orgLimitStr}) => limitName ? orgLimitStr.match(limitName) : !orgLimitStr);
-      const number = sumRedList(targetReds);
-      const expireReds = targetReds.filter(o => o['endTime'] === todayExpireTime);
-      const expire = sumRedList(expireReds);
-      _.assign(o, {number, expire});
-    });
-    const {noLimit: {number: noLimitNumber, expire: noLimitExpire}} = redSorted;
+    for (let i = 1; i < 6; i++) {
+      await calculate(i);
+    }
 
-    for (const [key, {limitName, number, expire}] of Object.entries(redSorted)) {
-      const name = limitName ? `${limitName}(仅限)` : '无限制';
-      const needSum = key !== 'noLimit';
-      api.log(`${name}🧧: ${format(number, noLimitNumber, needSum)}, 今日过期: ${format(expire, noLimitExpire, needSum)}`);
-      await sleep();
+    api.log(redSorted.jd.msgs.map(v => _.isString(v) ? v : v.format()).join(', '));
+
+    async function calculate(day) {
+      Object.values(redSorted).forEach(o => {
+        const {limitName, msgs = []} = o;
+        const targetReds = redList.filter(({orgLimitStr}) => limitName ? orgLimitStr.match(limitName) : !orgLimitStr);
+        const number = sumRedList(targetReds);
+        const expireReds = targetReds.filter(o => o['endTime'] < getExpireTime(day));
+        const expire = sumRedList(expireReds);
+        _.assign(o, {number, expire, msgs});
+      });
+      const {noLimit: {number: noLimitNumber, expire: noLimitExpire}} = redSorted;
+
+      for (const [key, object] of Object.entries(redSorted)) {
+        const {limitName, number, expire, msgs} = object;
+        if (['jx', 'lite', 'noLimit'].includes(key)) continue;
+        const name = limitName ? `${limitName}(仅限)` : '无限制';
+        const needSum = key !== 'noLimit';
+        if (_.isEmpty(msgs)) {
+          msgs.push(`${name}: ${format(number, noLimitNumber, needSum)}`);
+        }
+        const expireDay = getMoment().add('day', day - 1).format('MM-DD');
+        const expireNum = format(expire, noLimitExpire, needSum);
+        if (_.get(_.last(msgs), 'expireNum') === expireNum) {
+          continue;
+        }
+        msgs.push({
+          expireDay,
+          expireNum,
+          format() {
+            return `${this.expireDay}过期: ${this.expireNum}`;
+          },
+        });
+      }
     }
 
     function format(a, b, needSum = true) {
