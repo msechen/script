@@ -78,7 +78,7 @@ const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
 const FuQiqan = require('./jd/fuQian');
 const SuperBox = require('./jd/superBox');
-const XinruiYear = require('./jd/xinrui/year');
+const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
 const CollectBlissCardsProd = require('./jd/collectBlissCardsProd');
 
 /* 极速版 */
