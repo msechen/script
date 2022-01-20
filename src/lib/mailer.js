@@ -13,9 +13,10 @@ try {
 }
 
 const user = _.property('auth.user')(transportOption);
+const disabled = !user;
 
 function createTransport(option = {}) {
-  if (!user) return;
+  if (disabled) return;
   _.merge(option, {
     port: 465,
     secure: true,
@@ -39,5 +40,6 @@ function send(option) {
 }
 
 module.exports = {
+  disabled,
   send,
 };

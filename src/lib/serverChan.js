@@ -4,9 +4,10 @@ const fs = require('fs');
 const {processInAC} = require('./env');
 
 const {getNowDate, getLogFile, cleanLog} = require('./common');
+const disabled = !_key;
 
 function send(title, content) {
-  if (!_key) {
+  if (disabled) {
     return;
   }
   // Markdown 格式, 换行需要两个空行
@@ -47,6 +48,7 @@ async function sendLog(fileName = 'app', needCleanLog = processInAC()) {
 }
 
 module.exports = {
+  disabled,
   send,
   sendLog,
 };
