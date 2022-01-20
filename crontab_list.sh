@@ -169,6 +169,9 @@
 # 锦鲤红包
 5 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
+# 天天压岁钱
+5 0,9,18 * * * cd /scripts && ts-node /scripts/jd_ysq.ts >> /scripts/logs/jd_ysq.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
