@@ -77,7 +77,7 @@ const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
 const FuQiqan = require('./jd/fuQian');
-const SuperBox = require('./jd/superBox');
+const SuperBox = TemporarilyOffline || require('./jd/superBox');
 const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
 const CollectBlissCardsProd = require('./jd/collectBlissCardsProd');
 

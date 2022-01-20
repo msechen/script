@@ -54,8 +54,8 @@ class SuperBox extends Template {
     await self.beforeRequest(api);
 
     await handleDoTask();
-    // TODO 目前基本是抽空, 所以可能需要手动触发
-    // await handleLottery();
+    // 目前基本是抽空
+    await handleLottery();
 
     async function handleDoTask() {
       const taskList = await api.doGetBody('apTaskList').then(_.property('data'));
