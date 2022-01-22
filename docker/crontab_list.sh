@@ -98,9 +98,15 @@
 #jd_opencard7
 30 10 27,7-27/3 1 * node /scripts/jd_opencard7.js >> /scripts/logs/jd_opencard7.log 2>&1
 #jd_opencard8
-30 3 9-15/3 1 * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
+30 3 18-24/3 1 * node /scripts/jd_opencard8.js >> /scripts/logs/jd_opencard8.log 2>&1
 #jd_opencard9
-30 3 13-20/3 1 * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
+30 3 20-29/3 1 * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
+#jd_opencard10
+30 3 19-28/3 1 * node /scripts/jd_opencard10.js >> /scripts/logs/jd_opencard10.log 2>&1
+#jd_opencard11
+30 4 21-27/3 1 * node /scripts/jd_opencard11.js >> /scripts/logs/jd_opencard11.log 2>&1
+#jd_opencard12
+30 4 1-15/3,17-31/3 1,2 * node /scripts/jd_opencard12.js >> /scripts/logs/jd_opencard12.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 省钱大赢家翻翻乐2
@@ -130,8 +136,6 @@
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
 #京喜签到
 20 1 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
-# 京喜签到-喜豆
-10 2,9 * * * node /scripts/jx_sign_xd.js >> /scripts/logs/jx_sign_xd.log 2>&1
 # 东东超市兑换奖品
 0,30 0 * * * node /scripts/jd_blueCoin.js >> /scripts/logs/jd_blueCoin.log 2>&1
 # 摇京豆
