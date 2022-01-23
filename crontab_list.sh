@@ -178,8 +178,9 @@
 ##################################################### 自定 ########################################################
 
 # xxxx
-58 9 14-30 * * sh +x /scripts/logs/jxmc.sh
-
+58 9 14-24 * * sh +x /scripts/logs/jxmc.sh
+0 0 * * * node /scripts/logs/cfd_code.js >> /scripts/logs/cfd_code.log 2>&1
+19 0 * * * node /scripts/logs/jxmc_code.js >> /scripts/logs/jxmc_code.log 2>&1
 
 ##################################################### zero205 #####################################################
 
