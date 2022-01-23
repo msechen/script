@@ -318,3 +318,9 @@
 
 # 手机年货节
 10 0 1-30 1 * node /scripts/logs/other_scripts/zero205/jd_sjnhj.js >> /scripts/logs/other_logs/zero205/jd_sjnhj.log 2>&1
+
+# 京东小魔方
+20 4,19 * * * node /scripts/logs/other_scripts/zero205/jd_xmf.js >> /scripts/logs/other_logs/zero205/jd_xmf.log 2>&1
+
+# 搞鸡玩家-秒秒币
+20 7 * * * node /scripts/logs/other_scripts/zero205/jd_ms.js >> /scripts/logs/other_logs/zero205/jd_ms.log 2>&1
