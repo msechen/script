@@ -1,17 +1,35 @@
-! Version: 20220112173207
+! Version: 20220120133739
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
-abmedia.io##a.sc-bnXvFD
-abmedia.io##div.kOQza
-||syndication.twitter.com
-||vas-hl-x.snssdk.com
-||mercury-sdk.snssdk.com
-||dm-*.toutiao.com
-||onewsvod.com
-||novel.pangolin-sdk-toutiao.com
-||yximgs.com
-m.sm.cn$$div[ad_dot_url="adclick"]
+||m.biquge.biz/js/common.js
+/js/xia.js
+/js/zhong.js
+||c07.xyz
+||xbiquwx.la/0DayigNJ
+||kaimaohong20.cn
+||ted-club.com
+||yncfwy.net
+||i9zkiqn.cn
+||moxiaoqihuoguo.com
+||https://m.biquge.biz/js/common.js
+||https://c07.xyz
+||https://xbiquwx.la/0DayigNJ
+||https://kaimaohong20.cn
+||https://ted-club.com
+||https://yncfwy.net
+||https://i9zkiqn.cn
+||https://moxiaoqihuoguo.com
+||https://wap.sobiquge.com/js/hosief.js
+||https://wap.sobiquge.com/js/reader.js
+||https://wap.sobiquge.com/js/gksijee.js
+||https://sobiquge.com/js/wuyi.js
+||https://govhebie.cn
+||https://tongji.info
+||https://niaideren.icu
+||https://w07.xyz
+||https://kd06.com
+||https://lsebay.com
 ||https://vas-hl-x.snssdk.com
 ||https://mercury-sdk.snssdk.com
 ||https://onewsvod.com
@@ -12395,6 +12413,24 @@ m.sm.cn$$div[ad_dot_url="adclick"]
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://m.biquge.biz/js/common.js
+||http://c07.xyz
+||http://xbiquwx.la/0DayigNJ
+||http://kaimaohong20.cn
+||http://ted-club.com
+||http://yncfwy.net
+||http://i9zkiqn.cn
+||http://moxiaoqihuoguo.com
+||http://wap.sobiquge.com/js/hosief.js
+||http://wap.sobiquge.com/js/reader.js
+||http://wap.sobiquge.com/js/gksijee.js
+||http://sobiquge.com/js/wuyi.js
+||http://govhebie.cn
+||http://tongji.info
+||http://niaideren.icu
+||http://w07.xyz
+||http://kd06.com
+||http://lsebay.com
 ||http://vas-hl-x.snssdk.com
 ||http://mercury-sdk.snssdk.com
 ||http://dm-*.toutiao.com
