@@ -233,7 +233,7 @@
 #0 * * * * node /scripts/logs/other_scripts/zero205/jd_redrain.js >> /scripts/logs/other_logs/zero205/jd_redrain.log 2>&1
 
 # 半点京豆雨
-31 20-23/1 * * * node /scripts/logs/other_scripts/zero205/jd_redrain_half.js >> /scripts/logs/other_logs/zero205/jd_redrain_half.log 2>&1
+30 21,22 * * * node /scripts/logs/other_scripts/zero205/jd_redrain_half.js >> /scripts/logs/other_logs/zero205/jd_redrain_half.log 2>&1
 
 # 京东签到图形验证
 14 10 * * * node /scripts/logs/other_scripts/zero205/jd_sign_graphics.js >> /scripts/logs/other_logs/zero205/jd_sign_graphics.log 2>&1
