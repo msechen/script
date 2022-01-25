@@ -324,3 +324,6 @@
 
 # 搞鸡玩家-秒秒币
 20 7 * * * node /scripts/logs/other_scripts/zero205/jd_ms.js >> /scripts/logs/other_logs/zero205/jd_ms.log 2>&1
+
+# 多合一签到
+0 10 * * * node /scripts/logs/other_scripts/zero205/jd_bean_sign.js >> /scripts/logs/other_logs/zero205/jd_bean_sign.log 2>&1
