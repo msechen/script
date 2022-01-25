@@ -13,6 +13,7 @@ class CollectBlissCardsProd extends MappingTemplate {
   static times = 2;
   static needInPhone = true;
   static concurrent = true;
+  static activityEndTime = '2022-01-31 08:00:00';
 
   static indexUrl = 'https://yearfestival.jd.com';
   static functionId = 'collect_bliss_cards_prod';
@@ -60,7 +61,7 @@ class CollectBlissCardsProd extends MappingTemplate {
         for (const {taskId, taskItemId, browseTime, taskState} of data) {
           if (taskState === '0') continue;
           isFinished = false;
-          handleLottery(1);
+          handleLottery(2);
           const {timeStamp, rewardInfoVo} = await api.doApiMapping('/api/task/brand/doTask', {
             taskGroupId,
             taskId,
@@ -97,7 +98,7 @@ class CollectBlissCardsProd extends MappingTemplate {
       }
     }
 
-    async function handleLottery(maxTimes = 5) {
+    async function handleLottery(maxTimes = 10) {
       if (maxTimes <= 0) return;
       await api.doApiMapping('/api/lottery/lottery').then(async data => {
         if (!self.isSuccess(data)) return;
@@ -109,10 +110,30 @@ class CollectBlissCardsProd extends MappingTemplate {
     }
 
     async function handleLog() {
-      const {cardNum} = await api.doApiMapping('/api/index/indexInfo').then(_.property('data'));
-      api.log(`当前卡片数${cardNum}`);
+      const {cardNum, lotteryNum} = await api.doApiMapping('/api/index/indexInfo').then(_.property('data'));
       // 获取card内容
-      // await api.doApiMapping('/api/card/list');
+      const {cardList} = await api.doApiMapping('/api/card/list').then(_.property('data'));
+      const groupTimes = 3;
+      const formatCardInfo = {};
+      const everyCard = cardList.shift();
+      cardList.forEach(({cardId, cardName, count}, index) => {
+        const infoIndex = Math.floor(index / groupTimes);
+        formatCardInfo[infoIndex] = formatCardInfo[infoIndex] || [];
+        formatCardInfo[infoIndex].push({cardName, count});
+      });
+      const msgs = [
+        `抽奖次数${lotteryNum}`,
+        `卡片数${cardNum}`,
+      ];
+      for (const cards of Object.values(formatCardInfo)) {
+        msgs.push(`【${cards.map(handleFormat).join(',')}】`);
+      }
+      msgs.push(handleFormat(everyCard));
+      api.log(msgs.join(', '));
+
+      function handleFormat(card) {
+        return `${card['cardName']}(${card['count']})`;
+      }
     }
   }
 }
