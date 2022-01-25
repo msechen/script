@@ -13,9 +13,12 @@ global._ = _;
 
 // [app,client,clientVersion,uuid;wifi;...]
 const appCompleteUserAgent = 'jdapp;iPhone;10.1.6;14.8;c6993893af46e44aa14818543914768cf2509fbf;network/wifi;model/iPhone13,3;addressid/682688717;appBuild/167841;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1';
-const appUserAgentNotUUID = 'jdapp;iPhone;10.3.0;;;M/5.0;appBuild/167903;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22YzY5EJC4EJDrZtG2ZJG0YWOnDNqnENU0CzunDNc2EQDwCtUmEWZsZq%3D%3D%22%2C%22sv%22%3A%22CJUkCI4n%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A1642487788%2C%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;'
+const appUserAgentNotUUID = 'jdapp;iPhone;10.3.0;;;M/5.0;appBuild/167903;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22YzY5EJC4EJDrZtG2ZJG0YWOnDNqnENU0CzunDNc2EQDwCtUmEWZsZq%3D%3D%22%2C%22sv%22%3A%22CJUkCI4n%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A1642487788%2C%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;';
 
 class Base {
+  /**
+   * @deprecated
+   */
   static _ = _;
   // 当前循环的cookie下标
   static currentCookieTimes = 0;
@@ -53,6 +56,10 @@ class Base {
   // 是否并发请求
   static concurrent = false;
   static concurrentOnceDelay = 2;
+
+  // 活动开始和结束时间, 默认没有
+  static activityStartTime = '';
+  static activityEndTime = '';
 
   // apiNames的补充
   static apiNamesFn() {
@@ -268,6 +275,16 @@ async function loopInit(data, isCron) {
   const self = this;
   let currentCookieTimes = 0;
   data = _.concat(data);
+
+  const patchEndTime = v => v && !/:/.test(v) ? `${v} 23:59:59` : v;
+  self['activityEndTime'] = patchEndTime(self['activityEndTime']);
+  let {activityStartTime, activityEndTime} = self;
+  if (activityStartTime || activityEndTime) {
+    if (getMoment().isAfter(activityEndTime) || getMoment().isBefore(activityStartTime)) {
+      self.log(`活动已结束(${activityStartTime || '无'}至${activityEndTime || '无'})`);
+      return;
+    }
+  }
 
   let cookieConfig = {};
   const cookieConfigStr = getEnv('JD_COOKIE_CONFIG');

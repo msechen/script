@@ -15,6 +15,7 @@ class FuQian extends Template {
   static times = 1;
   static isWh5 = true;
   static needOriginProMd = true;
+  static activityEndTime = '2022-01-26';
 
   static apiOptions() {
     return {
