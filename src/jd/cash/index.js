@@ -52,7 +52,7 @@ class Cash extends Template {
             doTaskDesc,
             type,
           } of taskList) {
-            if (status === 1 || ['京喜双签', '金融双签', 'APP签到提醒'].includes(name) || name.match('邀好友')) continue;
+            if (status === 1 || ['京喜双签', '金融双签', 'APP签到提醒', '健康双签'].includes(name) || name.match('邀好友')) continue;
 
             let list = [];
 
@@ -86,12 +86,6 @@ class Cash extends Template {
       },
     };
   };
-
-  static initShareCodeTaskList(shareCodes) {
-    if (shareCodes) {
-      this.shareCodeTaskList = shareCodes;
-    }
-  }
 }
 
 module.exports = Cash;
