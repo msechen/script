@@ -27,6 +27,7 @@ class Pet extends Template {
       return data;
     },
   };
+  static activityEndTime = '2022-01-31 17:00:00';
 
   static isSuccess(data) {
     return _.property('resultCode')(data) === '0';
@@ -53,7 +54,7 @@ class Pet extends Template {
     await logInfo();
 
     async function getInfo() {
-      return api.doFormBody('initPetTown').then(async data => {
+      return api.doFormBody('initPetTown', {'version': 2, 'channel': 'app'}).then(async data => {
         const result = getResult(data);
         const {petPlaceInfoList} = result;
         if (_.reduce(_.map(petPlaceInfoList, 'energy')) > 0) {
@@ -148,6 +149,9 @@ class Pet extends Template {
       for (; i < feedTimes; i++) {
         await sleep(2);
         const enable = await api.doFormBody('feedPets').then(self.isSuccess);
+        if (i % 20 === 0) {
+          await handleEnergyCollect();
+        }
         if (!enable) break;
       }
       if (!i) return;
