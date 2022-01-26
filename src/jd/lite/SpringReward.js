@@ -4,7 +4,7 @@ const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common
 const _ = require('lodash');
 
 const appid = 'activities_platform';
-let linkId = '9wdf1YTT2L59Vr-meKskLA';
+let linkId = 'Eu7-E0CUzqYyhZJo9d3YkQ';
 const indexUrl = 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html';
 
 class LiteSpringReward extends Template {
@@ -57,10 +57,10 @@ class LiteSpringReward extends Template {
       let maxTimes = 10;
       while (remainChance > 0) {
         await api.doGetBody('spring_reward_receive', {inviter}).then(data => {
-          if (!self.isSuccess(data)) return self.log(data.errMsg);
+          if (!self.isSuccess(data)) return api.log(data.errMsg);
           remainChance--;
           const {prizeDesc} = _.property('data.received')(data);
-          self.log(`获得: ${prizeDesc}`);
+          api.log(`获得: ${prizeDesc}`);
         });
         await sleep(10);
         if (--maxTimes === 0) break;
@@ -100,7 +100,7 @@ class LiteSpringReward extends Template {
           uri: api.options.uri,
           headers: api.options.headers,
         }).then(data => {
-          self.log(data.data.message);
+          api.log(data.data.message);
         });
       }
     }
