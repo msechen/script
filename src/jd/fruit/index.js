@@ -41,6 +41,8 @@ class Fruit extends Template {
   static async doMain(api, shareCodes) {
     const self = this;
     const needHarvest = false;
+    // 快速浇水默认不开启
+    const enableFastWater = false;
     const waterTimes = 0;
 
     // 指定浇水次数
@@ -112,7 +114,8 @@ class Fruit extends Template {
       targetCards = _.concat(targetCards);
       const cardData = await api.doFormBody('myCardInfoForFarm');
       const {cardInfos} = cardData;
-      for (const {type, maxTimes} of targetCards) {
+      const result = [];
+      for (const {type, maxTimes, returnLimit} of targetCards) {
         const card = cardInfos.find(o => o.type === type);
         if (type === 'doubleCard') {
           const {farmUserPro: {totalEnergy}} = await handleInitForFarm();
@@ -124,12 +127,18 @@ class Fruit extends Template {
         if (!card) continue;
         const {useTimesInDay} = card;
         const limit = _.min([maxTimes || Infinity, cardData[type], useTimesInDay === -1 ? Infinity : useTimesInDay]);
+        if (returnLimit) {
+          result.push({type, limit});
+          continue;
+        }
         for (let i = 0; i < limit; i++) {
           const data = await api.doFormBody('userMyCardForFarm', {cardType: type, type: ''});
           if (!self.isSuccess(data)) break;
           await sleep(2);
         }
       }
+
+      return result;
     }
 
     // 获取助力人数满的奖励
@@ -271,6 +280,15 @@ class Fruit extends Template {
         canHarvest && (msg += ', 可以收成了!!!');
         api.log(msg);
         if (needHarvest && canHarvest) {
+          const maxTimes = Math.floor(remainEnergy / 100);
+          if (maxTimes > 0 && enableFastWater) {
+            const card = {type: 'fastCard', maxTimes, returnLimit: true};
+            const [{limit}] = await handleUseCard(card);
+            delete card.returnLimit;
+            api.log(`使用快速浇水卡 ${limit} 次, 在 ${getMoment().add(limit * 3, 's').format()} 之后可以完成`);
+            await handleUseCard(card);
+            return logFarmInfo(true);
+          }
           const waterTimes = remainEnergy / 10;
           const time = getMoment().add(waterTimes * 3, 's');
           api.log(`完成需浇水 ${waterTimes} 次, 在 ${time.format()} 之后可以完成`);
