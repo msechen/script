@@ -248,7 +248,8 @@ class Sign extends Template {
     if (nowHour <= 8) {
       taskOptions.push(morningGetBean);
     }
-    if (nowHour === 23) {
+    // 活动调整, 需下线
+    if (nowHour === 23 && false) {
       taskOptions.push(cashSign[0]);
     }
 
