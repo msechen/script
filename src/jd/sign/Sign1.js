@@ -12,6 +12,8 @@ class Sign1 extends Template {
   static commonParamFn = () => ({});
   static needInPhone = true;
   static needOriginProMd = true;
+  static concurrent = true;
+  static concurrentOnceDelay = 0;
   static times = 1;
 
   static apiOptions() {
