@@ -4,7 +4,7 @@ const Api = require('../api');
 const UserAgent = require('./UserAgent');
 const Cookie = require('../../lib/cookie');
 const {sleep, printLog, parallelRun} = require('../../lib/common');
-const {getMoment, getNextHour} = require('../../lib/moment');
+const {getMoment, getNextHour, getNowHour} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
 const {sleepTime} = require('../../lib/cron');
 
@@ -105,9 +105,7 @@ class Base {
     return this.currentTimes === this.times;
   }
 
-  static getNowHour() {
-    return getMoment().hours();
-  }
+  static getNowHour = getNowHour;
 
   static firstTimeInTheDay() {
     return this.getNowHour() < 5;
