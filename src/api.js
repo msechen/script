@@ -70,7 +70,7 @@ async function sendNotify({sendYesterdayLog = false, subjects = []}) {
   if (sendYesterdayLog) {
     const yesterdayLog = getLogFile('app', getMoment().subtract(1, 'd').format('YYYY-MM-DD'));
     contents.push(sortLogByName(getFileContent(yesterdayLog)));
-    contents.push(`${getNowDate()}-start--------------------------\n`);
+    contents.push(`\n--------------------------${getNowDate()}-start--------------------------\n`);
   }
   contents.push(sortLogByName());
   // result.txt 不再输出
