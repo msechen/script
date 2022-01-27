@@ -21,15 +21,16 @@ if($.isNode()){
     cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 //购物车内容
-$.cart  === 'true'; // 当环境变量中存在JD_CART并设置为true时才会执行删除购物车
-let removeSize =  20; // 运行一次取消多全部已关注的商品。数字0表示不取关任何商品
-let isRemoveAll =  true;    //是否清空，如果为false，则上面设置了多少就只删除多少条
+$.cart = process.env.JD_CART === 'true'; // 当环境变量中存在JD_CART并设置为true时才会执行删除购物车
+let removeSize = process.env.JD_CART_REMOVESIZE || 20; // 运行一次取消多全部已关注的商品。数字0表示不取关任何商品
+let isRemoveAll = process.env.JD_CART_REMOVEALL || true;    //是否清空，如果为false，则上面设置了多少就只删除多少条
 $.keywords = process.env.JD_CART_KEYWORDS || []
 $.keywordsNum = 0;
 !(async() => {
     console.log('使用前请确保你认真看了注释')
     console.log('看完注释有问题就带着你的问题来找我')
-    //console.log('tg: https://t.me/X1a0He')
+    console.log('tg: https://t.me/X1a0He')
+    if($.cart){
         if(!cookiesArr[0]){
             $.msg('【京东账号一】移除购物车失败', '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {
                 "open-url": "https://bean.m.jd.com/bean/signIndex.action"
@@ -68,6 +69,9 @@ $.keywordsNum = 0;
                 } while(isRemoveAll && $.keywordsNum !== $.beforeRemove)
             }
         }
+    } else {
+        console.log("你设置了不删除购物车数据，要删除请设置环境变量 JD_CART 为 true")
+    }
 })().catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
 }).finally(() => {
@@ -86,7 +90,8 @@ function getCart_xh(){
         }
         $.get(option, async(err, resp, data) => {
             try{
-                data = JSON.parse(getSubstr(data, "window.cartData = ", "window._PFM_TIMING"));
+                let content = getSubstr(data, "window.cartData = ", "window._PFM_TIMING").replace(/\s*/g,"");
+                data = JSON.parse(content);
                 $.areaId = data.areaId;   // locationId的传值
                 $.traceId = data.traceId; // traceid的传值
                 venderCart = data.cart.venderCart;
