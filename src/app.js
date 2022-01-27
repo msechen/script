@@ -143,6 +143,11 @@ async function main() {
     {
       valid: 0,
       run: async () => {
+        multipleRun([
+          HealthSign,
+          HealthShare,
+          Health,
+        ]);
         await serialRun([
           KoiRedPacket,
           // 23点后的活动补充
@@ -161,11 +166,6 @@ async function main() {
           Harmony3,
           Harmony4,
           Harmony5,
-        ]);
-        await multipleRun([
-          HealthSign,
-          HealthShare,
-          Health,
         ]);
       },
     },
