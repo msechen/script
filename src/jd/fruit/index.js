@@ -51,7 +51,7 @@ class Fruit extends Template {
     if (needHarvest) return logFarmInfo(true);
 
     const {
-      farmUserPro: {shareCode: currentShareCode},
+      farmUserPro: {shareCode: currentShareCode, treeState},
       funCollectionHasLimit,
       canGotNewUserToday,
     } = await handleInitForFarm();
@@ -143,6 +143,7 @@ class Fruit extends Template {
 
     // 获取助力人数满的奖励
     async function handleGetShareFinished() {
+      if (treeState === 2) return;
       const {amount = 0, assistFriendList, assistStageList} = await api.doFormBody('farmAssistInit');
       if (amount > 0) {
         await api.doFormBody('receiveStageEnergy');
@@ -267,7 +268,14 @@ class Fruit extends Template {
     // 输出日志
     async function logFarmInfo(needHarvest = false) {
       return handleInitForFarm().then(async data => {
-        const {farmUserPro: {treeEnergy, treeTotalEnergy, totalEnergy}, farmWinGoods} = data;
+        const {
+          farmUserPro: {treeEnergy, treeTotalEnergy, totalEnergy, treeState},
+          farmWinGoods,
+          funCollectionHasLimit,
+        } = data;
+        if (treeState === 2) {
+          return api.log('当前水果已经成熟, 请在app中兑换红包');
+        }
         if (!treeTotalEnergy) {
           // TODO 种植水果
           const targetGood = _.maxBy(farmWinGoods, 'prizeLevel');
@@ -280,6 +288,9 @@ class Fruit extends Template {
         canHarvest && (msg += ', 可以收成了!!!');
         api.log(msg);
         if (needHarvest && canHarvest) {
+          if (funCollectionHasLimit) {
+            return api.log('这个月已经兑换过了, 请下个月再来');
+          }
           const maxTimes = Math.floor(remainEnergy / 100);
           if (maxTimes > 0 && enableFastWater) {
             const card = {type: 'fastCard', maxTimes, returnLimit: true};
