@@ -118,9 +118,6 @@
 # 闪购盲盒
 20 8 * * * node /scripts/jd_sgmh.js >> /scripts/logs/jd_sgmh.log 2>&1
 
-# 进店领豆
-10 0 * * * node /scripts/jd_shop.js >> /scripts/logs/jd_shop.log 2>&1
-
 # 京东极速版红包
 20 0,22 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 
@@ -178,7 +175,7 @@
 ##################################################### 自定 ########################################################
 
 # xxxx
-58 9 14-31 * * sh +x /scripts/logs/jxmc.sh
+58 9,23 * * * sh +x /scripts/logs/jxmc.sh
 0 0 * * * node /scripts/logs/cfd_code.js >> /scripts/logs/cfd_code.log 2>&1
 19 0 * * * node /scripts/logs/jxmc_code.js >> /scripts/logs/jxmc_code.log 2>&1
 
@@ -202,9 +199,6 @@
 # 店铺签到，各类店铺签到
 #0 0 * * * node /scripts/logs/other_scripts/zero205/jd_dpqd.js >> /scripts/logs/other_logs/zero205/jd_dpqd.log 2>&1
 
-# 京东超级盒子
-24 3,13 * * * node /scripts/logs/other_scripts/zero205/jd_cjhz.js >> /scripts/logs/other_logs/zero205/jd_cjhz.log 2>&1
-
 # 城城领现金
 #0 0-23/5 * * * node /scripts/logs/other_scripts/zero205/jd_city.js >> /scripts/logs/other_logs/zero205/jd_city.log 2>&1
 
@@ -225,9 +219,6 @@
 
 # 京东汽车-助力
 10 6,10,12 * * *  node /scripts/logs/other_scripts/zero205/jd_mpdzcar_help.js >> /scripts/logs/other_logs/zero205/jd_mpdzcar_help.log 2>&1
-
-# 年货签到
-10 6,10,12 * * *  node /scripts/logs/other_scripts/zero205/jd_nh_sign.js >> /scripts/logs/other_logs/zero205/jd_nh_sign.log 2>&1
 
 # 整点京豆雨
 #0 * * * * node /scripts/logs/other_scripts/zero205/jd_redrain.js >> /scripts/logs/other_logs/zero205/jd_redrain.log 2>&1
