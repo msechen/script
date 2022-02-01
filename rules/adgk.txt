@@ -1,17 +1,19 @@
-! Version: 20220124194858
+! Version: 20220201032941
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+/images/yc.jpg
+/js/htmlk*.js
+||jxxiangyujinshu.com
+||guodulvyou.xyz
 ||sqdd.myapp.com
 ||tianshu.gtimg.cn
 ||m.biquge.biz/js/common.js
 /js/xia.js
 /js/zhong.js
 ||c07.xyz
-||xbiquwx.la/0DayigNJ
-||kaimaohong20.cn
-||ted-club.com
-||yncfwy.net
+||https://jxxiangyujinshu.com
+||https://guodulvyou.xyz
 ||https://sqdd.myapp.com
 ||https://tianshu.gtimg.cn
 ||https://m.biquge.biz/js/common.js
@@ -12415,6 +12417,8 @@
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://jxxiangyujinshu.com
+||http://guodulvyou.xyz
 ||http://sqdd.myapp.com
 ||http://tianshu.gtimg.cn
 ||http://m.biquge.biz/js/common.js
