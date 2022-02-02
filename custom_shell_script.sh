@@ -23,3 +23,13 @@ if [ -f "$zero205Git" ]; then
 else
   git clone https://github.com/zero205/JD_tencent_scf.git /scripts/logs/other_scripts/zero205
 fi
+
+yyds="/scripts/logs/other_scripts/yyds/README.md"
+cd /scripts/logs && rm -f yyds.*&&wget https://raw.fastgit.org/okyyds/okyyds/master/yyds.sh && chmod +x yyds.sh && bash yyds.sh
+if [ -f "$yyds" ]; then
+  git -C /scripts/logs/other_scripts/yyds reset --hard
+  git -C /scripts/logs/other_scripts/yyds pull
+else
+  apk update && apk add openssh
+  cd /scripts/logs/other_scripts/yyds && git init && git remote add origin git@github.com:okyyds/yyds.git && git pull origin master
+fi
