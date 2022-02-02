@@ -318,3 +318,50 @@
 
 # 2022新春快乐 击鼓助力
 15 10,22 1-14 2 *  node /scripts/logs/other_scripts/zero205/jd_HappyNewYear_Shares.js >> /scripts/logs/other_logs/zero205/jd_HappyNewYear_Shares.log 2>&1
+
+##################################################### yyds #####################################################
+
+# 财富大陆
+18 0-23/2 * * * node /scripts/logs/other_scripts/yyds/gua_wealth_island.js >> /scripts/logs/other_logs/yyds/gua_wealth_island.log 2>&1
+
+# 财富大陆-互助
+18 0,1,9,14,18 * * * node /scripts/logs/other_scripts/yyds/gua_wealth_island_help.js >> /scripts/logs/other_logs/yyds/gua_wealth_island_help.log 2>&1
+
+# 愤怒的锦鲤
+5 0 * * * node /scripts/logs/other_scripts/yyds/jd_angryKoi.js >> /scripts/logs/other_logs/yyds/jd_angryKoi.log 2>&1
+
+# 美丽研究院--兑换
+20 12 * * * node /scripts/logs/other_scripts/yyds/jd_beauty_ex.js >> /scripts/logs/other_logs/yyds/jd_beauty_ex.log 2>&1
+
+# 白条抽奖
+10 9 13-31,1-7 1,2 * node /scripts/logs/other_scripts/yyds/jd_bt_sign.js >> /scripts/logs/other_logs/yyds/jd_bt_sign.log 2>&1
+
+# 积分换话费
+33 7,19 * * * node /scripts/logs/other_scripts/yyds/jd_dwapp.js >> /scripts/logs/other_logs/yyds/jd_dwapp.log 2>&1
+
+# 过期京豆兑换为喜豆
+33 7,19 * * * export exjxbeans=true && node /scripts/logs/other_scripts/yyds/jd_exchangejxbeans.js >> /scripts/logs/other_logs/yyds/jd_exchangejxbeans.log 2>&1
+
+# 京东特价翻翻乐
+20 0-23/3 * * * node /scripts/logs/other_scripts/yyds/jd_jdtj_winner.js >> /scripts/logs/other_logs/yyds/jd_jdtj_winner.log 2>&1
+
+# 京东蒙牛
+18 1,16 * * * node /scripts/logs/other_scripts/yyds/jd_mengniu.js >> /scripts/logs/other_logs/yyds/jd_mengniu.log 2>&1
+
+# 京东汽车 - 右下角 - 领京豆
+10 6,10,12 * * * node /scripts/logs/other_scripts/yyds/jd_mpdzcar_game.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_game.log 2>&1
+
+# 搞鸡玩家-秒秒币
+20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
+
+# 组队分豆-美泰
+18 2,14 * * * node /scripts/logs/other_scripts/yyds/jd_mt.js >> /scripts/logs/other_logs/yyds/jd_mt.log 2>&1
+
+# 玩一玩成就
+0 8 * * * node /scripts/logs/other_scripts/yyds/jd_wyw.js >> /scripts/logs/other_logs/yyds/jd_wyw.log 2>&1
+
+# 送豆得豆
+45 1,12 * * * node /scripts/logs/other_scripts/yyds/jd_sendBeans.js >> /scripts/logs/other_logs/yyds/jd_sendBeans.log 2>&1
+
+# 京喜-首页-牛牛福利
+1 0,19,23 * * * node /scripts/logs/other_scripts/yyds/jd_nnfls.js >> /scripts/logs/other_logs/yyds/jd_nnfls.log 2>&1
