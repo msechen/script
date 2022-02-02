@@ -29,6 +29,9 @@ let tokenKey, pt_key, pt_pin, error_msg = '', username = '', signParams;
         }
         console.log('签名参数：' + JSON.stringify(signParams))
         for (let i = 0; i < wskeys.length; i++) {
+            if (wskeys[i] == "") {
+                continue;
+            }
             try {
                 username = `${i + 1} ${wskeys[i].match(/(pin=[^;]*)/)[1]}`
                 console.log(`开始获取open token: ${username}`)
