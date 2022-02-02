@@ -295,9 +295,6 @@
 # 天天压岁钱
 33 0,14,20 * * * node /scripts/logs/other_scripts/zero205/jx_ttysq.js >> /scripts/logs/other_logs/zero205/jx_ttysq.log 2>&1
 
-# 白条抽奖
-10 9 13-31,1-7 1,2 * node /scripts/logs/other_scripts/zero205/jd_bt_sign.js >> /scripts/logs/other_logs/zero205/jd_bt_sign.log 2>&1
-
 # 会场红包
 0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_nhs_rpb.js >> /scripts/logs/other_logs/zero205/jd_nhs_rpb.log 2>&1
 
@@ -305,10 +302,7 @@
 0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_babel_sign.js >> /scripts/logs/other_logs/zero205/jd_babel_sign.log 2>&1
 
 # 萌虎摇摇乐
-0 0,12,18 * * * node /scripts/logs/other_scripts/zero205/jd_mhyyl.js >> /scripts/logs/other_logs/zero205/jd_mhyyl.log 2>&1
-
-# 手机年货节
-10 0 1-30 1 * node /scripts/logs/other_scripts/zero205/jd_sjnhj.js >> /scripts/logs/other_logs/zero205/jd_sjnhj.log 2>&1
+0 10,20 * * * node /scripts/logs/other_scripts/zero205/jd_mhyyl.js >> /scripts/logs/other_logs/zero205/jd_mhyyl.log 2>&1
 
 # 京东小魔方
 20 4,19 * * * node /scripts/logs/other_scripts/zero205/jd_xmf.js >> /scripts/logs/other_logs/zero205/jd_xmf.log 2>&1
@@ -318,3 +312,9 @@
 
 # 多合一签到
 0 10 * * * node /scripts/logs/other_scripts/zero205/jd_bean_sign.js >> /scripts/logs/other_logs/zero205/jd_bean_sign.log 2>&1
+
+# 财富岛兑换红包
+50 * * * * node /scripts/logs/other_scripts/zero205/jd_cfd_hb.js >> /scripts/logs/other_logs/zero205/jd_cfd_hb.log 2>&1
+
+# 2022新春快乐 击鼓助力
+15 10,22 1-14 2 *  node /scripts/logs/other_scripts/zero205/jd_HappyNewYear_Shares.js >> /scripts/logs/other_logs/zero205/jd_HappyNewYear_Shares.log 2>&1
