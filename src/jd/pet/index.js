@@ -27,7 +27,6 @@ class Pet extends Template {
       return data;
     },
   };
-  static activityEndTime = '2022-01-31 17:00:00';
 
   static isSuccess(data) {
     return _.property('resultCode')(data) === '0';
