@@ -22,9 +22,6 @@
 # 口袋书店
 1 8,12,18 * * * node /scripts/jd_bookshop.js >> /scripts/logs/jd_bookshop.log 2>&1
 
-# 京东汽车
-10 7 * * * node /scripts/jd_car.js >> /scripts/logs/jd_car.log 2>&1
-
 # 京东汽车兑换
 0 0 * * * node /scripts/jd_car_exchange.js >> /scripts/logs/jd_car_exchange.log 2>&1
 
@@ -314,10 +311,16 @@
 0 10 * * * node /scripts/logs/other_scripts/zero205/jd_bean_sign.js >> /scripts/logs/other_logs/zero205/jd_bean_sign.log 2>&1
 
 # 财富岛兑换红包
-50 * * * * node /scripts/logs/other_scripts/zero205/jd_cfd_hb.js >> /scripts/logs/other_logs/zero205/jd_cfd_hb.log 2>&1
+50 * * * * export cfd_rp=true && node /scripts/logs/other_scripts/zero205/jd_cfd_hb.js >> /scripts/logs/other_logs/zero205/jd_cfd_hb.log 2>&1
 
 # 2022新春快乐 击鼓助力
 15 10,22 1-14 2 *  node /scripts/logs/other_scripts/zero205/jd_HappyNewYear_Shares.js >> /scripts/logs/other_logs/zero205/jd_HappyNewYear_Shares.log 2>&1
+
+# 搞鸡玩家
+12 0,1,2 5-7 2 *  export FS_LEVEL=car && node /scripts/logs/other_scripts/zero205/jd_freshgoods.js >> /scripts/logs/other_logs/zero205/jd_freshgoods.log 2>&1
+
+# 京东汽车
+43 7,21 * * * node /scripts/logs/other_scripts/zero205/jd_car.js >> /scripts/logs/other_logs/zero205/jd_car.log 2>&1
 
 ##################################################### yyds #####################################################
 
