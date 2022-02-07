@@ -105,8 +105,6 @@
 31 18-23/1 * * * node /scripts/jd_redRain_half.js >> /scripts/logs/jd_redRain_half.log 2>&1
 #超级无线店铺签到
 31 1 * * * node /scripts/jd_sevenDay.js >> /scripts/logs/jd_sevenDay.log 2>&1
-#见缝插针
-15 10 * * * node /scripts/jd_jfcz.js >> /scripts/logs/jd_jfcz.log 2>&1
 # 年货签到
 0 8 * * * node /scripts/jd_nh_sign.js >> /scripts/logs/jd_nh_sign.log 2>&1
 # 特务z
