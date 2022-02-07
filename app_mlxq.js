@@ -20,10 +20,11 @@
 
 cron "25 0-59/1 * * *"
 
-声明:之适配青龙使用
-声明:之适配青龙使用
-声明:之适配青龙使用
+声明:只适配青龙使用
+声明:只适配青龙使用
+声明:只适配青龙使用
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_mlxq.js
 */
 
 
