@@ -1,17 +1,21 @@
-! Version: 20220201032941
+! Version: 20220206232113
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||r-log.dable.io
+||pixanalytics.com
+||pixanalytics.pixnet.net
+||pixanalytics2.pixnet.net
 /images/yc.jpg
 /js/htmlk*.js
 ||jxxiangyujinshu.com
 ||guodulvyou.xyz
 ||sqdd.myapp.com
 ||tianshu.gtimg.cn
-||m.biquge.biz/js/common.js
-/js/xia.js
-/js/zhong.js
-||c07.xyz
+||https://r-log.dable.io
+||https://pixanalytics.com
+||https://pixanalytics.pixnet.net
+||https://pixanalytics2.pixnet.net
 ||https://jxxiangyujinshu.com
 ||https://guodulvyou.xyz
 ||https://sqdd.myapp.com
@@ -914,7 +918,6 @@
 ||https://cpoml.iask.sina.com.cn $empty
 ||https://sl.sogoucdn.com/semob$empty,popup
 ||https://e.qq.com
-||https://upgrade.xl9.xunlei.com
 ||https://service.weibo.com/share/
 ||https://lnk0.com
 ||https://lattestatic.lattebank.com/huanbapp.apk
@@ -12417,6 +12420,10 @@
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://r-log.dable.io
+||http://pixanalytics.com
+||http://pixanalytics.pixnet.net
+||http://pixanalytics2.pixnet.net
 ||http://jxxiangyujinshu.com
 ||http://guodulvyou.xyz
 ||http://sqdd.myapp.com
@@ -13340,7 +13347,6 @@
 ||http://sl.sogoucdn.com/semob$empty,popup
 ||http://e.qq.com
 ||http://apd-*.v.smtcdns.com/vhot2.qqvideo.tc.qq.com
-||http://upgrade.xl9.xunlei.com
 ||http://service.weibo.com/share/
 ||http://lnk0.com
 ||http://lattestatic.lattebank.com/huanbapp.apk

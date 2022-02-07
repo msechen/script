@@ -47,7 +47,7 @@
 |http://www.wuhan.com/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/emCupid/adg_cn/block_Baiduunion.user.js"></script>@
 |https://www.hao6v.tv/$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/emCupid/adg_cn/block_Baiduunion.user.js"></script>@
 |https://www.bilibili.com$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/hide_mini.js"></script><script>fuckcss('.ex-card-common:has(.gg-icon) { remove: true; }')</script>@
-|https://ddrk.me$s@</head>@<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/houzi-/CDN/KP-/fuckcss.min.js"></script><script>fuckcss('setConstant%%%Object.prototype.ads%%%null')</script>@
+|https://ddrk.me$s@</head>@<link rel="stylesheet" href="https://limbopro.com/CSS/ddrk.css" type="text/css"><script type="text/javascript" src="//limbopro.com/Adguard/ddrk.js"></script>@
 
 |https://www.555dy7.com##body > div.container > div > div:nth-child(7) > div > div > div,body > div.container > div > div:nth-child(5) > div > div > div,body > div.container > div > div:nth-child(2) > div > div > div
 |https://www.555dy7.com/vodplay$s@tips = new Array(2);@fuck = new Array(2);@
