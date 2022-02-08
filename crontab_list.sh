@@ -176,152 +176,6 @@
 0 0 * * * node /scripts/logs/cfd_code.js >> /scripts/logs/cfd_code.log 2>&1
 19 0 * * * node /scripts/logs/jxmc_code.js >> /scripts/logs/jxmc_code.log 2>&1
 
-##################################################### zero205 #####################################################
-
-# 京喜财富岛
-1 0,6-23 * * * node /scripts/logs/other_scripts/zero205/jd_cfd.js >> /scripts/logs/other_logs/zero205/jd_cfd.log 2>&1
-
-# 京喜财富岛热气球
-30 0-23/3 * * * node /scripts/logs/other_scripts/zero205/jd_cfd_loop.js >> /scripts/logs/other_logs/zero205/jd_cfd_loop.log 2>&1
-
-# 财富岛珍珠兑换
-59 0-23/1 * * * node /scripts/logs/other_scripts/zero205/jd_cfd_pearl_ex.js >> /scripts/logs/other_logs/zero205/jd_cfd_pearl_ex.log 2>&1
-
-# 众筹许愿池
-40 0,2 * * * node /scripts/logs/other_scripts/zero205/jd_wish.js >> /scripts/logs/other_logs/zero205/jd_wish.log 2>&1
-
-# 京东通天塔--签到
-3 0 * * * node /scripts/logs/other_scripts/zero205/jd_m_sign.js >> /scripts/logs/other_logs/zero205/jd_m_sign.log 2>&1
-
-# 店铺签到，各类店铺签到
-#0 0 * * * node /scripts/logs/other_scripts/zero205/jd_dpqd.js >> /scripts/logs/other_logs/zero205/jd_dpqd.log 2>&1
-
-# 城城领现金
-#0 0-23/5 * * * node /scripts/logs/other_scripts/zero205/jd_city.js >> /scripts/logs/other_logs/zero205/jd_city.log 2>&1
-
-# 京东金榜
-#13 6 * * *  node /scripts/logs/other_scripts/zero205/jd_gold_sign.js >> /scripts/logs/other_logs/zero205/jd_gold_sign.log 2>&1
-
-# 京东特价--翻翻乐
-#27 0-23/6 * * *  node /scripts/logs/other_scripts/zero205/jd_jdtj_winner.js >> /scripts/logs/other_logs/zero205/jd_jdtj_winner.log 2>&1
-
-# 见缝插针
-27 0-23/6 * * *  node /scripts/logs/other_scripts/zero205/jd_jfcz.js >> /scripts/logs/other_logs/zero205/jd_jfcz.log 2>&1
-
-# 京东汽车
-10 8 * * *  node /scripts/logs/other_scripts/zero205/jd_mpdzcar.js >> /scripts/logs/other_logs/zero205/jd_mpdzcar.log 2>&1
-
-# 京东汽车-游戏
-10 6,10,12 * * *  node /scripts/logs/other_scripts/zero205/jd_mpdzcar_game.js >> /scripts/logs/other_logs/zero205/jd_mpdzcar_game.log 2>&1
-
-# 京东汽车-助力
-10 6,10,12 * * *  node /scripts/logs/other_scripts/zero205/jd_mpdzcar_help.js >> /scripts/logs/other_logs/zero205/jd_mpdzcar_help.log 2>&1
-
-# 整点京豆雨
-#0 * * * * node /scripts/logs/other_scripts/zero205/jd_redrain.js >> /scripts/logs/other_logs/zero205/jd_redrain.log 2>&1
-
-# 半点京豆雨
-30 21,22 * * * node /scripts/logs/other_scripts/zero205/jd_redrain_half.js >> /scripts/logs/other_logs/zero205/jd_redrain_half.log 2>&1
-
-# 京东签到图形验证
-14 10 * * * node /scripts/logs/other_scripts/zero205/jd_sign_graphics.js >> /scripts/logs/other_logs/zero205/jd_sign_graphics.log 2>&1
-
-# 京东极速版签到+赚现金任务
-0 7 * * * node /scripts/logs/other_scripts/zero205/jd_speed_sign.js >> /scripts/logs/other_logs/zero205/jd_speed_sign.log 2>&1
-
-# 特务Z，默认选择左边战队
-23 8,9 * * * node /scripts/logs/other_scripts/zero205/jd_productZ4Brand.js >> /scripts/logs/other_logs/zero205/jd_productZ4Brand.log 2>&1
-
-# 京东生鲜每日抽奖，可抽奖获得京豆
-10 7 * * * node /scripts/logs/other_scripts/zero205/jd_sxLottery.js >> /scripts/logs/other_logs/zero205/jd_sxLottery.log 2>&1
-
-# 炸年兽
-#33 0,6-23/2 * * * node /scripts/logs/other_scripts/zero205/jd_travel.js >> /scripts/logs/other_logs/zero205/jd_travel.log 2>&1
-
-# 美丽研究院
-20 7,12,19 * * * node /scripts/logs/other_scripts/zero205/jd_beauty.js >> /scripts/logs/other_logs/zero205/jd_beauty.log 2>&1
-
-# 东东农场->东东乐园
-30 7 * * * node /scripts/logs/other_scripts/zero205/jd_ddly.js >> /scripts/logs/other_logs/zero205/jd_ddly.log 2>&1
-
-# 京东饭粒
-30 7 * * * node /scripts/logs/other_scripts/zero205/jd_fanli.js >> /scripts/logs/other_logs/zero205/jd_fanli.log 2>&1
-
-# 东东健康社区
-13 0,6,22 * * * node /scripts/logs/other_scripts/zero205/jd_health.js >> /scripts/logs/other_logs/zero205/jd_health.log 2>&1
-
-# 京东特价--翻翻乐
-13 0,6,22 * * * node /scripts/logs/other_scripts/zero205/jd_jdtj_winner.js >> /scripts/logs/other_logs/zero205/jd_jdtj_winner.log 2>&1
-
-# 宠汪汪喂食
-15 0-23/1 * * * node /scripts/logs/other_scripts/zero205/jd_joy_feedPets.js >> /scripts/logs/other_logs/zero205/jd_joy_feedPets.log 2>&1
-
-# 京喜牧场
-20 * * * * node /scripts/logs/other_scripts/zero205/jd_jxmc.js >> /scripts/logs/other_logs/zero205/jd_jxmc.log 2>&1
-
-# 东东萌宠
-15 6-18/6 * * * node /scripts/logs/other_scripts/zero205/jd_pet.js >> /scripts/logs/other_logs/zero205/jd_pet.log 2>&1
-
-# 京东金融养猪猪
-12 0-23/6 * * * node /scripts/logs/other_scripts/zero205/jd_pigPet.js >> /scripts/logs/other_logs/zero205/jd_pigPet.log 2>&1
-
-# 种豆得豆
-12 0-23/6 * * * node /scripts/logs/other_scripts/zero205/jd_plantBean.js >> /scripts/logs/other_logs/zero205/jd_plantBean.log 2>&1
-
-# 京东保价
-#41 23 * * * node /scripts/logs/other_scripts/zero205/jd_price.js >> /scripts/logs/other_logs/zero205/jd_price.log 2>&1
-
-# 京东极速版红包
-20 0,22 * * * node /scripts/logs/other_scripts/zero205/jd_speed_redpocke.js >> /scripts/logs/other_logs/zero205/jd_speed_redpocke.log 2>&1
-
-# 取关京东店铺和商品
-35 23 * * * node /scripts/logs/other_scripts/zero205/jd_unsubscribe.js >> /scripts/logs/other_logs/zero205/jd_unsubscribe.log 2>&1
-
-# 京喜签到
-20 1,8 * * * node /scripts/logs/other_scripts/zero205/jx_sign.js >> /scripts/logs/other_logs/zero205/jx_sign.log 2>&1
-
-# 京喜签到-喜豆
-20 1,8 * * * node /scripts/logs/other_scripts/zero205/jx_sign_xd.js >> /scripts/logs/other_logs/zero205/jx_sign_xd.log 2>&1
-
-# 资产变化强化版
-30 21 * * * node /scripts/logs/other_scripts/zero205/jd_bean_change.js >> /scripts/logs/other_logs/zero205/jd_bean_change.log 2>&1
-
-# 京东金榜
-13 6 * * * node /scripts/logs/other_scripts/zero205/jd_gold_sign.js >> /scripts/logs/other_logs/zero205/jd_gold_sign.log 2>&1
-
-# 天天压岁钱
-33 0,14,20 * * * node /scripts/logs/other_scripts/zero205/jx_ttysq.js >> /scripts/logs/other_logs/zero205/jx_ttysq.log 2>&1
-
-# 会场红包
-0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_nhs_rpb.js >> /scripts/logs/other_logs/zero205/jd_nhs_rpb.log 2>&1
-
-# 秒杀-狂撒三亿京豆
-0 0,20 * * * node /scripts/logs/other_scripts/zero205/jd_babel_sign.js >> /scripts/logs/other_logs/zero205/jd_babel_sign.log 2>&1
-
-# 萌虎摇摇乐
-0 10,20 * * * node /scripts/logs/other_scripts/zero205/jd_mhyyl.js >> /scripts/logs/other_logs/zero205/jd_mhyyl.log 2>&1
-
-# 京东小魔方
-20 4,19 * * * node /scripts/logs/other_scripts/zero205/jd_xmf.js >> /scripts/logs/other_logs/zero205/jd_xmf.log 2>&1
-
-# 搞鸡玩家-秒秒币
-20 7 * * * node /scripts/logs/other_scripts/zero205/jd_ms.js >> /scripts/logs/other_logs/zero205/jd_ms.log 2>&1
-
-# 多合一签到
-0 10 * * * node /scripts/logs/other_scripts/zero205/jd_bean_sign.js >> /scripts/logs/other_logs/zero205/jd_bean_sign.log 2>&1
-
-# 财富岛兑换红包
-50 * * * * export cfd_rp=true && node /scripts/logs/other_scripts/zero205/jd_cfd_hb.js >> /scripts/logs/other_logs/zero205/jd_cfd_hb.log 2>&1
-
-# 2022新春快乐 击鼓助力
-15 10,22 1-14 2 *  node /scripts/logs/other_scripts/zero205/jd_HappyNewYear_Shares.js >> /scripts/logs/other_logs/zero205/jd_HappyNewYear_Shares.log 2>&1
-
-# 搞鸡玩家
-12 0,1,2 5-7 2 *  export FS_LEVEL=car && node /scripts/logs/other_scripts/zero205/jd_freshgoods.js >> /scripts/logs/other_logs/zero205/jd_freshgoods.log 2>&1
-
-# 京东汽车
-43 7,21 * * * node /scripts/logs/other_scripts/zero205/jd_car.js >> /scripts/logs/other_logs/zero205/jd_car.log 2>&1
-
 ##################################################### yyds #####################################################
 
 # 财富大陆
@@ -351,9 +205,6 @@
 # 京东蒙牛
 18 1,16 * * * node /scripts/logs/other_scripts/yyds/jd_mengniu.js >> /scripts/logs/other_logs/yyds/jd_mengniu.log 2>&1
 
-# 京东汽车 - 右下角 - 领京豆
-10 6,10,12 * * * node /scripts/logs/other_scripts/yyds/jd_mpdzcar_game.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_game.log 2>&1
-
 # 搞鸡玩家-秒秒币
 20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
 
@@ -368,3 +219,133 @@
 
 # 京喜-首页-牛牛福利
 1 0,19,23 * * * node /scripts/logs/other_scripts/yyds/jd_nnfls.js >> /scripts/logs/other_logs/yyds/jd_nnfls.log 2>&1
+
+# 京喜财富岛
+1 0,6-23 * * * node /scripts/logs/other_scripts/yyds/jd_cfd.js >> /scripts/logs/other_logs/yyds/jd_cfd.log 2>&1
+
+# 财富岛兑换红包
+50 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_hb.js >> /scripts/logs/other_logs/yyds/jd_cfd_hb.log 2>&1
+
+# 京喜财富岛合成生鲜
+45 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_fresh.js >> /scripts/logs/other_logs/yyds/jd_cfd_fresh.log 2>&1
+
+# 京喜财富岛热气球
+30 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_loop.js >> /scripts/logs/other_logs/yyds/jd_cfd_loop.log 2>&1
+
+# 京喜财富岛合成珍珠
+30 0-23/2 * * * node /scripts/logs/other_scripts/yyds/jd_cfd_pearl.js >> /scripts/logs/other_logs/yyds/jd_cfd_pearl.log 2>&1
+
+# 财富岛珍珠兑换
+59 0-23/1 * * * node /scripts/logs/other_scripts/yyds/jd_cfd_pearl_ex.js >> /scripts/logs/other_logs/yyds/jd_cfd_pearl_ex.log 2>&1
+
+# 众筹许愿池
+40 0,2 * * * node /scripts/logs/other_scripts/yyds/jd_wish.js >> /scripts/logs/other_logs/yyds/jd_wish.log 2>&1
+
+# 京东通天塔--签到
+3 0 * * * node /scripts/logs/other_scripts/yyds/jd_m_sign.js >> /scripts/logs/other_logs/yyds/jd_m_sign.log 2>&1
+
+# 见缝插针
+27 0-23/6 * * *  node /scripts/logs/other_scripts/yyds/jd_jfcz.js >> /scripts/logs/other_logs/yyds/jd_jfcz.log 2>&1
+
+# 京东汽车
+10 8 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar.log 2>&1
+
+# 京东汽车-游戏
+10 6,10,12 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar_game.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_game.log 2>&1
+
+# 京东汽车-助力
+10 6,10,12 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar_help.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_help.log 2>&1
+
+# 半点京豆雨
+30 21,22 * * * node /scripts/logs/other_scripts/yyds/jd_redrain_half.js >> /scripts/logs/other_logs/yyds/jd_redrain_half.log 2>&1
+
+# 京东签到图形验证
+14 10 * * * node /scripts/logs/other_scripts/yyds/jd_sign_graphics.js >> /scripts/logs/other_logs/yyds/jd_sign_graphics.log 2>&1
+
+# 京东极速版签到+赚现金任务
+0 7 * * * node /scripts/logs/other_scripts/yyds/jd_speed_signfaker.js >> /scripts/logs/other_logs/yyds/jd_speed_signfaker.log 2>&1
+
+# 特务Z，默认选择左边战队
+23 8,9 * * * node /scripts/logs/other_scripts/yyds/jd_productZ4Brand.js >> /scripts/logs/other_logs/yyds/jd_productZ4Brand.log 2>&1
+
+# 京东生鲜每日抽奖，可抽奖获得京豆
+10 7 * * * node /scripts/logs/other_scripts/yyds/jd_sxLottery.js >> /scripts/logs/other_logs/yyds/jd_sxLottery.log 2>&1
+
+# 炸年兽
+#33 0,6-23/2 * * * node /scripts/logs/other_scripts/zero205/jd_travel.js >> /scripts/logs/other_logs/zero205/jd_travel.log 2>&1
+
+# 美丽研究院
+20 7,12,19 * * * node /scripts/logs/other_scripts/yyds/jd_beauty.js >> /scripts/logs/other_logs/yyds/jd_beauty.log 2>&1
+
+# 美丽研究院--兑换
+20 12 * * * node /scripts/logs/other_scripts/yyds/jd_beauty_ex.js >> /scripts/logs/other_logs/yyds/jd_beauty_ex.log 2>&1
+
+# 东东农场->东东乐园
+30 7 * * * node /scripts/logs/other_scripts/yyds/jd_ddly.js >> /scripts/logs/other_logs/yyds/jd_ddly.log 2>&1
+
+# 京东饭粒
+30 7 * * * node /scripts/logs/other_scripts/yyds/jd_fanli.js >> /scripts/logs/other_logs/yyds/jd_fanli.log 2>&1
+
+# 东东健康社区
+13 0,6,22 * * * node /scripts/logs/other_scripts/yyds/jd_health.js >> /scripts/logs/other_logs/yyds/jd_health.log 2>&1
+
+# 京东特价--翻翻乐
+13 0,6,22 * * * node /scripts/logs/other_scripts/yyds/jd_jdtj_winner.js >> /scripts/logs/other_logs/yyds/jd_jdtj_winner.log 2>&1
+
+# 宠汪汪喂食
+15 0-23/1 * * * node /scripts/logs/other_scripts/yyds/jd_joy_feedPets.js >> /scripts/logs/other_logs/yyds/jd_joy_feedPets.log 2>&1
+
+# 京喜牧场
+20 * * * * node /scripts/logs/other_scripts/yyds/jd_jxmc.js >> /scripts/logs/other_logs/yyds/jd_jxmc.log 2>&1
+
+# 东东萌宠
+15 6-18/6 * * * node /scripts/logs/other_scripts/yyds/jd_pet.js >> /scripts/logs/other_logs/yyds/jd_pet.log 2>&1
+
+# 京东金融养猪猪
+12 0-23/6 * * * node /scripts/logs/other_scripts/yyds/jd_pigPet.js >> /scripts/logs/other_logs/yyds/jd_pigPet.log 2>&1
+
+# 种豆得豆
+12 0-23/6 * * * node /scripts/logs/other_scripts/yyds/jd_plantBean.js >> /scripts/logs/other_logs/yyds/jd_plantBean.log 2>&1
+
+# 京东极速版红包
+20 0,22 * * * node /scripts/logs/other_scripts/yyds/jd_speed_redpocke.js >> /scripts/logs/other_logs/yyds/jd_speed_redpocke.log 2>&1
+
+# 取关京东店铺和商品
+35 23 * * * node /scripts/logs/other_scripts/yyds/jd_unsubscribe.js >> /scripts/logs/other_logs/yyds/jd_unsubscribe.log 2>&1
+
+# 京喜签到
+20 1,8 * * * node /scripts/logs/other_scripts/yyds/jx_sign.js >> /scripts/logs/other_logs/yyds/jx_sign.log 2>&1
+
+# 京喜签到-喜豆
+20 1,8 * * * node /scripts/logs/other_scripts/yyds/jx_sign_xd.js >> /scripts/logs/other_logs/yyds/jx_sign_xd.log 2>&1
+
+# 资产变化强化版
+30 21 * * * node /scripts/logs/other_scripts/yyds/jd_bean_change_new.js >> /scripts/logs/other_logs/yyds/jd_bean_change_new.log 2>&1
+
+# 京东金榜
+13 6 * * * node /scripts/logs/other_scripts/yyds/jd_gold_sign.js >> /scripts/logs/other_logs/yyds/jd_gold_sign.log 2>&1
+
+# 天天压岁钱
+33 0,14,20 * * * node /scripts/logs/other_scripts/yyds/jx_ttysq.js >> /scripts/logs/other_logs/yyds/jx_ttysq.log 2>&1
+
+# 秒杀-狂撒三亿京豆
+0 0,20 * * * node /scripts/logs/other_scripts/yyds/jd_babel_sign.js >> /scripts/logs/other_logs/yyds/jd_babel_sign.log 2>&1
+
+# 京东小魔方
+20 4,19 * * * node /scripts/logs/other_scripts/yyds/jd_xmf.js >> /scripts/logs/other_logs/yyds/jd_xmf.log 2>&1
+
+# 搞鸡玩家-秒秒币
+20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
+
+# 多合一签到
+0 10 * * * node /scripts/logs/other_scripts/yyds/jd_bean_sign.js >> /scripts/logs/other_logs/yyds/jd_bean_sign.log 2>&1
+
+# 财富岛兑换红包
+50 * * * * export cfd_rp=true && node /scripts/logs/other_scripts/yyds/jd_cfd_hb.js >> /scripts/logs/other_logs/yyds/jd_cfd_hb.log 2>&1
+
+# 搞鸡玩家
+12 0,1,2 5-7 2 *  export FS_LEVEL=car && node /scripts/logs/other_scripts/zero205/jd_freshgoods.js >> /scripts/logs/other_logs/zero205/jd_freshgoods.log 2>&1
+
+# 京东汽车
+43 7,21 * * * node /scripts/logs/other_scripts/yyds/jd_car.js >> /scripts/logs/other_logs/yyds/jd_car.log 2>&1
+
