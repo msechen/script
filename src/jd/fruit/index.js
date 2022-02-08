@@ -113,7 +113,7 @@ class Fruit extends Template {
       }
       targetCards = _.concat(targetCards);
       const cardData = await api.doFormBody('myCardInfoForFarm');
-      const {cardInfos} = cardData;
+      const {cardInfos = []} = cardData;
       const result = [];
       for (const {type, maxTimes, returnLimit} of targetCards) {
         const card = cardInfos.find(o => o.type === type);
