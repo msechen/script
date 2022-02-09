@@ -163,7 +163,7 @@ async function main() {
         await multipleRun([
           // Harmony1,
           // Harmony2,
-          Harmony3,
+          // Harmony3,
           Harmony4,
           Harmony5,
         ]);
