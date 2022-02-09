@@ -6,7 +6,8 @@ const _ = require('lodash');
 class WomenBlindBox extends FamilyTemplate {
   static scriptName = 'WomenBlindBox';
   static scriptNameDesc = '女装抽盲盒';
-  static indexUrl = 'https://anmp.jd.com/babelDiy/Zeus/2x36jyruNVDWxUiAiGAgHRrkqVX2/index.html';
+  static activityEndTime = '2022-02-28';
+  static indexUrl = 'https://anmp.jd.com/babelDiy/Zeus/3ZHWXfEDpu5GyX1BgCEN3qQwrC4K/index.html';
 }
 
 singleRun(WomenBlindBox).then();
