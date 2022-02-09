@@ -21,6 +21,10 @@ cron 0-59/10 * * * *
 
 注意:此脚本只刷听歌时长
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_kyin.js
+注意:脚本只适配青龙面板,往后也是
+注意:脚本只适配青龙面板,往后也是
+注意:脚本只适配青龙面板,往后也是
 */
 
 
