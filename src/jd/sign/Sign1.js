@@ -43,6 +43,7 @@ class Sign1 extends Template {
       'https://prodev.m.jd.com/mall/active/46xH2FEswob1Eibj3tJMTTfpJvA/index.html',
       'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
       'https://prodev.m.jd.com/mall/active/2QUxWHx5BSCNtnBDjtt5gZTq7zdZ/index.html',
+      ['https://prodev.m.jd.com/mall/active/dHKkhs2AYLCeCH3tEaHRtC1TnvH/index.html', {needInApp: true}],
     ];
 
     if (api.currentCookieTimes !== 0) {
@@ -55,9 +56,11 @@ class Sign1 extends Template {
     }
 
     async function handleSign() {
-      for (const url of urlArray) {
+      for (let item of urlArray) {
+        item = _.concat(item);
+        const [url, options] = item;
         const actId = url.split('/')[url.split('/').length - 2];
-        const encryptProjectId = await getParamFromUrl(url, actId);
+        const encryptProjectId = await getParamFromUrl(url, actId, options);
         if (!encryptProjectId) continue;
         const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList'));
         for (const {encryptAssignmentId, ext, completionFlag} of assignmentList) {
@@ -88,10 +91,10 @@ class Sign1 extends Template {
       }
     }
 
-    async function getParamFromUrl(url, actId) {
+    async function getParamFromUrl(url, actId, options = {}) {
       const data = await api.doGetFileContent(url, {
         headers: {
-          'user-agent': api.options.headers['user-agent'],
+          'user-agent': options.needInApp ? self.appCompleteUserAgent : api.options.headers['user-agent'],
           cookie: api.cookie,
         },
       });
