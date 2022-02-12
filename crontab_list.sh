@@ -352,3 +352,6 @@
 # 领券中心签到
 15 0 * * * node /scripts/logs/other_scripts/yyds/jd_ccSign.js >> /scripts/logs/other_logs/yyds/jd_ccSign.log 2>&1
 
+# 微信签到领红包
+15 0 * * * node /scripts/logs/other_scripts/yyds/jd_wq_wxsign.js >> /scripts/logs/other_logs/yyds/jd_wq_wxsign.log 2>&1
+
