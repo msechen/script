@@ -349,3 +349,6 @@
 # 京东汽车
 43 7,21 * * * node /scripts/logs/other_scripts/yyds/jd_car.js >> /scripts/logs/other_logs/yyds/jd_car.log 2>&1
 
+# 领券中心签到
+15 0 * * * node /scripts/logs/other_scripts/yyds/jd_ccSign.js >> /scripts/logs/other_logs/yyds/jd_ccSign.log 2>&1
+
