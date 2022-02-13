@@ -4,13 +4,9 @@
 
 const _ = require('lodash');
 const nodemailer = require('nodemailer');
+const {getEnv} = require('./env');
 
-let transportOption;
-try {
-  // {"auth":{"user":"user","pass":"pass"},"host":"host"}
-  transportOption = JSON.parse(process.env.MAILER_TRANSPORTER_OPTION);
-} catch {
-}
+const transportOption = getEnv('MAILER_TRANSPORTER_OPTION');
 
 const user = _.property('auth.user')(transportOption);
 const disabled = !user;

@@ -284,14 +284,7 @@ async function loopInit(data, isCron) {
     }
   }
 
-  let cookieConfig = {};
-  const cookieConfigStr = getEnv('JD_COOKIE_CONFIG');
-  if (cookieConfigStr) {
-    try {
-      cookieConfig = JSON.parse(cookieConfigStr);
-    } catch (e) {}
-  }
-
+  const cookieConfig = getEnv('JD_COOKIE_CONFIG');
   if (!_.isEmpty(cookieConfig)) {
     data = _.filter(data.map(o => {
       const key = new Cookie(o.cookie).get('pt_pin');

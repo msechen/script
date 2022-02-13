@@ -4,7 +4,7 @@ const fs = require('fs');
 const download = require('download');
 const path = require('path');
 
-const {getLocalEnvs} = require('../../lib/env');
+const {initEnv} = require('../../lib/env');
 const {doPolling} = require('../../lib/cron');
 const {sleep} = require('../../lib/common');
 
@@ -39,9 +39,9 @@ class RemoteScript extends Base {
 
     const scriptPath = await handleWriteFile(self.currentCookieTimes, cookie);
     let proxyEnv;
-    const localEnvs = getLocalEnvs() || {};
-    if ('http_proxy' in localEnvs) {
-      proxyEnv = _.pick(localEnvs, ['NODE_TLS_REJECT_UNAUTHORIZED', 'http_proxy', 'https_proxy']);
+    const env = initEnv() || {};
+    if ('http_proxy' in env) {
+      proxyEnv = _.pick(env, ['NODE_TLS_REJECT_UNAUTHORIZED', 'http_proxy', 'https_proxy']);
     }
     // 异步执行, 避免有异常
     exec(`node ${scriptPath} >> ${getDistFile('result.txt')}`, proxyEnv ? {env: proxyEnv} : void 0);

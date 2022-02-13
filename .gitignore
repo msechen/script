@@ -5,6 +5,7 @@
 .idea
 
 .env.local
+.env.*.json
 
 # Logs
 logs/*.log*
