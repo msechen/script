@@ -1,7 +1,9 @@
-! Version: 20220206232113
+! Version: 20220208001230
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||523332.com/Uploads/dip
+||812633.com
 ||r-log.dable.io
 ||pixanalytics.com
 ||pixanalytics.pixnet.net
@@ -10,8 +12,8 @@
 /js/htmlk*.js
 ||jxxiangyujinshu.com
 ||guodulvyou.xyz
-||sqdd.myapp.com
-||tianshu.gtimg.cn
+||https://523332.com/Uploads/dip
+||https://812633.com
 ||https://r-log.dable.io
 ||https://pixanalytics.com
 ||https://pixanalytics.pixnet.net
@@ -12420,6 +12422,8 @@
 @@||api.ad-gone.com
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://523332.com/Uploads/dip
+||http://812633.com
 ||http://r-log.dable.io
 ||http://pixanalytics.com
 ||http://pixanalytics.pixnet.net
