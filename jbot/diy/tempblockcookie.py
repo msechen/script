@@ -194,7 +194,10 @@ async def ql_block(sender):
                         cookie = data['value']
                         remarks = data['nickname']
                         status = data['status']
-                        _id = data['_id']
+                        try:
+                            _id = data['_id']
+                        except KeyError:
+                            _id = data['id']
                         cookiedatas.append([cknum, cookie, remarks, status, _id])
                 except:
                     ql_version = '2.8+'
@@ -205,7 +208,10 @@ async def ql_block(sender):
                     }
                     datas = requests.get(url, params=body, headers=headers).json()['data']
                     for data in datas:
-                        cookiedatas.append([datas.index(data) + 1, data['value'], data['remarks'] if 'remarks' in data.keys() else "未备注", '启用' if data['status'] == 0 else '禁用', data['_id']])
+                        try:
+                            cookiedatas.append([datas.index(data) + 1, data['value'], data['remarks'] if 'remarks' in data.keys() else "未备注", '启用' if data['status'] == 0 else '禁用', data['_id']])
+                        except KeyError:
+                            cookiedatas.append([datas.index(data) + 1, data['value'], data['remarks'] if 'remarks' in data.keys() else "未备注", '启用' if data['status'] == 0 else '禁用', data['id']])
                 if res == 'query start and stop status':
                     message = "目前启停状态\n\n"
                     for cookiedata in cookiedatas:
@@ -358,7 +364,10 @@ async def ql_appoint(ck_num):
         body = {'t': int(round(time.time() * 1000))}
         datas = requests.get(url, params=body, headers=headers).json()['data']
         for data in datas:
-            cookiedatas.append([datas.index(data) + 1, data['_id']])
+            try:
+                cookiedatas.append([datas.index(data) + 1, data['_id']])
+            except KeyError:
+                cookiedatas.append([datas.index(data) + 1, data['id']])
     except:
         ql_version = '2.8+'
         url = 'http://127.0.0.1:5600/api/envs'
@@ -368,7 +377,10 @@ async def ql_appoint(ck_num):
         }
         datas = requests.get(url, params=body, headers=headers).json()['data']
         for data in datas:
-            cookiedatas.append([datas.index(data) + 1, data['_id']])
+            try:
+                cookiedatas.append([datas.index(data) + 1, data['_id']])
+            except KeyError:
+                cookiedatas.append([datas.index(data) + 1, data['id']])
     if len(cookiedatas) < int(ck_num):
         await jdbot.edit_message(msg, f"无法找到账号{ck_num}的信息，禁用失败")
         return

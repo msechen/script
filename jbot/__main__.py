@@ -12,12 +12,12 @@ BOT_UP_LOG = f'{LOG_DIR}/bot/up.log'
 BOT_M_DIR = f'{BOT_DIR}/bot/'
 BOT_D_DIR = f'{BOT_DIR}/diy/'
 BOT_U_DIR = f'{BOT_DIR}/user/'
-logger.info('loading bot module...')
-load_module('bot', BOT_M_DIR)
-logger.info('loading diy module...')
-load_module('diy', BOT_D_DIR)
-logger.info('loading user module...')
+logger.info('加载 user 模块')
 load_module('user', BOT_U_DIR)
+logger.info('加载 bot 模块')
+load_module('bot', BOT_M_DIR)
+logger.info('加载 diy 模块')
+load_module('diy', BOT_D_DIR)
 
 
 async def new_ver():

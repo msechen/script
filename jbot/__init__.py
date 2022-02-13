@@ -6,7 +6,7 @@ import logging
 JD_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 CONFIG_DIR = f'{JD_DIR}/config'
 SCRIPTS_DIR = f'{JD_DIR}/scripts'
-OWN_DIR = f'{JD_DIR}/own'
+OWN_DIR = f'{JD_DIR}/own' if os.environ.get('JD_DIR') else f'{JD_DIR}/scripts'
 BOT_DIR = f'{JD_DIR}/jbot'
 _DiyScripts = f'{JD_DIR}/diyscripts'
 LOG_DIR = f'{JD_DIR}/log'
@@ -20,7 +20,7 @@ BOT_SET_JSON_FILE = f'{BOT_DIR}/set.json'
 if not os.path.exists(f'{LOG_DIR}/bot'):
     os.mkdir(f'{LOG_DIR}/bot')
 logging.basicConfig(
-    format='%(asctime)s-%(name)s-%(levelname)s=> [%(funcName)s] %(message)s ', level=logging.INFO, filename=BOT_LOG_FILE,
+    format='%(asctime)s %(name)s %(levelname)s [%(funcName)s] %(message)s ', level=logging.INFO, filename=BOT_LOG_FILE,
     filemode='w')
 logger = logging.getLogger(__name__)
 if os.path.exists(BOT_JSON_FILE):

@@ -105,6 +105,7 @@ def get_total_beans(ck):
     except Exception as e:
         logger.error(str(e))
 
+
 def get_bean_data(i):
     try:
         if QL:

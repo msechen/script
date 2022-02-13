@@ -1,23 +1,12 @@
 import asyncio
 import os
-from os.path import exists
 
-from telethon import TelegramClient, events
-
-from .. import API_HASH, API_ID, BOT, PROXY_START, PROXY_TYPE, connectionType, jdbot, chat_id, CONFIG_DIR
-from ..bot.utils import V4
-import json
-import os
-import re
-import sys
-import time
-from asyncio import exceptions
-
-import requests
+from telethon import TelegramClient
 from telethon import events, Button
 
-from .. import chat_id, jdbot, logger, TOKEN
-from ..bot.utils import press_event, V4, CONFIG_SH_FILE, row, split_list, AUTH_FILE, get_cks
+from .. import API_HASH, API_ID, BOT, PROXY_START, PROXY_TYPE, connectionType, CONFIG_DIR
+from .. import chat_id, jdbot
+from ..bot.utils import press_event, V4, row, split_list
 
 if BOT.get('proxy_user') and BOT['proxy_user'] != "代理的username,有则填写，无则不用动":
     proxy = {
@@ -42,9 +31,7 @@ else:
 
 
 def restart():
-    text = "if [ -d '/jd' ]; then cd /jd/jbot; pm2 start ecosystem.config.js; cd /jd; pm2 restart jbot; else " \
-           "ps -ef | grep 'python3 -m jbot' | grep -v grep | awk '{print $1}' | xargs kill -9 2>/dev/null; " \
-           "nohup python3 -m jbot >/ql/log/bot/bot.log 2>&1 & fi "
+    text = "pm2 restart jbot"
     os.system(text)
 
 

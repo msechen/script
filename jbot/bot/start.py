@@ -19,6 +19,8 @@ async def bot_start(event):
     /a 使用你的自定义快捷按钮。
     /addcron 增加crontab命令。
     /clearboard 删除快捷输入按钮。
+    /blockcookie 屏蔽cookie操作。
+    /checkcookie 检测cookie过期。
     /cmd 执行shell命令。
     /cron 进行cron管理。
     /edit 从目录选择文件并编辑，需要将编辑好信息全部发给BOT，BOT会根据你发的信息进行替换。建议仅编辑config或crontab.list，其他文件慎用！！！
@@ -45,6 +47,8 @@ async def bot_start(event):
     /a 使用你的自定义快捷按钮。
     /addcron 增加crontab命令。
     /clearboard 删除快捷输入按钮。
+    /blockcookie 屏蔽cookie操作。
+    /checkcookie 检测cookie过期。
     /cmd 执行shell命令。
     /cron 进行cron管理。
     /edit 从目录选择文件并编辑，需要将编辑好信息全部发给BOT，BOT会根据你发的信息进行替换。

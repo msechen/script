@@ -42,16 +42,24 @@ async def my_edit(event):
 
 
 if ch_name:
-    jdbot.add_event_handler(my_edit, events.NewMessage(
-        from_users=chat_id, pattern=BOT_SET['命令别名']['edit']))
+    jdbot.add_event_handler(my_edit, events.NewMessage(from_users=chat_id, pattern=BOT_SET['命令别名']['edit']))
 
 
 async def edit_file(conv, SENDER, path, msg, page, filelist):
-    mybtn = [Button.inline('上一页', data='up'), Button.inline('下一页', data='next'), Button.inline(
-        '上级', data='updir'), Button.inline('取消', data='cancel')]
-    mybtn2 = [[Button.inline('上一页', data='up'), Button.inline(
-        '下一页', data='next'), Button.inline('取消', data='cancel')], [Button.inline('上十页', data='up10'), Button.inline(
-        '下十页', data='next10'), Button.inline('编辑', data='edit')]]
+    mybtn = [
+        Button.inline('上一页', data='up'),
+        Button.inline('下一页', data='next'),
+        Button.inline('上级', data='updir'),
+        Button.inline('取消', data='cancel')
+    ]
+    mybtn2 = [
+        [Button.inline('上一页', data='up'),
+         Button.inline('下一页', data='next'),
+         Button.inline('取消', data='cancel')],
+        [Button.inline('上十页', data='up10'),
+         Button.inline('下十页', data='next10'),
+         Button.inline('编辑', data='edit')]
+    ]
     try:
         if filelist and type(filelist[0][0]) == str:
             markup = filelist
@@ -142,9 +150,9 @@ async def edit_file(conv, SENDER, path, msg, page, filelist):
         else:
             return f'{path}/{res}', msg, page, None
     except exceptions.TimeoutError:
-        msg = await jdbot.edit_message(msg, '选择已超时，本次对话已停止')
+        await jdbot.edit_message(msg, '选择已超时，本次对话已停止')
         return None, None, None, None
     except Exception as e:
-        msg = await jdbot.edit_message(msg, f'something wrong,I\'m sorry\n{str(e)}')
+        await jdbot.edit_message(msg, f'something wrong,I\'m sorry\n{str(e)}')
         logger.error(f'something wrong,I\'m sorry\n{str(e)}')
         return None, None, None, None

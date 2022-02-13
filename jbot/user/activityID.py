@@ -10,7 +10,7 @@ from telethon import events
 
 from .login import user
 from .utils import execute
-from .. import chat_id, jdbot, logger, TOKEN
+from .. import chat_id, jdbot, logger, TOKEN, OWN_DIR
 from ..bot.utils import TASK_CMD
 from ..diy.utils import myzdjr_chatIds
 
@@ -28,9 +28,7 @@ async def activity(event):
         group = f'[{event.chat.title}](https://t.me/c/{event.chat.id}/{event.message.id})'
         if "jd_zdjr_activity" in event.message.text:
             name = '组队瓜分京豆'
-            from ..diy.diy import smiek_jd_zdjr
-            await smiek_jd_zdjr()
-            cmd = f'{TASK_CMD} /jd/own/smiek_jd_zdjr.js now'
+            cmd = f'{TASK_CMD} {OWN_DIR}/smiek_jd_zdjr.js now'
         else:
             return
         messages = event.message.raw_text.split("\n")

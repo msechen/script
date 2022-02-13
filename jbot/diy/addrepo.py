@@ -80,8 +80,8 @@ async def myaddrepo(event):
                 ],
                 [
                     Button.inline("不设置", data="root"),
-                     Button.inline('手动输入', data='input'),
-                     Button.inline('取消对话', data='cancel')
+                    Button.inline('手动输入', data='input'),
+                    Button.inline('取消对话', data='cancel')
                 ],
                 [
                     Button.inline("默认每天0点", data="root"),
@@ -231,7 +231,6 @@ if ch_name:
     jdbot.add_event_handler(myqladdrepo, events.NewMessage(from_users=chat_id, pattern=BOT_SET['命令别名']['cron']))
 
 
-
 @jdbot.on(events.NewMessage(from_users=chat_id, pattern=r'^/repo$'))
 async def myrepo(event):
     try:
@@ -299,7 +298,8 @@ async def myrepo(event):
                     conv.cancel()
                     return
                 i = r_names.index(res)
-                name, url, branch, path, status, num = r_names[i], r_urls[i], r_branchs[i], r_paths[i], r_status[i], r_nums[i]
+                name, url, branch, path, status, num = r_names[i], r_urls[i], r_branchs[i], r_paths[i], r_status[i], \
+                                                       r_nums[i]
                 nameline, branchline, pathline = r_namesline[i], r_branchsline[i], r_pathsline[i]
                 data = f'仓库名：{name}\n仓库链接：{url}仓库分支：{branch}文件路径：{path}状态：{status}\n'
                 msg = await jdbot.edit_message(msg, f'{data}请做出你的选择', buttons=split_list(btns, row))
@@ -343,7 +343,10 @@ async def myrepo(event):
                 command = data['command']
                 schedule = data['schedule']
                 status = '启用'
-                _id = data['_id']
+                try:
+                    _id = data['_id']
+                except KeyError:
+                    _id = data['id']
                 if data['status'] == 1:
                     status = '禁用'
                 datas.append([name, command, schedule, status, _id])
@@ -372,7 +375,8 @@ async def myrepo(event):
                 elif res == 'delete':
                     r = requests.delete(f"{url}?t={str(round(time.time() * 1000))}", json=_id, headers=headers).json()
                 else:
-                    r = requests.put(f'{url}/{res}?t={str(round(time.time() * 1000))}', json=_id, headers=headers).json()
+                    r = requests.put(f'{url}/{res}?t={str(round(time.time() * 1000))}', json=_id,
+                                     headers=headers).json()
                 conv.cancel()
             if r['code'] == 200:
                 await jdbot.edit_message(msg, "操作成功")
@@ -387,6 +391,7 @@ async def myrepo(event):
         tip = '建议百度/谷歌进行查询'
         await jdbot.send_message(chat_id, f"{title}\n\n{name}\n{function}\n错误原因：{str(e)}\n\n{tip}")
         logger.error(f"错误--->{str(e)}")
+
 
 if ch_name:
     jdbot.add_event_handler(myqladdrepo, events.NewMessage(from_users=chat_id, pattern=BOT_SET['命令别名']['cron']))
