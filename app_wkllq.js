@@ -46,6 +46,7 @@ module.exports = {"code":200,
 推荐
 cron 0-59/15 0-1,6-15,19-23 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_wkllq.js
 
 */
 
