@@ -16,9 +16,9 @@ cron "20 0,6-23 * * *" script-path=jd_big_winner.js,tag=省钱大赢家之翻翻
 省钱大赢家之翻翻乐 = type=cron,script-path=jd_big_winner.js, cronexpr="20 0,6-23 * * *", timeout=3600, enable=true
  */
 const $ = new Env('省钱大赢家之翻翻乐');
-const notify = $.isNode() ? require('./sendNotify') : '';
+const notify = $.isNode() ? require('../sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+const jdCookieNode = $.isNode() ? require('../jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message = '', linkId = 'PFbUR7wtwUcQ860Sn8WRfw', fflLinkId = 'YhCkrVusBVa_O2K-7xE6hA';
 const JD_API_HOST = 'https://api.m.jd.com/api';
