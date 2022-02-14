@@ -39,7 +39,7 @@ const JD_API_HOST = `https://m.jingxi.com`;
     if (!res) {
       $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ttysq.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
       await $.wait(1000)
-      res = await getAuthorShareCode('https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/ttysq.json')
+      res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/ttysq.json')
     }
     $.shareCodeList = [...new Set([...$.shareCodeList,...res || []])]
     //await getToken();
