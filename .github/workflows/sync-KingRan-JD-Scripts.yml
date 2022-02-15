@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/KingRan/JD-Scripts.git"
+          source_repo: "https://github.com/KingRan/KR.git"
           source_branch: "main"
           destination_branch: "KingRan-JD-Scripts"
           github_token: ${{ secrets.PAT }}
