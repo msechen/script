@@ -28,11 +28,11 @@ git clone -b $branch $url $dir_diybot
 cp -f "$dir_backup"/diy/diy.py "$dir_diybot"/jbot/diy/diy.py # 如果有自己写的diy.py则覆盖拉到/root/repo/diybot/diy目录中
 cp -rf $dir_diybot/jbot/* $dir_jbot # 复制/reppt/repo/diybot/jbot目录中所有文件到/root/jbot目录中
 if [ ! -f $file_bot ]; then cp -f $dir_diybot/config/bot.json $root/config; fi # 如果不存在/root/config/bot.json时候拉取一份进去
-if [ ! -f $file_botset ]; then # 如果不存在/root/config/botset.json时候拉取一份进去
-  cp $dir_diybot/jbot/set.json $root/config/botset.json
-else
+if [ -f $file_botset ]; then
   sed -i 's/user": "True"/user": "False"/' $file_botset
   echo "为安全起见，关闭user监控，请使用 /user 手动开启！"
+else # 如果不存在/root/config/botset.json时候拉取一份进去
+  cp $dir_diybot/config/botset.json $root/config/
 fi
 if [ ! -f $file_diybotset ]; then cp $dir_diybot/config/diybotset.json $root/config; fi # 如果不存在/root/config/diybotset.json时候拉取一份进去
 
