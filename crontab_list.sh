@@ -169,6 +169,9 @@
 # 京东下拉
 15 1,22 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
 
+# 不知道什麽
+15 0,1,23 * * * cd /scripts && ts-node /scripts/jd_zjd.ts >> /scripts/logs/jd_zjd.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
