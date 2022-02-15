@@ -22,7 +22,7 @@ async def myupbot(event):
             return
         with open(f"{JD_DIR}/bot.sh", 'w+', encoding='utf-8') as f:
             f.write(resp)
-        text = "【正式版本】\n\n更新过程中程序会重启，请耐心等待……\n为安全起见，关闭user监控，请使用 /user 手动开启！"
+        text = "【前瞻计划】\n\n更新过程中程序会重启，请耐心等待……\n为安全起见，关闭user监控，请使用 /user 手动开启！"
         await jdbot.edit_message(msg, text)
         os.system(f"bash {JD_DIR}/bot.sh")
     except exceptions.TimeoutError:
