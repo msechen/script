@@ -40,10 +40,11 @@ class LookTreasure extends WqBase {
     if (!loginSuccess) return;
     await self.beforeRequest(api);
 
-    await handleDrawFansActive({uuid: 'SQWT'});
-    await handleDrawFansActive({uuid: 'JRYX01'});
-    await handleDrawFans();
-    await handleDrawVideo();
+    // await handleDrawFansActive({uuid: 'SQWT'});
+    // await handleDrawFansActive({uuid: 'JRYX01'});
+    await handleDrawFansActive({uuid: 'XYHJH01'});
+    // await handleDrawFans();
+    // await handleDrawVideo();
 
     // https://wqs.jd.com/sns/202009/22/fansactivecopy/index.html
     async function handleDrawFans(funSuffix = 'copytemporary', qs) {
