@@ -251,13 +251,13 @@
 27 0-23/6 * * *  node /scripts/logs/other_scripts/yyds/jd_jfcz.js >> /scripts/logs/other_logs/yyds/jd_jfcz.log 2>&1
 
 # 京东汽车
-10 8 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar.log 2>&1
+# 10 8 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar.log 2>&1
 
 # 京东汽车-游戏
-10 6,10,12 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar_game.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_game.log 2>&1
+# 10 6,10,12 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar_game.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_game.log 2>&1
 
 # 京东汽车-助力
-10 6,10,12 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar_help.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_help.log 2>&1
+# 10 6,10,12 * * *  node /scripts/logs/other_scripts/yyds/jd_mpdzcar_help.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_help.log 2>&1
 
 # 半点京豆雨
 30 21,22 * * * node /scripts/logs/other_scripts/yyds/jd_redrain_half.js >> /scripts/logs/other_logs/yyds/jd_redrain_half.log 2>&1
@@ -350,7 +350,7 @@
 12 0,1,2 5-7 2 *  export FS_LEVEL=car && node /scripts/logs/other_scripts/zero205/jd_freshgoods.js >> /scripts/logs/other_logs/zero205/jd_freshgoods.log 2>&1
 
 # 京东汽车
-43 7,21 * * * node /scripts/logs/other_scripts/yyds/jd_car.js >> /scripts/logs/other_logs/yyds/jd_car.log 2>&1
+# 43 7,21 * * * node /scripts/logs/other_scripts/yyds/jd_car.js >> /scripts/logs/other_logs/yyds/jd_car.log 2>&1
 
 # 领券中心签到
 15 0 * * * node /scripts/logs/other_scripts/yyds/jd_ccSign.js >> /scripts/logs/other_logs/yyds/jd_ccSign.log 2>&1
