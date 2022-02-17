@@ -170,8 +170,8 @@ async function GetCollect() {
       console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}互助码】${$.farmInfo.farmUserPro.shareCode}`);
       newShareCodes.push($.farmInfo.farmUserPro.shareCode)
     } else {
-      console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}互助码】\n数据异常,使用作者的互助码:94f3ba0769b04c94bbfca26139108702`);
-	  newShareCodes.push("94f3ba0769b04c94bbfca26139108702");
+      console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}互助码】\n数据异常,使用作者的互助码:1b0f3cb476b54ec8b8bd66b129512abc`);
+	  newShareCodes.push("1b0f3cb476b54ec8b8bd66b129512abc");
     }
   } catch (e) {
     $.logErr(e);
