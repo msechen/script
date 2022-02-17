@@ -51,7 +51,10 @@ class StatisticsRedEnvelope extends Template {
       await calculate(i);
     }
 
-    api.log(redSorted.jd.msgs.map(v => _.isString(v) ? v : v.format()).join(', '));
+    _.forEach(redSorted, ({msgs}, key) => {
+      if (_.isEmpty(msgs)) return;
+      api.log(msgs.map(v => _.isString(v) ? v : v.format()).join(', '));
+    });
 
     async function calculate(day) {
       Object.values(redSorted).forEach(o => {
@@ -66,7 +69,7 @@ class StatisticsRedEnvelope extends Template {
 
       for (const [key, object] of Object.entries(redSorted)) {
         const {limitName, number, expire, msgs} = object;
-        if (['jx', 'lite', 'noLimit'].includes(key)) continue;
+        if ([/*'jx', */'lite', 'noLimit'].includes(key)) continue;
         const name = limitName ? `${limitName}(仅限)` : '无限制';
         const needSum = key !== 'noLimit';
         if (_.isEmpty(msgs)) {
