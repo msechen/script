@@ -358,3 +358,6 @@
 # 微信签到领红包
 15 0 * * * node /scripts/logs/other_scripts/yyds/jd_wq_wxsign.js >> /scripts/logs/other_logs/yyds/jd_wq_wxsign.log 2>&1
 
+# 极速版抢卷
+58 59 6,9,14,17,20 * * * node /scripts/logs/other_scripts/yyds/jd_speedcoupon.js >> /scripts/logs/other_logs/yyds/jd_speedcoupon.log 2>&1
+
