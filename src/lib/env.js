@@ -17,6 +17,12 @@ const zipObject = fileContent => {
 };
 
 function initEnv() {
+  let actionEnv = {};
+  if (processInAC()) {
+    try {
+      actionEnv = JSON.parse(process.env['ACTION_ENV']);
+    } catch (e) {}
+  }
   const envs = ['.env.product.json', '.env.local', '.env.local.json'].map(name => {
     const filePath = path.resolve(__dirname, `../../${name}`);
     if (!fs.existsSync(filePath)) return;
@@ -27,6 +33,7 @@ function initEnv() {
       return zipObject(content);
     }
   });
+  envs.unshift(actionEnv);
 
   return updateProxyConf(_.merge(...envs));
 }

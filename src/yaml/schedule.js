@@ -20,6 +20,7 @@ function generateEnv(name, times = 6) {
 }
 
 const envSecrets = _.fromPairs(_.flatten([
+  ['ACTION_ENV', 1],
   ['NOT_RUN', 1],
   ['SEVER_CHAN_KEY', 1],
   ['MAILER_TRANSPORTER_OPTION', 1],

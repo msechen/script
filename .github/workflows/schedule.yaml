@@ -28,6 +28,7 @@ jobs:
       - run: node src/app.js
         env:
           NODE_ENV: production
+          ACTION_ENV: '${{ secrets.ACTION_ENV }}'
           NOT_RUN: '${{ secrets.NOT_RUN }}'
           SEVER_CHAN_KEY: '${{ secrets.SEVER_CHAN_KEY }}'
           MAILER_TRANSPORTER_OPTION: '${{ secrets.MAILER_TRANSPORTER_OPTION }}'
