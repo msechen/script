@@ -202,7 +202,7 @@ def query_zhijia_pay():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     pay = zhihu_spider.get_zhijia_pay(today, today, zh_config_dao.query_config('zjck').value)
 
-    return top + str(pay/100), pay/100
+    return top + str(round(pay/100,2)), pay/100
 
 
 # 查询知+今日消耗
