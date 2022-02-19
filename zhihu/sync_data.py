@@ -137,16 +137,17 @@ def query_zhihu_earnings():
     top1 = "[知乎-1] "
     mid1 = "订单量："
     end1 = " 佣金："
+    end11 = " 比例："
 
-    count1, sum1 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('dxck').value)
+    count1, sum1, gmv1 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('dxck').value)
 
     top2 = "[知乎-2] "
     mid2 = "订单量："
     end2 = " 佣金："
 
-    count2, sum2 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('lsck').value)
+    count2, sum2, gmv2 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('lsck').value)
 
-    return top1 + mid1 + str(count1) + end1 + str(sum1/100), sum1/100, top2 + mid2 + str(count2) + end2 + str(sum2/100), sum2/100
+    return top1 + mid1 + str(count1) + end1 + str(sum1/100) + end11 + str(sum1/gmv1*100), sum1/100, top2 + mid2 + str(count2) + end2 + str(sum2/100), sum2/100
 
 
 # 查询知乎今日佣金
@@ -157,7 +158,7 @@ def query_zhihu_earnings_2():
     mid1 = "订单量："
     end1 = " 佣金："
 
-    count1, sum1 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('maoshu-ck').value)
+    count1, sum1, gmv = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('maoshu-ck').value)
 
     return top1 + mid1 + str(count1) + end1 + str(sum1/100), sum1/100
 

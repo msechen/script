@@ -184,7 +184,7 @@ def get_zhihu_earnings(start, end, cookie):
 
     json = res.json()
 
-    return json['order_count'], json['estimate_income']
+    return json['order_count'], json['estimate_income'], json['payment_amount']
 
 
 # 调京粉 api 查询账户今日佣金
