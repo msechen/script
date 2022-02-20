@@ -66,18 +66,10 @@
 30 20 * * * node /scripts/jd_exchangejxbeans.js >> /scripts/logs/jd_exchangejxbeans.log 2>&1
 #京东小魔方--收集兑换
 31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
+#jd_opencard1
+30 1 23,11-22/3 2 * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
-30 1 6-31/2,31 1 * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
-#jd_opencard4
-30 13 1-31/5,31 1,2 * node /scripts/jd_opencard4.js >> /scripts/logs/jd_opencard4.log 2>&1
-#jd_opencard5
-30 2 1,11-31/3 1,2 * node /scripts/jd_opencard5.js >> /scripts/logs/jd_opencard5.log 2>&1
-#jd_opencard9
-30 3 20-29/3 1 * node /scripts/jd_opencard9.js >> /scripts/logs/jd_opencard9.log 2>&1
-#jd_opencard10
-30 3 19-28/3 1 * node /scripts/jd_opencard10.js >> /scripts/logs/jd_opencard10.log 2>&1
-#jd_opencard12
-30 4 1-15/3,17-31/3 1,2 * node /scripts/jd_opencard12.js >> /scripts/logs/jd_opencard12.log 2>&1
+30 1 19-26/3 2 * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 天天压岁钱
