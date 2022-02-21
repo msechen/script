@@ -1,6 +1,6 @@
 /*
 城城领现金抽奖
-cron 0 2,4 30 10 * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_city.js
+cron 0 2,4 30 10 * https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_city.js
  */
 const $ = new Env('城城领现金抽奖');
 const notify = $.isNode() ? require('./sendNotify') : '';

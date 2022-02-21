@@ -13,8 +13,7 @@ export  KOI_FAIR_MODE="true"
 ## 设置1个车头，如果有更多个车头，就写对应数目。仅当车头互助满，才会尝试后面的。
 export KOI_CHETOU_NUMBER="1"
 
-TG学习交流群：https://t.me/cdles
-5 0 * * * https://raw.githubusercontent.com/cdle/jd_study/main/jd_angryKoi.js
+5 0 * * * https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js
 */
 const $ = new Env("愤怒的锦鲤")
 const JD_API_HOST = 'https://api.m.jd.com/client.action';

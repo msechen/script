@@ -1,7 +1,7 @@
 /*
 骁龙
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
-更新地址  https://raw.githubusercontent.com/star261/jd/main/scripts/jd_xiaolong.js
+更新地址  https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_xiaolong.js
 =================================Quantumultx=========================
 [task_local]
 #骁龙

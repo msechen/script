@@ -1,6 +1,6 @@
 /*
 萌虎摇摇乐账号获奖情况
-cron 10 22 * * * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_mhyyl_prize.js
+cron 10 22 * * * https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_mhyyl_prize.js
 * */
 const $ = new Env('萌虎摇摇乐奖励列表');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

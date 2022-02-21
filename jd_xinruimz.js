@@ -1,7 +1,5 @@
 /*
 cron 30 6-20/3 * * * jd_xinruimz.js
-TG https://t.me/duckjobs
-Rpeo https://github.com/okyyds
 需要手动选
 入口: https://xinruimz-isv.isvjcloud.com/plantation
 
@@ -53,6 +51,7 @@ if ($.isNode()) {
                 continue
             }
             await main();
+            await $.wait(10 * 1000);
         }
     }
     if (message !== "") {

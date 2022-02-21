@@ -21,6 +21,9 @@ cron "10 5,17 * * *" script-path=jd_fruit_friend.js,tag=东东农场好友删减
 =========================小火箭===========================
 东东农场好友删减奖励 = type=cron,script-path=jd_fruit_friend.js, cronexpr="10 5,17 * * *", timeout=3600, enable=true
 
+每号间隔（毫秒），默认0毫秒（0分钟）
+export fruit_sleep=20000
+
 */
 const $ = new Env('东东农场好友删减奖励');
 let cookiesArr = [], cookie = '', isBox = false, notify,allMessage = '';
@@ -40,30 +43,30 @@ let llhelp=true;
     return;
   }
   if(llhelp){
-	  console.log('开始收集您的互助码，用于好友删除与加好友操作');
-	  for (let i = 0; i < cookiesArr.length; i++) {
-		if (cookiesArr[i]) {
-		  cookie = cookiesArr[i];
-		  $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-		  $.index = i + 1;
-		  $.isLogin = true;
-		  $.nickName = '';
-		  await TotalBean();      
-		  if (!$.isLogin) {
-			$.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
+    console.log('开始收集您的互助码，用于好友删除与加好友操作');
+    for (let i = 0; i < cookiesArr.length; i++) {
+      if (cookiesArr[i]) {
+        cookie = cookiesArr[i];
+        $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+        $.index = i + 1;
+        $.isLogin = true;
+        $.nickName = '';
+        await TotalBean();
+        if (!$.isLogin) {
+          $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
 
-			if ($.isNode()) {
-			  await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-			}
-			continue
-		  }
-		  message = '';
-		  subTitle = '';
-		  option = {};
-		  $.retry = 0;
-		  await GetCollect();
-		}
-	  }
+          if ($.isNode()) {
+            await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+          }
+          continue
+        }
+        message = '';
+        subTitle = '';
+        option = {};
+        $.retry = 0;
+        await GetCollect();
+      }
+    }
   }
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
@@ -88,32 +91,35 @@ let llhelp=true;
       $.retry = 0;
       await jdFruit();
     }
+    if ($.isNode()) {
+      process.env.fruit_sleep ? await $.wait(Number(process.env.fruit_sleep)) : ''
+    }
   }
   if ($.isNode() && allMessage && $.ctrTemp) {
     await notify.sendNotify(`${$.name}`, `${allMessage}`)
   }
 })()
-  .catch((e) => {
-    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-  })
-  .finally(() => {
-    $.done();
-  })
+    .catch((e) => {
+      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+      $.done();
+    })
 async function jdFruit() {
   subTitle = `【京东账号${$.index}】${$.nickName || $.UserName}`;
   try {
     await initForFarm();
     await getAwardInviteFriend();//删除好友与接受邀请成为别人的好友
     if ($.farmInfo.farmUserPro) {
-     message = `删除好友与接受好友邀请已完成`;
+      message = `删除好友与接受好友邀请已完成`;
     } else {
-      console.log(`初始化农场数据异常, 请登录京东 app查看农场功能是否正常`); 
-	  message+=`初始化农场数据异常, 请登录京东 app查看农场功能是否正常`;
+      console.log(`初始化农场数据异常, 请登录京东 app查看农场功能是否正常`);
+      message+=`初始化农场数据异常, 请登录京东 app查看农场功能是否正常`;
     }
   } catch (e) {
     console.log(`任务执行异常，请检查执行日志 ‼️‼️`);
     $.logErr(e);
-	const errMsg = `京东账号${$.index} ${$.nickName || $.UserName}\n任务执行异常，请检查执行日志 ‼️‼️`;
+    const errMsg = `京东账号${$.index} ${$.nickName || $.UserName}\n任务执行异常，请检查执行日志 ‼️‼️`;
     if ($.isNode()) await notify.sendNotify(`${$.name}`, errMsg);
     $.msg($.name, '', `${errMsg}`)
   }
@@ -506,7 +512,7 @@ function requireConfig() {
     console.log('开始获取配置文件\n')
     notify = $.isNode() ? require('./sendNotify') : '';
     //Node.js用户请在jdCookie.js处填写京东ck;
-    const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';   
+    const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
     //IOS等用户直接用NobyDa的jd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
