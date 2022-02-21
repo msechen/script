@@ -314,7 +314,7 @@
 20 0,22 * * * node /scripts/logs/other_scripts/yyds/jd_speed_redpocke.js >> /scripts/logs/other_logs/yyds/jd_speed_redpocke.log 2>&1
 
 # 取关京东店铺和商品
-35 23 * * * node /scripts/logs/other_scripts/yyds/jd_unsubscribe.js >> /scripts/logs/other_logs/yyds/jd_unsubscribe.log 2>&1
+35 23 * * * node /scripts/logs/other_scripts/yyds/jd_unsubscribe_xh.js >> /scripts/logs/other_logs/yyds/jd_unsubscribe_xh.log 2>&1
 
 # 京喜签到
 20 1,8 * * * node /scripts/logs/other_scripts/yyds/jx_sign.js >> /scripts/logs/other_logs/yyds/jx_sign.log 2>&1
@@ -361,3 +361,5 @@
 # 极速版抢卷
 58 59 6,9,14,17,20 * * * node /scripts/logs/other_scripts/yyds/jd_speedcoupon.js >> /scripts/logs/other_logs/yyds/jd_speedcoupon.log 2>&1
 
+# 宠爱有礼
+# 30 6,18 21-28 2 * node /scripts/logs/other_scripts/yyds/jd_dapai_chongai.js >> /scripts/logs/other_logs/yyds/jd_dapai_chongai.log 2>&1
