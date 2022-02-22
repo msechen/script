@@ -38,7 +38,7 @@ cron 0-59/10 6-20 * * *
 */
 
 
-const $ = new Env('【快音】版本:22.02.12.0');
+const $ = new Env('【快音】版本:22.02.22.0');
 // @grant require
 const notify = $.isNode() ? require('./sendNotify') : '';
 
