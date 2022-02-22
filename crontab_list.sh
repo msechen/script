@@ -206,7 +206,7 @@
 20 0-23/3 * * * node /scripts/logs/other_scripts/yyds/jd_jdtj_winner.js >> /scripts/logs/other_logs/yyds/jd_jdtj_winner.log 2>&1
 
 # 京东蒙牛
-18 1,16 * * * node /scripts/logs/other_scripts/yyds/jd_mengniu.js >> /scripts/logs/other_logs/yyds/jd_mengniu.log 2>&1
+# 18 1,16 * * * node /scripts/logs/other_scripts/yyds/jd_mengniu.js >> /scripts/logs/other_logs/yyds/jd_mengniu.log 2>&1
 
 # 搞鸡玩家-秒秒币
 20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
@@ -266,7 +266,7 @@
 14 10 * * * node /scripts/logs/other_scripts/yyds/jd_sign_graphics.js >> /scripts/logs/other_logs/yyds/jd_sign_graphics.log 2>&1
 
 # 京东极速版签到+赚现金任务
-0 7 * * * node /scripts/logs/other_scripts/yyds/jd_speed_signfaker.js >> /scripts/logs/other_logs/yyds/jd_speed_signfaker.log 2>&1
+0 7 * * * node /scripts/logs/other_scripts/yyds/jd_speed_sign.js >> /scripts/logs/other_logs/yyds/jd_speed_sign.log 2>&1
 
 # 特务Z，默认选择左边战队
 23 8,9 * * * node /scripts/logs/other_scripts/yyds/jd_productZ4Brand.js >> /scripts/logs/other_logs/yyds/jd_productZ4Brand.log 2>&1
@@ -323,13 +323,13 @@
 20 1,8 * * * node /scripts/logs/other_scripts/yyds/jx_sign_xd.js >> /scripts/logs/other_logs/yyds/jx_sign_xd.log 2>&1
 
 # 资产变化强化版
-30 21 * * * node /scripts/logs/other_scripts/yyds/jd_bean_change_new.js >> /scripts/logs/other_logs/yyds/jd_bean_change_new.log 2>&1
+# 30 21 * * * node /scripts/logs/other_scripts/yyds/jd_bean_change_new.js >> /scripts/logs/other_logs/yyds/jd_bean_change_new.log 2>&1
 
 # 京东金榜
 13 6 * * * node /scripts/logs/other_scripts/yyds/jd_gold_sign.js >> /scripts/logs/other_logs/yyds/jd_gold_sign.log 2>&1
 
 # 天天压岁钱
-33 0,14,20 * * * node /scripts/logs/other_scripts/yyds/jx_ttysq.js >> /scripts/logs/other_logs/yyds/jx_ttysq.log 2>&1
+# 33 0,14,20 * * * node /scripts/logs/other_scripts/yyds/jx_ttysq.js >> /scripts/logs/other_logs/yyds/jx_ttysq.log 2>&1
 
 # 秒杀-狂撒三亿京豆
 0 0,20 * * * node /scripts/logs/other_scripts/yyds/jd_babel_sign.js >> /scripts/logs/other_logs/yyds/jd_babel_sign.log 2>&1
@@ -338,7 +338,7 @@
 20 4,19 * * * node /scripts/logs/other_scripts/yyds/jd_xmf.js >> /scripts/logs/other_logs/yyds/jd_xmf.log 2>&1
 
 # 搞鸡玩家-秒秒币
-20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
+# 20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
 
 # 多合一签到
 0 10 * * * node /scripts/logs/other_scripts/yyds/jd_bean_sign.js >> /scripts/logs/other_logs/yyds/jd_bean_sign.log 2>&1
