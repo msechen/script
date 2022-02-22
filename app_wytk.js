@@ -16,6 +16,8 @@
 
 cron "26/5 10,13 * * *"
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_wytk.js
+
 */
 
 
