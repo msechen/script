@@ -27,12 +27,12 @@ cron "20 0-23/3 * * *" script-path=jd_joypark_joy.js,tag=汪汪乐园养joy
 */
 const $ = new Env('汪汪乐园养joy');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-
 const notify = $.isNode() ? require('./sendNotify') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
-  cookie = '';
+    cookie = '';
 let hotFlag = false;
+let failed_cnt = 0
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -61,11 +61,13 @@ message = ""
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
-    //$.wait(50) 
+    //$.wait(50)
     // if (process.env.JOYPARK_JOY_START && i == process.env.JOYPARK_JOY_START){
     //   console.log(`\n汪汪乐园养joy 只运行 ${process.env.JOYPARK_JOY_START} 个Cookie\n`);
     //   break
     // }
+    hotFlag = false
+    failed_cnt = 0
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -116,12 +118,12 @@ message = ""
       //从低合到高
       await doJoyMergeAll($.activityJoyList)
       await getGameMyPrize()
-	  await $.wait(1500)
+      await $.wait(1500)
     }
   }
 })()
-  .catch((e) => $.logErr(e))
-  .finally(() => $.done())
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done())
 
 
 async function getJoyBaseInfo(taskId = '', inviteType = '', inviterPin = '', printLog = false) {
@@ -288,7 +290,7 @@ async function doJoyMergeAll(activityJoyList) {
     $.log(`开始合成 ${minLevel} ${joyMinLevelArr[0].id} <=> ${joyMinLevelArr[1].id} 【限流严重，5秒后合成！如失败会重试】`);
     await $.wait(5000)
     await doJoyMerge(joyMinLevelArr[0].id, joyMinLevelArr[1].id);
-	    if (hotFlag) {
+    if (hotFlag) {
       return false;
     }
     await getJoyList()
@@ -355,6 +357,13 @@ function doJoyMerge(joyId1, joyId2) {
           // if (data.code == '1006') {
           //   hotFlag = true
           // }
+          if (data.code == '1006') {
+            failed_cnt += 1
+          }
+          if (failed_cnt == 5){
+            console.log('失败次数多，避免死循环，跳出！')
+            hot_flag = true
+          }
         }
       } catch (e) {
         $.logErr(e, resp)
@@ -502,25 +511,25 @@ function apCashWithDraw(id, poolBaseId, prizeGroupId, prizeBaseId) {
 
 function getShareCode() {
   return new Promise(resolve => {
-      $.get({
-          url: "./shareCodes/joypark.json",
-          headers: {
-              "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-          }
-      }, async (err, resp, data) => {
-          try {
-              if (err) {
-                  console.log(`${JSON.stringify(err)}`);
-                  console.log(`${$.name} API请求失败，请检查网路重试`);
-              } else {
-                $.kgw_invitePin = JSON.parse(data);
-              }
-          } catch (e) {
-              $.logErr(e, resp)
-          } finally {
-              resolve();
-          }
-      })
+    $.get({
+      url: "",
+      headers: {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+      }
+    }, async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`);
+          console.log(`${$.name} API请求失败，请检查网路重试`);
+        } else {
+          $.kgw_invitePin = JSON.parse(data);
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
   })
 }
 
