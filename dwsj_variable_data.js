@@ -12,3 +12,27 @@ module.exports ={"code":200,"dwsj_variable_data":{
             "dwsj_UA":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加"
         }
     ]}}
+
+
+module.exports ={"code":200,"dwsj_variable_data":{
+    "reward_video":'这个填观看广告视频数据,抓包找 https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward 这个条链接(不一定每次广告视频都出现),然后复制他的全部请求体(编程字面称body,俗话说提交数据),粘贴,一般是这的{"message":"xxx","cypher":3}',
+    "dwsj_data":[{
+        "user_ID":"这里填用户ID(推荐码都可以),在我的账户里面查看",
+        "dwsj_build":这个是否建造建筑的,填 true 或者 false (true表示建造,反之),
+        "dwsj_UPbuild":这个是否升级建筑的,填 true 或者 false (true表示升级,反之),
+        "dwsj_signtime":这个是签到时间,填0到23任意时间段,
+        "dwsj_token":"抓包找任意一个带有 https://sdsj.shandw.com 链接的请求头(编程上称headers,俗话称提交数据头或协议头)上的 Authorization 值",
+        "dwsj_body":"抓包没有行动次数(没骰子)时观看增加行动次数(骰子)的广告视频,链接是 https://sdsj.shandw.com/getAdReward 然后复制他的全部请求体(编程字面称body,俗话称提交数据或提交信息之类)",
+        "dwsj_sign":"抓包签到时观看的广告视频,链接是 https://sdsj.shandw.com/getAdReward 然后复制他的全部请求体(编程字面称body,俗话称提交数据或提交信息之类)",
+        "dwsj_UA":"找任意一个带有 https://sdsj.shandw.com 链接的请求头(编程上称headers,俗话称提交数据头或协议头)上的 User-Agent 值"
+        },
+        "user_ID":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加",
+        "dwsj_build":这里是第二个账号,按照上面填法,还有更多的自行模仿添加,
+        "dwsj_UPbuild":这里是第二个账号,按照上面填法,还有更多的自行模仿添加,
+        "dwsj_signtime":这里是第二个账号,按照上面填法,还有更多的自行模仿添加,
+        "dwsj_token":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加",
+        "dwsj_body":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加",
+        "dwsj_sign":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加",
+        "dwsj_UA":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加"
+        }
+    ]}}
