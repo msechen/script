@@ -4,15 +4,23 @@
 
 项目注册地址(微信打开):http://www.shandw.com/sdwworld/download?sdsj_inviter_id=29999597
 
-拜师ID:29999597
+邀请码:29999597
 
-cron 0-59/10 6-23 * * *
+cron 0-59/20 0-23 * * *
 
 脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_dwsj.js
 变量配置文件地址:https://gitee.com/soy-tool/app-script/raw/master/dwsj_variable_data.js
 
-注意:单拉这2个脚本,然后自行修改 raw_master_dwsj_variable_data.js 里面内容
-如果不想单拉变量配置文件,那就自行创建 raw_master_dwsj_variable_data.js 再复制 变量配置文件地址 里面的内容进行修改
+注意:
+
+需要单拉这2个脚本,然后按照 【变量配置文件】 里面提示进行修改
+如不想单拉变量配置文件,那就自行创建 raw_master_dwsj_variable_data.js 再复制 变量配置文件地址 里面的内容进行修改
+
+需要单拉这2个脚本,然后按照 【变量配置文件】 里面提示进行修改
+如不想单拉变量配置文件,那就自行创建 raw_master_dwsj_variable_data.js 再复制 变量配置文件地址 里面的内容进行修改
+
+需要单拉这2个脚本,然后按照 【变量配置文件】 里面提示进行修改
+如不想单拉变量配置文件,那就自行创建 raw_master_dwsj_variable_data.js 再复制 变量配置文件地址 里面的内容进行修改
 
 */
 
