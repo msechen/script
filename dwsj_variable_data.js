@@ -24,7 +24,7 @@ module.exports ={"code":200,"dwsj_variable_data":{
         "dwsj_token":"抓包找任意一个带有 https://sdsj.shandw.com 链接的请求头(编程上称headers,俗话称提交数据头或协议头)上的 Authorization 值",
         "dwsj_body":"抓包没有行动次数(没骰子)时观看增加行动次数(骰子)的广告视频,链接是 https://sdsj.shandw.com/getAdReward 然后复制他的全部请求体(编程字面称body,俗话称提交数据或提交信息之类)",
         "dwsj_sign":"抓包签到时观看的广告视频,链接是 https://sdsj.shandw.com/getAdReward 然后复制他的全部请求体(编程字面称body,俗话称提交数据或提交信息之类)",
-        "dwsj_UA":"找任意一个带有 https://sdsj.shandw.com 链接的请求头(编程上称headers,俗话称提交数据头或协议头)上的 User-Agent 值"
+        "dwsj_UA":"找任意一个带有 https://sdsj.shandw.com 链接的请求头(编程上称headers,俗话称提交数据头或协议头)上的 User-Agent 值,这个可以留空不填"
         },
         "user_ID":"这里是第二个账号,按照上面填法,还有更多的自行模仿添加",
         "dwsj_build":这里是第二个账号,按照上面填法,还有更多的自行模仿添加,
