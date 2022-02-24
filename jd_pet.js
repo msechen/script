@@ -34,6 +34,7 @@ let notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let newShareCodes = [];
 let NoNeedCodes = [];
+let lnrun = 0;
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         if (jdCookieNode[item]) {
@@ -79,20 +80,25 @@ console.log(`共${cookiesArr.length}个京东账号\n`);
             goodsUrl = '';
             taskInfoKey = [];
             option = {};
+            lnrun++;
             await jdPet();
-            await $.wait(30 * 1000);
+            if (lnrun == 3) {
+                console.log(`\n【访问接口次数达到3次，休息一分钟.....】\n`);
+                await $.wait(60 * 1000);
+                lnrun = 0;
+            }
         }
     }
     if ($.isNode() && allMessage && $.ctrTemp) {
         await notify.sendNotify(`${$.name}`, `${allMessage}`)
     }
 })()
-.catch((e) => {
-    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-})
-.finally(() => {
-    $.done();
-})
+    .catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+        $.done();
+    })
 async function jdPet() {
     try {
         //查询jd宠物信息
@@ -137,14 +143,14 @@ async function jdPet() {
                 return
             }
             $.taskInfo = $.taskInit.result;
-			
+
             await petSport(); //遛弯
             await masterHelpInit(); //获取助力的信息
             await doTask(); //做日常任务
             await feedPetsAgain(); //再次投食
             await energyCollect(); //收集好感度
             await showMsg();
-            
+
         } else if (initPetTownRes.code === '0') {
             console.log(`初始化萌宠失败:  ${initPetTownRes.message}`);
         }
@@ -292,32 +298,32 @@ async function masterHelpInit() {
 async function petSport() {
     console.log('开始遛弯');
     let times = 1
-        const code = 0
-        let resultCode = 0
-        do {
-            let response = await request(arguments.callee.name.toString())
-                console.log(`第${times}次遛狗完成: ${JSON.stringify(response)}`);
-            resultCode = response.resultCode;
-            if (resultCode == 0) {
-                let sportRevardResult = await request('getSportReward');
-                console.log(`领取遛狗奖励完成: ${JSON.stringify(sportRevardResult)}`);
-			} else if (resultCode == 1013) {
-			let sportRevardResult = await request('getSportReward', {"version":1});
-				console.log(`领取遛狗奖励完成: ${JSON.stringify(sportRevardResult)}`);
-				if (sportRevardResult.resultCode == 0) resultCode = 0
-            }
-            times++;
-        } while (resultCode == 0 && code == 0)
-        if (times > 1) {
-            // message += '【十次遛狗】已完成\n';
+    const code = 0
+    let resultCode = 0
+    do {
+        let response = await request(arguments.callee.name.toString())
+        console.log(`第${times}次遛狗完成: ${JSON.stringify(response)}`);
+        resultCode = response.resultCode;
+        if (resultCode == 0) {
+            let sportRevardResult = await request('getSportReward');
+            console.log(`领取遛狗奖励完成: ${JSON.stringify(sportRevardResult)}`);
+        } else if (resultCode == 1013) {
+            let sportRevardResult = await request('getSportReward', {"version":1});
+            console.log(`领取遛狗奖励完成: ${JSON.stringify(sportRevardResult)}`);
+            if (sportRevardResult.resultCode == 0) resultCode = 0
         }
+        times++;
+    } while (resultCode == 0 && code == 0)
+    if (times > 1) {
+        // message += '【十次遛狗】已完成\n';
+    }
 }
 // 初始化任务, 可查询任务完成情况
 async function taskInit() {
     console.log('开始任务初始化');
     $.taskInit = await request(arguments.callee.name.toString(), {
-            "version": 1
-        });
+        "version": 1
+    });
 }
 // 每日签到, 每天一次
 async function signInitFun() {
@@ -526,7 +532,7 @@ function taskUrl(function_id, body = {}) {
     body["channel"] = 'app';
     return {
         url: `${JD_API_HOST}?functionId=${function_id}`,
-    body: `body=${encodeURIComponent(JSON.stringify(body))}&appid=wh5&loginWQBiz=pet-town&clientVersion=9.0.4`,
+        body: `body=${encodeURIComponent(JSON.stringify(body))}&appid=wh5&loginWQBiz=pet-town&clientVersion=9.0.4`,
         headers: {
             'Cookie': cookie,
             'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
@@ -555,16 +561,16 @@ function Env(t, e) {
         }
         send(t, e = "GET") {
             t = "string" == typeof t ? {
-                url: t
-            }
-             : t;
+                    url: t
+                }
+                : t;
             let s = this.get;
             return "POST" === e && (s = this.post),
-            new Promise((e, i) => {
-                s.call(this, t, (t, s, r) => {
-                    t ? i(t) : e(s)
+                new Promise((e, i) => {
+                    s.call(this, t, (t, s, r) => {
+                        t ? i(t) : e(s)
+                    })
                 })
-            })
         }
         get(t) {
             return this.send.call(this.env, t)
@@ -576,16 +582,16 @@ function Env(t, e) {
     return new class {
         constructor(t, e) {
             this.name = t,
-            this.http = new s(this),
-            this.data = null,
-            this.dataFile = "box.dat",
-            this.logs = [],
-            this.isMute = !1,
-            this.isNeedRewrite = !1,
-            this.logSeparator = "\n",
-            this.startTime = (new Date).getTime(),
-            Object.assign(this, e),
-            this.log("", `🔔${this.name}, 开始!`)
+                this.http = new s(this),
+                this.data = null,
+                this.dataFile = "box.dat",
+                this.logs = [],
+                this.isMute = !1,
+                this.isNeedRewrite = !1,
+                this.logSeparator = "\n",
+                this.startTime = (new Date).getTime(),
+                Object.assign(this, e),
+                this.log("", `🔔${this.name}, 开始!`)
         }
         isNode() {
             return "undefined" != typeof module && !!module.exports
@@ -642,20 +648,20 @@ function Env(t, e) {
                 i = i ? i.replace(/\n/g, "").trim() : i;
                 let r = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");
                 r = r ? 1 * r : 20,
-                r = e && e.timeout ? e.timeout : r;
+                    r = e && e.timeout ? e.timeout : r;
                 const[o, h] = i.split("@"),
-                n = {
-                    url: `http://${h}/v1/scripting/evaluate`,
-                    body: {
-                        script_text: t,
-                        mock_type: "cron",
-                        timeout: r
-                    },
-                    headers: {
-                        "X-Key": o,
-                        Accept: "*/*"
-                    }
-                };
+                    n = {
+                        url: `http://${h}/v1/scripting/evaluate`,
+                        body: {
+                            script_text: t,
+                            mock_type: "cron",
+                            timeout: r
+                        },
+                        headers: {
+                            "X-Key": o,
+                            Accept: "*/*"
+                        }
+                    };
                 this.post(n, (t, e, i) => s(i))
             }).catch(t => this.logErr(t))
         }
@@ -663,11 +669,11 @@ function Env(t, e) {
             if (!this.isNode())
                 return {}; {
                 this.fs = this.fs ? this.fs : require("fs"),
-                this.path = this.path ? this.path : require("path");
+                    this.path = this.path ? this.path : require("path");
                 const t = this.path.resolve(this.dataFile),
-                e = this.path.resolve(process.cwd(), this.dataFile),
-                s = this.fs.existsSync(t),
-                i = !s && this.fs.existsSync(e);
+                    e = this.path.resolve(process.cwd(), this.dataFile),
+                    s = this.fs.existsSync(t),
+                    i = !s && this.fs.existsSync(e);
                 if (!s && !i)
                     return {}; {
                     const i = s ? t : e;
@@ -682,12 +688,12 @@ function Env(t, e) {
         writedata() {
             if (this.isNode()) {
                 this.fs = this.fs ? this.fs : require("fs"),
-                this.path = this.path ? this.path : require("path");
+                    this.path = this.path ? this.path : require("path");
                 const t = this.path.resolve(this.dataFile),
-                e = this.path.resolve(process.cwd(), this.dataFile),
-                s = this.fs.existsSync(t),
-                i = !s && this.fs.existsSync(e),
-                r = JSON.stringify(this.data);
+                    e = this.path.resolve(process.cwd(), this.dataFile),
+                    s = this.fs.existsSync(t),
+                    i = !s && this.fs.existsSync(e),
+                    r = JSON.stringify(this.data);
                 s ? this.fs.writeFileSync(t, r) : i ? this.fs.writeFileSync(e, r) : this.fs.writeFileSync(t, r)
             }
         }
@@ -706,7 +712,7 @@ function Env(t, e) {
             let e = this.getval(t);
             if (/^@/.test(t)) {
                 const[, s, i] = /^@(.*?)\.(.*?)$/.exec(t),
-                r = s ? this.getval(s) : "";
+                    r = s ? this.getval(s) : "";
                 if (r)
                     try {
                         const t = JSON.parse(r);
@@ -721,16 +727,16 @@ function Env(t, e) {
             let s = !1;
             if (/^@/.test(e)) {
                 const[, i, r] = /^@(.*?)\.(.*?)$/.exec(e),
-                o = this.getval(i),
-                h = i ? "null" === o ? null : o || "{}" : "{}";
+                    o = this.getval(i),
+                    h = i ? "null" === o ? null : o || "{}" : "{}";
                 try {
                     const e = JSON.parse(h);
                     this.lodash_set(e, r, t),
-                    s = this.setval(JSON.stringify(e), i)
+                        s = this.setval(JSON.stringify(e), i)
                 } catch (e) {
                     const o = {};
                     this.lodash_set(o, r, t),
-                    s = this.setval(JSON.stringify(o), i)
+                        s = this.setval(JSON.stringify(o), i)
                 }
             } else
                 s = this.setval(t, e);
@@ -744,20 +750,20 @@ function Env(t, e) {
         }
         initGotEnv(t) {
             this.got = this.got ? this.got : require("got"),
-            this.cktough = this.cktough ? this.cktough : require("tough-cookie"),
-            this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar,
+                this.cktough = this.cktough ? this.cktough : require("tough-cookie"),
+                this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar,
             t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar))
         }
         get(t, e = (() => {})) {
             t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]),
-            this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-                        "X-Surge-Skip-Scripting": !1
-                    })), $httpClient.get(t, (t, s, i) => {
+                this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+                    "X-Surge-Skip-Scripting": !1
+                })), $httpClient.get(t, (t, s, i) => {
                     !t && s && (s.body = i, s.statusCode = s.status),
-                    e(t, s, i)
+                        e(t, s, i)
                 })) : this.isQuanX() ? (this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
-                        hints: !1
-                    })), $task.fetch(t).then(t => {
+                    hints: !1
+                })), $task.fetch(t).then(t => {
                     const {
                         statusCode: s,
                         statusCode: i,
@@ -775,7 +781,7 @@ function Env(t, e) {
                         if (t.headers["set-cookie"]) {
                             const s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();
                             s && this.ckjar.setCookieSync(s, null),
-                            e.cookieJar = this.ckjar
+                                e.cookieJar = this.ckjar
                         }
                     } catch (t) {
                         this.logErr(t)
@@ -804,15 +810,15 @@ function Env(t, e) {
         post(t, e = (() => {})) {
             if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon())
                 this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-                        "X-Surge-Skip-Scripting": !1
-                    })), $httpClient.post(t, (t, s, i) => {
+                    "X-Surge-Skip-Scripting": !1
+                })), $httpClient.post(t, (t, s, i) => {
                     !t && s && (s.body = i, s.statusCode = s.status),
-                    e(t, s, i)
+                        e(t, s, i)
                 });
             else if (this.isQuanX())
                 t.method = "POST", this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
-                        hints: !1
-                    })), $task.fetch(t).then(t => {
+                    hints: !1
+                })), $task.fetch(t).then(t => {
                     const {
                         statusCode: s,
                         statusCode: i,
@@ -876,16 +882,16 @@ function Env(t, e) {
                     return t;
                 if ("string" == typeof t)
                     return this.isLoon() ? t : this.isQuanX() ? {
-                        "open-url": t
-                    }
-                 : this.isSurge() ? {
-                    url: t
-                }
-                 : void 0;
+                            "open-url": t
+                        }
+                        : this.isSurge() ? {
+                                url: t
+                            }
+                            : void 0;
                 if ("object" == typeof t) {
                     if (this.isLoon()) {
                         let e = t.openUrl || t.url || t["open-url"],
-                        s = t.mediaUrl || t["media-url"];
+                            s = t.mediaUrl || t["media-url"];
                         return {
                             openUrl: e,
                             mediaUrl: s
@@ -893,7 +899,7 @@ function Env(t, e) {
                     }
                     if (this.isQuanX()) {
                         let e = t["open-url"] || t.url || t.openUrl,
-                        s = t["media-url"] || t.mediaUrl;
+                            s = t["media-url"] || t.mediaUrl;
                         return {
                             "open-url": e,
                             "media-url": s
@@ -912,13 +918,13 @@ function Env(t, e) {
                 t.push(e),
                 s && t.push(s),
                 i && t.push(i),
-                console.log(t.join("\n")),
-                this.logs = this.logs.concat(t)
+                    console.log(t.join("\n")),
+                    this.logs = this.logs.concat(t)
             }
         }
         log(...t) {
             t.length > 0 && (this.logs = [...this.logs, ...t]),
-            console.log(t.join(this.logSeparator))
+                console.log(t.join(this.logSeparator))
         }
         logErr(t, e) {
             const s = !this.isSurge() && !this.isQuanX() && !this.isLoon();
@@ -929,9 +935,9 @@ function Env(t, e) {
         }
         done(t = {}) {
             const e = (new Date).getTime(),
-            s = (e - this.startTime) / 1e3;
+                s = (e - this.startTime) / 1e3;
             this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`),
-            this.log(),
+                this.log(),
             (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t)
         }
     }

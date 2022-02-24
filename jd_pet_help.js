@@ -11,17 +11,17 @@
 =================================Quantumultx=========================
 [task_local]
 #东东萌宠
-30 5,18 * * * jd_pet_help.js, tag=东东萌宠, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdmc.png, enabled=true
+30 5,20 * * * jd_pet_help.js, tag=东东萌宠, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdmc.png, enabled=true
 
 =================================Loon===================================
 [Script]
-cron "30 5,18 * * *" script-path=jd_pet_help.js,tag=东东萌宠
+cron "30 5,20 * * *" script-path=jd_pet_help.js,tag=东东萌宠
 
 ===================================Surge================================
-东东萌宠 = type=cron,cronexp="30 5,18 * * *",wake-system=1,timeout=3600,script-path=jd_pet_help.js
+东东萌宠 = type=cron,cronexp="30 5,20 * * *",wake-system=1,timeout=3600,script-path=jd_pet_help.js
 
 ====================================小火箭=============================
-东东萌宠 = type=cron,script-path=jd_pet_help.js, cronexpr="30 5,18 * * *", timeout=3600, enable=true
+东东萌宠 = type=cron,script-path=jd_pet_help.js, cronexpr="30 5,20 * * *", timeout=3600, enable=true
 
  */
 const $ = new Env('东东萌宠内部互助');
@@ -48,7 +48,7 @@ if ($.isNode()) {
 
 let NowHour = new Date().getHours();
 let llhelp=true;
-
+let lnrun = 0;
 console.log(`共${cookiesArr.length}个京东账号\n`);
 
 !(async() => {
@@ -58,39 +58,39 @@ console.log(`共${cookiesArr.length}个京东账号\n`);
         });
         return;
     }
-	if (llhelp){
-		console.log('开始收集您的互助码，用于账号内部互助，请稍等...');
-		for (let i = 0; i < cookiesArr.length; i++) {
-			if (cookiesArr[i]) {
-				cookie = cookiesArr[i];
-				$.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-				$.index = i + 1;
-				$.isLogin = true;
-				$.nickName = '';
-				await TotalBean();
+    if (llhelp){
+        console.log('开始收集您的互助码，用于账号内部互助，请稍等...');
+        for (let i = 0; i < cookiesArr.length; i++) {
+            if (cookiesArr[i]) {
+                cookie = cookiesArr[i];
+                $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+                $.index = i + 1;
+                $.isLogin = true;
+                $.nickName = '';
+                await TotalBean();
 
-				if (!$.isLogin) {
-					$.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {
-						"open-url": "https://bean.m.jd.com/bean/signIndex.action"
-					});
+                if (!$.isLogin) {
+                    $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {
+                        "open-url": "https://bean.m.jd.com/bean/signIndex.action"
+                    });
 
-					if ($.isNode()) {
-						await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-					}
-					continue;
-				}
-				message = '';
-				subTitle = '';
-				goodsUrl = '';
-				taskInfoKey = [];
-				option = {};
-				await GetShareCode();
-                await $.wait(2 * 1000);
-			}
-		}
-		console.log('\n互助码收集完毕，开始执行内部助力...\n');
-	}
-	
+                    if ($.isNode()) {
+                        await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+                    }
+                    continue;
+                }
+                message = '';
+                subTitle = '';
+                goodsUrl = '';
+                taskInfoKey = [];
+                option = {};
+                await GetShareCode();
+                await $.wait(3 * 1000);
+            }
+        }
+        console.log('\n互助码收集完毕，开始执行内部助力...\n');
+    }
+
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i];
@@ -115,20 +115,25 @@ console.log(`共${cookiesArr.length}个京东账号\n`);
             goodsUrl = '';
             taskInfoKey = [];
             option = {};
+            lnrun++;
             await jdPet();
-			await $.wait(5 * 1000);
+            if (lnrun == 3) {
+                console.log(`\n【访问接口次数达到3次，休息一分钟.....】\n`);
+                await $.wait(60 * 1000);
+                lnrun = 0;
+            }
         }
     }
     if ($.isNode() && allMessage && $.ctrTemp) {
         await notify.sendNotify(`${$.name}`, `${allMessage}`)
     }
 })()
-.catch((e) => {
-    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-})
-.finally(() => {
-    $.done();
-})
+    .catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+        $.done();
+    })
 async function jdPet() {
     try {
         //查询jd宠物信息
@@ -176,11 +181,11 @@ async function jdPet() {
                 return
             }
             $.taskInfo = $.taskInit.result;
-			if (llhelp){
-				await slaveHelp(); //助力好友
-			}
+            if (llhelp){
+                await slaveHelp(); //助力好友
+            }
             await showMsg();
-            
+
         } else if (initPetTownRes.code === '0') {
             console.log(`初始化萌宠失败:  ${initPetTownRes.message}`);
         }
@@ -200,11 +205,11 @@ async function GetShareCode() {
         if (initPetTownRes.code === '0' && initPetTownRes.resultCode === '0' && initPetTownRes.message === 'success') {
             $.petInfo = initPetTownRes.result;
             if ($.petInfo.userStatus == 0 || $.petInfo.petStatus == 5 || $.petInfo.petStatus == 6 || !$.petInfo.goodsInfo) {
-				console.log(`【京东账号${$.index}（${$.UserName}）的互助码】\n宠物状态不能被助力，跳过...`);
+                console.log(`【京东账号${$.index}（${$.UserName}）的互助码】\n宠物状态不能被助力，跳过...`);
                 return;
             }
             console.log(`【京东账号${$.index}（${$.UserName}）的互助码】\n${$.petInfo.shareCode}`);
-            newShareCodes.push($.petInfo.shareCode);			
+            newShareCodes.push($.petInfo.shareCode);
         }
     } catch (e) {
         $.logErr(e)
@@ -222,25 +227,25 @@ async function GetShareCode() {
 async function slaveHelp() {
     let helpPeoples = '';
     for (let code of newShareCodes) {
-		if(NoNeedCodes){
-			var llnoneed=false;
-			for (let NoNeedCode of NoNeedCodes) {
-				if (code==NoNeedCode){
-					llnoneed=true;
-					break;
-				}
-			}
-			if(llnoneed){
-				console.log(`${code}助力已满，跳过...`);
-				continue;
-			}
-		}
+        if(NoNeedCodes){
+            var llnoneed=false;
+            for (let NoNeedCode of NoNeedCodes) {
+                if (code==NoNeedCode){
+                    llnoneed=true;
+                    break;
+                }
+            }
+            if(llnoneed){
+                console.log(`${code}助力已满，跳过...`);
+                continue;
+            }
+        }
         console.log(`开始助力京东账号${$.index} - ${$.nickName || $.UserName}的好友: ${code}`);
         if (!code)
             continue;
         let response = await request(arguments.callee.name.toString(), {
-                'shareCode': code
-            });
+            'shareCode': code
+        });
         if (response.code === '0' && response.resultCode === '0') {
             if (response.result.helpStatus === 0) {
                 console.log('已给好友: 【' + response.result.masterNickName + '】助力成功');
@@ -250,20 +255,20 @@ async function slaveHelp() {
                 console.log(`助力好友${response.result.masterNickName}失败，您今日已无助力机会`);
                 break;
             } else if (response.result.helpStatus === 2) {
-                //该好友已满5人助力，无需您再次助力				
-				NoNeedCodes.push(code);
+                //该好友已满5人助力，无需您再次助力
+                NoNeedCodes.push(code);
                 console.log(`该好友${response.result.masterNickName}已满5人助力，无需您再次助力`);
             } else {
                 console.log(`助力其他情况：${JSON.stringify(response)}`);
             }
         } else {
-			if(response.message=="已经助过力"){
-				console.log(`此账号今天已经跑过助力了，跳出....`);
-				break;
-			}else{
-				console.log(`助力好友结果: ${response.message}`);
-			}
-				
+            if(response.message=="已经助过力"){
+                console.log(`此账号今天已经跑过助力了，跳出....`);
+                break;
+            }else{
+                console.log(`助力好友结果: ${response.message}`);
+            }
+
         }
     }
     if (helpPeoples && helpPeoples.length > 0) {
@@ -274,8 +279,8 @@ async function slaveHelp() {
 async function taskInit() {
     console.log('开始任务初始化');
     $.taskInit = await request(arguments.callee.name.toString(), {
-            "version": 1
-        });
+        "version": 1
+    });
 }
 // 每日签到, 每天一次
 async function signInitFun() {
