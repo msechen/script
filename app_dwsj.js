@@ -25,7 +25,7 @@ cron 0-59/20 0-23 * * *
 */
 
 
-const $ = new Env('【电玩世界】版本:22/02/23_0');
+const $ = new Env('【电玩世界】版本:22/02/24_0');
 // @grant require
 const notify = $.isNode() ? require('./sendNotify') : '';
 
