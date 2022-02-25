@@ -53,6 +53,12 @@ class Factory extends HarmonyTemplate {
   static async afterGetTaskList(api, data) {
     const self = this;
 
+    await api.doFormBody('jdfactory_getLotteryHomeData').then(async data => {
+      const {freeLotteryNum, alreadyLotteryNum} = _.get(data, 'data.result.userInfo');
+      if (alreadyLotteryNum >= freeLotteryNum) return;
+      await api.doFormBody('jdfactory_getLotteryResult');
+    });
+
     let userScore = 0;
     const msgs = [];
 
@@ -92,10 +98,19 @@ class Factory extends HarmonyTemplate {
   static async doCron(api) {
     const self = this;
 
+    await api.doFormBody('jdfactory_getHomeData').then(data => {
+      const factoryInfo = _.property('data.result.factoryInfo')(data);
+      if (!factoryInfo) return;
+      let {remainScore, batteryCapacity} = factoryInfo;
+      if (+remainScore > batteryCapacity) {
+        return handleAddEnergy();
+      }
+    });
+
     const userScore = await api.doFormBody('jdfactory_getTaskDetail').then(async data => +_.property('data.result.userScore')(data));
     if (userScore >= maxUserScore) {
       api.log('蓄电池已满，使用后才可获得更多电量哦！');
-      return;
+      return api.doFormBody('jdfactory_getLotteryResult');
     }
 
     await api.doFormBody('jdfactory_collectElectricity').then(data => {
