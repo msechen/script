@@ -22,16 +22,20 @@ cron 0-59/10 1-23 * * *
 需要单拉这2个脚本,然后找到 raw_master_dwsj_variable_data.js 文件按照提示进行修改
 如不想单拉变量配置文件,那就自行创建 raw_master_dwsj_variable_data.js 再复制 变量配置文件地址 里面的内容进行修改
 
-注意:脚本需要 node-rsa 依赖库,自行使用 ssh 安装
+注意:
+脚本需要 node-rsa 依赖库,自行使用 ssh 安装
 命令如: docker exec -it 你容器容器名称 bash -c "cd scripts && npm install node-rsa -g"
+查看容器命令:docker ps -a
 或者百度自行安装
 
 脚本需要 node-rsa 依赖库,自行使用 ssh 安装
 命令如: docker exec -it 你容器容器名称 bash -c "cd scripts && npm install node-rsa -g"
+查看容器命令:docker ps -a
 或者百度自行安装
 
 脚本需要 node-rsa 依赖库,自行使用 ssh 安装
 命令如: docker exec -it 你容器容器名称 bash -c "cd scripts && npm install node-rsa -g"
+查看容器命令:docker ps -a
 或者百度自行安装
 
 */
