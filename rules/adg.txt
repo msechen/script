@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-02-25T00:02:18.996Z
+! Last modified: 2022-03-01T00:02:30.181Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -19,6 +19,22 @@
 !
 !
 !
+||https://whsrdsweq.com
+||https://abrocvhkwhd.com
+||https://enifeygqued.com
+||https://asofcfxmvg.com
+||https://rquixwgrwvdcal.xyz
+||https://dopjfbdvatxlhe.com
+||https://uscnvdcxttnh.com
+||https://9oi6khy9.xyz
+||https://sybsybe.xyz
+||https://ksgsjeix.xyz
+||https://ffueys.xyz
+||https://jehlenmen.xyz
+||https://zonbon.xyz
+||https://hastrenmon.xyz
+||https://raigebro.xyz
+||https://lkjei.xyz
 ||https://gmwejhjxklvh.com
 ||https://icqqjipv.com
 ||https://raptapee.com
@@ -412,7 +428,6 @@
 ||https://ethadepic.club
 ||https://forzslodge.com
 ||https://ptunogrywhy.pro
-||https://sub.superxxxfree.com
 ||https://news-back.org
 ||https://beta-news.org
 ||https://jqyde7msbro2.com
@@ -422,7 +437,6 @@
 ||https://lajeshuru.pro
 ||https://34pavouhj7.com
 ||https://oldgyhogola.com
-||https://loweredinflammable.com
 ||https://flabbyyolkinfection.com
 ||https://jillsclickcorner.com
 ||https://cst.cstwpush.com
@@ -3551,6 +3565,7 @@ vkcdnservice.appspot.com
 ||https://21c9a53484951.com
 ||https://21sexturycash.com
 ||https://225c34aba07.com
+||https://2276bf7413.com
 ||https://23205523023daea6.com
 ||https://23a6b8b0afb.com
 ||https://24-sportnews.com
@@ -3623,6 +3638,7 @@ vkcdnservice.appspot.com
 ||https://399a240ee2.com
 ||https://39d1d397c97730.com
 ||https://3ab171502b3.com
+||https://3b3cd97243.com
 ||https://3c76eee2407c7c1.com
 ||https://3ca28642b714623b2.com
 ||https://3e787c93af8de.com
@@ -3642,6 +3658,7 @@ vkcdnservice.appspot.com
 ||https://40ceexln7929.com
 ||https://4113705a84.com
 ||https://41df76c67812005c.com
+||https://41ee789d61.com
 ||https://42297df5c090.com
 ||https://42837932b3d.com
 ||https://42a5d530ec972d8994.com
@@ -3715,6 +3732,7 @@ vkcdnservice.appspot.com
 ||https://5nt1gx7o57.com
 ||https://5qg9ibt1a6.com
 ||https://5t59uw2iuh.com
+||https://5toft8or7on8tt.com
 ||https://5vpbnbkiey24.com
 ||https://5wuefo9haif3.com
 ||https://5yfi7sy.com
@@ -4211,6 +4229,7 @@ vkcdnservice.appspot.com
 ||https://adnigma.com
 ||https://adnimo.com
 ||https://adnoble.com
+||https://adnsrv.name
 ||https://adnxs-simple.com
 ||https://adnxs.com
 ||https://adnxs.net
@@ -4225,6 +4244,7 @@ vkcdnservice.appspot.com
 ||https://adop.pw
 ||https://adoperatorx.com
 ||https://adopexchange.com
+||https://adoptexplorationanguish.com
 ||https://adoptpassivepromise.com
 ||https://adorableold.com
 ||https://adorika.net
@@ -4551,6 +4571,7 @@ vkcdnservice.appspot.com
 ||https://afterdownload.com
 ||https://afterdownloads.com
 ||https://afterthoughtdevil.com
+||https://aftist.com
 ||https://aftjohnanodes.com
 ||https://agadum.com
 ||https://agaenteitor.com
@@ -4738,6 +4759,7 @@ vkcdnservice.appspot.com
 ||https://alphonso.tv
 ||https://alpurtxslb.com
 ||https://alreadygrippatsy.com
+||https://alreat.com
 ||https://alstrome9riya10.com
 ||https://alternads.info
 ||https://alternativecpmgate.com
@@ -5387,6 +5409,7 @@ vkcdnservice.appspot.com
 ||https://bars2show.com
 ||https://barscreative1.com
 ||https://basheighthnumerous.com
+||https://bashfulweaponsscratch.com
 ||https://basinmodelingcolumns.com
 ||https://basknausea.com
 ||https://basnn14.com
@@ -5513,6 +5536,7 @@ vkcdnservice.appspot.com
 ||https://bephamema.com
 ||https://bepiletussar.casa
 ||https://beqyexeqof.com
+||https://ber2g8e3keley.com
 ||https://berningbegi.club
 ||https://berryborrowing.com
 ||https://bertekoa.net
@@ -5536,6 +5560,7 @@ vkcdnservice.appspot.com
 ||https://bestcontentjob.top
 ||https://bestcontentoperation.top
 ||https://bestcontentplan.top
+||https://bestcontentprogram.top
 ||https://bestcontentproject.top
 ||https://bestcontentservice.top
 ||https://bestcontentuse.top
@@ -5581,6 +5606,7 @@ vkcdnservice.appspot.com
 ||https://bggzqvjqtwthy.com
 ||https://bgkrbh.com
 ||https://bgmtracker.com
+||https://bgqtdhkkvgopak.xyz
 ||https://bgrndi.com
 ||https://bgtgag.com
 ||https://bh3.net
@@ -5608,6 +5634,7 @@ vkcdnservice.appspot.com
 ||https://bigprizesonline.com
 ||https://bihamcurchef.cam
 ||https://bihexoipaomfjie.xyz
+||https://biisonalmflevqg.top
 ||https://bijayrxkkppm.com
 ||https://bikesmachineryi.com
 ||https://bikesmodestnotoriety.com
@@ -5787,6 +5814,7 @@ vkcdnservice.appspot.com
 ||https://bondfondif.com
 ||https://bonertraffic.info
 ||https://bonertraffic.mobi
+||https://bonertraffic.pro
 ||https://bonertraffic12.info
 ||https://bonertraffic12.pro
 ||https://bonertraffic13.info
@@ -6374,6 +6402,7 @@ vkcdnservice.appspot.com
 ||https://chipsuziby.com
 ||https://chiptionics.co
 ||https://chirkacylal.com
+||https://chitaglipti.pro
 ||https://chitika.com
 ||https://chitika.net
 ||https://chittedjauping.com
@@ -7263,6 +7292,7 @@ vkcdnservice.appspot.com
 ||https://degreenoxious.com
 ||https://degrtdqvaansd.com
 ||https://degryrubi.com
+||https://degustswaughts.com
 ||https://dehtxweiq.com
 ||https://deicemaptwin.com
 ||https://deiligejenter.com
@@ -7353,6 +7383,7 @@ vkcdnservice.appspot.com
 ||https://devaluationlimetreedeadly.com
 ||https://devaluationobserve.com
 ||https://devastatingallothallucinate.com
+||https://deveincyanids.com
 ||https://developingmansensitiveness.com
 ||https://develsdrawal.xyz
 ||https://devilspanmute.com
@@ -7700,6 +7731,7 @@ vkcdnservice.appspot.com
 ||https://drpurrmcirwurb.com
 ||https://drtuproft.com
 ||https://druadirjfviwn.xyz
+||https://drumimaring.xyz
 ||https://drunkenknowing.com
 ||https://dsandexpe.biz
 ||https://dscenn.com
@@ -7968,6 +8000,7 @@ vkcdnservice.appspot.com
 ||https://efd3b86a5fbddda.com
 ||https://efe0df50ac.com
 ||https://effacerevealing.com
+||https://effectivecpmcontent.com
 ||https://effectivecpmgate.com
 ||https://effectivedisplaycontent.com
 ||https://effectivedisplayformat.com
@@ -8090,6 +8123,7 @@ vkcdnservice.appspot.com
 ||https://endovmwy.com
 ||https://enemiesfiris.com
 ||https://enerableoffi.club
+||https://engagedthicketforeman.com
 ||https://enginedriverflexible.com
 ||https://enginedriverhaw.com
 ||https://engineeringsixteensixpence.com
@@ -8397,6 +8431,7 @@ vkcdnservice.appspot.com
 ||https://fadspms.com
 ||https://fadvindictive.com
 ||https://fae46gussylvatica.com
+||https://faggotsnulled.com
 ||https://faggrim.com
 ||https://faglollstwo.com
 ||https://fagold.xyz
@@ -8602,6 +8637,7 @@ vkcdnservice.appspot.com
 ||https://findswiftresults.com
 ||https://finedqueerrigid.com
 ||https://finedsweetonly.com
+||https://finestflirtcudgel.com
 ||https://fingahvf.top
 ||https://fingsmelis.pro
 ||https://finized.co
@@ -8685,6 +8721,7 @@ vkcdnservice.appspot.com
 ||https://fluffer.xyz
 ||https://fluffycodepotc.com
 ||https://flushafterwardinteger.com
+||https://flutia.com
 ||https://fluxads.com
 ||https://fluxioncytasic.com
 ||https://fluxy.xyz
@@ -8858,6 +8895,7 @@ vkcdnservice.appspot.com
 ||https://fufoatch.com
 ||https://fugrohaphu.com
 ||https://fuhykici.xyz
+||https://fuklvbuuronj.com
 ||https://fukpgbwf.com
 ||https://fullcdn.ga
 ||https://fulltraffic.net
@@ -9107,6 +9145,7 @@ vkcdnservice.appspot.com
 ||https://giddinessfeintsum.com
 ||https://giddyattendant.com
 ||https://gigaads.xyz
+||https://giglelazo.pro
 ||https://gilarditus.com
 ||https://gilgamesh-amu.com
 ||https://gilhgiotmsv.com
@@ -9194,6 +9233,7 @@ vkcdnservice.appspot.com
 ||https://globalsuccessclub.com
 ||https://globaltakeoff.net
 ||https://globaltraffico.com
+||https://globereflecting.com
 ||https://globwo.online
 ||https://glodrips.com
 ||https://glodsool.net
@@ -9389,6 +9429,7 @@ vkcdnservice.appspot.com
 ||https://grifictuberal.site
 ||https://grilledjut.com
 ||https://grilydivy.com
+||https://griotsspeos.com
 ||https://grirault.net
 ||https://gritchuw.com
 ||https://grivupie.net
@@ -9404,6 +9445,7 @@ vkcdnservice.appspot.com
 ||https://grooptie.com
 ||https://groorgex.net
 ||https://groosick.net
+||https://grootcho.com
 ||https://gropsanyda.com
 ||https://gropsyruty.com
 ||https://grotesquemoviemankind.com
@@ -9515,6 +9557,7 @@ vkcdnservice.appspot.com
 ||https://hadskiz.com
 ||https://hadspmz.com
 ||https://haftobso.net
+||https://hagdonsplacque.com
 ||https://haghalra.com
 ||https://hagqlhroomwjew.com
 ||https://hairdosslitter.casa
@@ -9885,6 +9928,7 @@ vkcdnservice.appspot.com
 ||https://hscpbysqsepnyw.com
 ||https://hsejtwpipx.xyz
 ||https://hsh51nvkrv.com
+||https://hslpvxrqpg.com
 ||https://hsrvt.com
 ||https://hsslx.com
 ||https://hstpnetwork.com
@@ -10083,6 +10127,7 @@ vkcdnservice.appspot.com
 ||https://ilngsofgndbvmyy.top
 ||https://ilohfbiph.com
 ||https://ilovemakingpics.com
+||https://ilstcnaeuhso.com
 ||https://ilusors.com
 ||https://ilyf4amifh.com
 ||https://imaarracon.co
@@ -10281,6 +10326,7 @@ vkcdnservice.appspot.com
 ||https://intimidatewearisomespecialist.com
 ||https://intnotif.club
 ||https://intrudeaccess.com
+||https://intrudesome.com
 ||https://inurneddoggish.com
 ||https://inuropag.tk
 ||https://inurra.com
@@ -11014,6 +11060,7 @@ vkcdnservice.appspot.com
 ||https://labourpushed.com
 ||https://labwarehousepicturesque.com
 ||https://lacingbiron.com
+||https://lacredentialsupplies.com
 ||https://ladbrokesaffiliates.com.au
 ||https://laddergrandma.com
 ||https://ladnet.co
@@ -11183,6 +11230,7 @@ vkcdnservice.appspot.com
 ||https://lesslizardfastened.com
 ||https://letadnew.com
 ||https://leucan3thegm6um.com
+||https://leukemianarrow.com
 ||https://leukemiatwinklesagacious.com
 ||https://leveloped.club
 ||https://leveryone.club
@@ -11395,6 +11443,7 @@ vkcdnservice.appspot.com
 ||https://lovedearringschoolmaster.com
 ||https://lovemateforyou.com
 ||https://loversagobearable.com
+||https://loweredinflammable.com
 ||https://lowestpendulousdistract.com
 ||https://lowlifebadly.com
 ||https://lowpox.xyz
@@ -11758,6 +11807,7 @@ vkcdnservice.appspot.com
 ||https://mellodur.net
 ||https://mellowpresence.com
 ||https://mellowtin.com
+||https://melodramaticsubsequentdeceiving.com
 ||https://melongnaw.com
 ||https://meltdownstake.com
 ||https://meltpiratehamlet.com
@@ -12181,6 +12231,7 @@ vkcdnservice.appspot.com
 ||https://mwprotected.com
 ||https://mwquick.com
 ||https://mxauevhape.xyz
+||https://mxlxyffsqjp.top
 ||https://mxsuikhqaggf.com
 ||https://mxtads.com
 ||https://mxtzwvylpjcoq.com
@@ -12310,6 +12361,7 @@ vkcdnservice.appspot.com
 ||https://ndikvccwz.com
 ||https://nditlookslike.biz
 ||https://ndlobvsnyfk.xyz
+||https://ndollarhe.com
 ||https://neads.delivery
 ||https://nebadu.com
 ||https://neblotech.com
@@ -12608,6 +12660,7 @@ vkcdnservice.appspot.com
 ||https://nsdsvc.com
 ||https://nsdzrhsb.com
 ||https://nsecretaflicti.info
+||https://nsfwadds.com
 ||https://nsionscorm.com
 ||https://nsmartad.com
 ||https://nsontrackso.online
@@ -12738,6 +12791,7 @@ vkcdnservice.appspot.com
 ||https://obaukads.com
 ||https://obcimuoahijkdy.xyz
 ||https://obctooauvzjo.com
+||https://obcykhkgukfvpm.com
 ||https://oberdi.com
 ||https://obertsiamw.fun
 ||https://obeus.com
@@ -12973,6 +13027,7 @@ vkcdnservice.appspot.com
 ||https://opekoobs.net
 ||https://openedinfractructureilliterate.com
 ||https://openerworryrecite.com
+||https://opensrhinos.com
 ||https://openx.net
 ||https://openxadexchange.com
 ||https://openxenterprise.com
@@ -12988,6 +13043,7 @@ vkcdnservice.appspot.com
 ||https://opoapibs.net
 ||https://opotey.com
 ||https://oppersianor.com
+||https://opportunitysleepyreflex.com
 ||https://oppositehometowndrunken.com
 ||https://opsivesh.net
 ||https://opsoomet.net
@@ -13078,6 +13134,7 @@ vkcdnservice.appspot.com
 ||https://ouphowor.com
 ||https://oupushee.com
 ||https://oureviewi.club
+||https://ourl.link
 ||https://ouropenin.club
 ||https://ourseismol.biz
 ||https://oursgorefreshing.com
@@ -13101,6 +13158,7 @@ vkcdnservice.appspot.com
 ||https://outovenmusths.com
 ||https://outpacetochers.com
 ||https://outragedisgraceful.com
+||https://outrageousexplosion.com
 ||https://outrodetops.com
 ||https://outrushfetor.cam
 ||https://outsimfat.site
@@ -13246,6 +13304,7 @@ vkcdnservice.appspot.com
 ||https://parentful.club
 ||https://parflushfeet.com
 ||https://paripartners.ru
+||https://parkdumbest.com
 ||https://parkinggrumpy.com
 ||https://parkurl.com
 ||https://parringepigene.com
@@ -14284,6 +14343,7 @@ vkcdnservice.appspot.com
 ||https://qadserve.com
 ||https://qadservice.com
 ||https://qaykb.com
+||https://qbaucikdimcejuj.xyz
 ||https://qbcpicrtdje.com
 ||https://qbddhjrwe.com
 ||https://qbgrlltue.com
@@ -14296,6 +14356,7 @@ vkcdnservice.appspot.com
 ||https://qdmil.com
 ||https://qdmldutvbvq.com
 ||https://qebodu.com
+||https://qecqdbilsawwstw.xyz
 ||https://qehdbfjgydvpp.top
 ||https://qel-qel-fie.com
 ||https://qertewrt.com
@@ -14402,6 +14463,7 @@ vkcdnservice.appspot.com
 ||https://quickorange.com
 ||https://quidachieve.com
 ||https://quideo.men
+||https://quiltobserve.com
 ||https://quintus-mil.com
 ||https://quiptenrice.casa
 ||https://quite-bag-seed-catch.xyz
@@ -14705,6 +14767,7 @@ vkcdnservice.appspot.com
 ||https://reservehearingmissing.com
 ||https://residebroadly.com
 ||https://residelikingminister.com
+||https://residentialsize.com
 ||https://resissylvespu.info
 ||https://resistancefrustrating.com
 ||https://resistcorrectly.com
@@ -15023,6 +15086,7 @@ vkcdnservice.appspot.com
 ||https://rtmark.net
 ||https://rtnews.pro
 ||https://rtoukfareputf.com
+||https://rtpawnwlcciii.com
 ||https://rtpdn10.com
 ||https://rtpdn11.com
 ||https://rtpdn14.com
@@ -15160,6 +15224,7 @@ vkcdnservice.appspot.com
 ||https://sallyfundamental.com
 ||https://sallyminority.com
 ||https://saltinourhairtv.com
+||https://saltscorn.com
 ||https://salutationcheerlessdemote.com
 ||https://samage-bility.icu
 ||https://samegradually.com
@@ -15222,6 +15287,7 @@ vkcdnservice.appspot.com
 ||https://scamblefeedman.com
 ||https://scammerbrawl.com
 ||https://scandalhands.com
+||https://scarcecomplicate.com
 ||https://scarcelysorrow.com
 ||https://scarecrowdelight.com
 ||https://scarewalrusregulate.com
@@ -15246,6 +15312,7 @@ vkcdnservice.appspot.com
 ||https://scmqhshjvgcw.xyz
 ||https://scnd-tr.com
 ||https://sconvtrk.com
+||https://scornamentum.com
 ||https://scotlandon.club
 ||https://scoutdealingdrift.com
 ||https://scowledmulticulturaldebauch.com
@@ -15341,6 +15408,7 @@ vkcdnservice.appspot.com
 ||https://sensitivenesscrummytea.com
 ||https://sensorcyclegloves.com
 ||https://sentexoticoncoming.com
+||https://sentineldiscordmm.com
 ||https://sentphysically.com
 ||https://seonto.com
 ||https://separatic.club
@@ -15934,6 +16002,7 @@ vkcdnservice.appspot.com
 ||https://sstpguja.com
 ||https://ssuilbtg.xyz
 ||https://ssvttlmmsrbhv.com
+||https://st1net.com
 ||https://stackattacka.com
 ||https://staffrural.com
 ||https://stagepopkek.com
@@ -16094,6 +16163,7 @@ vkcdnservice.appspot.com
 ||https://subpracted.xyz
 ||https://subqueriessalutationcurtain.com
 ||https://subscriberpursuehum.com
+||https://subtillglowed.com
 ||https://subtlepeel.com
 ||https://suburbdiscernbreeder.com
 ||https://succeedkid.com
@@ -16116,6 +16186,7 @@ vkcdnservice.appspot.com
 ||https://sultancolicin.com
 ||https://sumbalowen.com
 ||https://sumofainstuff.com
+||https://sumshaggy.com
 ||https://sundayceremonytitanic.com
 ||https://sundersetrgh.site
 ||https://sunnybluecoral.com
@@ -16132,6 +16203,7 @@ vkcdnservice.appspot.com
 ||https://supernaturalcapricorn.com
 ||https://superstriker.net
 ||https://supertrackingz.com
+||https://superxxxfree.com
 ||https://suppermalignant.com
 ||https://supperopeningturnstile.com
 ||https://supplyglossailment.com
@@ -16302,6 +16374,7 @@ vkcdnservice.appspot.com
 ||https://tecors.com
 ||https://tecuil.com
 ||https://tedinexplori.biz
+||https://tedmonasty.xyz
 ||https://tedmonastyd.com
 ||https://tedropkinthenligh.pro
 ||https://tedruptcyfal.info
@@ -16483,6 +16556,7 @@ vkcdnservice.appspot.com
 ||https://thubyjemi.pro
 ||https://thudywhamy.com
 ||https://thughighjackcheesy.com
+||https://thumpssleys.com
 ||https://thurag.com
 ||https://thurnflfant.com
 ||https://thursdayfeeemployee.com
@@ -16558,6 +16632,8 @@ vkcdnservice.appspot.com
 ||https://tjhtclwubg.xyz
 ||https://tjisenap.com
 ||https://tkbo.com
+||https://tkgcldjmegxn.com
+||https://tkgcldjmegxn.top
 ||https://tkickhhylnvm.com
 ||https://tkonyrkc.com
 ||https://tkpahnsxlda.top
@@ -16832,6 +16908,7 @@ vkcdnservice.appspot.com
 ||https://tubemov.com
 ||https://tudotecnologia.site
 ||https://tuesdayfetidlit.com
+||https://tuftingkuan.com
 ||https://tugnote.com
 ||https://tujestimater.pro
 ||https://tuknelym.com
@@ -17552,6 +17629,7 @@ vkcdnservice.appspot.com
 ||https://vr4031.com
 ||https://vriwjpzvh.com
 ||https://vrptgslcxm.com
+||https://vrsshsdaa.com
 ||https://vrtzads.com
 ||https://vs001t.com
 ||https://vs002t.com
@@ -17799,6 +17877,7 @@ vkcdnservice.appspot.com
 ||https://whaleads.com
 ||https://whalecashads.com
 ||https://whalepp.com
+||https://whamimepso.pro
 ||https://whamukoji.pro
 ||https://wharfgay.com
 ||https://whatabouthotladies.com
@@ -18157,6 +18236,7 @@ vkcdnservice.appspot.com
 ||https://xgraph.net
 ||https://xgrwjbui.top
 ||https://xgwqjjgwhgke.com
+||https://xhghqrhunp.com
 ||https://xhmopymez.com
 ||https://xhpbxqhito.com
 ||https://xhrxmbqixobk.com
@@ -18321,6 +18401,7 @@ vkcdnservice.appspot.com
 ||https://ye185hcamw.com
 ||https://yeabble.com
 ||https://yeaonesad.com
+||https://yearms.com
 ||https://yebtcayv.com
 ||https://yedikthslvl.xyz
 ||https://yeegsxcwbnn.com
@@ -18455,6 +18536,7 @@ vkcdnservice.appspot.com
 ||https://ysczggasfx.com
 ||https://ysdtcdnoox.com
 ||https://ysgqfroqbqk.xyz
+||https://yshbklgje.com
 ||https://ysmhcwwvgtcx.com
 ||https://ysnj74ed.com
 ||https://ysnvlxop.com
@@ -18609,6 +18691,7 @@ vkcdnservice.appspot.com
 ||https://zmuphhlienv.com
 ||https://znaptag.com
 ||https://znazlahbcu.com
+||https://znqip.net
 ||https://znurmlkkeltsb.com
 ||https://znznrccyrcr.com
 ||https://zo7gihmry2.com
@@ -19368,6 +19451,7 @@ vkcdnservice.appspot.com
 ||https://evolvemediallc.com
 ||https://evolvenation.com
 ||https://exactdrive.com
+||https://exitbee.com
 ||https://exitexplosion.com
 ||https://exmarketplace.com
 ||https://exponential.com
@@ -20324,6 +20408,7 @@ vkcdnservice.appspot.com
 ||https://servedby.keygamesnetwork.com
 ||https://servedby.yell.com
 ||https://services.zam.com
+||https://sikr.chimeratool.com
 ||https://squirrels.getsquirrel.co
 ||https://srv.dynamicyield.com
 ||https://static.tradetracker.net
@@ -20394,6 +20479,7 @@ vkcdnservice.appspot.com
 ||https://d1ebha2k07asm5.cloudfront.net
 ||https://d1esebcdm6wx7j.cloudfront.net
 ||https://d1ev866ubw90c6.cloudfront.net
+||https://d1ezlc9vy4yc7g.cloudfront.net
 ||https://d1f05vr3sjsuy7.cloudfront.net
 ||https://d1fs2ef81chg3.cloudfront.net
 ||https://d1il9t8pu4dsoj.cloudfront.net
@@ -20605,6 +20691,7 @@ vkcdnservice.appspot.com
 ||https://dl5ft52dtazxd.cloudfront.net
 ||https://dlkfm8bqz0bpx.cloudfront.net
 ||https://dlne6myudrxi1.cloudfront.net
+||https://dlrioxg1637dk.cloudfront.net
 ||https://dlvds9i67c60j.cloudfront.net
 ||https://dm0acvguygm9h.cloudfront.net
 ||https://dm7gsepi27zsx.cloudfront.net
@@ -21406,6 +21493,10 @@ vkcdnservice.appspot.com
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||https://script-sh.d2cdm.jp
+||https://browser-intake-datadoghq.com
+||https://analytics.superstructure.ai
+||https://cdn.raekdata.com
 ||https://felix.data.tm-awx.com
 ||https://imzahrwl.xyz
 ||https://karte.io
@@ -21969,7 +22060,6 @@ vkcdnservice.appspot.com
 ||https://smartocto.com
 ||https://baikalize.com
 ||https://relevant-digital.com
-||https://exitbee.com
 ||https://log.cizion.com
 ||https://statafun.ru
 ||https://sc.lfeeder.com
@@ -25685,6 +25775,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||https://log.suumo.jp
+||https://tracking.nw.de
 ||https://trk.storyly.io
 ||https://d.email.forbes.com
 ||https://curiosity-seven.vercel.app
@@ -27879,6 +27971,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://dispatchvegasplus.com
 ||https://dm-event.net
 ||https://e1e.io
+||https://efreecode.com
 ||https://emycewiw.xyz
 ||https://enthusiastgaming.net
 ||https://fastemu.co
@@ -28185,7 +28278,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://excited.me
 ||https://exorigos.com
 ||https://extole.io
-||https://extreme-ip-lookup.com
 ||https://f92j5.com
 ||https://faktor.io
 ||https://fbgpnk.com
@@ -29321,6 +29413,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://beacon.flow.io
 ||https://beacon.nrholding.net
 ||https://beacon.rum.dynapis.com
+||https://beacon.s.llnwi.net
 ||https://beacon.searchspring.io
 ||https://beacon.squixa.net
 ||https://beacon.statful.com
@@ -29610,6 +29703,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://perf.dugout.com
 ||https://perso.aws.arc.pub
 ||https://pi.ispot.tv
+||https://ping-admin.ru
 ||https://ping-dot-acp-magento.appspot.com
 ||https://ping.dozuki.com
 ||https://ping.instantsearchplus.com
@@ -30119,6 +30213,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://toc.io
 ||https://tracking.wlscripts.net
 ||https://uzerly.net
+||https://vpn-access.site
 ||https://winitout.com
 ||https://ywywjrlbsuv.com
 ! Armenian
@@ -30899,11 +30994,13 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||https://banganet.com
 ||https://qeclsl.com
 ||https://cdn.umh.ua
 ||https://brinaltrak.com
 ||https://jdmodr.com
 ||https://mibmcbm.com
+||https://xogepg.com
 ||https://zykumw.com
 ||https://realpush.digital
 ||https://rbthre.work
@@ -35325,6 +35422,9 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||https://octffocdigiturk.cc
+||https://insankafa.cc
+||https://knkyeterla.cc
 ||https://slhgfdsir.com
 ||https://vxhrhnvtucv.com
 ||https://stairtuy.com
@@ -35574,6 +35674,8 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||legitwebsite.com$third-party (should be in adservers.txt)
 !
 !
+||https://adserver.bafrahaber.com
+||https://addata.exxen.com
 ||https://ads.macsonuclari.mobi
 ||https://ads.inegolonline.com
 ||https://rek.yemlee.com
@@ -35955,6 +36057,7 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||https://embed.contentverticals.de
 ||https://ablyft.com
 ||https://tikibihu.com
 ||https://partners2.das-onlinespiel.de
@@ -36346,6 +36449,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://exnzg.de
 ||https://expepp.de
 ||https://falkag.de
+||https://feedad.com
 ||https://fexzuf.com
 ||https://finative.cloud
 ||https://finative.eu
@@ -36832,9 +36936,9 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: hostsVN
 ! Description: The filter contains ad and tracking networks in Vietnam.
-! Last modified: 19 Feb 2022 12:40 UTC+7
-! Version: 2202191240
-! Blocked: 1.097 rules
+! Last modified: 27 Feb 2022 22:49 UTC+7
+! Version: 2202272249
+! Blocked: 1.098 rules
 ! Expires: 1 days (update frequency)
 !
 ||https://24h-ad.24hstatic.com
@@ -36884,6 +36988,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://bongdadem.net
 ||https://brand.zing.vn
 ||https://button-follow.zalo.me
+||https://button-share.zalo.me
 ||https://bwstatistics.sapoapps.vn
 ||https://cdn-bongdadem-net.cdn.ampproject.org
 ||https://cdn-qc.coccoc.com
@@ -38013,6 +38118,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://47api.cn
 ||https://4gustis.xyz
 ||https://4kyu.cn
+||https://4takaixi.xyz
 ||https://50zera.com
 ||https://51-tour.net
 ||https://5125129.com
@@ -38082,6 +38188,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://7dah8.com
 ||https://7g9m3r.com
 ||https://7gg.cc
+||https://7gukaip.xyz
 ||https://7gustis.xyz
 ||https://7krvbn.com
 ||https://7wen.cn
@@ -38097,6 +38204,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://860010.com
 ||https://8603887.com
 ||https://88-baidu.com
+||https://8848skins.com
 ||https://887251.com
 ||https://887591.com
 ||https://88818122.cn
@@ -38645,6 +38753,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://haokan3.cn
 ||https://haolew.com
 ||https://haoyundmn.com
+||https://haoyundmtaotao.com
 ||https://harahero.top
 ||https://hascosafety.com
 ||https://hbcygs518.com
@@ -38673,6 +38782,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://hiad.myweb.hinet.net
 ||https://hikin.online
 ||https://hivecn.cn
+||https://hjqsyyy.com
 ||https://hjsled.com
 ||https://hkfuy.com
 ||https://hktv10.com
@@ -38733,6 +38843,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://hxyifu.com
 ||https://hxyx360.com
 ||https://hyhfimgg.com
+||https://hylmimgg.com
 ||https://hylmxing.com
 ||https://hysjm.cn
 ||https://hytgj.com
@@ -38839,6 +38950,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://jqsex.com
 ||https://jqueryget.com
 ||https://jrrxbz.net
+||https://js-tianqilm.com
 ||https://js.xiao7cdn.com
 ||https://js88895.net
 ||https://jschuangnuo.com
@@ -38863,6 +38975,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://jystea.com
 ||https://jzcool.top
 ||https://k1815.com
+||https://k1rsdhu.xyz
 ||https://k9dzax.cn
 ||https://kagdf.com
 ||https://kaiguangdou.com
@@ -38870,6 +38983,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://kanfaxing.com
 ||https://kangaroobro.com
 ||https://kanwby.com
+||https://kbneks00.online
 ||https://kc-valves.com
 ||https://kdy365.vip
 ||https://keeearl.top
@@ -39101,6 +39215,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://nnsbbd.com
 ||https://nongsalei.com
 ||https://notice.uchome.manyou.com
+||https://npftmqv.cn
 ||https://nr1234.com
 ||https://nterbx.com
 ||https://ntzfly.cn
@@ -39474,6 +39589,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://uoyrsd.com
 ||https://urlat.cn
 ||https://uscdn.top
+||https://utlnjry.top
 ||https://uuaoz.com
 ||https://uvclick.com
 ||https://uxrpkgh.cn
@@ -39561,6 +39677,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://wu65.com
 ||https://wudejia.com
 ||https://wuwaii.com
+||https://wuxiann.top
 ||https://wwlolbs.com
 ||https://www-sina-cn-com.com
 ||https://wwwlongjiekejijishu.com
@@ -41014,6 +41131,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://3055t.cn
 ||https://30life.top
 ||https://31du.wang
+||https://3201556.site
 ||https://3336637.com
 ||https://355262.com
 ||https://35kds.com
@@ -41080,6 +41198,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://58tx.xyz
 ||https://58zj.cc
 ||https://591huishou.cn
+||https://5dm6ghn.cn
 ||https://5dydk.com
 ||https://5fst22.cn
 ||https://5glyqw.com
@@ -41106,6 +41225,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://70fp7880qz.cn
 ||https://720fly.club
 ||https://73cm.com
+||https://76doyxyw.cn
 ||https://76xs.com
 ||https://7750o.cn
 ||https://7b6l2j.cn
@@ -41161,6 +41281,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://9c1k.cn
 ||https://9d6k.cn
 ||https://9e0u.cn
+||https://9go.mobi
 ||https://9gustis.xyz
 ||https://9j1y.cn
 ||https://9j3a.cn
@@ -41546,6 +41667,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://bk485.cn
 ||https://bl2030.com
 ||https://blackbar.cn
+||https://blb2s77r.cn
 ||https://blcobmv.cn
 ||https://bljpk3.cn
 ||https://blockai.me
@@ -41829,6 +41951,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://daddywu.cn
 ||https://dadedaxue.com
 ||https://dafawl.cn
+||https://dafuhao918.com
 ||https://dailiq.cn
 ||https://daima.dsxdn.com
 ||https://dainifei3.com
@@ -41893,6 +42016,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://dianyingmi1.cn
 ||https://diaoda.xyz
 ||https://dibyc.com
+||https://dingdian.shop
 ||https://ditaow.cn
 ||https://diuleilou.top
 ||https://dj0ts1x.cn
@@ -41922,12 +42046,14 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://dnsri.com
 ||https://dnupzdn.cn
 ||https://dodolive.cn
+||https://dofsg.cn
 ||https://dohnxnn.cn
 ||https://dongdm.cn
 ||https://donghua.asia
 ||https://dongsiping.xyz
 ||https://doujl.cn
 ||https://doulaihai.top
+||https://doumobhaia.site
 ||https://downcdn.top
 ||https://dpbyc.com
 ||https://drawenjoy.cn
@@ -42539,6 +42665,8 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://huishangjituan.cn
 ||https://huitiankuaiji.com
 ||https://huixingcheng.cn
+||https://huiyef.cn
+||https://hulauf.cn
 ||https://hulewangsi.cn
 ||https://huobago.com
 ||https://huodiyun.cn
@@ -42552,6 +42680,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://huojutt.com
 ||https://huonvd.cn
 ||https://huosuniao.com
+||https://hushenqiquan.com
 ||https://huyc.info
 ||https://huzhu.group
 ||https://hvzlgyi.cn
@@ -42589,6 +42718,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://i9zkiqn.cn
 ||https://ia22.com
 ||https://iagc.com.cn
+||https://iahjoni.cn
 ||https://ibdtjqn.cn
 ||https://ic86doc.com
 ||https://icdazoy.cn
@@ -42919,6 +43049,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://kfweo2.com
 ||https://kgfnhf.cn
 ||https://kgvjcsp.cn
+||https://khphkum.cn
 ||https://khrg04h.cn
 ||https://khuokpj.cn
 ||https://khuoy.com
@@ -42963,6 +43094,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://kuaipaobiaoju.com
 ||https://kuaiyunbd.com
 ||https://kuajingtao.cc
+||https://kuamei.cloud
 ||https://kuangbang.ltd
 ||https://kukulm.com
 ||https://kulcdtw.cn
@@ -42983,6 +43115,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://l570mb.cn
 ||https://ladybugsweb.site
 ||https://ladyye.site
+||https://lahair.biz
 ||https://lailer.cn
 ||https://laiyangalibaba.cn
 ||https://laiye315.top
@@ -42994,6 +43127,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://lanzuankeji.cn
 ||https://laorncp.xyz
 ||https://lapwlbz.cn
+||https://lauvlku.cn
 ||https://lawumi.cn
 ||https://lbck.fun
 ||https://lbts.ltd
@@ -43009,6 +43143,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://lega.store
 ||https://legozu.com
 ||https://leixigroup.com
+||https://lejia.biz
 ||https://lejlb.com
 ||https://lejuyoujia2019.com
 ||https://lemmotx.cn
@@ -43188,6 +43323,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://maro30.com
 ||https://mavuz.com
 ||https://mbxt.net
+||https://mcaspkd.cn
 ||https://mcfpsn.xyz
 ||https://mcix.cn
 ||https://mclseww.top
@@ -43216,6 +43352,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://mgsue.cn
 ||https://mgtw.xyz
 ||https://mgzs.cdn.bcebos.com
+||https://mhdjkx.cn
 ||https://mhdnspro.com
 ||https://mhi9da.cn
 ||https://mhqx.store
@@ -43307,6 +43444,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://mxxgs.cn
 ||https://my-hr.cn
 ||https://myams.cn
+||https://mydancecn.online
 ||https://mydownba.com
 ||https://myfengyi.xyz
 ||https://mygqhvz.cn
@@ -43333,6 +43471,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://nanofine.cn
 ||https://nanyangqiaoxiang.cn
 ||https://naolifanghealth.com
+||https://naqsadv.cn
 ||https://nashlin.top
 ||https://nauklh.cn
 ||https://nazhenkj.com
@@ -43587,6 +43726,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://pzdlfww.cn
 ||https://pzsq.xyz
 ||https://qa7mp9j.cn
+||https://qagdczc.cn
 ||https://qagyb.cn
 ||https://qaolyke.cn
 ||https://qbjsymmi0w.cn
@@ -43612,7 +43752,9 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qian-tao.xyz
 ||https://qianb.ltd
 ||https://qianggou8.top
+||https://qiangren.biz
 ||https://qiangzai.work
+||https://qiannian.biz
 ||https://qianyuntengyue.com
 ||https://qiaobaba.top
 ||https://qiaoenyl.xyz
@@ -43621,6 +43763,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qibalmm.com
 ||https://qibxdwe1.com
 ||https://qichenx.com
+||https://qicqn.cn
 ||https://qiditrade.com
 ||https://qiguoguo.net
 ||https://qihehuo.cn
@@ -43642,6 +43785,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qizixsw.com
 ||https://qjxszp.cn
 ||https://qkptx.com
+||https://qkuvmwf.cn
 ||https://qloved.cn
 ||https://qlssbq.cn
 ||https://qlugsc.cn
@@ -43685,6 +43829,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qxtwkq.cn
 ||https://qxyu.top
 ||https://qyafndr.cn
+||https://qycg.wang
 ||https://qyjzleh.cn
 ||https://qysyyg.com
 ||https://qytkjsz.com
@@ -43739,6 +43884,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://reofamily.cn
 ||https://represented.cn
 ||https://requested.cn
+||https://reyxif.cn
 ||https://rfese.com
 ||https://rfjckj.cn
 ||https://rgt0hv5.cn
@@ -43786,6 +43932,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://ruiy.shop
 ||https://ruiyijy.xyz
 ||https://runtai369.cn
+||https://rushwei.ltd
 ||https://ruyidk.com
 ||https://ruyiqufu.com
 ||https://rvlmpo.xyz
@@ -43851,16 +43998,20 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://shantelope.com
 ||https://shanxige.com
 ||https://shanyuebrowser.com
+||https://shappapa.top
 ||https://shaque.vip
 ||https://shareman.xyz
 ||https://shenbianlaoshi.com
 ||https://shengchaopiao.cn
 ||https://shengdaoyiliao.com
+||https://shenghemy.mobi
 ||https://shengshipump.cn
+||https://shengtaiyuan.mobi
 ||https://shenhao258.top
 ||https://shenhl.top
 ||https://shenhuachuwei.cn
 ||https://shenkun.xyz
+||https://shenwupower.com.cn
 ||https://shenyunkeji.com
 ||https://sherrycha.cn
 ||https://shffcy.cn
@@ -43879,6 +44030,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://shrtswkj.com
 ||https://shsdw.cn
 ||https://shsnjj.top
+||https://shtu.shop
 ||https://shua66.vip
 ||https://shuai.love
 ||https://shuaiqiwudixiaoliangzaidddd.icu
@@ -43896,6 +44048,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://sinotealife.cn
 ||https://sinyang.info
 ||https://siomyx.cn
+||https://sisihl.cn
 ||https://sixgen.cn
 ||https://sjaidu.com
 ||https://sjhl.club
@@ -43920,6 +44073,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://smsk.site
 ||https://smvip8.cn
 ||https://smxay.com
+||https://sngsn.fun
 ||https://snuoen.com
 ||https://sogov587.top
 ||https://sokoyo-fq.com
@@ -44000,6 +44154,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://sxrs.shop
 ||https://sxsui.cn
 ||https://sxswjkgs.com
+||https://sxtc.wang
 ||https://sxtyhl.top
 ||https://sxxfmc.com
 ||https://sxying.top
@@ -44065,6 +44220,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://tbaia.com
 ||https://tbi7.cn
 ||https://tbl1.cn
+||https://tbscw.biz
 ||https://tbxprvf.cn
 ||https://tcals.cn
 ||https://tcbdd.cn
@@ -44109,6 +44265,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://timup.top
 ||https://timy.ink
 ||https://tingfengyu.top
+||https://tingsec.link
 ||https://tingyusw.xyz
 ||https://tinnar.cn
 ||https://tiojk.com
@@ -44374,6 +44531,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://weiziqiang.top
 ||https://wekb.club
 ||https://wenbangsh.com.cn
+||https://wenhaikj.xyz
 ||https://wenqixiefu.cn
 ||https://wenxiang.work
 ||https://wenzhougy.cn
@@ -44518,6 +44676,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xdwqq.cn
 ||https://xdyszx.com
 ||https://xeihy.com
+||https://xflz.xyz
 ||https://xfnkds.com
 ||https://xfvbs.cn
 ||https://xfya3.cn
@@ -44527,7 +44686,9 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xhct66.com
 ||https://xhera.cn
 ||https://xhfya.cn
+||https://xhhy.online
 ||https://xhmybanjia.cn
+||https://xhpqpq.cn
 ||https://xhtbkh.cn
 ||https://xhvljiw.cn
 ||https://xhx.design
@@ -44573,6 +44734,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xingsky.cn
 ||https://xingtu.ltd
 ||https://xingxingdd.com
+||https://xingyou22.xyz
 ||https://xingyou25.xyz
 ||https://xingyou46.icu
 ||https://xingzhu.top
@@ -44614,6 +44776,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xn--wxtr9fwyxk9c.art
 ||https://xncgroup.cn
 ||https://xnjzsn.com
+||https://xocs.ren
 ||https://xpst0kx.cn
 ||https://xpxmpf.cn
 ||https://xpxvok.cn
@@ -44800,6 +44963,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://yrqwyn.cn
 ||https://yrrsckr.cn
 ||https://yrzdbzq.cn
+||https://ys2727.xyz
 ||https://ysclub.top
 ||https://ysfc360.cn
 ||https://ysrmy1.com
@@ -44889,6 +45053,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://zdryg.com
 ||https://zdwsh.tech
 ||https://zdzk0371.cn
+||https://zdzy.shop
 ||https://zengwx.cn
 ||https://zenwq.com
 ||https://zfood029.com
@@ -45325,7 +45490,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-02-25T00:02:18.996Z
+! Last modified: 2022-03-01T00:02:30.181Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -45343,6 +45508,22 @@ charlestownwyllie.oaklawnnonantum.com
 !
 !
 !
+||http://whsrdsweq.com
+||http://abrocvhkwhd.com
+||http://enifeygqued.com
+||http://asofcfxmvg.com
+||http://rquixwgrwvdcal.xyz
+||http://dopjfbdvatxlhe.com
+||http://uscnvdcxttnh.com
+||http://9oi6khy9.xyz
+||http://sybsybe.xyz
+||http://ksgsjeix.xyz
+||http://ffueys.xyz
+||http://jehlenmen.xyz
+||http://zonbon.xyz
+||http://hastrenmon.xyz
+||http://raigebro.xyz
+||http://lkjei.xyz
 ||http://gmwejhjxklvh.com
 ||http://icqqjipv.com
 ||http://raptapee.com
@@ -45736,7 +45917,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://ethadepic.club
 ||http://forzslodge.com
 ||http://ptunogrywhy.pro
-||http://sub.superxxxfree.com
 ||http://news-back.org
 ||http://beta-news.org
 ||http://jqyde7msbro2.com
@@ -45746,7 +45926,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://lajeshuru.pro
 ||http://34pavouhj7.com
 ||http://oldgyhogola.com
-||http://loweredinflammable.com
 ||http://flabbyyolkinfection.com
 ||http://jillsclickcorner.com
 ||http://cst.cstwpush.com
@@ -48890,6 +49069,7 @@ vkcdnservice.appspot.com
 ||http://21c9a53484951.com
 ||http://21sexturycash.com
 ||http://225c34aba07.com
+||http://2276bf7413.com
 ||http://23205523023daea6.com
 ||http://23a6b8b0afb.com
 ||http://24-sportnews.com
@@ -48962,6 +49142,7 @@ vkcdnservice.appspot.com
 ||http://399a240ee2.com
 ||http://39d1d397c97730.com
 ||http://3ab171502b3.com
+||http://3b3cd97243.com
 ||http://3c76eee2407c7c1.com
 ||http://3ca28642b714623b2.com
 ||http://3e787c93af8de.com
@@ -48981,6 +49162,7 @@ vkcdnservice.appspot.com
 ||http://40ceexln7929.com
 ||http://4113705a84.com
 ||http://41df76c67812005c.com
+||http://41ee789d61.com
 ||http://42297df5c090.com
 ||http://42837932b3d.com
 ||http://42a5d530ec972d8994.com
@@ -49054,6 +49236,7 @@ vkcdnservice.appspot.com
 ||http://5nt1gx7o57.com
 ||http://5qg9ibt1a6.com
 ||http://5t59uw2iuh.com
+||http://5toft8or7on8tt.com
 ||http://5vpbnbkiey24.com
 ||http://5wuefo9haif3.com
 ||http://5yfi7sy.com
@@ -49550,6 +49733,7 @@ vkcdnservice.appspot.com
 ||http://adnigma.com
 ||http://adnimo.com
 ||http://adnoble.com
+||http://adnsrv.name
 ||http://adnxs-simple.com
 ||http://adnxs.com
 ||http://adnxs.net
@@ -49564,6 +49748,7 @@ vkcdnservice.appspot.com
 ||http://adop.pw
 ||http://adoperatorx.com
 ||http://adopexchange.com
+||http://adoptexplorationanguish.com
 ||http://adoptpassivepromise.com
 ||http://adorableold.com
 ||http://adorika.net
@@ -49890,6 +50075,7 @@ vkcdnservice.appspot.com
 ||http://afterdownload.com
 ||http://afterdownloads.com
 ||http://afterthoughtdevil.com
+||http://aftist.com
 ||http://aftjohnanodes.com
 ||http://agadum.com
 ||http://agaenteitor.com
@@ -50077,6 +50263,7 @@ vkcdnservice.appspot.com
 ||http://alphonso.tv
 ||http://alpurtxslb.com
 ||http://alreadygrippatsy.com
+||http://alreat.com
 ||http://alstrome9riya10.com
 ||http://alternads.info
 ||http://alternativecpmgate.com
@@ -50726,6 +50913,7 @@ vkcdnservice.appspot.com
 ||http://bars2show.com
 ||http://barscreative1.com
 ||http://basheighthnumerous.com
+||http://bashfulweaponsscratch.com
 ||http://basinmodelingcolumns.com
 ||http://basknausea.com
 ||http://basnn14.com
@@ -50852,6 +51040,7 @@ vkcdnservice.appspot.com
 ||http://bephamema.com
 ||http://bepiletussar.casa
 ||http://beqyexeqof.com
+||http://ber2g8e3keley.com
 ||http://berningbegi.club
 ||http://berryborrowing.com
 ||http://bertekoa.net
@@ -50875,6 +51064,7 @@ vkcdnservice.appspot.com
 ||http://bestcontentjob.top
 ||http://bestcontentoperation.top
 ||http://bestcontentplan.top
+||http://bestcontentprogram.top
 ||http://bestcontentproject.top
 ||http://bestcontentservice.top
 ||http://bestcontentuse.top
@@ -50920,6 +51110,7 @@ vkcdnservice.appspot.com
 ||http://bggzqvjqtwthy.com
 ||http://bgkrbh.com
 ||http://bgmtracker.com
+||http://bgqtdhkkvgopak.xyz
 ||http://bgrndi.com
 ||http://bgtgag.com
 ||http://bh3.net
@@ -50947,6 +51138,7 @@ vkcdnservice.appspot.com
 ||http://bigprizesonline.com
 ||http://bihamcurchef.cam
 ||http://bihexoipaomfjie.xyz
+||http://biisonalmflevqg.top
 ||http://bijayrxkkppm.com
 ||http://bikesmachineryi.com
 ||http://bikesmodestnotoriety.com
@@ -51126,6 +51318,7 @@ vkcdnservice.appspot.com
 ||http://bondfondif.com
 ||http://bonertraffic.info
 ||http://bonertraffic.mobi
+||http://bonertraffic.pro
 ||http://bonertraffic12.info
 ||http://bonertraffic12.pro
 ||http://bonertraffic13.info
@@ -51713,6 +51906,7 @@ vkcdnservice.appspot.com
 ||http://chipsuziby.com
 ||http://chiptionics.co
 ||http://chirkacylal.com
+||http://chitaglipti.pro
 ||http://chitika.com
 ||http://chitika.net
 ||http://chittedjauping.com
@@ -52602,6 +52796,7 @@ vkcdnservice.appspot.com
 ||http://degreenoxious.com
 ||http://degrtdqvaansd.com
 ||http://degryrubi.com
+||http://degustswaughts.com
 ||http://dehtxweiq.com
 ||http://deicemaptwin.com
 ||http://deiligejenter.com
@@ -52692,6 +52887,7 @@ vkcdnservice.appspot.com
 ||http://devaluationlimetreedeadly.com
 ||http://devaluationobserve.com
 ||http://devastatingallothallucinate.com
+||http://deveincyanids.com
 ||http://developingmansensitiveness.com
 ||http://develsdrawal.xyz
 ||http://devilspanmute.com
@@ -53039,6 +53235,7 @@ vkcdnservice.appspot.com
 ||http://drpurrmcirwurb.com
 ||http://drtuproft.com
 ||http://druadirjfviwn.xyz
+||http://drumimaring.xyz
 ||http://drunkenknowing.com
 ||http://dsandexpe.biz
 ||http://dscenn.com
@@ -53307,6 +53504,7 @@ vkcdnservice.appspot.com
 ||http://efd3b86a5fbddda.com
 ||http://efe0df50ac.com
 ||http://effacerevealing.com
+||http://effectivecpmcontent.com
 ||http://effectivecpmgate.com
 ||http://effectivedisplaycontent.com
 ||http://effectivedisplayformat.com
@@ -53429,6 +53627,7 @@ vkcdnservice.appspot.com
 ||http://endovmwy.com
 ||http://enemiesfiris.com
 ||http://enerableoffi.club
+||http://engagedthicketforeman.com
 ||http://enginedriverflexible.com
 ||http://enginedriverhaw.com
 ||http://engineeringsixteensixpence.com
@@ -53736,6 +53935,7 @@ vkcdnservice.appspot.com
 ||http://fadspms.com
 ||http://fadvindictive.com
 ||http://fae46gussylvatica.com
+||http://faggotsnulled.com
 ||http://faggrim.com
 ||http://faglollstwo.com
 ||http://fagold.xyz
@@ -53941,6 +54141,7 @@ vkcdnservice.appspot.com
 ||http://findswiftresults.com
 ||http://finedqueerrigid.com
 ||http://finedsweetonly.com
+||http://finestflirtcudgel.com
 ||http://fingahvf.top
 ||http://fingsmelis.pro
 ||http://finized.co
@@ -54024,6 +54225,7 @@ vkcdnservice.appspot.com
 ||http://fluffer.xyz
 ||http://fluffycodepotc.com
 ||http://flushafterwardinteger.com
+||http://flutia.com
 ||http://fluxads.com
 ||http://fluxioncytasic.com
 ||http://fluxy.xyz
@@ -54197,6 +54399,7 @@ vkcdnservice.appspot.com
 ||http://fufoatch.com
 ||http://fugrohaphu.com
 ||http://fuhykici.xyz
+||http://fuklvbuuronj.com
 ||http://fukpgbwf.com
 ||http://fullcdn.ga
 ||http://fulltraffic.net
@@ -54446,6 +54649,7 @@ vkcdnservice.appspot.com
 ||http://giddinessfeintsum.com
 ||http://giddyattendant.com
 ||http://gigaads.xyz
+||http://giglelazo.pro
 ||http://gilarditus.com
 ||http://gilgamesh-amu.com
 ||http://gilhgiotmsv.com
@@ -54533,6 +54737,7 @@ vkcdnservice.appspot.com
 ||http://globalsuccessclub.com
 ||http://globaltakeoff.net
 ||http://globaltraffico.com
+||http://globereflecting.com
 ||http://globwo.online
 ||http://glodrips.com
 ||http://glodsool.net
@@ -54728,6 +54933,7 @@ vkcdnservice.appspot.com
 ||http://grifictuberal.site
 ||http://grilledjut.com
 ||http://grilydivy.com
+||http://griotsspeos.com
 ||http://grirault.net
 ||http://gritchuw.com
 ||http://grivupie.net
@@ -54743,6 +54949,7 @@ vkcdnservice.appspot.com
 ||http://grooptie.com
 ||http://groorgex.net
 ||http://groosick.net
+||http://grootcho.com
 ||http://gropsanyda.com
 ||http://gropsyruty.com
 ||http://grotesquemoviemankind.com
@@ -54854,6 +55061,7 @@ vkcdnservice.appspot.com
 ||http://hadskiz.com
 ||http://hadspmz.com
 ||http://haftobso.net
+||http://hagdonsplacque.com
 ||http://haghalra.com
 ||http://hagqlhroomwjew.com
 ||http://hairdosslitter.casa
@@ -55224,6 +55432,7 @@ vkcdnservice.appspot.com
 ||http://hscpbysqsepnyw.com
 ||http://hsejtwpipx.xyz
 ||http://hsh51nvkrv.com
+||http://hslpvxrqpg.com
 ||http://hsrvt.com
 ||http://hsslx.com
 ||http://hstpnetwork.com
@@ -55422,6 +55631,7 @@ vkcdnservice.appspot.com
 ||http://ilngsofgndbvmyy.top
 ||http://ilohfbiph.com
 ||http://ilovemakingpics.com
+||http://ilstcnaeuhso.com
 ||http://ilusors.com
 ||http://ilyf4amifh.com
 ||http://imaarracon.co
@@ -55620,6 +55830,7 @@ vkcdnservice.appspot.com
 ||http://intimidatewearisomespecialist.com
 ||http://intnotif.club
 ||http://intrudeaccess.com
+||http://intrudesome.com
 ||http://inurneddoggish.com
 ||http://inuropag.tk
 ||http://inurra.com
@@ -56353,6 +56564,7 @@ vkcdnservice.appspot.com
 ||http://labourpushed.com
 ||http://labwarehousepicturesque.com
 ||http://lacingbiron.com
+||http://lacredentialsupplies.com
 ||http://ladbrokesaffiliates.com.au
 ||http://laddergrandma.com
 ||http://ladnet.co
@@ -56522,6 +56734,7 @@ vkcdnservice.appspot.com
 ||http://lesslizardfastened.com
 ||http://letadnew.com
 ||http://leucan3thegm6um.com
+||http://leukemianarrow.com
 ||http://leukemiatwinklesagacious.com
 ||http://leveloped.club
 ||http://leveryone.club
@@ -56734,6 +56947,7 @@ vkcdnservice.appspot.com
 ||http://lovedearringschoolmaster.com
 ||http://lovemateforyou.com
 ||http://loversagobearable.com
+||http://loweredinflammable.com
 ||http://lowestpendulousdistract.com
 ||http://lowlifebadly.com
 ||http://lowpox.xyz
@@ -57097,6 +57311,7 @@ vkcdnservice.appspot.com
 ||http://mellodur.net
 ||http://mellowpresence.com
 ||http://mellowtin.com
+||http://melodramaticsubsequentdeceiving.com
 ||http://melongnaw.com
 ||http://meltdownstake.com
 ||http://meltpiratehamlet.com
@@ -57520,6 +57735,7 @@ vkcdnservice.appspot.com
 ||http://mwprotected.com
 ||http://mwquick.com
 ||http://mxauevhape.xyz
+||http://mxlxyffsqjp.top
 ||http://mxsuikhqaggf.com
 ||http://mxtads.com
 ||http://mxtzwvylpjcoq.com
@@ -57649,6 +57865,7 @@ vkcdnservice.appspot.com
 ||http://ndikvccwz.com
 ||http://nditlookslike.biz
 ||http://ndlobvsnyfk.xyz
+||http://ndollarhe.com
 ||http://neads.delivery
 ||http://nebadu.com
 ||http://neblotech.com
@@ -57947,6 +58164,7 @@ vkcdnservice.appspot.com
 ||http://nsdsvc.com
 ||http://nsdzrhsb.com
 ||http://nsecretaflicti.info
+||http://nsfwadds.com
 ||http://nsionscorm.com
 ||http://nsmartad.com
 ||http://nsontrackso.online
@@ -58077,6 +58295,7 @@ vkcdnservice.appspot.com
 ||http://obaukads.com
 ||http://obcimuoahijkdy.xyz
 ||http://obctooauvzjo.com
+||http://obcykhkgukfvpm.com
 ||http://oberdi.com
 ||http://obertsiamw.fun
 ||http://obeus.com
@@ -58312,6 +58531,7 @@ vkcdnservice.appspot.com
 ||http://opekoobs.net
 ||http://openedinfractructureilliterate.com
 ||http://openerworryrecite.com
+||http://opensrhinos.com
 ||http://openx.net
 ||http://openxadexchange.com
 ||http://openxenterprise.com
@@ -58327,6 +58547,7 @@ vkcdnservice.appspot.com
 ||http://opoapibs.net
 ||http://opotey.com
 ||http://oppersianor.com
+||http://opportunitysleepyreflex.com
 ||http://oppositehometowndrunken.com
 ||http://opsivesh.net
 ||http://opsoomet.net
@@ -58417,6 +58638,7 @@ vkcdnservice.appspot.com
 ||http://ouphowor.com
 ||http://oupushee.com
 ||http://oureviewi.club
+||http://ourl.link
 ||http://ouropenin.club
 ||http://ourseismol.biz
 ||http://oursgorefreshing.com
@@ -58440,6 +58662,7 @@ vkcdnservice.appspot.com
 ||http://outovenmusths.com
 ||http://outpacetochers.com
 ||http://outragedisgraceful.com
+||http://outrageousexplosion.com
 ||http://outrodetops.com
 ||http://outrushfetor.cam
 ||http://outsimfat.site
@@ -58585,6 +58808,7 @@ vkcdnservice.appspot.com
 ||http://parentful.club
 ||http://parflushfeet.com
 ||http://paripartners.ru
+||http://parkdumbest.com
 ||http://parkinggrumpy.com
 ||http://parkurl.com
 ||http://parringepigene.com
@@ -59623,6 +59847,7 @@ vkcdnservice.appspot.com
 ||http://qadserve.com
 ||http://qadservice.com
 ||http://qaykb.com
+||http://qbaucikdimcejuj.xyz
 ||http://qbcpicrtdje.com
 ||http://qbddhjrwe.com
 ||http://qbgrlltue.com
@@ -59635,6 +59860,7 @@ vkcdnservice.appspot.com
 ||http://qdmil.com
 ||http://qdmldutvbvq.com
 ||http://qebodu.com
+||http://qecqdbilsawwstw.xyz
 ||http://qehdbfjgydvpp.top
 ||http://qel-qel-fie.com
 ||http://qertewrt.com
@@ -59741,6 +59967,7 @@ vkcdnservice.appspot.com
 ||http://quickorange.com
 ||http://quidachieve.com
 ||http://quideo.men
+||http://quiltobserve.com
 ||http://quintus-mil.com
 ||http://quiptenrice.casa
 ||http://quite-bag-seed-catch.xyz
@@ -60044,6 +60271,7 @@ vkcdnservice.appspot.com
 ||http://reservehearingmissing.com
 ||http://residebroadly.com
 ||http://residelikingminister.com
+||http://residentialsize.com
 ||http://resissylvespu.info
 ||http://resistancefrustrating.com
 ||http://resistcorrectly.com
@@ -60362,6 +60590,7 @@ vkcdnservice.appspot.com
 ||http://rtmark.net
 ||http://rtnews.pro
 ||http://rtoukfareputf.com
+||http://rtpawnwlcciii.com
 ||http://rtpdn10.com
 ||http://rtpdn11.com
 ||http://rtpdn14.com
@@ -60499,6 +60728,7 @@ vkcdnservice.appspot.com
 ||http://sallyfundamental.com
 ||http://sallyminority.com
 ||http://saltinourhairtv.com
+||http://saltscorn.com
 ||http://salutationcheerlessdemote.com
 ||http://samage-bility.icu
 ||http://samegradually.com
@@ -60561,6 +60791,7 @@ vkcdnservice.appspot.com
 ||http://scamblefeedman.com
 ||http://scammerbrawl.com
 ||http://scandalhands.com
+||http://scarcecomplicate.com
 ||http://scarcelysorrow.com
 ||http://scarecrowdelight.com
 ||http://scarewalrusregulate.com
@@ -60585,6 +60816,7 @@ vkcdnservice.appspot.com
 ||http://scmqhshjvgcw.xyz
 ||http://scnd-tr.com
 ||http://sconvtrk.com
+||http://scornamentum.com
 ||http://scotlandon.club
 ||http://scoutdealingdrift.com
 ||http://scowledmulticulturaldebauch.com
@@ -60680,6 +60912,7 @@ vkcdnservice.appspot.com
 ||http://sensitivenesscrummytea.com
 ||http://sensorcyclegloves.com
 ||http://sentexoticoncoming.com
+||http://sentineldiscordmm.com
 ||http://sentphysically.com
 ||http://seonto.com
 ||http://separatic.club
@@ -61273,6 +61506,7 @@ vkcdnservice.appspot.com
 ||http://sstpguja.com
 ||http://ssuilbtg.xyz
 ||http://ssvttlmmsrbhv.com
+||http://st1net.com
 ||http://stackattacka.com
 ||http://staffrural.com
 ||http://stagepopkek.com
@@ -61433,6 +61667,7 @@ vkcdnservice.appspot.com
 ||http://subpracted.xyz
 ||http://subqueriessalutationcurtain.com
 ||http://subscriberpursuehum.com
+||http://subtillglowed.com
 ||http://subtlepeel.com
 ||http://suburbdiscernbreeder.com
 ||http://succeedkid.com
@@ -61455,6 +61690,7 @@ vkcdnservice.appspot.com
 ||http://sultancolicin.com
 ||http://sumbalowen.com
 ||http://sumofainstuff.com
+||http://sumshaggy.com
 ||http://sundayceremonytitanic.com
 ||http://sundersetrgh.site
 ||http://sunnybluecoral.com
@@ -61471,6 +61707,7 @@ vkcdnservice.appspot.com
 ||http://supernaturalcapricorn.com
 ||http://superstriker.net
 ||http://supertrackingz.com
+||http://superxxxfree.com
 ||http://suppermalignant.com
 ||http://supperopeningturnstile.com
 ||http://supplyglossailment.com
@@ -61641,6 +61878,7 @@ vkcdnservice.appspot.com
 ||http://tecors.com
 ||http://tecuil.com
 ||http://tedinexplori.biz
+||http://tedmonasty.xyz
 ||http://tedmonastyd.com
 ||http://tedropkinthenligh.pro
 ||http://tedruptcyfal.info
@@ -61822,6 +62060,7 @@ vkcdnservice.appspot.com
 ||http://thubyjemi.pro
 ||http://thudywhamy.com
 ||http://thughighjackcheesy.com
+||http://thumpssleys.com
 ||http://thurag.com
 ||http://thurnflfant.com
 ||http://thursdayfeeemployee.com
@@ -61897,6 +62136,8 @@ vkcdnservice.appspot.com
 ||http://tjhtclwubg.xyz
 ||http://tjisenap.com
 ||http://tkbo.com
+||http://tkgcldjmegxn.com
+||http://tkgcldjmegxn.top
 ||http://tkickhhylnvm.com
 ||http://tkonyrkc.com
 ||http://tkpahnsxlda.top
@@ -62171,6 +62412,7 @@ vkcdnservice.appspot.com
 ||http://tubemov.com
 ||http://tudotecnologia.site
 ||http://tuesdayfetidlit.com
+||http://tuftingkuan.com
 ||http://tugnote.com
 ||http://tujestimater.pro
 ||http://tuknelym.com
@@ -62891,6 +63133,7 @@ vkcdnservice.appspot.com
 ||http://vr4031.com
 ||http://vriwjpzvh.com
 ||http://vrptgslcxm.com
+||http://vrsshsdaa.com
 ||http://vrtzads.com
 ||http://vs001t.com
 ||http://vs002t.com
@@ -63138,6 +63381,7 @@ vkcdnservice.appspot.com
 ||http://whaleads.com
 ||http://whalecashads.com
 ||http://whalepp.com
+||http://whamimepso.pro
 ||http://whamukoji.pro
 ||http://wharfgay.com
 ||http://whatabouthotladies.com
@@ -63496,6 +63740,7 @@ vkcdnservice.appspot.com
 ||http://xgraph.net
 ||http://xgrwjbui.top
 ||http://xgwqjjgwhgke.com
+||http://xhghqrhunp.com
 ||http://xhmopymez.com
 ||http://xhpbxqhito.com
 ||http://xhrxmbqixobk.com
@@ -63660,6 +63905,7 @@ vkcdnservice.appspot.com
 ||http://ye185hcamw.com
 ||http://yeabble.com
 ||http://yeaonesad.com
+||http://yearms.com
 ||http://yebtcayv.com
 ||http://yedikthslvl.xyz
 ||http://yeegsxcwbnn.com
@@ -63794,6 +64040,7 @@ vkcdnservice.appspot.com
 ||http://ysczggasfx.com
 ||http://ysdtcdnoox.com
 ||http://ysgqfroqbqk.xyz
+||http://yshbklgje.com
 ||http://ysmhcwwvgtcx.com
 ||http://ysnj74ed.com
 ||http://ysnvlxop.com
@@ -63948,6 +64195,7 @@ vkcdnservice.appspot.com
 ||http://zmuphhlienv.com
 ||http://znaptag.com
 ||http://znazlahbcu.com
+||http://znqip.net
 ||http://znurmlkkeltsb.com
 ||http://znznrccyrcr.com
 ||http://zo7gihmry2.com
@@ -64707,6 +64955,7 @@ vkcdnservice.appspot.com
 ||http://evolvemediallc.com
 ||http://evolvenation.com
 ||http://exactdrive.com
+||http://exitbee.com
 ||http://exitexplosion.com
 ||http://exmarketplace.com
 ||http://exponential.com
@@ -65663,6 +65912,7 @@ vkcdnservice.appspot.com
 ||http://servedby.keygamesnetwork.com
 ||http://servedby.yell.com
 ||http://services.zam.com
+||http://sikr.chimeratool.com
 ||http://squirrels.getsquirrel.co
 ||http://srv.dynamicyield.com
 ||http://static.tradetracker.net
@@ -65733,6 +65983,7 @@ vkcdnservice.appspot.com
 ||http://d1ebha2k07asm5.cloudfront.net
 ||http://d1esebcdm6wx7j.cloudfront.net
 ||http://d1ev866ubw90c6.cloudfront.net
+||http://d1ezlc9vy4yc7g.cloudfront.net
 ||http://d1f05vr3sjsuy7.cloudfront.net
 ||http://d1fs2ef81chg3.cloudfront.net
 ||http://d1il9t8pu4dsoj.cloudfront.net
@@ -65944,6 +66195,7 @@ vkcdnservice.appspot.com
 ||http://dl5ft52dtazxd.cloudfront.net
 ||http://dlkfm8bqz0bpx.cloudfront.net
 ||http://dlne6myudrxi1.cloudfront.net
+||http://dlrioxg1637dk.cloudfront.net
 ||http://dlvds9i67c60j.cloudfront.net
 ||http://dm0acvguygm9h.cloudfront.net
 ||http://dm7gsepi27zsx.cloudfront.net
@@ -66761,6 +67013,11 @@ vkcdnservice.appspot.com
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||http://script-sh.d2cdm.jp
+||http://browser-intake-datadoghq.com
+||http://cl*.k5a.io
+||http://analytics.superstructure.ai
+||http://cdn.raekdata.com
 ||http://felix.data.tm-awx.com
 ||http://imzahrwl.xyz
 ||http://karte.io
@@ -67339,7 +67596,6 @@ vkcdnservice.appspot.com
 ||http://smartocto.com
 ||http://baikalize.com
 ||http://relevant-digital.com
-||http://exitbee.com
 ||http://log.cizion.com
 ||http://statafun.ru
 ||http://sc.lfeeder.com
@@ -71065,6 +71321,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||http://log.suumo.jp
+||http://tracking.nw.de
 ||http://trk.storyly.io
 ||http://d.email.forbes.com
 ||http://curiosity-seven.vercel.app
@@ -73316,6 +73574,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://dispatchvegasplus.com
 ||http://dm-event.net
 ||http://e1e.io
+||http://efreecode.com
 ||http://emycewiw.xyz
 ||http://enthusiastgaming.net
 ||http://fastemu.co
@@ -73622,7 +73881,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://excited.me
 ||http://exorigos.com
 ||http://extole.io
-||http://extreme-ip-lookup.com
 ||http://f92j5.com
 ||http://faktor.io
 ||http://fbgpnk.com
@@ -74759,6 +75017,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://beacon.flow.io
 ||http://beacon.nrholding.net
 ||http://beacon.rum.dynapis.com
+||http://beacon.s.llnwi.net
 ||http://beacon.searchspring.io
 ||http://beacon.squixa.net
 ||http://beacon.statful.com
@@ -75053,6 +75312,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://perf.dugout.com
 ||http://perso.aws.arc.pub
 ||http://pi.ispot.tv
+||http://ping-admin.ru
 ||http://ping-dot-acp-magento.appspot.com
 ||http://ping.dozuki.com
 ||http://ping.instantsearchplus.com
@@ -75564,6 +75824,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://toc.io
 ||http://tracking.wlscripts.net
 ||http://uzerly.net
+||http://vpn-access.site
 ||http://winitout.com
 ||http://ywywjrlbsuv.com
 ! Armenian
@@ -76349,11 +76610,13 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||http://banganet.com
 ||http://qeclsl.com
 ||http://cdn.umh.ua
 ||http://brinaltrak.com
 ||http://jdmodr.com
 ||http://mibmcbm.com
+||http://xogepg.com
 ||http://zykumw.com
 ||http://realpush.digital
 ||http://rbthre.work
@@ -80792,6 +81055,9 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||http://octffocdigiturk.cc
+||http://insankafa.cc
+||http://knkyeterla.cc
 ||http://slhgfdsir.com
 ||http://vxhrhnvtucv.com
 ||http://stairtuy.com
@@ -81043,6 +81309,8 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||legitwebsite.com$third-party (should be in adservers.txt)
 !
 !
+||http://adserver.bafrahaber.com
+||http://addata.exxen.com
 ||http://ads.macsonuclari.mobi
 ||http://ads.inegolonline.com
 ||http://rek.yemlee.com
@@ -81425,6 +81693,7 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||http://embed.contentverticals.de
 ||http://ablyft.com
 ||http://tikibihu.com
 ||http://partners2.das-onlinespiel.de
@@ -81816,6 +82085,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://exnzg.de
 ||http://expepp.de
 ||http://falkag.de
+||http://feedad.com
 ||http://fexzuf.com
 ||http://finative.cloud
 ||http://finative.eu
@@ -82302,9 +82572,9 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: hostsVN
 ! Description: The filter contains ad and tracking networks in Vietnam.
-! Last modified: 19 Feb 2022 12:40 UTC+7
-! Version: 2202191240
-! Blocked: 1.097 rules
+! Last modified: 27 Feb 2022 22:49 UTC+7
+! Version: 2202272249
+! Blocked: 1.098 rules
 ! Expires: 1 days (update frequency)
 !
 ||http://24h-ad.24hstatic.com
@@ -82355,6 +82625,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://bongdadem.net
 ||http://brand.zing.vn
 ||http://button-follow.zalo.me
+||http://button-share.zalo.me
 ||http://bwstatistics.sapoapps.vn
 ||http://cdn-bongdadem-net.cdn.ampproject.org
 ||http://cdn-qc.coccoc.com
@@ -83488,6 +83759,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://47api.cn
 ||http://4gustis.xyz
 ||http://4kyu.cn
+||http://4takaixi.xyz
 ||http://50zera.com
 ||http://51-tour.net
 ||http://5125129.com
@@ -83557,6 +83829,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://7dah8.com
 ||http://7g9m3r.com
 ||http://7gg.cc
+||http://7gukaip.xyz
 ||http://7gustis.xyz
 ||http://7krvbn.com
 ||http://7wen.cn
@@ -83572,6 +83845,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://860010.com
 ||http://8603887.com
 ||http://88-baidu.com
+||http://8848skins.com
 ||http://887251.com
 ||http://887591.com
 ||http://88818122.cn
@@ -84120,6 +84394,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://haokan3.cn
 ||http://haolew.com
 ||http://haoyundmn.com
+||http://haoyundmtaotao.com
 ||http://harahero.top
 ||http://hascosafety.com
 ||http://hbcygs518.com
@@ -84148,6 +84423,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://hiad.myweb.hinet.net
 ||http://hikin.online
 ||http://hivecn.cn
+||http://hjqsyyy.com
 ||http://hjsled.com
 ||http://hkfuy.com
 ||http://hktv10.com
@@ -84208,6 +84484,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://hxyifu.com
 ||http://hxyx360.com
 ||http://hyhfimgg.com
+||http://hylmimgg.com
 ||http://hylmxing.com
 ||http://hysjm.cn
 ||http://hytgj.com
@@ -84314,6 +84591,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://jqsex.com
 ||http://jqueryget.com
 ||http://jrrxbz.net
+||http://js-tianqilm.com
 ||http://js.xiao7cdn.com
 ||http://js88895.net
 ||http://jschuangnuo.com
@@ -84338,6 +84616,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://jystea.com
 ||http://jzcool.top
 ||http://k1815.com
+||http://k1rsdhu.xyz
 ||http://k9dzax.cn
 ||http://kagdf.com
 ||http://kaiguangdou.com
@@ -84345,6 +84624,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://kanfaxing.com
 ||http://kangaroobro.com
 ||http://kanwby.com
+||http://kbneks00.online
 ||http://kc-valves.com
 ||http://kdy365.vip
 ||http://keeearl.top
@@ -84576,6 +84856,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://nnsbbd.com
 ||http://nongsalei.com
 ||http://notice.uchome.manyou.com
+||http://npftmqv.cn
 ||http://nr1234.com
 ||http://nterbx.com
 ||http://ntzfly.cn
@@ -84949,6 +85230,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://uoyrsd.com
 ||http://urlat.cn
 ||http://uscdn.top
+||http://utlnjry.top
 ||http://uuaoz.com
 ||http://uvclick.com
 ||http://uxrpkgh.cn
@@ -85036,6 +85318,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://wu65.com
 ||http://wudejia.com
 ||http://wuwaii.com
+||http://wuxiann.top
 ||http://wwlolbs.com
 ||http://www-sina-cn-com.com
 ||http://wwwlongjiekejijishu.com
@@ -86524,6 +86807,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://3055t.cn
 ||http://30life.top
 ||http://31du.wang
+||http://3201556.site
 ||http://3336637.com
 ||http://355262.com
 ||http://35kds.com
@@ -86590,6 +86874,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://58tx.xyz
 ||http://58zj.cc
 ||http://591huishou.cn
+||http://5dm6ghn.cn
 ||http://5dydk.com
 ||http://5fst22.cn
 ||http://5glyqw.com
@@ -86616,6 +86901,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://70fp7880qz.cn
 ||http://720fly.club
 ||http://73cm.com
+||http://76doyxyw.cn
 ||http://76xs.com
 ||http://7750o.cn
 ||http://7b6l2j.cn
@@ -86671,6 +86957,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://9c1k.cn
 ||http://9d6k.cn
 ||http://9e0u.cn
+||http://9go.mobi
 ||http://9gustis.xyz
 ||http://9j1y.cn
 ||http://9j3a.cn
@@ -87056,6 +87343,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://bk485.cn
 ||http://bl2030.com
 ||http://blackbar.cn
+||http://blb2s77r.cn
 ||http://blcobmv.cn
 ||http://bljpk3.cn
 ||http://blockai.me
@@ -87339,6 +87627,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://daddywu.cn
 ||http://dadedaxue.com
 ||http://dafawl.cn
+||http://dafuhao918.com
 ||http://dailiq.cn
 ||http://daima.dsxdn.com
 ||http://dainifei3.com
@@ -87403,6 +87692,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://dianyingmi1.cn
 ||http://diaoda.xyz
 ||http://dibyc.com
+||http://dingdian.shop
 ||http://ditaow.cn
 ||http://diuleilou.top
 ||http://dj0ts1x.cn
@@ -87432,12 +87722,14 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://dnsri.com
 ||http://dnupzdn.cn
 ||http://dodolive.cn
+||http://dofsg.cn
 ||http://dohnxnn.cn
 ||http://dongdm.cn
 ||http://donghua.asia
 ||http://dongsiping.xyz
 ||http://doujl.cn
 ||http://doulaihai.top
+||http://doumobhaia.site
 ||http://downcdn.top
 ||http://dpbyc.com
 ||http://drawenjoy.cn
@@ -88049,6 +88341,8 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://huishangjituan.cn
 ||http://huitiankuaiji.com
 ||http://huixingcheng.cn
+||http://huiyef.cn
+||http://hulauf.cn
 ||http://hulewangsi.cn
 ||http://huobago.com
 ||http://huodiyun.cn
@@ -88062,6 +88356,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://huojutt.com
 ||http://huonvd.cn
 ||http://huosuniao.com
+||http://hushenqiquan.com
 ||http://huyc.info
 ||http://huzhu.group
 ||http://hvzlgyi.cn
@@ -88099,6 +88394,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://i9zkiqn.cn
 ||http://ia22.com
 ||http://iagc.com.cn
+||http://iahjoni.cn
 ||http://ibdtjqn.cn
 ||http://ic86doc.com
 ||http://icdazoy.cn
@@ -88429,6 +88725,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://kfweo2.com
 ||http://kgfnhf.cn
 ||http://kgvjcsp.cn
+||http://khphkum.cn
 ||http://khrg04h.cn
 ||http://khuokpj.cn
 ||http://khuoy.com
@@ -88473,6 +88770,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://kuaipaobiaoju.com
 ||http://kuaiyunbd.com
 ||http://kuajingtao.cc
+||http://kuamei.cloud
 ||http://kuangbang.ltd
 ||http://kukulm.com
 ||http://kulcdtw.cn
@@ -88493,6 +88791,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://l570mb.cn
 ||http://ladybugsweb.site
 ||http://ladyye.site
+||http://lahair.biz
 ||http://lailer.cn
 ||http://laiyangalibaba.cn
 ||http://laiye315.top
@@ -88504,6 +88803,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://lanzuankeji.cn
 ||http://laorncp.xyz
 ||http://lapwlbz.cn
+||http://lauvlku.cn
 ||http://lawumi.cn
 ||http://lbck.fun
 ||http://lbts.ltd
@@ -88519,6 +88819,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://lega.store
 ||http://legozu.com
 ||http://leixigroup.com
+||http://lejia.biz
 ||http://lejlb.com
 ||http://lejuyoujia2019.com
 ||http://lemmotx.cn
@@ -88698,6 +88999,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://maro30.com
 ||http://mavuz.com
 ||http://mbxt.net
+||http://mcaspkd.cn
 ||http://mcfpsn.xyz
 ||http://mcix.cn
 ||http://mclseww.top
@@ -88726,6 +89028,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://mgsue.cn
 ||http://mgtw.xyz
 ||http://mgzs.cdn.bcebos.com
+||http://mhdjkx.cn
 ||http://mhdnspro.com
 ||http://mhi9da.cn
 ||http://mhqx.store
@@ -88817,6 +89120,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://mxxgs.cn
 ||http://my-hr.cn
 ||http://myams.cn
+||http://mydancecn.online
 ||http://mydownba.com
 ||http://myfengyi.xyz
 ||http://mygqhvz.cn
@@ -88843,6 +89147,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://nanofine.cn
 ||http://nanyangqiaoxiang.cn
 ||http://naolifanghealth.com
+||http://naqsadv.cn
 ||http://nashlin.top
 ||http://nauklh.cn
 ||http://nazhenkj.com
@@ -89098,6 +89403,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://pzdlfww.cn
 ||http://pzsq.xyz
 ||http://qa7mp9j.cn
+||http://qagdczc.cn
 ||http://qagyb.cn
 ||http://qaolyke.cn
 ||http://qbjsymmi0w.cn
@@ -89123,7 +89429,9 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://qian-tao.xyz
 ||http://qianb.ltd
 ||http://qianggou8.top
+||http://qiangren.biz
 ||http://qiangzai.work
+||http://qiannian.biz
 ||http://qianyuntengyue.com
 ||http://qiaobaba.top
 ||http://qiaoenyl.xyz
@@ -89132,6 +89440,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://qibalmm.com
 ||http://qibxdwe1.com
 ||http://qichenx.com
+||http://qicqn.cn
 ||http://qiditrade.com
 ||http://qiguoguo.net
 ||http://qihehuo.cn
@@ -89153,6 +89462,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://qizixsw.com
 ||http://qjxszp.cn
 ||http://qkptx.com
+||http://qkuvmwf.cn
 ||http://qloved.cn
 ||http://qlssbq.cn
 ||http://qlugsc.cn
@@ -89196,6 +89506,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://qxtwkq.cn
 ||http://qxyu.top
 ||http://qyafndr.cn
+||http://qycg.wang
 ||http://qyjzleh.cn
 ||http://qysyyg.com
 ||http://qytkjsz.com
@@ -89250,6 +89561,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://reofamily.cn
 ||http://represented.cn
 ||http://requested.cn
+||http://reyxif.cn
 ||http://rfese.com
 ||http://rfjckj.cn
 ||http://rgt0hv5.cn
@@ -89297,6 +89609,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://ruiy.shop
 ||http://ruiyijy.xyz
 ||http://runtai369.cn
+||http://rushwei.ltd
 ||http://ruyidk.com
 ||http://ruyiqufu.com
 ||http://rvlmpo.xyz
@@ -89362,16 +89675,20 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://shantelope.com
 ||http://shanxige.com
 ||http://shanyuebrowser.com
+||http://shappapa.top
 ||http://shaque.vip
 ||http://shareman.xyz
 ||http://shenbianlaoshi.com
 ||http://shengchaopiao.cn
 ||http://shengdaoyiliao.com
+||http://shenghemy.mobi
 ||http://shengshipump.cn
+||http://shengtaiyuan.mobi
 ||http://shenhao258.top
 ||http://shenhl.top
 ||http://shenhuachuwei.cn
 ||http://shenkun.xyz
+||http://shenwupower.com.cn
 ||http://shenyunkeji.com
 ||http://sherrycha.cn
 ||http://shffcy.cn
@@ -89390,6 +89707,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://shrtswkj.com
 ||http://shsdw.cn
 ||http://shsnjj.top
+||http://shtu.shop
 ||http://shua66.vip
 ||http://shuai.love
 ||http://shuaiqiwudixiaoliangzaidddd.icu
@@ -89407,6 +89725,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://sinotealife.cn
 ||http://sinyang.info
 ||http://siomyx.cn
+||http://sisihl.cn
 ||http://sixgen.cn
 ||http://sjaidu.com
 ||http://sjhl.club
@@ -89431,6 +89750,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://smsk.site
 ||http://smvip8.cn
 ||http://smxay.com
+||http://sngsn.fun
 ||http://snuoen.com
 ||http://sogov587.top
 ||http://sokoyo-fq.com
@@ -89511,6 +89831,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://sxrs.shop
 ||http://sxsui.cn
 ||http://sxswjkgs.com
+||http://sxtc.wang
 ||http://sxtyhl.top
 ||http://sxxfmc.com
 ||http://sxying.top
@@ -89576,6 +89897,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://tbaia.com
 ||http://tbi7.cn
 ||http://tbl1.cn
+||http://tbscw.biz
 ||http://tbxprvf.cn
 ||http://tcals.cn
 ||http://tcbdd.cn
@@ -89620,6 +89942,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://timup.top
 ||http://timy.ink
 ||http://tingfengyu.top
+||http://tingsec.link
 ||http://tingyusw.xyz
 ||http://tinnar.cn
 ||http://tiojk.com
@@ -89885,6 +90208,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://weiziqiang.top
 ||http://wekb.club
 ||http://wenbangsh.com.cn
+||http://wenhaikj.xyz
 ||http://wenqixiefu.cn
 ||http://wenxiang.work
 ||http://wenzhougy.cn
@@ -90029,6 +90353,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://xdwqq.cn
 ||http://xdyszx.com
 ||http://xeihy.com
+||http://xflz.xyz
 ||http://xfnkds.com
 ||http://xfvbs.cn
 ||http://xfya3.cn
@@ -90038,7 +90363,9 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://xhct66.com
 ||http://xhera.cn
 ||http://xhfya.cn
+||http://xhhy.online
 ||http://xhmybanjia.cn
+||http://xhpqpq.cn
 ||http://xhtbkh.cn
 ||http://xhvljiw.cn
 ||http://xhx.design
@@ -90084,6 +90411,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://xingsky.cn
 ||http://xingtu.ltd
 ||http://xingxingdd.com
+||http://xingyou22.xyz
 ||http://xingyou25.xyz
 ||http://xingyou46.icu
 ||http://xingzhu.top
@@ -90125,6 +90453,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://xn--wxtr9fwyxk9c.art
 ||http://xncgroup.cn
 ||http://xnjzsn.com
+||http://xocs.ren
 ||http://xpst0kx.cn
 ||http://xpxmpf.cn
 ||http://xpxvok.cn
@@ -90311,6 +90640,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://yrqwyn.cn
 ||http://yrrsckr.cn
 ||http://yrzdbzq.cn
+||http://ys2727.xyz
 ||http://ysclub.top
 ||http://ysfc360.cn
 ||http://ysrmy1.com
@@ -90400,6 +90730,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://zdryg.com
 ||http://zdwsh.tech
 ||http://zdzk0371.cn
+||http://zdzy.shop
 ||http://zengwx.cn
 ||http://zenwq.com
 ||http://zfood029.com

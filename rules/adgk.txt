@@ -1,17 +1,20 @@
-! Version: 20220225034206
+! Version: 20220228175429
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||c.sm.cn
+||pinduoduo.com/ad
+||kb-render.alicdn.com
+baidu.com##.popup-lead
+||p*-ad-sign.byteimg.com
+||ads*-normal-hl.zijieapi.com
 ||jnkangnuo.com
 ||523332.com/Uploads/dip
 ||812633.com
 ||r-log.dable.io
-||pixanalytics.com
-||pixanalytics.pixnet.net
-||pixanalytics2.pixnet.net
-/images/yc.jpg
-/js/htmlk*.js
-||jxxiangyujinshu.com
+||https://c.sm.cn
+||https://pinduoduo.com/ad
+||https://kb-render.alicdn.com
 ||https://jnkangnuo.com
 ||https://523332.com/Uploads/dip
 ||https://812633.com
@@ -4943,7 +4946,6 @@
 ||https://issuecdn.baidupcs.com
 ||https://qapm.baidu.com
 ||https://boxer.baidu.com
-||https://sm.bdimg.com/static/wiseindex/amd_modules/@baidu/get-app-info
 ||https://qujishu.com
 ||https://safe524.xyz
 ||https://qsmdeyz.cn
@@ -12396,6 +12398,11 @@
 @@||youku.com/cms/playlog/get?
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://c.sm.cn
+||http://pinduoduo.com/ad
+||http://kb-render.alicdn.com
+||http://p*-ad-sign.byteimg.com
+||http://ads*-normal-hl.zijieapi.com
 ||http://jnkangnuo.com
 ||http://523332.com/Uploads/dip
 ||http://812633.com
@@ -17414,7 +17421,6 @@
 ||http://issuecdn.baidupcs.com
 ||http://qapm.baidu.com
 ||http://boxer.baidu.com
-||http://sm.bdimg.com/static/wiseindex/amd_modules/@baidu/get-app-info
 ||http://qujishu.com
 ||http://safe524.xyz
 ||http://qsmdeyz.cn
@@ -24454,6 +24460,7 @@
 ||http://lzthjd.cn
 ||http://caoys1998.xyz
 ||http://magicflute.club
+||https://baidu.com##.popup-lead
 ||https://abmedia.io##a.sc-bnXvFD
 ||https://abmedia.io##div.kOQza
 ||https://m.sm.cn$$div[ad_dot_url="adclick"]
@@ -32325,6 +32332,7 @@
 ||https://ruanyifeng.com$$script[tag-content="background"]
 ||https://manhuatai.com$$div[class="acgn-dynamic-content"]
 ||https://yse1234.com/template/phone/imagess/sdfwe.js
+||http://baidu.com##.popup-lead
 ||http://abmedia.io##a.sc-bnXvFD
 ||http://abmedia.io##div.kOQza
 ||http://m.sm.cn$$div[ad_dot_url="adclick"]
