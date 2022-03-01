@@ -24,7 +24,7 @@
 #  git clone https://github.com/zero205/JD_tencent_scf.git /scripts/logs/other_scripts/zero205
 #fi
 
-yyds="/scripts/logs/other_scripts/yyds/README.md"
+yyds="/scripts/logs/other_scripts/yyds/USER_AGENTS.js"
 if [ -f "$yyds" ]; then
   git -C /scripts/logs/other_scripts/yyds reset --hard
   git -C /scripts/logs/other_scripts/yyds pull origin master
