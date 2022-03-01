@@ -84,7 +84,7 @@ const CollectBlissCardsProd = require('./jd/collectBlissCardsProd');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
-const LiteSpringReward = TemporarilyOffline || require('./jd/lite/SpringReward');
+const LiteSpringReward = require('./jd/lite/SpringReward');
 const LiteEarnCoins = require('./jd/lite/EarnCoins');
 const LiteCashSign = require('./jd/lite/CashSign');
 const LiteHappyDig = require('./jd/lite/HappyDig');
