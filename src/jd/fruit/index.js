@@ -38,6 +38,23 @@ class Fruit extends Template {
     return _.property('code')(data) === '0';
   }
 
+  static async doApiInitForFarm(api, shareCode) {
+    return api.doFormBody('initForFarm', {shareCode});
+  }
+
+  static async handleDoShare(api, shareCodes) {
+    const self = this;
+    for (const shareCode of shareCodes) {
+      await sleep(2);
+      await self.doApiInitForFarm(api, shareCode).then(data => {
+        const {helpResult} = data;
+        if (self.isSuccess(helpResult)) {
+          api.log(`给 ${_.property('masterUserInfo.nickName')(helpResult) || 'unknown'} 助力成功`);
+        }
+      });
+    }
+  }
+
   static async doMain(api, shareCodes) {
     const self = this;
     const needHarvest = false;
@@ -95,15 +112,7 @@ class Fruit extends Template {
     async function handleDoShare() {
       // 仅执行一次
       if (self.doneShareTask && !self.lastTimeInTheDay()) return;
-      for (const shareCode of shareCodes) {
-        await sleep(2);
-        await handleInitForFarm(shareCode).then(data => {
-          const {helpResult} = data;
-          if (self.isSuccess(helpResult)) {
-            api.log(`给 ${_.property('masterUserInfo.nickName')(helpResult) || 'unknown'} 助力成功`);
-          }
-        });
-      }
+      await self.handleDoShare(api, shareCodes);
     }
 
     async function handleUseCard(targetCards) {
@@ -288,7 +297,8 @@ class Fruit extends Template {
         canHarvest && (msg += ', 可以收成了!!!');
         api.log(msg);
         if (needHarvest && canHarvest) {
-          if (funCollectionHasLimit) {
+          // TODO 判断有误, 先忽略
+          if (funCollectionHasLimit && false) {
             return api.log('这个月已经兑换过了, 请下个月再来');
           }
           const maxTimes = Math.floor(remainEnergy / 100);
@@ -332,7 +342,7 @@ class Fruit extends Template {
     }
 
     async function handleInitForFarm(shareCode) {
-      const farmData = await api.doFormBody('initForFarm', {shareCode});
+      const farmData = self.doApiInitForFarm(api, shareCode);
       if (_.get(farmData, 'todayGotWaterGoalTask.canPop')) {
         // 被水滴砸中
         await api.doFormBody('gotWaterGoalTaskForFarm', {type: 3});

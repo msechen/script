@@ -26,6 +26,7 @@ const SuperMarket = TemporarilyOffline || require('./jd/superMarket');
 const SuperMarketRedeem = require('./jd/superMarket/redeem');
 const Pet = require('./jd/pet');
 const Fruit = require('./jd/fruit');
+const FruitDoShare = require('./jd/fruit/doShare');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
 const FruitFarmPark = require('./jd/fruit/FarmPark');
 const FruitCollect = TemporarilyOffline || require('./jd/fruit/Collect');
