@@ -96,7 +96,7 @@ class Pet extends Template {
     }
 
     async function handleDoTaskList() {
-      const taskData = await api.doFormBody('taskInit').then(getResult);
+      const taskData = await api.doFormBody('taskInit', {'version': 2, 'channel': 'app'}).then(getResult);
       const {
         signInit,
         threeMealInit,
