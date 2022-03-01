@@ -366,3 +366,6 @@
 
 # 京喜财富岛合成月饼
 5 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_mooncake.js >> /scripts/logs/other_logs/yyds/jd_cfd_mooncake.log 2>&1
+
+# 京喜领88元红包
+4 2,10 * * * node /scripts/logs/other_scripts/yyds/jd_jxlhb.js >> /scripts/logs/other_logs/yyds/jd_jxlhb.log 2>&1
