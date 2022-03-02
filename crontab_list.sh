@@ -287,7 +287,7 @@
 30 7 * * * node /scripts/logs/other_scripts/yyds/jd_ddly.js >> /scripts/logs/other_logs/yyds/jd_ddly.log 2>&1
 
 # 京东饭粒
-30 7 * * * node /scripts/logs/other_scripts/yyds/jd_fanli.js >> /scripts/logs/other_logs/yyds/jd_fanli.log 2>&1
+# 30 7 * * * node /scripts/logs/other_scripts/yyds/jd_fanli.js >> /scripts/logs/other_logs/yyds/jd_fanli.log 2>&1
 
 # 东东健康社区
 13 0,6,22 * * * node /scripts/logs/other_scripts/yyds/jd_health.js >> /scripts/logs/other_logs/yyds/jd_health.log 2>&1
@@ -369,3 +369,6 @@
 
 # 京喜领88元红包
 4 2,10 * * * node /scripts/logs/other_scripts/yyds/jd_jxlhb.js >> /scripts/logs/other_logs/yyds/jd_jxlhb.log 2>&1
+
+# 京喜领88元红包
+10 0,7,23 * * * export JD_SYJ=true && node /scripts/logs/other_scripts/yyds/jd_syj.js >> /scripts/logs/other_logs/yyds/jd_syj.log 2>&1
