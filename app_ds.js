@@ -26,15 +26,20 @@ app地址:http://m.tokshine.com/h5/
 
 注:走399元邀请码不支持使用脚本,走我码再走399元的我也没能力扶持,除非有客观收入会联系下级发放
 
+变现:
+在交易app里面出售释放出来的股权(可官方回收和自行挂单)
+
 一天2-3次,刷1个小时应该够,不够自己看时长计算
 cron 0-59/1 8,17 * * *
 
-脚本地址:
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_ds.js
+
+变量配置文件地址:https://gitee.com/soy-tool/app-script/raw/master/ds_variable_data.js
 
 */
 
 
-const $ = new Env('达赏');
+const $ = new Env('【达赏】版本:22/03/02_0');
 // @grant require
 const notify = $.isNode() ? require('./sendNotify') : '';
 
