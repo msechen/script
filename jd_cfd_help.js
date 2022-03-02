@@ -39,7 +39,7 @@ $.shareCodes = [];
 let cookiesArr = [], cookie = '', token = '';
 let UA, UAInfo = {};
 const randomCount = $.isNode() ? 20 : 3;
-$.appId = "92a36";
+$.appId = 10032;
 let lnrun = 0;
 function oc(fn, defaultVal) {//optioanl chaining
   try {

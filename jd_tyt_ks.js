@@ -26,9 +26,9 @@ if (process.env.tytpacketId) {
 }
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
-            cookiesArr.push(jdCookieNode[item])
-        })
-        //     if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
+        cookiesArr.push(jdCookieNode[item])
+    })
+    //     if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
     cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
@@ -71,7 +71,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
     }
     console.log("推一推结束")
 })()
-.catch((e) => {
+    .catch((e) => {
         $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
     })
     .finally(() => {
@@ -83,7 +83,7 @@ function tythelp() {
         let options = {
             url: `https://api.m.jd.com/?t=1623066557140`,
 
-            body: `functionId=helpCoinDozer&appid=station-soa-h5&client=H5&clientVersion=1.0.0&t=1623120183787&body={"actId":"d5a8c7198ee54de093d2adb04089d3ec","channel":"coin_dozer","antiToken":"","referer":"-1","frontendInitStatus":"s","packetId":"${tytpacketId}","helperStatus":"0"}&_ste=1&_stk=appid,body,client,clientVersion,functionId,t&h5st=20210608104303790;8489907903583162;10005;tk01w89681aa9a8nZDdIanIyWnVuWFLK4gnqY+05WKcPY3NWU2dcfa73B7PBM7ufJEN0U+4MyHW5N2mT/RNMq72ycJxH;7e6b956f1a8a71b269a0038bbb4abd24bcfb834a88910818cf1bdfc55b7b96e5`,
+            body: `functionId=helpCoinDozer&appid=station-soa-h5&client=H5&clientVersion=1.0.0&t=1623120183787&body={"actId":"49f40d2f40b3470e8d6c39aa4866c7ff","channel":"coin_dozer","antiToken":"","referer":"-1","frontendInitStatus":"s","packetId":"${tytpacketId}","helperStatus":"0"}&_ste=1&_stk=appid,body,client,clientVersion,functionId,t&h5st=20210608104303790;8489907903583162;10005;tk01w89681aa9a8nZDdIanIyWnVuWFLK4gnqY+05WKcPY3NWU2dcfa73B7PBM7ufJEN0U+4MyHW5N2mT/RNMq72ycJxH;7e6b956f1a8a71b269a0038bbb4abd24bcfb834a88910818cf1bdfc55b7b96e5`,
             headers: {
                 "Origin": "https://pushgold.jd.com",
                 "Host": "api.m.jd.com",
@@ -98,16 +98,16 @@ function tythelp() {
                 data = JSON.parse(data);
 
                 if (data.code == 0) {
-                     console.log("帮砍：" + data.data.amount)
+                    console.log("帮砍：" + data.data.amount)
 
                 } else if (data.msg.indexOf("完成") != -1) {
                     console.log("已完成砍价")
                     status = 1
                 } else {
-                     if (data.msg !== "need verify"){
-                         console.log(data.msg)
-                     }
-                     console.log(data.msg)
+                    if (data.msg !== "need verify"){
+                        console.log(data.msg)
+                    }
+                    console.log(data.msg)
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -162,8 +162,8 @@ async function TotalBean() {
         $.post(options, (err, resp, data) => {
             try {
                 if (err) {
-                     console.log(`${JSON.stringify(err)}`)
-                     console.log(`${$.name} API请求失败，请检查网路重试`)
+                    console.log(`${JSON.stringify(err)}`)
+                    console.log(`${$.name} API请求失败，请检查网路重试`)
                 } else {
                     if (data) {
                         data = JSON.parse(data);
@@ -177,7 +177,7 @@ async function TotalBean() {
                             $.nickName = $.UserName;
                         }
                     } else {
-                             console.log(`京东服务器返回空数据`)
+                        console.log(`京东服务器返回空数据`)
                     }
                 }
             } catch (e) {
@@ -194,8 +194,8 @@ async function safeGet(data) {
             return true;
         }
     } catch (e) {
-            console.log(e);
-            console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
+        console.log(e);
+        console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
         return false;
     }
 }
@@ -205,7 +205,7 @@ function jsonParse(str) {
         try {
             return JSON.parse(str);
         } catch (e) {
-               console.log(e);
+            console.log(e);
             $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
             return [];
         }

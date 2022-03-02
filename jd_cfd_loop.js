@@ -32,7 +32,7 @@ $.notifyTime = $.getdata("cfd_notifyTime");
 $.result = [];
 $.shareCodes = [];
 let cookiesArr = [], cookie = '', token = '', UA, UAInfo = {};
-$.appId = "92a36";
+$.appId = 10032;
 $.hot = {}
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {

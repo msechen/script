@@ -1,18 +1,35 @@
 /**
+ Author: JDHelloWorld
  东东电竞经理:脚本更新地址 jd_EsportsManager.js
  更新时间：2021-06-20
  活动入口：京东APP-东东农场-风车-电竞经理
  活动链接：https://xinruidddj-isv.isvjcloud.com
+ 已支持IOS双京东账号,Node.js支持N个京东账号
+ 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
+ 互助码shareCode请先手动运行脚本查看打印可看到
+ ==========================Quantumultx=========================
+ [task_local]
+ #东东电竞经理
+ 0 0-23/2 * * * jd_EsportsManager.js, tag=东东电竞经理, img-url=https://raw.githubusercontent.com/JDHelloWorld/jd_scripts/main/icon/jd_EsportsManager.png, enabled=true
+ =========================Loon=============================
  [Script]
- cron "20 0-23/2 * * *" script-path=jd_EsportsManager.js,tag=东东电竞经理
+ cron "0 0-23/2 * * *" script-path=jd_EsportsManager.js,tag=东东电竞经理
+
+ =========================Surge============================
+ 东东电竞经理 = type=cron,cronexp="0 0-23/2 * * *",wake-system=1,timeout=3600,script-path=jd_EsportsManager.js
+
+ =========================小火箭===========================
+ 东东电竞经理 = type=cron,script-path=jd_EsportsManager.js, cronexpr="0 0-23/2 * * *", timeout=3600, enable=true
+
  按顺序给第(Math.floor((index - 1) / 6) + 1)个账号助力
  可能有BUG，但不会给别人号助力
+
  */
 
 const $ = new Env('东东电竞经理');
 let cookiesArr = [], cookie = '', isBox = false, notify, newShareCodes, allMessage = '';
 let tasks = [], shareCodes = [], first = true;
-
+let lnrun = 0;
 !(async () => {
     await requireConfig();
     if (!cookiesArr[0]) {
@@ -47,9 +64,14 @@ let tasks = [], shareCodes = [], first = true;
             if (r !== 200)
                 continue
 
-            await $.wait(2000);
+            await $.wait(1000);
+            lnrun++;
             await main();
-            await $.wait(3000)
+            if (lnrun == 10) {
+                console.log(`\n【访问接口次数达到10次，休息半分钟.....】\n`);
+                await $.wait(30 * 1000);
+                lnrun = 0;
+            }
         }
     }
     if ($.isNode() && allMessage && $.ctrTemp) {
@@ -58,43 +80,45 @@ let tasks = [], shareCodes = [], first = true;
 })()
 
 async function main() {
-  tasks = await detail();
-  for (let i = 0; i < tasks.length; i++) {
-    let product_info_vos = []
-    let task_vos = tasks[i]
-    switch (task_vos.task_name) {
-      case '连签得金币':
-        if (task_vos.status === '1')
-          await do_task(task_vos.simple_record_info_vo.task_token, task_vos.task_id, task_vos.task_type)
-        continue
-      case '邀请好友助力':
-        await getShareCode(task_vos.assist_task_detail_vo.task_token)
-        await $.wait(2000)
+    tasks = await detail();
+    for (let i = 0; i < tasks.length; i++) {
+        let product_info_vos = []
+        let task_vos = tasks[i]
+        switch (task_vos.task_name) {
+            case '连签得金币':
+                if (task_vos.status === '1')
+                    await do_task(task_vos.simple_record_info_vo.task_token, task_vos.task_id, task_vos.task_type)
+                continue
+            case '邀请好友助力':
+                await getShareCode(task_vos.assist_task_detail_vo.task_token)
+                await $.wait(1000)
 
-        await getAssist()
-        await $.wait(2000)
+                await getAssist()
+                await $.wait(1000)
 
-        console.log(`第${$.index}个账号${$.UserName}去助力第${Math.floor(($.index - 1) / 6) + 1}个账号。`)
-        await doAssist()
-        continue
-      case '去浏览精彩会场': case '去关注特色频道' :
-        product_info_vos = task_vos['shopping_activity_vos']
-        break
-      case '去关注优质好店':
-        product_info_vos = task_vos['follow_shop_vo']
-        break
-      default:
-        ""
+                console.log(`第${$.index}个账号${$.UserName}去助力第${Math.floor(($.index - 1) / 6) + 1}个账号。`)
+                await doAssist()
+                continue
+            case '去浏览精彩会场': case '去关注特色频道' :
+                product_info_vos = task_vos['shopping_activity_vos']
+                break
+            case '去关注优质好店':
+                product_info_vos = task_vos['follow_shop_vo']
+                break
+            default:
+                ""
+        }
+        let taskId = task_vos.task_id, taskType = task_vos.task_type;
+        if(product_info_vos != null ){
+            for (let t of product_info_vos) {
+                if (t.status === '1') {
+                    console.log(`开始任务：${task_vos.task_name}`)
+                    let res = await do_task(t.task_token, taskId, taskType)
+                    await $.wait(1000)
+                }
+            }
+        }
     }
-    let taskId = task_vos.task_id, taskType = task_vos.task_type;
-     for (let t of product_info_vos) {
-       if (t.status === '1') {
-         console.log(`开始任务：${task_vos.task_name}`)
-         let res = await do_task(t.task_token, taskId, taskType)
-         await $.wait(1000)
-       }
-     }
-  }
 }
 
 function getShareCode(token) {
@@ -458,7 +482,9 @@ function requireConfig() {
     return new Promise(resolve => {
         console.log('开始获取配置文件\n')
         notify = $.isNode() ? require('./sendNotify') : '';
+        //Node.js用户请在jdCookie.js处填写京东ck;
         const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+        //IOS等用户直接用NobyDa的jd cookie
         if ($.isNode()) {
             Object.keys(jdCookieNode).forEach((item) => {
                 if (jdCookieNode[item]) {

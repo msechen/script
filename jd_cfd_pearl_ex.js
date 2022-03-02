@@ -19,7 +19,7 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-$.appId = "92a36";
+$.appId = 10032;
 !(async () => {
 console.log(`\n兑换红包环境变量：export ddwVirHb='1' 请自行设置兑换金额\n`);	
 console.log(`默认红包余额大于0.2元就参与兑换\n`);	
