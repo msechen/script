@@ -14,11 +14,21 @@ const sleep = (seconds = 1) => _sleep(seconds * 1000);
 
 const logPath = path.resolve(__dirname, '../../logs');
 const getLogFile = (fileName, date = getNowDate()) => `${logPath}/${fileName}.log.${date}`;
+const cacheWriteStream = {};
 const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
-  const logFile = fs.createWriteStream(path.extname(fileName) ? fileName : getLogFile(fileName), {flags: 'a'});
+  const filePath = path.extname(fileName) ? fileName : getLogFile(fileName);
+  const writeStream = cacheWriteStream[filePath] = cacheWriteStream[filePath] || fs.createWriteStream(filePath, {
+    flags: 'a',
+    autoClose: true,
+    emitClose: true,
+  }).on('close', () => {
+    // TODO 执行 writeStream.close()
+    cacheWriteStream[filePath] = null;
+    console.log(`${getNowTime()} ${filePath} writeStream closed`);
+  });
   const _log = chunk => {
     _.isPlainObject(chunk) && (chunk = JSON.stringify(chunk));
-    logFile.write(`${getNowTime()} [${scriptName}] [${type}] ${chunk}\n`);
+    writeStream.write(`${getNowTime()} [${scriptName}] [${type}] ${chunk}\n`);
   };
   [].concat(output).forEach(_log);
 };
