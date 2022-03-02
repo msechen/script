@@ -15,9 +15,7 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "build":true或false(true表示建造建筑,反之),
         "UPbuild":true或false(true表示升级建筑,反之,
         "signtime":0~23(签到时间段,填0到23任意一个),
-        "accelerate":0,
-        "worship":0,
-        "action":0,
+        "reward_video":'观看视频的请求体,链接为:https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/',
         "Authorization":"抓包找带有 https://sdsj.shandw.com 链接 或 49.233.246.33:18081 的请求头(headers)上的 Authorization 值",
         "UA":"抓包找带有 https://sdsj.shandw.com 链接 或 49.233.246.33:18081 的请求头(headers)上的 User-Agent(user-agent) 值 次变量为选填"
     },{
@@ -25,9 +23,7 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "build":false,
         "UPbuild":false,
         "signtime":6,
-        "accelerate":0,
-        "worship":0,
-        "action":0,
+        "reward_video":'',
         "Authorization":"",
         "UA":""
     },{
@@ -35,9 +31,7 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "build":false,
         "UPbuild":false,
         "signtime":6,
-        "accelerate":0,
-        "worship":0,
-        "action":0,
+        "reward_video":'',
         "Authorization":"8",
         "UA":""
     }
