@@ -4,6 +4,7 @@
   "description": "懒人脚本",
   "main": "app.js",
   "dependencies": {
+    "@octokit/core": "^3.5.1",
     "cron": "^1.8.2",
     "crypto-js": "^4.0.0",
     "download": "^8.0.0",
@@ -15,6 +16,7 @@
     "png-js": "^1.0.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
+    "tweetsodium": "0.0.5",
     "ws": "^7.4.3"
   },
   "devDependencies": {
