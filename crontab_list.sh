@@ -370,5 +370,8 @@
 # 京喜领88元红包
 4 2,10 * * * node /scripts/logs/other_scripts/yyds/jd_jxlhb.js >> /scripts/logs/other_logs/yyds/jd_jxlhb.log 2>&1
 
-# 京喜领88元红包
+# 赚京豆-瓜分京豆
 10 0,7,23 * * * export JD_SYJ=true && node /scripts/logs/other_scripts/yyds/jd_syj.js >> /scripts/logs/other_logs/yyds/jd_syj.log 2>&1
+
+# 逛plus，抽京豆
+10 10 * * * node /scripts/logs/other_scripts/yyds/jd_plusReward.js >> /scripts/logs/other_logs/yyds/jd_plusReward.log 2>&1
