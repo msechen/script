@@ -49,10 +49,13 @@ $.appId = "e395f"
     return;
   }
   let res = await getAuthorShareCode('https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/jxhb.json')
-  if (!res) {
+  if (!res) { 
+    res = await getAuthorShareCode('https://ghproxy.zfeng1005.workers.dev/https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/jxhb.json') 
+    if (!res) {
     $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/jxhb.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
     await $.wait(1000)
     res = await getAuthorShareCode('https://dx3242.coding.net/p/updateteam/d/updateTeam/git/raw/master/shareCodes/jxhb.json')
+    }
   }
   if (res && res.activeId) $.activeId = res.activeId;
   $.authorMyShareIds = [...((res && res.code) || [])];
