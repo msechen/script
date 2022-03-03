@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, matchMiddle, parallelRun} = require('../../lib/common');
 const _ = require('lodash');
 const {getMoment} = require('../../lib/moment');
 
@@ -41,7 +41,7 @@ class Sign1 extends Template {
       'https://pro.m.jd.com/mall/active/3SC6rw5iBg66qrXPGmZMqFDwcyXi/index.html',
       'https://pro.m.jd.com/mall/active/kPM3Xedz1PBiGQjY4ZYGmeVvrts/index.html',
       'https://prodev.m.jd.com/mall/active/46xH2FEswob1Eibj3tJMTTfpJvA/index.html',
-      'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
+      // 'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
       'https://prodev.m.jd.com/mall/active/2QUxWHx5BSCNtnBDjtt5gZTq7zdZ/index.html',
       'https://pro.m.jd.com/mall/active/412SRRXnKE1Q4Y6uJRWVT6XhyseG/index.html',
       ['https://prodev.m.jd.com/mall/active/dHKkhs2AYLCeCH3tEaHRtC1TnvH/index.html', {needInApp: true}],
@@ -57,12 +57,17 @@ class Sign1 extends Template {
     }
 
     async function handleSign() {
-      for (let item of urlArray) {
+      await parallelRun({
+        list: urlArray,
+        runFn: _sign,
+      });
+
+      async function _sign(item) {
         item = _.concat(item);
         const [url, options] = item;
         const actId = url.split('/')[url.split('/').length - 2];
         const encryptProjectId = await getParamFromUrl(url, actId, options);
-        if (!encryptProjectId) continue;
+        if (!encryptProjectId) return;
         const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList'));
         for (const {encryptAssignmentId, ext, completionFlag} of assignmentList) {
           if (!ext || completionFlag) continue;
@@ -132,10 +137,14 @@ class Sign1 extends Template {
             body: {activityId, paginationParam: `${paginationParam}`, paginationFlrs},
           },
         }).then(data => {
+          if (data.subCode !== '0') {
+            api.log(data.msg);
+            return;
+          }
           const target = _.get(data, 'floorList', []).find(o => _.get(o, 'boardParams.interaction', '').match('encryptProjectId'));
           if (!target) {
             if (!paginationParamUpdated) {
-              paginationParam = +_.max(data.paginationParams);
+              paginationParam = +_.max(data.paginationParams || [1]);
               paginationParamUpdated = true;
             } else {
               --paginationParam;
