@@ -76,6 +76,8 @@
 33 0,14,20 * * * node /scripts/jd_ttysq.js >> /scripts/logs/jd_ttysq.log 2>&1
 #jd_xfxd
 18 0 * * * node /scripts/jd_xfxd.js >> /scripts/logs/jd_xfxd.log 2>&1
+# 京喜领88元红包
+30 1,6,12,21 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
