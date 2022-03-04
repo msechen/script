@@ -239,6 +239,10 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
             |text("点击券后9.9").findOnce().parent().child(3).text() == "继续完成")){
           RunTask(1,"点击券后9.9",4);
         }
+        else if (text("点击“券后9.9”图标").exists() && (text("点击“券后9.9”图标").findOnce().parent().child(3).text() == "领取任务"
+            |text("点击“券后9.9”图标").findOnce().parent().child(3).text() == "继续完成")){
+          RunTask(1,"点击“券后9.9”图标",4);
+        }
         else if (text("领200").exists() && (text("领200").findOnce().parent().parent().child(3).text() == "领取任务"
             |text("领200").findOnce().parent().parent().child(3).text() == "继续完成")){
           RunTask(2,"领200",4);
