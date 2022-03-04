@@ -8,8 +8,9 @@
   Q：活动界面识别错、脚本执行中断、脚本卡在某个界面无法继续等情况
   A：上述情况，在页面加载缓慢的情况下，可能出现，更换良好的网络环境再执行脚本
 
-  20220301 V5.8.4
-  新增点击“券后9.9”图标立领100任务
+  20220304 V5.9
+  修复浏览10s任务返回太快导致跳出任务列表的问题
+  部分坐标点击改为更稳定的控件点击
  */
 Start();
 console.info("开始任务");
@@ -238,10 +239,6 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
             |text("点击券后9.9").findOnce().parent().child(3).text() == "继续完成")){
           RunTask(1,"点击券后9.9",4);
         }
-        else if (text("点击“券后9.9”图标").exists() && (text("点击“券后9.9”图标").findOnce().parent().child(3).text() == "领取任务"
-            |text("点击“券后9.9”图标").findOnce().parent().child(3).text() == "继续完成")){
-          RunTask(1,"点击“券后9.9”图标",4);
-        }
         else if (text("领200").exists() && (text("领200").findOnce().parent().parent().child(3).text() == "领取任务"
             |text("领200").findOnce().parent().parent().child(3).text() == "继续完成")){
           RunTask(2,"领200",4);
@@ -354,13 +351,14 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
               if(ii > 20){
                 console.log("任务已超时，准备返回");
                 back();
+                sleep(1000);
                 break;
               }
             }
             if(text("已完成浏览").exists()){
               console.log("任务完成，返回");
-              sleep(100);
               back();
+              sleep(1000);
             }
             for(var ii = 0; !className("android.view.View").textStartsWith(TaskKey).exists(); ii++){
               console.log("返回异常，再次尝试返回");
@@ -706,8 +704,8 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
           console.log("等待识别<每日攒点点券>");
           sleep(1500);
           if(ii == 2 && desc("领券中心").exists()){
-            console.info("尝试使用另一入口进入点点券");
-            desc("领券中心").findOne().parent().child(2).click();
+            console.info("再次尝试进入点点券");
+            desc("领券中心").findOne().parent().child(3).click();
           }
           if(ii > 5){
             Task_Log = Task_Log + "\n" +"关键节点识别超时，退出当前账号"
@@ -725,16 +723,14 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
     if(text("每日攒点点券").exists() && (text("待领取").exists() |text("天天攒天天兑").exists())){
       console.info("任务列表需要展开");
       if(text("待领取").exists()){
-        boundsX = text("待领取").findOne().bounds().centerX();
-        boundsY = text("待领取").findOne().bounds().centerY();
+        var KeyButton = text("待领取").findOne().parent()
       }
       else if(text("天天攒天天兑").exists()){
-        boundsX = text("天天攒天天兑").findOne().bounds().centerX();
-        boundsY = text("天天攒天天兑").findOne().bounds().centerY();
+        var KeyButton = text("天天攒天天兑").findOne().parent()
       }
       sleep(500);
       console.log("展开任务列表");
-      click(boundsX,boundsY);
+      KeyButton.click();
     }
   }
 
