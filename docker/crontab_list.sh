@@ -98,6 +98,8 @@
 15 15 * * * node /scripts/jd_joy_withdraw.js >> /scripts/logs/jd_joy_withdraw.log 2>&1
 #天天拼图
 20 0,16 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
+#微信签到领红包
+3 0,11 * * * node /scripts/jd_wq_wxsign.js >> /scripts/logs/jd_wq_wxsign.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
