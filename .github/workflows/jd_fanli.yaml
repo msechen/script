@@ -1,28 +1,33 @@
-name: 京东每日签到
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: 饭粒
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "15 16 * * *"
+        - cron: "20 2,10 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_daily_bounds
+        types: jd_fanli
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - name: Checkout codes
-              uses: actions/checkout@v2
-            - name: Use Node.js
+            - uses: actions/checkout@v1
+            - name: Use Node.js 10.x
               uses: actions/setup-node@v1
               with:
-                  node-version: "12.x"
-            - name: Run app
-              run: npm install
-            - run: node onlyOneExecute.js
+                  node-version: 10.x
+            - name: npm install
+              run: |
+                  npm install
+            - name: "运行 【饭粒】"
+              run: |
+                  node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ github.event.client_payload.JD_COOKIE || secrets.JD_COOKIE }}
                   JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
@@ -41,7 +46,4 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  JD_BEAN_STOP: ${{ github.event.client_payload.JD_BEAN_STOP || secrets.JD_BEAN_STOP }}
-                  JD_BEAN_SIGN_STOP_NOTIFY: ${{ github.event.client_payload.JD_BEAN_SIGN_STOP_NOTIFY || secrets.JD_BEAN_SIGN_STOP_NOTIFY }}
-                  JD_BEAN_SIGN_NOTIFY_SIMPLE: ${{ github.event.client_payload.JD_BEAN_SIGN_NOTIFY_SIMPLE || secrets.JD_BEAN_SIGN_NOTIFY_SIMPLE }}
-                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_bean_sign.js
+                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_fanli.js

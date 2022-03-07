@@ -1,32 +1,31 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 翻翻乐
+name: 众筹许愿池
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "1 0-23/1 * 6 *"
+        - cron: "40 8,10 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_flipcards
+        types: jd_wishingPool
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - name: 拉取代码
-              uses: actions/checkout@v2
-            - name: Use Node.js
+            - uses: actions/checkout@v1
+            - name: Use Node.js 10.x
               uses: actions/setup-node@v1
               with:
-                  node-version: "12.x"
-            - name: 安装依赖包
+                  node-version: 10.x
+            - name: npm install
               run: |
                   npm install
-            - name: "运行【翻翻乐】"
+            - name: "运行 【众筹许愿池】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -47,4 +46,4 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  SYNCURL: https://github.com/ZFeng1005/MyScrpts/raw/main/jd_flipcards.js
+                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_wishingPool.js
