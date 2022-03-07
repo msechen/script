@@ -342,7 +342,7 @@ class Fruit extends Template {
     }
 
     async function handleInitForFarm(shareCode) {
-      const farmData = self.doApiInitForFarm(api, shareCode);
+      const farmData = await self.doApiInitForFarm(api, shareCode);
       if (_.get(farmData, 'todayGotWaterGoalTask.canPop')) {
         // 被水滴砸中
         await api.doFormBody('gotWaterGoalTaskForFarm', {type: 3});
