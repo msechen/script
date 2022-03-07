@@ -89,11 +89,15 @@
 #jd_10_4
 58 59 7,10,13,15,19 * * * node /scripts/jd_10_4.js >> /scripts/logs/jd_10_4.log 2>&1
 #店铺签到
-15 2,14 * * *  node /scripts/jd_dpqd.js >> /scripts/logs/jd_dpqd.log 2>&1
+15 2,14 * * * node /scripts/jd_dpqd.js >> /scripts/logs/jd_dpqd.log 2>&1
 # 通天塔签到共建
 0 0,3 * * * node /scripts/jd_m_sign.js >> /scripts/logs/jd_m_sign.log 2>&1
 #宠汪汪乐园
-20 0-23/3 * * *  node /scripts/jd_joy_park.js >> /scripts/logs/jd_joy_park.log 2>&1
+20 0-23/3 * * * node /scripts/jd_joy_park.js >> /scripts/logs/jd_joy_park.log 2>&1
+#汪汪乐园提现
+15 15 * * * node /scripts/jd_joy_withdraw.js >> /scripts/logs/jd_joy_withdraw.log 2>&1
+#天天拼图
+20 0,16 * * * node /scripts/jd_ttpt.js >> /scripts/logs/jd_ttpt.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
