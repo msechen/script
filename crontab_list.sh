@@ -167,7 +167,7 @@
 15 1,22 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
 
 # 不知道什麽
-15 0,1,23 * * * cd /scripts && ts-node /scripts/jd_zjd_v0.1.ts.ts >> /scripts/logs/jd_zjd_v0.1.ts.log 2>&1
+15 0,1,23 * * * cd /scripts && ts-node /scripts/jd_zjd_v0.1.ts >> /scripts/logs/jd_zjd_v0.1.log 2>&1
 
 ##################################################### 自定 ########################################################
 
