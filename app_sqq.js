@@ -4,6 +4,8 @@
 
 项目注册地址:https://gitee.com/soy-tool/app-script/raw/master/picture/sqq.png
 
+邀请码:131022
+
 一天好像0.3左右,提现10元起,需要实名,提示是手机号和实名信息姓名,身份证一致(不需要的可以不用上)
 除了每日广告外还有一个据说没有的某宝号给人刷单(赚钱\小钱包\提交某宝号)
 
@@ -16,6 +18,8 @@
 多个号用 # 或 @ 换行 隔开
 
 cron 25 10,13,19 * * *
+
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_sqq.js
 
 */
 
