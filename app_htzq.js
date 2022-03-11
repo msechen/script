@@ -21,6 +21,8 @@
 
 cron 25 10,13,18 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_htzq.js
+
 */
 
 
