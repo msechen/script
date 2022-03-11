@@ -42,8 +42,9 @@ let awardState = '';//上期活动的京豆是否收取
 let randomCount = $.isNode() ? 20 : 5;
 let num;
 $.newShareCode = [];
-
-!(async () => {  
+let lnrun = 0;
+let lnruns = 0;
+!(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
@@ -71,8 +72,15 @@ $.newShareCode = [];
       subTitle = '';
       option = {};
       await jdPlantBean();
-	  await doHelp();
-      await $.wait(5 * 1000);
+      await $.wait(2 * 1000);
+      lnrun++;
+      await doHelp();
+      if (lnrun == 3) {
+        console.log(`\n【访问接口次数达到3次，休息一分钟.....】\n`);
+        await $.wait(60 * 1000);
+        lnrun = 0;
+      }
+      await $.wait(3 * 1000);
     }
   }
   if ($.isNode() && allMessage) {
@@ -125,7 +133,7 @@ async function doHelp() {
 
   console.log(`\n【开始账号内互助】\n`);
   $.newShareCode = [...(jdPlantBeanShareArr || [])]
-  
+
   for (let plantUuid of $.newShareCode) {
     console.log(`【${$.UserName}】开始助力: ${plantUuid}`);
     if (!plantUuid) continue;
@@ -133,7 +141,13 @@ async function doHelp() {
       console.log(`\n跳过自己的plantUuid\n`)
       continue
     }
+    lnruns++;
     await helpShare(plantUuid);
+    if (lnruns == 5) {
+      console.log(`\n【访问接口次数达到5次，休息半分钟.....】\n`);
+      await $.wait(30 * 1000);
+      lnruns = 0;
+    }
     if ($.helpResult && $.helpResult.code === '0') {
       console.log(`助力好友结果: ${JSON.stringify($.helpResult.data.helpShareRes)}`);
       if ($.helpResult.data.helpShareRes) {
@@ -153,7 +167,7 @@ async function doHelp() {
       }
     } else {
       console.log(`助力好友失败: ${JSON.stringify($.helpResult)}`);
-	  break;
+      break;
     }
   }
 }

@@ -43,8 +43,8 @@ let randomCount = $.isNode() ? 20 : 5;
 let num;
 $.newShareCode = [];
 let NowHour = new Date().getHours();
-
-!(async () => {  
+let lnrun = 0;
+!(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
@@ -70,8 +70,14 @@ let NowHour = new Date().getHours();
       message = '';
       subTitle = '';
       option = {};
+      lnrun++;
       await jdPlantBean();
-      await showMsg();
+      if(lnrun == 3){
+        console.log(`\n【访问接口次数达到3次，休息一分钟.....】\n`);
+        await $.wait(60*1000);
+        lnrun = 0;
+      }
+      //await showMsg();
     }
   }
   if ($.isNode() && allMessage) {
@@ -112,14 +118,22 @@ async function jdPlantBean() {
       subTitle = `【京东昵称】${$.plantBeanIndexResult.data.plantUserInfo.plantNickName}`;
       message += `【上期时间】${roundList[num - 1].dateDesc.replace('上期 ', '')}\n`;
       message += `【上期成长值】${roundList[num - 1].growth}\n`;
+      await $.wait(1000);
       await receiveNutrients();//定时领取营养液
+      await $.wait(2000);
       await doTask();//做日常任务
+      await $.wait(5000);
       // await doEgg();
       await stealFriendWater();
+      await $.wait(2000);
       await doCultureBean();
+      await $.wait(1000);
       await doGetReward();
+      await $.wait(1000);
       await showTaskProcess();
+      await $.wait(1000);
       await plantShareSupportList();
+      await $.wait(1000);
     } else {
       console.log(`种豆得豆-初始失败:  ${JSON.stringify($.plantBeanIndexResult)}`);
     }
@@ -249,6 +263,7 @@ async function doTask() {
         console.log(`\n开始做 ${item.taskName}任务`);
         // $.receiveNutrientsTaskRes = await receiveNutrientsTask(item.taskType);
         await receiveNutrientsTask(item.taskType);
+        await $.wait(3000);
         console.log(`做 ${item.taskName}任务结果:${JSON.stringify($.receiveNutrientsTaskRes)}\n`);
       }
       if (item.taskType === 3) {
@@ -548,7 +563,7 @@ function requestGet(function_id, body = {}) {
   body["monitor_source"] = "plant_app_plant_index";
   body["monitor_refer"] = "";
   return new Promise(async resolve => {
-    await $.wait(2000);
+    await $.wait(5000);
     const option = {
       url: `${JD_API_HOST}?functionId=${function_id}&body=${escape(JSON.stringify(body))}&appid=ld`,
       headers: {
@@ -626,7 +641,7 @@ function TotalBean() {
 }
 function request(function_id, body = {}) {
   return new Promise(async resolve => {
-    await $.wait(2000);
+    await $.wait(5000);
     $.post(taskUrl(function_id, body), (err, resp, data) => {
       try {
         if (err) {
