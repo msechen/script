@@ -30,7 +30,7 @@ cron 0-59/5 0-23 * * *
 */
 
 
-const $ = new Env('【闪电世界】版本:22/03/11_0');
+const $ = new Env('【闪电世界】版本:22/03/11_1');
 // @grant require
 const notify = $.isNode() ? require('./sendNotify') : '';
 
