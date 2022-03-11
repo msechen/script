@@ -5,8 +5,6 @@
 项目注册地址:http://user.kebik.cn/download?a=10&c=DW22271123
 邀请码:DW22271123
 
-需要实名认证
-
 这个周期有点长,毕竟开始要20多块,一开始提现好像是3/5/20后就可以提5块了,玩忘记了
 只是收取福利界面的气泡
 
@@ -20,7 +18,9 @@
 
 多个号用 # 或 @ 换行 隔开
 
-cron 25 10,13,18 * * *
+cron 39 10,13,18 * * *
+
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_zzb.js
 
 */
 
