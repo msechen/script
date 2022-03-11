@@ -17,7 +17,7 @@
 35 0,6,18 * * * cd /scripts && ts-node /scripts/jd_health.ts >> /scripts/logs/jd_health.log 2>&1
 
 # 东东健康社区收集能量收集能量
-5-45/20 * * * * node /scripts/jd_health_collect.js >> /scripts/logs/jd_health_collect.log 2>&1
+5-45/20 * * * * cd /scripts && ts-node /scripts/jd_health_collect.ts >> /scripts/logs/jd_health_collect.log 2>&1
 
 # 口袋书店
 1 8,12,18 * * * node /scripts/jd_bookshop.js >> /scripts/logs/jd_bookshop.log 2>&1
@@ -372,3 +372,12 @@
 
 # 逛plus，抽京豆
 10 10 * * * node /scripts/logs/other_scripts/yyds/jd_plusReward.js >> /scripts/logs/other_logs/yyds/jd_plusReward.log 2>&1
+
+# 京东汽车-积分
+10 8 * * * node /scripts/logs/other_scripts/yyds/jd_mpdzcar.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar.log 2>&1
+
+# 京东汽车-游戏
+10 6,10,12 * * * node /scripts/logs/other_scripts/yyds/jd_mpdzcar_game.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_game.log 2>&1
+
+# 京东汽车-助力
+10 6,10,12 * * * node /scripts/logs/other_scripts/yyds/jd_mpdzcar_help.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_help.log 2>&1
