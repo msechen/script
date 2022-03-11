@@ -2,7 +2,8 @@
 
 软件名称:灰兔赚钱
 
-项目注册地址:http://yg.zzbzb.com/regNew/?invite_code=809887799
+项目注册地址:http://user.kebik.cn/download?a=13&c=AQ22273150
+邀请码:AQ22273150
 
 需要实名认证
 
