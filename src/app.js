@@ -248,6 +248,7 @@ async function main() {
     {
       valid: 19,
       run: async () => {
+        await doRun(LiteEarnCoins);
       },
     },
     {
