@@ -1,17 +1,26 @@
-! Version: 20220307022658
+! Version: 20220312215624
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
-||kingsoft-office-service.com/ad?
-||adres.wpscdn.cn
-||c.sm.cn
-||pinduoduo.com/ad
-||kb-render.alicdn.com
-baidu.com##.popup-lead
-||p*-ad-sign.byteimg.com
-||ads*-normal-hl.zijieapi.com
-||523332.com/Uploads/dip
-||812633.com
+||sealine.youku.com
+||ykad-data.youku.com
+||pss.alicdn.com/iku/log
+||youku-crm-product.youku.com
+||cad.youku.com
+||pyk.in-neo.cn
+||un-acs.youku.com
+m.qidian.com##.read-author-say.jsAuthorSay
+m.qidian.com##div[id*="chapterEndModule_"]
+m.qidian.com###readTopTip
+||https://sealine.youku.com
+||https://ykad-data.youku.com
+||https://pss.alicdn.com/iku/log
+||https://youku-crm-product.youku.com
+||https://cad.youku.com
+||https://pyk.in-neo.cn
+||https://un-acs.youku.com
+||https://uedas.qidian.com
+||https://unitelogreport.reader.qq.com
 ||https://kingsoft-office-service.com/ad?
 ||https://adres.wpscdn.cn
 ||https://c.sm.cn
@@ -5028,6 +5037,15 @@ baidu.com##.popup-lead
 @@||sohu.com/cityjson
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://sealine.youku.com
+||http://ykad-data.youku.com
+||http://pss.alicdn.com/iku/log
+||http://youku-crm-product.youku.com
+||http://cad.youku.com
+||http://pyk.in-neo.cn
+||http://un-acs.youku.com
+||http://uedas.qidian.com
+||http://unitelogreport.reader.qq.com
 ||http://kingsoft-office-service.com/ad?
 ||http://adres.wpscdn.cn
 ||http://c.sm.cn
@@ -10013,6 +10031,10 @@ baidu.com##.popup-lead
 ||http://lzthjd.cn
 ||http://caoys1998.xyz
 ||http://magicflute.club
+||https://m.qidian.com##.read-author-say.jsAuthorSay
+||https://m.qidian.com##div[id*="chapterEndModule_"]
+||https://m.qidian.com###readTopTip
+||https://m.qidian.com###vue-components
 ||https://baidu.com##.popup-lead
 ||https://abmedia.io##a.sc-bnXvFD
 ||https://abmedia.io##div.kOQza
@@ -13255,6 +13277,10 @@ baidu.com##.popup-lead
 ||https://ruanyifeng.com$$script[tag-content="background"]
 ||https://manhuatai.com$$div[class="acgn-dynamic-content"]
 ||https://yse1234.com/template/phone/imagess/sdfwe.js
+||http://m.qidian.com##.read-author-say.jsAuthorSay
+||http://m.qidian.com##div[id*="chapterEndModule_"]
+||http://m.qidian.com###readTopTip
+||http://m.qidian.com###vue-components
 ||http://baidu.com##.popup-lead
 ||http://abmedia.io##a.sc-bnXvFD
 ||http://abmedia.io##div.kOQza
