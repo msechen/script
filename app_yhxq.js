@@ -2,9 +2,6 @@
 
 项目名称:源火星球
 
-每天收益不知道
-100火源=1元
-
 项目注册地址:http://yuanhuo.yuanhuojisuban.com/#/?code=WVY4OS
 邀请码:WVY4OS
 
@@ -12,6 +9,9 @@
 必要变量:
 
 cron 13 0-23/4 * * *
+
+配置文件地址:https://gitee.com/soy-tool/app-script/raw/master/yhxq_variable.js
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_yhxq.js
 
 */
 
