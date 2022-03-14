@@ -8,12 +8,14 @@
 
 需要人脸实名
 
-想玩的久玩,不需要的就不要理
+想玩的就玩,不需要的就不要理
 
 变量填写
 
 变量名:soy_khz_data
 变量值:抓包的请求头上token值(注意:不要Bearer和空格)
+
+脚本地址:https://gitee.com/soy-tool/app-script/rawmaster/app_khz.js
 
 */
 
