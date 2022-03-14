@@ -20,7 +20,7 @@
 */
 
 
-const $ = new Env('【垦荒者】版本:22/03/14_0');
+const $ = new Env('【垦荒者】版本:22/03/15_0');
 const notify = $.isNode() ? require('./sendNotify') : '';
 
 
