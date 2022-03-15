@@ -48,8 +48,6 @@
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
 #财富岛热气球接待
 30 * * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
-#jd_opencard22
-17 5,13,23 * * * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
 # 推一推
 20 3,13 * * * node /scripts/jd_tyt.js >> /scripts/logs/jd_tyt.log 2>&1
 # 签到免单
@@ -66,6 +64,8 @@
 30 20 * * * node /scripts/jd_exchangejxbeans.js >> /scripts/logs/jd_exchangejxbeans.log 2>&1
 #京东小魔方--收集兑换
 31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
+#jd_opencard2
+30 1,7 16-31/3 3 * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
 #jd_opencard3
 30 1 19,3-18/3 3 * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 #jd_opencard4
