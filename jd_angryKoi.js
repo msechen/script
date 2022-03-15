@@ -29,15 +29,20 @@ const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.cei
 let fair_mode = process.env.KOI_FAIR_MODE == "true" ? true : false
 let chetou_number = process.env.KOI_CHETOU_NUMBER ? Number(process.env.KOI_CHETOU_NUMBER) : 0
 var kois = process.env.kois ?? ""
+let koiLogUrl = process.env.KOI_LOG_URL ?? ""
+let logNums = process.env.KOI_LOG_NUMS ? Number(process.env.KOI_LOG_NUMS) : 100
 let cookiesArr = []
 let scriptsLogArr = []
 let log_i = 0
+let log_j = 0
 var tools = []
 
 let notify, allMessage = '';
 
 !(async () => {
-    await requireConfig()
+     await requireConfig()
+     let res = await getJinliLogs(koiLogUrl)
+    scriptsLogArr = [...(res || [])]
     console.log(`\n 锦鲤红包助力log需要手动抓取 \n`)
     console.log(`\n 拿你小号口令助力抓包,搜关键字 jinli_h5assist 查看请求文本里，再通过URL转码（推荐 https://tool.chinaz.com/tools/urlencode.aspx）拿到对应参数,青龙环境变量里添加 logs \n`)
     console.log(`\n 示例: logs 值 "random":"75831714","log":"1646396568418~1jD94......太长省略...Qwt9i"\n`)
@@ -125,7 +130,7 @@ let notify, allMessage = '';
                     remainingTryCount -= 1
 
                     // 等待一会，避免频繁请求
-                    await $.wait(500)
+                    await $.wait(30000)
                 }
             } else {
                 // 获取失败，跳过
@@ -285,7 +290,7 @@ async function appendRewardInfoToNotify(cookieIndex, cookie) {
             await openRedPacket(cookie)
 
             // 等待一会，避免请求过快
-            await $.wait(1000)
+            await $.wait(3000)
         }
 
         console.info(`领取完毕，重新查询最新锦鲤红包信息`)
@@ -392,7 +397,11 @@ async function helpThisUser(help, tool) {
         num += Math.floor(Math.random() * 10);
     }
     body={"redPacketId": help.redPacketId,"followShop": 0,"random": scriptsLogArr[log_i].substring(10,18),"log": scriptsLogArr[log_i].substring(27,scriptsLogArr[log_i].length-1),"sceneid":"JLHBhPageh5"}
-    log_i ++
+    log_j ++
+    if(log_j >= 10){
+        log_j = 0
+        log_i ++
+    }
     if(log_i == scriptsLogArr.length)
         log_i = 0
     // 实际发起请求
@@ -471,7 +480,38 @@ async function requireConfig() {
         resolve()
     })
 }
-
+function getJinliLogs(url) {
+    return new Promise(async resolve => {
+        const options = {
+            url: `${url}?logNums=${logNums}`, "timeout": 10000, headers: {
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+            }
+        };
+        if ($.isNode() && process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
+            const tunnel = require("tunnel");
+            const agent = {
+                https: tunnel.httpsOverHttp({
+                    proxy: {
+                        host: process.env.TG_PROXY_HOST,
+                        port: process.env.TG_PROXY_PORT * 1
+                    }
+                })
+            }
+            Object.assign(options, { agent })
+        }
+        $.get(options, async (err, resp, data) => {
+            try {
+                resolve(JSON.parse(data))
+            } catch (e) {
+                // $.logErr(e, resp)
+            } finally {
+                resolve();
+            }
+        })
+        await $.wait(10000)
+        resolve();
+    })
+}
 function randomString(e) {
     e = e || 32;
     let t = "abcdefhijkmnprstwxyz2345678",
