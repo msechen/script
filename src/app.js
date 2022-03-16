@@ -277,6 +277,7 @@ async function main() {
       valid: 23,
       run: async () => {
         await serialRun([
+          LiteHappyDig,
           Sign,
           KoiRedPacket,
           Cash,

@@ -138,8 +138,8 @@ class LiteHappyDig extends Template {
 
     async function handleExchange() {
       if (self.getNowHour() < 22) return;
-      const {curRound: round, blood} = await api.doGetBody('happyDigHome').then(_.property('data'));
-      if (blood !== 1) return;
+      const {curRound: round, blood, manuallyExchanged} = await api.doGetBody('happyDigHome').then(_.property('data'));
+      if (blood !== 1 || manuallyExchanged === 2) return;
       return api.doGetBody('happyDigExchange', {round});
     }
 
@@ -157,7 +157,7 @@ class LiteHappyDig extends Template {
         configBaseList,
         taskFinished
       } of taskList) {
-        if (taskFinished || taskShowTitle.match(/下单|购券/)) continue;
+        if (taskFinished || taskShowTitle.match(/下单|购券|买一元/)) continue;
         blood += _.reduce(configBaseList.map(o => +o['awardGivenNumber']), (a, b) => a + b);
         if (getTaskBlood) continue;
         if (taskShowTitle.match(/逛会场/)) {
