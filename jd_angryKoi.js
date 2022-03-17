@@ -194,8 +194,8 @@ async function getHelpInfoForCk(cookieIndex, cookie) {
         }
         return await requestApi('h5launch', cookie, {
             "followShop": 0,
-            "random": num,
-            "log": "42588613~8,~0iuxyee",
+            "random": scriptsLogArr[log_i].substring(10,18),
+            "log": scriptsLogArr[log_i].substring(27,scriptsLogArr[log_i].length-1),
             "sceneid": "JLHBhPageh5"
         });
     })
@@ -380,8 +380,8 @@ async function openRedPacket(cookie) {
     }
     // https://api.m.jd.com/api?appid=jinlihongbao&functionId=h5receiveRedpacketAll&loginType=2&client=jinlihongbao&t=1638189287348&clientVersion=10.2.4&osVersion=-1
     let resp = await requestApi('h5receiveRedpacketAll', cookie, {
-        "random": num,
-        "log": "42588613~8,~0iuxyee",
+        "random": scriptsLogArr[log_i].substring(10,18),
+        "log": scriptsLogArr[log_i].substring(27,scriptsLogArr[log_i].length-1),
         "sceneid": "JLHBhPageh5"
     });
     if (resp?.data?.biz_code == 0) {
