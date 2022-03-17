@@ -1,10 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
+const Cookie = require('./cookie');
 const {execSync} = require('child_process');
 const {readFileJSON} = require('./common');
 
 const processInAC = () => getEnv('NODE_ENV') === 'production';
+const getKeyByIndex = (key, index = 0) => index === 0 ? key : `${key}_${index}`;
 
 const zipObject = fileContent => {
   let result = {};
@@ -35,7 +37,24 @@ function initEnv() {
   });
   envs.unshift(actionEnv);
 
-  return updateProxyConf(_.merge(...envs));
+  const result = _.merge(...envs);
+  patchCookieOption(result);
+
+  return updateProxyConf(result);
+}
+
+function patchCookieOption(result) {
+  // TODO 应该将 JD_COOKIE_OPTION 作为执行标准
+  const option = result['JD_COOKIE_OPTION'] || [];
+  if (_.isEmpty(option)) {
+    return;
+  }
+
+  option.forEach((o, index) => {
+    const cookie = new Cookie(o.cookies);
+    result[getKeyByIndex('JD_COOKIE', index)] = cookie.toString(['pt_pin', 'pt_key']);
+    result[getKeyByIndex('JD_EARN_COOKIE', index)] = cookie.toString(['wq_uin', 'wq_skey']);
+  });
 }
 
 // 判断是否可以配置代理
@@ -83,7 +102,7 @@ function getCookieData(name, envCookieName = 'JD_COOKIE', shareCode, getShareCod
 
 // 从 process.env 获取值
 function getEnv(key, index = 0) {
-  let value = index === 0 ? process.env[key] : process.env[`${key}_${index}`];
+  let value = process.env[getKeyByIndex(key, index)];
   try {
     value = JSON.parse(value);
   } catch (e) {}

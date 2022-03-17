@@ -31,8 +31,12 @@ class Cookie {
     delete this.cookieObject[name];
   }
 
-  toString() {
-    return toPairs(this.cookieObject);
+  toString(keys) {
+    return toPairs(_.isEmpty(keys) ? this.cookieObject : _.pick(this.cookieObject, keys));
+  }
+
+  toObject() {
+    return _.assign({}, this.cookieObject);
   }
 }
 
@@ -40,6 +44,7 @@ class Cookie {
 // ["name=value"]
 // cookie 格式：name=value; Path=/; Expires=Sun, 23-Apr-23 09:01:35 GMT; Domain=.domain.com;
 function fromPairs(data) {
+  if (_.isPlainObject(data)) return data;
   if (_.isString(data)) data = data.split(';');
   return _.fromPairs(data.map(splitCookieStr));
 }
