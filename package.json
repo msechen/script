@@ -28,6 +28,8 @@
     "cron": "node src/cron.js",
     "build:yaml": "node src/yaml/schedule.js",
     "build:updateShopToken": "node src/jd/sign/updateShopToken.js",
+    "build:ChangeCK": "node src/jd/local/ChangeCK.js start",
+    "build:UpdateActionEnv": "node src/shell/updateActionEnv.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",
     "start:SignShop": "npm run build:updateShopToken && node src/jd/sign/shop.js start && npm run build:updateShopToken",
     "start:IsvShopSign": "node src/jd/isv/shopSign.js start",
