@@ -42,8 +42,12 @@ let notify, allMessage = '';
 !(async () => {
      await requireConfig()
      let res = await getJinliLogs(koiLogUrl)
-    scriptsLogArr = [...(res || [])]
+    scriptsLogArr.push(res)
     console.log(`共${scriptsLogArr.length}个助力logn`)
+    if (scriptsLogArr.length == 0){
+        console.log(`脚本停止运行！`)
+        return
+    }
     console.log(`\n 锦鲤红包助力log需要手动抓取 \n`)
     console.log(`\n 拿你小号口令助力抓包,搜关键字 jinli_h5assist 查看请求文本里，再通过URL转码（推荐 https://tool.chinaz.com/tools/urlencode.aspx）拿到对应参数,青龙环境变量里添加 logs \n`)
     console.log(`\n 示例: logs 值 "random":"75831714","log":"1646396568418~1jD94......太长省略...Qwt9i"\n`)
