@@ -80,8 +80,6 @@
 18 0 * * * node /scripts/jd_xfxd.js >> /scripts/logs/jd_xfxd.log 2>&1
 # 京喜领88元红包
 30 1,6,12,21 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
-# 逛PLUS抽京豆
-18 0 * * * node /scripts/jd_plusLottery.js >> /scripts/logs/jd_plusLottery.log 2>&1
 #jd_15_5
 58 59 6,9,14,17,20 * * * node /scripts/jd_15_5.js >> /scripts/logs/jd_15_5.log 2>&1
 #jd_29_8
