@@ -14,14 +14,14 @@ export  KOI_FAIR_MODE="true"
 =================================Quantumultx=========================
 [task_local]
 #愤怒的锦鲤
-30 0,8 * * * https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoii.js, tag=愤怒的锦鲤, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+30 0,8 * * * https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js, tag=愤怒的锦鲤, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "30 0,8  * * *" script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoii.js,tag=愤怒的锦鲤
+cron "30 0,8  * * *" script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js,tag=愤怒的锦鲤
 ===================================Surge================================
-愤怒的锦鲤 = type=cron,cronexp="30 0,8  * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoii.js
+愤怒的锦鲤 = type=cron,cronexp="30 0,8  * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js
 ====================================小火箭=============================
-愤怒的锦鲤 = type=cron,script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoii.js, cronexpr="30 0,8  * * *", timeout=3600, enable=true
+愤怒的锦鲤 = type=cron,script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js, cronexpr="30 0,8  * * *", timeout=3600, enable=true
  */
 const $ = new Env("愤怒的锦鲤")
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
@@ -40,9 +40,9 @@ var tools = []
 let notify, allMessage = '';
 
 !(async () => {
-     await requireConfig()
-     let res = await getJinliLogs(koiLogUrl)
-    scriptsLogArr.push(res)
+    await requireConfig()
+    let res = await getJinliLogs(koiLogUrl)
+    scriptsLogArr = [...res, ...scriptsLogArr]
     console.log(`共${scriptsLogArr.length}个助力logn`)
     if (scriptsLogArr.length == 0){
         console.log(`脚本停止运行！`)
@@ -295,7 +295,7 @@ async function appendRewardInfoToNotify(cookieIndex, cookie) {
             await openRedPacket(cookie)
 
             // 等待一会，避免请求过快
-            await $.wait(8000)
+            await $.wait(6000)
         }
 
         console.info(`领取完毕，重新查询最新锦鲤红包信息`)
