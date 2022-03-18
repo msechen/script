@@ -266,7 +266,7 @@ async function main() {
           Fruit, Pet,
           LiteEarnCoins,
           SuperMarket,
-          StatisticsRedEnvelope,
+          ...statistics,
           LiteHappyDig,
           SuperBrandDay,
           SecondKillRedPacket,

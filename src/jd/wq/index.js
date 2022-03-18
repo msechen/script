@@ -14,7 +14,7 @@ class WqBase extends Template {
   static customApiOptions = {
     uri: 'https://wq.jd.com',
     headers: {
-      referer: 'https://wq.jd.com',
+      referer: 'https://wq.jd.com/',
     },
   };
 

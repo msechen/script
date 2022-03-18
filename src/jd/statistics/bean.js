@@ -1,47 +1,67 @@
-const Template = require('../base/template');
+const Template = require('../wq/index');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
-const {getMoment, getNowDate} = require('../../lib/moment');
+const {replaceObjectMethod, sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
+const _ = require('lodash');
+const {} = require('../../lib/common');
 
-const {statistics} = require('../../../charles/api');
+const indexUrl = 'https://wqsh.jd.com/promote/201801/bean/mybean.html';
 
 class StatisticsBean extends Template {
-  static scriptName = '豆豆统计';
-  static times = 1;
+  static scriptName = 'StatisticsBean';
+  static scriptNameDesc = '豆豆统计';
+  static dirname = __dirname;
+  static shareCodeTaskList = [];
+  static commonParamFn = () => ({});
+  static activityEndTime = '';
 
-  static isSuccess(data) {
-    return this._.property('code')(data) === '0';
+  static customApiOptions = {
+    uri: 'https://wq.jd.com',
+    headers: {
+      referer: indexUrl,
+    },
+  };
+
+
+  static async beforeRequest(api) {
+    replaceObjectMethod(api, 'doGetPath', ([functionId, qs, options]) => {
+      qs = {
+        ...qs,
+        _: getMoment().valueOf(),
+        g_login_type: 0,
+        g_tk: 239007826,
+        g_ty: 'ls',
+      };
+      return [functionId, qs, options];
+    });
   }
 
-  static async doMain(api) {
+  static async doMain(api, shareCodes) {
     const self = this;
 
-    // 需等待, 避免接口报错
-    if (self.currentCookieTimes === 0) await sleep(15);
+    const loginSuccess = await self.mLoginWeb(api, indexUrl);
+    if (!loginSuccess) return;
+    await self.beforeRequest(api);
 
-    let detailList = [];
+    const accumulateFn = (accumulator, currentValue) => accumulator + currentValue;
+
+    // 获取用户信息
+    const total = await api.doGetPath('user/info/QueryJDUserInfo', {sceneid: '11110'}).then(_.property('base.jdNum'));
+    // 获取所有列表
+    const detailList = await api.doGetPath('activeapi/queryuserjingdoudetail', {pagesize: '10'}).then(_.property('detail')) || [];
     const prevDate = getMoment().subtract(1, 'days').format('YYYY-MM-DD');
-    for (const form of statistics.getJingBeanBalanceDetail) {
-      const list = await api.doForm('getJingBeanBalanceDetail', form).then(data => data.detailList);
-      if (_.isEmpty(list)) {
-        api.log('统计有问题');
-        break;
-      }
-      detailList = detailList.concat(list);
-      if (_.last(list).date < prevDate) break;
-    }
-    // writeFileJSON(detailList, 'detailList.json', __dirname);
-
-    if (_.isEmpty(detailList)) return api.log('数据获取错误');
-
-    const allAmount = detailList
-    .filter(o => o.date.match(prevDate))
-    .map(o => +o.amount)
-    .reduce((accumulator, currentValue) => accumulator + currentValue);
-
-    api.log(`${prevDate}(昨天)的收益: ${allAmount}`);
-    _.last(detailList).date === prevDate && api.log('统计可能不准, 还有其他数量没统计进来');
-  };
+    const preMount = _.map(detailList.filter(o => o['createdate'].replace(/\//g, '-').match(prevDate)), 'amount')
+    .reduce(accumulateFn);
+    api.log(`总数: ${total}, ${prevDate}(昨天)的收益: ${preMount}`);
+    // 获取即将过期列表
+    const expireList = await api.doGetPath('activep3/singjd/queryexpirejingdou').then(_.property('expirejingdou')) || [];
+    if (_.isEmpty(expireList)) return;
+    const sevenDayExpire = _.map(expireList, 'expireamount').reduce(accumulateFn);
+    const formatExpire = expireList.map(o => `${getMoment(o['time'] * 1000).format('MM-DD')}(${o['expireamount']})`);
+    api.log(`最近7天过期统计: ${sevenDayExpire}, 具体: ${formatExpire.join(', ')}`);
+  }
 }
+
+singleRun(StatisticsBean).then();
 
 module.exports = StatisticsBean;
