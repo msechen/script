@@ -3,7 +3,7 @@ const path = require('path');
 const _ = require('lodash');
 const Cookie = require('./cookie');
 const {execSync} = require('child_process');
-const {readFileJSON} = require('./common');
+const {readFileJSON, writeFileJSON} = require('./common');
 
 const processInAC = () => getEnv('NODE_ENV') === 'production';
 const getKeyByIndex = (key, index = 0) => index === 0 ? key : `${key}_${index}`;
@@ -19,11 +19,9 @@ const zipObject = fileContent => {
 };
 
 function initEnv() {
-  let actionEnv = {};
   if (processInAC()) {
-    try {
-      actionEnv = JSON.parse(process.env['ACTION_ENV']);
-    } catch (e) {}
+    // github action 从 env.ACTION_ENV 中读取
+    writeFileJSON(getEnv('ACTION_ENV'), '../../.env.product.json', __dirname);
   }
   const envs = ['.env.product.json', '.env.local', '.env.local.json'].map(name => {
     const filePath = path.resolve(__dirname, `../../${name}`);
@@ -35,7 +33,6 @@ function initEnv() {
       return zipObject(content);
     }
   });
-  envs.unshift(actionEnv);
 
   const result = _.merge(...envs);
   patchCookieOption(result);
