@@ -24,7 +24,7 @@ class StatisticsBean extends Template {
     for (const form of statistics.getJingBeanBalanceDetail) {
       const list = await api.doForm('getJingBeanBalanceDetail', form).then(data => data.detailList);
       if (_.isEmpty(list)) {
-        self.log('统计有问题');
+        api.log('统计有问题');
         break;
       }
       detailList = detailList.concat(list);
@@ -32,13 +32,15 @@ class StatisticsBean extends Template {
     }
     // writeFileJSON(detailList, 'detailList.json', __dirname);
 
+    if (_.isEmpty(detailList)) return api.log('数据获取错误');
+
     const allAmount = detailList
     .filter(o => o.date.match(prevDate))
     .map(o => +o.amount)
     .reduce((accumulator, currentValue) => accumulator + currentValue);
 
-    self.log(`${prevDate}(昨天)的收益: ${allAmount}`);
-    _.last(detailList).date === prevDate && self.log('统计可能不准, 还有其他数量没统计进来');
+    api.log(`${prevDate}(昨天)的收益: ${allAmount}`);
+    _.last(detailList).date === prevDate && api.log('统计可能不准, 还有其他数量没统计进来');
   };
 }
 
