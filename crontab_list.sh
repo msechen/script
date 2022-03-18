@@ -122,7 +122,7 @@
 8 0-23/3 * * * node /scripts/jd_yili_cow.ts  >> /scripts/logs/jd_yili_cow.log 2>&1
 
 # 东东超市
-11 * * * * node /scripts/jd_superMarket.js >> /scripts/logs/jd_superMarket.log 2>&1
+# 11 * * * * node /scripts/jd_superMarket.js >> /scripts/logs/jd_superMarket.log 2>&1
 
 # 取关京东店铺和商品
 #55 23 * * * node /scripts/jd_unsubscribe.js >> /scripts/logs/jd_unsubscribe.log 2>&1
@@ -167,7 +167,7 @@
 15 1,22 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
 
 # 不知道什麽
-15 0,1,23 * * * cd /scripts && ts-node /scripts/jd_zjd_v0.1.ts >> /scripts/logs/jd_zjd_v0.1.log 2>&1
+15,30,45 0 * * * cd /scripts && ts-node /scripts/jd_zjd_v0.2.ts >> /scripts/logs/jd_zjd_v0.2.log 2>&1
 
 # 领88元红包
 5 0,6,16 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
@@ -182,7 +182,7 @@
 ##################################################### yyds #####################################################
 
 # 财富大陆
-18 0-23/2 * * * node /scripts/logs/other_scripts/yyds/gua_wealth_island.js >> /scripts/logs/other_logs/yyds/gua_wealth_island.log 2>&1
+# 18 0-23/2 * * * node /scripts/logs/other_scripts/yyds/gua_wealth_island.js >> /scripts/logs/other_logs/yyds/gua_wealth_island.log 2>&1
 
 # 财富大陆-互助
 18 0,1,9,14,18 * * * node /scripts/logs/other_scripts/yyds/gua_wealth_island_help.js >> /scripts/logs/other_logs/yyds/gua_wealth_island_help.log 2>&1
@@ -230,16 +230,16 @@
 50 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_hb.js >> /scripts/logs/other_logs/yyds/jd_cfd_hb.log 2>&1
 
 # 京喜财富岛合成生鲜
-45 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_fresh.js >> /scripts/logs/other_logs/yyds/jd_cfd_fresh.log 2>&1
+# 45 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_fresh.js >> /scripts/logs/other_logs/yyds/jd_cfd_fresh.log 2>&1
 
 # 京喜财富岛热气球
 30 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_loop.js >> /scripts/logs/other_logs/yyds/jd_cfd_loop.log 2>&1
 
 # 京喜财富岛合成珍珠
-30 0-23/2 * * * node /scripts/logs/other_scripts/yyds/jd_cfd_pearl.js >> /scripts/logs/other_logs/yyds/jd_cfd_pearl.log 2>&1
+# 30 0-23/2 * * * node /scripts/logs/other_scripts/yyds/jd_cfd_pearl.js >> /scripts/logs/other_logs/yyds/jd_cfd_pearl.log 2>&1
 
 # 财富岛珍珠兑换
-59 0-23/1 * * * node /scripts/logs/other_scripts/yyds/jd_cfd_pearl_ex.js >> /scripts/logs/other_logs/yyds/jd_cfd_pearl_ex.log 2>&1
+# 59 0-23/1 * * * node /scripts/logs/other_scripts/yyds/jd_cfd_pearl_ex.js >> /scripts/logs/other_logs/yyds/jd_cfd_pearl_ex.log 2>&1
 
 # 众筹许愿池
 40 0,2 * * * node /scripts/logs/other_scripts/yyds/jd_wish.js >> /scripts/logs/other_logs/yyds/jd_wish.log 2>&1
@@ -335,7 +335,7 @@
 0 0,20 * * * node /scripts/logs/other_scripts/yyds/jd_babel_sign.js >> /scripts/logs/other_logs/yyds/jd_babel_sign.log 2>&1
 
 # 京东小魔方
-20 4,19 * * * node /scripts/logs/other_scripts/yyds/jd_xmf.js >> /scripts/logs/other_logs/yyds/jd_xmf.log 2>&1
+# 20 4,19 * * * node /scripts/logs/other_scripts/yyds/jd_xmf.js >> /scripts/logs/other_logs/yyds/jd_xmf.log 2>&1
 
 # 搞鸡玩家-秒秒币
 # 20 7 * * * node /scripts/logs/other_scripts/yyds/jd_ms.js >> /scripts/logs/other_logs/yyds/jd_ms.log 2>&1
@@ -365,7 +365,7 @@
 # 30 6,18 21-28 2 * node /scripts/logs/other_scripts/yyds/jd_dapai_chongai.js >> /scripts/logs/other_logs/yyds/jd_dapai_chongai.log 2>&1
 
 # 京喜财富岛合成月饼
-5 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_mooncake.js >> /scripts/logs/other_logs/yyds/jd_cfd_mooncake.log 2>&1
+# 5 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_mooncake.js >> /scripts/logs/other_logs/yyds/jd_cfd_mooncake.log 2>&1
 
 # 京喜领88元红包
 4 2,10 * * * node /scripts/logs/other_scripts/yyds/jd_jxlhb.js >> /scripts/logs/other_logs/yyds/jd_jxlhb.log 2>&1
@@ -384,3 +384,6 @@
 
 # 京东汽车-助力
 10 6,10,12 * * * node /scripts/logs/other_scripts/yyds/jd_mpdzcar_help.js >> /scripts/logs/other_logs/yyds/jd_mpdzcar_help.log 2>&1
+
+# 极速版抢卷
+58 59 7,10,13,15,19 * * * node /scripts/logs/other_scripts/yyds/jd_speed_10_4.js >> /scripts/logs/other_logs/yyds/jd_speed_10_4.log 2>&1
