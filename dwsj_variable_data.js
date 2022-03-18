@@ -8,7 +8,8 @@ module.exports = {"code":200,"dwsj_variable_data":{
     "config":[{
         "url":"https://gitee.com/soy-tool/app-script/raw/master/app_dwsj.js",
         "update":true或false(true表示自动更新脚本,反之),
-        "notice":true或false(true表示发送通知,反之)
+        "notice":true或false(true表示发送通知,反之),
+        "Concurrent":true或false(true表示多账号并发,反之)
     }],
     "user_data":[{
         "user_ID":"填用户ID(或推荐码)",
@@ -20,7 +21,9 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "worship":0,
         "action":0,
         "Withdrawal":false或true(true表示提现,反之.注:只提现平台收益里面的金额,按最高金额开始提现),
-        "delayed":延时操作(单位秒,填数字不能为0和负数,如填1则是1秒到2秒之间延时),
+        "delayed":延时操作(单位秒,填数字不能为0和负数,如填1则是1秒到2秒之间延时,表示领完收益后延时几秒再丢骰子),
+        "continued":false或true(true表示持续丢骰子,反之),
+        "fire":false或true(true表示着火情况下依旧丢骰子,反之),
         "reward_video":'观看视频的请求体,链接为:https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/',
         "Authorization":"抓包找带有 https://sdsj.shandw.com 链接 或 49.233.246.33:18081 的请求头(headers)上的 Authorization 值",
         "UA":"抓包找带有 https://sdsj.shandw.com 链接 或 49.233.246.33:18081 的请求头(headers)上的 User-Agent(user-agent) 值 次变量为选填"
@@ -35,6 +38,8 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "action":0,
         "Withdrawal":false,
         "delayed":2,
+        "continued":false,
+        "fire":true,
         "reward_video":'',
         "Authorization":"",
         "UA":""
@@ -49,6 +54,8 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "action":0,
         "Withdrawal":true,
         "delayed":1,
+        "continued":false,
+        "fire":true
         "reward_video":'',
         "Authorization":"",
         "UA":""
