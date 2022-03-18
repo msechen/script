@@ -1,7 +1,7 @@
 name: sync-update
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0/30 * * * *'
   workflow_dispatch:
   watch:
     types: started
