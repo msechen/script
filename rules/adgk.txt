@@ -1,7 +1,9 @@
-! Version: 20220312215624
+! Version: 20220318115118
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||whwdzgykybnfg.com
+||m.sfw5.me/wx
 ||sealine.youku.com
 ||ykad-data.youku.com
 ||pss.alicdn.com/iku/log
@@ -10,8 +12,8 @@
 ||pyk.in-neo.cn
 ||un-acs.youku.com
 m.qidian.com##.read-author-say.jsAuthorSay
-m.qidian.com##div[id*="chapterEndModule_"]
-m.qidian.com###readTopTip
+||https://whwdzgykybnfg.com
+||https://m.sfw5.me/wx
 ||https://sealine.youku.com
 ||https://ykad-data.youku.com
 ||https://pss.alicdn.com/iku/log
@@ -3529,7 +3531,6 @@ m.qidian.com###readTopTip
 ||https://hxqu.com
 ||https://iquue.com
 ||https://iyfubh.com
-||https://kaipuyun.cn
 ||https://kendingfa.com
 ||https://keqii.com
 ||https://lidebo.com
@@ -5037,6 +5038,8 @@ m.qidian.com###readTopTip
 @@||sohu.com/cityjson
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://whwdzgykybnfg.com
+||http://m.sfw5.me/wx
 ||http://sealine.youku.com
 ||http://ykad-data.youku.com
 ||http://pss.alicdn.com/iku/log
@@ -8638,7 +8641,6 @@ m.qidian.com###readTopTip
 ||http://hxqu.com
 ||http://iquue.com
 ||http://iyfubh.com
-||http://kaipuyun.cn
 ||http://kendingfa.com
 ||http://keqii.com
 ||http://lidebo.com
