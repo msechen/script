@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
 // 活动入口
@@ -43,8 +44,12 @@ class SuperBrandDay extends Template {
       },
     }).then(data => {
       const brandActivityId = _.get(data, 'data.Brands.list[0].extension.copy1');
+      const beginTime = _.get(data, 'data.Brands.list[0].beginTime');
+      const endTime = _.get(data, 'data.Brands.list[0].endTime');
       api.options.qs.body.brandActivityId = brandActivityId;
       if (!brandActivityId) return true;
+      if (beginTime && getMoment().isBefore(beginTime)) return true;
+      if (endTime && getMoment().isAfter(endTime)) return true;
     });
   }
 
