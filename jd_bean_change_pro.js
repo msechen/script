@@ -12,6 +12,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 const JXUserAgent = $.isNode() ? (process.env.JX_USER_AGENT ? process.env.JX_USER_AGENT : ``) : ``;
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+let NowHour = new Date().getHours();
 let allMessage = '';
 let allMessage2 = '';
 let allReceiveMessage = '';
@@ -75,7 +76,7 @@ RemainMessage += '【其他】京喜红包只能在京喜使用,其他同理';
 let WP_APP_TOKEN_ONE = "";
 
 let TempBaipiao = "";
-
+let llgeterror=false;
 
 let doExJxBeans ="false";
 let time = new Date().getHours();
@@ -360,13 +361,25 @@ if(DisableIndex!=-1){
 				await getMs();
 
 			//东东农场
-			if(EnableJdFruit){
-				await jdfruitRequest('taskInitForFarm', {
-					"version": 14,
-					"channel": 1,
-					"babelChannel": "120"
-				});
+			if (EnableJdFruit) {
+				llgeterror = false;
+				if (NowHour > 16) {
+					await jdfruitRequest('taskInitForFarm', {
+						"version": 14,
+						"channel": 1,
+						"babelChannel": "120"
+					});
+				}
 				await getjdfruit();
+				if (llgeterror) {
+					console.log(`东东农场API查询失败,等待10秒后再次尝试...`)
+					await $.wait(10 * 1000);
+					await getjdfruit();
+				}
+				if (llgeterror) {
+					console.log(`东东农场API查询失败,有空重启路由器换个IP吧.`)
+				}
+
 			}
 			//极速金币
 			if(EnableJdSpeed)
@@ -421,7 +434,7 @@ if(DisableIndex!=-1){
 
 						await notify.sendNotify(`${$.name}`, `${allMessage}`, {
 							url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
-						}, '\n\n本通知 By https://github.com/KingRan/KR',TempMessage)
+						}, '\n\n本通知 By https://github.com/LingFeng0918/LF_JD',TempMessage)
 					}
 					if ($.isNode() && allMessageMonth) {
 						await notify.sendNotify(`京东月资产变动`, `${allMessageMonth}`, {
@@ -490,7 +503,7 @@ if(DisableIndex!=-1){
 
 				await notify.sendNotify(`${$.name}`, `${allMessage}`, {
 					url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
-				}, '\n\n本通知 By https://github.com/KingRan/KR',TempMessage)
+				}, '\n\n本通知 By https://github.com/LingFeng0918/LF_JD',TempMessage)
 			}
 			if ($.isNode() && allMessageMonth) {
 				await notify.sendNotify(`京东月资产变动`, `${allMessageMonth}`, {
@@ -506,7 +519,7 @@ if(DisableIndex!=-1){
 				allMessageGp2=strAllNotify+`\n`+allMessageGp2;
 			await notify.sendNotify(`${$.name}#2`, `${allMessageGp2}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
-			}, '\n\n本通知 By https://github.com/KingRan/KR',TempMessage)
+			}, '\n\n本通知 By https://github.com/LingFeng0918/LF_JD',TempMessage)
 			await $.wait(10 * 1000);
 		}
 		if ($.isNode() && allMessageGp3) {
@@ -515,7 +528,7 @@ if(DisableIndex!=-1){
 				allMessageGp3=strAllNotify+`\n`+allMessageGp3;
 			await notify.sendNotify(`${$.name}#3`, `${allMessageGp3}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
-			}, '\n\n本通知 By https://github.com/KingRan/KR',TempMessage)
+			}, '\n\n本通知 By https://github.com/LingFeng0918/LF_JD',TempMessage)
 			await $.wait(10 * 1000);
 		}
 		if ($.isNode() && allMessageGp4) {
@@ -524,7 +537,7 @@ if(DisableIndex!=-1){
 				allMessageGp4=strAllNotify+`\n`+allMessageGp4;
 			await notify.sendNotify(`${$.name}#4`, `${allMessageGp4}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
-			}, '\n\n本通知 By https://github.com/KingRan/KR',TempMessage)
+			}, '\n\n本通知 By https://github.com/LingFeng0918/LF_JD',TempMessage)
 			await $.wait(10 * 1000);
 		}
 		if ($.isNode() && allMessage) {
@@ -534,7 +547,7 @@ if(DisableIndex!=-1){
 
 			await notify.sendNotify(`${$.name}`, `${allMessage}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
-			}, '\n\n本通知 By https://github.com/KingRan/KR',TempMessage)
+			}, '\n\n本通知 By https://github.com/LingFeng0918/LF_JD',TempMessage)
 			await $.wait(10 * 1000);
 		}
 
@@ -1001,7 +1014,7 @@ async function showMsg() {
 		if(strAllNotify)
 			ReturnMessage=strAllNotify+`\n`+ReturnMessage;
 
-		await notify.sendNotifybyWxPucher(strTitle, `${ReturnMessage}`, `${$.UserName}`,'\n\n本通知 By https://github.com/KingRan/KR',strsummary);
+		await notify.sendNotifybyWxPucher(strTitle, `${ReturnMessage}`, `${$.UserName}`,'\n\n本通知 By https://github.com/LingFeng0918/LF_JD',strsummary);
 	}
 
 	//$.msg($.name, '', ReturnMessage , {"open-url": "https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean"});
@@ -1801,6 +1814,34 @@ function taskMsPostUrl(function_id, body = {}, extra = '', function_id2) {
 	}
 }
 
+function jdfruitRequest(function_id, body = {}, timeout = 1000) {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			$.get(taskfruitUrl(function_id, body), (err, resp, data) => {
+				try {
+					if (err) {
+						console.log('\n东东农场: API查询请求失败 ‼️‼️')
+						console.log(JSON.stringify(err));
+						console.log(`function_id:${function_id}`)
+						$.logErr(err);
+					} else {
+						if (safeGet(data)) {
+							data = JSON.parse(data);
+							$.JDwaterEveryDayT = data.totalWaterTaskInit.totalWaterTaskTimes;
+						}
+					}
+				} catch (e) {
+					$.logErr(e, resp);
+				}
+				finally {
+					resolve(data);
+				}
+			})
+		}, timeout)
+	})
+}
+
+
 async function getjdfruit() {
 	return new Promise(resolve => {
 		const option = {
@@ -1826,10 +1867,13 @@ async function getjdfruit() {
 		$.post(option, (err, resp, data) => {
 			try {
 				if (err) {
-					console.log('\n东东农场: API查询请求失败 ‼️‼️');
-					console.log(JSON.stringify(err));
-					$.logErr(err);
+					if(!llgeterror){
+						console.log('\n东东农场: API查询请求失败 ‼️‼️');
+						console.log(JSON.stringify(err));
+					}
+					llgeterror = true;
 				} else {
+					llgeterror = false;
 					if (safeGet(data)) {
 						$.farmInfo = JSON.parse(data)
 						if ($.farmInfo.farmUserPro) {
@@ -1853,33 +1897,6 @@ async function getjdfruit() {
 				resolve();
 			}
 		})
-	})
-}
-
-function jdfruitRequest(function_id, body = {}, timeout = 1000) {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			$.get(taskfruitUrl(function_id, body), (err, resp, data) => {
-				try {
-					if (err) {
-						console.log('\n东东农场: API查询请求失败 ‼️‼️')
-						console.log(JSON.stringify(err));
-						console.log(`function_id:${function_id}`)
-						$.logErr(err);
-					} else {
-						if (safeGet(data)) {
-							data = JSON.parse(data);
-							$.JDwaterEveryDayT = data.totalWaterTaskInit.totalWaterTaskTimes;
-						}
-					}
-				} catch (e) {
-					$.logErr(e, resp);
-				}
-				finally {
-					resolve(data);
-				}
-			})
-		}, timeout)
 	})
 }
 
@@ -1922,12 +1939,18 @@ function taskPetUrl(function_id, body = {}) {
 
 function taskfruitUrl(function_id, body = {}) {
 	return {
-		url: `${JD_API_HOST}?functionId=${function_id}&appid=wh5&body=${escape(JSON.stringify(body))}`,
+		url: `${JD_API_HOST}?functionId=${function_id}&body=${encodeURIComponent(JSON.stringify(body))}&appid=wh5`,
 		headers: {
-			Cookie: cookie,
-			UserAgent: $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+			"Host": "api.m.jd.com",
+			"Accept": "*/*",
+			"Origin": "https://carry.m.jd.com",
+			"Accept-Encoding": "gzip, deflate, br",
+			"User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+			"Accept-Language": "zh-CN,zh-Hans;q=0.9",
+			"Referer": "https://carry.m.jd.com/",
+			"Cookie": cookie
 		},
-		timeout: 10000,
+		timeout: 10000
 	}
 }
 
