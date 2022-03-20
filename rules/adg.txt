@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-03-19T00:02:22.499Z
+! Last modified: 2022-03-20T12:01:15.868Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -10332,6 +10332,7 @@ vkcdnservice.appspot.com
 ||https://interfacewarrefrain.com
 ||https://interferegamblingsir.com
 ||https://interferingwittymovements.com
+||https://intergient.com
 ||https://interimmicroscope.com
 ||https://interiorcrossalluded.com
 ||https://intermediarypurchaser.com
@@ -14586,6 +14587,7 @@ vkcdnservice.appspot.com
 ||https://readly-renterval.icu
 ||https://readserver.net
 ||https://ready-to-download.com
+||https://reajyu.net
 ||https://realignassiez.xyz
 ||https://realmatch.com
 ||https://realmedia.com
@@ -23417,7 +23419,6 @@ vkcdnservice.appspot.com
 ||https://interaktiv-net.de
 ||https://interceptum.com
 ||https://intergid.ru
-||https://intergient.com
 ||https://interhits.de
 ||https://intermundomedia.com
 ||https://internetmap.info
@@ -25783,6 +25784,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||https://download-stats.mozilla.org
+||https://collector-hpn.ghostery.net
 ||https://scis.tbs.co.jp
 ||https://sp.flocktory.com
 ||https://rta2.newzit.com
@@ -35947,7 +35950,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://smv.to
 ||https://geniee.jp
 ||https://ad.angel-live.com
-||https://reajyu.net
 ||https://ads-lite.net
 ||https://blogparts.gcolle.net
 ||https://eisys-bcs.jp
@@ -36829,6 +36831,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://adshost.site
 ||https://adsimg.kompas.com
 ||https://adtimeselaras.com
+||https://advertica-cdn2.com
 ||https://afbcashidr.com
 ||https://ahcnxuepput.com
 ||https://alertpay.com
@@ -38064,7 +38067,7 @@ charlestownwyllie.oaklawnnonantum.com
 ! Source name: EasyList China ad servers
 !
 ||https://00-gov.cn
-||https://ripplestika.site
+||https://woydyd343.com
 ||https://000123456789.site
 ||https://0024aaaa.com
 ||https://008844.cc
@@ -38483,6 +38486,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://bv8888.com
 ||https://bxgz.cc
 ||https://bydonline.com
+||https://bznxc6721.xyz
 ||https://cangnews.com
 ||https://cao444cao.com
 ||https://caomeixz10.xyz
@@ -38908,6 +38912,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://hz-sllace.com
 ||https://hzdwjc.com
 ||https://hzlm.cc
+||https://hzylhk.com
 ||https://hzyouhejia.com
 ||https://hzyyhz.cn
 ||https://i.zhuoyaju.com
@@ -39366,6 +39371,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://reliancevalve.com
 ||https://rencai56.com
 ||https://rhlxm.top
+||https://ripplestika.site
 ||https://riqu2015.com
 ||https://rmzbfum.cn
 ||https://roay.cn
@@ -39773,6 +39779,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xww360.com
 ||https://xx123.top
 ||https://xxhrd.com
+||https://xxsjsp.com
 ||https://xxyxmdq.cn
 ||https://xylmdm.top
 ||https://xytom.com
@@ -40255,7 +40262,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://5551895.com
 ||https://wofjhs.com
 ||https://xayah.date
-||https://static.meijiacun.com
 ||https://003store.com
 ||https://1.01fy.cn
 ||https://1.07swz.com
@@ -40882,6 +40888,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://static.gaomaer.cn
 ||https://static.ichehome.com
 ||https://static.jiaquyi.com
+||https://static.meijiacun.com
 ||https://t.cnscore.com
 ||https://t1.612.com
 ||https://taobc.com
@@ -41033,8 +41040,17 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://shaquevip.oss-cn-zhangjiakou.aliyuncs.com
 ||https://wxtp.cdn.bcebos.com
 ||https://wzjs1.oss-accelerate.aliyuncs.com
-||https://feelbad.online
-||https://komplett.me
+||https://zailaigou.top
+||https://muoo.xyz
+||https://coderjim.ltd
+||https://kzzs.shop
+||https://0371app.wang
+||https://changxu.cool
+||https://nmlysc.wang
+||https://lyabjy.cn
+||https://pingmianshejishi.com
+||https://joiakit.com
+||https://jlwsw.top
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -41368,6 +41384,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://aoyou2.top
 ||https://aoyou3.top
 ||https://aoyou4.top
+||https://aoyuegc.cn
 ||https://ap72el.com
 ||https://api.abcxs.org
 ||https://apio.ink
@@ -42097,6 +42114,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://fdoun.com
 ||https://febao.xyz
 ||https://fedsdq.com
+||https://feelbad.online
 ||https://feifys.top
 ||https://feilan5.cn
 ||https://feimotailan.cn
@@ -42952,6 +42970,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://knaxfbg.cn
 ||https://knk95.cn
 ||https://komi168.com
+||https://komplett.me
 ||https://koooa.net
 ||https://kowqxog.cn
 ||https://kpirog.com
@@ -44091,6 +44110,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://tgaopa.cn
 ||https://tglzqw.cn
 ||https://tguomcq.cn
+||https://tgvtlpi.cn
 ||https://thechosen1.cn
 ||https://themaxmall.com
 ||https://themee.cn
@@ -45294,7 +45314,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-03-19T00:02:22.499Z
+! Last modified: 2022-03-20T12:01:15.868Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -55640,6 +55660,7 @@ vkcdnservice.appspot.com
 ||http://interfacewarrefrain.com
 ||http://interferegamblingsir.com
 ||http://interferingwittymovements.com
+||http://intergient.com
 ||http://interimmicroscope.com
 ||http://interiorcrossalluded.com
 ||http://intermediarypurchaser.com
@@ -59894,6 +59915,7 @@ vkcdnservice.appspot.com
 ||http://readly-renterval.icu
 ||http://readserver.net
 ||http://ready-to-download.com
+||http://reajyu.net
 ||http://realignassiez.xyz
 ||http://realmatch.com
 ||http://realmedia.com
@@ -68764,7 +68786,6 @@ vkcdnservice.appspot.com
 ||http://interaktiv-net.de
 ||http://interceptum.com
 ||http://intergid.ru
-||http://intergient.com
 ||http://interhits.de
 ||http://intermundomedia.com
 ||http://internetmap.info
@@ -71133,6 +71154,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||http://download-stats.mozilla.org
+||http://collector-hpn.ghostery.net
 ||http://scis.tbs.co.jp
 ||http://sp.flocktory.com
 ||http://rta2.newzit.com
@@ -81390,7 +81413,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://smv.to
 ||http://geniee.jp
 ||http://ad.angel-live.com
-||http://reajyu.net
 ||http://ads-lite.net
 ||http://blogparts.gcolle.net
 ||http://eisys-bcs.jp
@@ -82272,6 +82294,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://adshost.site
 ||http://adsimg.kompas.com
 ||http://adtimeselaras.com
+||http://advertica-cdn2.com
 ||http://afbcashidr.com
 ||http://ahcnxuepput.com
 ||http://alertpay.com
@@ -83511,7 +83534,7 @@ charlestownwyllie.oaklawnnonantum.com
 ! Source name: EasyList China ad servers
 !
 ||http://00-gov.cn
-||http://ripplestika.site
+||http://woydyd343.com
 ||http://000123456789.site
 ||http://0024aaaa.com
 ||http://008844.cc
@@ -83930,6 +83953,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://bv8888.com
 ||http://bxgz.cc
 ||http://bydonline.com
+||http://bznxc6721.xyz
 ||http://cangnews.com
 ||http://cao444cao.com
 ||http://caomeixz10.xyz
@@ -84355,6 +84379,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://hz-sllace.com
 ||http://hzdwjc.com
 ||http://hzlm.cc
+||http://hzylhk.com
 ||http://hzyouhejia.com
 ||http://hzyyhz.cn
 ||http://i.zhuoyaju.com
@@ -84813,6 +84838,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://reliancevalve.com
 ||http://rencai56.com
 ||http://rhlxm.top
+||http://ripplestika.site
 ||http://riqu2015.com
 ||http://rmzbfum.cn
 ||http://roay.cn
@@ -85220,6 +85246,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://xww360.com
 ||http://xx123.top
 ||http://xxhrd.com
+||http://xxsjsp.com
 ||http://xxyxmdq.cn
 ||http://xylmdm.top
 ||http://xytom.com
@@ -85719,7 +85746,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://5551895.com
 ||http://wofjhs.com
 ||http://xayah.date
-||http://static.meijiacun.com
 ||http://003store.com
 ||http://1.01fy.cn
 ||http://1.07swz.com
@@ -86363,6 +86389,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://static.gaomaer.cn
 ||http://static.ichehome.com
 ||http://static.jiaquyi.com
+||http://static.meijiacun.com
 ||http://t.cnscore.com
 ||http://t1.612.com
 ||http://taobc.com
@@ -86516,8 +86543,17 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://shaquevip.oss-cn-zhangjiakou.aliyuncs.com
 ||http://wxtp.cdn.bcebos.com
 ||http://wzjs1.oss-accelerate.aliyuncs.com
-||http://feelbad.online
-||http://komplett.me
+||http://zailaigou.top
+||http://muoo.xyz
+||http://coderjim.ltd
+||http://kzzs.shop
+||http://0371app.wang
+||http://changxu.cool
+||http://nmlysc.wang
+||http://lyabjy.cn
+||http://pingmianshejishi.com
+||http://joiakit.com
+||http://jlwsw.top
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
@@ -86851,6 +86887,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://aoyou2.top
 ||http://aoyou3.top
 ||http://aoyou4.top
+||http://aoyuegc.cn
 ||http://ap72el.com
 ||http://api.abcxs.org
 ||http://apio.ink
@@ -87580,6 +87617,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://fdoun.com
 ||http://febao.xyz
 ||http://fedsdq.com
+||http://feelbad.online
 ||http://feifys.top
 ||http://feilan5.cn
 ||http://feimotailan.cn
@@ -88435,6 +88473,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://knaxfbg.cn
 ||http://knk95.cn
 ||http://komi168.com
+||http://komplett.me
 ||http://koooa.net
 ||http://kowqxog.cn
 ||http://kpirog.com
@@ -89575,6 +89614,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://tgaopa.cn
 ||http://tglzqw.cn
 ||http://tguomcq.cn
+||http://tgvtlpi.cn
 ||http://thechosen1.cn
 ||http://themaxmall.com
 ||http://themee.cn
