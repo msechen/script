@@ -68,7 +68,10 @@ class Sign1 extends Template {
         const actId = url.split('/')[url.split('/').length - 2];
         const encryptProjectId = await getParamFromUrl(url, actId, options);
         if (!encryptProjectId) return;
-        const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList'));
+        const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList')) || [];
+        if (_.isEmpty(assignmentList)) {
+          return api.log(`${url} 活动已结束`);
+        }
         for (const {encryptAssignmentId, ext, completionFlag} of assignmentList) {
           if (!ext || completionFlag) continue;
           const {itemId} = ext[ext['extraType']];
@@ -154,7 +157,8 @@ class Sign1 extends Template {
           let result;
           try {
             result = JSON.parse(_.get(target, 'boardParams.interaction'));
-          } catch (e) {}
+          } catch (e) {
+          }
           return result;
         });
       }
