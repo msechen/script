@@ -42,7 +42,7 @@ let notify, allMessage = '';
 !(async () => {
     await requireConfig()
     let res = await getJinliLogs(koiLogUrl)
-    scriptsLogArr = [...res, ...scriptsLogArr]
+    scriptsLogArr = [...(res || []), ...scriptsLogArr]
     console.log(`共${scriptsLogArr.length}个助力logn`)
     if (scriptsLogArr.length == 0){
         console.log(`脚本停止运行！`)
