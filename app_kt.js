@@ -18,6 +18,8 @@
 一天最少跑8小时,间隔是1小时
 cron 25 6-15 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/app_kt.js
+
 */
 
 
