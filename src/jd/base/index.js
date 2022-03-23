@@ -3,10 +3,11 @@ const _ = require('lodash');
 const Api = require('../api');
 const UserAgent = require('./UserAgent');
 const Cookie = require('../../lib/cookie');
-const {sleep, printLog, parallelRun} = require('../../lib/common');
+const {sleep, printLog, parallelRun, addMosaic} = require('../../lib/common');
 const {getMoment, getNextHour, getNowHour} = require('../../lib/moment');
 const {getEnv} = require('../../lib/env');
 const {sleepTime} = require('../../lib/cron');
+const {processInAC, getProductEnv, updateProductEnv} = require('../../lib/env');
 
 // 注册全局变量
 global._ = _;
@@ -61,6 +62,9 @@ class Base {
   static activityStartTime = '';
   static activityEndTime = '';
 
+  static cookieKeys = ['pt_pin', 'pt_key'];
+  static needChangeCK = true;
+
   // apiNames的补充
   static apiNamesFn() {
     return {
@@ -89,9 +93,8 @@ class Base {
   }
 
   // helpers
-  static log(output, fileName, currentCookieTimes = this.currentCookieTimes) {
-    // 应该输出 Cookie Name TODO 格式化
-    output = `[${currentCookieTimes}] ${_.isPlainObject(output) ? JSON.stringify(output) : output}`;
+  static log(output, fileName, label = this.currentCookieTimes) {
+    output = `[${label}] ${_.isPlainObject(output) ? JSON.stringify(output) : output}`;
     printLog(this.getName(), fileName, output);
   }
 
@@ -239,20 +242,123 @@ class Base {
     return api;
   }
 
+  /**
+   * @deprecated
+   */
   static async beforeInit() {
+  }
+
+  static async changeCK(api, force = false) {
+    const targetForm = require('../../../charles/api').common.genToken.find(o => o.body.match('plogin.m.jd.com'));
+    if (!targetForm) return api.log('genToken form 没找到');
+
+    const cPtPin = 'pt_pin';
+    const cPtKey = 'pt_key';
+    const cWskey = 'wskey';
+    const currentPin = api._originCookie[cPtPin];
+    const cookieOption = findCurrentCookieOption(getEnv('JD_COOKIE_OPTION'));
+    const originCookie = new Cookie(cookieOption.cookies);
+
+    if (!originCookie.get(cWskey)) {
+      return api.log(`当前cookie没有${cWskey}, 无需更新`);
+    }
+
+    if (!force) {
+      const ptKeyExpire = _.get(cookieOption, 'expire.pt_key');
+      if (ptKeyExpire && getMoment().add(30, 'd').isBefore(ptKeyExpire)) {
+        return api.log(`cookie(${ptKeyExpire})还未过期, 无需更新`);
+      }
+
+      const logged = await api.loginValid();
+      if (logged) {
+        return api.log('还在登录状态中, 无需更新');
+      }
+    }
+
+    const commonHeaders = {
+      'user-agent': 'JD4iPhone/167945%20(iPhone;%20iOS;%20Scale/2.00)',
+    };
+    const {tokenKey, url} = await handleGenToken();
+    if (!tokenKey || !url) return;
+    return updateCookieOptions(tokenKey, url);
+
+    async function handleGenToken() {
+      //{
+      // 	"code": "0",
+      // 	"tokenKey": "tokenKey",
+      // 	"url": "https://un.m.jd.com/cgi-bin/app/appjmp"
+      // }
+      return api.doForm('genToken', targetForm, {
+        headers: {
+          // j-e-c, j-e-h 需自行抓包
+          ..._.pick(_.get(cookieOption, 'loginConfig.headers'), ['j-e-c', 'j-e-h']),
+          cookie: originCookie.toString([cPtPin, cWskey]),
+          ...commonHeaders,
+        },
+      });
+    }
+
+    async function updateCookieOptions(tokenKey, url) {
+      await api.doGetUrl(url, {
+        resolveWithFullResponse: true,
+        followRedirect: false,
+        qs: {
+          tokenKey,
+          to: JSON.parse(targetForm.body).to,
+        },
+        headers: {
+          cookie: originCookie.toString([cPtPin, cPtKey]),
+          ...commonHeaders,
+        },
+      }).then(({response}) => {
+        const setCookie = response.headers['set-cookie'];
+        const cookie = new Cookie(setCookie);
+        const newPtKey = cookie.get(cPtKey);
+        if (newPtKey && newPtKey.startsWith('app_')) {
+          const fullPtKey = setCookie.find(str => str.match(cPtKey));
+          api.log(`完整的 ${fullPtKey}`);
+          const expireTime = fullPtKey.split(';').map(str => str.trim()).find(str => str.match('EXPIRES=')).replace('EXPIRES=', '');
+          const expire = getMoment(new Date(expireTime)).format();
+          const oldPtKey = cookieOption.cookies[cPtKey];
+          _.merge(cookieOption, {
+            cookies: {
+              [cPtKey]: newPtKey,
+            },
+            expire: {
+              [cPtKey]: expire,
+            },
+          });
+          if (oldPtKey !== newPtKey) {
+            api.cookie = cookie.toString([cPtPin, cPtKey]);
+            api._originCookie = cookieOption.cookies;
+            api.log(`${cPtKey}发生了变化, ${JSON.stringify([oldPtKey, newPtKey])}`);
+          }
+          const jsonData = getProductEnv();
+          _.merge(findCurrentCookieOption(jsonData['JD_COOKIE_OPTION']), cookieOption);
+          updateProductEnv(jsonData);
+          api.log('转换成功并成功写入文件');
+        } else {
+          api.log('转换失败, 请查看报错');
+        }
+      });
+    }
+
+    function findCurrentCookieOption(cookieOptions) {
+      return cookieOptions.find(o => o['cookies'][cPtPin] === currentPin);
+    }
   }
 
   static async start(data) {
     for (this.currentTimes = 1; this.currentTimes <= this.times; this.currentTimes++) {
       this.currentCookieTimes = 0;
-      await loopInit.call(this, data, false);
+      await this.loopInit(data, false);
     }
     await sleep(2);
   }
 
   // 定时任务
   static async cron(data) {
-    await loopInit.call(this, data, true);
+    await this.loopInit(data, true);
     await sleep(2);
   }
 
@@ -267,75 +373,80 @@ class Base {
     await nextFn();
     return self.loopRun(nextFn);
   }
-}
 
-async function loopInit(data, isCron) {
-  const self = this;
-  let currentCookieTimes = 0;
-  data = _.concat(data);
+  static async loopInit(data, isCron) {
+    const self = this;
+    let currentCookieTimes = 0;
+    data = _.concat(data);
 
-  const patchEndTime = v => v && !/:/.test(v) ? `${v} 23:59:59` : v;
-  self['activityEndTime'] = patchEndTime(self['activityEndTime']);
-  let {activityStartTime, activityEndTime} = self;
-  if (activityStartTime || activityEndTime) {
-    if (getMoment().isAfter(activityEndTime) || getMoment().isBefore(activityStartTime)) {
-      self.log(`活动已结束(${activityStartTime || '无'}至${activityEndTime || '无'})`);
-      return;
-    }
-  }
-
-  const cookieConfig = getEnv('JD_COOKIE_CONFIG');
-  if (!_.isEmpty(cookieConfig)) {
-    data = _.filter(data.map(o => {
-      const key = new Cookie(o.cookie).get('pt_pin');
-      if (_.has(cookieConfig, key)) {
-        const {scriptName: scriptNameConfig} = _.get(cookieConfig, key, {});
-        const {disable, disableShareCode} = scriptNameConfig || {};
-        const scriptName = self.scriptName;
-        if (_.concat(disable).includes(scriptName)) return '';
-        if (_.concat(disableShareCode).includes(scriptName)) {
-          o.shareCodes = [];
-        }
+    const patchEndTime = v => v && !/:/.test(v) ? `${v} 23:59:59` : v;
+    self['activityEndTime'] = patchEndTime(self['activityEndTime']);
+    let {activityStartTime, activityEndTime} = self;
+    if (activityStartTime || activityEndTime) {
+      if (getMoment().isAfter(activityEndTime) || getMoment().isBefore(activityStartTime)) {
+        self.log(`活动已结束(${activityStartTime || '无'}至${activityEndTime || '无'})`);
+        return;
       }
-      return o;
-    }));
-  }
+    }
 
-  if (self.concurrent) {
-    return parallelRun({
-      list: data,
-      runFn: ({cookie, shareCodes}) => _do(cookie, shareCodes),
-      onceNumber: 1,
-      onceDelaySecond: self.concurrentOnceDelay,
-    });
-  }
+    const cookieConfig = getEnv('JD_COOKIE_CONFIG');
+    if (!_.isEmpty(cookieConfig)) {
+      data = _.filter(data.map(o => {
+        const key = o.cookie['pt_pin'];
+        if (_.has(cookieConfig, key)) {
+          const {scriptName: scriptNameConfig} = _.get(cookieConfig, key, {});
+          const {disable, disableShareCode} = scriptNameConfig || {};
+          const scriptName = self.scriptName;
+          if (_.concat(disable).includes(scriptName)) return '';
+          if (_.concat(disableShareCode).includes(scriptName)) {
+            o.shareCodes = [];
+          }
+        }
+        return o;
+      }));
+    }
 
-  for (const {cookie, shareCodes} of data) {
-    await _do(cookie, shareCodes);
-  }
+    if (self.concurrent) {
+      return parallelRun({
+        list: data,
+        runFn: ({cookie, shareCodes}) => _do(cookie, shareCodes),
+        onceNumber: 1,
+        onceDelaySecond: self.concurrentOnceDelay,
+      });
+    }
 
-  async function _do(cookie, shareCodes) {
-    self.currentCookieTimes = currentCookieTimes;
-    await self.beforeInit();
-    await init(cookie, self.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
-  }
+    for (const {cookie, shareCodes} of data) {
+      await _do(cookie, shareCodes);
+    }
 
-  async function init(cookie, shareCodes, isCron = false) {
-    const api = self.initApi(cookie);
-    // TODO 并发的情况下 api 的赋值不可用
-    self.api = api;
-    api.currentCookieTimes = currentCookieTimes++;
-    api.log = (output, fileName) => self.log(output, fileName, api.currentCookieTimes);
-    if (isCron) {
-      await self.doCron(api, shareCodes);
-    } else {
-      await self.doMain(api, shareCodes);
+    async function _do(cookie, shareCodes) {
+      self.currentCookieTimes = currentCookieTimes;
+      await self.beforeInit();
+      await init(cookie, self.isFirstLoop() ? _.filter(_.concat(shareCodes)) : void 0, isCron);
+    }
+
+    async function init(cookie, shareCodes, isCron = false) {
+      const api = self.initApi(new Cookie(cookie).toString(self.cookieKeys));
+      /**
+       * @type {Object}
+       * @private
+       */
+      api._originCookie = cookie;
+      // TODO 并发的情况下 api 的赋值不可用
+      self.api = api;
+      api.currentCookieTimes = currentCookieTimes++;
+      api.log = (output, fileName) => self.log(output, fileName, `${api.currentCookieTimes}] [${addMosaic(cookie['pt_pin'])}`);
+      // TODO 待开放
+      if (self.needChangeCK && processInAC() && false) {
+        await self.changeCK(api);
+      }
+      if (isCron) {
+        await self.doCron(api, shareCodes);
+      } else {
+        await self.doMain(api, shareCodes);
+      }
     }
   }
-}
-
-function log() {
-
 }
 
 module.exports = Base;

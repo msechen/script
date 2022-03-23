@@ -3,15 +3,14 @@
  */
 
 const Cookie = require('../lib/cookie');
-const {updateProcessEnv, getEnvList, getEnv} = require('../lib/env');
-const {readFileJSON, writeFileJSON} = require('../lib/common');
+const {updateProcessEnv, getEnvList, getEnv, getProductEnv, updateProductEnv} = require('../lib/env');
 const _ = require('lodash');
 
 function main() {
   updateProcessEnv();
   const cookieStrList = getEnvList('JD_COOKIE');
   const targetKey = 'JD_COOKIE_OPTION';
-  const fileData = readFileJSON('../../.env.product.json', __dirname);
+  const fileData = getProductEnv();
   if (fileData[targetKey]) {
     console.log(`文件中有 ${targetKey}, 请备份后再执行`);
     return;
@@ -32,8 +31,7 @@ function main() {
     };
   });
   console.log(result);
-  _.merge(fileData, {[targetKey]: result});
-  writeFileJSON(fileData, '../../.env.product.json', __dirname);
+  updateProductEnv({[targetKey]: result}, false);
   console.log('更新成功');
 }
 

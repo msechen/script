@@ -10,6 +10,7 @@ class Earn extends Template {
   static shareCodeTaskList = [];
   static times = 1;
   static commonParamFn = () => ({});
+  static cookieKeys = ['wq_uin', 'wq_skey'];
 
   static apiOptions = {
     signData: {

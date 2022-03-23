@@ -3,9 +3,8 @@
  */
 
 const _ = require('lodash');
-const {updateProcessEnv, getEnv} = require('../lib/env');
+const {getProductEnv, updateProcessEnv, getEnv} = require('../lib/env');
 const {Octokit} = require('@octokit/core');
-const {readFileJSON} = require('../lib/common');
 
 async function main() {
   updateProcessEnv();
@@ -36,7 +35,7 @@ async function main() {
 
   async function updateProductActionEnv(defaultOption) {
     const octokit = new MyOctokit();
-    const actionEnv = readFileJSON('../../.env.product.json', __dirname);
+    const actionEnv = getProductEnv();
     if (_.isEmpty(actionEnv)) {
       return console.log('.env.product.json is empty');
     }

@@ -174,6 +174,23 @@ class Api {
       ...options,
     });
   }
+
+  // 检测cookie有效性
+  async loginValid() {
+    const {code, msg = ''} = await this.commonDo({
+      uri: requestURI,
+      method: 'POST',
+      headers: {
+        'user-agent': 'jdapp',
+      },
+      qs: {
+        functionId: 'initForFarm',
+        appid: 'wh5',
+      },
+      form: {'version': 14, 'channel': 1, 'babelChannel': '120'},
+    });
+    return !(code === '3' && msg === 'not login');
+  }
 }
 
 function initWq() {

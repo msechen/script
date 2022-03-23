@@ -196,14 +196,6 @@ async function singleRun(target, method = 'start', runFn = null) {
   const fileParentDirName = path.basename(path.dirname(filePath));
   // 必须是当前执行的文件, 避免被继承的类被执行
   const scriptName = target.scriptName;
-  let envCookieName;
-  if ([
-    'Earn',
-    'EarnAdvertPlugin',
-  ].includes(scriptName)) {
-    // TODO 更改 getCookieData
-    envCookieName = 'JD_EARN_COOKIE';
-  }
   const isCurrentFile = eq(scriptName, scriptName1) || eq(scriptName, `${fileParentDirName}${scriptName1 === 'index' ? '' : scriptName1}`);
 
   let promise;
@@ -211,7 +203,7 @@ async function singleRun(target, method = 'start', runFn = null) {
   for (const m of _.concat(method)) {
     if (command1 === m && isCurrentFile) {
       updateProcessEnv();
-      promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData(void 0, envCookieName)));
+      promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData(void 0)));
     }
   }
 
@@ -249,6 +241,14 @@ function downloadFile(urls, dirname) {
   });
 }
 
+/**
+ * @description 敏感信息部分打码
+ */
+function addMosaic(str, options) {
+  const {prefix = 1, suffix = 1, mosaicL = 3, mosaic = '*'} = options || {};
+  return str.substring(0, prefix) + Array(mosaicL).fill(mosaic).join('') + str.substring(str.length - suffix);
+}
+
 module.exports = {
   sleep,
 
@@ -278,4 +278,6 @@ module.exports = {
   getValueByFn,
 
   downloadFile,
+
+  addMosaic,
 };

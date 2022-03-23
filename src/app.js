@@ -124,7 +124,7 @@ async function main() {
     SecondKillRedPacket,
     VipClubShake,
     SuperMarket,
-    [Earn, getCookieData(Earn.scriptName, 'JD_EARN_COOKIE')],
+    Earn,
     GoldCreator,
     Factory,
   ];

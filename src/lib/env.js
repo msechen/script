@@ -21,7 +21,7 @@ const zipObject = fileContent => {
 function initEnv() {
   if (processInAC()) {
     // github action 从 env.ACTION_ENV 中读取
-    writeFileJSON(getEnv('ACTION_ENV'), '../../.env.product.json', __dirname);
+    updateProductEnv(getEnv('ACTION_ENV'));
   }
   const envs = ['.env.product.json', '.env.local', '.env.local.json'].map(name => {
     const filePath = path.resolve(__dirname, `../../${name}`);
@@ -35,23 +35,27 @@ function initEnv() {
   });
 
   const result = _.merge(...envs);
-  patchCookieOption(result);
 
   return updateProxyConf(result);
 }
 
-function patchCookieOption(result) {
-  // TODO 应该将 JD_COOKIE_OPTION 作为执行标准
-  const option = result['JD_COOKIE_OPTION'] || [];
-  if (_.isEmpty(option)) {
+// 将 JD_COOKIE 更新成 JD_COOKIE_OPTION, 只支持全覆盖, 不支持合并
+function patchCookieOption() {
+  let cookieOption = getEnv('JD_COOKIE_OPTION') || [];
+  const cookieList = getEnvList('JD_COOKIE').map((cookie, index) => {
+    const earnCookie = getEnv('JD_EARN_COOKIE', index);
+    const cO = new Cookie(cookie).toObject();
+    if (earnCookie) {
+      _.assign(cO, new Cookie(earnCookie).toObject());
+    }
+    return cO;
+  });
+  if (_.isEmpty(cookieList)) {
     return;
   }
-
-  option.forEach((o, index) => {
-    const cookie = new Cookie(o.cookies);
-    result[getKeyByIndex('JD_COOKIE', index)] = cookie.toString(['pt_pin', 'pt_key']);
-    result[getKeyByIndex('JD_EARN_COOKIE', index)] = cookie.toString(['wq_uin', 'wq_skey']);
-  });
+  if (_.isEmpty(cookieOption)) {
+    updateEnv('JD_COOKIE_OPTION', cookieList.map(cookies => ({cookies})));
+  }
 }
 
 // 判断是否可以配置代理
@@ -74,7 +78,7 @@ function updateProxyConf(result) {
   return result;
 }
 
-function getCookieData(name, envCookieName = 'JD_COOKIE', shareCode, getShareCodeFn) {
+function getCookieData(name, shareCode, getShareCodeFn) {
   shareCode && (shareCode = [].concat(shareCode));
   getShareCodeFn = getShareCodeFn || (() => shareCode);
   const getShareCodes = (name, targetIndex) => {
@@ -88,7 +92,7 @@ function getCookieData(name, envCookieName = 'JD_COOKIE', shareCode, getShareCod
     }
     return shareCodes;
   };
-  const cookies = getEnvList(envCookieName);
+  const cookies = _.map(getEnv('JD_COOKIE_OPTION'), 'cookies');
 
   return cookies.map((cookie, index) => {
     const allShareCodes = getShareCodes(name, index);
@@ -115,14 +119,28 @@ function getEnvList(key, limit = 5) {
   return result;
 }
 
+function updateEnv(key, value, index) {
+  process.env[getKeyByIndex(key, index)] = _.isObject(value) ? JSON.stringify(value) : value;
+}
+
 function updateProcessEnv() {
   const env = initEnv() || {};
   _.forEach(env, (v, k) => {
-    if (_.isObject(v)) {
-      env[k] = JSON.stringify(v);
-    }
+    updateEnv(k, v);
   });
-  _.assign(process.env, env);
+  patchCookieOption();
+}
+
+function getProductEnv() {
+  return readFileJSON('../../.env.product.json', __dirname);
+}
+
+function updateProductEnv(data, cover = true, merge = false) {
+  if (!cover) {
+    const oldData = getProductEnv();
+    data = merge ? _.merge(oldData, data) : _.assign(oldData, data);
+  }
+  writeFileJSON(data, '../../.env.product.json', __dirname);
 }
 
 module.exports = {
@@ -132,7 +150,11 @@ module.exports = {
   getCookieData,
 
   getEnv,
+  updateEnv,
   getEnvList,
 
   processInAC,
+
+  getProductEnv,
+  updateProductEnv,
 };
