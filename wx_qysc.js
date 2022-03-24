@@ -13,6 +13,8 @@
 
 cron 25 10,13 * * *
 
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/wx_qysc.js
+
 */
 
 
