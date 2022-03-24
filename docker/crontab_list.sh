@@ -68,6 +68,8 @@
 15 1,18 17-25/3 3 * node /scripts/jd_opencard1.js >> /scripts/logs/jd_opencard1.log 2>&1
 #jd_opencard2
 30 1,7 16-31/3 3 * node /scripts/jd_opencard2.js >> /scripts/logs/jd_opencard2.log 2>&1
+#jd_opencard3
+30 2,19 2,5,8,10,23-31/3 3,4 * node /scripts/jd_opencard3.js >> /scripts/logs/jd_opencard3.log 2>&1
 #jd_opencard5
 30 1 21-31/3 3 * node /scripts/jd_opencard5.js >> /scripts/logs/jd_opencard5.log 2>&1
 #jd_opencard6
