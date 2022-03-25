@@ -5,9 +5,11 @@ const UserAgent = require('./UserAgent');
 const Cookie = require('../../lib/cookie');
 const {sleep, printLog, parallelRun, addMosaic} = require('../../lib/common');
 const {getMoment, getNextHour, getNowHour} = require('../../lib/moment');
-const {getEnv} = require('../../lib/env');
 const {sleepTime} = require('../../lib/cron');
-const {processInAC, getProductEnv, updateProductEnv} = require('../../lib/env');
+const {processInAC, getProductEnv, updateProductEnv, uploadProductEnvToAction, getEnv} = require('../../lib/env');
+
+let doChangeCkMaxTimes = 1;
+let needUpdateAction = false;
 
 // 注册全局变量
 global._ = _;
@@ -88,14 +90,16 @@ class Base {
   static async doCron(api, shareCodes) {
   }
 
+  static async afterAllDone() {}
+
   static getName() {
     return this.scriptNameDesc || this.scriptName;
   }
 
   // helpers
-  static log(output, fileName, label = this.currentCookieTimes) {
+  static log(output, fileName, label = this.currentCookieTimes, name = this.getName()) {
     output = `[${label}] ${_.isPlainObject(output) ? JSON.stringify(output) : output}`;
-    printLog(this.getName(), fileName, output);
+    printLog(name, fileName, output);
   }
 
   // 第一次循环
@@ -250,7 +254,8 @@ class Base {
 
   static async changeCK(api, force = false) {
     const targetForm = require('../../../charles/api').common.genToken.find(o => o.body.match('plogin.m.jd.com'));
-    if (!targetForm) return api.log('genToken form 没找到');
+    const log = (output, fileName) => api.log(output, fileName, '转换cookie');
+    if (!targetForm) return log('genToken form 没找到');
 
     const cPtPin = 'pt_pin';
     const cPtKey = 'pt_key';
@@ -260,18 +265,18 @@ class Base {
     const originCookie = new Cookie(cookieOption.cookies);
 
     if (!originCookie.get(cWskey)) {
-      return api.log(`当前cookie没有${cWskey}, 无需更新`);
+      return log(`当前cookie没有${cWskey}, 无需更新`);
     }
 
     if (!force) {
       const ptKeyExpire = _.get(cookieOption, 'expire.pt_key');
-      if (ptKeyExpire && getMoment().add(30, 'd').isBefore(ptKeyExpire)) {
-        return api.log(`cookie(${ptKeyExpire})还未过期, 无需更新`);
+      if (ptKeyExpire && getMoment().add(29, 'd').isBefore(ptKeyExpire)) {
+        return console.log(`cookie(${ptKeyExpire})还未过期, 无需更新`);
       }
 
       const logged = await api.loginValid();
       if (logged) {
-        return api.log('还在登录状态中, 无需更新');
+        return console.log('还在登录状态中, 无需更新');
       }
     }
 
@@ -316,7 +321,8 @@ class Base {
         const newPtKey = cookie.get(cPtKey);
         if (newPtKey && newPtKey.startsWith('app_')) {
           const fullPtKey = setCookie.find(str => str.match(cPtKey));
-          api.log(`完整的 ${fullPtKey}`);
+          // 无需输出
+          // log(`完整的 ${fullPtKey}`);
           const expireTime = fullPtKey.split(';').map(str => str.trim()).find(str => str.match('EXPIRES=')).replace('EXPIRES=', '');
           const expire = getMoment(new Date(expireTime)).format();
           const oldPtKey = cookieOption.cookies[cPtKey];
@@ -331,14 +337,15 @@ class Base {
           if (oldPtKey !== newPtKey) {
             api.cookie = cookie.toString([cPtPin, cPtKey]);
             api._originCookie = cookieOption.cookies;
-            api.log(`${cPtKey}发生了变化, ${JSON.stringify([oldPtKey, newPtKey])}`);
+            log(`${cPtKey}发生了变化, ${JSON.stringify([oldPtKey, newPtKey])}`);
           }
           const jsonData = getProductEnv();
           _.merge(findCurrentCookieOption(jsonData['JD_COOKIE_OPTION']), cookieOption);
           updateProductEnv(jsonData);
-          api.log('转换成功并成功写入文件');
+          needUpdateAction = true;
+          console.log('转换成功并成功写入文件');
         } else {
-          api.log('转换失败, 请查看报错');
+          console.log('转换失败, 请查看报错');
         }
       });
     }
@@ -419,6 +426,13 @@ class Base {
       await _do(cookie, shareCodes);
     }
 
+    if (processInAC() && needUpdateAction) {
+      needUpdateAction = false;
+      --doChangeCkMaxTimes;
+      uploadProductEnvToAction();
+    }
+    await self.afterAllDone();
+
     async function _do(cookie, shareCodes) {
       self.currentCookieTimes = currentCookieTimes;
       await self.beforeInit();
@@ -435,10 +449,9 @@ class Base {
       // TODO 并发的情况下 api 的赋值不可用
       self.api = api;
       api.currentCookieTimes = currentCookieTimes++;
-      api.log = (output, fileName) => self.log(output, fileName, `${api.currentCookieTimes}] [${addMosaic(cookie['pt_pin'])}`);
-      // TODO 待开放
-      if (self.needChangeCK && processInAC() && false) {
-        await self.changeCK(api);
+      api.log = (output, fileName, name) => self.log(output, fileName, `${api.currentCookieTimes}] [${addMosaic(cookie['pt_pin'])}`, name);
+      if (self.needChangeCK && doChangeCkMaxTimes > 0) {
+        await self.changeCK(api, processInAC() && [6, 14, 20].includes(getNowHour()));
       }
       if (isCron) {
         await self.doCron(api, shareCodes);

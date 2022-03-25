@@ -143,6 +143,12 @@ function updateProductEnv(data, cover = true, merge = false) {
   writeFileJSON(data, '../../.env.product.json', __dirname);
 }
 
+function uploadProductEnvToAction() {
+  const command = 'npm run build:UpdateActionEnv';
+  console.log(command);
+  console.log(require('child_process').execSync(command).toString());
+}
+
 module.exports = {
   initEnv,
   updateProcessEnv,
@@ -157,4 +163,5 @@ module.exports = {
 
   getProductEnv,
   updateProductEnv,
+  uploadProductEnvToAction,
 };

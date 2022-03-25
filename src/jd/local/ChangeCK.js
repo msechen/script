@@ -7,6 +7,7 @@ const Template = require('../base/template');
 
 const {sleep, readFileJSON, writeFileJSON, singleRun} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
+const {uploadProductEnvToAction} = require('../../lib/env');
 const _ = require('lodash');
 
 class ChangeCK extends Template {
@@ -27,6 +28,10 @@ class ChangeCK extends Template {
     const self = this;
 
     await self.changeCK(api, true);
+  }
+
+  static async afterAllDone() {
+    uploadProductEnvToAction();
   }
 }
 
