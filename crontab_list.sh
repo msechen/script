@@ -175,6 +175,9 @@
 # 锦鲤红包
 1 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
+# 微信小程序签到红包
+8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
