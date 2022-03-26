@@ -23,6 +23,8 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "buy_fire":(false或true,true表示购买消防车,反之),
         "buy_dice":(false或true,true表示购自定义骰子,反之),
         "dice_six":(false或true,true表示在着火情况下,身前6格不着火是否丢6电骰子,反之),
+        "Address":"转增地址(对方的)",
+        "gold_coins":"填5/10/20(对应转5m/10m/20m)",
         "reward_video":'观看视频的请求体,链接为:https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/reward_video/reward/',
         "Authorization":"抓包找带有 https://sdsj.shandw.com 链接 或 49.233.246.33:18081 的请求头(headers)上的 Authorization 值",
         "UA":"抓包找带有 https://sdsj.shandw.com 链接 或 49.233.246.33:18081 的请求头(headers)上的 User-Agent(user-agent) 值 次变量为选填"
@@ -39,6 +41,8 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "buy_fire":true,
         "buy_dice":true,
         "dice_six":true,
+        "Address":"123456",
+        "gold_coins":"20",
         "reward_video":'',
         "Authorization":"",
         "UA":""
@@ -54,6 +58,8 @@ module.exports = {"code":200,"dwsj_variable_data":{
         "fire":true
         "buy_fire":false,
         "buy_dice":true,
+        "Address":"123456",
+        "gold_coins":"20",
         "dice_six":true,
         "reward_video":'',
         "Authorization":"",
