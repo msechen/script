@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*
 '''
-new Env('wskey转换');
+new Env('wskey转换-本地版');
 '''
 import socket  # 用于端口检测
 import base64  # 用于编解码
@@ -98,13 +98,10 @@ def ql_login():  # 方法 青龙登录(获取Token 功能同上)
 
 # 返回值 list[wskey]
 def get_wskey():  # 方法 获取 wskey值 [系统变量传递]
-    if "JD_WSCK" in os.environ:  # 判断 JD_WSCK是否存在于环境变量
-        wskey_list = os.environ['JD_WSCK'].split('&')  # 读取系统变量 以 & 分割变量
-        if len(wskey_list) > 0:  # 判断 WSKEY 数量 大于 0 个
-            return wskey_list  # 返回 WSKEY [LIST]
-        else:  # 判断分支
-            logger.info("JD_WSCK变量未启用")  # 标准日志输出
-            sys.exit(1)  # 脚本退出
+    if os.path.getsize("./wskey.txt")>0:
+        with open("./wskey.txt", "r") as f:
+            data = f.readlines()
+            return data
     else:  # 判断分支
         logger.info("未添加JD_WSCK变量")  # 标准日志输出
         sys.exit(0)  # 脚本退出
@@ -465,6 +462,7 @@ if __name__ == '__main__':   # Python主函数执行入口
     else:  # 判断分支
         sleepTime = 10  # 默认休眠时间 10秒
     for ws in wslist:  # wslist变量 for循环  [wslist -> ws]
+        ws = ws.strip("\n")
         wspin = ws.split(";")[0]  # 变量分割 ;
         if "pin" in wspin:  # 判断 pin 是否存在于 [wspin]
             wspin = "pt_" + wspin + ";"  # 封闭变量
