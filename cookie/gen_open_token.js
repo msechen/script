@@ -6,23 +6,39 @@ const os = require('os')
 const common = require('./common')
 
 const body = '%7B%22to%22%3A%22https%253a%252f%252fplogin.m.jd.com%252fjd-mlogin%252fstatic%252fhtml%252fappjmp_blank.html%22%7D&'
-const userAgent = 'jdapp;android;10.2.2;12;4458733482863700-7863352443708840;model/M2102K1C;addressid/6843817282;aid/a43dbe6cccc9f73d;oaid/ad1e58849a3882b7;osVer/31;appBuild/91077;partner/yybd01;eufv/1;jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 12; M2102K1C Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36'
+let userAgent = ''
 
 let tokenKey, pt_key, pt_pin, error_msg = '', username = '', signParams;
 !(async () => {
     const wskeys = getWsKeys();
     if (wskeys.length) {
         console.log(wskeys)
-        await axios.get(Buffer.from('aHR0cHM6Ly9jZi5zaGl6dWt1Lm1sL2dlblRva2Vu', 'base64').toString(),
+        await axios.get(Buffer.from('aHR0cHM6Ly9jZi5zaGl6dWt1Lm1sL2NoZWNrX2FwaQ==', 'base64').toString(),
             {
                 maxRedirects: 0,
                 headers: {
-                    'User-Agent': userAgent,
+                    "authorization": "Bearer Shizuku"
                 }
             }
-        ).then(res => {
-            signParams = res.data
+        ).then(async result => {
+            userAgent = result.data['User-Agent']
+            console.log(userAgent)
+            await axios.get(Buffer.from('aHR0cHM6Ly9jZi5zaGl6dWt1Lm1sL2dlblRva2Vu', 'base64').toString(),
+                {
+                    maxRedirects: 0,
+                    headers: {
+                        'User-Agent': userAgent,
+                    }
+                }
+            ).then(res => {
+                signParams = res.data
+            }).catch(err => {
+                console.log(`請求簽名參數錯誤： ${err}`)
+            })
+        }).catch(err => {
+            console.log(`請求user-agent錯誤： ${err}`)
         })
+
         if (!signParams) {
             await notify.sendNotify('Update cookie', `获取签名参数错误：\n\n${e}`)
             process.exit(1)
