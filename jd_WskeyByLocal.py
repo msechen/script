@@ -103,7 +103,7 @@ def get_wskey():  # 方法 获取 wskey值 [系统变量传递]
             data = f.readlines()
             return data
     else:  # 判断分支
-        logger.info("未添加JD_WSCK变量")  # 标准日志输出
+        logger.info("请在脚本同目录创建wskey.txt文本，格式pin=xxx;wskey=xxx; 确保每行一个wskey")  # 标准日志输出
         sys.exit(0)  # 脚本退出
 
 
