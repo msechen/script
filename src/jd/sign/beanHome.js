@@ -84,7 +84,7 @@ class SignBeanHome extends Template {
         paramFn: () => ({awardFlag: true, source: 'home'}),
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.log(`获得豆豆: ${_.property('data.beanNum')(data)}`);
+          api.log(`获得豆豆: ${_.property('data.beanNum')(data)}`);
         },
       },
     };

@@ -118,7 +118,7 @@ class KoiRedPacket extends Template {
         paramFn: () => ({isjdapp: 1}),
         async successFn(data, api) {
           if (!self.isSuccess(data)) return;
-          self.log(`获取到的红包为: ${_.property('data.result.redpacketInfo.packetTotalSum')(data)}`);
+          api.log(`获取到的红包为: ${_.property('data.result.redpacketInfo.packetTotalSum')(data)}`);
         },
       },
     };

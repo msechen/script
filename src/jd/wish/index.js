@@ -69,13 +69,13 @@ class Wish extends Template {
       const needStop = await api.doForm('wishContent', form).then(async data => {
         index++;
         if (!self.isSuccess(data)) {
-          self.log(data.msg);
+          api.log(data.msg);
           return true;
         }
         if (data.prizeInfo) {
           const prizeNum = _.property('prizeInfo.prizeNum')(data);
           if (prizeNum === 0) {
-            self.log(data.prizeInfo.msg);
+            api.log(data.prizeInfo.msg);
             return true;
           } else {
             allPrizeNum += prizeNum;
@@ -86,7 +86,7 @@ class Wish extends Template {
       if (needStop) break;
     }
 
-    allPrizeNum && self.log(`领取到的京豆为: ${allPrizeNum}`);
+    allPrizeNum && api.log(`领取到的京豆为: ${allPrizeNum}`);
   };
 }
 

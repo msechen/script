@@ -159,7 +159,7 @@ class Necklace extends Template {
             await api.doFormBody('necklace_chargeScores', {bubleId: id});
           }
           const totalScore = await api.doFormBody('necklace_homePage').then(data => _.property('data.result.totalScore')(data));
-          totalScore && self.log(`当前分数为: ${totalScore}`);
+          totalScore && api.log(`当前分数为: ${totalScore}`);
         },
       },
     };

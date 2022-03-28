@@ -101,7 +101,7 @@ class Nian extends Template {
               redNum,
               scoreLevel,
             } = await self.getHomeData(api).then(data => _.property('data.result.homeMainInfo.raiseInfo')(data)) || {};
-            scoreLevel && self.log(`当前等级: ${scoreLevel}, 年终奖瓜分数目: ${redNum}`);
+            scoreLevel && api.log(`当前等级: ${scoreLevel}, 年终奖瓜分数目: ${redNum}`);
             return false;
           }
         },

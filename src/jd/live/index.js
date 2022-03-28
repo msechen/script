@@ -85,7 +85,7 @@ class Live extends Template {
               uri: 'https://api.m.jd.com/api',
             }).then(data => {
               if (!self.isSuccess(data)) return;
-              self.log(`获得豆豆: ${data.sum}`);
+              api.log(`获得豆豆: ${data.sum}`);
             });
           }
         },

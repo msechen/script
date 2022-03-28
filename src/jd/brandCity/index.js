@@ -93,7 +93,7 @@ class BrandCity extends Template {
         name: 'mcxhd_brandcity_homePage',
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.log(`当前金币： ${data.result.userCoinNum}`);
+          api.log(`当前金币： ${data.result.userCoinNum}`);
         },
       },
     };
@@ -196,19 +196,19 @@ class BrandCity extends Template {
           exchageRateList,
         } = _.property('result')(data) || {};
         if (exchangeOpenFlag !== 1) {
-          return self.log('当前不可以进行兑换');
+          return api.log('当前不可以进行兑换');
         }
         if (userRemainScore === 0) {
-          return self.log('积分为0, 不可兑换');
+          return api.log('积分为0, 不可兑换');
         }
-        self.log(`当前场次倍数: ${exchageRate} 当前随机倍数为: ${exchageRateList}`);
+        api.log(`当前场次倍数: ${exchageRate} 当前随机倍数为: ${exchageRateList}`);
 
         // TODO 需要再确认该逻辑
         // enableExchange = _.max(exchageRateList) === exchageRate;
 
         enableExchange && await api.doFormBody('mcxhd_brandcity_exchange').then(data => {
           if (!self.isSuccess(data)) return;
-          self.log(`兑换的数量为: ${_.property('result.receivedJbeanNum')(data)}`);
+          api.log(`兑换的数量为: ${_.property('result.receivedJbeanNum')(data)}`);
         });
       });
     }

@@ -80,8 +80,8 @@ class Cash extends Template {
       doRedeem: {
         name: 'cash_homePage',
         paramFn: () => [{}, cash.cash_homePage[0]],
-        successFn: async data => {
-          self.log(`目前总额为: ${data.data.result.totalMoney}`);
+        successFn: async (data, api) => {
+          api.log(`目前总额为: ${data.data.result.totalMoney}`);
         },
       },
     };

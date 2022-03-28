@@ -133,12 +133,12 @@ class Ssjj extends Template {
         paramFn: self.commonParamFn,
         successFn: async (data, api) => {
           if (!self.isSuccess(data)) {
-            self.log(data.head.msg);
+            api.logdata.head.msg);
             return false;
           }
           const repeat = await api._doPath(`ssjj-draw-record/draw/${data.body.center.id}`).then(self.isSuccess.bind(self));
           if (!repeat) {
-            self.log('完成任务和抽奖');
+            api.log('完成任务和抽奖');
             return false;
           }
         },

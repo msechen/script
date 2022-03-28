@@ -97,7 +97,7 @@ class SuperShake extends Template {
           if (!self.isSuccess(data)) return false;
           const {ext, prizeName, quantity} = _.property('data.result.myAwardVo.jBeanAwardVo')(data) || {};
           if (!quantity) return;
-          self.log(`${ext}获得${quantity} ${prizeName}`);
+          api.log(`${ext}获得${quantity} ${prizeName}`);
         },
         repeat: true,
       },

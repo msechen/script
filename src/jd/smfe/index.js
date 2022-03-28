@@ -89,7 +89,7 @@ class Smfe extends Template {
         async successFn(data) {
           if (!self.isSuccess(data)) return false;
           const {isLottery, lotteryInfo, lotteryNum} = data.result;
-          isLottery && self.log(`${lotteryInfo.name}: ${lotteryInfo.quantity}`);
+          isLottery && api.log(`${lotteryInfo.name}: ${lotteryInfo.quantity}`);
           if (lotteryNum === 0) return false;
         },
       },

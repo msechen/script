@@ -122,12 +122,12 @@ class Bc extends Base {
 
     if (self.isLastLoop()) {
       // 助力只能一次, 无法循环调用, 所以先注释掉
-      // await doTask(shareCodeCaches.filter(code => code !== currentShareCode), {taskType: 8, afterFirstFn: data => self.log(data.data.bizMsg)});
+      // await doTask(shareCodeCaches.filter(code => code !== currentShareCode), {taskType: 8, afterFirstFn: data => api.log(data.data.bizMsg)});
 
       await fragmentCharge();
 
       await api.bc_getHome().then(data => {
-        self.log(`获取到的红包数为 ${data.data.result.redpack}`);
+        api.log(`获取到的红包数为 ${data.data.result.redpack}`);
       });
     }
   }

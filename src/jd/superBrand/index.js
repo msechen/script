@@ -60,7 +60,7 @@ class superBrand extends Base {
       await self.loopCall(shareCodeCaches.filter(code => code !== currentShareCode), {
         firstFn: (inviteId) => {
           return api.superbrand_doTask({taskType: '4', inviteId}).then(data => {
-            self.log(data.data.bizMsg);
+            api.log(data.data.bizMsg);
           });
         },
         maxTimes: shareCodeCaches.length,
@@ -70,7 +70,7 @@ class superBrand extends Base {
         await self.loopCall(data.data.result.giftCardVoList.filter(o => !o.flippedCard).reverse(), {
           firstFn: ({cardId}) => {
             return api.superbrand_filpCard({cardId}).then(data => {
-              isSuccess(data) && self.log(data.data.result.jpeasList.map(o => o.prizeName).join(','));
+              isSuccess(data) && api.log(data.data.result.jpeasList.map(o => o.prizeName).join(','));
             });
           },
           maxTimes: Math.floor(data.data.result.totoalPresidentNum / 1000),

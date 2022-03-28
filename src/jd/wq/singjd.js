@@ -35,7 +35,7 @@ class Singjd extends Template {
       return _doPath('SignQuery').then(data => {
         if (data.status !== 0) return api.log('今天已签到');
         return _doPath('DrawQuery').then(data => {
-          if (data.ret !== 0) return self.log(data['retmsg']);
+          if (data.ret !== 0) return api.log(data['retmsg']);
           api.log('签到成功');
         });
       });

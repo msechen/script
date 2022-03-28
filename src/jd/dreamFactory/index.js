@@ -33,7 +33,7 @@ class DreamFactory extends Template {
         g_login_type: 1,
       },
     }).then(data => {
-      self.log(data.msg);
+      api.log(data.msg);
     });
 
     const nowHour = self.getNowHour();
@@ -59,7 +59,7 @@ class DreamFactory extends Template {
           g_login_type: 1,
         },
       }).then(data => {
-        self.log(data.msg);
+        api.log(data.msg);
         if (self.isSuccess(data)) return true;
       });
     }

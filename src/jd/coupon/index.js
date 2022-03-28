@@ -41,7 +41,7 @@ class Coupon extends Template {
       const write = str => require('fs').writeFileSync(require('path').resolve(__dirname, `output${api.currentCookieTimes}.txt`), str);
       write(`${helpSituation.join('\n')}`);
       const allScore = _.reduce(list.map(o => o.score), (accumulator, currentValue) => accumulator + currentValue);
-      self.log(`总分数为: ${allScore.toFixed(2)}, 总人数为: ${list.length}`);
+      api.log(`总分数为: ${allScore.toFixed(2)}, 总人数为: ${list.length}`);
     });
 
     // 展示助力情况

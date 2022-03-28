@@ -98,7 +98,7 @@ class ShoppingFestival extends Template {
       if (remainTimes > 0) return handlePlayGame();
 
       if (remainTimes === 0) {
-        self.log(`豆豆: ${jingBeanNum}, 分数: ${goldNum}, 礼物数: ${giftNum}`);
+        api.log(`豆豆: ${jingBeanNum}, 分数: ${goldNum}, 礼物数: ${giftNum}`);
       }
 
       async function playGame() {

@@ -56,7 +56,7 @@ class EnterShop extends Template {
         paramFn: o => o,
         async successFn(data, api) {
           // TODO 格式化
-          self.log(JSON.stringify(data));
+          api.log(JSON.stringify(data));
         },
       },
     };

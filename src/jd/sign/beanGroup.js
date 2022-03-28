@@ -45,7 +45,7 @@ class SignBeanGroup extends Template {
 
     if (self.isLastLoop()) {
       const sumBeanNumStr = await api.doFormBody('signBeanGroupStageIndex').then(data => _.property('data.sumBeanNumStr')(data));
-      sumBeanNumStr && self.log(`获取到豆豆: ${sumBeanNumStr}`);
+      sumBeanNumStr && api.log(`获取到豆豆: ${sumBeanNumStr}`);
     }
 
     async function signGroupHelp(groupCode, shareCode, isTask) {

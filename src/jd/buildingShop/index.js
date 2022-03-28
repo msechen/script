@@ -52,7 +52,7 @@ class BuildingShop extends Base {
         const {record} = data;
         for (const {id, jingdou_number} of record.filter(o => o.is_use_up !== '1')) {
           await _request('take_jingdou', {record_id: id});
-          self.log(`获取到的京豆数量为: ${jingdou_number}`);
+          api.log(`获取到的京豆数量为: ${jingdou_number}`);
         }
       });
     }

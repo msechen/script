@@ -86,7 +86,7 @@ class Car extends Template {
           if (remainPoint) {
             let msg = `当前赛点: ${remainPoint}`;
             remainPoint >= oncePoint && (msg += ', 可以在app进行兑换!');
-            self.log(msg);
+            api.log(msg);
           }
         },
       },

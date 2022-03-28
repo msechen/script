@@ -98,7 +98,7 @@ class GlobalChallenge extends Template {
                     taskId,
                     'pageType': 'doHelp',
                   }, sign(taskId, inviterPin))).then(data => {
-                    self.log(data.result.message);
+                    api.log(data.result.message);
                   });
                 },
               });
@@ -115,7 +115,7 @@ class GlobalChallenge extends Template {
         paramFn: o => _.assign(o, sign(o.taskId)),
         async successFn(data, api) {
           if (!self.isSuccess(data)) return;
-          self.log('完成一次任务');
+          api.log('完成一次任务');
         }
       },
       afterGetTaskList: {
@@ -131,7 +131,7 @@ class GlobalChallenge extends Template {
             if (!rewardIds.length) continue;
             await api.doFormBody('receiveRewardVisa', {stationId, rewardIds});
           }
-          self.log(`当前得分: ${mileageAmount}, 活动时间：第${activityCalendar.currDays}/${activityCalendar.totalDays}天`);
+          api.log(`当前得分: ${mileageAmount}, 活动时间：第${activityCalendar.currDays}/${activityCalendar.totalDays}天`);
         },
       },
     };

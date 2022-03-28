@@ -45,14 +45,14 @@ class CashShare extends Base {
           const repeat = await api.cash_mob_reward({source: _.last(toTakeRewardList)}).then(data => {
             if (!self.isSuccess(data)) return;
             const {shareRewardAmount, shareRewardTip} = data.data.result;
-            self.log(`${shareRewardTip}: ${shareRewardAmount}`);
+            api.log(`${shareRewardTip}: ${shareRewardAmount}`);
             return true;
           });
           if (repeat) return getHome();
         }
 
         const currentNodeTimes = shareNodeTips.split('/').map(v => +v.replace(/[^\d]/g, '')).reverse().reduce((accumulator, currentValue) => accumulator - currentValue);
-        self.log(`当前还差: ${currentNodeTimes}, 当前已助力次数为: ${assistedRecord.length}`);
+        api.log(`当前还差: ${currentNodeTimes}, 当前已助力次数为: ${assistedRecord.length}`);
       });
     }
   }

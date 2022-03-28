@@ -26,7 +26,7 @@ class IsvShopSign extends Isv {
     // TODO getSimpleActInfoVo 不一定有用
     pin = await getSimpleActInfoVo(api, activityIds[0][0]).then(data => data.pin);
     if (!pin) {
-      self.log('pin获取失败');
+      api.log('pin获取失败');
       pin = self.getCurrentEnv('JD_APPLET_PIN');
     }
     await parallelRun({
@@ -37,7 +37,7 @@ class IsvShopSign extends Isv {
           pin,
         }, {needDelay: false}).then(data => {
           const msg = _.property('msg')(data) || _.property('gift.giftName')(data) || '成功';
-          self.log(`activityId: ${activityId}, msg: ${msg}`);
+          api.log(`activityId: ${activityId}, msg: ${msg}`);
         });
       },
     });

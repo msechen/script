@@ -46,9 +46,9 @@ class LiteSign extends Template {
         if (!self.isSuccess(data)) return;
         const {signAmount, cashDrawAmount, aveAmount, couponRecord} = data.data || {};
         const enableWithdraw = +cashDrawAmount >= +aveAmount;
-        self.log(`签到金获得: ${signAmount}, 当前为: ${cashDrawAmount}, 提现目标: ${aveAmount}`);
-        enableWithdraw && self.log('可以提现了, 请在app中操作');
-        !_.isEmpty(couponRecord) && self.log(`额外获得: ${JSON.stringify(_.pick(couponRecord, ['couponDesc', 'couponValue', 'couponUsedValue']))}`);
+        api.log(`签到金获得: ${signAmount}, 当前为: ${cashDrawAmount}, 提现目标: ${aveAmount}`);
+        enableWithdraw && api.log('可以提现了, 请在app中操作');
+        !_.isEmpty(couponRecord) && api.log(`额外获得: ${JSON.stringify(_.pick(couponRecord, ['couponDesc', 'couponValue', 'couponUsedValue']))}`);
       });
     });
   }

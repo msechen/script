@@ -82,14 +82,14 @@ class SecondKillRedPacket extends Template {
         async successFn(data, api) {
           const assignmentPoints = _.property('result.assignment.assignmentPoints')(data);
           const maxRedPacket = assignmentPoints / 1000;
-          self.log(`当前的秒秒币为: ${assignmentPoints}, 可兑换的红包为 ${maxRedPacket}`);
+          api.log(`当前的秒秒币为: ${assignmentPoints}, 可兑换的红包为 ${maxRedPacket}`);
           // 需要兑换的红包
           const exchangeRedPacket = 0;
           const assignmentPointsNum = exchangeRedPacket * 1000;
           if (!assignmentPoints || assignmentPointsNum > assignmentPoints || exchangeRedPacket === 0) return;
           await api.doFormBody('assignmentPointsTransferRedPackage', {assignmentPointsNum}, {appid: 'jwsp'}).then(data => {
-            if (!self.isSuccess(data)) return self.log(JSON.stringify(data));
-            self.log(`兑换红包成功: ${_.property('result.discountTotal')(data)}`);
+            if (!self.isSuccess(data)) return api.log(JSON.stringify(data));
+            api.log(`兑换红包成功: ${_.property('result.discountTotal')(data)}`);
           });
         },
       },

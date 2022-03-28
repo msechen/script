@@ -57,7 +57,7 @@ class FamilyTemplate extends Family {
       try {
         tasks = JSON.parse(taskStr);
       } catch (e) {
-        self.log('获取config失败');
+        api.log('获取config失败');
       }
     });
   }

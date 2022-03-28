@@ -33,7 +33,7 @@ class BianPao extends Family {
 
   static async afterGetTaskList(data, api) {
     const self = this;
-    self.log(`当前分数为: ${data.tatalprofits}`);
+    api.log(`当前分数为: ${data.tatalprofits}`);
     // TODO 兑换目前还未实现
     return;
     const prizeDetail = data.prizedetail || [];

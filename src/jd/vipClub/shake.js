@@ -101,7 +101,7 @@ class VipClubShake extends Template {
         async successFn(data, api) {
           if (!self.isSuccess(data)) return false;
           const rewardBeanAmount = _.property('data.rewardBeanAmount')(data);
-          rewardBeanAmount && self.log(`[新版]获取到豆豆: ${rewardBeanAmount}`);
+          rewardBeanAmount && api.log(`[新版]获取到豆豆: ${rewardBeanAmount}`);
           if (!_.property('data.remainLotteryTimes')(data)) return false;
         },
         repeat: true,

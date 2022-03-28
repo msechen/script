@@ -48,7 +48,7 @@ class JxCfd extends Template {
       let msg = `助力结果: ${data.sErrMsg}`;
       data.strNick && (msg += `, 名字是${data.strNick}`);
       data.dwGetMoney && (msg += `, 获取的钱数为${data.dwGetMoney}`);
-      self.log(msg);
+      api.log(msg);
     });
 
     for (const shareCode of shareCodes) {
@@ -65,7 +65,7 @@ class JxCfd extends Template {
       }).then(data => {
         let msg = `助力结果: ${data.sErrMsg}`;
         data.strNick && (msg += `, 名字是${data.strNick}`);
-        self.log(msg);
+        api.log(msg);
       });
     }
   }

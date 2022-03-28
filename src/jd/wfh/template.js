@@ -41,11 +41,11 @@ class HarmonyTemplate extends Template {
 
     // 豆豆
     const quantity = _.property('data.result.userAwardsCacheDto.jBeanAwardVo.quantity')(data);
-    quantity && self.log(`获取豆豆: ${quantity}`);
+    quantity && api.log(`获取豆豆: ${quantity}`);
 
     // 红包
     const value = _.property('data.result.userAwardsCacheDto.redPacketVO.value')(data);
-    value && self.log(`获取红包: ${value}`);
+    value && api.log(`获取红包: ${value}`);
   }
 
   static apiNamesFn() {

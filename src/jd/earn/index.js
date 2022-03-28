@@ -65,7 +65,7 @@ class Earn extends Template {
             break;
             await api.doFormBody('interactIndex', {itemId, taskId: 3}).then(data => {
               const helpDesc = _.property('data.helpRes.helpResDesc')(data);
-              helpDesc && self.log(helpDesc);
+              helpDesc && api.log(helpDesc);
             });
           }
 
@@ -109,7 +109,7 @@ class Earn extends Template {
             `已助力人数为: ${helpMainResListLength}`,
             `cash: ${data.data.cashExpected}`,
           ];
-          self.log(msgs.join(', '));
+          api.log(msgs.join(', '));
         },
       },
     };

@@ -65,7 +65,7 @@ class Mgold extends Template {
         paramFn: qs => [void 0, {qs}],
         async successFn(data, api) {
           if (!self.isSuccess(data)) return;
-          self.log(`获取到豆豆: ${_.property('data.amount')(data)}`);
+          api.log(`获取到豆豆: ${_.property('data.amount')(data)}`);
         },
       },
     };

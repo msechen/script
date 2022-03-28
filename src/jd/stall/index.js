@@ -157,11 +157,11 @@ class stall extends Base {
 
     await raise();
 
-    self.log(`ssIndex is: ${ssIndex}`);
+    api.log(`ssIndex is: ${ssIndex}`);
     await api.stall_getHomeData().then(data => {
       // writeFileJSON(data, 'stall_getHomeData.json', __dirname);
 
-      self.log(`当前获取到的瓜分票数: ${_.property('data.result.homeMainInfo.raiseInfo.redNum')(data)}`);
+      api.log(`当前获取到的瓜分票数: ${_.property('data.result.homeMainInfo.raiseInfo.redNum')(data)}`);
     });
 
     async function raise() {

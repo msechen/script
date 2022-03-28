@@ -31,8 +31,8 @@ class NecklaceRedeem extends Necklace {
         scoreNums: redpacketTitle === '无门槛红包' ? redYuan * 1000 : score,
         giftConfigId: id,
       }).then(data => {
-        if (!self.isSuccess(data)) return self.log(_.property('data.biz_msg')(data));
-        self.log(`${_.property('data.result.couponTitle')(data) || _.property('data.result.redpacketTitle')(data)} 兑换成功!`);
+        if (!self.isSuccess(data)) return api.log_.property('data.biz_msg')(data));
+        api.log(`${_.property('data.result.couponTitle')(data) || _.property('data.result.redpacketTitle')(data)} 兑换成功!`);
       });
     }
   }

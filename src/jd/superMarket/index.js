@@ -144,7 +144,7 @@ class SuperMarket extends Template {
         successFn: async (data, api) => {
           if (!self.isSuccess(data)) {
             let {totalBlue = 0} = await api.doFormBody('smtg_newHome').then(data => data.data.result) || {};
-            totalBlue && self.log(`蓝币总计为: ${totalBlue}`);
+            totalBlue && api.log(`蓝币总计为: ${totalBlue}`);
             return false;
           }
         },

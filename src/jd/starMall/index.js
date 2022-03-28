@@ -94,11 +94,11 @@ class starMall extends Base {
     self.isFirstLoop() && await doCommonTask();
     if (self.isLastLoop()) {
       await doTask(shareCodeCaches).then(data => {
-        isSuccess(data) && self.log('助力成功');
+        isSuccess(data) && api.log('助力成功');
       });
 
       await getTaskDetail((data, shopId) => {
-        self.log(`${data.result.starName} 分数为: ${data.result.userScore}`);
+        api.log(`${data.result.starName} 分数为: ${data.result.userScore}`);
       });
     }
   }

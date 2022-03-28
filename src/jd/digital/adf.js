@@ -46,7 +46,7 @@ class Adf extends Template {
           const shareCodes = self.getShareCodeFn();
           for (const shareId of shareCodes) {
             await api.doPath('doSupport', {shareId}).then(() => {
-              self.log('助力成功');
+              api.log('助力成功');
             });
           }
 
@@ -66,8 +66,8 @@ class Adf extends Template {
       doWaitTask: {
         name: 'getPrize',
         paramFn: taskParamFn,
-        successFn(data) {
-          self.log(`获取到豆豆: ${data.data}`);
+        successFn(data, api) {
+          api.log(`获取到豆豆: ${data.data}`);
         },
       },
     };

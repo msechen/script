@@ -271,14 +271,14 @@ class Joy extends Template {
                   qs: {teamLevel: 2}, // 只参加双人赛跑
                 }).then(data => {
                   if (!self.isSuccess(data)) return;
-                  self.log('参赛成功');
+                  api.log('参赛成功');
                 });
               } else if (petRaceResult === 'unreceive') {
                 await api.doPath('combat/receive', void 0, {
                   method: 'GET',
                 }).then(data => {
                   if (!self.isSuccess(data)) return api.log(data);
-                  self.log(`获取到积分: ${winCoin}`);
+                  api.log(`获取到积分: ${winCoin}`);
                 });
                 return handleRace();
               }
@@ -298,7 +298,7 @@ class Joy extends Template {
         async successFn(data, api) {
           if (!self.isSuccess(data)) return;
           const {petCoin, petFood, petLevel} = data.data || {};
-          self.log(`现有积分: ${petCoin}, 现有狗粮: ${petFood}, 宠物等级: ${petLevel}`);
+          api.log(`现有积分: ${petCoin}, 现有狗粮: ${petFood}, 宠物等级: ${petLevel}`);
         },
       },
     };
@@ -318,7 +318,7 @@ class Joy extends Template {
       const feedCount = allFeedCount[index];
       await api.doGetPath('feed', {feedCount}).then(data => {
         if (data.errorCode === 'feed_ok') {
-          self.log(`喂食成功, 消耗${feedCount}g狗粮`);
+          api.log(`喂食成功, 消耗${feedCount}g狗粮`);
           return;
         }
         if (data.errorCode === 'food_insufficient') {

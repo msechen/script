@@ -117,7 +117,7 @@ class SuperBrandDay extends Template {
           }
           const {couponList, goodsList, jpeasList} = _.property('data.result')(data);
           _.concat(couponList, goodsList, jpeasList).forEach(o => {
-            self.log(`获得 ${o['prizeName']}`);
+            api.log(`获得 ${o['prizeName']}`);
           });
         },
         repeat: true,

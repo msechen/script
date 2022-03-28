@@ -44,8 +44,8 @@ class Grassy extends Template {
           self.updateShareCodeFn(currentShareId);
           for (const shareId of self.getShareCodeFn()) {
             await api.doPath('support', void 0, {qs: {shareId}}).then(data => {
-              if (!self.isSuccess(data)) return self.log(data.msg);
-              self.log('助力成功');
+              if (!self.isSuccess(data)) return api.log(data.msg);
+              api.log('助力成功');
             });
           }
 

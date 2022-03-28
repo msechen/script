@@ -57,10 +57,10 @@ class Trump extends Template {
       doTask: {
         name: 'doTrumpTask',
         paramFn: o => o,
-        async successFn(data) {
+        async successFn(data, api) {
           if (!self.isSuccess(data)) return;
           const {lotteryMsg, lotteryScore} = data.result;
-          self.log(lotteryScore ? `获取到豆豆: ${lotteryScore}` : lotteryMsg);
+          api.log(lotteryScore ? `获取到豆豆: ${lotteryScore}` : lotteryMsg);
         },
       },
     };
