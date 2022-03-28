@@ -10,6 +10,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 let llAPIError=false;
 let cookiesArr = [], cookie = '', message;
+let inviterId = ["sMWcZ7TKaEBlU//QsVkItw==","X6BLtZKxx+ikABCqvZBocS5IRQlTziSkNyv4iNJVUFI="][Math.floor((Math.random() * 2))]
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -105,7 +106,7 @@ async function signInit() {
     $.get(taskUrl('speedSignInit', {
       "activityId": "8a8fabf3cccb417f8e691b6774938bc2",
       "kernelPlatform": "RN",
-      "inviterId":"U44jAghdpW58FKgfqPdotA=="
+      "inviterId": inviterId 
     }), async (err, resp, data) => {
       try {
         if (err) {
