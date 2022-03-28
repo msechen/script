@@ -16,7 +16,9 @@ function updateTokenFromLog() {
   const signedReg = /已签到\w+天/;
   const notGiftData = data.filter(v => v.match(signedReg) && !v.match('奖品'));
   const expiredData = data.filter(v => v.match('402'));
-  const result = _.uniq(_.concat(notGiftData, expiredData).map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '').replace(signedReg, '').trim()));
+  const result = _.uniq(_.concat(notGiftData, expiredData)
+  .map(v => v.replace(/.*\[\w] /, '').replace(/:.*/, '').replace(signedReg, '').trim()))
+  .map(str => str.replace(/^\[.*] /, ''));
 
   if (_.isEmpty(result)) return;
   console.log('已失效的活动如下:');
