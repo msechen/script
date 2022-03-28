@@ -44,10 +44,8 @@ const Cash = require('./jd/cash');
 const CashShare = require('./jd/cash/share');
 const StatisticsBean = require('./jd/statistics/bean');
 const StatisticsRedEnvelope = require('./jd/statistics/RedEnvelope');
-const Ssjj = TemporarilyOffline || require('./jd/ssjj'); // 没什么收益, 所以进行移除
 const IsvShopSign = TemporarilyOffline || require('./jd/isv/shopSign');
 const SecondKillRedPacket = TemporarilyOffline || require('./jd/secondKill/redPacket');
-const DreamFactory = TemporarilyOffline || require('./jd/dreamFactory');
 const JxCfd = TemporarilyOffline || require('./jd/jxCfd');
 const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = TemporarilyOffline || require('./jd/koiRedPacket');
@@ -63,24 +61,18 @@ const LuckyToHitTheGoldenEgg = require('./jd/family/LuckyToHitTheGoldenEgg');
 const Live = TemporarilyOffline || require('./jd/live');
 const LiveRedEnvelopeRain = TemporarilyOffline || require('./jd/live/RedEnvelopeRain');
 const SignBeanHome = require('./jd/sign/beanHome');
-const GlobalChallenge = TemporarilyOffline || require('./jd/globalMart/challenge');
 const Singjd = require('./jd/wq/singjd');
-const Isp5G = require('./jd/isp5g');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
-const Xiemi = require('./jd/xiemi/index');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = require('./jd/goldCreator');
 const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
-const DDSJ = TemporarilyOffline || require('./jd/ddsj');
 const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
 const EarnBean = require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
-const FuQiqan = require('./jd/fuQian');
 const SuperBox = TemporarilyOffline || require('./jd/superBox');
 const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
-const CollectBlissCardsProd = require('./jd/collectBlissCardsProd');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
@@ -134,7 +126,6 @@ async function main() {
   ];
   // 短期活动
   const shortTermActivity = [
-    DDSJ,
     RubikSCube,
     SuperBrandProduct,
     SuperBox,
@@ -198,7 +189,6 @@ async function main() {
       valid: 9,
       run: async () => {
         await serialRun(Joy);
-        await doRun(DreamFactory);
       },
     },
     {
@@ -299,7 +289,6 @@ async function main() {
         ]);
         await sleepTime(24);
         await multipleRun([
-          FuQiqan,
           [Health, void 0, 'cron'],
           EarnBean,
           // JoySign,
@@ -308,7 +297,6 @@ async function main() {
           IsvShopSign,
           // 做任务抽奖
           WomenBlindBox,
-          CollectBlissCardsProd,
         ], 0);
       },
     },
