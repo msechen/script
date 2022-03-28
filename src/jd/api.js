@@ -62,7 +62,7 @@ class Api {
     return new Cookie(this.cookie).get(key);
   }
 
-  commonDo(options) {
+  async commonDo(options) {
     // 请求优先展示 functionId, 以便定位和排查问题
     const priorityProperty = 'functionId';
     ['qs', 'form'].forEach(key => {
@@ -70,7 +70,14 @@ class Api {
         options[key] = _.assign({[priorityProperty]: options[key][priorityProperty]}, options[key]);
       }
     });
-    return _request(this.cookie, options);
+    let data = await _request(this.cookie, options);
+    if (this.notLogin(data)) {
+      await require('./base').changeCK(this, true);
+      await sleep();
+      // 重新请求一次
+      data = await _request(this.cookie, options);
+    }
+    return data;
   }
 
   async do(options) {
@@ -177,7 +184,7 @@ class Api {
 
   // 检测cookie有效性
   async loginValid() {
-    const {code, msg = ''} = await this.commonDo({
+    const data = await this.commonDo({
       uri: requestURI,
       method: 'POST',
       headers: {
@@ -189,7 +196,28 @@ class Api {
       },
       form: {'version': 14, 'channel': 1, 'babelChannel': '120'},
     });
-    return !(code === '3' && msg === 'not login');
+
+    return !this.notLogin(data);
+  }
+
+  notLogin(data) {
+    if (!_.isObject(data)) {
+      return false;
+    }
+    const config = [
+      // https://api.m.jd.com/client.action?functionId=initForFarm&appid=wh5
+      {code: '3', msg: 'not login'},
+      // Health
+      {'code': -30001, 'msg': '登陆失败'},
+      // https://wq.jd.com/pinbind/GetTokenForWxApp?biz=interact (Earn)
+      // {
+      //   'action': 0,
+      //   'pin_status': 0,
+      //   'retcode': 13,
+      //   'retmsg': 'no login',
+      // },
+    ];
+    return config.some(o => _.isEqual(o, _.pick(data, _.keys(o))));
   }
 }
 

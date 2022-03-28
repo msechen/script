@@ -31,7 +31,7 @@ class ChangeCK extends Template {
   }
 
   static async afterAllDone() {
-    uploadProductEnvToAction();
+    await uploadProductEnvToAction();
   }
 }
 

@@ -3,7 +3,7 @@ const path = require('path');
 const _ = require('lodash');
 const Cookie = require('./cookie');
 const {execSync} = require('child_process');
-const {readFileJSON, writeFileJSON} = require('./common');
+const {sleep, readFileJSON, writeFileJSON} = require('./common');
 
 const processInAC = () => getEnv('NODE_ENV') === 'production';
 const getKeyByIndex = (key, index = 0) => index === 0 ? key : `${key}_${index}`;
@@ -124,11 +124,14 @@ function updateEnv(key, value, index) {
 }
 
 function updateProcessEnv() {
-  const env = initEnv() || {};
-  _.forEach(env, (v, k) => {
+  _updateEnv(initEnv() || {});
+  patchCookieOption();
+}
+
+function _updateEnv(object) {
+  _.forEach(object, (v, k) => {
     updateEnv(k, v);
   });
-  patchCookieOption();
 }
 
 function getProductEnv() {
@@ -140,12 +143,14 @@ function updateProductEnv(data, cover = true, merge = false) {
     const oldData = getProductEnv();
     data = merge ? _.merge(oldData, data) : _.assign(oldData, data);
   }
+  _updateEnv(data);
   writeFileJSON(data, '../../.env.product.json', __dirname);
 }
 
-function uploadProductEnvToAction() {
+async function uploadProductEnvToAction() {
   const command = 'npm run build:UpdateActionEnv';
   console.log(command);
+  await sleep(3);
   console.log(require('child_process').execSync(command).toString());
 }
 

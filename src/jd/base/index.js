@@ -429,7 +429,7 @@ class Base {
     if (processInAC() && needUpdateAction) {
       needUpdateAction = false;
       --doChangeCkMaxTimes;
-      uploadProductEnvToAction();
+      await uploadProductEnvToAction();
     }
     await self.afterAllDone();
 
