@@ -206,9 +206,9 @@ class Api {
     }
     const config = [
       // https://api.m.jd.com/client.action?functionId=initForFarm&appid=wh5
-      {code: '3', msg: 'not login'},
+      {code: '3'/*, msg: 'not login'*/},
       // Health
-      {'code': -30001, 'msg': '登陆失败'},
+      {'code': -30001/*, 'msg': '登陆失败'*/},
       // https://wq.jd.com/pinbind/GetTokenForWxApp?biz=interact (Earn)
       // {
       //   'action': 0,
