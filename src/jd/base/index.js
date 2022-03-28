@@ -426,11 +426,12 @@ class Base {
       await _do(cookie, shareCodes);
     }
 
-    if (processInAC() && needUpdateAction) {
+    if (needUpdateAction) {
       needUpdateAction = false;
-      --doChangeCkMaxTimes;
-      await uploadProductEnvToAction();
+      // TODO 确认本地更新的话是否需要上传
+      processInAC() && await uploadProductEnvToAction();
     }
+    --doChangeCkMaxTimes;
     await self.afterAllDone();
 
     async function _do(cookie, shareCodes) {
