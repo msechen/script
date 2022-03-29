@@ -36,7 +36,7 @@ class HarmonyTemplate extends Template {
 
   static async afterGetTaskList(api, data) {}
 
-  static logAfterRedeem(data) {
+  static logAfterRedeem(api, data) {
     const self = this;
 
     // 豆豆
@@ -75,7 +75,7 @@ class HarmonyTemplate extends Template {
               waitDuration,
             } = task;
             if (self.redeemWithTaskId && status === 3/*待抽奖*/) {
-              await api.doFormBody(self.getApiNames().doRedeem, {taskId, ...self.commonParamFn()}).then(self.logAfterRedeem.bind(self));
+              await api.doFormBody(self.getApiNames().doRedeem, {taskId, ...self.commonParamFn()}).then(data => self.logAfterRedeem(api, data));
               continue;
             }
 
@@ -151,9 +151,9 @@ class HarmonyTemplate extends Template {
       doRedeem: {
         name: self.getApiNames().doRedeem,
         paramFn: self.commonParamFn,
-        successFn: data => {
+        successFn(data, api) {
           if (!self.isSuccess(data)) return false;
-          self.logAfterRedeem(data);
+          self.logAfterRedeem(api, data);
         },
         repeat: true,
       },
