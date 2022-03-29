@@ -147,7 +147,11 @@ function updateProductEnv(data, cover = true, merge = false) {
   writeFileJSON(data, '../../.env.product.json', __dirname);
 }
 
-async function uploadProductEnvToAction() {
+async function uploadProductEnvToAction(needInAction) {
+  if (needInAction && !processInAC()) {
+    console.log('本地无需上传至github action');
+    return;
+  }
   const command = 'npm run build:UpdateActionEnv';
   console.log(command);
   await sleep(3);

@@ -429,7 +429,7 @@ class Base {
     if (needUpdateAction) {
       needUpdateAction = false;
       // TODO 确认本地更新的话是否需要上传
-      processInAC() && await uploadProductEnvToAction();
+      await uploadProductEnvToAction(true);
     }
     --doChangeCkMaxTimes;
     await self.afterAllDone();

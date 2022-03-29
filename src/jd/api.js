@@ -1,6 +1,7 @@
 const rp = require('request-promise');
 const _ = require('lodash');
 const Cookie = require('../lib/cookie');
+const {uploadProductEnvToAction} = require('../lib/env');
 const {printLog, sleep, objectValuesStringify} = require('../lib/common');
 const {getMoment} = require('../lib/moment');
 
@@ -73,7 +74,7 @@ class Api {
     let data = await _request(this.cookie, options);
     if (this.notLogin(data)) {
       await require('./base').changeCK(this, true);
-      await sleep();
+      await sleep(2);
       // 重新请求一次
       data = await _request(this.cookie, options);
     }
