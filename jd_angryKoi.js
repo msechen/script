@@ -21,7 +21,7 @@ cron "30 0,8  * * *" script-path=https://raw.githubusercontent.com/LingFeng0918/
 ====================================小火箭=============================
 愤怒的锦鲤 = type=cron,script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js, cronexpr="30 0,8  * * *", timeout=3600, enable=true
  */
-const $ = new Env("愤怒的锦鲤")
+const $ = new Env("愤怒的锦鲤 - LingFeng自用版 ")
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.ceil(Math.random() * 4)};${randomString(40)}`
 let fair_mode = process.env.KOI_FAIR_MODE == "true" ? true : false
@@ -43,7 +43,7 @@ let notify, allMessage = '';
     scriptsLogArr = [...(res || []), ...scriptsLogArr]
     console.log(`共${scriptsLogArr.length}个助力logn`)
     if (scriptsLogArr.length == 0){
-        console.log(`脚本停止运行！`)
+        console.log(`LingFeng提醒: log为空,脚本停止运行！`)
         return
     }
     console.log(`\n 锦鲤红包助力log需要手动抓取 \n`)
