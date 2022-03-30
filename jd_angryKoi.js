@@ -23,7 +23,8 @@ cron "30 0,8  * * *" script-path=https://raw.githubusercontent.com/LingFeng0918/
  */
 const $ = new Env("愤怒的锦鲤 - LingFeng自用版 ")
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.ceil(Math.random() * 4)};${randomString(40)}`
+//const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.ceil(Math.random() * 4)};${randomString(40)}`
+const ua = "Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; Mi Note 2 Build/OPR1.170623.032) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/61.0.3163.128 Mobile Safari/537.36 XiaoMi/MiuiBrowser/10.1.1"
 let fair_mode = process.env.KOI_FAIR_MODE == "true" ? true : false
 let chetou_number = process.env.KOI_CHETOU_NUMBER ? Number(process.env.KOI_CHETOU_NUMBER) : 0
 var kois = process.env.kois ?? ""
@@ -32,8 +33,7 @@ let logNums = process.env.KOI_LOG_NUMS ? Number(process.env.KOI_LOG_NUMS) : 100
 let cookiesArr = []
 let scriptsLogArr = []
 var tools = []
-let random;
-let log;
+let logs;
 
 let notify, allMessage = '';
 
@@ -95,7 +95,6 @@ let notify, allMessage = '';
     let helpIndex = 0
     while (helpIndex < cookiesArr.length && tools.length > 0 && remainingTryCount > 0) {
         let cookieIndex = cookieIndexOrder[helpIndex]
-        await getLog()
         try {
             // 按需获取账号的锦鲤信息
             let help = await getHelpInfoForCk(cookieIndex, cookiesArr[cookieIndex])
@@ -133,7 +132,7 @@ let notify, allMessage = '';
                     remainingTryCount -= 1
 
                     // 等待一会，避免频繁请求
-                    await $.wait(30000)
+                    await $.wait(45000)
                 }
             } else {
                 // 获取失败，跳过
@@ -185,12 +184,12 @@ function shuffle(array) {
 
 async function getHelpInfoForCk(cookieIndex, cookie) {
     console.log(`开始请求第 ${cookieIndex} 个账号的信息`)
-
+    logs = await getLog()
+    let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
+    //console.log(`log为: ${logs}`)
     let data;
-
     // 开启红包
     data = await with_retry("开启红包活动", async () => {
-        var num = "";
         return await requestApi('h5launch', cookie, {
             "followShop": 0,
             "random": random,
@@ -373,11 +372,8 @@ async function with_retry(ctx = "", callback_func, max_retry_times = 3, retry_in
 }
 
 async function openRedPacket(cookie) {
-    await getLog()
-    var num = "";
-    for (var g = 0; g < 6; g++) {
-        num += Math.floor(Math.random() * 10);
-    }
+    logs = await getLog()
+    let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
     // https://api.m.jd.com/api?appid=jinlihongbao&functionId=h5receiveRedpacketAll&loginType=2&client=jinlihongbao&t=1638189287348&clientVersion=10.2.4&osVersion=-1
     let resp = await requestApi('h5receiveRedpacketAll', cookie, {
         "random": random,
@@ -392,7 +388,8 @@ async function openRedPacket(cookie) {
 }
 
 async function helpThisUser(help, tool) {
-    await getLog()
+    logs = await getLog()
+    let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
     body={"redPacketId": help.redPacketId,"followShop": 0,"random": random,"log": log,"sceneid":"JLHBhPageh5"}
     // 实际发起请求
     await requestApi('jinli_h5assist', tool.cookie, body).then(function (data) {
@@ -503,8 +500,8 @@ function getJinliLogs(url) {
 }
 async function getLog() {
     var num = Math.floor(Math.random() * (scriptsLogArr.length - 0 + 1) + 0);
-    random = scriptsLogArr[num].match(/"random":"(\d+)"/)[1]
-    log = scriptsLogArr[num].match(/"log":"(.*)"/)[1]
+    logs = scriptsLogArr[num]
+    return logs
 }
 function randomString(e) {
     e = e || 32;
