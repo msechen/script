@@ -25,8 +25,4 @@ ql raw 发布的脚本地址
 声明:由于青龙拉库会自动添加一个前缀,所以可能会有某些bug
 
 
-4.讨论tg群:https://t.me/+cPCItP9JCBxkMjY1
-
-5.tg频道:https://t.me/soy_pull
-
 
