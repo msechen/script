@@ -3,9 +3,7 @@
 更新时间：2021-7-11
 备注：高速并发请求，专治偷助力。在kois环境变量中填入需要助力的pt_pin，有多个请用@符号连接
 
-风之凌殇 魔改版：
-2021.11.27 修复不能正常先满足第一个账号的问题，并添加车头和公平模式
-2021.11.29 增加自动开红包的功能
+LingFeng修改自(风之凌殇魔改版)
 
 改用以下变量
 #雨露均沾，若配置，则车头外的ck随机顺序，这样可以等概率的随到前面来
@@ -33,9 +31,9 @@ let koiLogUrl = process.env.KOI_LOG_URL ?? ""
 let logNums = process.env.KOI_LOG_NUMS ? Number(process.env.KOI_LOG_NUMS) : 100
 let cookiesArr = []
 let scriptsLogArr = []
-let log_i = 0
-let log_j = 0
 var tools = []
+let random;
+let log;
 
 let notify, allMessage = '';
 
@@ -97,7 +95,7 @@ let notify, allMessage = '';
     let helpIndex = 0
     while (helpIndex < cookiesArr.length && tools.length > 0 && remainingTryCount > 0) {
         let cookieIndex = cookieIndexOrder[helpIndex]
-
+        await getLog()
         try {
             // 按需获取账号的锦鲤信息
             let help = await getHelpInfoForCk(cookieIndex, cookiesArr[cookieIndex])
@@ -193,13 +191,10 @@ async function getHelpInfoForCk(cookieIndex, cookie) {
     // 开启红包
     data = await with_retry("开启红包活动", async () => {
         var num = "";
-        for (var g = 0; g < 6; g++) {
-            num += Math.floor(Math.random() * 10);
-        }
         return await requestApi('h5launch', cookie, {
             "followShop": 0,
-            "random": scriptsLogArr[log_i].substring(10,18),
-            "log": scriptsLogArr[log_i].substring(27,scriptsLogArr[log_i].length-1),
+            "random": random,
+            "log": log,
             "sceneid": "JLHBhPageh5"
         });
     })
@@ -378,14 +373,15 @@ async function with_retry(ctx = "", callback_func, max_retry_times = 3, retry_in
 }
 
 async function openRedPacket(cookie) {
+    await getLog()
     var num = "";
     for (var g = 0; g < 6; g++) {
         num += Math.floor(Math.random() * 10);
     }
     // https://api.m.jd.com/api?appid=jinlihongbao&functionId=h5receiveRedpacketAll&loginType=2&client=jinlihongbao&t=1638189287348&clientVersion=10.2.4&osVersion=-1
     let resp = await requestApi('h5receiveRedpacketAll', cookie, {
-        "random": scriptsLogArr[log_i].substring(10,18),
-        "log": scriptsLogArr[log_i].substring(27,scriptsLogArr[log_i].length-1),
+        "random": random,
+        "log": log,
         "sceneid": "JLHBhPageh5"
     });
     if (resp?.data?.biz_code == 0) {
@@ -396,19 +392,8 @@ async function openRedPacket(cookie) {
 }
 
 async function helpThisUser(help, tool) {
-    // 计算一个用于请求的随机参数
-    var num = "";
-    for (var i = 0; i < 6; i++) {
-        num += Math.floor(Math.random() * 10);
-    }
-    body={"redPacketId": help.redPacketId,"followShop": 0,"random": scriptsLogArr[log_i].substring(10,18),"log": scriptsLogArr[log_i].substring(27,scriptsLogArr[log_i].length-1),"sceneid":"JLHBhPageh5"}
-    log_j ++
-    if(log_j >= 10){
-        log_j = 0
-        log_i ++
-    }
-    if(log_i == scriptsLogArr.length)
-        log_i = 0
+    await getLog()
+    body={"redPacketId": help.redPacketId,"followShop": 0,"random": random,"log": log,"sceneid":"JLHBhPageh5"}
     // 实际发起请求
     await requestApi('jinli_h5assist', tool.cookie, body).then(function (data) {
         let desc = data?.data?.result?.statusDesc
@@ -512,9 +497,14 @@ function getJinliLogs(url) {
                 resolve();
             }
         })
-        await $.wait(10000)
+        await $.wait(20000)
         resolve();
     })
+}
+async function getLog() {
+    var num = Math.floor(Math.random() * (scriptsLogArr.length - 0 + 1) + 0);
+    random = scriptsLogArr[num].match(/"random":"(\d+)"/)[1]
+    log = scriptsLogArr[num].match(/"log":"(.*)"/)[1]
 }
 function randomString(e) {
     e = e || 32;
