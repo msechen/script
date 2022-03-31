@@ -35,6 +35,7 @@
     "start:IsvShopSign": "node src/jd/isv/shopSign.js start",
     "start:BeautyMakeup": "node src/jd/beautyMakeup start",
     "start:Fruit": "node src/jd/fruit start",
+    "start:FruitDoShare": "node src/jd/fruit/doShare.js start",
     "start:SuperShake": "node src/jd/superShake start",
     "start:SuperBrandDay": "node src/jd/superBrand/day.js start",
     "start:CashRedeem": "node src/jd/cash/redeem.js start",
