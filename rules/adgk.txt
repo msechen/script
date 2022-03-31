@@ -1,7 +1,8 @@
-! Version: 20220324224625
+! Version: 20220329210619
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||www.baidu.com/splg/s.gif?
 ||qhres2.com
 ||bluematrixs.com
 ||whwdzgykybnfg.com
@@ -11,7 +12,7 @@
 ||pss.alicdn.com/iku/log
 ||youku-crm-product.youku.com
 ||cad.youku.com
-||pyk.in-neo.cn
+||https://www.baidu.com/splg/s.gif?
 ||https://qhres2.com
 ||https://bluematrixs.com
 ||https://whwdzgykybnfg.com
@@ -4966,8 +4967,6 @@
 @@||quapp.1122dh.com/v4/biquge/SearchEngine.html$app=com.biquge.ebook.app
 @@||f11.baidu.com/it
 @@||c.data.mob.com $app=com.sinovatech.unicom.ui
-@@||gss0.bdstatic.com/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/js/app_show_webapp_fce68ce.js
-@@||gss0.bdstatic.com/6bMWfDe8BsgCpNKfpU_Y_D3/static $app=com.baidu.netdisk
 @@||openapi.youku.com/router $app=com.huawei.hwvplayer.youku
 @@||quapp.1122dh.com/Logout.aspx$app=com.biquge.ebook.app
 @@||quapp.1122dh.com/Login.aspx$app=com.biquge.ebook.app
@@ -5040,6 +5039,7 @@
 @@||sohu.com/cityjson
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||http://www.baidu.com/splg/s.gif?
 ||http://qhres2.com
 ||http://bluematrixs.com
 ||http://whwdzgykybnfg.com
@@ -10106,7 +10106,6 @@
 ||https://linuxbaike.com$$div[class="celan"]
 ||https://linuxbaike.com$$div[class="fadacai"]
 ||https://v*-dy.ixigua.com/*/video/m/$app=~com.ss.android.ugc.aweme
-||https://m.baidu.com,www.baidu.com$$div[class="main"]
 ||https://zhidao.baidu.com,www.baidu.com##[class ="EC_ads_"],.wgt-ads,div#left-promotion,div#ui-tooltip-0,div.cms-slide.cms-slide-optimus,div.wgt-bottom-ask,div.cms-slide.cms-slide-lazy,div.aside,div.aside-inner,div#top.top,#wgt-ecom-banner,.bannerdown,.cur
 ||https://cn.bing.com,www.bing.com,www4.bing.com$$div[class="BottomAppPro"]
 ||https://zhidao.baidu.com,www.baidu.com##.icon-bannerad
@@ -13352,7 +13351,6 @@
 ||http://linuxbaike.com$$div[class="celan"]
 ||http://linuxbaike.com$$div[class="fadacai"]
 ||http://v*-dy.ixigua.com/*/video/m/$app=~com.ss.android.ugc.aweme
-||http://m.baidu.com,www.baidu.com$$div[class="main"]
 ||http://zhidao.baidu.com,www.baidu.com##[class ="EC_ads_"],.wgt-ads,div#left-promotion,div#ui-tooltip-0,div.cms-slide.cms-slide-optimus,div.wgt-bottom-ask,div.cms-slide.cms-slide-lazy,div.aside,div.aside-inner,div#top.top,#wgt-ecom-banner,.bannerdown,.cur
 ||http://cn.bing.com,www.bing.com,www4.bing.com$$div[class="BottomAppPro"]
 ||http://zhidao.baidu.com,www.baidu.com##.icon-bannerad
