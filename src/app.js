@@ -76,7 +76,7 @@ const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
 
 /* 极速版 */
 const LiteSign = require('./jd/lite/Sign');
-const LiteSpringReward = require('./jd/lite/SpringReward');
+const LiteSpringReward = TemporarilyOffline || require('./jd/lite/SpringReward');
 const LiteEarnCoins = require('./jd/lite/EarnCoins');
 const LiteCashSign = require('./jd/lite/CashSign');
 const LiteHappyDig = require('./jd/lite/HappyDig');
