@@ -1,13 +1,19 @@
 /*
 愤怒的锦鲤
-更新时间：2021-7-11
+更新时间：2022-04-01
 备注：高速并发请求，专治偷助力。在kois环境变量中填入需要助力的pt_pin，有多个请用@符号连接
+接入了代理 https://www.xiequ.cn/ 可以去嫖携趣的 每日1000免费ip 选择1个ip txt文本返回即可
 
-LingFeng修改自(风之凌殇魔改版)
+LingFeng魔改版
 
 改用以下变量
 #雨露均沾，若配置，则车头外的ck随机顺序，这样可以等概率的随到前面来
 export  KOI_FAIR_MODE="true"
+#其他变量
+export kois ="pt_pin@pt_pin@pt_pin" 指定车头pin
+export KOI_LOG_URL ="" 锦鲤log api
+export logNums ="" 获取锦鲤数量 默认100
+export proxyUrl ="" ip代理api
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 =================================Quantumultx=========================
 [task_local]
@@ -29,7 +35,10 @@ let fair_mode = process.env.KOI_FAIR_MODE == "true" ? true : false
 let chetou_number = process.env.KOI_CHETOU_NUMBER ? Number(process.env.KOI_CHETOU_NUMBER) : 0
 var kois = process.env.kois ?? ""
 let koiLogUrl = process.env.KOI_LOG_URL ?? ""
+let proxyUrl = process.env.PROXY_URL ?? ""; // 代理的api地址
+let proxy = "";
 let logNums = process.env.KOI_LOG_NUMS ? Number(process.env.KOI_LOG_NUMS) : 100
+let nums = 0;
 let cookiesArr = []
 let scriptsLogArr = []
 var tools = []
@@ -96,6 +105,9 @@ let notify, allMessage = '';
     while (helpIndex < cookiesArr.length && tools.length > 0 && remainingTryCount > 0) {
         let cookieIndex = cookieIndexOrder[helpIndex]
         try {
+            if(proxyUrl){
+                await getProxy();
+            }
             // 按需获取账号的锦鲤信息
             let help = await getHelpInfoForCk(cookieIndex, cookiesArr[cookieIndex])
             if (help) {
@@ -119,7 +131,12 @@ let notify, allMessage = '';
                     }
 
                     console.debug(`尝试用 ${tool.id} 账号助力 ${help.id} 账号，用于互助的账号剩余 ${tools.length}`)
-                    await helpThisUser(help, tool)
+                   try{
+                       await helpThisUser(help, tool)
+                   }catch (error) {
+                       // 额外捕获异常
+                       console.error(`尝试用 ${tool.id} 账号助力 ${help.id} 出现错误，错误为${error}，捕获该异常，跳过此账号继续执行助力~`)
+                   }
                     if (!tool.assisted) {
                         // 如果没有助力成功，则放入互助列表头部
                         tools.unshift(tool)
@@ -185,9 +202,15 @@ function shuffle(array) {
 async function getHelpInfoForCk(cookieIndex, cookie) {
     console.log(`开始请求第 ${cookieIndex} 个账号的信息`)
     logs = await getLog()
+    if(proxyUrl){
+        if (nums % 8 == 0) {
+            await getProxy();
+            global.GLOBAL_AGENT.HTTP_PROXY = "http://" + proxy;
+        }
+        nums++;
+    }
     let random = logs.substring(10,18),log = logs.substring(27,logs.length-1)
     //let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
-    //console.log(`log为: ${logs}`)
     let data;
     // 开启红包
     data = await with_retry("开启红包活动", async () => {
@@ -504,6 +527,33 @@ async function getLog() {
     var num = Math.floor(Math.random() * (scriptsLogArr.length - 0 + 1) + 0);
     logs = scriptsLogArr[num]
     return logs
+}
+// 获取代理
+function getProxy() {
+    return new Promise(async (resolve) => {
+        $.get(
+            {
+                url: proxyUrl,
+                timeout: {
+                    request: 5000,
+                },
+            },
+            (err, data) => {
+                if (data) {
+                    try {
+                        let reg =
+                            /((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}:[1-9]\d*/g;
+                        let p = reg.exec(data.body);
+                        proxy = p[0];
+                        global.GLOBAL_AGENT.HTTP_PROXY = "http://" + proxy;
+                    } catch (err) {
+                    } finally {
+                        resolve();
+                    }
+                }
+            }
+        );
+    });
 }
 function randomString(e) {
     e = e || 32;
