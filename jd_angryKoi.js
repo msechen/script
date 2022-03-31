@@ -185,7 +185,8 @@ function shuffle(array) {
 async function getHelpInfoForCk(cookieIndex, cookie) {
     console.log(`开始请求第 ${cookieIndex} 个账号的信息`)
     logs = await getLog()
-    let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
+    let random = logs.substring(10,18),log = logs.substring(27,logs.length-1)
+    //let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
     //console.log(`log为: ${logs}`)
     let data;
     // 开启红包
@@ -373,7 +374,8 @@ async function with_retry(ctx = "", callback_func, max_retry_times = 3, retry_in
 
 async function openRedPacket(cookie) {
     logs = await getLog()
-    let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
+    //let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
+    let random = logs.substring(10,18),log = logs.substring(27,logs.length-1)
     // https://api.m.jd.com/api?appid=jinlihongbao&functionId=h5receiveRedpacketAll&loginType=2&client=jinlihongbao&t=1638189287348&clientVersion=10.2.4&osVersion=-1
     let resp = await requestApi('h5receiveRedpacketAll', cookie, {
         "random": random,
@@ -389,7 +391,7 @@ async function openRedPacket(cookie) {
 
 async function helpThisUser(help, tool) {
     logs = await getLog()
-    let random = decodeURIComponent(logs.match(/"random":"(\d+)"/)[1]),log = decodeURIComponent(logs.match(/"log":"(.*)"/)[1])
+    let random = logs.substring(10,18),log = logs.substring(27,logs.length-1)
     body={"redPacketId": help.redPacketId,"followShop": 0,"random": random,"log": log,"sceneid":"JLHBhPageh5"}
     // 实际发起请求
     await requestApi('jinli_h5assist', tool.cookie, body).then(function (data) {
