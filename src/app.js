@@ -313,8 +313,8 @@ async function main() {
   // 定时循环
   async function cronLoop() {
     await serialRun([
-      Factory,
       PlantBean,
+      Factory,
       Health,
     ], doCron);
 
