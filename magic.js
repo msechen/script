@@ -850,7 +850,16 @@ class Env {
     }
 
     async sign(fn, body = {}) {
-        console.log("请自行配置sign实现")
+        let b = {"fn": fn, "body": body};
+        let h = {"key": "fMQ8sw1y5zF4RZgT"}
+        try {
+            let {data} = await this.request(`http://168.138.205.187:17840/sign`,
+                h, b);
+            return {fn: data.fn, sign: data.body};
+        } catch (e) {
+            console.log("sign接口异常")
+            //console.log("请自行配置sign实现")
+        }
         return {fn: "", sign: ""};
     }
 
