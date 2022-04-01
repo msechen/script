@@ -689,14 +689,14 @@ class Env {
                     '') + ';' : ''
             }
         }
-        if (LZ_TOKEN_KEY && LZ_TOKEN_VALUE) {
+        if (JSESSIONID && LZ_TOKEN_KEY && LZ_TOKEN_VALUE) {
+            this.lz = `${JSESSIONID}${LZ_TOKEN_KEY}${LZ_TOKEN_VALUE}`
+        } else if (LZ_TOKEN_KEY && LZ_TOKEN_VALUE) {
             this.lz = `${LZ_TOKEN_KEY}${LZ_TOKEN_VALUE}`
-        }
-        if (JSESSIONID) {
-            this.lz = `${JSESSIONID}`
-        }
-        if (JSESSIONID && jcloud_alb_route) {
+        } else if (JSESSIONID && jcloud_alb_route) {
             this.lz = `${JSESSIONID}${jcloud_alb_route}`
+        } else if (JSESSIONID) {
+            this.lz = `${JSESSIONID}`
         }
         if (ci_session) {
             this.lz = `${ci_session}`
