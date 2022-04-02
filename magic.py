@@ -25,6 +25,12 @@ api_hash = BOT['api_hash']
 my_id = int(BOT['user_id'])
 my_bot_id = int(BOT['bot_token'].split(":")[0])
 base_path = BOT['base_path']
+if 'send_log_to' in BOT:
+    send_log_to_ = BOT['send_log_to']
+    print(send_log_to_)
+    send_log_to = int(send_log_to_)
+else:
+    send_log_to = my_bot_id
 
 if platform == "v4":
     _ConfigSH = '/jd/config/config.sh'
@@ -151,7 +157,7 @@ async def cmd(client, cmd_text):
             tmp_log = f'/{base}/log/bot/{cmd_text.split("/")[-1].split(".js")[0]}-{datetime.datetime.now().strftime("%H-%M-%S.%f")}.log'
             with open(tmp_log, 'w+', encoding='utf-8') as f:
                 f.write(res)
-            await client.send_document(my_bot_id, tmp_log)
+            await client.send_document(send_log_to, tmp_log)
             os.remove(tmp_log)
     except Exception as e:
         await client.send_message(my_bot_id,
