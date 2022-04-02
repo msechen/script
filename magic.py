@@ -25,12 +25,19 @@ api_hash = BOT['api_hash']
 my_id = int(BOT['user_id'])
 my_bot_id = int(BOT['bot_token'].split(":")[0])
 base_path = BOT['base_path']
-if 'send_log_to' in BOT:
-    send_log_to_ = BOT['send_log_to']
-    print(send_log_to_)
-    send_log_to = int(send_log_to_)
-else:
-    send_log_to = my_bot_id
+send =False
+if 'send_log' in BOT:
+    if BOT['send_log']:
+        send = True
+        if 'send_log_to' in BOT:
+            try:
+                send_log_to_ = int(BOT['send_log_to'])
+            except:
+                send_log_to_ = my_bot_id
+            print(send_log_to_)
+        else:
+            send_log_to = my_bot_id
+
 
 if platform == "v4":
     _ConfigSH = '/jd/config/config.sh'
@@ -148,8 +155,7 @@ async def cmd(client, cmd_text):
             stderr=asyncio.subprocess.PIPE)
         res_bytes, res_err = await p.communicate()
         res = res_bytes.decode('utf-8')
-        if len(res) > 0:
-            base = ""
+        if send and len(res) > 0:
             if platform == "v4":
                 base = "/jd"
             else:
