@@ -1,43 +1,46 @@
 import asyncio
 import datetime
+import json
 import os
 import re
 import urllib.parse
 
+from cacheout import FIFOCache
 from pyrogram import Client, filters
 
-# 0. pip3 install -U pyrogram
-# 1. 自行配置 my_id my_bot_id open_proxy base_path变量参数
-# 2. 复制magic.py到/jd/config/目录
-# 3. python3 /jd/scripts/magic.py 登录
-# 4. 给bot发送 在吗 有反应即可
-# 5. pm2 start /jd/scripts/magic.py -x --interpreter python3
-# 6. 挂起bot到后台 查看状态 pm2 l
-# 7. 后续添加变量后 pm2 restart magic 即可重启
+cache = FIFOCache(maxsize=512)
 
-# my.telegram.org申请到的api_id,api_hash
-api_id = 3741
-api_hash = 'f81a30b8'
-# 你自己的id
-my_id = 95130
-# 你bot的id bot_token冒号之前的那部分 16575:AAGO7sxIVvhdSHr5it_k_0u_C1w7U
-my_bot_id = 16575
-# v4 配置文件
-_ConfigSH = '/jd/config/config.sh'
-# 你的脚本路径 例如在v4 /jd/scripts下
-base_path = '/jd/scripts'
-# 需要代理吗? 需要填1 不需要填2
-open_proxy = 1
-if open_proxy == 1:
+platform = "v4"
+if os.path.exists("/jd/config/magic.json"):
+    with open("/jd/config/magic.json", 'r', encoding='utf-8') as f:
+        BOT = json.load(f)
+
+if os.path.exists("/ql/config/magic.json"):
+    platform = "ql"
+    with open("/ql/config/magic.json", 'r', encoding='utf-8') as f:
+        BOT = json.load(f)
+
+api_id = int(BOT['api_id'])
+api_hash = BOT['api_hash']
+my_id = int(BOT['user_id'])
+my_bot_id = int(BOT['bot_token'].split(":")[0])
+base_path = BOT['base_path']
+
+if platform == "v4":
+    _ConfigSH = '/jd/config/config.sh'
+else:
+    _ConfigSH = '/ql/config/config.sh'
+
+if BOT['proxy']:
     proxy = {
-        'hostname': '127.0.0.1',  # 改成自己的
-        'port': 7890}
+        'hostname': BOT['proxy_add'],  # 改成自己的
+        'port': int(BOT['proxy_port'])}
     app = Client('magic', api_id, api_hash, proxy=proxy)
 else:
     app = Client('magic', api_id, api_hash)
 
 # 监控的自动车
-monitor_cars = -1001582579150
+monitor_cars = -1001533334185
 monitor_flag = 'https://i.walle.com/api?data='
 
 # 你的脚本配置
@@ -60,7 +63,21 @@ async def handler(client, message):
         if message.entities is None:
             return
         text = message.entities[0]['url']
+        if text is None:
+            return
         text = urllib.parse.unquote(text.replace(monitor_flag, ''))
+        zd = 1
+        if 'jd_zdjr_activityId' in text:
+            zd = re.search(f'jd_zdjr_activityId="(.*)"', text)[1]
+        if zd != 1:
+            if cache.get(zd) is not None:
+                await client.send_message(my_bot_id, f'跑过 {text}')
+                return
+            cache.set(zd, zd)
+        else:
+            if cache.get(text) is not None:
+                await client.send_message(my_bot_id, f'跑过 {text}')
+        cache.set(text, text)
         name = ''
         js = ''
         command = ''
@@ -88,40 +105,50 @@ async def handler(client, message):
                 configs = re.sub(f'{key}=("|\').*("|\')', kv, configs)
                 change += f"【替换】 `{name}` 环境变量成功\n`{kv}\n`"
             else:
-                end_line = 0
-                configs = rwcon("list")
-                for config in configs:
-                    if "第五区域" in config and "↑" in config:
-                        end_line = configs.index(config) - 1
-                        break
-                configs.insert(end_line, f'export {key}="{value}"\n')
+                if platform == 'v4':
+                    end_line = 0
+                    configs = rwcon("list")
+                    for config in configs:
+                        if "第五区域" in config and "↑" in config:
+                            end_line = configs.index(config) - 1
+                            break
+                    configs.insert(end_line, f'export {key}="{value}"\n')
+                else:
+                    configs = rwcon("str")
+                    configs += f'export {key}="{value}"\n'
                 change += f"【新增】 `{name}` 环境变量成功\n`{kv}\n`"
                 await client.send_message(my_bot_id, change)
             rwcon(configs)
         if len(change) == 0:
             await client.send_message(my_bot_id, f'【取消】{name}环境变量无需改动')
             return
-        await client.send_message(my_bot_id, change)
         if len(js) > 0:
-            await cmd(client, f'jtask {base_path}/{js} {command}')
+            await client.send_message(my_bot_id, f'开始运行 {js}')
+            if platform == 'v4':
+                await cmd(client, f'jtask {base_path}/{js} {command}')
+            else:
+                await cmd(client, f'task {base_path}/{js} {command}')
         else:
             await client.send_message(my_bot_id, f'无需执行')
     except Exception as e:
-        title = "【💥错误💥】"
-        name = "文件名：" + os.path.split(__file__)[-1].split(".")[0]
-        await client.send_message(my_bot_id, f'{title}-{name}-{str(e)}')
+        await client.send_message(my_bot_id, f'{str(e)}')
 
 
-async def cmd(client, cmdtext):
+async def cmd(client, cmd_text):
     '''定义执行cmd命令'''
     try:
         p = await asyncio.create_subprocess_shell(
-            cmdtext, stdout=asyncio.subprocess.PIPE,
+            cmd_text, stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE)
         res_bytes, res_err = await p.communicate()
         res = res_bytes.decode('utf-8')
         if len(res) > 0:
-            tmp_log = f'/jd/log/bot/{cmdtext.split("/")[-1].split(".js")[0]}-{datetime.datetime.now().strftime("%H-%M-%S.%f")}.log'
+            base = ""
+            if platform == "v4":
+                base = "/jd"
+            else:
+                base = "/ql"
+            tmp_log = f'/{base}/log/bot/{cmd_text.split("/")[-1].split(".js")[0]}-{datetime.datetime.now().strftime("%H-%M-%S.%f")}.log'
             with open(tmp_log, 'w+', encoding='utf-8') as f:
                 f.write(res)
             await client.send_document(my_id, tmp_log)
