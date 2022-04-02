@@ -29,7 +29,7 @@
 2 0-23/4 * * * node /scripts/jd_cash.js >> /scripts/logs/jd_cash.log 2>&1
 
 # 京喜财富岛
-#10 * * * * cd /scripts && ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
+10 * * * * cd /scripts && ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
 
 # 京喜财富岛捡贝壳
 10 * * * * cd /scripts && node /scripts/jd_cfd_shell.ts >> /scripts/logs/jd_cfd_shell.log 2>&1
@@ -80,7 +80,7 @@
 30 0-23/3 * * * cd /scripts && ts-node /scripts/jd_qq_pasture.ts >> /scripts/logs/jd_qq_pasture.log 2>&1
 
 # 惊喜牧场
-#5 0,6,12,18 * * * cd /scripts && ts-node /scripts/jd_jxmc.ts >> /scripts/logs/jd_jxmc.log 2>&1
+5 0,6,12,18 * * * cd /scripts && ts-node /scripts/jd_jxmc.ts >> /scripts/logs/jd_jxmc.log 2>&1
 
 # 京喜牧场兑换新品通知
 #0 * * * * cd /scripts && ts-node /scripts/jd_jxmc_stock.ts >> /scripts/logs/jd_jxmc_stock.log 2>&1
@@ -104,13 +104,13 @@
 10 7 * * * node /scripts/jd_ms.js >> /scripts/logs/jd_ms.log 2>&1
 
 # 东东萌宠
-#15 6-18/6 * * * node /scripts/jd_pet.js >> /scripts/logs/jd_pet.log 2>&1
+15 6-18/6 * * * node /scripts/jd_pet.js >> /scripts/logs/jd_pet.log 2>&1
 
 # 金融养猪
 #12 0-23/6 * * * node /scripts/jd_pigPet.js >> /scripts/logs/jd_pigPet.log 2>&1
 
 # 京东种豆得豆
-#1 7-21/2 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
+1 7-21/2 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
 
 # 闪购盲盒
 20 8 * * * cd /scripts && ts-node /scripts/jd_sgmh.ts >> /scripts/logs/jd_sgmh.log 2>&1
@@ -178,6 +178,9 @@
 # 微信小程序签到红包
 8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
 
+# 内部 -> 助力池
+35 0,1,2 * * * cd /scripts && ts-node /scripts/jd_fruit_help_1.ts >> /scripts/logs/jd_fruit_help_1.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
@@ -230,7 +233,7 @@
 1 0,19,23 * * * node /scripts/logs/other_scripts/yyds/jd_nnfls.js >> /scripts/logs/other_logs/yyds/jd_nnfls.log 2>&1
 
 # 京喜财富岛
-1 0,6-23 * * * node /scripts/logs/other_scripts/yyds/jd_cfd.js >> /scripts/logs/other_logs/yyds/jd_cfd.log 2>&1
+# 1 0,6-23 * * * node /scripts/logs/other_scripts/yyds/jd_cfd.js >> /scripts/logs/other_logs/yyds/jd_cfd.log 2>&1
 
 # 财富岛兑换红包
 50 * * * * node /scripts/logs/other_scripts/yyds/jd_cfd_hb.js >> /scripts/logs/other_logs/yyds/jd_cfd_hb.log 2>&1
@@ -305,16 +308,16 @@
 15 0-23/1 * * * node /scripts/logs/other_scripts/yyds/jd_joy_feedPets.js >> /scripts/logs/other_logs/yyds/jd_joy_feedPets.log 2>&1
 
 # 京喜牧场
-20 * * * * node /scripts/logs/other_scripts/yyds/jd_jxmc.js >> /scripts/logs/other_logs/yyds/jd_jxmc.log 2>&1
+# 20 * * * * node /scripts/logs/other_scripts/yyds/jd_jxmc.js >> /scripts/logs/other_logs/yyds/jd_jxmc.log 2>&1
 
 # 东东萌宠
-15 6-18/6 * * * node /scripts/logs/other_scripts/yyds/jd_pet.js >> /scripts/logs/other_logs/yyds/jd_pet.log 2>&1
+# 15 6-18/6 * * * node /scripts/logs/other_scripts/yyds/jd_pet.js >> /scripts/logs/other_logs/yyds/jd_pet.log 2>&1
 
 # 京东金融养猪猪
 12 0-23/6 * * * node /scripts/logs/other_scripts/yyds/jd_pigPet.js >> /scripts/logs/other_logs/yyds/jd_pigPet.log 2>&1
 
 # 种豆得豆
-12 0-23/6 * * * node /scripts/logs/other_scripts/yyds/jd_plantBean.js >> /scripts/logs/other_logs/yyds/jd_plantBean.log 2>&1
+# 12 0-23/6 * * * node /scripts/logs/other_scripts/yyds/jd_plantBean.js >> /scripts/logs/other_logs/yyds/jd_plantBean.log 2>&1
 
 # 京东极速版红包
 20 0,22 * * * node /scripts/logs/other_scripts/yyds/jd_speed_redpocke.js >> /scripts/logs/other_logs/yyds/jd_speed_redpocke.log 2>&1
