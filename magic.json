@@ -9,5 +9,6 @@
     "proxy_port": 7890,
     "//base_path 填脚本所在目录": 1,
     "base_path": "填脚本所在目录",
+    "send_log": false,
     "send_log_to": "你要把log发给谁，发给bot填bot_token前半部分,发给收藏夹就填写user_id的值"
 }
