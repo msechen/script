@@ -31,10 +31,10 @@ if 'send_log' in BOT:
         send = True
         if 'send_log_to' in BOT:
             try:
-                send_log_to_ = int(BOT['send_log_to'])
+                send_log_to = int(BOT['send_log_to'])
             except:
-                send_log_to_ = my_bot_id
-            print(send_log_to_)
+                send_log_to = my_bot_id
+            print(send_log_to)
         else:
             send_log_to = my_bot_id
 
@@ -160,7 +160,7 @@ async def cmd(client, cmd_text):
                 base = "/jd"
             else:
                 base = "/ql"
-            tmp_log = f'/{base}/log/bot/{cmd_text.split("/")[-1].split(".js")[0]}-{datetime.datetime.now().strftime("%H-%M-%S.%f")}.log'
+            tmp_log = f'{base}/log/bot/{cmd_text.split("/")[-1].split(".js")[0]}-{datetime.datetime.now().strftime("%H-%M-%S.%f")}.log'
             with open(tmp_log, 'w+', encoding='utf-8') as f:
                 f.write(res)
             await client.send_document(send_log_to, tmp_log)
