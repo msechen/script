@@ -151,12 +151,17 @@ let notify, allMessage = '';
                     }
 
                     console.debug(`尝试用 ${tool.id} 账号助力 ${help.id} 账号，用于互助的账号剩余 ${tools.length}`)
-                   try{
-                       await helpThisUser(help, tool)
-                   }catch (error) {
-                       // 额外捕获异常
-                       console.error(`尝试用 ${tool.id} 账号助力 ${help.id} 出现错误，错误为${error}，捕获该异常，跳过此账号继续执行助力~`)
-                   }
+                    let helpNum=0;
+                    do {
+                        try {
+                            await helpThisUser(help, tool)
+                            helpNum=10;
+                        } catch (error) {
+                            // 额外捕获异常
+                            console.error(`尝试用 ${tool.id} 账号助力 ${help.id} 出现错误，错误为${error}，捕获该异常，跳过此账号继续执行助力~`)
+                            helpNum++;
+                        }
+                    }while (helpNum<5);
                     if (!tool.assisted) {
                         // 如果没有助力成功，则放入互助列表头部
                         tools.unshift(tool)
@@ -474,7 +479,11 @@ async function helpThisUser(help, tool) {
                 await getProxy();
                 console.log(proxy);
             }
-            await $.wait(500);
+            if(proxyUrl){
+                await $.wait(500);
+            }else {
+                await $.wait(6000);
+            }
             helpThisUser(help, tool);
         }
     })
