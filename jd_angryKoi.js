@@ -1,6 +1,6 @@
 /*
 愤怒的锦鲤
-更新时间：2022-04-01
+更新时间：2022-04-05
 备注：高速并发请求，专治偷助力。在kois环境变量中填入需要助力的pt_pin，有多个请用@符号连接
 接入了代理 https://www.xiequ.cn/ 可以去嫖携趣的 每日1000免费ip 选择1个ip txt文本返回即可
 
@@ -12,8 +12,8 @@ export  KOI_FAIR_MODE="true"
 #其他变量
 export kois ="pt_pin@pt_pin@pt_pin" 指定车头pin
 export KOI_LOG_URL ="" 锦鲤log api
-export logNums ="" 获取锦鲤数量 默认100
-export proxyUrl ="" ip代理api
+export KOI_LOG_NUMS ="" 获取锦鲤数量 默认100
+export PROXY_URL ="" ip代理api
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 =================================Quantumultx=========================
 [task_local]
@@ -28,6 +28,7 @@ cron "30 0,8  * * *" script-path=https://raw.githubusercontent.com/LingFeng0918/
 愤怒的锦鲤 = type=cron,script-path=https://raw.githubusercontent.com/LingFeng0918/LF_JD/main/jd_angryKoi.js, cronexpr="30 0,8  * * *", timeout=3600, enable=true
  */
 const $ = new Env("愤怒的锦鲤 - LingFeng自用版 ")
+require("global-agent/bootstrap");
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 //const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.ceil(Math.random() * 4)};${randomString(40)}`
 const ua = "Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; Mi Note 2 Build/OPR1.170623.032) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/61.0.3163.128 Mobile Safari/537.36 XiaoMi/MiuiBrowser/10.1.1"
@@ -43,6 +44,12 @@ let cookiesArr = []
 let scriptsLogArr = []
 var tools = []
 let logs;
+
+if (proxyUrl){
+    let urlRex =
+        /[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/g;
+    global.GLOBAL_AGENT.NO_PROXY = `${urlRex.exec(proxyUrl)[0]},log.catttt.com`;
+}
 
 let notify, allMessage = '';
 
@@ -107,9 +114,22 @@ let notify, allMessage = '';
         try {
             if(proxyUrl){
                 await getProxy();
+                console.log(proxy);
             }
             // 按需获取账号的锦鲤信息
-            let help = await getHelpInfoForCk(cookieIndex, cookiesArr[cookieIndex])
+            let help;
+
+            let cnt=0;
+            do {
+                try {
+                    help = await getHelpInfoForCk(cookieIndex, cookiesArr[cookieIndex])
+                    cnt=10;
+                } catch (error) {
+                    // 额外捕获异常
+                    console.error(`第${cnt}次请求第${cookieIndex} 个账号信息出现错误，错误为${error}，捕获该异常，3次后进行下一个账号`)
+                    cnt++;
+                }
+            }while (cnt<3);
             if (help) {
                 while (tools.length > 0 && remainingTryCount > 0) {
                     console.info('')
@@ -149,7 +169,11 @@ let notify, allMessage = '';
                     remainingTryCount -= 1
 
                     // 等待一会，避免频繁请求
-                    await $.wait(45000)
+                    if(proxyUrl){
+                        await $.wait(1000)
+                    }else{
+                        await $.wait(45000)
+                        }
                 }
             } else {
                 // 获取失败，跳过
@@ -414,10 +438,19 @@ async function openRedPacket(cookie) {
 
 async function helpThisUser(help, tool) {
     logs = await getLog()
+    var num = "";
     let random = logs.substring(10,18),log = logs.substring(27,logs.length-1)
+    if (proxyUrl){
+        if (nums % 8 == 0) {
+            await getProxy();
+            console.log(proxy);
+            global.GLOBAL_AGENT.HTTP_PROXY = "http://" + proxy;
+        }
+        nums++;
+    }
     body={"redPacketId": help.redPacketId,"followShop": 0,"random": random,"log": log,"sceneid":"JLHBhPageh5"}
     // 实际发起请求
-    await requestApi('jinli_h5assist', tool.cookie, body).then(function (data) {
+    await requestApi('jinli_h5assist', tool.cookie, body).then(async function (data) {
         let desc = data?.data?.result?.statusDesc
         if (desc) {
             if (desc.indexOf("助力成功") != -1) {
@@ -436,6 +469,14 @@ async function helpThisUser(help, tool) {
             tool.assisted = true
         }
         console.log(`${tool.id}->${help.id}`, desc)
+        if (!desc) {
+            if(proxyUrl){
+                await getProxy();
+                console.log(proxy);
+            }
+            await $.wait(500);
+            helpThisUser(help, tool);
+        }
     })
 }
 
