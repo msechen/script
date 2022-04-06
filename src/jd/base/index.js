@@ -8,7 +8,8 @@ const {getMoment, getNextHour, getNowHour} = require('../../lib/moment');
 const {sleepTime} = require('../../lib/cron');
 const {processInAC, getProductEnv, updateProductEnv, uploadProductEnvToAction, getEnv} = require('../../lib/env');
 
-let doChangeCkMaxTimes = 1;
+// 本地运行无需主动更新
+let initiativeChangeCkMaxTimes = processInAC() ? 1 : 0;
 let needUpdateAction = false;
 
 // 注册全局变量
@@ -431,7 +432,7 @@ class Base {
       // TODO 确认本地更新的话是否需要上传
       await uploadProductEnvToAction(true);
     }
-    --doChangeCkMaxTimes;
+    --initiativeChangeCkMaxTimes;
     await self.afterAllDone();
 
     async function _do(cookie, shareCodes) {
@@ -451,7 +452,7 @@ class Base {
       self.api = api;
       api.currentCookieTimes = currentCookieTimes++;
       api.log = (output, fileName, name) => self.log(output, fileName, `${api.currentCookieTimes}] [${addMosaic(cookie['pt_pin'])}`, name);
-      if (self.needChangeCK && doChangeCkMaxTimes > 0) {
+      if (self.needChangeCK && initiativeChangeCkMaxTimes > 0) {
         await self.changeCK(api, processInAC() && [6, 14, 20].includes(getNowHour()));
       }
       if (isCron) {
