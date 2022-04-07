@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-04-07T00:02:08.594Z
+! Last modified: 2022-04-07T14:32:06.054Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -12365,6 +12365,7 @@ vkcdnservice.appspot.com
 ||https://mlnyndkde.com
 ||https://mlscmevlspljh.com
 ||https://mlsys.xyz
+||https://mm-cgnews.com
 ||https://mm-syringe.com
 ||https://mmadsgadget.com
 ||https://mmctsvc.com
@@ -17381,6 +17382,7 @@ vkcdnservice.appspot.com
 ||https://trks.us
 ||https://trkunited.com
 ||https://trlf8mmpbfz1.com
+||https://trlxcf05.com
 ||https://trmit.com
 ||https://trmnsite.com
 ||https://trmobc.com
@@ -20961,6 +20963,7 @@ vkcdnservice.appspot.com
 ||https://escape.insites.eu
 ||https://etrader.kalahari.com
 ||https://etrader.kalahari.net
+||https://expertsulfury.com
 ||https://gateway.fortunelounge.com
 ||https://geobanner.friendfinder.com
 ||https://get.cryptobrowser.site
@@ -26425,6 +26428,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||https://pa.pinpoll.com
+||https://d2wu036mkcz52n.cloudfront.net
 ||https://ts.delfi.lt
 ||https://tracking.gvm.com.tw
 ||https://metrics.beyondwords.io
@@ -29239,7 +29244,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://perljs.com
 ||https://personalicanvas.com
 ||https://peruse.ai
-||https://pinpoll.com
 ||https://pipfire.com
 ||https://piratepx.com
 ||https://plerdy.com
@@ -30752,7 +30756,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://d2san7t27xb2pn.cloudfront.net
 ||https://d2t77mnxyo7adj.cloudfront.net
 ||https://d2tcg4i9q4js4a.cloudfront.net
-||https://d2wu036mkcz52n.cloudfront.net
 ||https://d2wy8f7a9ursnm.cloudfront.net
 ||https://d2zjlj1vewrxcj.cloudfront.net
 ||https://d34qb8suadcc4g.cloudfront.net
@@ -37633,6 +37636,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://mifsirnhvvrps.top
 ||https://misxgkvnlf.com
 ||https://naetoris.pw
+||https://oardjnay.com
 ||https://offerjuice.me
 ||https://olenation.org
 ||https://onigagalai.ru
@@ -38776,6 +38780,8 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ||https://00-gov.cn
 ||https://000123456789.site
+||https://hmjiayi.com
+||https://synergyat.work
 ||https://0024aaaa.com
 ||https://008844.cc
 ||https://00xvppy.cn
@@ -39083,7 +39089,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://aishangcan.com
 ||https://ajaxcdn.org
 ||https://ajwssds.com
-||https://ak0429.com
+||https://huishunhang.net
 ||https://akmh001.vip
 ||https://akmh025.vip
 ||https://akmhw.com
@@ -39936,7 +39942,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://mlddvji.cn
 ||https://mlt01.com
 ||https://mltp.com
-||https://mm-cgnews.com
 ||https://mngjrn.cn
 ||https://mnxtu.com
 ||https://moguozhi.com
@@ -41799,6 +41804,18 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://chudongcaiwu.xyz
 ||https://yangtianc.xyz
 ||https://wufeilong.top
+||https://eslipdd.ltd
+||https://lizhuo.fun
+||https://dewalt-sales.com
+||https://dingdangcake.cn
+||https://zangyitang.wang
+||https://nmtlgbv.cn
+||https://zzcyy.cn
+||https://yuuuxi.top
+||https://1w73a5d.cn
+||https://3356534.work
+||https://governments.wang
+||https://sqvp.online
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -46214,7 +46231,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-04-07T00:02:08.594Z
+! Last modified: 2022-04-07T14:32:06.054Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -58593,6 +58610,7 @@ vkcdnservice.appspot.com
 ||http://mlnyndkde.com
 ||http://mlscmevlspljh.com
 ||http://mlsys.xyz
+||http://mm-cgnews.com
 ||http://mm-syringe.com
 ||http://mmadsgadget.com
 ||http://mmctsvc.com
@@ -63609,6 +63627,7 @@ vkcdnservice.appspot.com
 ||http://trks.us
 ||http://trkunited.com
 ||http://trlf8mmpbfz1.com
+||http://trlxcf05.com
 ||http://trmit.com
 ||http://trmnsite.com
 ||http://trmobc.com
@@ -67189,6 +67208,7 @@ vkcdnservice.appspot.com
 ||http://escape.insites.eu
 ||http://etrader.kalahari.com
 ||http://etrader.kalahari.net
+||http://expertsulfury.com
 ||http://gateway.fortunelounge.com
 ||http://geobanner.friendfinder.com
 ||http://get.cryptobrowser.site
@@ -72695,6 +72715,8 @@ vkcdnservice.appspot.com
 !
 ! Disabled in DNS filter
 !
+||http://pa.pinpoll.com
+||http://d2wu036mkcz52n.cloudfront.net
 ||http://ts.delfi.lt
 ||http://tracking.gvm.com.tw
 ||http://metrics.beyondwords.io
@@ -75569,7 +75591,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://perljs.com
 ||http://personalicanvas.com
 ||http://peruse.ai
-||http://pinpoll.com
 ||http://pipfire.com
 ||http://piratepx.com
 ||http://plerdy.com
@@ -77090,7 +77111,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://d2san7t27xb2pn.cloudfront.net
 ||http://d2t77mnxyo7adj.cloudfront.net
 ||http://d2tcg4i9q4js4a.cloudfront.net
-||http://d2wu036mkcz52n.cloudfront.net
 ||http://d2wy8f7a9ursnm.cloudfront.net
 ||http://d2zjlj1vewrxcj.cloudfront.net
 ||http://d34qb8suadcc4g.cloudfront.net
@@ -83997,6 +84017,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://mifsirnhvvrps.top
 ||http://misxgkvnlf.com
 ||http://naetoris.pw
+||http://oardjnay.com
 ||http://offerjuice.me
 ||http://olenation.org
 ||http://onigagalai.ru
@@ -85144,6 +85165,8 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ||http://00-gov.cn
 ||http://000123456789.site
+||http://hmjiayi.com
+||http://synergyat.work
 ||http://0024aaaa.com
 ||http://008844.cc
 ||http://00xvppy.cn
@@ -85451,7 +85474,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://aishangcan.com
 ||http://ajaxcdn.org
 ||http://ajwssds.com
-||http://ak0429.com
+||http://huishunhang.net
 ||http://akmh001.vip
 ||http://akmh025.vip
 ||http://akmhw.com
@@ -86304,7 +86327,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://mlddvji.cn
 ||http://mlt01.com
 ||http://mltp.com
-||http://mm-cgnews.com
 ||http://mngjrn.cn
 ||http://mnxtu.com
 ||http://moguozhi.com
@@ -88203,6 +88225,18 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://chudongcaiwu.xyz
 ||http://yangtianc.xyz
 ||http://wufeilong.top
+||http://eslipdd.ltd
+||http://lizhuo.fun
+||http://dewalt-sales.com
+||http://dingdangcake.cn
+||http://zangyitang.wang
+||http://nmtlgbv.cn
+||http://zzcyy.cn
+||http://yuuuxi.top
+||http://1w73a5d.cn
+||http://3356534.work
+||http://governments.wang
+||http://sqvp.online
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn
