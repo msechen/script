@@ -13,8 +13,8 @@
 必要变量:
 
 变量名 soy_lfb_data
-变量值 xxx
-自行抓包 http://frb.quancankeji.com 的链接请求头上的autoken
+变量值 TG_ID&卡密&支付方式(1微信,2支付宝)&token
+token自行抓包 http://frb.quancankeji.com 的链接请求头上的autoken
 
 
 多个号用 # 或 @ 或 换行 隔开
