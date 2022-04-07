@@ -5,7 +5,7 @@ const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 const md5 = require('js-md5');
 
-const indexUrl = 'https://carnivalcity.m.jd.com';
+const indexUrl = 'https://welfare.m.jd.com';
 
 class Carnivalcity extends Template {
   static scriptName = 'Carnivalcity';
@@ -14,17 +14,18 @@ class Carnivalcity extends Template {
   static times = 2;
   static concurrent = true;
   static concurrentOnceDelay = 0;
+  static activityEndTime = '2022-04-22';
 
   static apiOptions = {
     options: {
       uri: 'https://api.m.jd.com/api',
       form: {
-        appid: 'guardian-starjd',
+        appid: 'reinforceints',
         loginType: 2,
       },
       headers: {
         origin: indexUrl,
-        referer: indexUrl,
+        referer: `${indexUrl}/`,
       },
     },
     formatDataFn(data) {
@@ -54,8 +55,21 @@ class Carnivalcity extends Template {
     const doPostPath = (path, form) => doFormBody(path, form);
     const doTaskPath = (path, form) => doPostPath(`task/${path}`, form);
 
+    self.isFirstLoop() && await handleDoHeadTask();
     self.isFirstLoop() && await handleTask();
     await handleShare();
+
+
+    async function handleDoHeadTask() {
+      let headInfoTask = await doPostPath('index/headInfo');
+      if (headInfoTask && headInfoTask['status'] === '0') {
+        for (let i = headInfoTask['taskIndex']; i < headInfoTask['taskCount']; i++) {
+          await handleDoBrowseTask(_.pick(headInfoTask, ['taskIndex', 'taskId', 'taskType']), true);
+          headInfoTask = await doPostPath('index/headInfo');
+        }
+        return handleDoHeadTask();
+      }
+    }
 
     async function handleTask() {
       return doGetPath('index/indexInfo').then(async data => {
@@ -115,11 +129,11 @@ class Carnivalcity extends Template {
       }
     }
 
-    async function handleDoBrowseTask(param) {
+    async function handleDoBrowseTask(param, isHead) {
       const brandId = param['brandId'] || '';
-      const browseId = await doTaskPath('doBrowse', param).then(data => data.browseId);
+      const browseId = await doTaskPath(isHead ? 'doBrowseHead' : 'doBrowse', param).then(data => data.browseId);
       await sleep(6);
-      await doTaskPath('getBrowsePrize', {brandId, browseId}).then(afterTaskOutput);
+      await doTaskPath(isHead ? 'getHeadBrowsePrize' : 'getBrowsePrize', {brandId, browseId}).then(afterTaskOutput);
     }
 
     function afterTaskOutput(data) {
