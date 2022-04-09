@@ -50,7 +50,7 @@ func (j *StatsNotifyJob) Run() {
 	}
 	upTraffic=upTraffic/(1024*1024)
 	downTraffic=downTraffic/(1024*1024)
-	totalTraffic=(upTraffic+downTraffic)/(1024*1024)
+	totalTraffic=upTraffic+downTraffic
 	//get hostname
 	name, err := os.Hostname()
 	if err != nil {
