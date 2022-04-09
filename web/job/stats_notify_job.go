@@ -47,11 +47,10 @@ func (j *StatsNotifyJob) Run() {
 	for _, inbound := range inbouds {
 		upTraffic+=inbound.Up
 		downTraffic+=inbound.Down
-		totalTraffic+=inbound.Total
 	}
 	upTraffic=upTraffic/(1024*1024)
 	downTraffic=downTraffic/(1024*1024)
-	totalTraffic=totalTraffic/(1024*1024)
+	totalTraffic=(upTraffic+downTraffic)/(1024*1024)
 	//get hostname
 	name, err := os.Hostname()
 	if err != nil {
