@@ -26,7 +26,7 @@
 0 0 * * * node /scripts/jd_car_exchange.js >> /scripts/logs/jd_car_exchange.log 2>&1
 
 # 签到领现金
-2 0-23/4 * * * node /scripts/jd_cash.js >> /scripts/logs/jd_cash.log 2>&1
+2 0-23/4 * * * cd /scripts && ts-node /scripts/jd_cash.ts >> /scripts/logs/jd_cash.log 2>&1
 
 # 京喜财富岛
 10 * * * * cd /scripts && ts-node /scripts/jd_cfd.ts >> /scripts/logs/jd_cfd.log 2>&1
@@ -175,11 +175,20 @@
 # 锦鲤红包
 1 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
+# 锦鲤红包
+5 0,1,6 * * * cd /scripts && ts-node /scripts/jd_jinli.ts >> /scripts/logs/jd_jinli.log 2>&1
+
 # 微信小程序签到红包
 8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
 
 # 内部 -> 助力池
 35 0,1,2 * * * cd /scripts && ts-node /scripts/jd_fruit_help_1.ts >> /scripts/logs/jd_fruit_help_1.log 2>&1
+
+# 汪汪乐园-跑步
+20,50 * * * * cd /scripts && ts-node /scripts/jd_joy_park_run.ts >> /scripts/logs/jd_joy_park_run.log 2>&1
+
+# 手机狂欢城
+15 0,6 * * * cd /scripts && ts-node /scripts/jd_carnivalcity_card.ts >> /scripts/logs/jd_carnivalcity_card.log 2>&1
 
 ##################################################### 自定 ########################################################
 
