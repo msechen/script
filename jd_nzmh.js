@@ -1,5 +1,7 @@
 /*
 女装盲盒
+活动时间：2022-4-1至2022-4-30
+活动地址：https://anmp.jd.com/babelDiy/Zeus/3qshXVjiSE2M9rfaCpntAXfkg166/index.html
 活动入口：京东app-女装馆-赢京豆
 已支持IOS双京东账号,Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
@@ -38,8 +40,8 @@ if ($.isNode()) {
     return;
   }
   console.log('女装盲盒\n' +
-      '活动时间：2022-3-1至2022-3-31\n' +
-      '活动地址：https://anmp.jd.com/babelDiy/Zeus/3PQzvagTyyd4vHoKvBLPvtREWVaq/index.html');
+      '活动时间：2022-4-1至2022-4-30\n' +
+      '活动地址：https://anmp.jd.com/babelDiy/Zeus/3qshXVjiSE2M9rfaCpntAXfkg166/index.html');
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -59,7 +61,7 @@ if ($.isNode()) {
         continue
       }
       try {
-        await jdMh('https://anmp.jd.com/babelDiy/Zeus/3PQzvagTyyd4vHoKvBLPvtREWVaq/index.html')
+        await jdMh('https://anmp.jd.com/babelDiy/Zeus/3qshXVjiSE2M9rfaCpntAXfkg166/index.html')
       } catch (e) {
         $.logErr(e)
       }
@@ -157,9 +159,13 @@ function doTask(taskId) {
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           data = JSON.parse(data.match(/query\((.*)\n/)[1])
-          if (data.data.complete_task_list.includes(taskId)) {
-            console.log(`任务完成成功，当前幸运值${data.data.curbless}`)
-            $.userInfo.bless = data.data.curbless
+          if (data.errcode === 8004) {
+            console.log(`任务完成失败，无效任务ID`)
+          } else {
+            if (data.data.complete_task_list.includes(taskId)) {
+              console.log(`任务完成成功，当前幸运值${data.data.curbless}`)
+              $.userInfo.bless = data.data.curbless
+            }
           }
         }
       } catch (e) {
@@ -209,7 +215,7 @@ function taskUrl(function_id, body = '') {
       'Content-Type': 'application/json;charset=utf-8',
       'Origin': 'wq.jd.com',
       'User-Agent': 'JD4iPhone/167490 (iPhone; iOS 14.2; Scale/3.00)',
-      'Referer': `https://anmp.jd.com/babelDiy/Zeus/2x36jyruNVDWxUiAiGAgHRrkqVX2/index.html?wxAppName=jd`,
+      'Referer': `https://anmp.jd.com/babelDiy/Zeus/xKACpgVjVJM7zPKbd5AGCij5yV9/index.html?wxAppName=jd`,
       'Cookie': cookie
     }
   }
