@@ -441,7 +441,7 @@ enable_telegram_bot() {
     LOGI "3.面板登录提醒,待完善(规划中)"
     confirm "我已确认以上内容[y/n]" "y"
     if [ $? -eq 0 ]; then
-        info=$(/usr/local/x-ui/x-ui setting -enabletgbot true)
+        info=$(/usr/local/x-ui/x-ui setting -enabletgbot=true)
         if [ $? == 0 ]; then
             LOGI "开启成功,重启X-UI生效,重启中...."
             restart
@@ -457,7 +457,7 @@ enable_telegram_bot() {
 disable_telegram_bot() {
     confirm "确认是否关闭Tgbot[y/n]" "n"
     if [ $? -eq 0 ]; then
-        info=$(/usr/local/x-ui/x-ui setting -enabletgbot false)
+        info=$(/usr/local/x-ui/x-ui setting -enabletgbot=false)
         if [ $? == 0 ]; then
             LOGI "关闭成功,重启X-UI生效,重启中...."
             restart
@@ -521,8 +521,8 @@ ssl_cert_issue() {
             LOGI "证书签发成功,安装中..."
         fi
         ~/.acme.sh/acme.sh --installcert -d ${CF_Domain} -d *.${CF_Domain} --ca-file /root/cert/ca.cer \
-            --cert-file /root/cert/${CF_Domain}.cer --key-file /root/cert/${CF_Domain}.key \
-            --fullchain-file /root/cert/fullchain.cer
+        --cert-file /root/cert/${CF_Domain}.cer --key-file /root/cert/${CF_Domain}.key \
+        --fullchain-file /root/cert/fullchain.cer
         if [ $? -ne 0 ]; then
             LOGE "证书安装失败,脚本退出"
             exit 1
