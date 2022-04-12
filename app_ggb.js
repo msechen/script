@@ -30,7 +30,7 @@ cron 31 9,17 * * * app_ggb.js
 
 
 const $ = new Env('【广告吧22/04/12_0】');
-const notify = $.isNode() ? require('./soy_notice.js') : '';
+const notify = $.isNode() ? require('./sendNotify.js') : '';
 
 const author = '作者TG_ID:@ls_soy';
 
