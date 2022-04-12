@@ -49,14 +49,16 @@ if (proxyUrl){
         /[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/g;
     global.GLOBAL_AGENT.NO_PROXY = `${urlRex.exec(proxyUrl)[0]},log.catttt.com`;
 }
-
+if (!jdPandaToken && !RabbitUrl){
+    console.log(`请填写Panda获取的Token,变量是gua_cleancart_PandaToke 或者填写Rabbit获取的logurl，变量是Rabbit_Url`)
+    return;
+}
 var logs;
 
 let notify, allMessage = '';
 
 !(async () => {
     await requireConfig()
-    console.log(`请填写Panda获取的Token,变量是gua_cleancart_PandaToke或者填写Rabbit获取的logurl，变量是Rabbit_Url`)
     console.log(`\n 示例: logs 值 "random":"75831714","log":"1646396568418~1jD94......太长省略...Qwt9i"\n`)
     console.log(`当前配置的车头数目：${chetou_number}，是否开启公平模式：${fair_mode}`)
     console.log("开始获取用于助力的账号列表")
