@@ -4,7 +4,7 @@
 
 项目注册地址(微信打开):https://gitee.com/soy-tool/app-script/blob/master/picture/lmyx.jpg
 
-签到获得分红币,分红模式,目前微信授权,绑定手机号
+签到获得分红币,分红模式,目前微信授权,绑定手机号,可能没有毛
 
 
 固定变量:
