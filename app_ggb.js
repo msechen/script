@@ -11,8 +11,8 @@
 变量值: TG频道用户id&激活卡密
 注释：
 TG频道用户ID关注 @getmyid_bot 机器人获取
-激活卡密关注 @soyyun_bot 发送 /start按提示获取，如果支付失效请联系【暂未启用】
-TG频道:【暂未启用】
+激活卡密关注 @soyyun_bot 发送 /start按提示获取，如果支付失效请联系【暂未启用，脚本暂时只对TG群内启用】
+TG频道讨论群:【暂未启用】
 
 
 脚本需要的变量:
@@ -24,6 +24,7 @@ TG频道:【暂未启用】
 
 cron 31 9,17 * * * app_ggb.js
 
+脚本地址：https://gitee.com/soy-tool/app-script/raw/master/app_ggb.js
 
 */
 
