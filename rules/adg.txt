@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-04-13T00:03:20.794Z
+! Last modified: 2022-04-13T06:01:22.363Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -42029,6 +42029,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://wzjs1.oss-accelerate.aliyuncs.com
 ||https://lhj.asia
 ||https://zgnz020.mobi
+||https://liuyangyang.cn
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -46507,7 +46508,7 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-04-13T00:03:20.794Z
+! Last modified: 2022-04-13T06:01:22.363Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -88727,6 +88728,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||http://wzjs1.oss-accelerate.aliyuncs.com
 ||http://lhj.asia
 ||http://zgnz020.mobi
+||http://liuyangyang.cn
 ||http://000123456789.online
 ||http://000123456789.space
 ||http://01tn.cn

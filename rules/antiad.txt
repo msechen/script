@@ -1,6 +1,6 @@
 !TITLE=anti-AD
-!VER=20220411024125
-!TOTAL_LINES=53587
+!VER=20220413172058
+!TOTAL_LINES=53584
 ||https://00-gov.cn
 ||https://000123456789.online
 ||https://000123456789.site
@@ -25196,7 +25196,6 @@
 ||https://jshosting.stream
 ||https://jshosting.trade
 ||https://jshosting.win
-||https://jsinfo.net
 ||https://ao.jsitel.com
 ||https://jsiwjgnq.com
 ||https://jsjs.pro
@@ -27388,7 +27387,6 @@
 ||https://libstat.com
 ||https://flashstats.libsyn.com
 ||https://licantrum.com
-||https://licensebuttons.net
 ||https://lichaoliang.com
 ||https://lichenqx.com
 ||https://lichtpass.com
@@ -49212,7 +49210,6 @@
 ||https://wmbdevcydmthac.xyz
 ||https://wmbuilr.cn
 ||https://wmcdp.io
-||https://wmflabs.org
 ||https://smetrics.wmg.com
 ||https://wmgroup.us
 ||https://wmgt.xyz
@@ -53122,8 +53119,8 @@
 ||https://zzyonghao.com
 ||https://zzyytt.top
 !TITLE=anti-AD
-!VER=20220411024125
-!TOTAL_LINES=53587
+!VER=20220413172058
+!TOTAL_LINES=53584
 ||http://00-gov.cn
 ||http://000123456789.online
 ||http://000123456789.site
@@ -78319,7 +78316,6 @@
 ||http://jshosting.stream
 ||http://jshosting.trade
 ||http://jshosting.win
-||http://jsinfo.net
 ||http://ao.jsitel.com
 ||http://jsiwjgnq.com
 ||http://jsjs.pro
@@ -80511,7 +80507,6 @@
 ||http://libstat.com
 ||http://flashstats.libsyn.com
 ||http://licantrum.com
-||http://licensebuttons.net
 ||http://lichaoliang.com
 ||http://lichenqx.com
 ||http://lichtpass.com
@@ -102335,7 +102330,6 @@
 ||http://wmbdevcydmthac.xyz
 ||http://wmbuilr.cn
 ||http://wmcdp.io
-||http://wmflabs.org
 ||http://smetrics.wmg.com
 ||http://wmgroup.us
 ||http://wmgt.xyz
