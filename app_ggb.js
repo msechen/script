@@ -17,12 +17,14 @@ TG频道讨论群:【暂未启用】
 
 脚本需要的变量:
 变量名:soy_ggb_data
-变量值:token
-注释:token抓包找到带有 https://ggb.culink.vip/api/ 的链接,请求头上的token值，虽然可以写登陆，但是登陆有要重新写配置，懒
+变量值:延时&token
+注释:延时填1则1秒2则2秒,建议10秒以上,加上内置取1-3秒不等延时,token抓包找到带有 https://ggb.culink.vip/api/ 的链接,请求头上的token值，虽然可以写登陆，但是登陆有要重新写配置，懒
+注意:次脚本需要跑较长时间,循环250次左右,自己看情况设置延时
 
 多个号用 @ 或 # 换行 隔开
 
-cron 31 9,17 * * * app_ggb.js
+一天一次
+cron 31 17 * * * app_ggb.js
 
 脚本地址：https://gitee.com/soy-tool/app-script/raw/master/app_ggb.js
 
