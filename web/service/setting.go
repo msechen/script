@@ -29,9 +29,10 @@ var defaultValueMap = map[string]string{
 	"secret":             random.Seq(32),
 	"webBasePath":        "/",
 	"timeLocation":       "Asia/Shanghai",
-	"tgBotEnable":		  "false",
-	"tgBotToken":		  "",
-	"tgBotChatId":		  "",
+	"tgBotEnable":        "false",
+	"tgBotToken":         "",
+	"tgBotChatId":        "0",
+	"tgRunTime":          "",
 }
 
 type SettingService struct {
@@ -167,10 +168,9 @@ func (s *SettingService) getBool(key string) (bool, error) {
 	return strconv.ParseBool(str)
 }
 
-func (s *SettingService) setBool(key string,value bool) error {
+func (s *SettingService) setBool(key string, value bool) error {
 	return s.setString(key, strconv.FormatBool(value))
 }
-
 
 func (s *SettingService) getInt(key string) (int, error) {
 	str, err := s.getString(key)
@@ -197,7 +197,7 @@ func (s *SettingService) GetTgBotToken() (string, error) {
 }
 
 func (s *SettingService) SetTgBotToken(token string) error {
-	return s.setString("tgBotToken",token)
+	return s.setString("tgBotToken", token)
 }
 
 func (s *SettingService) GetTgBotChatId() (int, error) {
@@ -205,15 +205,23 @@ func (s *SettingService) GetTgBotChatId() (int, error) {
 }
 
 func (s *SettingService) SetTgBotChatId(chatId int) error {
-	return s.setInt("tgBotChatId",chatId)
+	return s.setInt("tgBotChatId", chatId)
 }
 
 func (s *SettingService) SetTgbotenabled(value bool) error {
-	return s.setBool("tgBotEnable",value)
+	return s.setBool("tgBotEnable", value)
 }
 
 func (s *SettingService) GetTgbotenabled() (bool, error) {
 	return s.getBool("tgBotEnable")
+}
+
+func (s *SettingService) SetTgbotRuntime(time string) error {
+	return s.setString("tgRunTime", time)
+}
+
+func (s *SettingService) GetTgbotRuntime() (string, error) {
+	return s.getString("tgRunTime")
 }
 
 func (s *SettingService) GetPort() (int, error) {

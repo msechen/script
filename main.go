@@ -92,51 +92,51 @@ func resetSetting() {
 	}
 }
 
-func showSetting(show bool){
-	if(show){
+func showSetting(show bool) {
+	if show {
 		settingService := service.SettingService{}
-		port,err:=settingService.GetPort()
+		port, err := settingService.GetPort()
 		if err != nil {
-			fmt.Println("get current port fialed,error info:",err)
+			fmt.Println("get current port fialed,error info:", err)
 		}
 		userService := service.UserService{}
-		userModel,err:=userService.GetFirstUser()
+		userModel, err := userService.GetFirstUser()
 		if err != nil {
-			fmt.Println("get current user info failed,error info:",err)
+			fmt.Println("get current user info failed,error info:", err)
 		}
-		username:=userModel.Username
-		userpasswd:=userModel.Password
-		if((username == "")||(userpasswd=="")){
+		username := userModel.Username
+		userpasswd := userModel.Password
+		if (username == "") || (userpasswd == "") {
 			fmt.Println("current username or password is empty")
 		}
 		fmt.Println("current pannel settings as follows:")
-		fmt.Println("username:",username)
-		fmt.Println("userpasswd:",userpasswd)
-		fmt.Println("port:",port)		
+		fmt.Println("username:", username)
+		fmt.Println("userpasswd:", userpasswd)
+		fmt.Println("port:", port)
 	}
 }
 
 func updateTgbotEnableSts(status bool) {
 	settingService := service.SettingService{}
-	currentTgSts,err:=settingService.GetTgbotenabled()
-	if err!=nil {
+	currentTgSts, err := settingService.GetTgbotenabled()
+	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	logger.Infof("current enabletgbot status[%v],need update to status[%v]",currentTgSts,status)
-	if(currentTgSts != status){
-		err:=settingService.SetTgbotenabled(status)
-		if err!=nil {
+	logger.Infof("current enabletgbot status[%v],need update to status[%v]", currentTgSts, status)
+	if currentTgSts != status {
+		err := settingService.SetTgbotenabled(status)
+		if err != nil {
 			fmt.Println(err)
 			return
-		}else{
-			logger.Infof("SetTgbotenabled[%v] success",status)
+		} else {
+			logger.Infof("SetTgbotenabled[%v] success", status)
 		}
 	}
 	return
 }
 
-func updateTgbotSetting(tgBotToken string,tgBotChatid int){
+func updateTgbotSetting(tgBotToken string, tgBotChatid int) {
 	err := database.InitDB(config.GetDBPath())
 	if err != nil {
 		fmt.Println(err)
@@ -145,24 +145,24 @@ func updateTgbotSetting(tgBotToken string,tgBotChatid int){
 
 	settingService := service.SettingService{}
 
-	if(tgBotToken != ""){
+	if tgBotToken != "" {
 		err := settingService.SetTgBotToken(tgBotToken)
-		if err != nil{
+		if err != nil {
 			fmt.Println(err)
 			return
 		}
-	}else{
-			logger.Info("updateTgbotSetting tgBotToken success")
+	} else {
+		logger.Info("updateTgbotSetting tgBotToken success")
 	}
 
-	if (tgBotChatid != 0) {
+	if tgBotChatid != 0 {
 		err := settingService.SetTgBotChatId(tgBotChatid)
-		if err != nil{
+		if err != nil {
 			fmt.Println(err)
 			return
 		}
-	}else{
-			logger.Info("updateTgbotSetting tgBotChatid success")
+	} else {
+		logger.Info("updateTgbotSetting tgBotChatid success")
 	}
 }
 
@@ -275,10 +275,10 @@ func main() {
 		if show {
 			showSetting(show)
 		}
-		logger.Infof("updateTgbotEnableSts enabletgbot[%v]",enabletgbot)
+		logger.Infof("updateTgbotEnableSts enabletgbot[%v]", enabletgbot)
 		updateTgbotEnableSts(enabletgbot)
-		if((tgbottoken!="")||(tgbotchatid!=0)){
-			updateTgbotSetting(tgbottoken,tgbotchatid)
+		if (tgbottoken != "") || (tgbotchatid != 0) {
+			updateTgbotSetting(tgbottoken, tgbotchatid)
 		}
 	default:
 		fmt.Println("except 'run' or 'v2-ui' or 'setting' subcommands")

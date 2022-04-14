@@ -298,14 +298,20 @@ func (s *Server) startTask() {
 	s.cron.AddJob("@every 30s", job.NewCheckInboundJob())
 	// 每一天提示一次流量情况,上海时间8点30
 	var entry cron.EntryID
-	isTgbotenabled,err:=s.settingService.GetTgbotenabled()
-	if(( err == nil)&&(isTgbotenabled)) {
-    	entry,err=s.cron.AddJob("@daily", job.NewStatsNotifyJob())
-		if err != nil{
+	isTgbotenabled, err := s.settingService.GetTgbotenabled()
+	if (err == nil) && (isTgbotenabled) {
+		runtime, err := s.settingService.GetTgbotRuntime()
+		if err == nil || runtime == "" {
+			logger.Errorf("Add NewStatsNotifyJob error,Runtime[%s] invalid,wil run default", runtime)
+			runtime = "@daily"
+		}
+		logger.Infof("Tg notify enabled,run at %s", runtime)
+		entry, err = s.cron.AddJob(runtime, job.NewStatsNotifyJob())
+		if err != nil {
 			fmt.Println("Add NewStatsNotifyJob error")
 			return
 		}
-	}else{
+	} else {
 		s.cron.Remove(entry)
 	}
 }
@@ -363,7 +369,7 @@ func (s *Server) Start() (err error) {
 		listener = network.NewAutoHttpsListener(listener)
 		listener = tls.NewListener(listener, c)
 	}
-	
+
 	if certFile != "" || keyFile != "" {
 		logger.Info("web server run https on", listener.Addr())
 	} else {
@@ -376,7 +382,7 @@ func (s *Server) Start() (err error) {
 	s.httpServer = &http.Server{
 		Handler: engine,
 	}
-	
+
 	go func() {
 		s.httpServer.Serve(listener)
 	}()
