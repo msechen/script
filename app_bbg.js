@@ -34,7 +34,7 @@ cron 31 0-59/1 * * * app_bbg.js
 
 
 const $ = new Env('【宝贝狗22/04/14_0】');
-const notify = $.isNode() ? require('./soy_notice.js') : '';
+const notify = $.isNode() ? require('./sendNotify.js') : '';
 
 const author = '作者TG_ID:@ls_soy';
 
