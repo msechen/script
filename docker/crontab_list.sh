@@ -114,7 +114,8 @@
 1 0,6,12,18 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 #jd_carnivalcity_help
 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
-
+#省钱大赢家
+20 0-23/2 * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
