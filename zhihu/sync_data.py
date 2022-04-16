@@ -186,7 +186,7 @@ def query_jingfen_earnings():
 # 查询京粉点击数
 def query_jingfen_click():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
-    yestoday = (datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
+    yestoday = (datetime.datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
 
     today_click = zhihu_spider.get_jingfen_click(today, today, zh_config_dao.query_config('jfck2').value)
 
