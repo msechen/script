@@ -40,11 +40,11 @@ def init_scheduler(bot_var):
     # scheduler.add_job(debug, 'interval', seconds=30)  # 间隔执行
     # scheduler.add_job(get_lanmao_log, 'interval', seconds=10)  # 间隔执行
 
-    # 天气预报
-    service = service_dao.query_service_by_id(1)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_weather_info, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # # 天气预报
+    # service = service_dao.query_service_by_id(1)
+    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    # scheduler.add_job(send_weather_info, 'cron', year=service.year, month=service.month, day=service.day,
+    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 股票信息
     service = service_dao.query_service_by_id(2)
@@ -53,43 +53,43 @@ def init_scheduler(bot_var):
     scheduler.add_job(send_stock_info, 'cron', year=service.year, month=service.month, day=service.day,
                       day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # health check
-    service = service_dao.query_service_by_id(7)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # # health check
+    # service = service_dao.query_service_by_id(7)
+    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    # scheduler.add_job(check, 'cron', year=service.year, month=service.month, day=service.day,
+    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 信用卡还款
-    service = service_dao.query_service_by_id(8)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(credit_card_repay, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # # 信用卡还款
+    # service = service_dao.query_service_by_id(8)
+    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    # scheduler.add_job(credit_card_repay, 'cron', year=service.year, month=service.month, day=service.day,
+    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 月初提醒
-    service = service_dao.query_service_by_id(9)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(new_month, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # # 月初提醒
+    # service = service_dao.query_service_by_id(9)
+    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    # scheduler.add_job(new_month, 'cron', year=service.year, month=service.month, day=service.day,
+    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 年初提醒
-    service = service_dao.query_service_by_id(10)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(new_year, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # # 年初提醒
+    # service = service_dao.query_service_by_id(10)
+    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    # scheduler.add_job(new_year, 'cron', year=service.year, month=service.month, day=service.day,
+    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
-    # 节日祝福
-    service = service_dao.query_service_by_id(11)
-    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    scheduler.add_job(send_holiday_blessing, 'cron', year=service.year, month=service.month, day=service.day,
-                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    # # 节日祝福
+    # service = service_dao.query_service_by_id(11)
+    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    # scheduler.add_job(send_holiday_blessing, 'cron', year=service.year, month=service.month, day=service.day,
+    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 知乎佣金
     scheduler.add_job(get_today_earnings, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='58', second='30')
+                      hour='*/3', minute='00', second='00')
 
     # 知乎佣金（总结）
     scheduler.add_job(get_today_earnings_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='23', minute='59', second='00')
+                      hour='23', minute='59', second='30')
 
     # 知乎文章排名
     # scheduler.add_job(get_article_rank, 'cron', year='*', month='*', day='*', day_of_week='*',
