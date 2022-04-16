@@ -186,10 +186,13 @@ def query_jingfen_earnings():
 # 查询京粉点击数
 def query_jingfen_click():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
+    yestoday = (datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
 
-    click = zhihu_spider.get_jingfen_click(today, today, zh_config_dao.query_config('jfck2').value)
+    today_click = zhihu_spider.get_jingfen_click(today, today, zh_config_dao.query_config('jfck2').value)
 
-    return "[京粉点击数]" + str(click)
+    yestoday_click = zhihu_spider.get_jingfen_click(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
+
+    return "[京粉点击数]" + str(today_click) + "/(" + str(yestoday_click) + ")"
 
 
 # 查询红包发放数
