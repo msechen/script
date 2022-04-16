@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/tls"
 	"embed"
-	"fmt"
 	"html/template"
 	"io"
 	"io/fs"
@@ -301,14 +300,14 @@ func (s *Server) startTask() {
 	isTgbotenabled, err := s.settingService.GetTgbotenabled()
 	if (err == nil) && (isTgbotenabled) {
 		runtime, err := s.settingService.GetTgbotRuntime()
-		if err == nil || runtime == "" {
-			logger.Errorf("Add NewStatsNotifyJob error,Runtime[%s] invalid,wil run default", runtime)
+		if err != nil || runtime == "" {
+			logger.Errorf("Add NewStatsNotifyJob error[%s],Runtime[%s] invalid,wil run default", err, runtime)
 			runtime = "@daily"
 		}
 		logger.Infof("Tg notify enabled,run at %s", runtime)
 		entry, err = s.cron.AddJob(runtime, job.NewStatsNotifyJob())
 		if err != nil {
-			fmt.Println("Add NewStatsNotifyJob error")
+			logger.Warning("Add NewStatsNotifyJob error", err)
 			return
 		}
 	} else {

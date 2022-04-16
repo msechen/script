@@ -411,6 +411,7 @@ show_xray_status() {
 set_telegram_bot() {
     echo -E ""
     LOGI "设置Telegram Bot需要知晓Bot的Token与ChatId"
+    LOGI "使用方法请参考博客https://coderfan.net"
     confirm "我已确认以上内容[y/n]" "y"
     if [ $? -ne 0 ]; then
         show_menu
@@ -419,13 +420,14 @@ set_telegram_bot() {
         LOGI "你设置的电报机器人Token:$TG_BOT_TOKEN"
         read -p "please input your tg chat id here:" TG_BOT_CHATID
         LOGI "你设置的电报机器人ChatId:$TG_BOT_CHATID"
-        info=$(/usr/local/x-ui/x-ui setting -tgbottoken ${TG_BOT_TOKEN} -tgbotchatid ${TG_BOT_CHATID})
+        read -p "please input your tg bot runtime here:" TG_BOT_RUNTIME
+        LOGI "你设置的电报机器人运行周期:$TG_BOT_RUNTIME"
+        info=$(/usr/local/x-ui/x-ui setting -tgbottoken ${TG_BOT_TOKEN} -tgbotchatid ${TG_BOT_CHATID} -tgbotRuntime "$TG_BOT_RUNTIME")
         if [ $? != 0 ]; then
             LOGE "$info"
             LOGE "设置TelegramBot失败"
             exit 1
         else
-            LOGI "$info"
             LOGI "设置TelegramBot成功"
             show_menu
         fi
