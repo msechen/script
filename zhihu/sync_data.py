@@ -254,29 +254,22 @@ def get_zhihu_like(total):
     inc1_today = like1 - g_like1_yestoday
     g_like1 = like1
 
-    txt2 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764').replace(" 人赞同了该文章","")
+    txt2 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/340848190').replace(" 人赞同了该文章","")
     like2 = int(txt2.replace(",", ""))
     inc2 = like2 - g_like2
     inc2_today = like2 - g_like2_yestoday
     g_like2 = like2
 
-    txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/340848190').replace(" 人赞同了该文章","")
+    txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764').replace(" 人赞同了该文章","")
     like3 = int(txt3.replace(",", ""))
     inc3 = like3 - g_like3
     inc3_today = like3 - g_like3_yestoday
     g_like3 = like3
 
-    # txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/397910592').replace(" 人赞同了该文章","")
-    # like4 = int(txt4.replace(",", ""))
-    # inc4 = like4 - g_like4
-    # inc4_today = like4 - g_like4_yestoday
-    # g_like4 = like4
-
     if total:
         g_like1_yestoday = like1
         g_like2_yestoday = like2
         g_like3_yestoday = like3
-        # g_like4_yestoday = like4
 
     return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")"
 
