@@ -141,7 +141,9 @@ def auto_reply(msg):
         return
 
     if '1' == msg.text:  # 查佣金
-        return sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False)
+        ret = sync_data.query_today_earnings() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False)
+        logger.info(ret)
+        return ret
 
     if '2' == msg.text:  # 查文章排名
         return sync_data.query_article_rank(11)
