@@ -5,8 +5,8 @@
   Q：活动界面识别错、脚本执行中断、脚本卡在某个界面无法继续等情况
   A：上述情况，在页面加载缓慢的情况下，可能出现，更换良好的网络环境再执行脚本
 
-  20220302 V1.2
-  修改分享任务返回逻辑
+  20220320 V1.4
+  缩短任务间隙等待时间
  */
 Start();
 console.info("开始任务");
@@ -59,7 +59,7 @@ function Run(LauchAPPName,IsSeparation){
         "是否分身："+IsSeparation_info
     )
     console.log("复制活动京口令");
-    Code=new Array("￥MF7B7CZc4Q￥");//通过分享链接进入活动界面
+    Code=new Array("(I22boFYMgX)");//通过分享链接进入活动界面
     setClip(Code);
     if(LauchAPPName == "手动"){
         console.log("请手动打开APP，以便进行下一步");
@@ -176,7 +176,6 @@ function Run(LauchAPPName,IsSeparation){
         sleep(1000);
         //任务列表检测
         TaskListCheck();
-        sleep(1500);
         while(text("去完成").exists()){
             text("去完成").findOne().click();
             sleep(1500);
@@ -208,34 +207,45 @@ function Run(LauchAPPName,IsSeparation){
                         console.log("等待任务完成");
                     }
                     sleep(1000);
+                    if(text("0").exists() && i > 1){
+                        console.log("任务未开始计时，返回");
+                        break;
+                    }
                     if(i > 20){
                         console.log("任务超时，准备返回");
                         break;
                     }
                 }
-                console.log("任务完成");
-                back();
-                sleep(1000);
+                if(!text("秒秒币可兑换更多红包哦").exists()){
+                    console.log("任务完成");
+                    back();
+                }
             }
             else{
                 console.log("开始普通任务");
                 sleep(1000);
-                console.log("任务完成");
-                back();
-                sleep(1000);
+                if(!text("秒秒币可兑换更多红包哦").exists()){
+                    console.log("任务完成");
+                    back();
+                }
+                else{
+                    console.log("任务异常，准备返回");
+                }
             }
-            for(var i = 0; text("秒秒币可兑换更多红包哦").findOne(3000) == null; i++){
+            for(var i = 0; text("秒秒币可兑换更多红包哦").findOne(2000) == null; i++){
                 console.log("准备返回任务界面");
-                back();
                 sleep(1000);
                 TaskListCheck();
+                if(!text("秒秒币可兑换更多红包哦").exists()){
+                    back();
+                }
                 if(i == 5){
                     Task_Log = Task_Log + "\n" +"无法返回任务界面，退出当前任务"
                     console.log("无法返回任务界面，退出当前任务");
                     return;
                 }
             }
-            if(text("去完成").findOne(3000) == null){
+            if(!text("去完成").exists()){
                 console.log("所有任务已完成");
                 break;
             }

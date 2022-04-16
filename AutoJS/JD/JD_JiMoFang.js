@@ -8,11 +8,9 @@
   Q：魔方碎片攒够时，会自动结束任务
   A：任务等待间隔不稳定，待修复
 
-  修改兑换方式，避免兑换失败
-  20220302 V1.6.1
-  增加兑换入口位置异常判断
-  调整日志
-
+  20220405 V1.7
+  修复不入会时无限循环问题
+  探索新品并浏览任务间隔增加等待时间
  */
 Start();
 console.info("开始任务");
@@ -273,9 +271,10 @@ function Run(LauchAPPName,IsSeparation,IsJoinMember,IsExchange){
                 for(var i = 1; i <= (SumTimes - CompleteTimes); i++){
                     console.log("第" + i + "次浏览");
                     text("探索新品并浏览").findOne().parent().parent().child(2).click();
-                    sleep(1000);
+                    sleep(1500);
                     console.log("返回");
                     back();
+                    sleep(500);
                     MoFangFragmentCheck();
                 }
                 console.log("任务完成");
@@ -339,18 +338,21 @@ function Run(LauchAPPName,IsSeparation,IsJoinMember,IsExchange){
                         if(textContains("确认授权并加入店铺会员").exists()){
                             if(IsJoinMember == 1){
                                 console.log("涉及个人隐私，请手动加入店铺会员或者忽略加入会员任务");
-                                return;
+                                Status = 1
+                                break;
                             }
                             else if(IsJoinMember == 3){
                                 console.log("当前店铺未入会，等待手动");
+                                Status = 1
                                 sleep(8000);
+                                console.log("超时自动返回");
                             }
                         }
                         else{
                             console.info("已是当前店铺会员");
+                            console.log("任务完成");
                         }
                     }
-                    console.log("任务完成");
                 }
             }else{
                 console.log("所有任务已完成");

@@ -8,10 +8,16 @@
   Q：活动界面识别错、脚本执行中断、脚本卡在某个界面无法继续等情况
   A：上述情况，在页面加载缓慢的情况下，可能出现，更换良好的网络环境再执行脚本
 
-  20220304 V5.9
-  修复浏览10s任务返回太快导致跳出任务列表的问题
-  部分坐标点击改为更稳定的控件点击
- */
+  20220305 V6.0
+  所有坐标点击均改为更稳定的控件点击，部分任务目前未测试，暂时保留旧坐标点击代码，仅屏蔽
+  20220305 V6.0.1
+  增加立领100点点券任务
+  20220403 V6.0.2
+  新增逛折学系频道任务
+  20220412 V6.0.3
+  更新逛精选任务
+
+*/
 Start();
 console.info("开始任务");
 let Task_Log = "重要日志汇总："
@@ -120,9 +126,7 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
       console.log("等待任务检测……");
     }
   }
-  sleep(3000);
-  var boundsX = 0
-  var boundsY = 0
+  sleep(2000);
   ActiveInterface();
   if (text("每日攒点点券").exists()) {
     console.info("任务列表检测正常");
@@ -211,6 +215,10 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
             |text("浏览精选活动").findOnce().parent().child(3).text() == "继续完成")) {
           RunTask(1,"浏览精选活动",1);
         }
+        else if (text("浏览精选活动3s").exists() && (text("浏览精选活动3s").findOnce().parent().child(3).text() == "领取任务"
+            |text("浏览精选活动3s").findOnce().parent().child(3).text() == "继续完成")) {
+          RunTask(1,"浏览精选活动3s",1);
+        }
         else if (textStartsWith("关注浏览10s").exists() && (textStartsWith("关注浏览10s").findOnce().parent().child(3).text() == "领取任务"
             |textStartsWith("关注浏览10s").findOnce().parent().child(3).text() == "继续完成")) {
           RunTask(1,"关注浏览10s",2);
@@ -235,13 +243,17 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
             |text("点击“领券”").findOnce().parent().child(3).text() == "继续完成")){
           RunTask(1,"点击“领券”",4);
         }
+        else if (text("逛折学系频道10s").exists() && (text("逛折学系频道10s").findOnce().parent().child(3).text() == "领取任务"
+            |text("逛折学系频道10s").findOnce().parent().child(3).text() == "继续完成")){
+          RunTask(1,"逛折学系频道10s",5);
+        }
         else if (text("点击券后9.9").exists() && (text("点击券后9.9").findOnce().parent().child(3).text() == "领取任务"
             |text("点击券后9.9").findOnce().parent().child(3).text() == "继续完成")){
           RunTask(1,"点击券后9.9",4);
         }
-        else if (text("点击“券后9.9”图标").exists() && (text("点击“券后9.9”图标").findOnce().parent().child(3).text() == "领取任务"
-            |text("点击“券后9.9”图标").findOnce().parent().child(3).text() == "继续完成")){
-          RunTask(1,"点击“券后9.9”图标",4);
+        else if (text("立领100").exists() && (text("立领100").findOnce().parent().parent().child(3).text() == "领取任务"
+            |text("立领100").findOnce().parent().parent().child(3).text() == "继续完成")){
+          RunTask(2,"立领100",4);
         }
         else if (text("领200").exists() && (text("领200").findOnce().parent().parent().child(3).text() == "领取任务"
             |text("领200").findOnce().parent().parent().child(3).text() == "继续完成")){
@@ -291,7 +303,6 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
         console.error("任务参数异常，退出任务");
         return;
       }
-
       if(KeyKind ==1 |KeyKind == 2 |KeyKind == 3){
         var TaskKey = TaskName + "（"
         for(var i = 0; !className("android.view.View").textContains(TaskKey).exists(); i++){
@@ -327,6 +338,9 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
             console.log("第"+(i+1)+"次浏览");
             className("android.view.View").textStartsWith(TaskKey).findOnce().parent().child(2).child(t-i-1).click();
             sleep(1000);
+            if(TaskName == "浏览精选活动3s"){
+              sleep(3000)
+            }
             if(!className("android.view.View").textStartsWith(TaskKey).exists()){
               back();
               sleep(1000);
@@ -380,9 +394,7 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
         }else if(KeyKind == 3){
           for(var i = 0; text("立即领取").exists(); i++){
             console.log("第"+(i+1)+"次领券");
-            boundsX = text("立即领取").findOnce().bounds().centerX();
-            boundsY = text("立即领取").findOnce().bounds().centerY();
-            click(boundsX,boundsY);
+            text("立即领取").findOne().parent(),click();
             sleep(2000);
           }
           console.log("领券完成");
@@ -414,9 +426,7 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
       else if(KeyKind == 4){
         console.log("等待跳转首页，可手动");
         if(text("去完成任务").findOne(3000) != null){
-          boundsX = text("去完成任务").findOnce().bounds().centerX();
-          boundsY = text("去完成任务").findOnce().bounds().centerY();
-          click(boundsX,boundsY);
+          text("去完成任务").findOne(3000).parent().click();
           while(true){
             if(className("android.widget.TextView").text("券后9.9").exists()){
               console.log("进入券后9.9");
@@ -446,14 +456,24 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
           }
         }
         if(text("已完成浏览").exists()){
-          console.hide();
-          boundsX = text("已完成浏览").findOnce().bounds().centerX();
-          boundsY = text("已完成浏览").findOnce().bounds().centerY();
-          click(boundsX,boundsY);
+          text("已完成浏览").findOne().parent().click();
           sleep(1000);
         }
         sleep(1000);
         ActiveInterface();
+      }
+      else if(KeyKind == 5){
+        for(var i = 0; i < 12; i++){
+          sleep(1000);
+          if(i == 2| i == 4| i == 6| i == 8| i == 10){
+            console.log("已浏览" + i + "s");
+          }
+          if(i >= 12){
+            break;
+          }
+        }
+        console.log("已完成浏览");
+        back();
       }
     }
   }
@@ -540,28 +560,22 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
         className("android.widget.TextView").text("领券").findOnce().parent().click();
         sleep(1000);
         while(text("签到领奖励").exists()){
-          console.hide();
-          boundsX = text("签到领奖励").findOnce().bounds().centerX();
-          boundsY = text("签到领奖励").findOnce().bounds().centerY();
           console.log("签到领奖励");
-          click(boundsX,boundsY);
+          text("签到领奖励").findOne().parent().click();
           if(className("android.widget.ImageView").desc("关闭弹窗").findOne(2000) != null){
-            console.log("关闭弹窗");
             console.log("签到完成");
             className("android.widget.ImageView").desc("关闭弹窗").findOne().click();
-            console.log("准备跳转");
+            console.log("关闭弹窗");
           }
           else{
             console.error("签到未成功，重新签到")
             swipe((device.width / 3) * 2, (device.height / 6), (device.width / 3) * 2, (device.height / 6) * 3, 500);  //向下滑动，确保是在顶部位置
           }
-          console.show();
+          sleep(1000);
         }
         if(className("android.view.View").desc("9.9下沉").exists() && IsLotteryDraw == 1){
           console.log("券后9.9");
-          boundsX = className("android.view.View").desc("9.9下沉").findOnce().bounds().centerX();
-          boundsY = className("android.view.View").desc("9.9下沉").findOnce().bounds().centerY();
-          click(boundsX,boundsY);
+          className("android.view.View").desc("9.9下沉").findOne().parent().parent().click();
           for(var ii = 0; !className("android.view.View").textStartsWith("抽奖次数：").exists(); ii++){
             if(className("android.view.View").textStartsWith("抽奖次数：").exists()){
               break;
@@ -676,22 +690,18 @@ function Run(LauchAPPName,IsSeparation,IsLotteryDraw){
       if(desc("领券中心").exists()){
         sleep(1000);
         while(text("签到领奖励").exists()){
-          console.hide();
-          boundsX = text("签到领奖励").findOnce().bounds().centerX();
-          boundsY = text("签到领奖励").findOnce().bounds().centerY();
           console.log("签到领奖励");
-          click(boundsX,boundsY);
+          text("签到领奖励").findOne().parent().click();
           if(className("android.widget.ImageView").desc("关闭弹窗").findOne(2000) != null){
-            console.log("关闭弹窗");
             console.log("签到完成");
             className("android.widget.ImageView").desc("关闭弹窗").findOne().click();
-            console.log("准备跳转");
+            console.log("关闭弹窗");
           }
           else{
             console.error("签到未成功，重新签到")
             swipe((device.width / 3) * 2, (device.height / 6), (device.width / 3) * 2, (device.height / 6) * 3, 500);  //向下滑动，确保是在顶部位置
           }
-          console.show();
+          sleep(2000);
         }
         console.info("寻找点点券入口");
         if(desc("领券中心").findOne(3000) != null){
