@@ -164,6 +164,7 @@ def get_zhihu_card_data(cookie):
 
     return '阅读：' + str(json['realtime_card']['today_read_count']) + '(' + str(json['realtime_card']['yesterday_read_count']) + ')' + '\n点赞：' + str(json['realtime_card']['today_upvoted_count']) + '(' + str(json['realtime_card']['yesterday_upvoted_count']) + ')'
 
+
 # 调知乎 api 查询账户今日佣金
 def get_zhihu_earnings(start, end, cookie):
     # 知乎 API
@@ -212,6 +213,33 @@ def get_jingfen_earnings(start, end, cookie):
 
     return json['result']['spreadReportInfoChatList'][0]['orderNum'], json['result']['spreadReportInfoChatList'][0][
         'cosFee']
+
+
+
+# 调京粉 api 查询点击数
+def get_jingfen_click(start, end, cookie):
+    # 知乎 API
+    url = '''
+        https://api.m.jd.com/api?appid=unionpc&body=%7B%22funName%22:%22querySpreadEffectData%22,%22param%22:%7B%22startDate%22:%22{}%22,%22endDate%22:%22{}%22,%22mediaId%22:%22%22,%22proCont%22:%22%22,%22promotionId%22:%22%22,%22sourceEmt%22:%22%22,%22pageNo%22:1,%22pageSize%22:20%7D%7D&functionId=union_report&loginType=3
+    '''.format(start, end)
+    header = {
+        'cookie': cookie,
+        'referer': 'https://union.jd.com/report',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        return "接口异常"
+
+    if 'login' in res.text:
+        return -10
+
+    json = res.json()
+
+    return json['result']['spreadReportInfoSum']['clickNum']
 
 
 # 调京粉 api 查询账户今日红包发放
