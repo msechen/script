@@ -173,10 +173,10 @@
 5 0,6,16 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
 
 # 锦鲤红包
-1 0,6,18 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
+5 0,1,6 * * * cd /scripts && ts-node /scripts/jd_jinli_hongbao.ts >> /scripts/logs/jd_jinli_hongbao.log 2>&1
 
 # 锦鲤红包
-5 0,1,6 * * * cd /scripts && ts-node /scripts/jd_jinli.ts >> /scripts/logs/jd_jinli.log 2>&1
+#5 0,1,6 * * * cd /scripts && ts-node /scripts/jd_jinli.ts >> /scripts/logs/jd_jinli.log 2>&1
 
 # 微信小程序签到红包
 8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
@@ -189,6 +189,9 @@
 
 # 手机狂欢城
 15 0,6 * * * cd /scripts && ts-node /scripts/jd_carnivalcity_card.ts >> /scripts/logs/jd_carnivalcity_card.log 2>&1
+
+# 未知
+15 0,1,6,18 * * * cd /scripts && ts-node /scripts/jd_speed_happyDig.ts >> /scripts/logs/jd_speed_happyDig.log 2>&1
 
 ##################################################### 自定 ########################################################
 
