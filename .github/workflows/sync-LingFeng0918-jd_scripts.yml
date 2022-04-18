@@ -25,7 +25,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/LingFeng0918/jd_scripts.git"
-          source_branch: "master"
+          source_repo: "https://github.com/LingFeng0918/LF_JD.git"
+          source_branch: "main"
           destination_branch: "LingFeng0918-jd_scripts"
           github_token: ${{ secrets.PAT }}
