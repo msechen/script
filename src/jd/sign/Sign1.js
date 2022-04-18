@@ -22,7 +22,7 @@ class Sign1 extends Template {
         form: {
           appid: 'babelh5',
           sign: 11,
-          body: {sourceCode: 'aceaceqingzhan'},
+          body: {sourceCode: 'acetttsign'},
           t: getMoment().valueOf(),
         },
       },
@@ -40,11 +40,10 @@ class Sign1 extends Template {
       // 'https://pro.m.jd.com/mall/active/ZrH7gGAcEkY2gH8wXqyAPoQgk6t/index.html',
       'https://pro.m.jd.com/mall/active/3SC6rw5iBg66qrXPGmZMqFDwcyXi/index.html',
       'https://pro.m.jd.com/mall/active/kPM3Xedz1PBiGQjY4ZYGmeVvrts/index.html',
-      'https://prodev.m.jd.com/mall/active/46xH2FEswob1Eibj3tJMTTfpJvA/index.html',
       // 'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
       'https://prodev.m.jd.com/mall/active/2QUxWHx5BSCNtnBDjtt5gZTq7zdZ/index.html',
       'https://pro.m.jd.com/mall/active/412SRRXnKE1Q4Y6uJRWVT6XhyseG/index.html',
-      ['https://prodev.m.jd.com/mall/active/dHKkhs2AYLCeCH3tEaHRtC1TnvH/index.html', {needInApp: true}],
+      // ['https://prodev.m.jd.com/mall/active/dHKkhs2AYLCeCH3tEaHRtC1TnvH/index.html', {needInApp: true}],
     ];
 
     if (api.currentCookieTimes !== 0) {
@@ -70,11 +69,15 @@ class Sign1 extends Template {
         if (!encryptProjectId) return;
         const assignmentList = await api.doFormBody('queryInteractiveInfo', {encryptProjectId}).then(_.property('assignmentList')) || [];
         if (_.isEmpty(assignmentList)) {
-          return api.log(`${url} 活动已结束`);
+          return removeExpiredUrl(url);
         }
         for (const {encryptAssignmentId, ext, completionFlag} of assignmentList) {
           if (!ext || completionFlag) continue;
-          const {itemId} = ext[ext['extraType']];
+          const {itemId} = _.get(ext, ext['extraType'], {});
+          if (!itemId) {
+            removeExpiredUrl(url);
+            continue;
+          }
           await api.doFormBody('doInteractiveAssignment', {
             encryptProjectId,
             encryptAssignmentId,
@@ -98,6 +101,11 @@ class Sign1 extends Template {
           });
         }
       }
+    }
+
+    function removeExpiredUrl(url) {
+      api.log(`${url} 活动已结束`);
+      urlArray = urlArray.filter(item => _.first(_.concat(item)) !== url);
     }
 
     async function getParamFromUrl(url, actId, options = {}) {
