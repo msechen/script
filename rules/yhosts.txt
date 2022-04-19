@@ -1,4 +1,4 @@
-!version: 202203202202
+!version: 202204170012
 !url=https://github.com/VeleSila/yhosts/blob/master/hosts
 ||https://adfurikun.jp
 ||https://aag.yahooapis.jp
@@ -416,6 +416,12 @@
 ||https://adx.xiaodutv.com
 ||https://uat1.bfsspadserver.8le8le.com
 ||https://cpu-baidu-com-block.cdn.bcebos.com
+||https://aod-image-material.cdn.bcebos.com
+||https://dsp-idea.cdn.bcebos.com
+||https://edu-ad-test-cdn.cdn.bcebos.com
+||https://mobads-pre-config.cdn.bcebos.com
+||https://pmp-ad.cdn.bcebos.com
+||https://gsp0.baidu.com
 ||https://ms.cmcm.com
 ||https://cmcdl.cmcm.com
 ||https://dl.cm.ksmobile.com
@@ -1562,7 +1568,6 @@
 ||https://log-api.pangolin-sdk-toutiao-b.com
 ||https://pangolin.snssdk.com
 ||https://tnc3-aliec2.snssdk.com
-||https://pangolin.snssdk.com
 ||https://wr.da.netease.com
 ||https://push.yuedu.163.com
 ||https://n.3g.163.com
@@ -2549,7 +2554,6 @@
 ||https://1.1010pic.com
 ||https://1.bashenghuo.com
 ||https://1.qksapp.net
-||https://1.yitooo.net
 ||https://1178.shucong.com
 ||https://1234xm.com
 ||https://1495039.com
@@ -2645,10 +2649,8 @@
 ||https://ads.oneway.mobi
 ||https://ads.passiontimes.hk
 ||https://ads.pubmatic.com
-||https://ads.reader.yueyouxs.com
 ||https://ads.vipbaihe.com
 ||https://adsc.wasu.tv
-||https://adsdk.vivo.com.cn
 ||https://adservice.google.com.hk
 ||https://adsin.zhangyoubao.com
 ||https://adsmind.ugdtimg.com
@@ -2659,7 +2661,6 @@
 ||https://aexz.rm.fhxiaoshuo.com
 ||https://aff.simibo.net
 ||https://affiliategroove.com
-||https://afpmm.alicdn.com
 ||https://ahlxxx.com
 ||https://ai.xinju.cc
 ||https://aibangzs.com
@@ -2698,6 +2699,7 @@
 ||https://as.jdkic.com
 ||https://asd.sincetrade.com
 ||https://asd.zuhaowan8.com
+||https://asdkfjskl.guiliangtechnology.com
 ||https://assets.258ydh.com
 ||https://aswl.zjhim.com
 ||https://atplay.cn
@@ -2767,7 +2769,6 @@
 ||https://c.lovame.com.cn
 ||https://c.mkmp365.com
 ||https://c.ns8d.com
-||https://c.oqrwpru.cn
 ||https://c.originz.cn
 ||https://c.oumaite168.com.cn
 ||https://c.panqishu.com
@@ -2933,7 +2934,6 @@
 ||https://e.epanr.com
 ||https://e.fcunq.com
 ||https://e.feisia1.cn
-||https://e.fengyx.com
 ||https://e.ffanq.com
 ||https://e.focuscat.com
 ||https://e.gcaog.com
@@ -3027,7 +3027,6 @@
 ||https://fpag.w48ge.cn
 ||https://fpb.docin.com
 ||https://fpbbdx1.51240.com
-||https://fpbbdx1.bmcx.com
 ||https://fsjsp.com
 ||https://g.6sfg.com
 ||https://g.aligames.com
@@ -3083,7 +3082,6 @@
 ||https://hm.shuixyh.com
 ||https://hnnzwhyy.com
 ||https://hoisin.coocaatv.com
-||https://honpu1.dianqiweixiu.net
 ||https://html.yuntzs.com
 ||https://httpdns.c.cdnhwc2.com
 ||https://huishenghuiying.com
@@ -3254,6 +3252,7 @@
 ||https://log.xiaozuowen.net
 ||https://loldy.jiangmg.com
 ||https://lp7n.cy6px.com
+||https://lsdkjfkdlsf.ydtykj.net
 ||https://lskwsx.m.zwdu.com
 ||https://luotediao.net
 ||https://lwz.ffhre.com
@@ -3463,7 +3462,6 @@
 ||https://moren-1252794300.file.myqcloud.com
 ||https://motoe.plokr.com
 ||https://mp.xi9p.com
-||https://mps.wenkuzu.com
 ||https://ms.actingidekex.cn
 ||https://ms.cnczjy.com
 ||https://ms.continuedsys.cn
@@ -3508,7 +3506,6 @@
 ||https://p.bangdu2.com
 ||https://p.bnuni.com
 ||https://p.hnnzwhyy.com
-||https://p.inte.sogou.com
 ||https://p.kf3msfm.com
 ||https://p.lexph.com
 ||https://p.m5bn.com
@@ -3757,6 +3754,7 @@
 ||https://track.hujiang.com
 ||https://trafficfactory.biz
 ||https://trk.btrkout.com
+||https://tsdflsdk.cypcb.net
 ||https://tt.twzui6.com
 ||https://tt123.hao0202.com
 ||https://tu.cvnad.com
@@ -3777,7 +3775,6 @@
 ||https://uimg.1qwe3r.com
 ||https://uimg.27admin.com
 ||https://um29.com
-||https://union2.50bang.org
 ||https://union.baidustatic.guannin.com
 ||https://union.maccms.com
 ||https://union1.xiaojianjian.net
@@ -3953,7 +3950,6 @@
 ||https://www.fu68.com
 ||https://www.funshion.net.cn
 ||https://www.gj500.com
-||https://www.googletagmanager.com
 ||https://www.goolpter.com
 ||https://www.grjs01.com
 ||https://www.grjs02.com
@@ -4167,7 +4163,6 @@
 ||https://zxcs.linghit.com
 ||https://zxgghn.25ku.com
 ||https://zxr.fzxrjx.com
-||https://zz.bdstatic.com
 ||https://zzcw.office-mall.net
 ||https://zzsdtzb.com
 ||https://zzy.mipujia.com
@@ -4964,7 +4959,6 @@
 ||https://lc.jiathis.com
 ||https://v2.jiathis.com
 ||https://v3.jiathis.com
-||https://ce3e75d5.jpush.cn
 ||https://config.jpush.cn
 ||https://config-junion.jpush.cn
 ||https://im.jpush.cn
@@ -5072,13 +5066,11 @@
 ||https://pic.moad.cn
 ||https://sdk.push.mob.com
 ||https://api.exc.mob.com
-||https://api.fd.mob.com
 ||https://api.share.mob.com
 ||https://c.data.mob.com
 ||https://cca.mob.com
 ||https://devs.data.mob.com
 ||https://m.data.mob.com
-||https://sdk.push.mob.com
 ||https://api.mobgi.com
 ||https://mobgi.com
 ||https://stat.mobgi.com
@@ -5112,11 +5104,8 @@
 ||https://pic.punchbox.org
 ||https://www.qchannel01.cn
 ||https://www.qchannel03.cn
-||https://a.qchannel03.cn
 ||https://b.qchannel03.cn
 ||https://fd.qchannel03.cn
-||https://fd2.qchannel03.cn
-||https://log.qchannel03.cn
 ||https://www.qchannel04.cn
 ||https://2018.qucaigg.com
 ||https://77kb.qucaigg.com
@@ -6063,8 +6052,6 @@
 ||https://cdn-adn-https-share.rayjump.com
 ||https://da.anythinktech.com
 ||https://gd-stats.jpush.cn
-||https://s.jpush.cn
-||https://gw.innotechx.com
 ||https://imp-toutiao-data.37.com.cn
 ||https://impression.appsflyer.com
 ||https://ios.bugly.qq.com
@@ -6394,12 +6381,7 @@
 ||https://route-stats.dreport.meituan.net
 ||https://api.ads.tvb.com
 ||https://img.ads.tvb.com
-||https://config.jpush.cn
-||https://config-junion.jpush.cn
-||https://s.jpush.cn
-||https://tsis.jpush.cn
 ||https://active.tc.skysrt.com
-||https://t7z.cupid.ptqy.gitv.tv
 ||https://t7z.cupid.iqiyi.com
 ||https://ad.3.cn
 ||https://amdcopen.m.taobao.com
@@ -6420,7 +6402,6 @@
 ||https://livep.l.t002.ottcn.com
 ||https://mtrace.play.t002.ottcn.com
 ||https://ocsp.int-x3.letsencrypt.org
-||https://p.tencentmind.com
 ||https://puui.qpic.cn
 ||https://rpc-tc.skysrt.com
 ||https://rpt-gdt.play.t002.ottcn.com
@@ -6441,7 +6422,6 @@
 ||https://api-upgrade.coocaa.ottcn.com
 ||https://data-hoisin.coocaa.com
 ||https://hoisin.coocaa.com
-||https://hoisin.coocaatv.com
 !pkg=white.ad.web.com;〔提示误伤〕选择性不√以下子项
 !----------------------------------------
 ||https://livew.l.qq.com #-> 腾讯视频
