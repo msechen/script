@@ -17,7 +17,7 @@
  **You must completely delete the above content from your computer or mobile phone within 24 hours after downloading.**  </br>
 > ***You have used or copied any script made by yourself in this warehouse, it is deemed to have `accepted` this statement, please read it carefully*** 
 
-## 如需使用教程请移步至 [course](https://www.kancloud.cn/zfeng3242_/zfeng1005/2318693)
+## 如需使用教程请移步至 [course](https://www.kancloud.cn/zfeng3242_/zfeng1005/)
 
 ## [TG群组](https://t.me/JD_DX1005)
 
