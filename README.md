@@ -1,7 +1,8 @@
 # x-ui
 支持多协议多用户的 xray 面板
 原版本由[vaxilu](https://github.com/vaxilu)进行开发，项目地址请参考[链接](https://github.com/vaxilu/x-ui)  
-本项目由原项目fork而来,添加自己觉得有用的功能。其中Master分支开发功能，develop分支用于提交Pr  
+本项目由原项目fork而来,添加自己觉得有用的功能。  
+其中Master分支开发功能，develop分支用于提交Pr  
 欢迎大家使用并反馈意见，帮助我们更好的改善~  
 具体使用教程可以参考个人博客文章[链接](https://coderfan.net/how-to-use-x-ui-pannel-to-set-up-proxies-for-bypassing-gfw.html)
 
