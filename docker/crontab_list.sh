@@ -80,6 +80,8 @@
 30 1 19-26/1 4 * node /scripts/jd_opencard135.js >> /scripts/logs/jd_opencard135.log 2>&1
 #jd_opencard136
 30 2 18-24/1 4 * node /scripts/jd_opencard136.js >> /scripts/logs/jd_opencard136.log 2>&1
+#jd_opencard137
+15 8,18,23 18-23 4 * node /scripts/jd_opencard137.js >> /scripts/logs/jd_opencard137.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 天天压岁钱
@@ -110,10 +112,6 @@
 3 0,11 * * * node /scripts/jd_wq_wxsign.js >> /scripts/logs/jd_wq_wxsign.log 2>&1
 #jd_pay_contract
 35 21 */3 * * node /scripts/jd_pay_contract.js >> /scripts/logs/jd_pay_contract.log 2>&1
-#jd_carnivalcity
-1 0,6,12,18 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
-#jd_carnivalcity_help
-10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
 #省钱大赢家
 20 0-23/2 * * * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 ##############长期活动##############
