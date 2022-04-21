@@ -14,7 +14,7 @@ class Carnivalcity extends Template {
   static times = 2;
   static concurrent = true;
   static concurrentOnceDelay = 0;
-  static activityEndTime = '2022-04-22';
+  static activityEndTime = '2022-04-20';
 
   static apiOptions = {
     options: {
