@@ -176,8 +176,6 @@ async function run() {
         $.openList = []
         $.allOpenCard = false
         await takePostRequest('checkOpenCard')
-         console.log($.actorUuid)
-         return
         if($.allOpenCard == false){
             console.log('开卡任务')
             for(o of $.openList){
