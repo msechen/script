@@ -104,7 +104,12 @@ func (j *StatsNotifyJob) Run() {
 	//NOTE:If there no any sessions here,need to notify here
 	//TODO:分节点推送,自动转化格式
 	for _, inbound := range inbouds {
-		info += fmt.Sprintf("节点名称:%s\r\n端口:%d\r\n到期时间:%s\r\n上行流量↑:%s\r\n下行流量↓:%s\r\n总流量:%s\r\n \r\n", inbound.Remark, inbound.Port, time.Unix((inbound.ExpiryTime/1000), 0).Format("2006-01-02 15:04:05"), common.FormatTraffic(inbound.Up), common.FormatTraffic(inbound.Down), common.FormatTraffic((inbound.Up + inbound.Down)))
+		info += fmt.Sprintf("节点名称:%s\r\n端口:%d\r\n上行流量↑:%s\r\n下行流量↓:%s\r\n总流量:%s\r\n", inbound.Remark, inbound.Port, common.FormatTraffic(inbound.Up), common.FormatTraffic(inbound.Down), common.FormatTraffic((inbound.Up + inbound.Down)))
+		if inbound.ExpiryTime == 0 {
+			info += fmt.Sprintf("到期时间:无限期\r\n \r\n")
+		} else {
+			info += fmt.Sprintf("到期时间:%s\r\n \r\n", time.Unix((inbound.ExpiryTime/1000), 0).Format("2006-01-02 15:04:05"))
+		}
 	}
 	j.SendMsgToTgbot(info)
 }
