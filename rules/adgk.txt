@@ -1,4 +1,4 @@
-! Version: 20220415185615
+! Version: 20220422232404
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
@@ -738,7 +738,6 @@
 ||https://ykad-gateway.youku.com
 ||https://vali.cp12.wasu.tv
 ||https://baidu.com/juping.php
-||https://aod-
 ||https://tcbox.baidu.com
 ||https://browserkernel.baidu.com
 ||https://xavua.com
