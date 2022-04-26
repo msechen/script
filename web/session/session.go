@@ -19,10 +19,6 @@ func init() {
 func SetLoginUser(c *gin.Context, user *model.User) error {
 	s := sessions.Default(c)
 	s.Set(loginUser, user)
-	s.Options(sessions.Options{
-		MaxAge: 7200,
-		Secure: true,
-	})
 	return s.Save()
 }
 

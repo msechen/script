@@ -46,6 +46,9 @@ func (j *StatsNotifyJob) SendMsgToTgbot(msg string) {
 		logger.Warning("sendMsgToTgbot failed,GetTgBotChatId fail:", err)
 		return
 	}
+	if tgBottoken == "" || tgBotid == 0 {
+		return
+	}
 
 	bot, err := tgbotapi.NewBotAPI(tgBottoken)
 	if err != nil {
@@ -147,7 +150,6 @@ func (j *StatsNotifyJob) SSHStatusLoginNotify(xuiStartTime string) {
 		fmt.Println("getSSHUserNumber error:", error)
 		return
 	}
-	//fmt.Printf("getSSHUserNumber:%s\r\n", common.ByteToString(getSSHUserNumber))
 	var numberInt int
 	numberInt, error = strconv.Atoi(common.ByteToString(getSSHUserNumber))
 	if error != nil {
@@ -178,9 +180,6 @@ func (j *StatsNotifyJob) SSHStatusLoginNotify(xuiStartTime string) {
 		*/
 		var SSHLoginTimeStr string
 		SSHLoginTimeStr = common.ByteToString(SSHLoginTime)
-		//can't use string to change []byte to string,there will cause encode error
-		//fmt.Printf("SSHLoginTime[%s]\r\n", SSHLoginTimeStr)
-		//fmt.Printf("XUIRunTime[%s]\r\n", xuiStartTime)
 		t1, err := time.Parse("2006-01-02 15:04:05", SSHLoginTimeStr)
 		t2, err := time.Parse("2006-01-02 15:04:05", xuiStartTime)
 		if t1.Before(t2) || err != nil {
