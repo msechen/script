@@ -33,7 +33,7 @@ jobs:
           go-version: 1.18
       - name: build linux amd64 version
         run: |
-          CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o xui-release -v main.go
+          CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -ldflags='-extldflags=-static' -tags sqlite_omit_load_extension -o xui-release -v main.go
           mkdir x-ui
           cp xui-release x-ui/xui-release
           cp x-ui.service x-ui/x-ui.service
@@ -74,7 +74,7 @@ jobs:
           go-version: 1.18
       - name: build linux arm64 version
         run: |
-          GOOS=linux GOARCH=arm64 go build -o xui-release -v main.go
+          GOOS=linux GOARCH=arm64 go build  -ldflags='-extldflags=-static' -tags sqlite_omit_load_extension -o xui-release -v main.go
           mkdir x-ui
           cp xui-release x-ui/xui-release
           cp x-ui.service x-ui/x-ui.service
