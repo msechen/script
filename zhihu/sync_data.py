@@ -195,6 +195,57 @@ def query_jingfen_click():
     return "[京粉点击数]" + str(today_click) + "/(" + str(yestoday_click) + ")"
 
 
+# 查询京粉点击数
+def query_pop_income():
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    begin = '2022-04-21'
+    yestoday = (datetime.datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
+
+    today_pop = zhihu_spider.get_pop_order(today, today, zh_config_dao.query_config('jfck2').value)
+    today_gmv = 0
+    today_order = 0
+    for order in today_pop:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
+                    'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
+                    'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
+                    today_gmv += order['estimateCosPrice']
+                    today_order += 1
+                    # print(order)
+
+    yestoday_pop = zhihu_spider.get_pop_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
+    yestoday_gmv = 0
+    yestoday_order = 0
+    for order in yestoday_pop:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
+                    'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
+                    'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
+                    yestoday_gmv += order['estimateCosPrice']
+                    yestoday_order += 1
+                    # print(order)
+
+    total_pop = zhihu_spider.get_pop_order(begin, today, zh_config_dao.query_config('jfck2').value)
+    total_gmv = 0
+    total_order = 0
+    for order in total_pop:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
+                    'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
+                    'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
+                    total_gmv += order['estimateCosPrice']
+                    total_order += 1
+                    # print(order)
+
+    return "[pop今] GMV:" + str(int(today_gmv)) + " 订单数:" + str(today_order) + " 佣金:" + str(
+        int(today_gmv * 0.08)) + "\n[pop昨] GMV:" + str(int(yestoday_gmv)) + " 订单数:" + str(
+        yestoday_order) + " 佣金:" + str(int(yestoday_gmv * 0.08)) + "\n[pop总] GMV:" + str(
+        int(total_gmv)) + " 订单数:" + str(total_order) + " 佣金:" + str(int(total_gmv * 0.08))
+
+
 # 查询红包发放数
 def query_jingfen_redpacket():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -238,7 +289,8 @@ def query_today_earnings():
     total = int(num1 + num2 + num3 + num4 - num5)
 
     # return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + zhijia_pay
-    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + zhijia_pay
+    return '佣金总计：' + str(
+        total) + "\n\n" + zhihu_earnings1 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + zhijia_pay
 
 # 查询今日总收入
 def query_today_earnings_2():
@@ -294,4 +346,4 @@ def get_zhihu_like_2():
 
 
 if __name__ == '__main__':
-    print(query_jingfen_click())
+    print(query_pop_income())

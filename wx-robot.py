@@ -141,7 +141,8 @@ def auto_reply(msg):
         return
 
     if '1' == msg.text:  # 查佣金
-        ret = sync_data.query_today_earnings() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(False)
+        ret = sync_data.query_today_earnings() + '\n\n' + sync_data.query_pop_income() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(
+            False)
         logger.info(ret)
         return ret
 
@@ -169,8 +170,8 @@ def auto_reply(msg):
         return web_spider.get_weather_today("shenzhen")
     elif '大盘' == msg.text:
         return web_spider.get_zs_today()
-    elif '我的基金' == msg.text:
-        return web_spider.get_zs_today() + '\n' + web_spider.get_jj_today("501301,161721,007028,110003,090010")
+    elif '基金' == msg.text:
+        return web_spider.get_zs_today() + '\n' + web_spider.get_jj_today("090010,007028,110003,519671,004070")
     elif '周刊' == msg.text:
         return web_spider.get_ryf_weekly()
     elif '篮球' == msg.text:
