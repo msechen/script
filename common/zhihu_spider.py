@@ -250,10 +250,14 @@ def get_pop_order(start, end, cookie):
     list = []
     flag = True
     while (flag):
-        pageRet = get_pop_order_by_page(start, end, cookie, pageNo, pageSize).json()
-        list.extend(pageRet['result'])
-        flag = pageRet['hasNext']
-        pageNo += 1
+        pageRet = get_pop_order_by_page(start, end, cookie, pageNo, pageSize)
+        if pageRet == -10:
+            flag = False
+        else:
+            json = pageRet.json()
+            list.extend(pageRet['result'])
+            flag = pageRet['hasNext']
+            pageNo += 1
 
     return list
 
