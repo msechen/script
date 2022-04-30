@@ -17,7 +17,7 @@ const {
 const Common = require('./jd/base/common');
 
 const Sign = require('./jd/sign');
-const Sign1 = TemporarilyOffline || require('./jd/sign/Sign1');
+const Sign1 = require('./jd/sign/Sign1');
 const SignShop = require('./jd/sign/shop');
 const SignRemote = require('./jd/sign/remote');
 const SignTurnTable = TemporarilyOffline || require('./jd/sign/TurnTable');

@@ -43,12 +43,14 @@ class Sign1 extends Template {
       // 'https://prodev.m.jd.com/mini/active/3EVVqbSAdb1jWkED4D6rhVX1Xyf4/index.html',
       'https://prodev.m.jd.com/mall/active/2QUxWHx5BSCNtnBDjtt5gZTq7zdZ/index.html',
       'https://pro.m.jd.com/mall/active/412SRRXnKE1Q4Y6uJRWVT6XhyseG/index.html',
+      'https://prodev.m.jd.com/mall/active/kPM3Xedz1PBiGQjY4ZYGmeVvrts/index.html',
       // ['https://prodev.m.jd.com/mall/active/dHKkhs2AYLCeCH3tEaHRtC1TnvH/index.html', {needInApp: true}],
     ];
 
-    if (api.currentCookieTimes !== 0) {
-      urlArray.shift();
-    }
+    urlArray = [
+      // 不需要验证
+      'https://prodev.m.jd.com/mall/active/2BspupMr6qenk9JUWpbAnepLHjwy/index.html',
+    ];
 
     for (let i = 0; i < 3; i++) {
       await handleSign();
@@ -88,7 +90,11 @@ class Sign1 extends Template {
               `[${actId}]`,
             ];
             if (!self.isSuccess(data)) {
-              msgs.push(data.msg);
+              const msg = data.msg;
+              msgs.push(msg);
+              if (/太火爆/.test(msg)) {
+                removeExpiredUrl(url);
+              }
             } else {
               const {rewardsInfo: {successRewards, failRewards}} = data;
               if (_.isEmpty(successRewards)) {
