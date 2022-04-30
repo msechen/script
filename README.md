@@ -30,7 +30,12 @@
 
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
-```
+```  
+如果你的系统版本比较老旧，安装后报错：GLIBC_2.28 not found，请安装0.3.3.9版本,但该版本会在切换xray内核时报错，建议尽快升级系统  
+```  
+bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) 0.3.3.9  
+```  
+
 
 ## 手动安装&升级
 
@@ -101,6 +106,8 @@ docker build -t x-ui .
 - 该脚本使用DNS API进行证书申请
 - 默认使用Let'sEncrypt作为CA方
 - 证书安装目录为/root/cert目录
+- 受限于Cloudflare策略，不支持免费域名  
+- 输入域名时需为二级域名，不可带`www`
 - 本脚本申请证书均为泛域名证书
 
 ## Tg机器人使用
