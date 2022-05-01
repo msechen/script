@@ -1,7 +1,7 @@
 import time
 
 import requests
-from dao import zh_log_dao
+from dao import zh_config_dao
 from utils import *
 
 
@@ -34,15 +34,15 @@ def get_article_draft_all(cookie):
     limit = 10
 
     list = []
-    flag = True
-    while (flag):
+    isEnd = False
+    while (not isEnd):
         pageRet = get_article_draft_by_page(cookie, offset, limit)
         if pageRet == "接口报错":
-            flag = False
+            isEnd = True
         else:
             json = pageRet.json()
             list.extend(json['data'])
-            flag = json['is_end']
+            isEnd = json['paging']['is_end']
             offset += 10
 
     return list
@@ -73,5 +73,6 @@ def get_pop_order_by_page(start, end, cookie, pageNo, pageSize):
 
 
 if __name__ == "__main__":
-    cookie = ''
-    print(get_article_draft_all(cookie))
+    cookie = zh_config_dao.query_config('dxck').value
+    for i in get_article_draft_all(cookie):
+        print(i['title'], '-', i['id'])
