@@ -127,7 +127,7 @@ def post_question_draft(qid, content, cookie):
 
 if __name__ == "__main__":
     cookie = zh_config_dao.query_config('dxck').value
-    for i in get_article_draft_all(cookie):
-        print(i['title'], '-', i['id'])
-    print(get_article_draft_html(1651370266, cookie))
-    print(get_question_draft_html(496761455, cookie))
+    # for i in get_article_draft_all(cookie):
+    #     print(i['title'], '-', i['id'])
+    # print(get_article_draft_html(1651370266, cookie))
+    print(get_question_draft_html(50577677, cookie))

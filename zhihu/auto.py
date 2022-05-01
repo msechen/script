@@ -51,15 +51,17 @@ def replace_question_draft_template(qid):
     cookie = zh_config_dao.query_config('dxck').value
 
     origin_draft = auto_spider.get_question_draft_html(qid, cookie)
+    if origin_draft == '接口异常':
+        return '找不到原草稿，qid：{}'.format(qid)
 
-    reg = "<p>Auto.+?</p>"
+    reg = "<p>\d+?_Auto.+?</p>"
     pattern = re.compile(reg)
-    template_list = re.findall(pattern, origin_draft)
+    template_list = re.findall(pattern, origin_draft['content'])
     if len(template_list) == 0:
         logger.info('原草稿内没有模板，qid：{}'.format(qid))
-        return
+        return '原草稿内没有模板，不处理，qid：{}'.format(qid)
 
-    new_draft = origin_draft
+    new_draft_content = origin_draft['content']
     for template in template_list:
         template = template.replace('<p>', '')
         template = template.replace('</p>', '')
@@ -70,18 +72,18 @@ def replace_question_draft_template(qid):
 
         template_html = query_article_draft_html(aids)
 
-        new_draft = new_draft.replace(template, template_html)
+        new_draft_content = new_draft_content.replace(template, template_html)
 
-    logger.info('替换后的草稿内容：{}', new_draft)
-
-    result = auto_spider.post_question_draft(qid, new_draft, cookie)
+    result = auto_spider.post_question_draft(qid, new_draft_content, cookie)
     logger.info('写草稿完成，时间：{}'.format(result['updated_time']))
 
-    return
+    return '草稿模板替换成功，qid：{}，length：{}'.format(qid, len(new_draft_content))
 
 
 if __name__ == "__main__":
-    aid_list = [508000788, 508000925, 507981653]
-    html = query_article_draft_html(aid_list)
-    print(html)
-    post_question_draft(496761455, html)
+    print(query_article_draft())
+    replace_question_draft_template(496761455)
+    # aid_list = [508000788, 508000925, 507981653]
+    # html = query_article_draft_html(aid_list)
+    # print(html)
+    # post_question_draft(496761455, html)

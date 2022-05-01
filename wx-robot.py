@@ -1,5 +1,6 @@
 # 导入模块
 import glob
+import re
 import random
 import threading
 from time import sleep
@@ -143,8 +144,15 @@ def auto_reply(msg):
         return ret
 
     if 'draft' == msg.text:  # 查 pop 总佣金
-        ret = auto.query_article_draft()
-        return ret
+        return auto.query_article_draft()
+
+    if msg.text.startswith('替换草稿模板'):
+        pattern = re.compile("\d+")
+        match_ret = re.findall(pattern, msg.text)
+        if len(match_ret) == 0:
+            return '格式有误，没找到 id'
+
+        return auto.replace_question_draft_template(match_ret[0])
 
     if 'unick=kollyQAQ' in msg.text:
         zh_config_dao.update_config('jfck1', msg.text)
