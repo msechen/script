@@ -1,4 +1,4 @@
-import requests
+import requests, json
 from dao import zh_config_dao
 from wxpy import *
 
@@ -31,7 +31,6 @@ def get_article_draft_by_page(cookie, offset, limit):
         return "接口异常"
 
     return res
-
 
 # 调京粉 api 查询pop order
 def get_article_draft_all(cookie):
@@ -67,9 +66,37 @@ def get_article_draft_html(aid, cookie):
     except BaseException:
         return "接口异常"
 
+    if 'error' in res.text:
+        return "接口报错"
+
+    return res.json()
+
+
+def post_question_draft(qid, content, cookie):
+    url = "https://www.zhihu.com/api/v4/questions/{}/draft".format(qid)
+
+    header = {
+        "cookie": cookie,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    body = {
+        "content": content,
+        "delta_time": 61,
+        "draft_type": "normal"
+    }
+
+    try:
+        res = requests.get(url, data=json.dumps(body), headers=header)
+        res.encoding = 'utf-8'
+    except BaseException:
+        return "接口异常"
+
     if res.status_code != 200:
         logger.info(res.text)
         return "接口异常"
+
+    logger.info("保存回答草稿成功，qid:{}", qid)
 
     return res.json()
 

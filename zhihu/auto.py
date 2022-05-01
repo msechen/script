@@ -35,6 +35,19 @@ def query_article_draft_html(aid_list):
     return result
 
 
+# 暂存
+@retry(tries=5)
+def post_question_draft(qid, content):
+    cookie = zh_config_dao.query_config('dxck').value
+    result = auto_spider.post_question_draft(qid, content, cookie)
+
+    logger.info('{}', result['updated_time'])
+
+    return
+
+
 if __name__ == "__main__":
     aid_list = [508000788, 508000925, 507981653]
-    print(query_article_draft_html(aid_list))
+    html = query_article_draft_html(aid_list)
+    print(html)
+    post_question_draft(496761455, html)
