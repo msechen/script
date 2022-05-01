@@ -26,6 +26,7 @@ class Factory extends HarmonyTemplate {
     doRedeem: '',
     afterGetTaskList: 'jdfactory_getHomeData',
   };
+  static activityEndTime = '2022-04-30';
 
   static async beforeDoTask(api, taskId) {
     // return;
