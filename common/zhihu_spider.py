@@ -2,7 +2,9 @@ import time
 
 import requests
 from dao import zh_log_dao
-from dao import zh_config_dao
+from utils import *
+
+logger = logging.getLogger('wx')
 
 headers1 = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36 QIHU 360SE'
@@ -163,6 +165,7 @@ def get_zhihu_card_data(cookie):
     json = res.json()
 
     return '阅读：' + str(json['realtime_card']['today_read_count']) + '(' + str(json['realtime_card']['yesterday_read_count']) + ')' + '\n点赞：' + str(json['realtime_card']['today_upvoted_count']) + '(' + str(json['realtime_card']['yesterday_upvoted_count']) + ')'
+
 
 
 # 调知乎 api 查询账户今日佣金
@@ -359,6 +362,8 @@ def get_zhijia_pay_2(start, end, cookie):
 
     return '花费:' + str(format(json['total']['cost']/100,'.1f')) + ' 点击：' + str(json['total']['click']) + ' 点击率：' + str(format(json['total']['clickRate']*100,'.1f')) + '%', json['total']['cost']
 
-if __name__ == "__main__":
 
-    print(format(1234/100,'.1f'))
+if __name__ == "__main__":
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    cookie = ''
+    print(get_zhihu_earnings(today, today, cookie))
