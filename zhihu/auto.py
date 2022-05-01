@@ -13,18 +13,14 @@ from utils import *
 def query_article_draft():
     draft_all = auto_spider.get_article_draft_all(zh_config_dao.query_config('dxck').value)
 
-    draft_list = []
-    for draft in draft_all:
-        if draft['title'].startsWith('Auto-'):
-            draft_list.extend(draft)
-
     result = ''
 
-    for i in draft_list:
-        result = result + i['title'] + "-" + i['id']
+    for i, item in enumerate(draft_all):
+        if item['title'].startswith('Auto-'):
+            result = result + item['title'] + "_" + str(item['id']) + '\n'
 
     return result
 
 
 if __name__ == "__main__":
-    print(query_article_draft)
+    print(query_article_draft())
