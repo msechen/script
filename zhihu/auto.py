@@ -35,5 +35,5 @@ def query_article_draft_html(aid_list):
 
 
 if __name__ == "__main__":
-    aid_list = [1651370266, 508000925, 507981653]
+    aid_list = [508000788, 508000925, 507981653]
     print(query_article_draft_html(aid_list))
