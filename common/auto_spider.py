@@ -1,9 +1,14 @@
-import time
-
 import requests
 from dao import zh_config_dao
-from utils import *
+from wxpy import *
 
+logger = logging.getLogger('wx')
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+sh = logging.StreamHandler()  # 输出日志到终端
+sh.setLevel(logging.DEBUG)
+sh.setFormatter(formatter)
+logger.addHandler(sh)
 
 # 调知乎 api 查询今日阅读数据
 def get_article_draft_by_page(cookie, offset, limit):
@@ -21,8 +26,9 @@ def get_article_draft_by_page(cookie, offset, limit):
     except BaseException:
         return "接口异常"
 
-    if 'error' in res.text:
-        return "接口报错"
+    if res.status_code != 200:
+        logger.info(res.text)
+        return "接口异常"
 
     return res
 
@@ -61,8 +67,9 @@ def get_article_draft_html(aid, cookie):
     except BaseException:
         return "接口异常"
 
-    if 'error' in res.text:
-        return "接口报错"
+    if res.status_code != 200:
+        logger.info(res.text)
+        return "接口异常"
 
     return res.json()
 
@@ -71,4 +78,4 @@ if __name__ == "__main__":
     cookie = zh_config_dao.query_config('dxck').value
     for i in get_article_draft_all(cookie):
         print(i['title'], '-', i['id'])
-    print(get_article_draft_html(1651370266, cookie))
+    print(get_article_draft_html(1651370266111, cookie))

@@ -7,6 +7,15 @@ from dao import zh_search_dao
 from dao import zh_log_dao
 from dao import zh_config_dao
 from utils import *
+from wxpy import *
+
+logger = logging.getLogger('wx')
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+sh = logging.StreamHandler()  # 输出日志到终端
+sh.setLevel(logging.DEBUG)
+sh.setFormatter(formatter)
+logger.addHandler(sh)
 
 new_day_hour = "00"
 g_like1 = 0

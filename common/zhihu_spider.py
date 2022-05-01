@@ -3,7 +3,15 @@ import time
 import requests
 from dao import zh_log_dao
 from dao import zh_config_dao
-from utils import *
+from wxpy import *
+
+logger = logging.getLogger('wx')
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+sh = logging.StreamHandler()  # 输出日志到终端
+sh.setLevel(logging.DEBUG)
+sh.setFormatter(formatter)
+logger.addHandler(sh)
 
 headers1 = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36 QIHU 360SE'
@@ -158,8 +166,9 @@ def get_zhihu_card_data(cookie):
     except BaseException:
         return "接口异常"
 
-    if 'error' in res.text:
-        return "接口报错"
+    if res.status_code != 200:
+        logger.info(res.text)
+        return "接口异常"
 
     json = res.json()
 
@@ -182,7 +191,8 @@ def get_zhihu_earnings(start, end, cookie):
     except BaseException:
         return -10, 0
 
-    if 'error' in res.text:
+    if res.status_code != 200:
+        logger.info(res.text)
         return -10, 0
 
     json = res.json()

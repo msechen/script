@@ -1,13 +1,14 @@
-from common import jd_union
-from common import zhihu_spider, web_spider, auto_spider
-from dao import zh_answer_dao
-from dao import zh_goods_dao
-from dao import zh_question_dao
-from dao import zh_search_dao
-from dao import zh_log_dao
+from common import auto_spider
 from dao import zh_config_dao
-from utils import *
+from wxpy import *
 
+logger = logging.getLogger('wx')
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+sh = logging.StreamHandler()  # 输出日志到终端
+sh.setLevel(logging.DEBUG)
+sh.setFormatter(formatter)
+logger.addHandler(sh)
 
 # 查询文章草稿列表
 def query_article_draft():
