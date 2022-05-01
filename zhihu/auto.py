@@ -1,3 +1,4 @@
+import re
 from common import auto_spider
 from dao import zh_config_dao
 from wxpy import *
@@ -19,7 +20,7 @@ def query_article_draft():
 
     for i, item in enumerate(draft_all):
         if item['title'].startswith('Auto-'):
-            result = result + item['title'] + "_" + str(item['id']) + '\n'
+            result = result + str(item['id']) + "_" + item['title'] + '\n'
 
     return result
 
@@ -35,12 +36,46 @@ def query_article_draft_html(aid_list):
     return result
 
 
-# 暂存
+# 写回答草稿
 def post_question_draft(qid, content):
     cookie = zh_config_dao.query_config('dxck').value
     result = auto_spider.post_question_draft(qid, content, cookie)
 
-    logger.info('{}'.format(result['updated_time']))
+    logger.info('写草稿完成，时间：{}'.format(result['updated_time']))
+
+    return
+
+
+# 替换草稿内的模板
+def replace_question_draft_template(qid):
+    cookie = zh_config_dao.query_config('dxck').value
+
+    origin_draft = auto_spider.get_question_draft_html(qid, cookie)
+
+    reg = "<p>Auto.+?</p>"
+    pattern = re.compile(reg)
+    template_list = re.findall(pattern, origin_draft)
+    if len(template_list) == 0:
+        logger.info('原草稿内没有模板，qid：{}'.format(qid))
+        return
+
+    new_draft = origin_draft
+    for template in template_list:
+        template = template.replace('<p>', '')
+        template = template.replace('</p>', '')
+        words = template.split('_')
+
+        aid = words[0]
+        aids = [aid]
+
+        template_html = query_article_draft_html(aids)
+
+        new_draft = new_draft.replace(template, template_html)
+
+    logger.info('替换后的草稿内容：{}', new_draft)
+
+    result = auto_spider.post_question_draft(qid, new_draft, cookie)
+    logger.info('写草稿完成，时间：{}'.format(result['updated_time']))
 
     return
 
@@ -50,4 +85,3 @@ if __name__ == "__main__":
     html = query_article_draft_html(aid_list)
     print(html)
     post_question_draft(496761455, html)
-    # post_question_draft(496761455, '<p>11122123123323132131122222</p>')

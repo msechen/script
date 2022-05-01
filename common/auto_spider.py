@@ -41,7 +41,7 @@ def get_article_draft_all(cookie):
     isEnd = False
     while (not isEnd):
         pageRet = get_article_draft_by_page(cookie, offset, limit)
-        if pageRet == "接口报错":
+        if pageRet == "接口异常":
             isEnd = True
         else:
             json = pageRet.json()
@@ -66,8 +66,30 @@ def get_article_draft_html(aid, cookie):
     except BaseException:
         return "接口异常"
 
-    if 'error' in res.text:
-        return "接口报错"
+    if res.status_code != 200:
+        logger.info(res.text)
+        return "接口异常"
+
+    return res.json()
+
+
+def get_question_draft_html(qid, cookie):
+    url = "https://www.zhihu.com/api/v4/questions/{}/draft?include=question%2Cschedule".format(qid)
+
+    header = {
+        "cookie": cookie,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException:
+        return "接口异常"
+
+    if res.status_code != 200:
+        logger.info(res.text)
+        return "接口异常"
 
     return res.json()
 
@@ -82,16 +104,10 @@ def post_question_draft(qid, content, cookie):
         'content-type': 'application/json',
     }
 
-    # setting = {
-    #     "can_reward": True,
-    #     "comment_permission": "all",
-    # }
-
     body = {
         "content": content,
         "delta_time": 3,
         "draft_type": "normal",
-        # "settings": setting,
     }
 
     try:
@@ -113,4 +129,5 @@ if __name__ == "__main__":
     cookie = zh_config_dao.query_config('dxck').value
     for i in get_article_draft_all(cookie):
         print(i['title'], '-', i['id'])
-    print(get_article_draft_html(1651370266111, cookie))
+    print(get_article_draft_html(1651370266, cookie))
+    print(get_question_draft_html(496761455, cookie))
