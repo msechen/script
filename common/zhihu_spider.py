@@ -2,6 +2,7 @@ import time
 
 import requests
 from dao import zh_log_dao
+from dao import zh_config_dao
 from utils import *
 
 headers1 = {
@@ -256,8 +257,8 @@ def get_pop_order(start, end, cookie):
             flag = False
         else:
             json = pageRet.json()
-            list.extend(pageRet['result'])
-            flag = pageRet['hasNext']
+            list.extend(json['result'])
+            flag = json['hasNext']
             pageNo += 1
 
     return list
@@ -362,6 +363,6 @@ def get_zhijia_pay_2(start, end, cookie):
 
 
 if __name__ == "__main__":
-    today = datetime.datetime.now().strftime('%Y-%m-%d')
-    cookie = ''
-    print(get_zhihu_earnings(today, today, cookie))
+    today = '2022-04-30'
+    cookie = zh_config_dao.query_config('jfck2').value
+    print(get_pop_order(today, today, cookie))
