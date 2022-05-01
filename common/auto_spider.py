@@ -77,17 +77,25 @@ def post_question_draft(qid, content, cookie):
 
     header = {
         "cookie": cookie,
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+        'referer': "https://www.zhihu.com/question/{}/?write".format(qid),
+        'content-type': 'application/json',
     }
+
+    # setting = {
+    #     "can_reward": True,
+    #     "comment_permission": "all",
+    # }
 
     body = {
         "content": content,
-        "delta_time": 61,
-        "draft_type": "normal"
+        "delta_time": 3,
+        "draft_type": "normal",
+        # "settings": setting,
     }
 
     try:
-        res = requests.get(url, data=json.dumps(body), headers=header)
+        res = requests.post(url, data=json.dumps(body), headers=header)
         res.encoding = 'utf-8'
     except BaseException:
         return "接口异常"
@@ -96,7 +104,7 @@ def post_question_draft(qid, content, cookie):
         logger.info(res.text)
         return "接口异常"
 
-    logger.info("保存回答草稿成功，qid:{}", qid)
+    logger.info("保存回答草稿成功，qid:{}".format(qid))
 
     return res.json()
 

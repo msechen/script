@@ -207,7 +207,6 @@ def query_jingfen_click():
 # 查询京粉点击数
 def query_pop_income():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
-    begin = '2022-04-21'
     yestoday = (datetime.datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
 
     today_pop = zhihu_spider.get_pop_order(today, today, zh_config_dao.query_config('jfck2').value)
@@ -221,7 +220,6 @@ def query_pop_income():
                     'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
                     today_gmv += order['estimateCosPrice']
                     today_order += 1
-                    # print(order)
 
     yestoday_pop = zhihu_spider.get_pop_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
     yestoday_gmv = 0
@@ -234,7 +232,16 @@ def query_pop_income():
                     'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
                     yestoday_gmv += order['estimateCosPrice']
                     yestoday_order += 1
-                    # print(order)
+
+    return "[pop今] GMV:" + str(int(today_gmv)) + " 订单数:" + str(today_order) + " 佣金:" + str(
+        int(today_gmv * 0.08)) + "\n[pop昨] GMV:" + str(int(yestoday_gmv)) + " 订单数:" + str(
+        yestoday_order) + " 佣金:" + str(int(yestoday_gmv * 0.08))
+
+
+# 查询京粉点击数
+def query_pop_income_all():
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    begin = '2022-04-21'
 
     total_pop = zhihu_spider.get_pop_order(begin, today, zh_config_dao.query_config('jfck2').value)
     total_gmv = 0
@@ -249,10 +256,7 @@ def query_pop_income():
                     total_order += 1
                     # print(order)
 
-    return "[pop今] GMV:" + str(int(today_gmv)) + " 订单数:" + str(today_order) + " 佣金:" + str(
-        int(today_gmv * 0.08)) + "\n[pop昨] GMV:" + str(int(yestoday_gmv)) + " 订单数:" + str(
-        yestoday_order) + " 佣金:" + str(int(yestoday_gmv * 0.08)) + "\n[pop总] GMV:" + str(
-        int(total_gmv)) + " 订单数:" + str(total_order) + " 佣金:" + str(int(total_gmv * 0.08))
+    return "[pop总] GMV:" + str(int(total_gmv)) + " 订单数:" + str(total_order) + " 佣金:" + str(int(total_gmv * 0.08))
 
 
 # 查询红包发放数

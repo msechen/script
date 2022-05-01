@@ -2,19 +2,16 @@
 import glob
 import random
 import threading
-import logging
 from time import sleep
 
 from wxpy import *
 
 import zhihu.sync_data as sync_data
+import zhihu.auto as auto
 import utils.time_utils as time_utils
 
-from auto_reply import reminder
 from common import corp_we_chat
 from common import web_spider
-from dao import resource_dao
-from dao import resource_log_dao
 from dao import early_check_dao
 from dao import zh_config_dao
 from jobs import *
@@ -131,34 +128,29 @@ def auto_reply(msg):
     # 随机等几秒，避免被风控
     sleep(random.randint(1, 2))
 
-    if msg.sender.name == '东东哥-10':
-        if msg.text == '客户排名':
-            return sync_data.query_article_rank(100)
-        else:
-            return
-
     if msg.sender.name != 'kolly🤔-1':
         return
 
-    if '1' == msg.text:  # 查佣金
+    if '1' == msg.text:  # 查今日佣金
         ret = sync_data.query_today_earnings() + '\n\n' + sync_data.query_pop_income() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(
             False)
         logger.info(ret)
         return ret
 
-    if '2' == msg.text:  # 查文章排名
-        return sync_data.query_article_rank(11)
+    if 'pop' == msg.text:  # 查 pop 总佣金
+        ret = sync_data.query_pop_income_all()
+        logger.info(ret)
+        return ret
 
-    if msg.text == '客户排名':
-        return sync_data.query_article_rank(100)
+    if 'draft' == msg.text:  # 查 pop 总佣金
+        ret = auto.query_article_draft()
+        return ret
 
     if 'unick=kollyQAQ' in msg.text:
-        txt = msg.text.replace("cookie: ","")
         zh_config_dao.update_config('jfck1', msg.text)
         return '更新成功'
 
     if 'unick=lijunchao233' in msg.text:
-        txt = msg.text.replace("cookie: ","")
         zh_config_dao.update_config('jfck2', msg.text)
         return '更新成功'
 
@@ -168,14 +160,8 @@ def auto_reply(msg):
 
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
-    elif '大盘' == msg.text:
-        return web_spider.get_zs_today()
     elif '基金' == msg.text:
         return web_spider.get_zs_today() + '\n' + web_spider.get_jj_today("090010,007028,110003,519671,004070")
-    elif '周刊' == msg.text:
-        return web_spider.get_ryf_weekly()
-    elif '篮球' == msg.text:
-        return "https://sports.qq.com/kbsweb/kbsshare/gamelist.htm#nav-nba"
     elif '热榜' == msg.text:
         return "https://tophub.today/"
     elif msg.text.endswith('表情包'):
@@ -217,17 +203,6 @@ def auto_reply(msg):
     elif 'test' == msg.text:
         # msg.sender.set_remark_name('test remark')
         return
-    elif '资源类型' == msg.text:
-        return '资源类型 1-搞笑段子 2-经典语录'
-    elif msg.text.startswith('上传资源'):
-        type = msg.text[4:5]
-        content = msg.text[6:]
-        resource_dao.add_resource(type, content)
-        return content
-    elif '段子' == msg.text:
-        res = resource_service.get_new_resource(1, 1)  # user_id 暂时写死
-        resource_log_dao.add_resource_log(1, res.id, res.type)  # user_id 暂时写死
-        return res.content
     else:
         return ""
 
