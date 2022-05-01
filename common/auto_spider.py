@@ -3,12 +3,6 @@ from dao import zh_config_dao
 from wxpy import *
 
 logger = logging.getLogger('wx')
-logger.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-sh = logging.StreamHandler()  # 输出日志到终端
-sh.setLevel(logging.DEBUG)
-sh.setFormatter(formatter)
-logger.addHandler(sh)
 
 # 调知乎 api 查询今日阅读数据
 def get_article_draft_by_page(cookie, offset, limit):

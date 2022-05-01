@@ -143,7 +143,7 @@ def auto_reply(msg):
         logger.info(ret)
         return ret
 
-    if 'draft' == msg.text:  # 查 pop 总佣金
+    if 'draft' == msg.text:  # 查所有文字草稿
         return auto.query_article_draft()
 
     if msg.text.startswith('替换草稿模板'):

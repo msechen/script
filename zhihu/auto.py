@@ -4,23 +4,19 @@ from dao import zh_config_dao
 from wxpy import *
 
 logger = logging.getLogger('wx')
-logger.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-sh = logging.StreamHandler()  # 输出日志到终端
-sh.setLevel(logging.DEBUG)
-sh.setFormatter(formatter)
-logger.addHandler(sh)
 
 # 查询文章草稿列表
 def query_article_draft():
     cookie = zh_config_dao.query_config('dxck').value
     draft_all = auto_spider.get_article_draft_all(cookie)
 
-    result = ''
-
+    result = []
     for i, item in enumerate(draft_all):
         if item['title'].startswith('Auto-'):
-            result = result + str(item['id']) + "_" + item['title'] + '\n'
+            tmp = "{}_{}".format(item['title'], item['id'])
+            result.append(tmp)
+
+    result.sort()
 
     return result
 
@@ -67,7 +63,10 @@ def replace_question_draft_template(qid):
         template = template.replace('</p>', '')
         words = template.split('_')
 
-        aid = words[0]
+        if len(words) != 2:
+            return '模板格式有误，不处理，template：{}'.format(template)
+
+        aid = words[1]
         aids = [aid]
 
         template_html = query_article_draft_html(aids)
@@ -82,7 +81,7 @@ def replace_question_draft_template(qid):
 
 if __name__ == "__main__":
     print(query_article_draft())
-    replace_question_draft_template(496761455)
+    # replace_question_draft_template(496761455)
     # aid_list = [508000788, 508000925, 507981653]
     # html = query_article_draft_html(aid_list)
     # print(html)
