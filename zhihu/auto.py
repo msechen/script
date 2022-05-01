@@ -9,9 +9,10 @@ from dao import zh_config_dao
 from utils import *
 
 
-# 查询京粉点击数
+# 查询文章草稿列表
 def query_article_draft():
-    draft_all = auto_spider.get_article_draft_all(zh_config_dao.query_config('dxck').value)
+    cookie = zh_config_dao.query_config('dxck').value
+    draft_all = auto_spider.get_article_draft_all(cookie)
 
     result = ''
 
@@ -22,5 +23,13 @@ def query_article_draft():
     return result
 
 
+# 查询文章草稿内容
+def query_article_draft_html(aid):
+    cookie = zh_config_dao.query_config('dxck').value
+    draft_content = auto_spider.get_article_draft_html(aid, cookie)
+
+    return draft_content.content
+
+
 if __name__ == "__main__":
-    print(query_article_draft())
+    print(query_article_draft_html(1651370266))

@@ -48,8 +48,7 @@ def get_article_draft_all(cookie):
 
 
 def get_article_draft_html(aid, cookie):
-    url = "https://www.zhihu.com/api/v4/articles/my_drafts?offset={}&limit={}&include=data%5B*%5D.schedule".format(
-        offset, limit)
+    url = "https://zhuanlan.zhihu.com/api/articles/{}/draft".format(aid)
 
     header = {
         "cookie": cookie,
@@ -65,10 +64,11 @@ def get_article_draft_html(aid, cookie):
     if 'error' in res.text:
         return "接口报错"
 
-    return res
+    return res.json()
 
 
 if __name__ == "__main__":
     cookie = zh_config_dao.query_config('dxck').value
     for i in get_article_draft_all(cookie):
         print(i['title'], '-', i['id'])
+    print(get_article_draft_html(1651370266, cookie))
