@@ -16,7 +16,6 @@ from common import web_spider
 from dao import early_check_dao
 from dao import zh_config_dao
 from jobs import *
-from service import resource_service
 from service import user_service
 
 logger = logging.getLogger('wx')
@@ -144,7 +143,7 @@ def auto_reply(msg):
         return ret
 
     if 'draft' == msg.text:  # 查所有文字草稿
-        return auto.query_article_draft()
+        return '\n'.join(auto.query_article_draft())
 
     if msg.text.startswith('替换草稿模板'):
         pattern = re.compile("\d+")

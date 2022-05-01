@@ -50,7 +50,7 @@ def replace_question_draft_template(qid):
     if origin_draft == '接口异常':
         return '找不到原草稿，qid：{}'.format(qid)
 
-    reg = "<p>\d+?_Auto.+?</p>"
+    reg = "<p>Auto-.+?</p>"
     pattern = re.compile(reg)
     template_list = re.findall(pattern, origin_draft['content'])
     if len(template_list) == 0:
