@@ -24,12 +24,16 @@ def query_article_draft():
 
 
 # 查询文章草稿内容
-def query_article_draft_html(aid):
+def query_article_draft_html(aid_list):
     cookie = zh_config_dao.query_config('dxck').value
-    draft_content = auto_spider.get_article_draft_html(aid, cookie)
+    result = ''
+    for aid in aid_list:
+        draft_content = auto_spider.get_article_draft_html(aid, cookie)
+        result += draft_content['content']
 
-    return draft_content.content
+    return result
 
 
 if __name__ == "__main__":
-    print(query_article_draft_html(1651370266))
+    aid_list = [1651370266, 508000925, 507981653]
+    print(query_article_draft_html(aid_list))
