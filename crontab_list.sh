@@ -190,8 +190,8 @@
 # 手机狂欢城
 15 0,6 * * * cd /scripts && ts-node /scripts/jd_carnivalcity_card.ts >> /scripts/logs/jd_carnivalcity_card.log 2>&1
 
-# 未知
-15 0,1,6,18 * * * cd /scripts && ts-node /scripts/jd_speed_happyDig.ts >> /scripts/logs/jd_speed_happyDig.log 2>&1
+# 极速版-挖宝
+2 0,1,18 * * * cd /scripts && ts-node /scripts/jd_speed_happy_dig.ts >> /scripts/logs/jd_speed_happy_dig.log 2>&1
 
 ##################################################### 自定 ########################################################
 
