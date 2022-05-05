@@ -182,6 +182,11 @@ class SuperBrandProduct extends Template {
             const enableDivide = cardPackList.every(({num}) => num > 0);
             const cardLog = '已收集卡片数: ' + cardPackList.map(({num, cardType}) => `${num}张卡片${cardType}`).join(', ');
             api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
+            if (enableDivide && self.getNowHour() >= 20) {
+              await api.doGetBodyMP('superBrandTaskLottery', {
+                tag: 'divide',
+              }).then(api.log);
+            }
           },
         },
       });
