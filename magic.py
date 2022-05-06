@@ -68,7 +68,7 @@ async def handler(client, message):
     await message.reply("老板啥事！")
 
 
-@app.on_message(filters.chat(car_group_id) & filters.text)
+@app.on_message(filters.chat(car_group_id) & filters.user(951306588) & filters.text)
 async def handler(client, message):
     try:
         if message.entities is None:
