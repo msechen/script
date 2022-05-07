@@ -167,7 +167,7 @@
 15 1,22 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
 
 # 不知道什麽
-15,30,45 0 * * * cd /scripts && ts-node /scripts/jd_zjd_v0.2.ts >> /scripts/logs/jd_zjd_v0.2.log 2>&1
+15,30,45 0 * * * cd /scripts && ts-node /scripts/jd_zjd.ts >> /scripts/logs/jd_zjd.log 2>&1
 
 # 领88元红包
 5 0,6,16 * * * cd /scripts && ts-node /scripts/jd_88hb.ts >> /scripts/logs/jd_88hb.log 2>&1
@@ -192,6 +192,9 @@
 
 # 极速版-挖宝
 2 0,1,18 * * * cd /scripts && ts-node /scripts/jd_speed_happy_dig.ts >> /scripts/logs/jd_speed_happy_dig.log 2>&1
+
+# 赚赚
+30 9 * * * cd /scripts && ts-node /scripts/jd_wechat_zz.ts >> /scripts/logs/jd_wechat_zz.log 2>&1
 
 ##################################################### 自定 ########################################################
 
