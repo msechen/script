@@ -1,17 +1,22 @@
-! Version: 20220506141525
+! Version: 20220507233029
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||api.lewen123.net/new/app.js
+||lwxs99.cc
+||h45pmx1.cn
+||gayide.com
+||zongzuhulian.com
 ||api.league.kaomeile.net:9002/api/v1/league/ad
 ||www.tz659.com/js/cdn.js
 /js/wap9.js
 /js/chapter*.js
 ||gdt.qq.com
-||m2.yqxs.cc/js
-||r.m.duyidu.net
-||banzhu111.xyz/js/51.js
-||banzhu111.xyz/js/cdn.js
-||3qz8c.site
+||https://api.lewen123.net/new/app.js
+||https://lwxs99.cc
+||https://h45pmx1.cn
+||https://gayide.com
+||https://zongzuhulian.com
 ||https://api.league.kaomeile.net:9002/api/v1/league/ad
 ||https://www.tz659.com/js/cdn.js
 ||https://gdt.qq.com

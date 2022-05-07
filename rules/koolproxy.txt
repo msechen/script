@@ -1,7 +1,7 @@
 ﻿!x  -----------------------------------------------------------------------------------------------------------------
 !x  -----[KoolProxy 3.8.5]
-!x  -----update[rules]: 2022-05-03 19:50
-!x  -----update[video]: 2022-05-03 20:45
+!x  -----update[rules]: 2022-05-07 20:00
+!x  -----update[video]: 2022-05-07 22:02
 !x  -----Thanks: From lvba Rule Group
 !x  -----Thanks for help: <yiclear> <adbyby> <adm> <adblock> <adguard>
 !x  -----------------------------------------------------------------------------------------------------------------
@@ -4165,6 +4165,7 @@
 |https://cmstool.youku.com/cms/tool/pub/get_putdata.json?
 |https://crt.comodoca.com
 |https://d1.sina.com.cn^
+|https://dlswbr.baidu.com/heicha/mw/abclite-*.js
 |https://d2.sina.com.cn^
 |https://d3.sina.com.cn^
 |https://d4.sina.com.cn^
@@ -4284,6 +4285,7 @@
 |https://scss-prod-ue1-notif-22.adobesc.com/
 |https://share.acgnx.se/images/gDqF4N4b.png
 |https://share.acgnx.se/images/cjTQH5PQ.png
+|https://show-3.mediav.com
 |https://ss.sysad.cn
 |https://static.oschina.net/uploads/cooperation/
 |https://statics.woozooo.com/img/p1091.js
@@ -11841,6 +11843,7 @@ zznews.cn##.ad:not([style="margin-top:0px;padding-top:0px;"]),.ad1000-60
 |https://g.pconline.com.cn##DIV#pc-aptgA,div[class="m-header-top"],#JucLogin,#pTit-5,DIV.m-more + UL.news
 |https://hao.360.cn###large2small,#left_float
 |https://hao.360.cn##DIV.small-obj.animate,a[href$="src=hao_ncad_yule"],a[href$="src=hao_ncad_yule "],#corner-flash,.plane-hd
+|https://haokan.baidu.com##.share-icon,.ec-ads-containe,div[class^="mediago-ad-haokan-rightrail-wrapper"],div[class*="mediago-ad-wrapper"],.landrightbanner.landrightbanner-mediago
 |https://hb.ifeng.com###leftdl,#rightdl
 |https://hn.ifeng.com##.couplet,.fixed_ad
 |https://ks.shangxueba.com###rightfloatdiv
@@ -11958,7 +11961,6 @@ zznews.cn##.ad:not([style="margin-top:0px;padding-top:0px;"]),.ad1000-60
 ||https://hqew.com##.pop-banner
 ||https://ifeng.com##.ad640x90,.h_top_box,.foot_top_box,.newbagicon,[class^="adList"],div[class^="ad200"],div[id^="padhide_"],div[id^="couplet3_"],div.ad980,DIV.ad950,div.ad300,div.topAd,div.adArea,div#smExtObj,DIV.block_ad,DIV.pic1000,DIV.recommend > DIV.picNews,DIV.eduList.cGray.lh22,DIV[class^="ad1000"],div[id^="ArpAdPro_"],DIV[id^="index_top_banner_newbanner_ad_"],div.ad300x250,DIV.games_right_side,div.col_ad,DIV.adbox,DIV.ad.bd.ss_none,UL.list022,div.an,div.ad90,div.ad600,div#ifengAehovering_small,div.ad.mt20,div.ad.mt32,div.gg298,div.col_w1000.mt38,DIV[id^="_AdSame_DIV"],div.leftpopad,img[src^="http://y1.ifengimg.com/mappa/201"],div[class^="FNewRAvt"],div.FNewLAvt,div[class^="Col"][class$="Avt"],div[class^="ad0"],div.box_08.mt08,div.adbest,div.trade,.Avt01,div.Avt02,div.js_lh_ad,div.col_pc.IphoneNone,div[class^="ad_"],div[class^="adv"],div.ad2,span#StreamMediaWrap,div.vAdImg,div.v_ad_btm,div.acAdLis,div.iggLine,div.v-adbox,.adarea2,.flashAd,#tcldivtf1_1,#tcldivtf1_2,.right_gg,.gg,[id^="ad"],#video_p,.double_l,.double_r,.ad.mt15,[id^="div-gpt-ad-"],.ad-position,.ad1,.ad8,.newAdImg,#questionDialogBox,[id^="mobile_gg"],[class^="acAd"],[id^="cl3"].threepics,.mr_top_box,[id^="bigContent"],.yc_con_r,iframe[src^="http://p0.ifengimg.com/a/20"],iframe[src^="http://y1.ifengimg.com/a/20"],#swiper-container_bottom,.jctj,#iis_yw0,.yy_right_bottom,.yiyuan,[class^="cont_bottom_Yy"],.gg4,.advmark,.bomAd,.bomBox,.embedHzh,.videoPausePosition,[id^="cl1"],[class^="gg_"],li[id^="dl1"][style],[class^="games_ad_20"]
 ||https://ifeng.com##div[class^="pplive"],[class^="commentAd"],[class^="hardAd"],[class^="commomAd"]
-||https://iqiyi.com##div[id^="100000"]
 ||https://loldytt.com##div[id^="qj960"],div[id^="qj300"],div#xinxi,div#gouwu,div#xinnxi,div#xinxii,div#xinxin
 ||https://loldytt.com###ad_rightBottom > A:last-child > IMG
 ||https://mydrivers.com##div#code_lb.code_lb,TABLE[width="998"][height="90"],TABLE[width="1000"][height="90"],DIV.menu + DIV.baidu_box,#hsb_go,#dangbei_down,[id^="a_showhotnews_list"],[style^="width:1100px; height:90px;"],[class^="ad"],[style^="width:468px; height:60px;"],#recommend.news_xg,[width="1100"][height="90"],[src^="//icons.mydrivers.com/2018/ad"]

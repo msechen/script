@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-05-07T00:02:20.934Z
+! Last modified: 2022-05-07T18:01:17.832Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -19,6 +19,7 @@
 !
 !
 !
+||https://kewhulawi.com
 ||https://ourcommonnews.com
 ||https://galopelikeantelope.com
 ||https://ccmiocw.com
@@ -3760,6 +3761,7 @@ vkcdnservice.appspot.com
 ||https://aedqunriyswthc.com
 ||https://aeesy.com
 ||https://aeheymuatansp.xyz
+||https://aehjtauekqjtvc.com
 ||https://aelick.com
 ||https://aellod.com
 ||https://aelphotog.pro
@@ -5096,6 +5098,7 @@ vkcdnservice.appspot.com
 ||https://blu5fdclr.com
 ||https://blueadvertise.com
 ||https://bluedawning.com
+||https://bluedcrwth.com
 ||https://bluejayfacette.com
 ||https://bluejaysilene.com
 ||https://blueoyster.click
@@ -7926,6 +7929,7 @@ vkcdnservice.appspot.com
 ||https://exwotics6heomrthaoi4r.com
 ||https://eyebrowscrambledlater.com
 ||https://eyefuneve.com
+||https://eyelidfallage.com
 ||https://eyere.com
 ||https://eyereturn.com
 ||https://eyesightladsregiment.com
@@ -11900,6 +11904,7 @@ vkcdnservice.appspot.com
 ||https://moudmarauds.com
 ||https://moundgrandmotherel.com
 ||https://mountries.xyz
+||https://mouseryearlike.com
 ||https://moutoofa.com
 ||https://movad.de
 ||https://movad.net
@@ -12663,6 +12668,7 @@ vkcdnservice.appspot.com
 ||https://oedlwhcqfpfup.xyz
 ||https://oegdmfjoqyyt.com
 ||https://oeitlgqjw.com
+||https://oensil.com
 ||https://oepihvxwaboed.com
 ||https://oetn.xyz
 ||https://oewdfyhdfq.xyz
@@ -15793,6 +15799,7 @@ vkcdnservice.appspot.com
 ||https://someperceptionparade.com
 ||https://somethingglamourbeams.com
 ||https://somethingprecursorfairfax.com
+||https://sometimesfaith.com
 ||https://somewhate.club
 ||https://somewhatteenagers.com
 ||https://somuzteveh.com
@@ -15884,6 +15891,7 @@ vkcdnservice.appspot.com
 ||https://spinbox.net
 ||https://spiralstab.com
 ||https://spiritedirreparablemiscarriage.com
+||https://spirliesalse.com
 ||https://spirub.com
 ||https://spittsprevi.club
 ||https://spitzerpfunde.com
@@ -15964,6 +15972,7 @@ vkcdnservice.appspot.com
 ||https://squozelewing.com
 ||https://squvlmycieyl.com
 ||https://srcsmrtgs.com
+||https://srfhtrjzvf.com
 ||https://srgev.com
 ||https://srigbxxv.com
 ||https://srnmnoacbaady.com
@@ -18047,6 +18056,7 @@ vkcdnservice.appspot.com
 ||https://whechypheshu.com
 ||https://wheeptit.net
 ||https://wheeshoo.net
+||https://wheeshtdooring.com
 ||https://wheessoo.com
 ||https://whefungu.com
 ||https://wheglulyto.pro
@@ -38640,7 +38650,6 @@ charlestownwyllie.oaklawnnonantum.com
 !
 ! Source name: EasyList China ad servers
 !
-||https://5idoy8p7.live
 ||https://00-gov.cn
 ||https://000123456789.site
 ||https://0024aaaa.com
@@ -38815,6 +38824,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://59gt.cn
 ||https://5b1d.com
 ||https://5ibanma.com
+||https://5idoy8p7.live
 ||https://5imoney.com
 ||https://6185059.com
 ||https://643226.com
@@ -40473,6 +40483,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xwintop.top
 ||https://xww360.com
 ||https://xx123.top
+||https://xxgslt.com
 ||https://xxhrd.com
 ||https://xxsjsp.com
 ||https://xxyxmdq.cn
@@ -41753,9 +41764,6 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://shaquevip.oss-cn-zhangjiakou.aliyuncs.com
 ||https://wxtp.cdn.bcebos.com
 ||https://wzjs1.oss-accelerate.aliyuncs.com
-||https://loveyour.name
-||https://qijiuwangluo.ltd
-||https://helloc.xyz
 ||https://000123456789.online
 ||https://000123456789.space
 ||https://01tn.cn
@@ -41848,6 +41856,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://3hbox.com
 ||https://3line.tech
 ||https://3qz8c.site
+||https://3z3sfuj.cn
 ||https://41cm.shop
 ||https://4399.space
 ||https://46rib.cn
@@ -42819,6 +42828,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://dzwgbm.xyz
 ||https://dzxzx.cn
 ||https://e-xinnuo.cn
+||https://e05.xyz
 ||https://e07.xyz
 ||https://e0hkzk2.cn
 ||https://e34.xyz
@@ -43267,6 +43277,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://heguoya.work
 ||https://hehongmei.top
 ||https://hello211.top
+||https://helloc.xyz
 ||https://helpbeatlestribute.com
 ||https://helpinfo.cn
 ||https://henanlinyu.cn
@@ -43773,6 +43784,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://jyzbv.cn
 ||https://jyzce.cn
 ||https://jyzcv.cn
+||https://jzcan.xyz
 ||https://jzdgn.cn
 ||https://jzdianlan.cn
 ||https://jzhxzsgs.com
@@ -43783,6 +43795,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://jzrzpump.com
 ||https://jzuyfp8.cn
 ||https://jzwp.fun
+||https://k11designstore.club
 ||https://k2215.cn
 ||https://k22x6.cn
 ||https://k5p8f2.cn
@@ -44040,6 +44053,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://louisan.cn
 ||https://lousivency.com.cn
 ||https://loverzhou.club
+||https://loveyour.name
 ||https://lownguw.top
 ||https://lpjgr.top
 ||https://lppwnue.cn
@@ -44440,6 +44454,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://opapxq.com
 ||https://opbtc.cn
 ||https://opengam.com
+||https://openinstall.io
 ||https://opiwb.com
 ||https://opoew.top
 ||https://oppaid.com
@@ -44591,6 +44606,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qhdop.com
 ||https://qhdymdc.com
 ||https://qhgbkr.cn
+||https://qhonzpl.cn
 ||https://qhxcdmfj.cn
 ||https://qhytkj.xyz
 ||https://qi-shi.top
@@ -44615,6 +44631,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qiguoguo.net
 ||https://qihehuo.cn
 ||https://qijiandian.xyz
+||https://qijiuwangluo.ltd
 ||https://qilinwh.cn
 ||https://qilungroup.cn
 ||https://qingyiso.cn
@@ -44839,6 +44856,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://secrr.cn
 ||https://seerpiu002.com
 ||https://sehd.shop
+||https://selectinstall.cn
 ||https://senmu123.com
 ||https://seobeginners.wiki
 ||https://sf-ifc.cn
@@ -44936,6 +44954,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://sltcp.cn
 ||https://smallapp.club
 ||https://smartmuchang.com
+||https://smfjfgie.xyz
 ||https://smgjupy.cn
 ||https://smh.ink
 ||https://smncden.cn
@@ -45427,6 +45446,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://weiyajz.cn
 ||https://weiziqiang.top
 ||https://wekb.club
+||https://weldsystem.online
 ||https://wenhaikj.xyz
 ||https://wenqixiefu.cn
 ||https://wenxiang.work
@@ -45540,6 +45560,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://wyzxn.cn
 ||https://wzjs.me
 ||https://wzl02.xyz
+||https://wzl03.xyz
 ||https://wzl05.xyz
 ||https://wzxzy.icu
 ||https://wzytop.top
@@ -45698,6 +45719,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://xshijie.xyz
 ||https://xsrypte.cn
 ||https://xsspt.vip
+||https://xsvgpjl.cn
 ||https://xtb.ink
 ||https://xtime.hk
 ||https://xubb.xyz
@@ -45883,6 +45905,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://yp333.top
 ||https://ypdzb.cn
 ||https://ypgdnrz.cn
+||https://ypjmvdfxqw.com
 ||https://yqqlm.vip
 ||https://yqzaz.cn
 ||https://yrlfnyx.cn
