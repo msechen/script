@@ -1,7 +1,8 @@
-! Version: 20220503164329
+! Version: 20220506141525
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
+||api.league.kaomeile.net:9002/api/v1/league/ad
 ||www.tz659.com/js/cdn.js
 /js/wap9.js
 /js/chapter*.js
@@ -11,7 +12,7 @@
 ||banzhu111.xyz/js/51.js
 ||banzhu111.xyz/js/cdn.js
 ||3qz8c.site
-||21gebd.store
+||https://api.league.kaomeile.net:9002/api/v1/league/ad
 ||https://www.tz659.com/js/cdn.js
 ||https://gdt.qq.com
 ||https://m2.yqxs.cc/js
