@@ -56,7 +56,7 @@ class SuperBrandProduct extends Template {
       const {
         encryptProjectId,
         activityId,
-      } = await api.doGetBodyMP('showSecondFloorCardInfo').then(_.property('data.result.activityBaseInfo')) || {};
+      } = await api.doGetBodyMP('superBrandSecondFloorMainPage').then(_.property('data.result.activityBaseInfo')) || {};
       if (!encryptProjectId) return true;
       _.assign(api.options.qs.body, {activityId});
       api.encryptProjectId = encryptProjectId;
