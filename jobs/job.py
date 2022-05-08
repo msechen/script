@@ -41,10 +41,10 @@ def init_scheduler(bot_var):
     # scheduler.add_job(get_lanmao_log, 'interval', seconds=10)  # 间隔执行
 
     # # 天气预报
-    # service = service_dao.query_service_by_id(1)
-    # logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
-    # scheduler.add_job(send_weather_info, 'cron', year=service.year, month=service.month, day=service.day,
-    #                   day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
+    service = service_dao.query_service_by_id(1)
+    logger.info('服务:{} 定时启动时间 hour:{} min:{}'.format(service.name, service.hour, service.minute))
+    scheduler.add_job(send_weather_info, 'cron', year=service.year, month=service.month, day=service.day,
+                      day_of_week=service.day_of_week, hour=service.hour, minute=service.minute, second=service.second)
 
     # 股票信息
     service = service_dao.query_service_by_id(2)
