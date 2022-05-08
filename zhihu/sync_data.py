@@ -17,9 +17,9 @@ g_like2 = 0
 g_like3 = 0
 g_like4 = 0
 
-g_like1_yestoday = 0
-g_like2_yestoday = 0
-g_like3_yestoday = 0
+g_like1_yestoday = 41852
+g_like2_yestoday = 30685
+g_like3_yestoday = 24265
 g_like4_yestoday = 0
 
 # 更新知乎问题的阅读量
@@ -151,7 +151,12 @@ def query_zhihu_earnings():
     count2, sum2, gmv2 = 0, 0, 0
     # count2, sum2, gmv2 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('lsck').value)
 
-    return top1 + mid1 + str(count1) + end1 + str(sum1/100) + end11 + str(round(sum1/gmv1*100, 2)), sum1/100, top2 + mid2 + str(count2) + end2 + str(sum2/100), sum2/100
+    rate = ''
+    if gmv1 > 0:
+        rate = str(round(sum1 / gmv1 * 100, 2))
+
+    return top1 + mid1 + str(count1) + end1 + str(sum1 / 100) + end11 + rate, sum1 / 100, top2 + mid2 + str(
+        count2) + end2 + str(sum2 / 100), sum2 / 100
 
 
 # 查询知乎今日佣金
@@ -353,4 +358,5 @@ def get_zhihu_like_2():
 
 
 if __name__ == '__main__':
+    print(query_today_earnings())
     print(query_pop_income())

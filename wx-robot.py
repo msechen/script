@@ -142,7 +142,7 @@ def auto_reply(msg):
         logger.info(ret)
         return ret
 
-    if 'draft' == msg.text:  # 查所有文字草稿
+    if 'd' == msg.text:  # 查所有文字草稿
         return '\n'.join(auto.query_article_draft())
 
     if msg.text.startswith('替换草稿模板'):
@@ -167,9 +167,9 @@ def auto_reply(msg):
 
     if '天气' == msg.text:
         return web_spider.get_weather_today("shenzhen")
-    elif '基金' == msg.text:
+    elif 'jj' == msg.text:
         return web_spider.get_zs_today() + '\n' + web_spider.get_jj_today("090010,007028,110003,519671,004070")
-    elif '热榜' == msg.text:
+    elif 'hot' == msg.text:
         return "https://tophub.today/"
     elif msg.text.endswith('表情包'):
         limit = 3
@@ -207,11 +207,8 @@ def auto_reply(msg):
         image = './image/author.jpg'
         msg.reply_image(image)
         return "请联系作者添加你想要的定制功能吧"
-    elif 'test' == msg.text:
-        # msg.sender.set_remark_name('test remark')
-        return
     else:
-        return ""
+        return "不识别的命令"
 
 
 def send_corp_wechat(msg):
