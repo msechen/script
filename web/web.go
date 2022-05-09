@@ -91,9 +91,10 @@ type Server struct {
 	server *controller.ServerController
 	xui    *controller.XUIController
 
-	xrayService    service.XrayService
-	settingService service.SettingService
-	inboundService service.InboundService
+	xrayService     service.XrayService
+	settingService  service.SettingService
+	inboundService  service.InboundService
+	telegramService service.TelegramService
 
 	cron *cron.Cron
 
@@ -384,10 +385,13 @@ func (s *Server) Start() (err error) {
 	}
 	s.listener = listener
 
+	//run telegram service
+
+	s.telegramService.StartRun()
+
 	xuiBeginRunTime = time.Now().Format("2006-01-02 15:04:05")
 
 	s.startTask()
-
 	s.httpServer = &http.Server{
 		Handler: engine,
 	}
