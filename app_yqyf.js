@@ -2,6 +2,7 @@
 //最好自己升级,不升级就撸广告有可能会小红包甚至封号,好像上到37/38就没事
 //变量 soy_yqyf_data 值为jwt
 //多号是# @
+//微信打开 #小程序://一起来养蜂/dFGkOU8DVtC1sJk
 
 const $ = new Env('【一起养蜂22/05/10_0】');
 const author = '作者TG_ID:@ls_soy';
