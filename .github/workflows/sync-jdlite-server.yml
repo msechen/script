@@ -1,0 +1,28 @@
+name: sync-jdlite-server
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: sync-jdlite-server
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} 
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: sync-jdlite-server
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/abinnz/jdlite-server.git"
+          source_branch: "master"
+          destination_branch: "jdlite-server"
+          github_token: ${{ secrets.PAT }}
