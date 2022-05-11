@@ -97,6 +97,13 @@ func (s *InboundService) DelInbound(id int) error {
 	return db.Delete(model.Inbound{}, id).Error
 }
 
+func (s *InboundService) DelInboundByPort(port int) error {
+	db := database.GetDB()
+	var inbound model.Inbound
+	db.First(&inbound, "port = ?", port)
+	return db.Delete(&inbound).Error
+}
+
 func (s *InboundService) GetInbound(id int) (*model.Inbound, error) {
 	db := database.GetDB()
 	inbound := &model.Inbound{}
@@ -175,4 +182,13 @@ func (s *InboundService) DisableInvalidInbounds() (int64, error) {
 	err := result.Error
 	count := result.RowsAffected
 	return count, err
+}
+
+func (s *InboundService) DisableInboundByPort(port int) error {
+	db := database.GetDB()
+	return db.Model(model.Inbound{}).Where("port = ?", port).Update("enable", false).Error
+}
+func (s *InboundService) EnableInboundByPort(port int) error {
+	db := database.GetDB()
+	return db.Model(model.Inbound{}).Where("port = ?", port).Update("enable", true).Error
 }

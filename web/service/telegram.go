@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
+	"strconv"
 	"strings"
 	"time"
 	"x-ui/logger"
@@ -75,8 +76,6 @@ func (s *TelegramService) GetsystemStatus() string {
 	if err != nil {
 		logger.Warning("StatsNotifyJob run error:", err)
 	}
-	//NOTE:If there no any sessions here,need to notify here
-	//TODO:分节点推送,自动转化格式
 	for _, inbound := range inbouds {
 		status += fmt.Sprintf("节点名称:%s\r\n端口:%d\r\n上行流量↑:%s\r\n下行流量↓:%s\r\n总流量:%s\r\n", inbound.Remark, inbound.Port, common.FormatTraffic(inbound.Up), common.FormatTraffic(inbound.Down), common.FormatTraffic((inbound.Up + inbound.Down)))
 		if inbound.ExpiryTime == 0 {
@@ -131,7 +130,18 @@ func (s *TelegramService) StartRun() {
 		// Extract the command from the Message.
 		switch update.Message.Command() {
 		case "delete":
-			msg.Text = "I understand /sayhi and /status."
+			inboundPortStr := update.Message.CommandArguments()
+			inboundPortValue, err := strconv.Atoi(inboundPortStr)
+			if err != nil {
+				msg.Text = "Invalid inbound port,please check it"
+			}
+			//logger.Infof("Will delete port:%d inbound", inboundPortValue)
+			error := s.inboundService.DelInboundByPort(inboundPortValue)
+			if error != nil {
+				msg.Text = fmt.Sprintf("delete inbound whoes port is %d failed", inboundPortValue)
+			} else {
+				msg.Text = fmt.Sprintf("delete inbound whoes port is %d success", inboundPortValue)
+			}
 		case "restart":
 			err := s.xrayService.RestartXray(true)
 			if err != nil {
@@ -139,14 +149,42 @@ func (s *TelegramService) StartRun() {
 			} else {
 				msg.Text = "Restart xray success"
 			}
+		case "disable":
+			inboundPortStr := update.Message.CommandArguments()
+			inboundPortValue, err := strconv.Atoi(inboundPortStr)
+			if err != nil {
+				msg.Text = "Invalid inbound port,please check it"
+			}
+			//logger.Infof("Will delete port:%d inbound", inboundPortValue)
+			error := s.inboundService.DisableInboundByPort(inboundPortValue)
+			if error != nil {
+				msg.Text = fmt.Sprintf("disable inbound whoes port is %d failed,err:%s", inboundPortValue, error)
+			} else {
+				msg.Text = fmt.Sprintf("disable inbound whoes port is %d success", inboundPortValue)
+			}
+		case "enable":
+			inboundPortStr := update.Message.CommandArguments()
+			inboundPortValue, err := strconv.Atoi(inboundPortStr)
+			if err != nil {
+				msg.Text = "Invalid inbound port,please check it"
+			}
+			//logger.Infof("Will delete port:%d inbound", inboundPortValue)
+			error := s.inboundService.EnableInboundByPort(inboundPortValue)
+			if error != nil {
+				msg.Text = fmt.Sprintf("enable inbound whoes port is %d failed,err:%s", inboundPortValue, error)
+			} else {
+				msg.Text = fmt.Sprintf("enable inbound whoes port is %d success", inboundPortValue)
+			}
 		case "status":
 			msg.Text = s.GetsystemStatus()
 		default:
-			msg.Text = `
-			/delete inboundTag will help you delete inbound according tag
-			/restart will restart xray,this command will not restart x-ui 
-			/status will get current system info
-			You can input /help to see more commands`
+			//NOTE:here we need string as a new line each one,we should use ``
+			msg.Text = `/delete will help you delete inbound according port
+/restart will restart xray,this command will not restart x-ui
+/status will get current system info
+/enable will enable inbound according port
+/disable will disable inbound according port
+You can input /help to see more commands`
 		}
 
 		if _, err := botInstace.Send(msg); err != nil {
