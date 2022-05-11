@@ -24,8 +24,8 @@ IOS:https://apps.apple.com/cn/app/id1590298335
 定时,不报错情况一天2-3次,每日天提现2次应该
 cron 31 9,15,19 * * * raw_main_app_tttl.js
 
-配置文件:
-脚本地址:
+配置文件:https://gitee.com/soy-tool/app-script/raw/master/soy_tttl_data.js
+脚本地址:https://gitee.com/soy-tool/app-script/raw/master/soy_tttl.js
 
 */
 
