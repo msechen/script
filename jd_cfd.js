@@ -89,7 +89,7 @@ if ($.isNode()) {
     $.http.get({url: 'https://purge.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/cfd.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
     await $.wait(1000)
     res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/DX3242/updateTeam@master/shareCodes/cfd.json')
-    if (!res) { res = await getAuthorShareCode('https://ghproxy.com/https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/cfd.json') }
+    if (!res) { res = await getAuthorShareCode('https://git.codedoge.top/https://raw.githubusercontent.com/DX3242/updateTeam/master/shareCodes/cfd.json') }
   }
   $.strMyShareIds = [...(res && res.shareId || [])]
   await shareCodesFormat()
