@@ -3,16 +3,23 @@ package service
 import (
 	"fmt"
 	"log"
+	"net"
 	"os"
 	"os/exec"
 	"runtime"
+	"strings"
+	"time"
 	"x-ui/logger"
+	"x-ui/util/common"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
+//This should be global variable,and only one instance
+var botInstace *tgbotapi.BotAPI
+
+//结构体类型大写表示可以被其他包访问
 type TelegramService struct {
-	botInstace     *tgbotapi.BotAPI
 	xrayService    XrayService
 	inboundService InboundService
 	settingService SettingService
@@ -30,29 +37,74 @@ func (s *TelegramService) GetsystemStatus() string {
 	status += fmt.Sprintf("系统类型:%s\r\n", runtime.GOOS)
 	status += fmt.Sprintf("系统架构:%s\r\n", runtime.GOARCH)
 	//system run time
-	systemRuntime, error := exec.Command("bash", "-c", "uptime").Output()
+	systemRuntime, error := exec.Command("bash", "-c", "uptime| sed s/[[:space:]]//g").Output()
 	if error != nil {
 		logger.Warning("GetsystemStatus error:", err)
 	}
-	status += fmt.Sprintf("系统状态:%s\r\n", systemRuntime)
+	systemStatusStr := common.ByteToString(systemRuntime)
+	logger.Info("systemStatusStr:", systemStatusStr)
+	status += fmt.Sprintf("运行时间:%s\r\n", strings.Split(systemStatusStr, ",")[0])
+	status += fmt.Sprintf("系统负载:%s\r\n", strings.Split(systemStatusStr, ",")[3:])
+	//ip address
+	var ip string
+	netInterfaces, err := net.Interfaces()
+	if err != nil {
+		fmt.Println("net.Interfaces failed, err:", err.Error())
+	}
+
+	for i := 0; i < len(netInterfaces); i++ {
+		if (netInterfaces[i].Flags & net.FlagUp) != 0 {
+			addrs, _ := netInterfaces[i].Addrs()
+
+			for _, address := range addrs {
+				if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
+					if ipnet.IP.To4() != nil {
+						ip = ipnet.IP.String()
+						break
+					} else {
+						ip = ipnet.IP.String()
+						break
+					}
+				}
+			}
+		}
+	}
+	status += fmt.Sprintf("IP地址:%s\r\n \r\n", ip)
+	//get traffic
+	inbouds, err := s.inboundService.GetAllInbounds()
+	if err != nil {
+		logger.Warning("StatsNotifyJob run error:", err)
+	}
+	//NOTE:If there no any sessions here,need to notify here
+	//TODO:分节点推送,自动转化格式
+	for _, inbound := range inbouds {
+		status += fmt.Sprintf("节点名称:%s\r\n端口:%d\r\n上行流量↑:%s\r\n下行流量↓:%s\r\n总流量:%s\r\n", inbound.Remark, inbound.Port, common.FormatTraffic(inbound.Up), common.FormatTraffic(inbound.Down), common.FormatTraffic((inbound.Up + inbound.Down)))
+		if inbound.ExpiryTime == 0 {
+			status += fmt.Sprintf("到期时间:无限期\r\n \r\n")
+		} else {
+			status += fmt.Sprintf("到期时间:%s\r\n \r\n", time.Unix((inbound.ExpiryTime/1000), 0).Format("2006-01-02 15:04:05"))
+		}
+	}
 	return status
 }
 
 func (s *TelegramService) StartRun() {
 	logger.Info("telegram service ready to run")
+	s.settingService = SettingService{}
 	tgBottoken, err := s.settingService.GetTgBotToken()
-	if err != nil {
-		logger.Warning("telegram service start run failed,GetTgBotToken fail:", err)
+	if err != nil || tgBottoken == "" {
+		logger.Infof("telegram service start run failed,GetTgBotToken fail,err:%v,tgBottoken:%s", err, tgBottoken)
 		return
 	}
-	s.botInstace, err = tgbotapi.NewBotAPI(tgBottoken)
+	logger.Infof("TelegramService GetTgBotToken:%s", tgBottoken)
+	botInstace, err = tgbotapi.NewBotAPI(tgBottoken)
 	if err != nil {
-		log.Panic(err)
+		logger.Infof("telegram service start run failed,NewBotAPI fail:%v,tgBottoken:%s", err, tgBottoken)
 	}
-	s.botInstace.Debug = true
-	fmt.Printf("Authorized on account %s", s.botInstace.Self.UserName)
+	botInstace.Debug = true
+	fmt.Printf("Authorized on account %s", botInstace.Self.UserName)
 	//get all my commands
-	commands, err := s.botInstace.GetMyCommands()
+	commands, err := botInstace.GetMyCommands()
 	if err != nil {
 		logger.Warning("telegram service start run error,GetMyCommandsfail:", err)
 	}
@@ -63,7 +115,7 @@ func (s *TelegramService) StartRun() {
 	chanMessage := tgbotapi.NewUpdate(0)
 	chanMessage.Timeout = 60
 
-	updates := s.botInstace.GetUpdatesChan(chanMessage)
+	updates := botInstace.GetUpdatesChan(chanMessage)
 
 	for update := range updates {
 		if update.Message == nil {
@@ -91,13 +143,13 @@ func (s *TelegramService) StartRun() {
 			msg.Text = s.GetsystemStatus()
 		default:
 			msg.Text = `
-			 /delete inboundTag will help you delete inbound according tag
+			/delete inboundTag will help you delete inbound according tag
 			/restart will restart xray,this command will not restart x-ui 
 			/status will get current system info
 			You can input /help to see more commands`
 		}
 
-		if _, err := s.botInstace.Send(msg); err != nil {
+		if _, err := botInstace.Send(msg); err != nil {
 			log.Panic(err)
 		}
 	}
@@ -119,15 +171,27 @@ func (s *TelegramService) PrepareCommands() {
 */
 
 func (s *TelegramService) SendMsgToTgbot(msg string) {
+	logger.Info("SendMsgToTgbot entered")
 	tgBotid, err := s.settingService.GetTgBotChatId()
 	if err != nil {
 		logger.Warning("sendMsgToTgbot failed,GetTgBotChatId fail:", err)
 		return
 	}
 	if tgBotid == 0 {
+		logger.Warning("sendMsgToTgbot failed,GetTgBotChatId illegal")
 		return
 	}
 
 	info := tgbotapi.NewMessage(int64(tgBotid), msg)
-	s.botInstace.Send(info)
+	if botInstace != nil {
+		botInstace.Send(info)
+	} else {
+		logger.Warning("bot instance is nil")
+	}
+}
+
+func (s *TelegramService) StopRunAndClose() {
+	if botInstace != nil {
+		botInstace.StopReceivingUpdates()
+	}
 }
