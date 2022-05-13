@@ -41,7 +41,9 @@ func runWebServer() {
 	}
 
 	var server *web.Server
+	var telegramService *service.TelegramService
 
+	telegramService = &service.TelegramService{}
 	server = web.NewServer()
 	global.SetWebServer(server)
 	err = server.Start()
@@ -71,6 +73,7 @@ func runWebServer() {
 			}
 		default:
 			server.Stop()
+			telegramService.StopRunAndClose()
 			return
 		}
 	}

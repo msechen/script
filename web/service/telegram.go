@@ -100,7 +100,7 @@ func (s *TelegramService) StartRun() {
 	if err != nil {
 		logger.Infof("telegram service start run failed,NewBotAPI fail:%v,tgBottoken:%s", err, tgBottoken)
 	}
-	botInstace.Debug = true
+	botInstace.Debug = false
 	fmt.Printf("Authorized on account %s", botInstace.Self.UserName)
 	//get all my commands
 	commands, err := botInstace.GetMyCommands()
@@ -118,6 +118,8 @@ func (s *TelegramService) StartRun() {
 
 	for update := range updates {
 		if update.Message == nil {
+			//NOTE:may ther are different bot instance,we could use different bot endApiPoint
+			updates.Clear()
 			continue
 		}
 
