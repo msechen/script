@@ -4,6 +4,7 @@
 更新地址：jd_xmf.js
 已支持IOS双京东账号, Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
+https://t.me/LingFeng0918
 ============Quantumultx===============
 [task_local]
 #京东小魔方
