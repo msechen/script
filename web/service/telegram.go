@@ -5,15 +5,15 @@ import (
 	"log"
 	"net"
 	"os"
-	"os/exec"
 	"runtime"
 	"strconv"
-	"strings"
 	"time"
 	"x-ui/logger"
 	"x-ui/util/common"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"github.com/shirou/gopsutil/host"
+	"github.com/shirou/gopsutil/load"
 )
 
 //This should be global variable,and only one instance
@@ -22,6 +22,7 @@ var botInstace *tgbotapi.BotAPI
 //结构体类型大写表示可以被其他包访问
 type TelegramService struct {
 	xrayService    XrayService
+	serverService  ServerService
 	inboundService InboundService
 	settingService SettingService
 }
@@ -37,15 +38,20 @@ func (s *TelegramService) GetsystemStatus() string {
 	status = fmt.Sprintf("主机名称:%s\r\n", name)
 	status += fmt.Sprintf("系统类型:%s\r\n", runtime.GOOS)
 	status += fmt.Sprintf("系统架构:%s\r\n", runtime.GOARCH)
-	//system run time
-	systemRuntime, error := exec.Command("bash", "-c", "uptime| sed s/[[:space:]]//g").Output()
-	if error != nil {
-		logger.Warning("GetsystemStatus error:", err)
+	avgState, err := load.Avg()
+	if err != nil {
+		logger.Warning("get load avg failed:", err)
+	} else {
+		status += fmt.Sprintf("系统负载:%.2f,%.2f,%.2f\r\n", avgState.Load1, avgState.Load5, avgState.Load15)
 	}
-	systemStatusStr := common.ByteToString(systemRuntime)
-	logger.Info("systemStatusStr:", systemStatusStr)
-	status += fmt.Sprintf("运行时间:%s\r\n", strings.Split(systemStatusStr, ",")[0])
-	status += fmt.Sprintf("系统负载:%s\r\n", strings.Split(systemStatusStr, ",")[3:])
+	upTime, err := host.Uptime()
+	if err != nil {
+		logger.Warning("get uptime failed:", err)
+	} else {
+		status += fmt.Sprintf("运行时间:%s\r\n", common.FormatTime(upTime))
+	}
+	//xray version
+	status += fmt.Sprintf("xray版本:%s\r\n", s.xrayService.GetXrayVersion())
 	//ip address
 	var ip string
 	netInterfaces, err := net.Interfaces()
@@ -177,6 +183,18 @@ func (s *TelegramService) StartRun() {
 			} else {
 				msg.Text = fmt.Sprintf("enable inbound whoes port is %d success", inboundPortValue)
 			}
+		case "version":
+			versionStr := update.Message.CommandArguments()
+			currentVersion, _ := s.serverService.GetXrayVersions()
+			if currentVersion[0] == versionStr {
+				msg.Text = fmt.Sprintf("can't change same version to %s", versionStr)
+			}
+			error := s.serverService.UpdateXray(versionStr)
+			if error != nil {
+				msg.Text = fmt.Sprintf("change version to %s failed,err:%s", versionStr, error)
+			} else {
+				msg.Text = fmt.Sprintf("change version to %s  success", versionStr)
+			}
 		case "status":
 			msg.Text = s.GetsystemStatus()
 		default:
@@ -186,6 +204,7 @@ func (s *TelegramService) StartRun() {
 /status will get current system info
 /enable will enable inbound according port
 /disable will disable inbound according port
+/version will change xray version to specific one
 You can input /help to see more commands`
 		}
 
@@ -230,6 +249,7 @@ func (s *TelegramService) SendMsgToTgbot(msg string) {
 	}
 }
 
+//NOTE:This function can't be called repeatly
 func (s *TelegramService) StopRunAndClose() {
 	if botInstace != nil {
 		botInstace.StopReceivingUpdates()
