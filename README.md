@@ -142,6 +142,7 @@ Command内容：
 - /status 将会获取当前系统状态
 - /enable  `port`将会开启对应端口的节点
 - /disable `port`将会关闭对应端口的节点
+- /version v1.5.5将会升级xray到1.5.5版本
 - /help 获取帮助信息
 
 更多功能规划中...
