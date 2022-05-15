@@ -194,7 +194,13 @@
 2 0,1,18 * * * cd /scripts && ts-node /scripts/jd_speed_happy_dig.ts >> /scripts/logs/jd_speed_happy_dig.log 2>&1
 
 # 赚赚
-30 9 * * * cd /scripts && ts-node /scripts/jd_wechat_zz.ts >> /scripts/logs/jd_wechat_zz.log 2>&1
+30 9 * * * cd /scripts && ts-node /scripts/jd_jdzz.ts >> /scripts/logs/jd_jdzz.log 2>&1
+
+# 515券民空间站
+30 9 * * * cd /scripts && ts-node /scripts/jd_planet_space.ts >> /scripts/logs/jd_planet_space.log 2>&1
+
+# 微信小程序签到红包
+8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
 
 ##################################################### 自定 ########################################################
 
