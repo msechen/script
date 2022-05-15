@@ -166,7 +166,7 @@
 # 京东下拉
 15 1,22 * * * cd /scripts && ts-node /scripts/jd_tewu.ts >> /scripts/logs/jd_tewu.log 2>&1
 
-# 不知道什麽
+# 小程序-赚京豆
 15,30,45 0 * * * cd /scripts && ts-node /scripts/jd_zjd.ts >> /scripts/logs/jd_zjd.log 2>&1
 
 # 领88元红包
