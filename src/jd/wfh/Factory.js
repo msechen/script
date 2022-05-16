@@ -26,10 +26,23 @@ class Factory extends HarmonyTemplate {
     doRedeem: '',
     afterGetTaskList: 'jdfactory_getHomeData',
   };
-  static activityEndTime = '2022-04-30';
+
+  // static activityEndTime = '2022-04-30';
+
+  static async beforeRequest(api) {
+    const data = await api.doFormBody('jdfactory_getHomeData');
+    const factoryInfo = _.property('data.result.factoryInfo')(data);
+    if (!factoryInfo) {
+      // TODO 自动选中商品进行生产
+      return true;
+    }
+    let {remainScore, batteryCapacity} = factoryInfo;
+    if (+remainScore > batteryCapacity) {
+      await this.handleAddEnergy(api);
+    }
+  }
 
   static async beforeDoTask(api, taskId) {
-    // return;
     if (taskId === 3/* 去京东首页点击“数码电器” */) {
       await api.doFormBody('queryVkComponent', {
         'componentId': '4f953e59a3af4b63b4d7c24f172db3c3',
@@ -78,7 +91,7 @@ class Factory extends HarmonyTemplate {
     if (name) {
       msgs.push(`(${name})剩${couponCount}件, 电量还差 ${+totalScore - (+remainScore + +useScore)}`);
     }
-    // TODO 自动选中商品进行生产
+
     api.log(msgs.join(','));
 
     (_.property('data.result.skuIdList')(data) || []).forEach(({couponCount, name, fullScore}) => {
@@ -86,7 +99,6 @@ class Factory extends HarmonyTemplate {
         let msg = `${name} 还剩${couponCount}件, 需要电量${fullScore}`;
         const enable = userScore >= +fullScore;
         if (enable) {
-          // TODO 充电接口还没摸索到, 可能是 jdfactory_getLotteryResult
           msg += ', 可以打造成功, 快进行充电!';
         }
         if (enable || (api.currentCookieTimes === 0)) {
@@ -99,14 +111,7 @@ class Factory extends HarmonyTemplate {
   static async doCron(api) {
     const self = this;
 
-    await api.doFormBody('jdfactory_getHomeData').then(data => {
-      const factoryInfo = _.property('data.result.factoryInfo')(data);
-      if (!factoryInfo) return;
-      let {remainScore, batteryCapacity} = factoryInfo;
-      if (+remainScore > batteryCapacity) {
-        return handleAddEnergy();
-      }
-    });
+    await self.beforeRequest(api);
 
     const userScore = await api.doFormBody('jdfactory_getTaskDetail').then(async data => +_.property('data.result.userScore')(data));
     if (userScore >= maxUserScore) {
@@ -118,10 +123,13 @@ class Factory extends HarmonyTemplate {
       api.log(`定时获取到的电量为 ${_.property('data.result.electricityValue')(data)}`);
     });
 
-    // 充电, 按需进行
-    async function handleAddEnergy() {
-      await api.doFormBody('jdfactory_addEnergy');
-    }
+  }
+
+  // 充电, 按需进行
+  static async handleAddEnergy(api) {
+    return api.doFormBody('jdfactory_addEnergy').then(data => {
+      api.log(`充电成功(${JSON.stringify(data)})`);
+    });
   }
 }
 
