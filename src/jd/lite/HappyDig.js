@@ -208,7 +208,7 @@ class LiteHappyDig extends Template {
         // 一次只能同时提现一个
         await apCashWithDraw(cashes[0]);
         if (cashes.length > 1) {
-          await sleep(120);
+          await sleep(60 * 5);
           return handleCash();
         }
       });
@@ -221,7 +221,12 @@ class LiteHappyDig extends Template {
             'business': 'happyDigger',
           },
         }).then(data => {
-          api.log(_.get(data, 'data.message', data));
+          const amount = _.get(data, 'data.record.amount');
+          if (amount) {
+            api.log(`正在提现${amount}`);
+          } else {
+            api.log(data.data);
+          }
         });
       }
     }

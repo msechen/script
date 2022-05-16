@@ -65,12 +65,17 @@ class LiteCashSign extends Template {
 
     await api.doFormBody('signPrizeDetailList', {'pageSize': 20, 'page': 1}).then(async data => {
       const cashData = (_.property('data.prizeDrawBaseVoPageBean.items')(data) || []).filter(o => o['prizeType'] === 4 && o['prizeStatus'] === 0);
-      if (_.isEmpty(cashData)) return;
+      if (_.isEmpty(cashData)) return api.log('当前无可提现');
       await api.doFormBody('apCashWithDraw', {
         'businessSource': 'DAY_DAY_RED_PACKET_SIGN',
         'base': _.pick(cashData[0], ['prizeType', 'business', 'id', 'poolBaseId', 'prizeGroupId', 'prizeBaseId']),
       }).then(data => {
-        api.log(data.data);
+        const amount = _.get(data, 'data.record.amount');
+        if (amount) {
+          api.log(`正在提现${amount}`);
+        } else {
+          api.log(data.data);
+        }
       });
     });
   }
