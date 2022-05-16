@@ -1,6 +1,8 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, replaceObjectMethod} = require('../../lib/common');
+const EncryptH5st = require('../../lib/EncryptH5st');
+const {getMoment} = require('../../lib/moment');
 
 const appid = 'sharkBean';
 
@@ -29,6 +31,34 @@ class VipClubShake extends Template {
 
   static isSuccess(data) {
     return this._.property('success')(data);
+  }
+
+  static async beforeRequest(api) {
+    const self = this;
+
+    const encryptH5stConfig = {
+      vvipclub_shaking_lottery: {
+        appId: 'ae692',
+      },
+      pg_channel_page_data: {
+        appId: '28cc6',
+      },
+    };
+    replaceObjectMethod(api, 'doGet', async ([functionId, qs, options = {}]) => {
+      if (functionId in encryptH5stConfig) {
+        const t = getMoment().valueOf();
+        qs = _.merge({}, api.options.qs, qs, {t}, options.qs);
+        let {encryptH5st, appId} = encryptH5stConfig[functionId];
+        !encryptH5st && (encryptH5st = new EncryptH5st({appId}));
+        qs = await encryptH5st.sign({functionId, ...qs});
+        ['_stk', '_ste'].forEach(key => {
+          delete qs[key];
+        });
+        options.qs = qs;
+        return [functionId, void 0, options];
+      }
+      return [functionId, qs, options];
+    });
   }
 
   static apiNamesFn() {
