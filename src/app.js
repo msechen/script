@@ -75,7 +75,6 @@ const SuperBox = TemporarilyOffline || require('./jd/superBox');
 const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
 
 /* 极速版 */
-const LiteSign = require('./jd/lite/Sign');
 const LiteSpringReward = TemporarilyOffline || require('./jd/lite/SpringReward');
 const LiteEarnCoins = require('./jd/lite/EarnCoins');
 const LiteCashSign = require('./jd/lite/CashSign');

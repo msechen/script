@@ -15,6 +15,7 @@ class LiteSign extends Template {
   static commonParamFn = () => ({});
   static needInSpeedApp = true;
   static times = 1;
+  static activityEndTime = '2022-04-30';
 
   static apiOptions = {
     options: {
