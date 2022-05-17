@@ -50,6 +50,7 @@ class Sign1 extends Template {
     urlArray = [
       // 不需要验证
       'https://prodev.m.jd.com/mall/active/2BspupMr6qenk9JUWpbAnepLHjwy/index.html',
+      'https://prodev.m.jd.com/mall/active/3uvPyw1pwHARGgndatCXddLNUxHw/index.html',
     ];
 
     for (let i = 0; i < 3; i++) {
