@@ -78,6 +78,10 @@
 30 8,19 17-31 5 * node /scripts/jd_opencard151.js >> /scripts/logs/jd_opencard151.log 2>&1
 #jd_opencard152
 30 1,12 17-31 5 * node /scripts/jd_opencard152.js >> /scripts/logs/jd_opencard152.log 2>&1
+#jd_opencard153
+30 9 17-31/2,1-16/2 5,6 * node /scripts/jd_opencard153.js >> /scripts/logs/jd_opencard153.log 2>&1
+#jd_opencard154
+30 1 18-31/2 5 * node /scripts/jd_opencard154.js >> /scripts/logs/jd_opencard154.log 2>&1
 # 财富岛珍珠兑换
 59 0-23/1 * * * node /scripts/jd_cfd_pearl_ex.js >> /scripts/logs/jd_cfd_pearl_ex.log 2>&1
 # 天天压岁钱
