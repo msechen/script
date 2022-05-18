@@ -4,6 +4,7 @@ const Cookie = require('../lib/cookie');
 const {uploadProductEnvToAction} = require('../lib/env');
 const {printLog, sleep, objectValuesStringify} = require('../lib/common');
 const {getMoment} = require('../lib/moment');
+const {processInAC} = require('../lib/env');
 
 const requestURI = 'https://api.m.jd.com/client.action';
 const DEFAULT_OPTION = {
@@ -16,7 +17,7 @@ const DEFAULT_OPTION = {
 const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
   const _printLog = (result, type) => {
     const findNotEmpty = (...array) => array.find(v => !_.isEmpty(v));
-    printLog('jdAPI', 'request', [findNotEmpty(qs, others), findNotEmpty(form, body), result], type);
+    printLog('jdAPI', 'request', [findNotEmpty(qs, others), findNotEmpty(form, body), result], type, processInAC ? void 0 : 300);
   };
   const options = {form, body, qs, ...others};
 

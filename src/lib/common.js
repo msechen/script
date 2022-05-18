@@ -15,7 +15,7 @@ const sleep = (seconds = 1) => _sleep(seconds * 1000);
 const logPath = path.resolve(__dirname, '../../logs');
 const getLogFile = (fileName, date = getNowDate()) => `${logPath}/${fileName}.log.${date}`;
 const cacheWriteStream = {};
-const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
+const printLog = (scriptName = '', fileName = 'app', output, type = 'info', maxLength) => {
   const filePath = path.extname(fileName) ? fileName : getLogFile(fileName);
   const writeStream = cacheWriteStream[filePath] = cacheWriteStream[filePath] || fs.createWriteStream(filePath, {
     flags: 'a',
@@ -28,6 +28,9 @@ const printLog = (scriptName = '', fileName = 'app', output, type = 'info') => {
   });
   const _log = chunk => {
     _.isPlainObject(chunk) && (chunk = JSON.stringify(chunk));
+    if (maxLength) {
+      chunk = chunk.substring(0, maxLength) + '...more';
+    }
     writeStream.write(`${getNowTime()} [${scriptName}] [${type}] ${chunk}\n`);
   };
   [].concat(output).forEach(_log);
