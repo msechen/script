@@ -73,6 +73,7 @@ const EarnBean = TemporarilyOffline || require('./jd/ifanli/EarnBean');
 const Factory = require('./jd/wfh/Factory');
 const SuperBox = TemporarilyOffline || require('./jd/superBox');
 const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
+const Moxigame = require('./jd/moxigame');
 
 /* 极速版 */
 const LiteSpringReward = TemporarilyOffline || require('./jd/lite/SpringReward');
@@ -129,6 +130,7 @@ async function main() {
     SuperBrandProduct,
     SuperBox,
     XinruiYear,
+    Moxigame,
   ];
   const scheduleOptions = [
     {

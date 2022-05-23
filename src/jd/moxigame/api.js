@@ -10,7 +10,9 @@ class Api {
   }
 
   Decrypt(data) {
-    const decryptKey = CryptoJS.MD5(this.id).toString().slice(0, 16);
+    // const decryptKey = CryptoJS.MD5(this.id).toString().slice(0, 16);
+    // 本地解密
+    const decryptKey = this.authcode.slice(8, 16) + this.authcode.slice(24, 32);
     if (!decryptKey) return !1;
     let t = data.__data__;
     let e = data.__iv__;
