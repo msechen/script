@@ -66,14 +66,6 @@
 31 8 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
 #jd_opencard134
 30 3 1-5,18-30/3 4,5 * node /scripts/jd_opencard134.js >> /scripts/logs/jd_opencard134.log 2>&1
-#jd_opencard144
-30 2,18 6-21 5 * node /scripts/jd_opencard144.js >> /scripts/logs/jd_opencard144.log 2>&1
-#jd_opencard146
-30 4,20 12-20 5 * node /scripts/jd_opencard146.js >> /scripts/logs/jd_opencard146.log 2>&1
-#jd_opencard148
-30 8,16 13-20 5 * node /scripts/jd_opencard148.js >> /scripts/logs/jd_opencard148.log 2>&1
-#jd_opencard150
-15 5,17 16-20 5 * node /scripts/jd_opencard150.js >> /scripts/logs/jd_opencard150.log 2>&1
 #jd_opencard151
 30 8,19 17-31 5 * node /scripts/jd_opencard151.js >> /scripts/logs/jd_opencard151.log 2>&1
 #jd_opencard152
