@@ -31,6 +31,7 @@
     "build:ChangeCK": "node src/jd/local/ChangeCK.js start",
     "build:UpdateActionEnv": "node src/shell/updateActionEnv.js",
     "start:ShopGift": "node src/jd/wq/shopGift.js start",
+    "build:ShopGift": "node src/jd/wq/shopGift.js cron",
     "start:SignShop": "npm run build:updateShopToken && node src/jd/sign/shop.js start && npm run build:updateShopToken",
     "start:IsvShopSign": "node src/jd/isv/shopSign.js start",
     "start:BeautyMakeup": "node src/jd/beautyMakeup start",

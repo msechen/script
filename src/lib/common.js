@@ -141,7 +141,8 @@ function getOriginDataFromFile(filePath) {
 
 function getUrlDataFromFile(filePath) {
   const array = getOriginDataFromFile(filePath);
-  return array.map(str => str.match(/[\u4e00-\u9fa5]/) ? '' : /^https?:\/\//.test(str) ? str : `https://${str}`)
+  return array.filter(str => !str.startsWith('mp://'))
+  .map(str => str.match(/[\u4e00-\u9fa5]/) ? '' : /^https?:\/\//.test(str) ? str : `https://${str}`)
   .filter(str => {
     let result = !!str;
     try {

@@ -52,7 +52,7 @@ class WqBase extends Template {
           result = JSON.parse(data.replace(/try{\s*\w*\(/, '').replace(');}catch(e){}', ''));
         } catch (e) {
           try {
-            result = JSON.parse(data.replace(/\w*\(/, '').replace(/\)$/, ''));
+            result = JSON.parse(data.replace(/\w*\(/, '').replace(/\)[;]$/, ''));
           } catch (e) {
           }
         }

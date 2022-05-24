@@ -4,7 +4,9 @@ const path = require('path');
 const fs = require('fs');
 const {sleep, writeFileJSON, singleRun, getRealUrl, getUrlDataFromFile} = require('../../lib/common');
 const _ = require('lodash');
+const {doPolling} = require('../../lib/cron');
 const shopGiftUrlPath = path.resolve(__dirname, 'shopGift.url');
+const {getMoment} = require('../../lib/moment');
 
 class ShopGift extends Template {
   static scriptName = 'ShopGift';
@@ -21,19 +23,56 @@ class ShopGift extends Template {
     },
   };
 
-  static async doMain(api) {
+  static shopUrlFormatted = false;
+  static shopData = [];
+  static shopSignUrlUpdated = false;
+
+  static async doMain(api, shareCodes, onlyUpdateShopSignToken) {
     const self = this;
+    const isFirstRun = api.currentCookieTimes === 0;
     const doPath = (functionId, qs) => api.doPath(functionId, void 0, {qs});
 
-    const urls = getUrlDataFromFile(shopGiftUrlPath);
-    for (const url of urls) {
-      const realUrl = await getRealUrl(url);
-      const shopId = new URL(realUrl).searchParams.get('shopId');
-      await getGif(shopId);
+    await doPolling({
+      async beforePollFn() {
+        if (isFirstRun) {
+          const next = await handleFormat();
+          fs.writeFileSync(shopGiftUrlPath, '');
+          for (const {venderId} of self.shopData) {
+            updateShopSignToken(venderId);
+            await sleep();
+          }
+          return next;
+        }
+      },
+      stopFn: () => self.shopUrlFormatted,
+    });
+
+    if (onlyUpdateShopSignToken) {
+      return;
     }
 
-    async function getGif(shopId) {
-      const venderId = await getVenderId(shopId);
+    for (const {shopId, venderId} of self.shopData) {
+      await getGif(shopId, venderId);
+    }
+
+    if (isFirstRun && self.shopSignUrlUpdated) {
+      console.log('自动执行signShop');
+      await sleep(30);
+      console.log(require('child_process').execSync('npm run start:SignShop').toString());
+    }
+
+    async function handleFormat() {
+      const urls = getUrlDataFromFile(shopGiftUrlPath);
+      for (const url of urls) {
+        const realUrl = await getRealUrl(url);
+        const shopId = new URL(realUrl).searchParams.get('shopId');
+        const venderId = await getVenderId(shopId);
+        self.shopData.push({shopId, venderId});
+      }
+      self.shopUrlFormatted = true;
+    }
+
+    async function getGif(shopId, venderId) {
       if (!venderId) return api.log(`${shopId} 不存在`);
       const {giftId, activeId, jingBean} = await doPath('QueryShopActive', {venderId}).then(data => {
         return (data['gift'] || []).find(o => o['giftType'] === 0 && o['state'] === 1) || {};
@@ -49,6 +88,27 @@ class ShopGift extends Template {
         api.log(`${shopId} 获取到豆豆: ${jingBean['sendCount']}`);
       });
       await api.delFavShop(shopId);
+    }
+
+    async function updateShopSignToken(venderId) {
+      await api.doGetUrl('https://wq.jd.com/shopbranch/GetUrlSignDraw', {
+        qs: {
+          channel: 1,
+          venderId,
+          _: getMoment().valueOf(),
+          g_login_type: 1,
+          callback: 'getUrlSignDraw',
+          g_tk: 239007826,
+          g_ty: 'ls',
+          appCode: 'msc588d6d5',
+        },
+      }).then(data => {
+        const isvUrl = _.get(data, 'data.isvUrl') || '';
+        if (isvUrl) {
+          self.shopSignUrlUpdated = true;
+          fs.writeFileSync(path.resolve(__dirname, '../sign/shopToken.url'), `\n${decodeURIComponent(isvUrl)}\n`, {flag: 'a'});
+        }
+      });
     }
 
     async function getVenderId(shopId) {
@@ -68,10 +128,12 @@ class ShopGift extends Template {
       });
     }
   }
+
+  static async doCron(api) {
+    await this.doMain(api, void 0, true);
+  }
 }
 
-singleRun(ShopGift).then(() => {
-  fs.writeFileSync(shopGiftUrlPath, '');
-});
+singleRun(ShopGift, ['start', 'cron']);
 
 module.exports = ShopGift;
