@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios'
-import USER_AGENT, {getCookie, o2s, wait} from './utils/TS_USER_AGENTS'
+import USER_AGENT, {requireConfig, o2s, wait} from './utils/TS_USER_AGENTS'
 import {Log_618} from "./utils/log_618"
 
 let cookie: string = '', res: any = '', UserName: string, index: number, log: { log: string, random: string }, secretp: string = ''
@@ -15,7 +15,7 @@ let shareCodeHW: string[] = [], shareCodeSelf: string  [] = [], shareCode: strin
         console.log('20点开始')
         process.exit(0)
     }
-    let cookiesArr: string[] = await getCookie()
+    let cookiesArr: string[] = await requireConfig()
     let tool: Log_618 = new Log_618()
 
     for (let i = 0; i < cookiesArr.length; i++) {
