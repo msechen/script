@@ -214,11 +214,12 @@ def query_pop_income():
     for order in today_pop:
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
-                if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
+                if 'Redmi Note 11 Pro' not in order['skuName']:
+                    if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
                     'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
                     'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
-                    today_gmv += order['estimateCosPrice']
-                    today_order += 1
+                        today_gmv += order['estimateCosPrice']
+                        today_order += 1
 
     yestoday_pop = zhihu_spider.get_pop_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
     yestoday_gmv = 0
@@ -230,8 +231,8 @@ def query_pop_income():
                     if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
                     'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
                     'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
-                    yestoday_gmv += order['estimateCosPrice']
-                    yestoday_order += 1
+                        yestoday_gmv += order['estimateCosPrice']
+                        yestoday_order += 1
 
     return "[pop今] GMV:" + str(int(today_gmv)) + " 订单数:" + str(today_order) + " 佣金:" + str(
         int(today_gmv * 0.08)) + "\n[pop昨] GMV:" + str(int(yestoday_gmv)) + " 订单数:" + str(
