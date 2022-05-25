@@ -226,7 +226,8 @@ def query_pop_income():
     for order in yestoday_pop:
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
-                if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
+                if 'Redmi Note 11 Pro' not in order['skuName']:
+                    if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
                     'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
                     'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
                     yestoday_gmv += order['estimateCosPrice']
@@ -241,6 +242,7 @@ def query_pop_income():
 def query_pop_income_all():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     begin = '2022-04-21'
+    end = '2022-05-30'
 
     total_pop = zhihu_spider.get_pop_order(begin, today, zh_config_dao.query_config('jfck2').value)
     total_gmv = 0
@@ -248,12 +250,12 @@ def query_pop_income_all():
     for order in total_pop:
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
-                if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
-                    'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
-                    'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
-                    total_gmv += order['estimateCosPrice']
-                    total_order += 1
-                    # print(order)
+                if 'Redmi Note 11 Pro' not in order['skuName']:
+                    if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
+                        'skuShopName'] == '小米手机官方旗舰店' or order['skuShopName'] == 'OPPO官方直营旗舰店' or order[
+                        'skuShopName'] == 'vivo官方旗舰店' or order['skuShopName'] == '一加官方旗舰店':
+                        total_gmv += order['estimateCosPrice']
+                        total_order += 1
 
     return "[pop总] GMV:" + str(int(total_gmv)) + " 订单数:" + str(total_order) + " 佣金:" + str(int(total_gmv * 0.08))
 

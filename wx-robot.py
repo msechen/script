@@ -207,6 +207,8 @@ def auto_reply(msg):
         image = './image/author.jpg'
         msg.reply_image(image)
         return "请联系作者添加你想要的定制功能吧"
+    elif 'help' == msg.text:
+        return "替换草稿模板、替换草稿模板发布"
     else:
         return "不识别的命令"
 
