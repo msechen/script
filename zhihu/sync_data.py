@@ -245,6 +245,9 @@ def query_pop_income_all():
     begin = '2022-04-21'
     end = '2022-05-30'
 
+    if end > today:
+        end = today
+
     total_pop = zhihu_spider.get_pop_order(begin, end, zh_config_dao.query_config('jfck2').value)
     total_gmv = 0
     total_order = 0
