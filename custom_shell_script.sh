@@ -31,3 +31,11 @@
 #else
 #  git clone https://github.com/okyyds/yydspure.git /scripts/logs/other_scripts/yyds
 #fi
+
+allJDScripts="/scripts/logs/other_scripts/allJDScripts/USER_AGENTS.js"
+if [ -f "$allJDScripts" ]; then
+  git -C /scripts/logs/other_scripts/allJDScripts reset --hard
+  git -C /scripts/logs/other_scripts/allJDScripts pull origin master
+else
+  git clone https://github.com/hyzaw/AllJDScripts.git /scripts/logs/other_scripts/allJDScripts
+fi
