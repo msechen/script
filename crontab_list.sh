@@ -191,7 +191,7 @@
 15 0,6 * * * cd /scripts && ts-node /scripts/jd_carnivalcity_card.ts >> /scripts/logs/jd_carnivalcity_card.log 2>&1
 
 # 极速版-挖宝
-2 0,1,18 * * * cd /scripts && ts-node /scripts/jd_speed_happy_dig.ts >> /scripts/logs/jd_speed_happy_dig.log 2>&1
+# 2 0,1,18 * * * cd /scripts && ts-node /scripts/jd_speed_happy_dig.ts >> /scripts/logs/jd_speed_happy_dig.log 2>&1
 
 # 赚赚
 30 9 * * * cd /scripts && ts-node /scripts/jd_jdzz.ts >> /scripts/logs/jd_jdzz.log 2>&1
@@ -201,6 +201,15 @@
 
 # 微信小程序签到红包
 8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
+
+# https://appliances-activity.jd.com/
+0 20 * * * cd /scripts && ts-node /scripts/jd_strategy.ts >> /scripts/logs/jd_strategy.log 2>&1
+
+# 生活积分
+8 0 * * * cd /scripts && ts-node /scripts/jd_dwapp.ts >> /scripts/logs/jd_dwapp.log 2>&1
+
+# 极速版-挖宝
+2 0,1,6 * * * cd /scripts && ts-node /scripts/jd_speed_wabao.ts >> /scripts/logs/jd_speed_wabao.log 2>&1
 
 ##################################################### 自定 ########################################################
 
