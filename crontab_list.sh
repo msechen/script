@@ -208,6 +208,9 @@
 # 极速版-挖宝
 2 0,1,6 * * * cd /scripts && ts-node /scripts/jd_speed_wabao.ts >> /scripts/logs/jd_speed_wabao.log 2>&1
 
+# 20点开奖的红包
+10 20,21,22 * * * cd /scripts && ts-node /scripts/jd_618_hongbao_1.ts >> /scripts/logs/jd_618_hongbao_1.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
@@ -323,9 +326,6 @@
 # 多合一签到
 0 10 * * * node /scripts/logs/other_scripts/allJDScripts/jd_bean_sign.js >> /scripts/logs/other_logs/allJDScripts/jd_bean_sign.log 2>&1
 
-# 财富岛兑换红包
-50 * * * * export cfd_rp=true && node /scripts/logs/other_scripts/allJDScripts/jd_cfd_hb.js >> /scripts/logs/other_logs/allJDScripts/jd_cfd_hb.log 2>&1
-
 # 领券中心签到
 15 0 * * * node /scripts/logs/other_scripts/allJDScripts/jd_ccSign.js >> /scripts/logs/other_logs/allJDScripts/jd_ccSign.log 2>&1
 
@@ -346,3 +346,32 @@
 
 # 京东汽车-助力
 10 6,10,12 * * * node /scripts/logs/other_scripts/allJDScripts/jd_mpdzcar_help.js >> /scripts/logs/other_logs/allJDScripts/jd_mpdzcar_help.log 2>&1
+
+# 东东农场
+5 6-18/6 * * * node /scripts/logs/other_scripts/allJDScripts/jd_fruit.js >> /scripts/logs/other_logs/allJDScripts/jd_fruit.log 2>&1
+
+# 东东农场日常任务
+5 6-18/6 * * * node /scripts/logs/other_scripts/allJDScripts/jd_fruit_task.js >> /scripts/logs/other_logs/allJDScripts/jd_fruit_task.log 2>&1
+
+# 东东农场好友删减奖励
+10 2 * * * node /scripts/logs/other_scripts/allJDScripts/jd_fruit_friend.js >> /scripts/logs/other_logs/allJDScripts/jd_fruit_friend.log 2>&1
+
+# 东东农场内部水滴互助
+20 4,16 * * * node /scripts/logs/other_scripts/allJDScripts/jd_fruit_help.js >> /scripts/logs/other_logs/allJDScripts/jd_fruit_help.log 2>&1
+
+# 京东资产变动
+20 0,8 * * * node /scripts/logs/other_scripts/allJDScripts/jd_bean_change_pro.js >> /scripts/logs/other_logs/allJDScripts/jd_bean_change_pro.log 2>&1
+
+# 热爱奇旅
+33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
+
+# 热爱奇旅膨胀内部互助
+11 20 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19EPZ_help.js >> /scripts/logs/other_logs/allJDScripts/jd_19EPZ_help.log 2>&1
+
+# 热爱奇旅升级
+1 8,15 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E_friends.js >> /scripts/logs/other_logs/allJDScripts/jd_19E_friends.log 2>&1
+
+# 热爱奇旅助力组队升级
+20 0,8 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E_friend.js >> /scripts/logs/other_logs/allJDScripts/jd_19E_friend.log 2>&1
+
+
