@@ -303,13 +303,19 @@
 12 0-23/6 * * * node /scripts/logs/other_scripts/allJDScripts/jd_pigPet.js >> /scripts/logs/other_logs/allJDScripts/jd_pigPet.log 2>&1
 
 # 种豆得豆
-# 12 0-23/6 * * * node /scripts/logs/other_scripts/allJDScripts/jd_plantBean.js >> /scripts/logs/other_logs/allJDScripts/jd_plantBean.log 2>&1
+1 7-21/2 * * * node /scripts/logs/other_scripts/allJDScripts/jd_plantBean.js >> /scripts/logs/other_logs/allJDScripts/jd_plantBean.log 2>&1
+
+# 种豆得豆内部互助
+40 4,17 * * * node /scripts/logs/other_scripts/allJDScripts/jd_plantBean_help.js >> /scripts/logs/other_logs/allJDScripts/jd_plantBean_help.log 2>&1
 
 # 京东极速版红包
 20 0,22 * * * node /scripts/logs/other_scripts/allJDScripts/jd_speed_redpocke.js >> /scripts/logs/other_logs/allJDScripts/jd_speed_redpocke.log 2>&1
 
 # 取关京东店铺和商品
-35 23 * * * node /scripts/logs/other_scripts/allJDScripts/jd_unsubscribe_xh.js >> /scripts/logs/other_logs/allJDScripts/jd_unsubscribe_xh.log 2>&1
+35 23 * * * node /scripts/logs/other_scripts/allJDScripts/jd_unsubscribe.js >> /scripts/logs/other_logs/allJDScripts/jd_unsubscribe.log 2>&1
+
+# 取关所有主播
+35 23 * * * node /scripts/logs/other_scripts/allJDScripts/jd_unsubscriLive.js >> /scripts/logs/other_logs/allJDScripts/jd_unsubscriLive.log 2>&1
 
 # 京喜签到
 20 1,8 * * * node /scripts/logs/other_scripts/allJDScripts/jx_sign.js >> /scripts/logs/other_logs/allJDScripts/jx_sign.log 2>&1
@@ -361,6 +367,21 @@
 
 # 京东资产变动
 20 0,8 * * * node /scripts/logs/other_scripts/allJDScripts/jd_bean_change_pro.js >> /scripts/logs/other_logs/allJDScripts/jd_bean_change_pro.log 2>&1
+
+# 京东保价(h5st)
+39 20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_price.js >> /scripts/logs/other_logs/allJDScripts/jd_price.log 2>&1
+
+# 东东萌宠任务
+15 6-18/6 * * * node /scripts/logs/other_scripts/allJDScripts/jd_petrw.js >> /scripts/logs/other_logs/allJDScripts/jd_petrw.log 2>&1
+
+# 东东萌宠
+15 6-18/6 * * * node /scripts/logs/other_scripts/allJDScripts/jd_pet.js >> /scripts/logs/other_logs/allJDScripts/jd_pet.log 2>&1
+
+# M萌宠自动化
+40 5,12,21 * * * node /scripts/logs/other_scripts/allJDScripts/jd_pet_automation.js >> /scripts/logs/other_logs/allJDScripts/jd_pet_automation.log 2>&1
+
+# 东东萌宠内部互助
+30 5,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_pet_help.js >> /scripts/logs/other_logs/allJDScripts/jd_pet_help.log 2>&1
 
 # 热爱奇旅
 33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
