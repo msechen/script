@@ -383,6 +383,12 @@
 # 东东萌宠内部互助
 30 5,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_pet_help.js >> /scripts/logs/other_logs/allJDScripts/jd_pet_help.log 2>&1
 
+# 微信签到领现金
+16 0,5 * * * node /scripts/logs/other_scripts/allJDScripts/jd_cash_wx.js >> /scripts/logs/other_logs/allJDScripts/jd_cash_wx.log 2>&1
+
+# 签到领现金_Pand
+11 1,20 * * * sh /scripts/logs/pand_token.sh && node /scripts/logs/other_scripts/allJDScripts/jd_cash.js >> /scripts/logs/other_logs/allJDScripts/jd_cash.log 2>&1
+
 # 热爱奇旅
 33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
 
