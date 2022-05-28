@@ -153,8 +153,8 @@ async function getUrls(options) {
 async function changeLinks(urls) {
     const appKey = 'D8582C104FB9BD4C26804C6DDB808902'
     const appSecret = '6ED571970E420B0FF8837F5B4684387C1834EEBCE1AE90060B1D6D712F7EBFBD'
-    const unionId = 1000134878  // 联盟id
-    const positionId = 1607304288  // 推广位id
+    const unionId = 2024548290  // 联盟id
+    const positionId = 3004840254  // 推广位id
     let timestamp = (new Date()).valueOf()
     let copywriting = ''  // 待转链文案，此处仅需要原商品链接即可
     const version = 'v1'  // 版本，建议v1
