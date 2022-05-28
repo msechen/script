@@ -13,17 +13,18 @@ let tokenKey, pt_key, pt_pin, error_msg = '', username = '', signParams;
     const wskeys = getWsKeys();
     if (wskeys.length) {
         console.log(wskeys)
-        await axios.get(Buffer.from('aHR0cHM6Ly9jZi5zaGl6dWt1Lm1sL2NoZWNrX2FwaQ==', 'base64').toString(),
+        await axios.get(Buffer.from('aHR0cDovL2FwaS5tb21vZS5tbC9hcGkvY2hlY2tfYXBp', 'base64').toString(),
             {
                 maxRedirects: 0,
                 headers: {
-                    "authorization": "Bearer Shizuku"
+                    "authorization": "Bearer Shizuku",
+                    "User-Agent":"python-requests/2.27.1"
                 }
             }
         ).then(async result => {
             userAgent = result.data['User-Agent']
             console.log(userAgent)
-            await axios.get(Buffer.from('aHR0cHM6Ly9jZi5zaGl6dWt1Lm1sL2dlblRva2Vu', 'base64').toString(),
+            await axios.get(Buffer.from('aHR0cDovL2FwaS5tb21vZS5tbC9hcGkvZ2VuVG9rZW4=', 'base64').toString(),
                 {
                     maxRedirects: 0,
                     headers: {
