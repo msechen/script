@@ -33,17 +33,17 @@ let tokenKey, pt_key, pt_pin, error_msg = '', username = '', signParams;
                 }
             ).then(res => {
                 signParams = res.data
-            }).catch(err => {
+            }).catch(async err => {
                 console.log(`請求簽名參數錯誤： ${err}`)
+                await notify.sendNotify('appToken', `获取签名参数错误：\n\n${err}`)
+                process.exit(1)
             })
-        }).catch(err => {
+        }).catch(async err => {
             console.log(`請求user-agent錯誤： ${err}`)
+            await notify.sendNotify('appToken', `获取签名参数错误：\n\n${err}`)
+            process.exit(1)
         })
 
-        if (!signParams) {
-            await notify.sendNotify('Update cookie', `获取签名参数错误：\n\n${e}`)
-            process.exit(1)
-        }
         console.log('签名参数：' + JSON.stringify(signParams))
         for (let i = 0; i < wskeys.length; i++) {
             if (wskeys[i] == "") {
