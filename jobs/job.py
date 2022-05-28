@@ -85,7 +85,7 @@ def init_scheduler(bot_var):
 
     # 知乎佣金
     scheduler.add_job(get_today_earnings, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*/3', minute='00', second='00')
+                      hour='*', minute='30', second='00')
 
     # 知乎佣金（总结）
     scheduler.add_job(get_today_earnings_v2, 'cron', year='*', month='*', day='*', day_of_week='*',
