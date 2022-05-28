@@ -2,7 +2,7 @@
 50 23 */3 * * find /scripts/logs -name '*.log' | grep -v 'sharecodeCollection' | xargs rm -rf
 
 # wskey 更新cookie
-20 8-23/3 * * *  cd /scripts/docker/cookie && node gen_open_token.js >> /scripts/logs/gen_open_token.log 2>&1
+55 8-23/6 * * *  cd /scripts/docker/cookie && node gen_open_token.js >> /scripts/logs/gen_open_token.log 2>&1
 
 # 收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
@@ -67,9 +67,6 @@
 # 东东工厂
 10 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1
 
-# 领金贴
-10 0 * * * node /scripts/jd_jin_tie.js >> /scripts/logs/jd_jin_tie.log 2>&1
-
 # 汪汪乐园
 45 0-23/3 * * * cd /scripts && ts-node /scripts/jd_joy_park.ts >> /scripts/logs/jd_joy_park.log 2>&1
 
@@ -87,12 +84,6 @@
 
 # 京喜牧场单独收牛牛
 0,30 * * * * cd /scripts && ts-node /scripts/jd_jxmc_getCoin.ts >> /scripts/logs/jd_jxmc_getCoin.log 2>&1
-
-# 京东快递签到
-10 0 * * * node /scripts/jd_kd.js >> /scripts/logs/jd_kd.log 2>&1
-
-# 京东直播
-10-20/5 12 * * * node /scripts/jd_live.js >> /scripts/logs/jd_live.log 2>&1
 
 # 幸运大转盘
 4 10 * * * node /scripts/jd_market_lottery.js >> /scripts/logs/jd_market_lottery.log 2>&1
@@ -388,6 +379,42 @@
 
 # 签到领现金_Pand
 11 1,20 * * * sh /scripts/logs/pand_token.sh && node /scripts/logs/other_scripts/allJDScripts/jd_cash.js >> /scripts/logs/other_logs/allJDScripts/jd_cash.log 2>&1
+
+# 京东集魔方
+2 0,11 * * * node /scripts/logs/other_scripts/allJDScripts/jd_desire.js >> /scripts/logs/other_logs/allJDScripts/jd_desire.log 2>&1
+
+# 粉丝互动
+10 1 * * * node /scripts/logs/other_scripts/allJDScripts/jd_fan.js >> /scripts/logs/other_logs/allJDScripts/jd_fan.log 2>&1
+
+# 领金贴
+10 0 * * * node /scripts/logs/other_scripts/allJDScripts/jd_jin_tie.js >> /scripts/logs/other_logs/allJDScripts/jd_jin_tie.log 2>&1
+
+# 极速版签到提现
+11 0,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_js_cash.js >> /scripts/logs/other_logs/allJDScripts/jd_js_cash.log 2>&1
+
+# 京喜双签
+23 11,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_jx_sign.js >> /scripts/logs/other_logs/allJDScripts/jd_jx_sign.log 2>&1
+
+# 京东快递签到
+10 0 * * * node /scripts/logs/other_scripts/allJDScripts/jd_kd.js >> /scripts/logs/other_logs/allJDScripts/jd_kd.log 2>&1
+
+# 京东直播
+7 11 * * * node /scripts/logs/other_scripts/allJDScripts/jd_live.js >> /scripts/logs/other_logs/allJDScripts/jd_live.log 2>&1
+
+# 云养牛
+33 5 1-30 5 * node /scripts/logs/other_scripts/allJDScripts/jd_mnyyn.js >> /scripts/logs/other_logs/allJDScripts/jd_mnyyn.log 2>&1
+
+# 探味奇遇记
+31 0,13 26-31,1-16 5,6 * node /scripts/logs/other_scripts/allJDScripts/jd_tanwei.js >> /scripts/logs/other_logs/allJDScripts/jd_tanwei.log 2>&1
+
+# 逛小米618赢千万京豆
+1 15 25-31,1-18 5,6 * node /scripts/logs/other_scripts/allJDScripts/jd_xiaomi.js >> /scripts/logs/other_logs/allJDScripts/jd_xiaomi.log 2>&1
+
+# 小鸽有礼-京小哥助手
+3 0,7 * * * node /scripts/logs/other_scripts/allJDScripts/jd_xgyl_wx.js >> /scripts/logs/other_logs/allJDScripts/jd_xgyl_wx.log 2>&1
+
+# 京享周周乐
+2 6 * * 5 node /scripts/logs/other_scripts/allJDScripts/jd_xs_zzl.js >> /scripts/logs/other_logs/allJDScripts/jd_xs_zzl.log 2>&1
 
 # 热爱奇旅
 33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
