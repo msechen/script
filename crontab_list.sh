@@ -202,6 +202,9 @@
 # 20点开奖的红包
 10 20,21,22 * * * cd /scripts && ts-node /scripts/jd_618_hongbao_1.ts >> /scripts/logs/jd_618_hongbao_1.log 2>&1
 
+# 小程序-领现金-1.5
+15 7,18 * * * cd /scripts && ts-node /scripts/jd_cash_wechat.ts >> /scripts/logs/jd_cash_wechat.log 2>&1
+
 ##################################################### 自定 ########################################################
 
 # xxxx
