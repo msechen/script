@@ -416,6 +416,9 @@
 # 京享周周乐
 2 6 * * 5 node /scripts/logs/other_scripts/allJDScripts/jd_xs_zzl.js >> /scripts/logs/other_logs/allJDScripts/jd_xs_zzl.log 2>&1
 
+# 组队分豆-飞利浦
+18 9 * * * node /scripts/logs/other_scripts/allJDScripts/jd_teamFLPZD.js >> /scripts/logs/other_logs/allJDScripts/jd_teamFLPZD.log 2>&1
+
 # 热爱奇旅
 33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
 
