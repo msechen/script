@@ -191,7 +191,7 @@
 8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
 
 # https://appliances-activity.jd.com/
-0 20 * * * cd /scripts && ts-node /scripts/jd_strategy.ts >> /scripts/logs/jd_strategy.log 2>&1
+# 0 20 * * * cd /scripts && ts-node /scripts/jd_strategy.ts >> /scripts/logs/jd_strategy.log 2>&1
 
 # 生活积分
 8 0 * * * cd /scripts && ts-node /scripts/jd_dwapp.ts >> /scripts/logs/jd_dwapp.log 2>&1
