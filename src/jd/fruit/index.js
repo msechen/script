@@ -98,7 +98,7 @@ class Fruit extends Template {
       shareCodes = getShareCodesByDefault();
     }
 
-    function getShareCodesByDefault() {
+    function getShareCodesByDefault(onlyDefault = false) {
       const defaultShareCodes = [
         '9675151b3f1645d2afea9afb44c44716',
         '2886e4326e104eecb117f7a32732cda3',
@@ -106,6 +106,7 @@ class Fruit extends Template {
         '4569adc9a868457fb35c14e8db3572a1',
       ];
       const otherDefaultShareCodes = defaultShareCodes.filter(code => code !== currentShareCode);
+      if (onlyDefault) return otherDefaultShareCodes;
       return _.uniq(shareCodes.concat(otherDefaultShareCodes));
     }
 
@@ -215,11 +216,10 @@ class Fruit extends Template {
           waterFriendTaskInit: {waterFriendCountKey, waterFriendMax, waterFriendGotAward},
         } = taskData;
         if (waterFriendGotAward) return;
-        // 优先给 shareCode 浇水
-        for (const shareCode of getShareCodesByDefault()) {
+        // 优先给 default shareCode 浇水
+        for (const shareCode of getShareCodesByDefault(true)) {
           await handleWaterFriend(shareCode);
         }
-        // TODO 给朋友列表浇水
 
         if (waterFriendCountKey >= waterFriendMax) {
           await api.doFormBody('waterFriendGotAwardForFarm');
