@@ -403,12 +403,13 @@ class Base {
         const key = o.cookie['pt_pin'];
         if (_.has(cookieConfig, key)) {
           const {scriptName: scriptNameConfig} = _.get(cookieConfig, key, {});
-          const {disable, disableShareCode} = scriptNameConfig || {};
+          const {disable, disableShareCode, defaultShareCode = {}} = scriptNameConfig || {};
           const scriptName = self.scriptName;
           if (_.concat(disable).includes(scriptName)) return '';
           if (_.concat(disableShareCode).includes(scriptName)) {
             o.shareCodes = [];
           }
+          o.shareCodes = _.filter(_.concat(o.shareCodes, _.get(defaultShareCode, scriptName)));
         }
         return o;
       }));
