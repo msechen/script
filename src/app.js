@@ -196,6 +196,7 @@ async function main() {
       valid: 10,
       run: async () => {
         await doRun(SuperBrandProduct);
+        await doRun(Moxigame);
       },
     },
     {

@@ -1,6 +1,7 @@
 const Template = require('../base/template');
 
 const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
 const _ = require('lodash');
 
 const Api = require('./api');
@@ -138,12 +139,39 @@ class Moxigame extends Template {
     }
 
     // 获取卡片收集程度
-    async function getUserInfo() {
-      return api.doBodyPath('page/main');
+    async function getUserInfo(stage) {
+      return api.doBodyPath('page/main', {stage});
     }
 
-    async function handleRandCard() {
-      const {ownCards, ticketCount, ticketNeed} = await getUserInfo();
+    async function handleRandCard(nextStage) {
+      const {
+        ownCards,
+        ticketCount,
+        ticketNeed,
+        loopInfo: {stage, endTime},
+        awardStage,
+        stages,
+      } = await getUserInfo(nextStage);
+      const enableAward = o => o.title.startsWith('瓜分');
+      const currentStage = stages[stage];
+      const prevStage = stages[stage - 1];
+      if (prevStage && getMoment().subtract(3, 'day').isBefore(prevStage.endTime)) {
+        // 活动结束3天内需进行自动抽奖
+        await handleRandCard(stage - 1);
+      }
+      if (enableAward(currentStage) && awardStage === 2) {
+        return api.doBodyPath('page/award', {stage: `${stage}`}).then(data => {
+          const {code, message, award, name} = data;
+          if (code === 0) {
+            api.log([message, award, name].join(''));
+          } else {
+            api.log(data);
+          }
+        });
+      }
+      if (getMoment().isAfter(endTime)) {
+        return api.log(`${currentStage.title}(${stage})已结束`);
+      }
       const notFinished = ownCards.some(o => o.num === 0);
       // TODO 凑齐后不再抽奖
       if (notFinished) {
