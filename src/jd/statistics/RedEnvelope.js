@@ -40,12 +40,20 @@ class StatisticsRedEnvelope extends Template {
         limitName: '',
       },
     };
-    const getExpireTime = (day = 1) => getMoment().add('day', day).set({
-      h: 0,
-      m: 0,
-      s: 0,
-      millisecond: 0,
-    }).valueOf() / 1000;
+    const getExpireTime = (day = 1) => {
+      const nowMoment = getMoment();
+      if (day > 0) {
+        nowMoment.add(day, 'day');
+      } else {
+        nowMoment.subtract(day, 'day');
+      }
+      return nowMoment.set({
+        h: 0,
+        m: 0,
+        s: 0,
+        millisecond: 0,
+      }).valueOf() / 1000;
+    };
     const sumRedList = list => formatNumber(_.sum(list.map(o => +o['balance'])) || 0);
 
     for (let i = 1; i < 6; i++) {
@@ -60,7 +68,7 @@ class StatisticsRedEnvelope extends Template {
     async function calculate(day) {
       Object.values(redSorted).forEach(o => {
         const {limitName, msgs = []} = o;
-        const targetReds = redList.filter(({orgLimitStr}) => limitName ? orgLimitStr.match(limitName) : !orgLimitStr);
+        const targetReds = redList.filter(({orgLimitStr}) => limitName ? orgLimitStr.match(limitName) : !orgLimitStr).filter(({beginTime}) => beginTime < getExpireTime(-2));
         const number = sumRedList(targetReds);
         const expireReds = targetReds.filter(o => o['endTime'] < getExpireTime(day));
         const expire = sumRedList(expireReds);
