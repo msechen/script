@@ -141,7 +141,7 @@ def get_jd_order():
 
 # 查询知乎佣金
 def get_today_earnings():
-    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_pop_income() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(
+    result = sync_data.query_today_earnings() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(
         False)
 
     try:
@@ -154,7 +154,7 @@ def get_today_earnings():
 def get_today_earnings_v2():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    result = today + '\n\n' + sync_data.query_today_earnings() + '\n\n' + sync_data.query_pop_income() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(
+    result = today + '\n\n' + sync_data.query_today_earnings() + '\n\n' + sync_data.query_jingfen_click() + '\n\n' + sync_data.query_today_data() + '\n\n' + sync_data.get_zhihu_like(
         True)
 
     try:
