@@ -187,9 +187,6 @@
 # 515券民空间站
 30 9 * * * cd /scripts && ts-node /scripts/jd_planet_space.ts >> /scripts/logs/jd_planet_space.log 2>&1
 
-# 微信小程序签到红包
-8 0 * * * cd /scripts && ts-node /scripts/jd_wechat_sign.ts >> /scripts/logs/jd_wechat_sign.log 2>&1
-
 # https://appliances-activity.jd.com/
 # 0 20 * * * cd /scripts && ts-node /scripts/jd_strategy.ts >> /scripts/logs/jd_strategy.log 2>&1
 
@@ -211,6 +208,8 @@
 # 58 9,23 * * * sh +x /scripts/logs/jxmc.sh
 0 0 * * * node /scripts/logs/cfd_code.js >> /scripts/logs/cfd_code.log 2>&1
 19 0 * * * node /scripts/logs/jxmc_code.js >> /scripts/logs/jxmc_code.log 2>&1
+# 京东多合一签到脚本修改版
+14 0,9 * * * node /scripts/logs/jd_DailyBonus.js >> /scripts/logs/jd_DailyBonus.log 2>&1
 
 
 ##################################################### allJDScripts ################################################
@@ -423,15 +422,15 @@
 18 9 * * * node /scripts/logs/other_scripts/allJDScripts/jd_teamFLPZD.js >> /scripts/logs/other_logs/allJDScripts/jd_teamFLPZD.log 2>&1
 
 # 热爱奇旅
-33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
+#33 0,6-23/2 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E.js >> /scripts/logs/other_logs/allJDScripts/jd_19E.log 2>&1
 
 # 热爱奇旅膨胀内部互助
-11 20 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19EPZ_help.js >> /scripts/logs/other_logs/allJDScripts/jd_19EPZ_help.log 2>&1
+#11 20 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19EPZ_help.js >> /scripts/logs/other_logs/allJDScripts/jd_19EPZ_help.log 2>&1
 
 # 热爱奇旅升级
 1 8,15 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E_friends.js >> /scripts/logs/other_logs/allJDScripts/jd_19E_friends.log 2>&1
 
 # 热爱奇旅助力组队升级
-20 0,8 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E_friend.js >> /scripts/logs/other_logs/allJDScripts/jd_19E_friend.log 2>&1
+#20 0,8 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E_friend.js >> /scripts/logs/other_logs/allJDScripts/jd_19E_friend.log 2>&1
 
 
