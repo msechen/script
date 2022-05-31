@@ -78,7 +78,7 @@ class StatisticsRedEnvelope extends Template {
 
       for (const [key, object] of Object.entries(redSorted)) {
         const {limitName, number, expire, msgs} = object;
-        if ([/*'jx', */'lite', 'noLimit'].includes(key)) continue;
+        if (['jx', 'lite', 'noLimit'].includes(key)) continue;
         const name = limitName ? `${limitName}(仅限)` : '无限制';
         const needSum = key !== 'noLimit';
         if (_.isEmpty(msgs)) {
