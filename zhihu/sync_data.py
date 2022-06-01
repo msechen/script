@@ -241,18 +241,14 @@ def query_pop_income():
 
 # 查询京粉点击数
 def query_pop_income_all():
-    today = datetime.datetime.now().strftime('%Y-%m-%d')
     begin = '2022-04-21'
     end = '2022-05-30'
-
-    if end > today:
-        end = today
 
     total_pop = zhihu_spider.get_pop_order(begin, end, zh_config_dao.query_config('jfck2').value)
     total_gmv = 0
     total_order = 0
     for order in total_pop:
-        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500 and order['pid']== '1003111258_4000348996_3004398015':
                 if 'Redmi Note 11 Pro' not in order['skuName']:
                     if order['skuShopName'] == 'realme真我官方旗舰店' or order['skuShopName'] == 'iQOO官方旗舰店' or order[
