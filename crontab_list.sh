@@ -2,7 +2,7 @@
 50 23 */3 * * find /scripts/logs -name '*.log' | grep -v 'sharecodeCollection' | xargs rm -rf
 
 # wskey 更新cookie
-55 8-23/6 * * *  cd /scripts/docker/cookie && node gen_open_token.js >> /scripts/logs/gen_open_token.log 2>&1
+55 8-23/3 * * *  cd /scripts/docker/cookie && node gen_open_token.js >> /scripts/logs/gen_open_token.log 2>&1
 
 # 收集助力码
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
