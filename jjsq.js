@@ -6,7 +6,7 @@
  * @last Modified time 2022/01/21 20:37
  * @description 掘金自动签到
  */
-const $ = new require('./env').Env('掘金自动签到');
+const $ = new require('./env_jjsq').Env('掘金自动签到');
 const notify = $.isNode() ? require('./sendNotify') : '';
 let JUEJIN_COOKIE = process.env.JUEJIN_COOKIE, cookie = '', cookiesArr = [], message = '';
 
