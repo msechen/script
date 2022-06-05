@@ -173,8 +173,8 @@ class Moxigame extends Template {
         return api.log(`${currentStage.title}(${stage})已结束`);
       }
       const notFinished = ownCards.some(o => o.num === 0);
-      // TODO 凑齐后不再抽奖
-      if (notFinished) {
+      // 继续抽奖
+      if (1) {
         for (let i = ticketNeed; i <= ticketCount; i++) {
           await api.doBodyPath('game/randCard').then(data => {
             const cards = data.cards;
