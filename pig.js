@@ -19,7 +19,7 @@ let coin=0.5
 
 //换号刷必须先改id  再重新捉ck
 
-let id=($.isNode() ? process.env.userid : $.getdata('userid'));
+let id=10
 
 
 //无法提现 提现异常 只需要保持0-0-0  全部设置为0
