@@ -1,17 +1,17 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_opencard142
+name: jd_opencard163
 
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "30 5,17 1-16 5 *"
+        - cron: "30 0,9,20 1-20 6 *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_opencard142
+        types: jd_opencard163
 
 jobs:
     build:
@@ -27,7 +27,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【jd_opencard142】"
+            - name: "运行【jd_opencard163】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -48,4 +48,4 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_opencard142.js
+                  SYNCURL: https://github.com/ZFeng1005/MyScripts/raw/main/jd_opencard163.js
