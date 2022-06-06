@@ -58,7 +58,6 @@ def push_plus_bot(content):
     }
     body = json.dumps(data).encode(encoding='utf-8')
     response = requests.post(url=url, data=body, headers=headers).json()
-    print(response)
     if response['code'] == 200:
         print('推送成功！')
     else:
