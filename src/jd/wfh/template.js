@@ -28,6 +28,8 @@ class HarmonyTemplate extends Template {
     return this._.assign({}, defaultApiNames, this.apiNames);
   };
 
+  static async beforeGetTaskList(api, data) {}
+
   static async beforeDoTask(api, taskId) {}
 
   static async afterDoTask(api, data) {}
@@ -51,7 +53,19 @@ class HarmonyTemplate extends Template {
   static apiNamesFn() {
     const self = this;
 
+    const _apiFactory = (key) => ({
+      [key]: {
+        name: self.getApiNames()[key],
+        paramFn: self.commonParamFn,
+        async successFn(data, api) {
+          if (!self.isSuccess(data)) return false;
+          await self[key](api, data);
+        },
+      },
+    });
+
     const result = {
+      ..._apiFactory('beforeGetTaskList'),
       // 获取任务列表
       getTaskList: {
         name: self.getApiNames().getTaskList,
@@ -140,14 +154,7 @@ class HarmonyTemplate extends Template {
           return self.afterDoWaitTask(api, data);
         },
       },
-      afterGetTaskList: {
-        name: self.getApiNames().afterGetTaskList,
-        paramFn: self.commonParamFn,
-        async successFn(data, api) {
-          if (!self.isSuccess(data)) return false;
-          await self.afterGetTaskList(api, data);
-        },
-      },
+      ..._apiFactory('afterGetTaskList'),
       doRedeem: {
         name: self.getApiNames().doRedeem,
         paramFn: self.commonParamFn,

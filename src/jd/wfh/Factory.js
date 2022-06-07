@@ -1,6 +1,7 @@
 const HarmonyTemplate = require('./harmony');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {getMoment} = require('../../lib/moment');
 
 // 活动入口
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/2uSsV2wHEkySvompfjB43nuKkcHp/index.html';
@@ -20,6 +21,7 @@ class Factory extends HarmonyTemplate {
     'T0205KkcMWdhhwWERkeG8q5fCjVWnYaS5kRrbA',
   ];
   static apiNames = {
+    beforeGetTaskList: 'jdfactory_getHomeData',
     getTaskList: 'jdfactory_getTaskDetail',
     doTask: 'jdfactory_collectScore',
     doWaitTask: 'jdfactory_collectScore',
@@ -30,14 +32,18 @@ class Factory extends HarmonyTemplate {
   // static activityEndTime = '2022-04-30';
 
   static async beforeRequest(api) {
-    const data = await api.doFormBody('jdfactory_getHomeData');
+    return this.autoAddEnergy(api);
+  }
+
+  static async autoAddEnergy(api, data) {
+    data = data || await api.doFormBody('jdfactory_getHomeData');
     const factoryInfo = _.property('data.result.factoryInfo')(data);
     if (!factoryInfo) {
       // TODO 自动选中商品进行生产
       return true;
     }
     let {remainScore, batteryCapacity} = factoryInfo;
-    if (+remainScore > batteryCapacity) {
+    if (+remainScore + 50000 > batteryCapacity) {
       await this.handleAddEnergy(api);
     }
   }
@@ -64,6 +70,10 @@ class Factory extends HarmonyTemplate {
     }
   }
 
+  static async beforeGetTaskList(api, data) {
+    return this.autoAddEnergy(api, data);
+  }
+
   static async afterGetTaskList(api, data) {
     const self = this;
 
@@ -78,7 +88,7 @@ class Factory extends HarmonyTemplate {
 
     await api.doFormBody('jdfactory_getTaskDetail').then(async data => {
       userScore = +data.data.result.userScore;
-      msgs.push(`电量为: ${userScore}`);
+      msgs.push(`蓄电池: ${userScore}`);
     });
 
     const {
@@ -89,10 +99,13 @@ class Factory extends HarmonyTemplate {
       totalScore,
     } = _.property('data.result.factoryInfo')(data) || {};
     if (name) {
-      msgs.push(`(${name})剩${couponCount}件, 电量还差 ${+totalScore - (+remainScore + +useScore)}`);
+      const needScore = +totalScore - (+remainScore + +useScore);
+      // 42000 是一天估计的量
+      const needDay = (needScore / 42000).toFixed(2);
+      msgs.push(`还需${needDay}天(${getMoment().add(needDay * 24, 'hours').format()}), 名称/件/总电量/待收集电量(已去除蓄电池): ${name}/${couponCount}/${totalScore}/${needScore}`);
     }
 
-    api.log(msgs.join(','));
+    api.log(msgs.join(', '));
 
     (_.property('data.result.skuIdList')(data) || []).forEach(({couponCount, name, fullScore}) => {
       if (couponCount > 0) {
@@ -128,7 +141,11 @@ class Factory extends HarmonyTemplate {
   // 充电, 按需进行
   static async handleAddEnergy(api) {
     return api.doFormBody('jdfactory_addEnergy').then(data => {
-      api.log(`充电成功(${JSON.stringify(data)})`);
+      if (!self.isSuccess(data)) {
+        return api.log(_.get(data, 'data.bizMsg'));
+      }
+      const {addScore, alreadyUseScore, chargeTimes, userScore} = data.data;
+      api.log(`成功充: ${addScore}, 已充: ${alreadyUseScore}, 蓄电池剩余: ${userScore}, 可充电次数: ${chargeTimes}`);
     });
   }
 }
