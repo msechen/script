@@ -75,7 +75,7 @@ async def handler(client, message):
     try:
         if message.entities is None:
             return
-        text = message.entities[0]['url']
+        text = message.entities[0].url
         if text is None:
             return
         if 'i.walle.com' not in text:
