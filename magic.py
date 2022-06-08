@@ -40,7 +40,8 @@ else:
 
 if BOT['proxy']:
     proxy = {
-        'hostname': BOT['proxy_add'],  # 改成自己的
+        'scheme': BOT['proxy_scheme'],
+        'hostname': BOT['proxy_add'],
         'port': int(BOT['proxy_port']),
         'username': BOT['proxy_username'],
         'password': BOT['proxy_password']
@@ -59,7 +60,8 @@ car_config = [
     {'name': 'M加购有礼', 'env': 'M_WX_ADD_CART_URL', 'js': 'm_jd_wx_addCart.js', 'cmd': 'now'},
     {'name': 'M幸运抽奖', 'env': 'M_WX_LUCK_DRAW_URL', 'js': 'm_jd_wx_luckDraw.js', 'cmd': 'now'},
     {'name': 'M集卡抽奖', 'env': 'M_WX_COLLECT_CARD_URL', 'js': 'm_jd_wx_collectCard.js', 'cmd': 'now'},
-    {'name': 'M关注有礼', 'env': 'M_FOLLOW_SHOP_ARGV', 'js': 'm_jd_follow_shop.js', 'cmd': 'now'}
+    {'name': 'M关注有礼', 'env': 'M_FOLLOW_SHOP_ARGV', 'js': 'm_jd_follow_shop.js', 'cmd': 'now'},
+    {'name': 'M收藏有礼', 'env': 'M_FAV_SHOP_ARGV', 'js': 'm_jd_fav_shop_gift.js', 'cmd': 'now'}
 ]
 
 
