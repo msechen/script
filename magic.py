@@ -61,7 +61,8 @@ car_config = [
     {'name': 'M幸运抽奖', 'env': 'M_WX_LUCK_DRAW_URL', 'js': 'm_jd_wx_luckDraw.js', 'cmd': 'now'},
     {'name': 'M集卡抽奖', 'env': 'M_WX_COLLECT_CARD_URL', 'js': 'm_jd_wx_collectCard.js', 'cmd': 'now'},
     {'name': 'M关注有礼', 'env': 'M_FOLLOW_SHOP_ARGV', 'js': 'm_jd_follow_shop.js', 'cmd': 'now'},
-    {'name': 'M收藏有礼', 'env': 'M_FAV_SHOP_ARGV', 'js': 'm_jd_fav_shop_gift.js', 'cmd': 'now'}
+    {'name': 'M收藏有礼', 'env': 'M_FAV_SHOP_ARGV', 'js': 'm_jd_fav_shop_gift.js', 'cmd': 'now'},
+    {'name': 'M老虎机抽奖', 'env': 'M_WX_CENTER_DRAW_URL', 'js': 'm_jd_wx_centerDraw.js', 'cmd': 'now'}
 ]
 
 
