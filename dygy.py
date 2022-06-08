@@ -88,7 +88,7 @@ def recive_box_reward():
 
 ##领取储水池奖励有问题
 def reward_bottle():
-    url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/challenge/list?os_version=10&version_code=200900&device_id=708526086828733&iid=3980686141954494&app_name=aweme&device_platform=android&device_type=Pixel%204&channel=sem_shenma_dy_ls146&aid=1128&ac=wifi&version_name=20.9.0&update_version_code=20909900"
+    url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/box/open?aid=1128"
     response = requests.get(url=url, headers=headers).json()
     print(response)
     if response["status_code"] == 0:
@@ -245,7 +245,9 @@ if __name__ == '__main__':
     if start_time == '01':
         print('开始领取水滴日常任务奖励')
         day_water()
-    elif start_time == '18':
+        time.sleep(random.randint(1, 4))
+        waterwheel()
+    elif start_time == '8':
         print('开始领取水滴日常任务奖励')
         day_water()
         time.sleep(random.randint(1,4))
@@ -270,7 +272,6 @@ if __name__ == '__main__':
         eat()
         time.sleep(random.randint(1, 4))
         print('开始每日领取宝箱奖励任务')
-        water_award()
         judy_fertilizer()
         time.sleep(random.randint(1, 4))
         print('开始浇水任务')
@@ -282,11 +283,14 @@ if __name__ == '__main__':
     elif start_time == '12':
         print('开始三餐领取任务')
         eat()
+        time.sleep(random.randint(1, 4))
+        waterwheel()
     elif start_time == '18':
         print('开始三餐领取任务')
         eat()
-
-    elif start_time == '19':
+        time.sleep(random.randint(1, 4))
+        waterwheel()
+    elif start_time == '21':
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
         time.sleep(random.randint(1, 4))
