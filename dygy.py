@@ -247,7 +247,7 @@ if __name__ == '__main__':
         day_water()
         time.sleep(random.randint(1, 4))
         waterwheel()
-    elif start_time == '8':
+    elif start_time == '08':
         print('开始领取水滴日常任务奖励')
         day_water()
         time.sleep(random.randint(1,4))
