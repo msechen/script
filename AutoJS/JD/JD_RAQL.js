@@ -1,12 +1,21 @@
 /*
   京东<热爱奇旅>任务
-  脚本执行时间过长，建议调低手机屏幕亮度，减少电量消耗和发热
+  脚本执行时间过长，自动调低手机屏幕亮度，减少电量消耗和发热
 
-  20220525 V2.5
+  已知问题：
+  Q：明明有任务，但是识别不出来就退出了
+  A：目前发现分身的应用有这种问题，可重启应用和脚本重进，一般即可解决
 
-  @LingFeng
+  Q：小程序任务做不了
+  A：由于小程序任务返回的时候会调用本机的京东app，如果app没正常调用，就会返回不到分身小号的任务列表，可以把本机的京东app锁定后台再试试
+
+  Q：打开任务列表后识别不到任务
+  A：检查下自己手机有没有打开什么悬浮窗，比如autojs的悬浮球、录屏的悬浮窗之类的，关掉再试试
+
+  20220607 V2.7
+  修改弹窗识别顺序
+    @LingFeng
   https://t.me/LingFeng0918
-
 */
 var TaskName = "热爱奇旅"
 Start(TaskName);
@@ -290,8 +299,9 @@ function Run(LauchAPPName,IsSeparation,IsInvite,IsJoinMember) {
                 console.log("为TA助力");
                 sleep(2000);
                 console.log("助力完成");
-                if(text("开心收下").exists()){
-                    text("开心收下").findOne().parent().click();
+                if(textContains("开心收下").exists()){
+                    //text("开心收下").findOne().parent().click();
+                    click(textContains("开心收下").findOne().bounds().centerX(),textContains("开心收下").findOne().bounds().centerY())
                     sleep(1000);
                 }
             }
@@ -489,7 +499,7 @@ function Run(LauchAPPName,IsSeparation,IsInvite,IsJoinMember) {
                 console.log("开启今日抽奖");
                 //textContains("开启今日抽奖").findOne().parent().click();
                 click(textContains("开启今日抽奖").findOne().bounds().centerX(),textContains("开启今日抽奖").findOne().bounds().centerY())
-                sleep(1000);
+                sleep(3000);
             }
             if(textContains("点我签到").exists()){
                 console.log("点我签到");
@@ -500,10 +510,10 @@ function Run(LauchAPPName,IsSeparation,IsInvite,IsJoinMember) {
                 //textContains("开心收下").findOne().parent().click();
                 click(textContains("开心收下").findOne().bounds().centerX(),textContains("开心收下").findOne().bounds().centerY())
                 sleep(1000);
-                if(text("每天签到领大额红包").exists()){
-                    text("每天签到领大额红包").findOne().parent().child(0).click();
-                    console.log("关闭签到页面");
-                }
+            }
+            if(text("每天签到领大额红包").exists()){
+                text("每天签到领大额红包").findOne().parent().child(0).click();
+                console.log("关闭签到页面");
             }
             if(textContains("开心收下").exists()){
                 console.log("开心收下");
@@ -993,6 +1003,52 @@ function Run(LauchAPPName,IsSeparation,IsInvite,IsJoinMember) {
                     console.log("检测到活动页面");
                     PageStatus=1//进入活动页面，未打开任务列表
                 }
+                while(textContains("继续环游").exists() |textContains("立即抽奖").exists() |textContains("开启今日抽奖").exists() |textContains("点我签到").exists() |textContains("开心收下").exists()){
+                    sleep(1000);
+                    if(textContains("继续环游").exists()){
+                        console.log("继续环游");
+                        //textContains("继续环游").findOne().parent().click();
+                        click(textContains("继续环游").findOne().bounds().centerX(),textContains("继续环游").findOne().bounds().centerY())
+                        sleep(500);
+                    }
+                    if(textContains("立即抽奖").exists()){
+                        console.log("关闭立即抽奖");
+                        setScreenMetrics(1440, 3120);//基于分辨率1440*3120的点击
+                        click(1336,808);
+                        sleep(1000);
+                        setScreenMetrics(device.width, device.height);//恢复本机分辨率
+                        //textContains("立即抽奖").findOne().parent().parent().parent().child(0).click();
+                        //sleep(500);
+                    }
+                    if(textContains("开启今日抽奖").exists()){
+                        console.log("开启今日抽奖");
+                        //textContains("开启今日抽奖").findOne().parent().click();
+                        click(textContains("开启今日抽奖").findOne().bounds().centerX(),textContains("开启今日抽奖").findOne().bounds().centerY())
+                        sleep(3000);
+                    }
+                    if(textContains("点我签到").exists()){
+                        console.log("点我签到");
+                        //textContains("点我签到").findOne().parent().click();
+                        click(textContains("点我签到").findOne().bounds().centerX(),textContains("点我签到").findOne().bounds().centerY())
+                        sleep(1000);
+                        textContains("开心收下").waitFor();
+                        //textContains("开心收下").findOne().parent().click();
+                        click(textContains("开心收下").findOne().bounds().centerX(),textContains("开心收下").findOne().bounds().centerY())
+                        sleep(1000);
+                    }
+                    if(text("每天签到领大额红包").exists()){
+                        text("每天签到领大额红包").findOne().parent().child(0).click();
+                        console.log("关闭签到页面");
+                    }
+                    if(textContains("开心收下").exists()){
+                        console.log("开心收下");
+                        click(textContains("开心收下").findOne().bounds().centerX(),textContains("开心收下").findOne().bounds().centerY())
+                        sleep(1000);
+                    }
+                    sleep(1000);
+                    console.log("如还有弹窗，请手动处理");
+                    sleep(3000);
+                }
                 if(!text("累计任务奖励").exists()){
                     console.info("打开任务列表");
                     let taskListButton = text("分红：").findOne(10000)
@@ -1051,11 +1107,11 @@ function Run(LauchAPPName,IsSeparation,IsInvite,IsJoinMember) {
                 }
                 for(var i = 0; i < 5; i++){
                     console.log("第" + ( i + 1 ) + "个店铺");
-                    if(task2.childCount() != 14){
+                    if(task2.childCount() < 14){
                         console.error("界面异常，跳过任务");
                         break;
                     }
-                    var task2DianPu = task2.child(11).child(2).child(0).child(i + 1)
+                    var task2DianPu = task2.child(task2.childCount() - 3).child(2).child(0).child(i + 1)
                     task2DianPu.click();
                     sleep(3500);
                     for(var ii = 0;!textContains("后满").exists(); ii++){
@@ -1068,7 +1124,7 @@ function Run(LauchAPPName,IsSeparation,IsInvite,IsJoinMember) {
                         }
                     }
                 }
-                task2.child(12).click();//返回
+                task2.child(task2.childCount() - 2).click();//返回
                 sleep(1000);
                 console.info("打开任务列表");
                 let taskListButton = text("分红：").findOne(10000)

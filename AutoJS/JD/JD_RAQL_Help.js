@@ -5,8 +5,8 @@
   Q：明明有任务，但是识别不出来就退出了
   A：目前发现分身的应用有这种问题，可重启应用和脚本重进，一般即可解决
 
-  V2.4
-  @LingFeng
+  20220607 V2.5
+    @LingFeng
   https://t.me/LingFeng0918
 */
 let TaskName = "热爱奇旅-签到助力"
@@ -19,6 +19,7 @@ console.info("开始任务");
   文件编码为utf-8
   每行一个账号，参数以逗号隔开（中英不限）
   每行第一个参数为任务名称，后续的参数参考对应Run参数说明填写
+
  */
 /*
   参数说明：
@@ -267,8 +268,9 @@ function Run(LauchAPPName,IsSeparation,IsInvite,ToDoTask) {
                 console.log("为TA助力");
                 sleep(2000);
                 console.log("助力完成");
-                if(text("开心收下").exists()){
-                    text("开心收下").findOne().parent().click();
+                if(textContains("开心收下").exists()){
+                    //text("开心收下").findOne().parent().click();
+                    click(textContains("开心收下").findOne().bounds().centerX(),textContains("开心收下").findOne().bounds().centerY())
                     sleep(1000);
                 }
             }
@@ -473,7 +475,7 @@ function Run(LauchAPPName,IsSeparation,IsInvite,ToDoTask) {
                 console.log("开启今日抽奖");
                 //textContains("开启今日抽奖").findOne().parent().click();
                 click(textContains("开启今日抽奖").findOne().bounds().centerX(),textContains("开启今日抽奖").findOne().bounds().centerY())
-                sleep(1000);
+                sleep(3000);
             }
             if(textContains("点我签到").exists()){
                 console.log("点我签到");
@@ -484,10 +486,10 @@ function Run(LauchAPPName,IsSeparation,IsInvite,ToDoTask) {
                 //textContains("开心收下").findOne().parent().click();
                 click(textContains("开心收下").findOne().bounds().centerX(),textContains("开心收下").findOne().bounds().centerY())
                 sleep(1000);
-                if(text("每天签到领大额红包").exists()){
-                    text("每天签到领大额红包").findOne().parent().child(0).click();
-                    console.log("关闭签到页面");
-                }
+            }
+            if(text("每天签到领大额红包").exists()){
+                text("每天签到领大额红包").findOne().parent().child(0).click();
+                console.log("关闭签到页面");
             }
             if(textContains("开心收下").exists()){
                 console.log("开心收下");
