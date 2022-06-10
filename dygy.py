@@ -92,7 +92,7 @@ def reward_bottle():
     response = requests.get(url=url, headers=headers).json()
     print(response)
     if response["status_code"] == 0:
-        reward_water = response['data']["tasks'"]["num"]
+        reward_water = response['reward_item']["num"]
         print(f'获得储水瓶{reward_water}水滴成功')
     else:
         print(response['message'])
@@ -248,7 +248,7 @@ if __name__ == '__main__':
         time.sleep(random.randint(1, 4))
         print('开始水车任务')
         waterwheel()
-        time.sleep(random.randint(5, 10))
+    elif start_time == '07':
         print('开始收集蓄水池任务')
         reward_bottle()
     elif start_time == '08':
@@ -295,9 +295,10 @@ if __name__ == '__main__':
         time.sleep(random.randint(2, 6))
         print('开始领取水滴日常任务奖励')
         day_water()
-    elif start_time == '21':
+    elif start_time == '19':
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
+    elif start_time == '21':
         time.sleep(random.randint(2, 6))
         print('开始领取水滴日常任务奖励')
         day_water()
@@ -307,3 +308,7 @@ if __name__ == '__main__':
         print('开始推送信息')
         message = target()
         push_plus_bot(message)
+
+
+
+
