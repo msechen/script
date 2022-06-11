@@ -90,9 +90,9 @@ def recive_box_reward():
 def reward_bottle():
     url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/water_bottle/reward?os_version=10&version_code=200900&device_id=708526086828733&iid=3980686141954494&app_name=aweme&device_platform=android&device_type=Pixel%204&channel=sem_shenma_dy_ls146&aid=1128&ac=wifi&version_name=20.9.0&update_version_code=20909900"
     response = requests.get(url=url, headers=headers).json()
-    print(response)
+    pprint.pprint(response)
     if response["status_code"] == 0:
-        reward_water = response['reward_item']["num"]
+        reward_water = response['data']['reward_item']["num"]
         print(f'获得储水瓶{reward_water}水滴成功')
     else:
         print(response['message'])
@@ -242,7 +242,7 @@ if __name__ == '__main__':
     print('抖音浇水任务开始,开始点击首页图标')
     polling_info()
     start_time = datetime.datetime.now().strftime('%H')
-    if start_time == '01':
+    if start_time == '06':
         print('开始领取水滴日常任务奖励')
         day_water()
         time.sleep(random.randint(1, 4))
@@ -311,4 +311,12 @@ if __name__ == '__main__':
 
 
 
-
+"""
+https://proxy.guodongbaohe.com/coins/award?member_id=5970135&timestamp=1652963503&trans_id=60380ea65b77a49e5bb3d22fe0796c72&signature=795a17591802e719b22e83aadd38e1dfmember_id=5970135&platform=android&timestamp=1652843004&f193cf711baac6eef95c61a573a36115
+trans_id=devzwldz2e3z201
+member_id=5970135&platform=android&timestamp=1652843778&trans_id=a7f1f6f533c1fb2fd5c79f33828b9017&f193cf711baac6eef95c61a573a36115 
+https://proxy.guodongbaohe.com/coins/award?member_id=5970135&platform=android&timestamp=1652842620&trans_id=5adccefc72f29e8c7b1bfc5cc240ba85&signature=bdc3f00f3f1c6ebcb9a9f3bf36aa3d37&
+https://proxy.guodongbaohe.com/coins/award?member_id=5970135&platform=android&timestamp=1652843778&trans_id=8cb2f6b635d35a41a170d75547852261&signature=61cb9cbb965388e64a954c8bed6018cb& 
+https://proxy.guodongbaohe.com/coins/award?member_id=5970135&platform=android&timestamp=1652964694&trans_id=ff80c2c29e89790024a0493edf56be76&signature=bb4bb5c84a64408600ce9e149116899f& 
+https://proxy.guodongbaohe.com/coins/award?member_id=5970135&platform=android&timestamp=1652964925&trans_id=4da1d25d02a5e9d1705d187b16e47786&signature=b3ce3ac512c001c53b4a9af3e36297d9& 
+"""
