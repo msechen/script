@@ -104,7 +104,12 @@ async function getRealUrl(uri, after200Fn, options = {}) {
     uri, followRedirect: false,
     resolveWithFullResponse: true,
   });
-  if (new URL(uri).host === 'u.jd.com') {
+  let url;
+  try {
+    url = new URL(uri);
+  } catch (e) {}
+  if (!url) return Promise.resolve('');
+  if (url.host === 'u.jd.com') {
     after200Fn = body => {
       const urlPrefix = 'var hrl=\'';
       const prefixMatch = body.match(urlPrefix);
