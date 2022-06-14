@@ -246,7 +246,7 @@ class Sign extends Template {
 
     const nowHour = self.getNowHour();
     if (nowHour <= 8) {
-      taskOptions.push(morningGetBean);
+      // taskOptions.push(morningGetBean);
     }
     // 活动调整, 需下线
     if (nowHour === 23 && false) {
