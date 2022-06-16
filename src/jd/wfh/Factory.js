@@ -140,6 +140,7 @@ class Factory extends HarmonyTemplate {
 
   // 充电, 按需进行
   static async handleAddEnergy(api) {
+    const self = this;
     return api.doFormBody('jdfactory_addEnergy').then(data => {
       if (!self.isSuccess(data)) {
         return api.log(_.get(data, 'data.bizMsg'));
