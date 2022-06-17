@@ -146,7 +146,8 @@ class Factory extends HarmonyTemplate {
         return api.log(_.get(data, 'data.bizMsg'));
       }
       const {addScore, alreadyUseScore, chargeTimes, userScore} = data.data;
-      api.log(`成功充: ${addScore}, 已充: ${alreadyUseScore}, 蓄电池剩余: ${userScore}, 可充电次数: ${chargeTimes}`);
+      addScore ? api.log(`成功充: ${addScore}, 已充: ${alreadyUseScore}, 蓄电池剩余: ${userScore}, 可充电次数: ${chargeTimes}`)
+        : api.log(data.data);
     });
   }
 }
