@@ -433,4 +433,8 @@
 # 热爱奇旅助力组队升级
 #20 0,8 * * * export JD_19E=true && node /scripts/logs/other_scripts/allJDScripts/jd_19E_friend.js >> /scripts/logs/other_logs/allJDScripts/jd_19E_friend.log 2>&1
 
+# 京东超级盲盒
+0 20 3,17 6 * node /scripts/logs/other_scripts/allJDScripts/jd_supermh.js >> /scripts/logs/other_logs/allJDScripts/jd_supermh.log 2>&1
 
+# 京东京洞察问卷通知超级盲盒
+0 0 9 * * node /scripts/logs/other_scripts/allJDScripts/jd_insight.js >> /scripts/logs/other_logs/allJDScripts/jd_insight.log 2>&1
