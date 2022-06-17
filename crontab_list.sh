@@ -380,7 +380,7 @@
 16 0,5 * * * node /scripts/logs/other_scripts/allJDScripts/jd_cash_wx.js >> /scripts/logs/other_logs/allJDScripts/jd_cash_wx.log 2>&1
 
 # 签到领现金_Pand
-11 1,20 * * * sh /scripts/logs/pand_token.sh && node /scripts/logs/other_scripts/allJDScripts/jd_cash.js >> /scripts/logs/other_logs/allJDScripts/jd_cash.log 2>&1
+11 1,20 * * * source /scripts/logs/pand_token.sh && node /scripts/logs/other_scripts/allJDScripts/jd_cash.js >> /scripts/logs/other_logs/allJDScripts/jd_cash.log 2>&1
 
 # 京东集魔方
 2 0,11 * * * node /scripts/logs/other_scripts/allJDScripts/jd_desire.js >> /scripts/logs/other_logs/allJDScripts/jd_desire.log 2>&1
@@ -438,3 +438,15 @@
 
 # 京东京洞察问卷通知超级盲盒
 0 0 9 * * node /scripts/logs/other_scripts/allJDScripts/jd_insight.js >> /scripts/logs/other_logs/allJDScripts/jd_insight.log 2>&1
+
+# 签到领现金，每日2毛～5毛
+11 1,20 * * * source /scripts/logs/pand_token.sh && node /scripts/logs/other_scripts/allJDScripts/jd_cash_windfgg.js >> /scripts/logs/other_logs/allJDScripts/jd_cashcash_windfgg.log 2>&1
+
+# 组队分豆-新安怡
+18 9 * * * node /scripts/logs/other_scripts/allJDScripts/jd_teamXAY.js >> /scripts/logs/other_logs/allJDScripts/jd_teamXAY.log 2>&1
+
+# 618天天抽奖
+3 7 * * * node /scripts/logs/other_scripts/allJDScripts/jd_618lottery.js >> /scripts/logs/other_logs/allJDScripts/jd_618lottery.log 2>&1
+
+# 头文字J
+30 4,16 * * * node /scripts/logs/other_scripts/allJDScripts/jd_mpdz-car.js >> /scripts/logs/other_logs/allJDScripts/jd_mpdz-car.log 2>&1
