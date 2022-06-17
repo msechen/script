@@ -17,6 +17,8 @@ class Moxigame extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 2;
+  static activityEndTime = '2022-06-18 09:00:00';
+
 
   static apiOptions = {
     options: {
