@@ -44,7 +44,8 @@
                 <transition name="list" appear>
                     <a-card hoverable>
                         <div slot="title">
-                            <a-button type="primary" icon="plus" @click="openAddInbound"></a-button>
+                            <a-button type="primary" @click="openAddInbound">添加入站</a-button>
+                            <a-button type="primary" @click="resetAllTraffic">流量重置</a-button>
                         </div>
                         <a-input v-model="searchKey" placeholder="搜索" autofocus style="max-width: 300px"></a-input>
                         <a-table :columns="columns" :row-key="dbInbound => dbInbound.id"
@@ -305,6 +306,22 @@
                         dbInbound.up = 0;
                         dbInbound.down = 0;
                         this.updateInbound(inbound, dbInbound);
+                    },
+                });
+            },
+            resetAllTraffic() {
+                this.$confirm({
+                    title: '重置所有流量',
+                    content: '确定要重置所有节点流量吗?',
+                    okText: '重置',
+                    cancelText: '取消',
+                    onOk: async () => {
+                        for (const dbInbound of this.dbInbounds) {
+                            const inbound = dbInbound.toInbound();
+                            dbInbound.up = 0;
+                            dbInbound.down = 0;
+                            this.updateInbound(inbound, dbInbound);
+                        }
                     },
                 });
             },
