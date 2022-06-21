@@ -43,6 +43,8 @@ var startTime = time.Now()
 
 var xuiBeginRunTime string
 
+var isTelegramEnable bool
+
 type wrapAssetsFS struct {
 	embed.FS
 }
@@ -306,8 +308,8 @@ func (s *Server) startTask() {
 	s.cron.AddFunc("@every 2s", func() { job.NewStatsNotifyJob().SSHStatusLoginNotify(xuiBeginRunTime) })
 	// 每一天提示一次流量情况,上海时间8点30
 	var entry cron.EntryID
-	isTgbotenabled, err := s.settingService.GetTgbotenabled()
-	if (err == nil) && (isTgbotenabled) {
+
+	if isTelegramEnable {
 		runtime, err := s.settingService.GetTgbotRuntime()
 		if err != nil || runtime == "" {
 			logger.Errorf("Add NewStatsNotifyJob error[%s],Runtime[%s] invalid,wil run default", err, runtime)
@@ -387,12 +389,20 @@ func (s *Server) Start() (err error) {
 
 	xuiBeginRunTime = time.Now().Format("2006-01-02 15:04:05")
 
+	isTgbotenabled, err := s.settingService.GetTgbotenabled()
+	if (err == nil) && (isTgbotenabled) {
+		isTelegramEnable = true
+
+		go func() {
+			s.telegramService.StartRun()
+			time.Sleep(time.Second * 2)
+		}()
+
+	} else {
+		isTelegramEnable = false
+	}
+
 	s.startTask()
-	//run telegram service
-	go func() {
-		s.telegramService.StartRun()
-		time.Sleep(time.Second * 2)
-	}()
 
 	s.httpServer = &http.Server{
 		Handler: engine,
@@ -407,7 +417,9 @@ func (s *Server) Start() (err error) {
 
 func (s *Server) Stop() error {
 	s.cancel()
-	s.telegramService.StopRunAndClose()
+	if isTelegramEnable {
+		s.telegramService.StopRunAndClose()
+	}
 	s.xrayService.StopXray()
 	if s.cron != nil {
 		s.cron.Stop()

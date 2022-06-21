@@ -105,6 +105,7 @@ func (s *TelegramService) StartRun() {
 	botInstace, err = tgbotapi.NewBotAPI(tgBottoken)
 	if err != nil {
 		logger.Infof("telegram service start run failed,NewBotAPI fail:%v,tgBottoken:%s", err, tgBottoken)
+		return
 	}
 	botInstace.Debug = false
 	fmt.Printf("Authorized on account %s", botInstace.Self.UserName)
@@ -214,20 +215,6 @@ You can input /help to see more commands`
 	}
 
 }
-
-/*
-func (s *TelegramService) PrepareCommands() {
-	Deletecommand := tgbotapi.BotCommand{
-		Command:     "DeleteInbound",
-		Description: "This command will help you delete one of your Inbound",
-	}
-	Helpcommand := tgbotapi.BotCommand{
-		Command:     "Help",
-		Description: "You can use more command by help command",
-	}
-
-}
-*/
 
 func (s *TelegramService) SendMsgToTgbot(msg string) {
 	logger.Info("SendMsgToTgbot entered")
