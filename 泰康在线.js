@@ -78,7 +78,7 @@ async function signIn() {
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
-                return()
+               
             }
         }, )
 }
