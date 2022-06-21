@@ -15,9 +15,10 @@ export JD_TRY_MINSUPPLYNUM="1" #最小提供数量
 export JD_TRY_SENDNUM="10" #每隔多少账号发送一次通知，不需要可以不用设置
 export JD_TRY_UNIFIED="false" 默认采用不同试用组
 cron "4 1-22/8 * * *" jd_try.js, tag:京东试用
-
+@LingFeng
+https://t.me/LingFeng0918
  */
-const $ = new Env('京东试用')
+const $ = new Env('京东试用-凌枫自用')
 const URL = 'https://api.m.jd.com/client.action'
 let trialActivityIdList = []
 let trialActivityTitleList = []
@@ -592,7 +593,7 @@ function taskurl_xh(appid, functionId, body = JSON.stringify({})) {
     return {
         "url": `${URL}?appid=${appid}&functionId=${functionId}&clientVersion=10.3.4&client=wh5&body=${encodeURIComponent(body)}`,
         'headers': {
-            'Cookie': `${$.cookie} __jda=1.1.1.1.1.1;`,
+            'Cookie': `${$.cookie} __jda=1.1.1.1.1.1;__jdu=1637576642569612744541; 3AB9D23F7A4B3C9B=DUO2FQF5VOGYNYELEQZKNTEQ3SCGGZZA4SB2AKGVOJ4RXZC4ZKGNR7QTKJMXD4GG6SQ3YWGHWOTJLLHJEW3STZHR54; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1655780320905; __jda=122270672.1637576642569612744541.1637576643.1655708287.1655780320.201; shshshfpb=v2ZDrcukDm585vgofhAAfdA==; joyya=1655780321.1655780370.66.07fyr2m; __jdb=122270672.3.1637576642569612744541|201.1655780320; mba_sid=16557803209065034994368811918.3; __jd_ref_cls=Babel_H5PageVirtual`,
             'user-agent': 'jdapp;iPhone;10.1.2;15.0;ff2caa92a8529e4788a34b3d8d4df66d9573f499;network/wifi;model/iPhone13,4;addressid/2074196292;appBuild/167802;jdSupportDarkMode/1;Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
             'Referer': 'https://prodev.m.jd.com/',
             'origin': 'https://prodev.m.jd.com/',
