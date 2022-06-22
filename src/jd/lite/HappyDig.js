@@ -89,7 +89,12 @@ class LiteHappyDig extends Template {
     }
 
     async function handlePlayGame(maxBlood = 1) {
-      const {roundList, curRound: round, blood} = await api.doGetBody('happyDigHome').then(_.property('data'));
+      const homeData = await api.doGetBody('happyDigHome');
+      const {roundList, curRound: round, blood} = _.get(homeData, 'data', {});
+      if (!roundList) {
+        api.log(`happyDigHome data ${homeData}`);
+        return;
+      }
       if (blood <= maxBlood) return;
       const targetRound = roundList.find(o => o.round === round);
       if (!targetRound) return api.log('找不到指定的round');
@@ -134,6 +139,7 @@ class LiteHappyDig extends Template {
         if (!data.success) return api.log(data.errMsg);
         api.log('助力成功');
       });
+      await sleep(10);
     }
 
     async function handleExchange() {
@@ -206,10 +212,9 @@ class LiteHappyDig extends Template {
         const cashes = items.filter(o => o['prizeType'] === 4 && o['state'] === 0);
         if (_.isEmpty(cashes)) return;
         // 一次只能同时提现一个
-        await apCashWithDraw(cashes[0]);
-        if (cashes.length > 1) {
+        for (const cash of cashes) {
+          await apCashWithDraw(cash);
           await sleep(60 * 5);
-          return handleCash();
         }
       });
 
