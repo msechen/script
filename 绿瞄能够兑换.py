@@ -37,7 +37,8 @@ def kkz():
         data.append([title, credits, tagText])
     data_content = []
     for i in data:
-        if '原生竹浆抽纸巾' in i and '#aaa' not in i:
+        print(i)
+        if '原生竹浆抽纸巾（4包）' in i and '#aaa' not in i:
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
         elif '回收塑料啫喱笔' in i and i[2] == 'null':
@@ -47,8 +48,7 @@ def kkz():
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
 
-        data_content = '\n'.join(data_content)
-        # print(data)
+    data_content = '\n'.join(data_content)
 
 
 def push_plus_bot(content):
