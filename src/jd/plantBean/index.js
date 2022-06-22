@@ -85,7 +85,7 @@ class PlantBean extends Template {
               // 挑选商品
               [5, 'productTaskList', ({data}) => _.filter(_.filter(data.productInfoList).map(array => array && array[1]), itemFinishedFn).map(o => _.pick(o, ['skuId', 'productTaskId'])), 'productNutrientsTask'],
               // 关注频道
-              [10, 'plantChannelTaskList', ({data}) => _.filter(_.concat(data.goodChannelList, data.normalChannelList), itemFinishedFn).map(o => _.pick(o, ['channelId', 'channelTaskId'])), 'plantChannelNutrientsTask'],
+              [10, 'plantChannelTaskList', ({data}) => _.filter(_.concat(data.goodChannelList || [], data.normalChannelList), itemFinishedFn).map(o => _.pick(o, ['channelId', 'channelTaskId'])), 'plantChannelNutrientsTask'],
             ].find(o => o[0] === taskType);
 
             if (taskConfig) {
