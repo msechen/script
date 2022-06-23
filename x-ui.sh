@@ -1,25 +1,12 @@
-#!/bin/bash
-
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
-
-#Add some basic function here
-function LOGD() {
-    echo -e "${yellow}[DEG] $* ${plain}"
-}
-
-function LOGE() {
-    echo -e "${red}[ERR] $* ${plain}"
-}
-
-function LOGI() {
-    echo -e "${green}[INF] $* ${plain}"
-}
+green(){ echo -e "\033[32m\033[01m$1\033[0m";}
+yellow(){ echo -e "\033[33m\033[01m$1\033[0m";}
 # check root
-[[ $EUID -ne 0 ]] && LOGE "错误:  必须使用root用户运行此脚本!\n" && exit 1
-
+[[ $EUID -ne 0 ]] && echo -e "${red}错误: ${plain} 必须使用root用户运行此脚本！\n" && exit 1
+ 
 # check os
 if [[ -f /etc/redhat-release ]]; then
     release="centos"
@@ -35,8 +22,10 @@ elif cat /proc/version | grep -Eqi "ubuntu"; then
     release="ubuntu"
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
+elif cat /etc/system-release-cpe | grep -Eqi "amazon_linux"; then
+    release="amazon_linux"
 else
-    LOGE "未检测到系统版本，请联系脚本作者！\n" && exit 1
+    echo -e "${red}未检测到系统版本，请联系脚本作者！${plain}\n" && exit 1
 fi
 
 os_version=""
@@ -51,17 +40,39 @@ fi
 
 if [[ x"${release}" == x"centos" ]]; then
     if [[ ${os_version} -le 6 ]]; then
-        LOGE "请使用 CentOS 7 或更高版本的系统！\n" && exit 1
+        echo -e "${red}请使用 CentOS 7 或更高版本的系统！${plain}\n" && exit 1
     fi
 elif [[ x"${release}" == x"ubuntu" ]]; then
     if [[ ${os_version} -lt 16 ]]; then
-        LOGE "请使用 Ubuntu 16 或更高版本的系统！\n" && exit 1
+        echo -e "${red}请使用 Ubuntu 16 或更高版本的系统！${plain}\n" && exit 1
     fi
 elif [[ x"${release}" == x"debian" ]]; then
     if [[ ${os_version} -lt 8 ]]; then
-        LOGE "请使用 Debian 8 或更高版本的系统！\n" && exit 1
+        echo -e "${red}请使用 Debian 8 或更高版本的系统！${plain}\n" && exit 1
+    fi
+elif [[ x"${release}" == x"amazon_linux" ]]; then
+    if [[ ${os_version} -lt 2 ]]; then
+        echo -e "${red}请使用 Amazon Linux 2 或更高版本的系统！${plain}\n" && exit 1
     fi
 fi
+
+xuigo(){
+cat>/root/goxui.sh<<-\EOF
+#!/bin/bash
+xui=`ps -aux |grep "x-ui" |grep -v "grep" |wc -l`
+xray=`ps -aux |grep "xray" |grep -v "grep" |wc -l`
+sleep 1
+if [ $xui = 0 ];then
+x-ui restart
+fi
+if [ $xray = 0 ];then
+x-ui restart
+fi
+EOF
+chmod +x /root/goxui.sh
+sed -i '/goxui.sh/d' /etc/crontab >/dev/null 2>&1
+echo "*/1 * * * * root bash /root/goxui.sh >/dev/null 2>&1" >> /etc/crontab
+}
 
 confirm() {
     if [[ $# > 1 ]]; then
@@ -94,7 +105,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
+    wget -N https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh && bash install.sh
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -107,21 +118,66 @@ install() {
 update() {
     confirm "本功能会强制重装当前最新版，数据不会丢失，是否继续?" "n"
     if [[ $? != 0 ]]; then
-        LOGE "已取消"
+        echo -e "${red}已取消${plain}"
         if [[ $# == 0 ]]; then
             before_show_menu
         fi
         return 0
     fi
-    bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
-    if [[ $? == 0 ]]; then
-        LOGI "更新完成，已自动重启面板 "
-        exit 0
+    arch=$(arch)
+    if [[ $arch == "x86_64" || $arch == "x64" || $arch == "amd64" ]]; then
+    arch="amd64"
+    elif [[ $arch == "aarch64" || $arch == "arm64" ]]; then
+    arch="arm64"
+    elif [[ $arch == "s390x" ]]; then
+    arch="s390x"
+    else
+    arch="amd64"
+    echo -e "${red}检测架构失败，使用默认架构: ${arch}${plain}"
     fi
+    systemctl stop x-ui
+    cd /usr/local/
+    if  [ $# == 0 ] ;then
+        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz https://gitlab.com/rwkgyg/x-ui-yg/raw/main/x-ui-linux-${arch}.tar.gz
+        if [[ $? -ne 0 ]]; then
+            echo -e "${red}下载 x-ui 失败，请确保你的服务器能够下载 Github 的文件${plain}"
+            rm -rf install.sh
+            exit 1
+        fi
+    else
+        last_version=$1
+        url="https://gitlab.com/rwkgyg/x-ui-yg/raw/main/x-ui-linux-${arch}.tar.gz"
+        echo -e "开始安装 x-ui v$1"
+        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz ${url}
+        if [[ $? -ne 0 ]]; then
+            echo -e "${red}下载 x-ui v$1 失败，请确保此版本存在${plain}"
+            rm -rf install.sh
+            exit 1
+        fi
+    fi
+    if [[ -e /usr/local/x-ui/ ]]; then
+        rm /usr/local/x-ui/ -rf
+    fi
+    tar zxvf x-ui-linux-${arch}.tar.gz
+    rm x-ui-linux-${arch}.tar.gz -f
+    cd x-ui
+    chmod +x x-ui bin/xray-linux-${arch}
+    cp -f x-ui.service /etc/systemd/system/
+    wget --no-check-certificate -O /usr/bin/x-ui https://gitlab.com/rwkgyg/x-ui-yg/raw/main/x-ui.sh
+    chmod +x /usr/bin/x-ui
+    chmod +x /usr/local/x-ui/x-ui.sh
+    systemctl daemon-reload
+    systemctl enable x-ui
+    systemctl start x-ui
+    x-ui restart
+    echo -e "${green}更新完成，已自动重启面板${plain}"
+    acp=$(/usr/local/x-ui/x-ui setting -show 2>/dev/null)
+    green "$acp"
+    exit 0
 }
 
 uninstall() {
-    confirm "确定要卸载面板吗,xray 也会卸载?" "n"
+    confirm "确定要卸载面板吗，xray 也会卸载?" "n"
     if [[ $? != 0 ]]; then
         if [[ $# == 0 ]]; then
             show_menu
@@ -135,7 +191,9 @@ uninstall() {
     systemctl reset-failed
     rm /etc/x-ui/ -rf
     rm /usr/local/x-ui/ -rf
-
+    rm -rf goxui.sh acme.sh
+    sed -i '/goxui.sh/d' /etc/crontab >/dev/null 2>&1
+    sed -i '/x-ui restart/d' /etc/crontab >/dev/null 2>&1
     echo ""
     echo -e "卸载成功，如果你想删除此脚本，则退出脚本后运行 ${green}rm /usr/bin/x-ui -f${plain} 进行删除"
     echo ""
@@ -146,15 +204,20 @@ uninstall() {
 }
 
 reset_user() {
-    confirm "确定要将用户名和密码重置为 admin 吗" "n"
+    confirm "确定要将用户名和密码重置为随机6位字符吗" "n"
     if [[ $? != 0 ]]; then
         if [[ $# == 0 ]]; then
             show_menu
         fi
         return 0
     fi
-    /usr/local/x-ui/x-ui setting -username admin -password admin
-    echo -e "用户名和密码已重置为 ${green}admin${plain}，现在请重启面板"
+    uauto=`date +%s%N |md5sum | cut -c 1-6`
+    username=$uauto
+    pauto=`date +%s%N |md5sum | cut -c 1-6`
+    password=$pauto
+    /usr/local/x-ui/x-ui setting -username ${username} -password ${password} >/dev/null 2>&1
+    green "x-ui登录用户名：${username}"
+    green "x-ui登录密码：${password}"
     confirm_restart
 }
 
@@ -174,19 +237,23 @@ reset_config() {
 check_config() {
     info=$(/usr/local/x-ui/x-ui setting -show true)
     if [[ $? != 0 ]]; then
-        LOGE "get current settings error,please check logs"
+        echo -e "get current settings error,please check logs"
         show_menu
     fi
-    LOGI "${info}"
+    green "${info}"
 }
 
 set_port() {
     echo && echo -n -e "输入端口号[1-65535]: " && read port
     if [[ -z "${port}" ]]; then
-        LOGD "已取消"
+        echo -e "${yellow}已取消${plain}"
         before_show_menu
     else
-        /usr/local/x-ui/x-ui setting -port ${port}
+until [[ -z $(ss -ntlp | awk '{print $4}' | grep -w "$port") ]]
+do
+[[ -n $(ss -ntlp | awk '{print $4}' | grep -w "$port") ]] && yellow "\n端口被占用，请重新输入端口" && readp "自定义x-ui端口:" port
+done
+/usr/local/x-ui/x-ui setting -port ${port} >/dev/null 2>&1
         echo -e "设置端口完毕，现在请重启面板，并使用新设置的端口 ${green}${port}${plain} 访问面板"
         confirm_restart
     fi
@@ -196,15 +263,16 @@ start() {
     check_status
     if [[ $? == 0 ]]; then
         echo ""
-        LOGI "面板已运行，无需再次启动，如需重启请选择重启"
+        echo -e "${green}面板已运行，无需再次启动，如需重启请选择重启${plain}"
     else
         systemctl start x-ui
+        xuigo
         sleep 2
         check_status
         if [[ $? == 0 ]]; then
-            LOGI "x-ui 启动成功"
+            echo -e "${green}x-ui 启动成功${plain}"
         else
-            LOGE "面板启动失败，可能是因为启动时间超过了两秒，请稍后查看日志信息"
+            echo -e "${red}面板启动失败，可能是因为启动时间超过了两秒，请稍后查看日志信息${plain}"
         fi
     fi
 
@@ -217,15 +285,17 @@ stop() {
     check_status
     if [[ $? == 1 ]]; then
         echo ""
-        LOGI "面板已停止，无需再次停止"
+        echo -e "${green}面板已停止，无需再次停止${plain}"
     else
         systemctl stop x-ui
+        rm -rf goxui.sh
+        sed -i '/goxui.sh/d' /etc/crontab >/dev/null 2>&1
         sleep 2
         check_status
         if [[ $? == 1 ]]; then
-            LOGI "x-ui 与 xray 停止成功"
+            echo -e "${green}x-ui 与 xray 停止成功${plain}"
         else
-            LOGE "面板停止失败，可能是因为停止时间超过了两秒，请稍后查看日志信息"
+            echo -e "${red}面板停止失败，停止X-UI守护进程中……请稍在一分钟后再查看，请稍后查看日志信息${plain}"
         fi
     fi
 
@@ -236,12 +306,13 @@ stop() {
 
 restart() {
     systemctl restart x-ui
+    xuigo
     sleep 2
     check_status
     if [[ $? == 0 ]]; then
-        LOGI "x-ui 与 xray 重启成功"
+        echo -e "${green}x-ui 与 xray 重启成功${plain}"
     else
-        LOGE "面板重启失败，可能是因为启动时间超过了两秒，请稍后查看日志信息"
+        echo -e "${red}面板重启失败，可能是因为启动时间超过了两秒，请稍后查看日志信息${plain}"
     fi
     if [[ $# == 0 ]]; then
         before_show_menu
@@ -258,9 +329,9 @@ status() {
 enable() {
     systemctl enable x-ui
     if [[ $? == 0 ]]; then
-        LOGI "x-ui 设置开机自启成功"
+        echo -e "${green}x-ui 设置开机自启成功${plain}"
     else
-        LOGE "x-ui 设置开机自启失败"
+        echo -e "${red}x-ui 设置开机自启失败${plain}"
     fi
 
     if [[ $# == 0 ]]; then
@@ -271,9 +342,9 @@ enable() {
 disable() {
     systemctl disable x-ui
     if [[ $? == 0 ]]; then
-        LOGI "x-ui 取消开机自启成功"
+        echo -e "${green}x-ui 取消开机自启成功${plain}"
     else
-        LOGE "x-ui 取消开机自启失败"
+        echo -e "${red}x-ui 取消开机自启失败${plain}"
     fi
 
     if [[ $# == 0 ]]; then
@@ -294,22 +365,28 @@ migrate_v2_ui() {
     before_show_menu
 }
 
-install_bbr() {
-    # temporary workaround for installing bbr
-    bash <(curl -L -s https://raw.githubusercontent.com/teddysun/across/master/bbr.sh)
+acme() {
+   wget -N https://gitlab.com/rwkgyg/acme-script/raw/main/acme.sh && chmod +x acme.sh && ./acme.sh
     echo ""
     before_show_menu
 }
 
+bbr() {
+bash <(curl -L -s https://raw.githubusercontents.com/teddysun/across/master/bbr.sh)
+    echo ""
+    before_show_menu
+}
+
+
 update_shell() {
-    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/FranzKafkaYu/x-ui/raw/master/x-ui.sh
+    wget -O /usr/bin/x-ui -N --no-check-certificate https://gitlab.com/rwkgyg/x-ui-yg/raw/main/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
-        LOGE "下载脚本失败，请检查本机能否连接 Github"
+        echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
         before_show_menu
     else
         chmod +x /usr/bin/x-ui
-        LOGI "升级脚本成功，请重新运行脚本" && exit 0
+        echo -e "${green}升级脚本成功，请重新运行脚本${plain}" && exit 0
     fi
 }
 
@@ -331,7 +408,7 @@ check_enabled() {
     if [[ x"${temp}" == x"enabled" ]]; then
         return 0
     else
-        return 1
+        return 1;
     fi
 }
 
@@ -339,7 +416,7 @@ check_uninstall() {
     check_status
     if [[ $? != 2 ]]; then
         echo ""
-        LOGE "面板已安装，请不要重复安装"
+        echo -e "${red}面板已安装，请不要重复安装${plain}"
         if [[ $# == 0 ]]; then
             before_show_menu
         fi
@@ -353,7 +430,7 @@ check_install() {
     check_status
     if [[ $? == 2 ]]; then
         echo ""
-        LOGE "请先安装面板"
+        echo -e "${red}请先安装面板${plain}"
         if [[ $# == 0 ]]; then
             before_show_menu
         fi
@@ -366,17 +443,16 @@ check_install() {
 show_status() {
     check_status
     case $? in
-    0)
-        echo -e "面板状态: ${green}已运行${plain}"
-        show_enable_status
-        ;;
-    1)
-        echo -e "面板状态: ${yellow}未运行${plain}"
-        show_enable_status
-        ;;
-    2)
-        echo -e "面板状态: ${red}未安装${plain}"
-        ;;
+        0)
+            echo -e "x-ui面板状态: ${green}已运行${plain}"
+            show_enable_status
+            ;;
+        1)
+            echo -e "x-ui面板状态: ${yellow}未运行${plain}"
+            show_enable_status
+            ;;
+        2)
+            echo -e "x-ui面板状态: ${red}未安装${plain}"
     esac
     show_xray_status
 }
@@ -408,85 +484,10 @@ show_xray_status() {
     fi
 }
 
-ssl_cert_issue() {
-    echo -E ""
-    LOGD "******使用说明******"
-    LOGI "该脚本将使用Acme脚本申请证书,使用时需保证:"
-    LOGI "1.知晓Cloudflare 注册邮箱"
-    LOGI "2.知晓Cloudflare Global API Key"
-    LOGI "3.域名已通过Cloudflare进行解析到当前服务器"
-    LOGI "4.该脚本申请证书默认安装路径为/root/cert目录"
-    confirm "我已确认以上内容[y/n]" "y"
-    if [ $? -eq 0 ]; then
-        cd ~
-        LOGI "安装Acme脚本"
-        curl https://get.acme.sh | sh
-        if [ $? -ne 0 ]; then
-            LOGE "安装acme脚本失败"
-            exit 1
-        fi
-        CF_Domain=""
-        CF_GlobalKey=""
-        CF_AccountEmail=""
-        certPath=/root/cert
-        if [ ! -d "$certPath" ]; then
-            mkdir $certPath
-        else
-            rm -rf $certPath
-            mkdir $certPath
-        fi
-        LOGD "请设置域名:"
-        read -p "Input your domain here:" CF_Domain
-        LOGD "你的域名设置为:${CF_Domain}"
-        LOGD "请设置API密钥:"
-        read -p "Input your key here:" CF_GlobalKey
-        LOGD "你的API密钥为:${CF_GlobalKey}"
-        LOGD "请设置注册邮箱:"
-        read -p "Input your email here:" CF_AccountEmail
-        LOGD "你的注册邮箱为:${CF_AccountEmail}"
-        ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-        if [ $? -ne 0 ]; then
-            LOGE "修改默认CA为Lets'Encrypt失败,脚本退出"
-            exit 1
-        fi
-        export CF_Key="${CF_GlobalKey}"
-        export CF_Email=${CF_AccountEmail}
-        ~/.acme.sh/acme.sh --issue --dns dns_cf -d ${CF_Domain} -d *.${CF_Domain} --log
-        if [ $? -ne 0 ]; then
-            LOGE "证书签发失败,脚本退出"
-            exit 1
-        else
-            LOGI "证书签发成功,安装中..."
-        fi
-        ~/.acme.sh/acme.sh --installcert -d ${CF_Domain} -d *.${CF_Domain} --ca-file /root/cert/ca.cer \
-        --cert-file /root/cert/${CF_Domain}.cer --key-file /root/cert/${CF_Domain}.key \
-        --fullchain-file /root/cert/fullchain.cer
-        if [ $? -ne 0 ]; then
-            LOGE "证书安装失败,脚本退出"
-            exit 1
-        else
-            LOGI "证书安装成功,开启自动更新..."
-        fi
-        ~/.acme.sh/acme.sh --upgrade --auto-upgrade
-        if [ $? -ne 0 ]; then
-            LOGE "自动更新设置失败,脚本退出"
-            ls -lah cert
-            chmod 755 $certPath
-            exit 1
-        else
-            LOGI "证书已安装且已开启自动更新,具体信息如下"
-            ls -lah cert
-            chmod 755 $certPath
-        fi
-    else
-        show_menu
-    fi
-}
-
 show_usage() {
     echo "x-ui 管理脚本使用方法: "
     echo "------------------------------------------"
-    echo "x-ui              - 显示管理菜单 (功能更多)"
+    echo "x-ui              - 显示管理菜单【一键证书申请（支持域名直接申请与dns api申请），简单版BBR+FQ加速，脚本自动检测更新提示】"
     echo "x-ui start        - 启动 x-ui 面板"
     echo "x-ui stop         - 停止 x-ui 面板"
     echo "x-ui restart      - 重启 x-ui 面板"
@@ -513,7 +514,7 @@ show_menu() {
   ${green}4.${plain} 重置用户名密码
   ${green}5.${plain} 重置面板设置
   ${green}6.${plain} 设置面板端口
-  ${green}7.${plain} 查看当前面板设置
+  ${green}7.${plain} 当前面板设置
 ————————————————
   ${green}8.${plain} 启动 x-ui
   ${green}9.${plain} 停止 x-ui
@@ -524,106 +525,92 @@ show_menu() {
   ${green}13.${plain} 设置 x-ui 开机自启
   ${green}14.${plain} 取消 x-ui 开机自启
 ————————————————
-  ${green}15.${plain} 一键安装 bbr (最新内核)
-  ${green}16.${plain} 一键申请SSL证书(acme申请)
+  ${green}15.${plain} 一键ACME申请证书
+  ${green}16.${plain} 一键BBR+FQ加速
  "
     show_status
+    echo "------------------------------------------"
+    acp=$(/usr/local/x-ui/x-ui setting -show 2>/dev/null)
+    green "$acp"
+    echo "------------------------------------------"
+    xuiygV="0.3.3.14.2"
+    remoteV=`wget -qO- https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh | sed  -n 2p | cut -d '"' -f 2`
+    localV=${xuiygV}
+    if [ "${localV}" = "${remoteV}" ]; then
+    green "已安装最新版本：${xuiygV} ，如有更新，此处会自动提示"
+    else
+    green "当前安装的版本：${xuiygV}"
+    yellow "检测到最新版本：${remoteV} ，可选择2进行更新！"
+    fi
+        
     echo && read -p "请输入选择 [0-16]: " num
 
     case "${num}" in
-    0)
-        exit 0
+        0) exit 0
         ;;
-    1)
-        check_uninstall && install
+        1) check_uninstall && install
         ;;
-    2)
-        check_install && update
+        2) check_install && update
         ;;
-    3)
-        check_install && uninstall
+        3) check_install && uninstall
         ;;
-    4)
-        check_install && reset_user
+        4) check_install && reset_user
         ;;
-    5)
-        check_install && reset_config
+        5) check_install && reset_config
         ;;
-    6)
-        check_install && set_port
+        6) check_install && set_port
         ;;
-    7)
-        check_install && check_config
+        7) check_install && check_config
         ;;
-    8)
-        check_install && start
+        8) check_install && start
         ;;
-    9)
-        check_install && stop
+        9) check_install && stop
         ;;
-    10)
-        check_install && restart
+        10) check_install && restart
         ;;
-    11)
-        check_install && status
+        11) check_install && status
         ;;
-    12)
-        check_install && show_log
+        12) check_install && show_log
         ;;
-    13)
-        check_install && enable
+        13) check_install && enable
         ;;
-    14)
-        check_install && disable
+        14) check_install && disable
         ;;
-    15)
-        install_bbr
+        15) acme
         ;;
-    16)
-        ssl_cert_issue
+        16) bbr
         ;;
-    *)
-        LOGE "请输入正确的数字 [0-16]"
+        *) echo -e "${red}请输入正确的数字 [0-16]${plain}"
         ;;
     esac
 }
 
+
 if [[ $# > 0 ]]; then
     case $1 in
-    "start")
-        check_install 0 && start 0
+        "start") check_install 0 && start 0
         ;;
-    "stop")
-        check_install 0 && stop 0
+        "stop") check_install 0 && stop 0
         ;;
-    "restart")
-        check_install 0 && restart 0
+        "restart") check_install 0 && restart 0
         ;;
-    "status")
-        check_install 0 && status 0
+        "status") check_install 0 && status 0
         ;;
-    "enable")
-        check_install 0 && enable 0
+        "enable") check_install 0 && enable 0
         ;;
-    "disable")
-        check_install 0 && disable 0
+        "disable") check_install 0 && disable 0
         ;;
-    "log")
-        check_install 0 && show_log 0
+        "log") check_install 0 && show_log 0
         ;;
-    "v2-ui")
-        check_install 0 && migrate_v2_ui 0
+        "v2-ui") check_install 0 && migrate_v2_ui 0
         ;;
-    "update")
-        check_install 0 && update 0
+        "update") check_install 0 && update 0
         ;;
-    "install")
-        check_uninstall 0 && install 0
+        "install") check_uninstall 0 && install 0
         ;;
-    "uninstall")
-        check_install 0 && uninstall 0
+        "uninstall") check_install 0 && uninstall 0
         ;;
-    *) show_usage ;;
+        *) show_usage
     esac
 else
     show_menu
