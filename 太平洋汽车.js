@@ -4,6 +4,7 @@ const Notify = 1 		//0为关闭通知,1为打开通知,默认为1
 const debug = 0			//0为关闭调试,1为打开调试,默认为0
 //---------------------------------------------------------------------------------------------------------
 let ckStr = ($.isNode() ? process.env.tpyqcck : $.getdata("tpyqcck")) || "";
+let phonenumber = ($.isNode() ? process.env.tpyqpython : $.getdata("tpyqpython")) || "";
 let msg, ck;
 // let ck_status = true;
 //let host = "h5.guang.com";
@@ -96,7 +97,7 @@ function tpyqccj(timeout = 3 * 1000) {
          },
   body: `{
   "actId": "19",
-  "phone": "1043078296"
+  "phone": "${phonenumber}"
 }`,
 	    }
 		$.post(url, async (error, response, data) => {
