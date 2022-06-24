@@ -38,13 +38,13 @@ def kkz():
     data_content = []
     for i in data:
         print(i)
-        if '原生竹浆抽纸巾（4包）' in i and '#aaa' not in i:
+        if '原生竹浆抽纸巾（4包）' in i and len(i[2]) < 6:
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
-        elif '回收塑料啫喱笔' in i and i[2] == 'null':
+        elif '回收塑料啫喱笔' in i and len(i[2]) < 6:
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
-        elif '晨光食物残渣中性笔' in i and '#aaa' not in i:
+        elif '晨光食物残渣中性笔' in i and len(i[2]) < 6:
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
 
