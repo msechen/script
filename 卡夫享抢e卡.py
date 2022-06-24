@@ -49,7 +49,7 @@ def push_plus_bot(content):
 
 
 if __name__ == '__main__':
-    cks = os.environ['kfxtoken'].split('&')
+    cks = os.environ['kfxtoken'].split('@')
     for ck in cks:
         exchange(ck)
 
