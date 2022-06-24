@@ -26,11 +26,13 @@
 
 开始安装：
 
-![3a048bcc003d2436e358b0854754825](https://user-images.githubusercontent.com/90416692/165665214-5ce35ed6-843c-4a3b-ba28-817eb87077ec.png)
+![fe1fd31bba775237a97c3481e1273e7](https://user-images.githubusercontent.com/107276912/175456139-4a57d10d-7185-43bb-9fe0-dcbf5286ed89.png)
+
 
 安装结束：
 
-![8f505c7ff3ee4e5719631daf43e4936](https://user-images.githubusercontent.com/90416692/168718411-cc0fcd52-2a14-4e7b-a68b-0990e420659e.png)
+![228558a9618189f909f3c4a5918be58](https://user-images.githubusercontent.com/107276912/175456155-7a434e09-4d57-4608-a3b5-dc8f0beae8ff.png)
+
 
 相关信息直接显示：
 
