@@ -115,7 +115,7 @@ echo
 acp=$(/usr/local/x-ui/x-ui setting -show 2>/dev/null)
 green "$acp"
 echo
-readp "是否直接覆盖重装x-ui（Y/y键）？(不重装，非Y/y键，退出脚本):" ins
+readp "是否直接重装x-ui，请输入Y/y键并回车。如不重装，输入非Y/y键回车退出脚本):" ins
 if [[ $ins = [Yy] ]]; then
 systemctl stop x-ui
 systemctl disable x-ui
