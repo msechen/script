@@ -281,10 +281,9 @@ def query_brand_order(brand):
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
 
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                logger.info(order['skuShopName')
+
                 if order['skuShopName'] == brandName:
-
-                    logger.info(order)
-
                     today_gmv += order['estimateCosPrice']
                     today_order += 1
                     today_order_detail += order['skuName'] + '\n'
@@ -301,7 +300,7 @@ def query_brand_order(brand):
                     yestoday_order += 1
                     yestoday_order_detail += order['skuName'] + '\n'
 
-    return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细:" + str(today_order_detail) + "\n\n[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细:" + str(yestoday_order_detail)
+    return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n:" + str(today_order_detail) + "\n\n[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细\n:" + str(yestoday_order_detail)
 
 # 查询红包发放数
 def query_jingfen_redpacket():
