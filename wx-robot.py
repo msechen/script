@@ -90,9 +90,9 @@ def forward_to_kolly(msg):
     # 如果是群聊，但没有被@，则不回复
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
-    elif msg.sender.name == '##小号##' or msg.sender.name == '知乎好物 F4':
-        return sync_data.query_today_earnings_2() + '\n\n' + sync_data.query_today_data_2() + '\n\n' + sync_data.get_zhihu_like_2()
-    elif msg.sender.name == '##小号##':
+    # elif msg.sender.name == '##小号##' or msg.sender.name == '知乎好物 F4':
+        # return sync_data.query_today_earnings_2() + '\n\n' + sync_data.query_today_data_2() + '\n\n' + sync_data.get_zhihu_like_2()
+    elif msg.sender.name == '##小号##' or msg.sender.name == '极致科创-大雄聊数码对接群':
         if 'OPPO' == msg.text or 'oppo' == msg.text or 'Oppo' == msg.text:  
             ret = sync_data.query_brand_order('oppo')
             logger.info(ret)
