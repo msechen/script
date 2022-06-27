@@ -271,11 +271,11 @@ def query_brand_order(brand):
     elif brand == 'vivo':
         brandName = 'vivo京东自营官方旗舰店'
 
-    today_order = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
+    today_orders = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
     today_gmv = 0
     today_order = 0
     today_order_detail = ''
-    for order in today_order:
+    for order in today_orders:
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
                 if order['skuShopName'] == brandName:
@@ -283,11 +283,11 @@ def query_brand_order(brand):
                     today_order += 1
                     today_order_detail += order['skuName'] + '\n'
 
-    yestoday_order = zhihu_spider.get_jd_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
+    yestoday_orders = zhihu_spider.get_jd_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
     yestoday_gmv = 0
     yestoday_order = 0
     yestoday_order_detail = ''
-    for order in yestoday_order:
+    for order in yestoday_orders:
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
                 if order['skuShopName'] == brandName:
