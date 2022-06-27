@@ -272,6 +272,7 @@ def query_brand_order(brand):
         brandName = 'vivo京东自营官方旗舰店'
 
     today_orders = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
+    logger.info(len(today_orders))
 
     today_gmv = 0
     today_order = 0
