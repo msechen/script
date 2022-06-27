@@ -273,12 +273,12 @@ def query_brand_order(brand):
 
     today_orders = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
 
-    logger.info(today_orders)
-    
     today_gmv = 0
     today_order = 0
     today_order_detail = ''
     for order in today_orders:
+        logger.info(order)
+        
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
                 if order['skuShopName'] == brandName:
