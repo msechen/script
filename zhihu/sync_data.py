@@ -294,7 +294,7 @@ def query_brand_order(brand):
                 if order['skuShopName'] == brandName:
                     yestoday_gmv += order['estimateCosPrice']
                     yestoday_order += 1
-                    yestoday_order_detail += str(today_order) + '、' + order['skuName'] + '\n'
+                    yestoday_order_detail += str(yestoday_order) + '、' + order['skuName'] + '\n'
 
     return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n" + str(today_order_detail) + "\n\n[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细\n" + str(yestoday_order_detail)
 
