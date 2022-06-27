@@ -280,10 +280,11 @@ def query_brand_order(brand):
 
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
 
-            logger.info(order)
-
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
                 if order['skuShopName'] == brandName:
+
+                    logger.info(order)
+
                     today_gmv += order['estimateCosPrice']
                     today_order += 1
                     today_order_detail += order['skuName'] + '\n'
