@@ -272,7 +272,7 @@ def get_jd_order(start, end, cookie):
 def get_jd_order_by_page(start, end, cookie, pageNo, pageSize):
     # 知乎 API
     url = '''
-        https://api.m.jd.com/api?functionId=listOrderSku&appid=u&_=1651160904745&loginType=3&body=%7B%22funName%22%3A%22listOrderSku%22%2C%22page%22%3A%7B%22pageNo%22%3A{}%2C%22pageSize%22%3A{}%7D%2C%22param%22%3A%7B%22unionRole%22%3A1%2C%22endTime%22%3A%22{}%2023%3A59%3A59%22%2C%22orderStatus%22%3A0%2C%22unionTags%22%3A%5B%220%22%5D%2C%22startTime%22%3A%22{}%2000%3A00%3A00%22%2C%22optType%22%3A1%2C%22spId%22%3A3004398015%7D%7D
+        https://api.m.jd.com/api?functionId=listOrderSku&appid=u&_=1651160904745&loginType=3&body=%7B%22funName%22%3A%22listOrderSku%22%2C%22page%22%3A%7B%22pageNo%22%3A{}%2C%22pageSize%22%3A{}%7D%2C%22param%22%3A%7B%22unionRole%22%3A1%2C%22endTime%22%3A%22{}%2023%3A59%3A59%22%2C%22orderStatus%22%3A0%2C%22unionTags%22%3A%5B%220%22%5D%2C%22startTime%22%3A%22{}%2000%3A00%3A00%22%2C%22optType%22%3A1%2C%22spId%22%3A%22%22%7D%7D
     '''.format(pageNo, pageSize, end, start)
 
     logger.info(url)
