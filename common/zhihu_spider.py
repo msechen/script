@@ -249,14 +249,14 @@ def get_jingfen_click(start, end, cookie):
 
 
 # 调京粉 api 查询pop order
-def get_pop_order(start, end, cookie):
+def get_jd_order(start, end, cookie):
     pageNo = 1
     pageSize = 20
 
     list = []
     flag = True
     while (flag):
-        pageRet = get_pop_order_by_page(start, end, cookie, pageNo, pageSize)
+        pageRet = get_jd_order_by_page(start, end, cookie, pageNo, pageSize)
         if pageRet == -10:
             flag = False
         else:
@@ -269,7 +269,7 @@ def get_pop_order(start, end, cookie):
 
 
 # 调京粉 api 查询pop order
-def get_pop_order_by_page(start, end, cookie, pageNo, pageSize):
+def get_jd_order_by_page(start, end, cookie, pageNo, pageSize):
     # 知乎 API
     url = '''
         https://api.m.jd.com/api?functionId=listOrderSku&appid=u&_=1651160904745&loginType=3&body=%7B%22funName%22%3A%22listOrderSku%22%2C%22page%22%3A%7B%22pageNo%22%3A{}%2C%22pageSize%22%3A{}%7D%2C%22param%22%3A%7B%22unionRole%22%3A1%2C%22endTime%22%3A%22{}%2023%3A59%3A59%22%2C%22orderStatus%22%3A0%2C%22unionTags%22%3A%5B%220%22%5D%2C%22startTime%22%3A%22{}%2000%3A00%3A00%22%2C%22optType%22%3A1%2C%22spId%22%3A3004398015%7D%7D
@@ -369,4 +369,4 @@ def get_zhijia_pay_2(start, end, cookie):
 if __name__ == "__main__":
     today = '2022-04-30'
     cookie = zh_config_dao.query_config('jfck2').value
-    print(get_pop_order(today, today, cookie))
+    print(get_jd_order(today, today, cookie))

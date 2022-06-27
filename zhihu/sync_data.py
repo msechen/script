@@ -208,7 +208,7 @@ def query_pop_income():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     yestoday = (datetime.datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
 
-    today_pop = zhihu_spider.get_pop_order(today, today, zh_config_dao.query_config('jfck2').value)
+    today_pop = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
     today_gmv = 0
     today_order = 0
     for order in today_pop:
@@ -221,7 +221,7 @@ def query_pop_income():
                         today_gmv += order['estimateCosPrice']
                         today_order += 1
 
-    yestoday_pop = zhihu_spider.get_pop_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
+    yestoday_pop = zhihu_spider.get_jd_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
     yestoday_gmv = 0
     yestoday_order = 0
     for order in yestoday_pop:
@@ -244,7 +244,7 @@ def query_pop_income_all():
     begin = '2022-04-21'
     end = '2022-05-30'
 
-    total_pop = zhihu_spider.get_pop_order(begin, end, zh_config_dao.query_config('jfck2').value)
+    total_pop = zhihu_spider.get_jd_order(begin, end, zh_config_dao.query_config('jfck2').value)
     total_gmv = 0
     total_order = 0
     for order in total_pop:
@@ -259,6 +259,44 @@ def query_pop_income_all():
 
     return "[pop总] GMV:" + str(int(total_gmv)) + " 订单数:" + str(total_order) + " 佣金:" + str(int(total_gmv * 0.08))
 
+
+# 查询京粉点击数
+def query_brand_order(brand):
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    yestoday = (datetime.datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
+
+    brandName = 'xxx'
+    if brand == 'oppo':
+        brandName = 'OPPO京东自营官方旗舰店'
+    elif brand == 'vivo':
+        brandName = 'vivo京东自营官方旗舰店'
+        
+
+    today_pop = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
+    today_gmv = 0
+    today_order = 0
+    today_order_detail = ''
+    for order in today_pop:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if order['skuShopName'] == brandName:
+                    today_gmv += order['estimateCosPrice']
+                    today_order += 1
+                    today_order_detail += order['skuName'] + '\n'
+
+    yestoday_pop = zhihu_spider.get_jd_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
+    yestoday_gmv = 0
+    yestoday_order = 0
+    yestoday_order_detail = ''
+    for order in yestoday_pop:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if order['skuShopName'] == brandName:
+                    yestoday_gmv += order['estimateCosPrice']
+                    yestoday_order += 1
+                    yestoday_order_detail += order['skuName'] + '\n'
+
+    return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细:" + str(today_order_detail) + "[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细:" + str(yestoday_order_detail)
 
 # 查询红包发放数
 def query_jingfen_redpacket():
