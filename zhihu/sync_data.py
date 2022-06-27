@@ -282,7 +282,7 @@ def query_brand_order(brand):
                 if order['skuShopName'] == brandName:
                     today_gmv += order['estimateCosPrice']
                     today_order += 1
-                    today_order_detail += order['skuName'] + '\n'
+                    today_order_detail += str(today_order) + '、' + order['skuName'] + '\n'
 
     yestoday_orders = zhihu_spider.get_jd_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
     yestoday_gmv = 0
@@ -294,9 +294,9 @@ def query_brand_order(brand):
                 if order['skuShopName'] == brandName:
                     yestoday_gmv += order['estimateCosPrice']
                     yestoday_order += 1
-                    yestoday_order_detail += order['skuName'] + '\n'
+                    yestoday_order_detail += str(today_order) + '、' + order['skuName'] + '\n'
 
-    return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n:" + str(today_order_detail) + "\n\n[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细\n:" + str(yestoday_order_detail)
+    return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n" + str(today_order_detail) + "\n\n[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细\n" + str(yestoday_order_detail)
 
 # 查询红包发放数
 def query_jingfen_redpacket():
