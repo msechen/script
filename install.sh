@@ -186,7 +186,7 @@ iptables -F >/dev/null 2>&1
 iptables -X >/dev/null 2>&1
 netfilter-persistent save >/dev/null 2>&1
 if [[ -z $(grep 'DiG 9' /etc/hosts) ]]; then
-v4=$(curl -s4m3 https://ip.gs -k)
+v4=$(curl -s4m5 https://ip.gs -k)
 if [ -z $v4 ]; then
 echo -e "${green}检测到VPS为纯IPV6 Only,添加dns64${plain}\n"
 echo -e nameserver 2a01:4f8:c2c:123f::1 > /etc/resolv.conf
@@ -293,8 +293,8 @@ green "x-ui登录端口：${port}"
 sleep 1
 x-ui restart
 xuilogin(){
-v4=$(curl -s4m10 https://ip.gs -k)
-v6=$(curl -s6m10 https://ip.gs -k)
+v4=$(curl -s4m8 https://ip.gs -k)
+v6=$(curl -s6m8 https://ip.gs -k)
 if [[ -z $v4 ]]; then
 int="${green}请在浏览器地址栏复制${plain}  ${bblue}[$v6]:$ports${plain}  ${green}进入x-ui登录界面\n当前x-ui登录用户名：${plain}${bblue}${username}${plain}${green} \n当前x-ui登录密码：${plain}${bblue}${password}${plain}"
 elif [[ -n $v4 && -n $v6 ]]; then
@@ -307,8 +307,8 @@ ports=$(/usr/local/x-ui/x-ui 2>&1 | grep tcp | awk '{print $5}' | sed "s/://g")
 if [[ -n $ports ]]; then
 echo -e ""
 yellow "x-ui-yg $remoteV 安装成功，请稍等3秒，检测IP环境，输出x-ui登录信息……"
-wgcfv6=$(curl -s6m10 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
-wgcfv4=$(curl -s4m10 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
+wgcfv6=$(curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
+wgcfv4=$(curl -s4m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
 if [[ ! $wgcfv4 =~ on|plus && ! $wgcfv6 =~ on|plus ]]; then
 xuilogin
 else
