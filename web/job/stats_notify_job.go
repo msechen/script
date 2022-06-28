@@ -2,7 +2,6 @@ package job
 
 import (
 	"fmt"
-	"net"
 	"os"
 	"os/exec"
 	"strconv"
@@ -120,7 +119,7 @@ func (j *StatsNotifyJob) SSHStatusLoginNotify(xuiStartTime string) {
 			return
 		}
 
-		SSHLoginInfo = fmt.Sprintf("新用户登录提醒:\r\n")
+		SSHLoginInfo = fmt.Sprintf("SSH新用户登录提醒:\r\n")
 		SSHLoginInfo += fmt.Sprintf("主机名称:%s\r\n", name)
 		SSHLoginInfo += fmt.Sprintf("SSH登录用户:%s", SSHLoginUserName)
 		SSHLoginInfo += fmt.Sprintf("SSH登录时间:%s", SSHLoginTime)
@@ -143,29 +142,7 @@ func (j *StatsNotifyJob) GetsystemStatus() string {
 	info = fmt.Sprintf("主机名称:%s\r\n", name)
 	//get ip address
 	var ip string
-	netInterfaces, err := net.Interfaces()
-	if err != nil {
-		fmt.Println("net.Interfaces failed, err:", err.Error())
-		return ""
-	}
-
-	for i := 0; i < len(netInterfaces); i++ {
-		if (netInterfaces[i].Flags & net.FlagUp) != 0 {
-			addrs, _ := netInterfaces[i].Addrs()
-
-			for _, address := range addrs {
-				if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-					if ipnet.IP.To4() != nil {
-						ip = ipnet.IP.String()
-						break
-					} else {
-						ip = ipnet.IP.String()
-						break
-					}
-				}
-			}
-		}
-	}
+	ip = common.GetMyIpAddr()
 	info += fmt.Sprintf("IP地址:%s\r\n \r\n", ip)
 
 	//get traffic
