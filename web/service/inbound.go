@@ -145,6 +145,33 @@ func (s *InboundService) UpdateInbound(inbound *model.Inbound) error {
 	return db.Save(oldInbound).Error
 }
 
+func (s *InboundService) ClearTrafficByPort(port int) error {
+	db := database.GetDB()
+	Uperr := db.Model(model.Inbound{}).Where("port = ?", port).Update("up", 0).Error
+	if Uperr != nil {
+		fmt.Println("ClearTrafficByPort error:clear up fail")
+		return Uperr
+	}
+	Downerr := db.Model(model.Inbound{}).Where("port = ?", port).Update("down", 0).Error
+	if Downerr != nil {
+		fmt.Println("ClearTrafficByPort error:clear up fail")
+		return Downerr
+	}
+	return nil
+}
+
+func (s *InboundService) ClearAllInboundTraffic() error {
+	inbounds, _ := s.GetAllInbounds()
+	for _, inbound := range inbounds {
+		err := s.ClearTrafficByPort(inbound.Port)
+		if err != nil {
+			fmt.Printf("ClearAllInboundTraffic error,ClearTrafficByPort port %d fail", inbound.Port)
+			continue
+		}
+	}
+	return nil
+}
+
 func (s *InboundService) AddTraffic(traffics []*xray.Traffic) (err error) {
 	if len(traffics) == 0 {
 		return nil
@@ -192,3 +219,4 @@ func (s *InboundService) EnableInboundByPort(port int) error {
 	db := database.GetDB()
 	return db.Model(model.Inbound{}).Where("port = ?", port).Update("enable", true).Error
 }
+
