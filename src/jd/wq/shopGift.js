@@ -63,11 +63,19 @@ class ShopGift extends Template {
 
     async function handleFormat() {
       const urls = getUrlDataFromFile(shopGiftUrlPath);
+      const getShopId = async (url, needGetReal = false) => {
+        let shopId;
+        let realUrl;
+        try {
+          needGetReal && (realUrl = await getRealUrl(url));
+          shopId = new URL(realUrl || url).searchParams.get('shopId');
+        } catch (e) {}
+        return shopId || (needGetReal ? shopId : getShopId(url, true));
+      };
       for (const url of urls) {
-        const realUrl = await getRealUrl(url);
-        const shopId = new URL(realUrl).searchParams.get('shopId');
+        const shopId = await getShopId(url);
         const venderId = await getVenderId(shopId);
-        self.shopData.push({shopId, venderId});
+        shopId && venderId && self.shopData.push({shopId, venderId});
       }
       self.shopUrlFormatted = true;
     }
@@ -114,6 +122,7 @@ class ShopGift extends Template {
     async function getVenderId(shopId) {
       if (!shopId) return;
       return api.commonDo({
+        method: 'GET',
         uri: 'https://shop.m.jd.com',
         qs: {shopId},
         ignorePrintLog: true,

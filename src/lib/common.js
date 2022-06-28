@@ -98,7 +98,7 @@ async function parallelRun({list, runFn, onceNumber = list.length, onceDelaySeco
  * @param options{object}
  * @return {Promise<string>}
  */
-async function getRealUrl(uri, after200Fn, options = {}) {
+async function getRealUrl(uri, after200Fn = void 0, options = {}) {
   !/^https?:\/\//.test(uri) && (uri = `https://${uri}`);
   _.assign(options, {
     uri, followRedirect: false,
