@@ -92,7 +92,31 @@ def forward_to_kolly(msg):
         return
     elif msg.sender.name == '##小号##' or msg.sender.name == '极致科创-大雄聊数码对接群':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
-        if 'OPPO' in msg.text or 'oppo' in msg.text or 'Oppo' in msg.text:  
+        if 'OPPO7' in msg.text or 'oppo7' in msg.text or 'Oppo7' in msg.text:  
+            ret = sync_data.query_brand_order2('oppo', 7)
+            logger.info(ret)
+            return ret
+        elif 'VIVO7' in msg.text or 'vivo7' in msg.text or 'Vivo7' in msg.text:  
+            ret = sync_data.query_brand_order2('vivo', 7)
+            logger.info(ret)
+            return ret
+        elif'OPPO14' in msg.text or 'oppo14' in msg.text or 'Oppo14' in msg.text:  
+            ret = sync_data.query_brand_order2('oppo', 14)
+            logger.info(ret)
+            return ret
+        elif 'VIVO14' in msg.text or 'vivo14' in msg.text or 'Vivo14' in msg.text:  
+            ret = sync_data.query_brand_order2('vivo',14)
+            logger.info(ret)
+            return ret
+        elif'OPPO30' in msg.text or 'oppo30' in msg.text or 'Oppo30' in msg.text:  
+            ret = sync_data.query_brand_order2('oppo', 30)
+            logger.info(ret)
+            return ret
+        elif 'VIVO30' in msg.text or 'vivo30' in msg.text or 'Vivo30' in msg.text:  
+            ret = sync_data.query_brand_order2('vivo',30)
+            logger.info(ret)
+            return ret
+        elif 'OPPO' in msg.text or 'oppo' in msg.text or 'Oppo' in msg.text:  
             ret = sync_data.query_brand_order('oppo')
             logger.info(ret)
             return ret

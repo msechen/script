@@ -298,6 +298,33 @@ def query_brand_order(brand):
 
     return "[今日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n" + str(today_order_detail) + "\n\n[昨日数据]\nGMV:" + str(int(yestoday_gmv)) + "\n订单数:" + str(yestoday_order) + "\n订单明细\n" + str(yestoday_order_detail)
 
+
+def query_brand_order2(brand, days):
+    begin = (datetime.datetime.today() + datetime.timedelta(0 - int(days))).strftime('%Y-%m-%d')
+    end = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    brandName = 'xxx'
+    if brand == 'oppo':
+        brandName = 'OPPO京东自营官方旗舰店'
+    elif brand == 'vivo':
+        brandName = 'vivo京东自营官方旗舰店'
+
+    today_orders = zhihu_spider.get_jd_order(begin, end, zh_config_dao.query_config('jfck2').value)
+
+    today_gmv = 0
+    today_order = 0
+    today_order_detail = ''
+    for order in today_orders:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if order['skuShopName'] == brandName:
+                    today_gmv += order['estimateCosPrice']
+                    today_order += 1
+                    today_order_detail += str(today_order) + '、' + order['skuName'] + '\n'
+
+    return "[近" + str(days) + "日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n" + str(today_order_detail)
+
+
 # 查询红包发放数
 def query_jingfen_redpacket():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
