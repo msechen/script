@@ -450,3 +450,9 @@
 
 # 头文字J
 30 4,16 * * * node /scripts/logs/other_scripts/allJDScripts/jd_mpdz-car.js >> /scripts/logs/other_logs/allJDScripts/jd_mpdz-car.log 2>&1
+
+# 头汪汪乐园-提现
+30 4,16 * * * node /scripts/logs/other_scripts/allJDScripts/jd_joy_joy_reward.ts >> /scripts/logs/other_logs/allJDScripts/jd_joy_joy_reward.log 2>&1
+
+# 汪汪乐园-跑步+组队
+30 4,16 * * * node /scripts/logs/other_scripts/allJDScripts/jd_joy_joy_run.ts >> /scripts/logs/other_logs/allJDScripts/jd_joy_joy_run.log 2>&1
