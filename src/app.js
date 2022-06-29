@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const {getNowDate, getNowHour} = require('./lib/moment');
-const {getCookieData, updateProcessEnv} = require('./lib/env');
+const {getCookieData, updateProcessEnv, processInAC} = require('./lib/env');
 const {sleepTime} = require('./lib/cron');
 updateProcessEnv();
 const {
@@ -49,7 +49,7 @@ const SecondKillRedPacket = TemporarilyOffline || require('./jd/secondKill/redPa
 const JxCfd = TemporarilyOffline || require('./jd/jxCfd');
 const VipClubShake = require('./jd/vipClub/shake');
 const KoiRedPacket = TemporarilyOffline || require('./jd/koiRedPacket');
-const Joy = require('./jd/joy');
+let Joy = require('./jd/joy');
 const JoyRedeem = require('./jd/joy/redeem');
 const JoySign = require('./jd/joy/Sign');
 const Family = TemporarilyOffline || require('./jd/family');
@@ -86,6 +86,10 @@ const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');
 
 const nowDate = getNowDate();
 const nowHour = getNowHour();
+
+if (processInAC()) {
+  Joy = TemporarilyOffline;
+}
 
 main().then(sendNotify.bind(0, {
   sendYesterdayLog: nowHour === 23,
