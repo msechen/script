@@ -2,7 +2,15 @@ const jobname = '天天乐赚钱'
 
 const $ = Env(jobname)
 
+
+
+
+
 let token = ($.isNode() ? process.env.ttlcookie : $.getdata('ttlcookie')) || '';
+
+
+
+
 /*
 早起打卡
 需要两条变量
@@ -59,9 +67,11 @@ let cash = 0, nickName = []
                 await home()
                 $.log(`------------`)
             }
-            if (hour > 5 && hour < 7) {
+            
                 $.log(`【${nickName}】开启早起打卡`)
+             if (hour > 5 && hour < 8) {
                 await homemade()
+                await save()
                 $.log(`------------`)
             }
         }
@@ -85,7 +95,7 @@ let cash = 0, nickName = []
         }
 
     }
-    if (tokenArr.length < 2) {
+    if (tokenArr.length < 5) {
         if (hour >= 9) {
             $.log(`\n =====账号内部助力不足 助力启动=====`)
             for (let hh = 0; hh < tokenArr.length; hh++) {
@@ -193,7 +203,7 @@ async function save() {
     let urlObject = populateUrlObject(url, body)
     await httpRequest('post', urlObject)
     let result = JSON.parse(httpResult.body);
-    console.log(`【${nickName}】早起打卡 ${result.message} `)
+    console.log(`【${nickName}】打卡 ${result.message} `)
 }
 
 
@@ -223,11 +233,6 @@ async function homemade() {
     await httpRequest('get', urlObject)
     let result = JSON.parse(httpResult.body);
     buttonState = result.content.data.buttonState
-    if (buttonState = 1) {
-        console.log(`【${nickName}】今日已打卡`)
-    } else if (buttonState = 1) {
-        await save()
-    }
 }
 
 
