@@ -1,7 +1,8 @@
 const _ = require('lodash');
 const {getNowDate, getNowHour} = require('./lib/moment');
-const {getCookieData, updateProcessEnv, processInAC} = require('./lib/env');
+const {getCookieData, updateProcessEnv, processInAC, getEnv} = require('./lib/env');
 const {sleepTime} = require('./lib/cron');
+const {sleep} = require('./lib/common');
 updateProcessEnv();
 const {
   multipleRun,
@@ -86,15 +87,22 @@ const ReceiveNecklaceCoupon = require('./jd/local/ReceiveNecklaceCoupon');
 
 const nowDate = getNowDate();
 const nowHour = getNowHour();
+const _send = sendNotify.bind(0, {
+  sendYesterdayLog: nowHour === 23,
+  subjects: [void 0, nowDate, nowHour],
+});
+// 超时需自动退出
+const autoExit = async () => {
+  await sleep(60 * 60 * 2);
+  _send();
+};
 
 if (processInAC()) {
   Joy = TemporarilyOffline;
 }
 
-main().then(sendNotify.bind(0, {
-  sendYesterdayLog: nowHour === 23,
-  subjects: [void 0, nowDate, nowHour],
-}));
+!getEnv('DISABLE_AUTO_EXIT') && autoExit();
+main().then(_send);
 
 async function main() {
   if (process.env.NOT_RUN) {
