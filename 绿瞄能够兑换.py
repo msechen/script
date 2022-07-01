@@ -81,6 +81,7 @@ def push_plus_bot(content,push_token):
 
 
 if __name__ == '__main__':
+    push_token = os.environ['push_token']
     kkz()
     if data_content != '':
         push_plus_bot(data_content,push_token)
