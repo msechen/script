@@ -259,7 +259,7 @@ def percent(AccessToken):
     return f"在浇水{percent_fruit}{fruit}包邮到家"
 
 
-def push_plus_bot(content):
+def push_plus_bot(content,push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -271,7 +271,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '拼多多果园',
         "content": b,
         "channel": "wechat",
@@ -343,4 +343,4 @@ if __name__ == '__main__':
             fertilize(tubetoken)
             watering(tubetoken)
             message = percent(ck[1])
-            push_plus_bot(message)
+            push_plus_bot(message,push_token)
