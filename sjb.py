@@ -192,7 +192,7 @@ def with_draw(sign2,time2):
     return response['msg']
 
 
-def push_plus_bot(content):
+def push_plus_bot(content,push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -204,7 +204,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '睡觉宝获得金币',
         "content": b,
         "channel": "wechat",
@@ -284,6 +284,6 @@ if __name__ == '__main__':
             data = with_draw(sign2,time2)
             print(data)
             message = f'{data}'
-            push_plus_bot(message)
+            push_plus_bot(message,push_token)
 
     print('-----------睡觉宝任务结束-------------')
