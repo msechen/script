@@ -51,7 +51,7 @@ def kkz():
     data_content = '\n'.join(data_content)
 
 
-def push_plus_bot(content):
+def push_plus_bot(content,push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -63,7 +63,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '绿瞄换物品',
         "content": b,
         "channel": "wechat",
@@ -83,4 +83,4 @@ def push_plus_bot(content):
 if __name__ == '__main__':
     kkz()
     if data_content != '':
-        push_plus_bot(data_content)
+        push_plus_bot(data_content,push_token)
