@@ -291,6 +291,7 @@ def push_plus_bot(content,push_token):
 if __name__ == '__main__':
     ck = os.environ['pddck']
     ck = ck.split('@')
+    push_token = os.environ['push_token']
     start_time = datetime.datetime.now().strftime('%H')
     for i in ck:
         ck = i.split('&')
