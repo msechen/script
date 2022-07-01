@@ -226,8 +226,8 @@ def push_plus_bot(content, push_token):
 if __name__ == '__main__':
     print('----------开始睡觉宝任务-----------------')
     start_time = datetime.datetime.now().strftime('%H')
-    push_token = 'f41e605cf752414d9cc832b6c144c302'
-    account = os.environ['sjbck']
+    push_token = ['push_token']
+    account = os.environ['sjbck'].split('/n')
     for ua in range(len(account)):
         headers1 = {
             'ua': account[ua],
