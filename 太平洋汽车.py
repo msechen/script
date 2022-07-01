@@ -1,4 +1,4 @@
-mport json
+import json
 import os
 import random
 import time
@@ -126,7 +126,7 @@ def exchange(ck, data1):
     return message
 
 
-def push_plus_bot(content):
+def push_plus_bot(content,push_toke):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -138,7 +138,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '太平洋汽车提现',
         "content": b,
         "channel": "wechat",
@@ -157,6 +157,7 @@ def push_plus_bot(content):
 
 if __name__ == '__main__':
     ck = os.environ['tpyqcck'].split("@")
+    push_token = os.environ['push_token']
     for i in ck:
         ck1 = i.split("&")
         forward(ck1[0], ck1[1])
@@ -164,4 +165,6 @@ if __name__ == '__main__':
         roll(ck1[0], ck1[1])
         time.sleep(random.randint(5, 20))
         message = exchange(ck1[0], json.loads(ck1[2]))
-        push_plus_bot(','.join(message))
+        push_plus_bot(','.join(message),push_token)
+
+
