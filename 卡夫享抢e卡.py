@@ -6,8 +6,8 @@ import requests
 import pprint
 
 
-def exchange(ck):
-    url='https://fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/exchangeIntegralNew?value=%E4%BA%AC%E4%B8%9CE%E5%8D%A12%E5%85%83&phone=&type=%E8%A7%86%E9%A2%91%E5%8D%A1'
+def exchange(ck,push_token):
+    url = 'https://fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/exchangeIntegralNew?value=%E4%BA%AC%E4%B8%9CE%E5%8D%A12%E5%85%83&phone=&type=%E8%A7%86%E9%A2%91%E5%8D%A1'
     headers = {
         'Host': 'fscrm.kraftheinz.net.cn',
         'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Pixel 4 Build/QD1A.190821.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4255 MMWEBSDK/20220303 Mobile Safari/537.36 MMWEBID/5067 MicroMessenger/8.0.21.2120(0x280015F0) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
@@ -17,9 +17,14 @@ def exchange(ck):
 
     }
     response = requests.post(url=url, headers=headers).json()
-    print(response)
+    if response['msg'] == '代理商当日超过上限' or response['msg'] == '积分不足':
+        print(response['msg'])
+    else:
+        print(response['msg'])
+        push_plus_bot(response['msg'],push_token)
 
-def push_plus_bot(content):
+
+def push_plus_bot(content,push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -31,7 +36,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '卡夫享抢E卡',
         "content": b,
         "channel": "wechat",
@@ -49,8 +54,7 @@ def push_plus_bot(content):
 
 
 if __name__ == '__main__':
-    cks = os.environ['kfxtoken'].split('@')
+    push_token = os.environ['push_token']
+    cks = os.environ['push_token'].split('@')
     for ck in cks:
-        exchange(ck)
-
-
+        exchange(ck,push_token)
