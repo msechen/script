@@ -231,6 +231,7 @@ if __name__ == '__main__':
     ]
     start_time = datetime.datetime.now().strftime('%H')
     # print(start_time)
+    push_token = os.environ['push_token']
     for ua in range(len(account)):
         headers1 = {
             'ua': account[ua],
