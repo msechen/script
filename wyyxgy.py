@@ -3,7 +3,7 @@ import json
 import pprint
 import random
 import time
-
+import os
 import requests
 
 headers = {
@@ -126,6 +126,7 @@ def push_plus_bot(content,push_token):
 
 if __name__ == '__main__':
     start_time = datetime.datetime.now().strftime('%H')
+    push_token = os.environ["push_token"]
     if start_time == '01':
         print('开始领取签到奖励')
         sign()
