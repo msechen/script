@@ -55,6 +55,6 @@ def push_plus_bot(content,push_token):
 
 if __name__ == '__main__':
     push_token = os.environ['push_token']
-    cks = os.environ['push_token'].split('@')
+    cks = os.environ['kfxtoken'].split('@')
     for ck in cks:
         exchange(ck,push_token)
