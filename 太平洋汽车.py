@@ -1,8 +1,7 @@
-import json
+mport json
 import os
 import random
 import time
-
 import requests
 
 
@@ -51,7 +50,7 @@ def roll(ck, phone):
         time.sleep(random.randint(5, 10))
 
 
-def receive_cash(ck, phone, amount, playRecordId):
+def receive_cash(ck, phone, amount, playrecordid):
     url = 'https://act1.pcauto.com.cn/discount/api/enroll/save'
     headers = {
         'Cookie': ck,
@@ -64,17 +63,20 @@ def receive_cash(ck, phone, amount, playRecordId):
 
     }
     choice = get_car_series(ck)
-    for i in choice:
-        data = {"actId": 19, "playRecordId": playRecordId, "city": "北京", "cityId": 2,
+    for i in range(len(choice)):
+        data = {"actId": 19, "playRecordId": playrecordid, "city": "北京", "cityId": 2,
                 "currentFrom": "https://www1.pcauto.com.cn/zt/discount-topics/app-wap/index.html#/?actId=19&sourceDetail=5&isActivity=1&app_ver=5.37.9&FromPCapp=PCAUTO_INFO_ANDROID_5.37.9",
                 "locationMessage": "0", "locationType": 1, "locationVersion": 2, "pcsuv": 52195929, "phone": phone,
-                "seriesBOList": [i], "source": 2, "sourceDetail": 5}
+                "seriesBOList": [choice[i]], "source": 2, "sourceDetail": 5}
         body = json.dumps(data).encode(encoding='utf-8')
         response = requests.post(url=url, data=body, headers=headers).json()
         if response["code"] == 200:
             msg = response['data']["msg"]
-            print(f"此次摇奖获得{amount}红包已{msg}")
-            return amount, playRecordId
+            if msg == '您已参与此车，请选择其他车系':
+                continue
+            else:
+                print(f"此次摇奖获得{amount}红包已{msg}")
+                return amount, playrecordid
 
 
 def get_car_series(ck):
@@ -93,6 +95,7 @@ def get_car_series(ck):
     body = json.dumps(data).encode(encoding='utf-8')
     response = requests.post(url=url, data=body, headers=headers).json()
     car_series = response["data"]
+    print(car_series)
     return car_series
 
 
