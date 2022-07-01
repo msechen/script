@@ -1,12 +1,11 @@
 import datetime
 import json
-import pprint
+import os
 import re
 import hashlib
 import requests
 import time
 import random
-import os
 
 headers = {
     'ua': '',
@@ -193,7 +192,7 @@ def with_draw(sign2,time2):
     return response['msg']
 
 
-def push_plus_bot(content,push_token):
+def push_plus_bot(content, push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -205,7 +204,7 @@ def push_plus_bot(content,push_token):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
+        "token":  push_token,
         "title": '睡觉宝获得金币',
         "content": b,
         "channel": "wechat",
@@ -215,7 +214,7 @@ def push_plus_bot(content,push_token):
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    # print(response)
+    print(response)
     if response['code'] == 200:
         print('推送成功！')
     else:
@@ -226,13 +225,9 @@ def push_plus_bot(content,push_token):
 
 if __name__ == '__main__':
     print('----------开始睡觉宝任务-----------------')
-    account = [
-        'a|10|2.0.5|ql_sleep|f2e3b01fdbc39bb7unknown|1080|2236|0|859701|1654179676000|0fede26a8837c1d34bc95075b49ef826|924938b69f8f31055479e7970c76514c|google',
-        'a|7.1.2|2.0.5|ql_sleep|3513abaac224588bvmosseri|1080|2148|0|859720|1654179812000|06d1c4001247ec53c59bb2fd5acbcd90|6fb891ed286c7985784707703917901a|google'
-    ]
     start_time = datetime.datetime.now().strftime('%H')
-    # print(start_time)
-    push_token = os.environ['push_token']
+    push_token = 'f41e605cf752414d9cc832b6c144c302'
+    account = os.environ['sjbck']
     for ua in range(len(account)):
         headers1 = {
             'ua': account[ua],
@@ -240,10 +235,6 @@ if __name__ == '__main__':
         headers.update(headers1)
         accessToken1, name_id, name = accessToken()
         print(f"------正在进行账号{name}的睡觉宝任务-------")
-        # time2 = timeStamp()
-        # sign2 = sign(accessToken1, name_id,time2)
-        # with_draw(sign2, time2)
-
         begin_task = int(total_money())
         if start_time == '01':
             # print('1')
@@ -278,7 +269,7 @@ if __name__ == '__main__':
         finish_task = int(total_money())
         last_coin = finish_task - begin_task
         message = f'{data},总金币{finish_task}'
-        push_plus_bot(message)
+        push_plus_bot(message,push_token)
         print(f'此次任务共获得{last_coin},总金币{finish_task}')
         if finish_task >= 10000:
             time2 = timeStamp()
