@@ -95,7 +95,7 @@ def jsjd():
     return response['result']['levelDesc']
 
 
-def push_plus_bot(content):
+def push_plus_bot(content,push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -107,7 +107,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '网易严选果园任务',
         "content": b,
         "channel": "wechat",
@@ -166,4 +166,4 @@ if __name__ == '__main__':
         time.sleep(random.randint(1, 4))
         print('开始推送信息')
         message=jsjd()
-        push_plus_bot(f"5斤六鳌蜜薯{message}")
+        push_plus_bot(f"5斤六鳌蜜薯{message}",push_token)
