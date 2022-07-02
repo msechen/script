@@ -62,7 +62,7 @@ def collar_drop(tubetoken):
         # headers = {'Content-Type': 'application/json'}
         response = requests.post(url=url, data=body, headers=headers).json()
         pprint.pprint(response)
-        if response["result"] != "false":
+        if response["result"] == "null":
             print(f'领取{response["gain_amount"]}水滴')
 
         else:
@@ -81,8 +81,7 @@ def receive_three_meal(tubetoken):
     body = json.dumps(body).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    pprint.pprint(response)
-    if response["result"] == "true":
+    if response["result"]:
         print(f'领取{response["reward_amount"]}水滴')
 
     else:
@@ -202,12 +201,11 @@ def open_collar_fertilizer(tubetoken):
     body = json.dumps(body).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    pprint.pprint(response)
     if response["result"]:
-        print(f'第一次打开成功')
+        print(f'打开成功')
 
     else:
-        print('第二次打卡时间未到')
+        print('打卡时间未到')
 
 
 ##领水瓶水滴
@@ -261,7 +259,7 @@ def percent(AccessToken):
     return f"在浇水{percent_fruit}{fruit}包邮到家"
 
 
-def push_plus_bot(content,push_token):
+def push_plus_bot(content):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -273,7 +271,7 @@ def push_plus_bot(content,push_token):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
+        "token": 'f41e605cf752414d9cc832b6c144c302',
         "title": '拼多多果园',
         "content": b,
         "channel": "wechat",
@@ -293,17 +291,15 @@ def push_plus_bot(content,push_token):
 if __name__ == '__main__':
     ck = os.environ['pddck']
     ck = ck.split('@')
-    push_token = os.environ['push_token']
     start_time = datetime.datetime.now().strftime('%H')
     for i in ck:
         ck = i.split('&')
         cookie = f'Ck2xeGK6oZFNOQBsRGZxAg==; PDDAccessToken=VNWK3BPFZVAFVFXVTPQP53MQUSXYFLHIQZHBOFZSXH64LHOBNRYQ1136713; pdd_user_id={ck[0]}; pdd_user_uin=BBGFR6JX3UNC65QCXP2E7QWIE4_GEXDA; _nano_fp=XpEyn5Xbl0PxnqEqnT_fIpmlN5ZfKqNlJUluEvwx; garden_cache=%7B%22common_config%22%3A%221656346837473%22%7D; pdd_vds=gaLLNIPaoItaPnIntELtONbLGttNQtOGNEiQLOQonaPttbtLoEyEOLoEyQna'
-
         header1 = {'accesstoken': ck[1],
                    'cookie': cookie}
         headers.update(header1)
         tubetoken = ck[2]
-        if start_time == '09':
+        if start_time == '07':
             print('开始领早餐水滴')
             receive_three_meal(tubetoken)
             time.sleep(random.randint(3, 5))
@@ -347,4 +343,4 @@ if __name__ == '__main__':
             fertilize(tubetoken)
             watering(tubetoken)
             message = percent(ck[1])
-            push_plus_bot(message,push_token)
+            push_plus_bot(message)
