@@ -12,7 +12,7 @@ headers = {
 
 
 # 得到取钱信息
-def get_money_data(userid, ck2,push_token):
+def get_money_data(userid, ck2, push_token):
     money_all = []
     url = f'https://miniapi.tianwensk.com/miniapp/user/wallet/getWithdrawConfig?{userid}'
     response = requests.get(url=url, headers=headers).json()
@@ -25,13 +25,13 @@ def get_money_data(userid, ck2,push_token):
             money_all.append([amount, id])
     for i in money_all:
         if int(money) >= int(i[0]):
-            exchange(ck2, name, i,push_token)
+            exchange(ck2, name, i, push_token)
         else:
             print(f'{name}目前金额为{int(money) / 100}提现金额不足,取消提现')
             return
 
 
-def exchange(ck, name, data,push_token):
+def exchange(ck, name, data, push_token):
     url = f'https://miniapi.tianwensk.com/miniapp/user/wallet/apply?{ck}&withdrawConfigId={data[1]}'
     response = requests.post(url=url, headers=headers).json()
 
@@ -80,5 +80,5 @@ if __name__ == '__main__':
     for cks in ck:
         ck1 = cks.split('&')
         print(ck1[0], cks)
-        get_money_data(ck1[0], cks)
+        get_money_data(ck1[0], cks, push_token)
         time.sleep(5)
