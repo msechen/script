@@ -14,7 +14,7 @@ headers = {
     # 'Accept-Encoding': 'br, gzip',
     'Host': 'minigame.zijieapi.com',
     # 'Connection': 'Keep-Alive',
-    'Cookie': 'odin_tt=e6fb199b84cfbea49c72884bbd44c2c6f6ac5ab649e0bfa160199f2d75cd582d8f3ad7acded72d4f984ed06bae624e2f65c262568e7069301cb5b07740aab6da; install_id=3980686141954494; ttreq=1$7bd75ef2bd643d38942207b07728aad96457cc5a; uid_tt=c0890449f72ccf9013b7b10430dfda2e; sid_guard=8dc94c878f4f038210854dddf3721bd4%7C1654399890%7C5139965%7CWed%2C+03-Aug-2022+15%3A17%3A35+GMT; sid_tt=8dc94c878f4f038210854dddf3721bd4; sessionid=8dc94c878f4f038210854dddf3721bd4',
+    'Cookie': '',
 
 }
 
