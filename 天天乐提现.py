@@ -1,6 +1,5 @@
 import json
 import os
-import pprint
 import time
 import requests
 
@@ -13,35 +12,37 @@ headers = {
 
 
 # 得到取钱信息
-def get_money_data(userid):
+def get_money_data(userid, ck2,push_token):
     money_all = []
     url = f'https://miniapi.tianwensk.com/miniapp/user/wallet/getWithdrawConfig?{userid}'
     response = requests.get(url=url, headers=headers).json()
-    pprint.pprint(response)
     if response['state'] == 1:
         name = response['content']['data']['nickName']
-        # money = response['content']['data']['balance']
-        money = '120'
-
+        money = response['content']['data']['balance']
         for i in response['content']['data']['withdrawConfigList']:
             amount = i['amount']
             id = i['id']
             money_all.append([amount, id])
     for i in money_all:
         if int(money) >= int(i[0]):
-            return name, i
+            exchange(ck2, name, i,push_token)
+        else:
+            print(f'{name}目前金额为{int(money) / 100}提现金额不足,取消提现')
+            return
 
 
-def exchange(ck, name, data):
+def exchange(ck, name, data,push_token):
     url = f'https://miniapi.tianwensk.com/miniapp/user/wallet/apply?{ck}&withdrawConfigId={data[1]}'
     response = requests.post(url=url, headers=headers).json()
 
     if response['state'] == 1:
         print(f'{name}提现{str(int(int(data[0] / 100)))}成功')
+        push_plus_bot(f'{name}提现{str(int(int(data[0] / 100)))}成功', push_token)
         return f'{name}提现{str(int(int(data[0] / 100)))}成功'
     else:
         print(response['message'])
         return "提现不成功"
+
 
 def push_plus_bot(content, push_token):
     b = content
@@ -73,13 +74,11 @@ def push_plus_bot(content, push_token):
 
 
 if __name__ == '__main__':
-    ck = os.environ['ttlcookiepy'].split('@')
+    ck = os.environ['ttlcookiepy']
+    ck = ck.split('@')
     push_token = os.environ['push_token']
     for cks in ck:
-        cks = cks.split('&')
-        name, data = get_money_data(cks[0])
+        ck1 = cks.split('&')
+        print(ck1[0], cks)
+        get_money_data(ck1[0], cks)
         time.sleep(5)
-        content = exchange(cks, name, data)
-        if content != "提现不成功":
-            push_plus_bot(content, push_token)
-        time.sleep(10)
