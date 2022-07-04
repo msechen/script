@@ -6,9 +6,9 @@ import (
 )
 
 func GetMyIpAddr() string {
-	resp, err := http.Get("http://icanhazip.com")
+	resp, err := http.Get("https://api64.ipify.org")
 	if err != nil {
-		resp, _ = http.Get("http://api.ip.sb/ip")
+		resp, _ = http.Get("http://ip.cip.cc")
 	}
 	defer resp.Body.Close()
 	s, _ := ioutil.ReadAll(resp.Body)
