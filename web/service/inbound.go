@@ -149,12 +149,12 @@ func (s *InboundService) ClearTrafficByPort(port int) error {
 	db := database.GetDB()
 	Uperr := db.Model(model.Inbound{}).Where("port = ?", port).Update("up", 0).Error
 	if Uperr != nil {
-		fmt.Println("ClearTrafficByPort error:clear up fail")
+		fmt.Println("ClearTrafficByPort error:clear up failed")
 		return Uperr
 	}
 	Downerr := db.Model(model.Inbound{}).Where("port = ?", port).Update("down", 0).Error
 	if Downerr != nil {
-		fmt.Println("ClearTrafficByPort error:clear up fail")
+		fmt.Println("ClearTrafficByPort error:clear down failed")
 		return Downerr
 	}
 	return nil
@@ -219,4 +219,3 @@ func (s *InboundService) EnableInboundByPort(port int) error {
 	db := database.GetDB()
 	return db.Model(model.Inbound{}).Where("port = ?", port).Update("enable", true).Error
 }
-
