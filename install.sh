@@ -1,5 +1,5 @@
 #!/bin/bash
-xuiygV="0.3.3.15.5"
+xuiygV="0.3.3.15.6"
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
