@@ -533,7 +533,7 @@ show_menu() {
     acp=$(/usr/local/x-ui/x-ui setting -show 2>/dev/null)
     green "$acp"
     echo "------------------------------------------"
-    xuiygV="22.7.4 V 0.3.3.15.6"
+    xuiygV="22.7.4 V 0.3.3.15.7"
     remoteV=`wget -qO- https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh | sed  -n 2p | cut -d '"' -f 2`
     localV=${xuiygV}
     if [ "${localV}" = "${remoteV}" ]; then
