@@ -854,6 +854,7 @@ class Inbound extends XrayCommonClass {
             case Protocols.VMESS:
             case Protocols.VLESS:
             case Protocols.SHADOWSOCKS:
+            case Protocols.TROJAN:    
                 return true;
             default:
                 return false;
@@ -1433,8 +1434,8 @@ Inbound.TrojanSettings.Fallback = class extends XrayCommonClass {
 
 Inbound.ShadowsocksSettings = class extends Inbound.Settings {
     constructor(protocol,
-        method = SSMethods.BLAKE3_AES_256_GCM,
-        password = RandomUtil.randomSeq(44),
+        method = SSMethods.AES_256_GCM,
+        password = btoa(RandomUtil.randomSeq(64)),
         network = 'tcp,udp'
     ) {
         super(protocol);
