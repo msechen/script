@@ -194,13 +194,8 @@ uninstall() {
     rm -rf goxui.sh acme.sh
     sed -i '/goxui.sh/d' /etc/crontab >/dev/null 2>&1
     sed -i '/x-ui restart/d' /etc/crontab >/dev/null 2>&1
-    echo ""
-    echo -e "卸载成功，如果你想删除此脚本，则退出脚本后运行 ${green}rm /usr/bin/x-ui -f${plain} 进行删除"
-    echo ""
-
-    if [[ $# == 0 ]]; then
-        before_show_menu
-    fi
+    rm /usr/bin/x-ui -f
+    green "x-ui已卸载成功，后会有期！"
 }
 
 reset_user() {
