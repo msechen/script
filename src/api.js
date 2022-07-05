@@ -63,7 +63,7 @@ async function doCron1(target, index = 0) {
 }
 
 async function sendNotify({sendYesterdayLog = false, subjects = [], forceExit = true}) {
-  if (mailer.disabled && serverChan.disabled) return;
+  if (mailer.disabledSend() && serverChan.disabled) return;
 
   const sortLogByName = content => getSortLogContent('name', content);
   const contents = [];

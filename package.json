@@ -9,6 +9,7 @@
     "crypto-js": "^4.0.0",
     "download": "^8.0.0",
     "https-proxy-agent": "^5.0.0",
+    "imap": "^0.8.19",
     "js-md5": "^0.7.3",
     "lodash": "^4.17.19",
     "moment-timezone": "^0.5.31",
@@ -17,6 +18,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "tweetsodium": "0.0.5",
+    "uuid": "^8.3.2",
     "ws": "^7.4.3"
   },
   "devDependencies": {
