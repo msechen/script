@@ -224,6 +224,54 @@ def bottle(tubetoken):
         print('可能是COOKies掉了或者领过水瓶水了')
 
 
+# 获取偷取信息
+def steal_water(tubetoken):
+    status = []
+    url = 'https://mobile.yangkeduo.com/proxy/api/api/manor-query/friend/list/page?pdduid=5343650012'
+    body = {"page_num": 1, "tubetoken": tubetoken, "fun_pl": 7}
+    body = json.dumps(body).encode(encoding='utf-8')
+    response = requests.post(url=url, data=body, headers=headers).json()
+    # pprint.pprint(response)
+    if len(response["friend_list"]) > 0:
+        for i in response['friend_list']:
+            try:
+                friend_name = i['nickname']
+                uid = i['uid']
+                bottle_water_status = i['bottle_water_status']['status']
+                # print(friend_name, uid, bottle_water_status)
+                status.append([friend_name, uid, bottle_water_status])
+            except:
+                pass
+    else:
+        print('无好友列表退出偷取好友水滴')
+
+    for i in status:
+        if i[2] == 2:
+            name = i[0]
+            uid = i[1]
+            steal(tubetoken, uid, name)
+
+# 偷取
+def steal(tubetoken, uid, name):
+    url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/steal/water?pdduid=5343650012'
+    body = {"friend_uid": uid, "steal_type": 1, "tubetoken": tubetoken, "fun_pl": 7}
+    body = json.dumps(body).encode(encoding='utf-8')
+    response = requests.post(url=url, data=body, headers=headers).json()
+    if "暂不可偷取，请稍后再试" not in response:
+        print(f'偷取好友{name}{response["steal_amount"]}滴水滴')
+    else:
+        print(response['"error_msg"'])
+
+    url2 = 'https://mobile.yangkeduo.com/proxy/api/api/manor/steal/water?pdduid=5343650012'
+    body = {"friend_uid": uid, "tubetoken": tubetoken, "fun_pl": 7}
+    body = json.dumps(body).encode(encoding='utf-8')
+    response = requests.post(url=url2, data=body, headers=headers).json()
+    if "暂不可偷取，请稍后再试" not in response:
+        print(f'偷取{response["steal_amount"]}')
+    else:
+        print(response['距离上次偷好友水滴间隔太短'])
+
+
 ##浇水
 def watering(tubetoken):
     url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/water/cost?pdduid=4559229104999'
@@ -294,11 +342,12 @@ if __name__ == '__main__':
     start_time = datetime.datetime.now().strftime('%H')
     for i in ck:
         ck = i.split('&')
-        cookie = f'Ck2xeGK6oZFNOQBsRGZxAg==; PDDAccessToken=VNWK3BPFZVAFVFXVTPQP53MQUSXYFLHIQZHBOFZSXH64LHOBNRYQ1136713; pdd_user_id={ck[0]}; pdd_user_uin=BBGFR6JX3UNC65QCXP2E7QWIE4_GEXDA; _nano_fp=XpEyn5Xbl0PxnqEqnT_fIpmlN5ZfKqNlJUluEvwx; garden_cache=%7B%22common_config%22%3A%221656346837473%22%7D; pdd_vds=gaLLNIPaoItaPnIntELtONbLGttNQtOGNEiQLOQonaPttbtLoEyEOLoEyQna'
+        cookie = f'Ck2xeGK6oZFNOQBsRGZxAg==; PDDAccessToken={ck[1]}; pdd_user_id={ck[0]}; pdd_user_uin=BBGFR6JX3UNC65QCXP2E7QWIE4_GEXDA; _nano_fp=XpEyn5Xbl0PxnqEqnT_fIpmlN5ZfKqNlJUluEvwx; garden_cache=%7B%22common_config%22%3A%221656346837473%22%7D; pdd_vds=gaLLNIPaoItaPnIntELtONbLGttNQtOGNEiQLOQonaPttbtLoEyEOLoEyQna'
         header1 = {'accesstoken': ck[1],
                    'cookie': cookie}
         headers.update(header1)
         tubetoken = ck[2]
+        
         if start_time == '07':
             print('开始领早餐水滴')
             receive_three_meal(tubetoken)
@@ -320,6 +369,7 @@ if __name__ == '__main__':
             time.sleep(random.randint(3, 5))
             open_collar_fertilizer(tubetoken)
             time.sleep(random.randint(3, 5))
+            steal_water(tubetoken)
         elif start_time == '12':
             print('开始领午餐水滴')
             receive_three_meal(tubetoken)
@@ -328,7 +378,8 @@ if __name__ == '__main__':
             open_collar_fertilizer(tubetoken)
             time.sleep(random.randint(3, 5))
             fertilize(tubetoken)
-
+            time.sleep(random.randint(3, 5))
+            steal_water(tubetoken)
         elif start_time == '18':
             print('开始领晚餐水滴')
             receive_three_meal(tubetoken)
@@ -341,6 +392,8 @@ if __name__ == '__main__':
             open_collar_fertilizer(tubetoken)
             time.sleep(random.randint(3, 5))
             fertilize(tubetoken)
+            time.sleep(random.randint(3, 5))
+            steal_water(tubetoken)
             watering(tubetoken)
             message = percent(ck[1])
             push_plus_bot(message)
