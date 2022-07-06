@@ -180,10 +180,13 @@ def fertilize(tubetoken):
     response = requests.post(url=url, data=body, headers=headers).json()
     pprint.pprint(response)
     if response["error_code"] != 20002:
-        print(f'目前剩可施肥数量为{response["user_backpack_vo"]["amount"]}袋化肥')
-        if int(response["ser_backpack_vo"]["amount"]) >= 1:
-            fertilize(tubetoken)
-            time.sleep(random.randint(1, 3))
+        try:
+            print(f'目前剩可施肥数量为{response["user_backpack_vo"]["amount"]}袋化肥')
+            if int(response["ser_backpack_vo"]["amount"]) >= 1:
+                fertilize(tubetoken)
+                time.sleep(random.randint(1, 3))
+        except:
+            pass    
     else:
         print('化肥不足')
 
@@ -347,7 +350,7 @@ if __name__ == '__main__':
                    'cookie': cookie}
         headers.update(header1)
         tubetoken = ck[2]
-        
+
         if start_time == '07':
             print('开始领早餐水滴')
             receive_three_meal(tubetoken)
