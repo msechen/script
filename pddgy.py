@@ -53,7 +53,7 @@ def log_reward(tubetoken):
 # 领水滴
 def collar_drop(tubetoken):
     try:
-        url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts=1656315789163&pdduid=4559229104999'
+        url = f'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts={int(time.time() * 1000)}&pdduid=4559229104999'
 
         body = {"mission_type": 36155, "gain_time": 1, "no_reward": "false",
                 "tubetoken": tubetoken,
@@ -73,7 +73,7 @@ def collar_drop(tubetoken):
 
 ##领三餐水滴
 def receive_three_meal(tubetoken):
-    url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete?ts=1656325557544&pdduid=4559229104999'
+    url = f'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete?ts={int(time.time() * 1000)}&pdduid=4559229104999'
 
     body = {"mission_type": 37265,
             "tubetoken": tubetoken,
@@ -136,7 +136,7 @@ def box(tubetoken):
 
 ##搜索领水滴
 def search(tubetoken):
-    url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete?ts=1656330944511&pdduid=4559229104999'
+    url = f'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete?ts={int(time.time() * 1000)}&pdduid=4559229104999'
     body = {"page_sn": "10015", "mission_type": 36288,
             "screen_token": tubetoken,
             "use_anti_token": 1, "fun_pl": 7}
@@ -186,7 +186,7 @@ def fertilize(tubetoken):
                 fertilize(tubetoken)
                 time.sleep(random.randint(1, 3))
         except:
-            pass    
+            pass
     else:
         print('化肥不足')
 
@@ -194,10 +194,35 @@ def fertilize(tubetoken):
 ##打卡领化肥
 def open_collar_fertilizer(tubetoken):
     """
+    https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts=1657108779254&pdduid=5343650012
     https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts=1656338096260&pdduid=4559229104999
     {"mission_type":36069,"gain_time":1,"no_reward":false,"tubetoken":"Ff5sBc8KFQhkLPzy5aSiZ4Gd7tCm8x7AJe33NU6qGZnTLAgeSJeXJoQjAnzjyettLahz3Ao9mmAm%0ATu1GWZo1JljTdYHJAIvltlfCEkhy6NxGBghMM1NoA79NKjzjhMu%2FJTLnhpwlHUYMsVYBwuJO0xV1%0Ayu%2FRCmpokx2U5hh04dGtqGXUuXjpEuBw6hQPeUrKPRRuAJAa4wFy1nfkdVVbKhjCtUk89oTjhh8X%0A5tL9RMX1%2FNvMcCJP6xi46Y9D6%2FZA","fun_pl":7}
     """
-    url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete?ts=1656331761072&pdduid=4559229104999'
+    url = f'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete?ts={int(time.time() * 1000)}&pdduid=4559229104999'
+    body = {"mission_type": 36069,
+            "tubetoken": tubetoken,
+            "fun_pl": 7}
+    body = json.dumps(body).encode(encoding='utf-8')
+    # headers = {'Content-Type': 'application/json'}
+    response = requests.post(url=url, data=body, headers=headers).json()
+    try:
+        if response["result"]:
+            print(f'打开成功')
+
+        else:
+            print('打卡时间未到')
+    except:
+        pass
+
+
+# 第二次打卡
+def second_open_collar_fertilizer(tubetoken):
+    """
+    https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts=1657108779254&pdduid=5343650012
+    https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts=1656338096260&pdduid=4559229104999
+    {"mission_type":36069,"gain_time":1,"no_reward":false,"tubetoken":"Ff5sBc8KFQhkLPzy5aSiZ4Gd7tCm8x7AJe33NU6qGZnTLAgeSJeXJoQjAnzjyettLahz3Ao9mmAm%0ATu1GWZo1JljTdYHJAIvltlfCEkhy6NxGBghMM1NoA79NKjzjhMu%2FJTLnhpwlHUYMsVYBwuJO0xV1%0Ayu%2FRCmpokx2U5hh04dGtqGXUuXjpEuBw6hQPeUrKPRRuAJAa4wFy1nfkdVVbKhjCtUk89oTjhh8X%0A5tL9RMX1%2FNvMcCJP6xi46Y9D6%2FZA","fun_pl":7}
+    """
+    url = f'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts={int(time.time() * 1000)}&pdduid=5343650012'
     body = {"mission_type": 36069,
             "tubetoken": tubetoken,
             "fun_pl": 7}
@@ -254,6 +279,7 @@ def steal_water(tubetoken):
             uid = i[1]
             steal(tubetoken, uid, name)
 
+
 # 偷取
 def steal(tubetoken, uid, name):
     url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/steal/water?pdduid=5343650012'
@@ -273,6 +299,18 @@ def steal(tubetoken, uid, name):
         print(f'偷取{response["steal_amount"]}')
     else:
         print(response['距离上次偷好友水滴间隔太短'])
+
+
+# 收水车水滴
+def waterwheel_droplets(tubetoken):
+    url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/common/water/gain?pdduid=4559229104999'
+    body = {"type": 15, "mission_type": "", "params": {"15": 30000}, "tubetoken": tubetoken, "fun_pl": 7}
+    body = json.dumps(body).encode(encoding='utf-8')
+    response = requests.post(url=url, data=body, headers=headers).json()
+    if response["status"] == 1:
+        print('水车水滴收取成功')
+    else:
+        print('无水车或者水车水滴不足')
 
 
 ##浇水
@@ -304,10 +342,9 @@ def percent(AccessToken):
 
     }
     response = requests.get(url=url, headers=headers).text
-    percent_fruit = re.findall('再浇水<!-- -->(.*?)<!', response)[0] + "%"
-    fruit = re.findall('%<!-- -->(.*?)<!-- -->包邮送到家', response)[0]
-    print(f"在浇水{percent_fruit}{fruit}包邮到家")
-    return f"在浇水{percent_fruit}{fruit}包邮到家"
+    fruit = re.findall('class="cartoon-taro-text">(.*?)</span>', response)[0].replace('<!-- -->', '')
+    print(fruit)
+    return f"在浇水{fruit}包邮到家"
 
 
 def push_plus_bot(content):
@@ -350,7 +387,7 @@ if __name__ == '__main__':
                    'cookie': cookie}
         headers.update(header1)
         tubetoken = ck[2]
-
+        # percent(ck[1])
         if start_time == '07':
             print('开始领早餐水滴')
             receive_three_meal(tubetoken)
@@ -372,31 +409,42 @@ if __name__ == '__main__':
             time.sleep(random.randint(3, 5))
             open_collar_fertilizer(tubetoken)
             time.sleep(random.randint(3, 5))
+            print('收水车水滴')
+            waterwheel_droplets(tubetoken)
+            time.sleep(random.randint(3, 5))
+            print('开始收水滴任务')
             steal_water(tubetoken)
         elif start_time == '12':
             print('开始领午餐水滴')
             receive_three_meal(tubetoken)
             time.sleep(7)
             print('开始领化肥第二个打卡任务')
-            open_collar_fertilizer(tubetoken)
+            second_open_collar_fertilizer(tubetoken)
             time.sleep(random.randint(3, 5))
-            fertilize(tubetoken)
+            print('收水车水滴')
+            waterwheel_droplets(tubetoken)
             time.sleep(random.randint(3, 5))
+            print('开始偷好友水滴')
             steal_water(tubetoken)
         elif start_time == '18':
             print('开始领晚餐水滴')
             receive_three_meal(tubetoken)
             print('开始浇水')
             watering(tubetoken)
-            print('开始领宝箱任务')
-            box(tubetoken)
+            # print('开始领宝箱任务')
+            # box(tubetoken)
+            print('开始查询果树营养')
             tree_nutrients(tubetoken)
             time.sleep(random.randint(3, 5))
-            open_collar_fertilizer(tubetoken)
+            print('收水车水滴')
+            waterwheel_droplets(tubetoken)
             time.sleep(random.randint(3, 5))
+            print('判断是否施肥')
             fertilize(tubetoken)
             time.sleep(random.randint(3, 5))
+            print('开始偷好友水滴')
             steal_water(tubetoken)
+            print('开始浇水')
             watering(tubetoken)
             message = percent(ck[1])
             push_plus_bot(message)
