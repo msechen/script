@@ -265,14 +265,13 @@ def steal_water(tubetoken):
             try:
                 friend_name = i['nickname']
                 uid = i['uid']
-                bottle_water_status = i['bottle_water_status']['status']
+                bottle_water_status = i['steal_water_status']['status']
                 # print(friend_name, uid, bottle_water_status)
                 status.append([friend_name, uid, bottle_water_status])
             except:
                 pass
     else:
         print('无好友列表退出偷取好友水滴')
-
     for i in status:
         if i[2] == 2:
             name = i[0]
@@ -286,20 +285,27 @@ def steal(tubetoken, uid, name):
     body = {"friend_uid": uid, "steal_type": 1, "tubetoken": tubetoken, "fun_pl": 7}
     body = json.dumps(body).encode(encoding='utf-8')
     response = requests.post(url=url, data=body, headers=headers).json()
-    if "暂不可偷取，请稍后再试" not in response:
-        print(f'偷取好友{name}{response["steal_amount"]}滴水滴')
+    pprint.pprint(response)
+    if response['error_code'] != 10018:
+        if "暂不可偷取，请稍后再试" not in response:
+            print(f'偷取好友{name}{response["steal_amount"]}滴水滴')
+        else:
+            print(response['"error_msg"'])
     else:
-        print(response['"error_msg"'])
+        print(response['error_msg'])
 
     url2 = 'https://mobile.yangkeduo.com/proxy/api/api/manor/steal/water?pdduid=5343650012'
     body = {"friend_uid": uid, "tubetoken": tubetoken, "fun_pl": 7}
     body = json.dumps(body).encode(encoding='utf-8')
     response = requests.post(url=url2, data=body, headers=headers).json()
-    if "暂不可偷取，请稍后再试" not in response:
-        print(f'偷取{response["steal_amount"]}')
+    pprint.pprint(response)
+    if response['error_code'] != 10018:
+        if "暂不可偷取，请稍后再试" not in response:
+            print(f'偷取{response["steal_amount"]}')
+        else:
+            print(response['距离上次偷好友水滴间隔太短'])
     else:
-        print(response['距离上次偷好友水滴间隔太短'])
-
+        print(response['error_msg'])
 
 # 收水车水滴
 def waterwheel_droplets(tubetoken):
@@ -387,7 +393,7 @@ if __name__ == '__main__':
                    'cookie': cookie}
         headers.update(header1)
         tubetoken = ck[2]
-        # percent(ck[1])
+        percent(ck[1])
         if start_time == '07':
             print('开始领早餐水滴')
             receive_three_meal(tubetoken)
@@ -412,8 +418,8 @@ if __name__ == '__main__':
             print('收水车水滴')
             waterwheel_droplets(tubetoken)
             time.sleep(random.randint(3, 5))
-            print('开始收水滴任务')
-            steal_water(tubetoken)
+            # print('开始偷水滴任务')
+            # steal_water(tubetoken)
         elif start_time == '12':
             print('开始领午餐水滴')
             receive_three_meal(tubetoken)
@@ -424,8 +430,8 @@ if __name__ == '__main__':
             print('收水车水滴')
             waterwheel_droplets(tubetoken)
             time.sleep(random.randint(3, 5))
-            print('开始偷好友水滴')
-            steal_water(tubetoken)
+            # print('开始偷好友水滴')
+            # steal_water(tubetoken)
         elif start_time == '18':
             print('开始领晚餐水滴')
             receive_three_meal(tubetoken)
@@ -442,8 +448,8 @@ if __name__ == '__main__':
             print('判断是否施肥')
             fertilize(tubetoken)
             time.sleep(random.randint(3, 5))
-            print('开始偷好友水滴')
-            steal_water(tubetoken)
+            # print('开始偷好友水滴')
+            # steal_water(tubetoken)
             print('开始浇水')
             watering(tubetoken)
             message = percent(ck[1])
