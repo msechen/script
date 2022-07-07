@@ -423,7 +423,7 @@ if __name__ == '__main__':
             time.sleep(random.randint(3, 5))
             # print('开始偷水滴任务')
             # steal_water(tubetoken,ck[0])
-        elif start_time == '18':
+        elif start_time == '12':
             print('开始领午餐水滴')
             receive_three_meal(tubetoken, ck[0])
             time.sleep(7)
@@ -435,7 +435,7 @@ if __name__ == '__main__':
             time.sleep(random.randint(3, 5))
             # print('开始偷好友水滴')
             # steal_water(tubetoken,ck[0])
-        elif start_time == '15':
+        elif start_time == '18':
             print('开始领晚餐水滴')
             receive_three_meal(tubetoken, ck[0])
             print('开始浇水')
