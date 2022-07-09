@@ -176,13 +176,23 @@ class Fruit extends Template {
       } = taskData;
 
       if (!todaySigned) {
+        // TODO 接口不可用, 先屏蔽
+        // await api.doFormBody('signForFarm');
+      }
+
+      if (!firstWaterFinished) {
         self.doneShareTask = false;
-        await api.doFormBody('signForFarm');
       }
 
       for (const {advertId, time, limit, hadFinishedTimes} of userBrowseTaskAds) {
         if (limit === hadFinishedTimes) continue;
         await handleBrowse(advertId, time || 6);
+      }
+      const wxForm = {channel:2, babelChannel: 0};
+      const wxTaskData = await api.doFormBody('taskInitForFarm', wxForm);
+      for (const {advertId, time, limit, hadFinishedTimes} of _.get(wxTaskData, 'gotBrowseTaskAdInit.userBrowseTaskAds', [])) {
+        if (limit === hadFinishedTimes) continue;
+        await handleBrowse(advertId, time || 6, wxForm);
       }
       const waterTimes = totalWaterTaskLimit - totalWaterTaskTimes;
       waterTimes > 0 && await handleWaterGoodForFarm(waterTimes);
@@ -193,11 +203,11 @@ class Fruit extends Template {
       await handleWaterFriendForFarm(taskData);
       await handleGotThreeMeal(taskData);
 
-      async function handleBrowse(advertId, time) {
-        await api.doFormBody('browseAdTaskForFarm', {advertId, type: time ? 0 : 1});
+      async function handleBrowse(advertId, time, form) {
+        await api.doFormBody('browseAdTaskForFarm', {advertId, type: time ? 0 : 1, ...form});
         if (!time) return;
         await sleep(time);
-        await api.doFormBody('browseAdTaskForFarm', {advertId, type: 1});
+        await api.doFormBody('browseAdTaskForFarm', {advertId, type: 1, ...form});
       }
 
       // 采集雨滴, 一天两次
@@ -243,7 +253,7 @@ class Fruit extends Template {
     }
 
     // 连续签到
-    async function handleClockIn() {
+    async function handleClockIn(isLast = false) {
       await api.doFormBody('clockInInitForFarm').then(async data => {
         if (!self.isSuccess(data)) return;
 
@@ -267,9 +277,9 @@ class Fruit extends Template {
           await api.doFormBody('clockInForFarm', {type: 2});
         }
 
-        if (!signCardUseTimesLimit && signCard > 0) {
+        if (!signCardUseTimesLimit && signCard > 0 && !isLast) {
           await handleUseCard('signCard');
-          return handleClockIn();
+          return handleClockIn(true);
         }
       });
     }
