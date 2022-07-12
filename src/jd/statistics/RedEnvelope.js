@@ -84,7 +84,7 @@ class StatisticsRedEnvelope extends Template {
         if (_.isEmpty(msgs)) {
           msgs.push(`${name}: ${format(number, noLimitNumber, needSum)}`);
         }
-        const expireDay = getMoment().add('day', day - 1).format('MM-DD');
+        const expireDay = getMoment().add(day - 1, 'day').format('MM-DD');
         const expireNum = format(expire, noLimitExpire, needSum);
         if (_.get(_.last(msgs), 'expireNum') === expireNum) {
           continue;
