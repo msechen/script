@@ -39,7 +39,7 @@ function send(option) {
 const search = promisify(_search);
 const searchSeen = options => search(options).then(result => result ? _.get(result, 'attrs.flags', []).includes('\\Seen') : false);
 
-function _search({subject, since}, callback) {
+function _search({subject, since, realDel}, callback) {
   const imapOption = getImapOption();
   if (!imapOption) return;
   // 默认不开启debug模式
@@ -51,7 +51,7 @@ function _search({subject, since}, callback) {
   const _call = (path, ...options) => promisify(_.get(imap, path).bind(imap))(...options);
   imap.once('ready', async () => {
     await _call('id', {name: `custom_${getMoment().valueOf()}`});
-    const boxInfo = await _call('openBox', 'INBOX', true);
+    const boxInfo = await _call('openBox', 'INBOX', false);
     if (!boxInfo) {
       throw boxInfo;
     }
@@ -70,8 +70,17 @@ function _search({subject, since}, callback) {
       throw new Error('node imap search failed');
     }
     const messages = await promisify(fetchMessage)(searchResult.reverse());
-    const target = messages.find(o => o.subject[0] === subject);
-    callback(void 0, target);
+    const message = messages.find(o => o.subject[0] === subject);
+
+    if (message && realDel) {
+      const {subject, attrs: {uid}} = message;
+      await _call('addFlags', uid, ['\\Deleted']).then(() => {
+        console.log(`邮件删除成功(uid: ${uid}, subject: ${subject[0]})`);
+      });
+    }
+
+    imap.end();
+    callback(void 0, message);
 
     /**
      *
@@ -118,7 +127,6 @@ function _search({subject, since}, callback) {
       f.once('end', function () {
         callback(void 0, result);
         debug && console.log('Done fetching all messages!');
-        imap.end();
       });
     }
   });
