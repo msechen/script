@@ -29,7 +29,7 @@ except Exception as e:
 requests.packages.urllib3.disable_warnings()
 # --------------------------------------------------------------------------------------------
 Script_Name = "苏泊尔"
-Name_Pinyin = "sbr"
+# Name_Pinyin = "sbr"
 Script_Change = "完成 签到, 偷大米, 浏览菜谱 任务"
 Script_Version = "0.0.2"
 
