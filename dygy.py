@@ -14,7 +14,7 @@ headers = {
     # 'Accept-Encoding': 'br, gzip',
     'Host': 'minigame.zijieapi.com',
     # 'Connection': 'Keep-Alive',
-    'Cookie': '',
+    'Cookie': 'odin_tt=e6fb199b84cfbea49c72884bbd44c2c6f6ac5ab649e0bfa160199f2d75cd582d8f3ad7acded72d4f984ed06bae624e2f65c262568e7069301cb5b07740aab6da; install_id=3980686141954494; ttreq=1$7bd75ef2bd643d38942207b07728aad96457cc5a; uid_tt=c0890449f72ccf9013b7b10430dfda2e; sid_guard=8dc94c878f4f038210854dddf3721bd4%7C1654399890%7C5139965%7CWed%2C+03-Aug-2022+15%3A17%3A35+GMT; sid_tt=8dc94c878f4f038210854dddf3721bd4; sessionid=8dc94c878f4f038210854dddf3721bd4',
 
 }
 
@@ -240,7 +240,7 @@ def push_plus_bot(content,push_token):
 
 
 if __name__ == '__main__':
-    ck = os.environ['dygyCookies']
+    ck = os.environ['dygyCookies'].split('@')
     push_token = os.environ['push_token']
     headers1 = {
         'Cookie': ck,
@@ -318,3 +318,6 @@ if __name__ == '__main__':
 
 
 
+"""
+ff668ac51ae0c803&eyJleHAiOjE2NTQ5MTkwNjEsImtpZCI6MCwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiI4ODgyNTIwNiIsIm9wZW5pZCI6Im9ZYlZMeExnZThibWFINFhvSVQyMDdQWlJyV3ciLCJleHAiOjE2NTQ5MTkwNjF9.z7QV2gTs2U4tc9OyX02i6kCpw3H7qo7vfQWGe4Itx-g&eyJleHAiOjE2NjI2OTMyNjEsImFsZyI6IkhTMjU2In0.eyJ1aWQiOiI4ODgyNTIwNiIsIm9wZW5pZCI6Im9ZYlZMeExnZThibWFINFhvSVQyMDdQWlJyV3ciLCJleHAiOjE2NjI2OTMyNjF9.7CESzUCev6obxvP-vJWQw1elM2Jcj2jAlzoN6ORiy40
+"""
