@@ -170,8 +170,8 @@ class Pet extends Template {
       times && api.log(`${times} 次遛狗奖励领取成功`);
 
       async function doPetSport() {
-        const success = await api.doFormBody('petSport').then(self.isSuccess);
-        if (!success) return;
+        const {resultCode} = await api.doFormBody('petSport');
+        if (!['0', '1013'/*有未领取奖励*/].includes(resultCode)) return;
         await sleep(5);
         await api.doFormBody('getSportReward').then(data => {
           if (!self.isSuccess(data)) return;
