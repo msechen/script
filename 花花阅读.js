@@ -169,8 +169,8 @@ class UserInfo {
     
     async readd() {
         try {
-            let url = `http://u.wyexin.cn/api/user/startRead`
-            let body = JSON.stringify({"code":"","un":this.param.un,"token":this.param.token,"pageSize":20})
+            let url = `http://u.wyexin.cn/api/user/readd`
+            let body = JSON.stringify({"code":"xpz111","un":this.param.un,"token":this.param.token,"pageSize":20})
             let referer =`http://u.wyexin.cn/user/h.html?${this.timestamp}`
             let urlObject = populateUrlObject(url,referer,body)
             await httpRequest('post',urlObject)
@@ -194,8 +194,8 @@ class UserInfo {
     
     async submitt() {
         try {
-            let url = `http://u.wyexin.cn/api/user/finishRead`
-            let body = JSON.stringify({"code":"","un":this.param.un,"token":this.param.token,"pageSize":20})
+            let url = `http://u.wyexin.cn/api/user/submitt`
+            let body = JSON.stringify({"code":"xpz222","un":this.param.un,"token":this.param.token,"pageSize":20})
             let referer =`http://u.wyexin.cn/user/h.html?${this.timestamp}`
             let urlObject = populateUrlObject(url,referer,body)
             await httpRequest('post',urlObject)
