@@ -23,25 +23,11 @@ class Earn extends Template {
   };
 
   static isSuccess(data) {
-    return this._.property('code')(data) === '0';
+    return _.property('code')(data) === '0';
   }
 
   static async beforeRequest(api) {
-    const authToken = await getAuthToken();
-    if (!authToken) return true;
-    api.cookie = `wq_auth_token=${authToken}`;
-
-    // 获取 wq_auth_token
-    async function getAuthToken() {
-      return api.commonDo({
-        uri: 'https://wq.jd.com/pinbind/GetTokenForWxApp',
-        method: 'GET',
-        qs: {biz},
-        headers: {
-          referer: 'http://wq.jd.com/wxapp/pages/hd-interaction/index/index',
-        },
-      }).then(data => data.token);
-    }
+    return !await this.updateWqAuthToken(api);
   }
 
   static apiNamesFn() {

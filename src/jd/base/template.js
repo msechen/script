@@ -80,8 +80,7 @@ class Template extends Base {
     self.defaultShareCodes = [];
   }
 
-  static async beforeRequest(api) {
-  }
+  static async beforeRequest(api) {}
 
   static async handleUpdateCurrentShareCode(api) {}
 
@@ -134,6 +133,27 @@ class Template extends Base {
   // helpers
   static getFilePath(fileName) {
     return require('path').resolve(this.dirname || __dirname, fileName);
+  }
+
+  // 更新 wq_auth_token
+  static async updateWqAuthToken(api, updateCookie = true) {
+    const authToken = await getAuthToken();
+    if (authToken && updateCookie) {
+      api.cookie = `wq_auth_token=${authToken}`;
+    }
+    return authToken;
+
+    // 获取 wq_auth_token
+    async function getAuthToken() {
+      return api.commonDo({
+        uri: 'https://wq.jd.com/pinbind/GetTokenForWxApp',
+        method: 'GET',
+        qs: {biz: 'interact'},
+        headers: {
+          referer: 'http://wq.jd.com/wxapp/pages/hd-interaction/index/index',
+        },
+      }).then(_.property('token'));
+    }
   }
 }
 

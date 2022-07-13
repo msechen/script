@@ -42,6 +42,7 @@ const HealthShare = require('./jd/wfh/HealthShare');
 const HealthSign = require('./jd/wfh/HealthSign');
 const Earn = require('./jd/earn');
 const Cash = require('./jd/cash');
+const CashApplet = require('./jd/cash/applet');
 const CashShare = require('./jd/cash/share');
 const StatisticsBean = require('./jd/statistics/bean');
 const StatisticsRedEnvelope = require('./jd/statistics/RedEnvelope');
@@ -121,6 +122,7 @@ async function main() {
     Fruit, Pet, TurnTableFarm,
     FruitFarmPark, FruitCollect,
     Cash,
+    CashApplet,
     BeanSmallBean,
     PlantBean,
     Family,
@@ -285,6 +287,7 @@ async function main() {
           Sign,
           KoiRedPacket,
           Cash,
+          CashApplet,
           PlantBean,
           [PlantBean, void 0, 'cron'],
           SuperBrandProduct,
