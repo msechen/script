@@ -43,8 +43,7 @@ class UserInfo {
 		try {
 			this.ck = str
 			this.ckValid = true
-		}
-		catch (e) {
+		} catch (e) {
 			this.ckValid = false
 			$.logAndNotify(`账号[${this.index}]CK无效，请检查格式`)
 		}
@@ -77,11 +76,9 @@ class UserInfo {
 			this.ta = result.info.task[0].id
 			await this.ta()
 			await this.ch()
-		}
-		catch (e) {
+		} catch (e) {
 			//console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -97,15 +94,48 @@ class UserInfo {
 			if (result.status == 1) {
 				console.log(`账号[${this.name}] 领取步数币ID ${this.today} 增加至->` + result.info)
 			} else console.log(`账号[${this.name}] 领取步数币ID  ${this.today}` + result.info)
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
 
+	async ex() {
+		try {
+			for (let i = 7; i <= 9; i++) {
+				this.id = i
+				if (this.id == 7) this.x = '1元'
+				if (this.id == 8) this.x = '8元'
+				if (this.id == 9) this.x = '10元'
+				await this.exchange()
+			}
+
+		} catch (e) {
+			console.log(e)
+		} finally {
+			return Promise.resolve(1);
+		}
+	}
+
+	async exchange() {
+		try {
+
+			let url = `https://oto.yunw2.cn/app/index.php?i=270&t=0&v=3.10&from=wxapp&c=entry&a=wxapp&do=exchange&m=bh_step&sign=${this.sign}&token=${this.ck}&id=${this.id}&version=3.2.49`
+			let body = ``
+			let urlObject = populateUrlObject(url, body)
+			await httpRequest('get', urlObject)
+			let result = httpResult;
+
+			if (result.status == 1) {
+				console.log(`账号[${this.name}] 兑现 ${this.x}  ` + result.info)
+			} else console.log(`账号[${this.name}] 兑现  ${this.x}  ` + result.info)
+		} catch (e) {
+			console.log(e)
+		} finally {
+			return Promise.resolve(1);
+		}
+	}
 
 	async check() {
 		try {
@@ -119,11 +149,9 @@ class UserInfo {
 				this.nickname = result.info.nickname
 				console.log(`账号[${this.name}] \n账号: ${this.nickname} 余额` + result.info.money + `元 \n我的步数币 ` + result.info.currency + `个\n`)
 			}
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -140,11 +168,9 @@ class UserInfo {
 			if (result.status == 1) {
 				console.log(`账号[${this.name}] 领取视频步数币 增加至->` + result.info)
 			} else console.log(`账号[${this.name}] 领取视频步数币 ` + result.info)
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -161,11 +187,9 @@ class UserInfo {
 				console.log(`账号[${this.name}] 领取早起步数币 增加至->` + result.info)
 			} else console.log(`账号[${this.name}] 领取早起步数币 ` + result.info)
 
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -189,11 +213,9 @@ class UserInfo {
 
 			}
 			await this.dou()
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -212,13 +234,9 @@ class UserInfo {
 				console.log(`账号[${this.name}] 翻倍签到 成功`)
 			} else if (result.status == 2) console.log(`账号[${this.name}] 翻倍签到 已翻倍`)
 
-		}
-
-
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -240,11 +258,9 @@ class UserInfo {
 				this.id = i
 				await this.bagx()
 			}
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -260,14 +276,12 @@ class UserInfo {
 			let result = httpResult;
 			if (result.status == 1) {
 				console.log(`账号[${this.name}] 领取步数币ID ${this.id} 增加至->` + result.info)
-			} 
+			}
 
 
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -283,13 +297,11 @@ class UserInfo {
 			let result = httpResult;
 			if (result.status == 1) {
 				console.log(`账号[${this.name}] 领现金ID ${this.id} 增加至->` + result.info)
-			} 
+			}
 
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -307,11 +319,9 @@ class UserInfo {
 				console.log(`\n账号[${this.name}] 领现金 下次领现金需等待` + result.info[1].cooling + ` 小时`)
 			}
 
-		}
-		catch (e) {
+		} catch (e) {
 			console.log(e)
-		}
-		finally {
+		} finally {
 			return Promise.resolve(1);
 		}
 	}
@@ -319,12 +329,10 @@ class UserInfo {
 
 
 
-}
-!(async () => {
+}!(async () => {
 	if (typeof $request !== "undefined") {
 		await GetRewrite()
-	}
-	else {
+	} else {
 		if (!(await checkEnv())) return;
 		let taskall = []
 		let validList = userList.filter(x => x.ckValid)
@@ -336,7 +344,14 @@ class UserInfo {
 			}
 			await Promise.all(taskall)
 
-			console.log('-------------- 资料 --------------')
+			console.log('-------------- 兑现 --------------')
+			taskall = []
+			for (let user of validList) {
+				taskall.push(user.ex())
+			}
+			await Promise.all(taskall)
+
+			console.log('\n-------------- 资料 --------------')
 			taskall = []
 			for (let user of validList) {
 				taskall.push(user.kong())
@@ -359,9 +374,10 @@ class UserInfo {
 
 		}
 		await $.showmsg();
+		console.log('\nps: 领步数红包如果没成功则不打印，\n    默认不领取话费，只兑换现金')
 	}
 })()
-	.catch((e) => console.log(e))
+.catch((e) => console.log(e))
 	.finally(() => $.done())
 ///////////////////////////////////////////////////////////////////
 async function GetRewrite() {
@@ -377,8 +393,7 @@ async function GetRewrite() {
 				ckList = userCookie.split('\n')
 				$.msg(`获取第${ckList.length}个ck成功: ${ck}`)
 			}
-		}
-		else {
+		} else {
 			$.setdata(ck, 'zlcookie');
 			$.msg(`获取第1个ck成功: ${ck}`)
 		}
@@ -397,8 +412,7 @@ async function checkEnv() {
 			if (userCookies) userList.push(new UserInfo(userCookies))
 		}
 		userCount = userList.length
-	}
-	else {
+	} else {
 		console.log('未找到CK')
 		return;
 	}
@@ -411,8 +425,7 @@ function populateUrlObject(url, body = '') {
 		.split('/')[1]
 	let urlObject = {
 		url: url,
-		headers:
-		{
+		headers: {
 			'Host': host,
 			'Referer': "https://servicewechat.com/wx4281030da97b2e0e/2/page-frame.html",
 			'Connection': "keep-alive",
@@ -427,7 +440,91 @@ function populateUrlObject(url, body = '') {
 	}
 	return urlObject;
 }
-function MD5Encrypt(a) { function b(a, b) { return a << b | a >>> 32 - b } function c(a, b) { var c, d, e, f, g; return e = 2147483648 & a, f = 2147483648 & b, c = 1073741824 & a, d = 1073741824 & b, g = (1073741823 & a) + (1073741823 & b), c & d ? 2147483648 ^ g ^ e ^ f : c | d ? 1073741824 & g ? 3221225472 ^ g ^ e ^ f : 1073741824 ^ g ^ e ^ f : g ^ e ^ f } function d(a, b, c) { return a & b | ~a & c } function e(a, b, c) { return a & c | b & ~c } function f(a, b, c) { return a ^ b ^ c } function g(a, b, c) { return b ^ (a | ~c) } function h(a, e, f, g, h, i, j) { return a = c(a, c(c(d(e, f, g), h), j)), c(b(a, i), e) } function i(a, d, f, g, h, i, j) { return a = c(a, c(c(e(d, f, g), h), j)), c(b(a, i), d) } function j(a, d, e, g, h, i, j) { return a = c(a, c(c(f(d, e, g), h), j)), c(b(a, i), d) } function k(a, d, e, f, h, i, j) { return a = c(a, c(c(g(d, e, f), h), j)), c(b(a, i), d) } function l(a) { for (var b, c = a.length, d = c + 8, e = (d - d % 64) / 64, f = 16 * (e + 1), g = new Array(f - 1), h = 0, i = 0; c > i;)b = (i - i % 4) / 4, h = i % 4 * 8, g[b] = g[b] | a.charCodeAt(i) << h, i++; return b = (i - i % 4) / 4, h = i % 4 * 8, g[b] = g[b] | 128 << h, g[f - 2] = c << 3, g[f - 1] = c >>> 29, g } function m(a) { var b, c, d = "", e = ""; for (c = 0; 3 >= c; c++)b = a >>> 8 * c & 255, e = "0" + b.toString(16), d += e.substr(e.length - 2, 2); return d } function n(a) { a = a.replace(/\r\n/g, "\n"); for (var b = "", c = 0; c < a.length; c++) { var d = a.charCodeAt(c); 128 > d ? b += String.fromCharCode(d) : d > 127 && 2048 > d ? (b += String.fromCharCode(d >> 6 | 192), b += String.fromCharCode(63 & d | 128)) : (b += String.fromCharCode(d >> 12 | 224), b += String.fromCharCode(d >> 6 & 63 | 128), b += String.fromCharCode(63 & d | 128)) } return b } var o, p, q, r, s, t, u, v, w, x = [], y = 7, z = 12, A = 17, B = 22, C = 5, D = 9, E = 14, F = 20, G = 4, H = 11, I = 16, J = 23, K = 6, L = 10, M = 15, N = 21; for (a = n(a), x = l(a), t = 1732584193, u = 4023233417, v = 2562383102, w = 271733878, o = 0; o < x.length; o += 16)p = t, q = u, r = v, s = w, t = h(t, u, v, w, x[o + 0], y, 3614090360), w = h(w, t, u, v, x[o + 1], z, 3905402710), v = h(v, w, t, u, x[o + 2], A, 606105819), u = h(u, v, w, t, x[o + 3], B, 3250441966), t = h(t, u, v, w, x[o + 4], y, 4118548399), w = h(w, t, u, v, x[o + 5], z, 1200080426), v = h(v, w, t, u, x[o + 6], A, 2821735955), u = h(u, v, w, t, x[o + 7], B, 4249261313), t = h(t, u, v, w, x[o + 8], y, 1770035416), w = h(w, t, u, v, x[o + 9], z, 2336552879), v = h(v, w, t, u, x[o + 10], A, 4294925233), u = h(u, v, w, t, x[o + 11], B, 2304563134), t = h(t, u, v, w, x[o + 12], y, 1804603682), w = h(w, t, u, v, x[o + 13], z, 4254626195), v = h(v, w, t, u, x[o + 14], A, 2792965006), u = h(u, v, w, t, x[o + 15], B, 1236535329), t = i(t, u, v, w, x[o + 1], C, 4129170786), w = i(w, t, u, v, x[o + 6], D, 3225465664), v = i(v, w, t, u, x[o + 11], E, 643717713), u = i(u, v, w, t, x[o + 0], F, 3921069994), t = i(t, u, v, w, x[o + 5], C, 3593408605), w = i(w, t, u, v, x[o + 10], D, 38016083), v = i(v, w, t, u, x[o + 15], E, 3634488961), u = i(u, v, w, t, x[o + 4], F, 3889429448), t = i(t, u, v, w, x[o + 9], C, 568446438), w = i(w, t, u, v, x[o + 14], D, 3275163606), v = i(v, w, t, u, x[o + 3], E, 4107603335), u = i(u, v, w, t, x[o + 8], F, 1163531501), t = i(t, u, v, w, x[o + 13], C, 2850285829), w = i(w, t, u, v, x[o + 2], D, 4243563512), v = i(v, w, t, u, x[o + 7], E, 1735328473), u = i(u, v, w, t, x[o + 12], F, 2368359562), t = j(t, u, v, w, x[o + 5], G, 4294588738), w = j(w, t, u, v, x[o + 8], H, 2272392833), v = j(v, w, t, u, x[o + 11], I, 1839030562), u = j(u, v, w, t, x[o + 14], J, 4259657740), t = j(t, u, v, w, x[o + 1], G, 2763975236), w = j(w, t, u, v, x[o + 4], H, 1272893353), v = j(v, w, t, u, x[o + 7], I, 4139469664), u = j(u, v, w, t, x[o + 10], J, 3200236656), t = j(t, u, v, w, x[o + 13], G, 681279174), w = j(w, t, u, v, x[o + 0], H, 3936430074), v = j(v, w, t, u, x[o + 3], I, 3572445317), u = j(u, v, w, t, x[o + 6], J, 76029189), t = j(t, u, v, w, x[o + 9], G, 3654602809), w = j(w, t, u, v, x[o + 12], H, 3873151461), v = j(v, w, t, u, x[o + 15], I, 530742520), u = j(u, v, w, t, x[o + 2], J, 3299628645), t = k(t, u, v, w, x[o + 0], K, 4096336452), w = k(w, t, u, v, x[o + 7], L, 1126891415), v = k(v, w, t, u, x[o + 14], M, 2878612391), u = k(u, v, w, t, x[o + 5], N, 4237533241), t = k(t, u, v, w, x[o + 12], K, 1700485571), w = k(w, t, u, v, x[o + 3], L, 2399980690), v = k(v, w, t, u, x[o + 10], M, 4293915773), u = k(u, v, w, t, x[o + 1], N, 2240044497), t = k(t, u, v, w, x[o + 8], K, 1873313359), w = k(w, t, u, v, x[o + 15], L, 4264355552), v = k(v, w, t, u, x[o + 6], M, 2734768916), u = k(u, v, w, t, x[o + 13], N, 1309151649), t = k(t, u, v, w, x[o + 4], K, 4149444226), w = k(w, t, u, v, x[o + 11], L, 3174756917), v = k(v, w, t, u, x[o + 2], M, 718787259), u = k(u, v, w, t, x[o + 9], N, 3951481745), t = c(t, p), u = c(u, q), v = c(v, r), w = c(w, s); var O = m(t) + m(u) + m(v) + m(w); return O.toLowerCase() }
+
+function MD5Encrypt(a) {
+	function b(a, b) {
+		return a << b | a >>> 32 - b
+	}
+
+	function c(a, b) {
+		var c, d, e, f, g;
+		return e = 2147483648 & a, f = 2147483648 & b, c = 1073741824 & a, d = 1073741824 & b, g = (1073741823 & a) + (1073741823 & b), c & d ? 2147483648 ^ g ^ e ^ f : c | d ? 1073741824 & g ? 3221225472 ^ g ^ e ^ f : 1073741824 ^ g ^ e ^ f : g ^ e ^ f
+	}
+
+	function d(a, b, c) {
+		return a & b | ~a & c
+	}
+
+	function e(a, b, c) {
+		return a & c | b & ~c
+	}
+
+	function f(a, b, c) {
+		return a ^ b ^ c
+	}
+
+	function g(a, b, c) {
+		return b ^ (a | ~c)
+	}
+
+	function h(a, e, f, g, h, i, j) {
+		return a = c(a, c(c(d(e, f, g), h), j)), c(b(a, i), e)
+	}
+
+	function i(a, d, f, g, h, i, j) {
+		return a = c(a, c(c(e(d, f, g), h), j)), c(b(a, i), d)
+	}
+
+	function j(a, d, e, g, h, i, j) {
+		return a = c(a, c(c(f(d, e, g), h), j)), c(b(a, i), d)
+	}
+
+	function k(a, d, e, f, h, i, j) {
+		return a = c(a, c(c(g(d, e, f), h), j)), c(b(a, i), d)
+	}
+
+	function l(a) {
+		for (var b, c = a.length, d = c + 8, e = (d - d % 64) / 64, f = 16 * (e + 1), g = new Array(f - 1), h = 0, i = 0; c > i;) b = (i - i % 4) / 4, h = i % 4 * 8, g[b] = g[b] | a.charCodeAt(i) << h, i++;
+		return b = (i - i % 4) / 4, h = i % 4 * 8, g[b] = g[b] | 128 << h, g[f - 2] = c << 3, g[f - 1] = c >>> 29, g
+	}
+
+	function m(a) {
+		var b, c, d = "",
+			e = "";
+		for (c = 0; 3 >= c; c++) b = a >>> 8 * c & 255, e = "0" + b.toString(16), d += e.substr(e.length - 2, 2);
+		return d
+	}
+
+	function n(a) {
+		a = a.replace(/\r\n/g, "\n");
+		for (var b = "", c = 0; c < a.length; c++) {
+			var d = a.charCodeAt(c);
+			128 > d ? b += String.fromCharCode(d) : d > 127 && 2048 > d ? (b += String.fromCharCode(d >> 6 | 192), b += String.fromCharCode(63 & d | 128)) : (b += String.fromCharCode(d >> 12 | 224), b += String.fromCharCode(d >> 6 & 63 | 128), b += String.fromCharCode(63 & d | 128))
+		}
+		return b
+	}
+	var o, p, q, r, s, t, u, v, w, x = [],
+		y = 7,
+		z = 12,
+		A = 17,
+		B = 22,
+		C = 5,
+		D = 9,
+		E = 14,
+		F = 20,
+		G = 4,
+		H = 11,
+		I = 16,
+		J = 23,
+		K = 6,
+		L = 10,
+		M = 15,
+		N = 21;
+	for (a = n(a), x = l(a), t = 1732584193, u = 4023233417, v = 2562383102, w = 271733878, o = 0; o < x.length; o += 16) p = t, q = u, r = v, s = w, t = h(t, u, v, w, x[o + 0], y, 3614090360), w = h(w, t, u, v, x[o + 1], z, 3905402710), v = h(v, w, t, u, x[o + 2], A, 606105819), u = h(u, v, w, t, x[o + 3], B, 3250441966), t = h(t, u, v, w, x[o + 4], y, 4118548399), w = h(w, t, u, v, x[o + 5], z, 1200080426), v = h(v, w, t, u, x[o + 6], A, 2821735955), u = h(u, v, w, t, x[o + 7], B, 4249261313), t = h(t, u, v, w, x[o + 8], y, 1770035416), w = h(w, t, u, v, x[o + 9], z, 2336552879), v = h(v, w, t, u, x[o + 10], A, 4294925233), u = h(u, v, w, t, x[o + 11], B, 2304563134), t = h(t, u, v, w, x[o + 12], y, 1804603682), w = h(w, t, u, v, x[o + 13], z, 4254626195), v = h(v, w, t, u, x[o + 14], A, 2792965006), u = h(u, v, w, t, x[o + 15], B, 1236535329), t = i(t, u, v, w, x[o + 1], C, 4129170786), w = i(w, t, u, v, x[o + 6], D, 3225465664), v = i(v, w, t, u, x[o + 11], E, 643717713), u = i(u, v, w, t, x[o + 0], F, 3921069994), t = i(t, u, v, w, x[o + 5], C, 3593408605), w = i(w, t, u, v, x[o + 10], D, 38016083), v = i(v, w, t, u, x[o + 15], E, 3634488961), u = i(u, v, w, t, x[o + 4], F, 3889429448), t = i(t, u, v, w, x[o + 9], C, 568446438), w = i(w, t, u, v, x[o + 14], D, 3275163606), v = i(v, w, t, u, x[o + 3], E, 4107603335), u = i(u, v, w, t, x[o + 8], F, 1163531501), t = i(t, u, v, w, x[o + 13], C, 2850285829), w = i(w, t, u, v, x[o + 2], D, 4243563512), v = i(v, w, t, u, x[o + 7], E, 1735328473), u = i(u, v, w, t, x[o + 12], F, 2368359562), t = j(t, u, v, w, x[o + 5], G, 4294588738), w = j(w, t, u, v, x[o + 8], H, 2272392833), v = j(v, w, t, u, x[o + 11], I, 1839030562), u = j(u, v, w, t, x[o + 14], J, 4259657740), t = j(t, u, v, w, x[o + 1], G, 2763975236), w = j(w, t, u, v, x[o + 4], H, 1272893353), v = j(v, w, t, u, x[o + 7], I, 4139469664), u = j(u, v, w, t, x[o + 10], J, 3200236656), t = j(t, u, v, w, x[o + 13], G, 681279174), w = j(w, t, u, v, x[o + 0], H, 3936430074), v = j(v, w, t, u, x[o + 3], I, 3572445317), u = j(u, v, w, t, x[o + 6], J, 76029189), t = j(t, u, v, w, x[o + 9], G, 3654602809), w = j(w, t, u, v, x[o + 12], H, 3873151461), v = j(v, w, t, u, x[o + 15], I, 530742520), u = j(u, v, w, t, x[o + 2], J, 3299628645), t = k(t, u, v, w, x[o + 0], K, 4096336452), w = k(w, t, u, v, x[o + 7], L, 1126891415), v = k(v, w, t, u, x[o + 14], M, 2878612391), u = k(u, v, w, t, x[o + 5], N, 4237533241), t = k(t, u, v, w, x[o + 12], K, 1700485571), w = k(w, t, u, v, x[o + 3], L, 2399980690), v = k(v, w, t, u, x[o + 10], M, 4293915773), u = k(u, v, w, t, x[o + 1], N, 2240044497), t = k(t, u, v, w, x[o + 8], K, 1873313359), w = k(w, t, u, v, x[o + 15], L, 4264355552), v = k(v, w, t, u, x[o + 6], M, 2734768916), u = k(u, v, w, t, x[o + 13], N, 1309151649), t = k(t, u, v, w, x[o + 4], K, 4149444226), w = k(w, t, u, v, x[o + 11], L, 3174756917), v = k(v, w, t, u, x[o + 2], M, 718787259), u = k(u, v, w, t, x[o + 9], N, 3951481745), t = c(t, p), u = c(u, q), v = c(v, r), w = c(w, s);
+	var O = m(t) + m(u) + m(v) + m(w);
+	return O.toLowerCase()
+}
+
 function encrypt() {
 	let timestamp = new Date()
 	let sign = ''
@@ -447,27 +544,22 @@ async function httpRequest(method, url) {
 				if (err) {
 					console.log(`${method}请求失败`);
 					console.log(JSON.stringify(err));
-				}
-				else {
+				} else {
 					if (resp.body) {
 						if (typeof resp.body == "object") {
 							httpResult = resp.body;
-						}
-						else {
+						} else {
 							try {
 								httpResult = JSON.parse(resp.body);
-							}
-							catch (e) {
+							} catch (e) {
 								httpResult = resp.body;
 							}
 						}
 					}
 				}
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
-			}
-			finally {
+			} finally {
 				resolve();
 			}
 		});
@@ -508,9 +600,9 @@ function Env(name, env) {
 						const t = JSON.parse(r);
 						e = t ? this.lodash_get(t, i, "") : e
 					}
-					catch (t) {
-						e = ""
-					}
+				catch (t) {
+					e = ""
+				}
 			}
 			return e
 		}
@@ -524,14 +616,12 @@ function Env(name, env) {
 					const e = JSON.parse(h);
 					this.lodash_set(e, r, t),
 						s = this.setval(JSON.stringify(e), i)
-				}
-				catch (e) {
+				} catch (e) {
 					const o = {};
 					this.lodash_set(o, r, t),
 						s = this.setval(JSON.stringify(o), i)
 				}
-			}
-			else {
+			} else {
 				s = this.setval(t, e);
 			}
 			return s
@@ -542,7 +632,7 @@ function Env(name, env) {
 		setval(t, e) {
 			return this.isSurge() || this.isLoon() ? $persistentStore.write(t, e) : this.isQuanX() ? $prefs.setValueForKey(t, e) : this.isNode() ? (this.data = this.loaddata(), this.data[e] = t, this.writedata(), !0) : this.data && this.data[e] || null
 		}
-		send(m, t, e = (() => { })) {
+		send(m, t, e = (() => {})) {
 			if (m != 'get' && m != 'post' && m != 'put' && m != 'delete') {
 				console.log(`无效的http方法：${m}`);
 				return;
@@ -550,18 +640,15 @@ function Env(name, env) {
 			if (m == 'get' && t.headers) {
 				delete t.headers["Content-Type"];
 				delete t.headers["Content-Length"];
-			}
-			else if (t.body && t.headers) {
+			} else if (t.body && t.headers) {
 				if (!t.headers["Content-Type"]) t.headers["Content-Type"] = "application/x-www-form-urlencoded";
 			}
 			if (this.isSurge() || this.isLoon()) {
 				if (this.isSurge() && this.isNeedRewrite) {
-					t.headers = t.headers ||
-						{};
-					Object.assign(t.headers,
-						{
-							"X-Surge-Skip-Scripting": !1
-						});
+					t.headers = t.headers || {};
+					Object.assign(t.headers, {
+						"X-Surge-Skip-Scripting": !1
+					});
 				}
 				let conf = {
 					method: m,
@@ -573,77 +660,64 @@ function Env(name, env) {
 				if (m == 'get') delete conf.data
 				$axios(conf)
 					.then(t => {
-						const
-							{
-								status: i,
-								request: q,
-								headers: r,
-								data: o
-							} = t;
-						e(null, q,
-							{
-								statusCode: i,
-								headers: r,
-								body: o
-							});
+						const {
+							status: i,
+							request: q,
+							headers: r,
+							data: o
+						} = t;
+						e(null, q, {
+							statusCode: i,
+							headers: r,
+							body: o
+						});
 					})
 					.catch(err => console.log(err))
-			}
-			else if (this.isQuanX()) {
-				t.method = m.toUpperCase(), this.isNeedRewrite && (t.opts = t.opts ||
-					{}, Object.assign(t.opts,
-						{
-							hints: !1
-						})),
+			} else if (this.isQuanX()) {
+				t.method = m.toUpperCase(), this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+						hints: !1
+					})),
 					$task.fetch(t)
-						.then(t => {
-							const
-								{
-									statusCode: i,
-									request: q,
-									headers: r,
-									body: o
-								} = t;
-							e(null, q,
-								{
-									statusCode: i,
-									headers: r,
-									body: o
-								})
-						}, t => e(t))
-			}
-			else if (this.isNode()) {
+					.then(t => {
+						const {
+							statusCode: i,
+							request: q,
+							headers: r,
+							body: o
+						} = t;
+						e(null, q, {
+							statusCode: i,
+							headers: r,
+							body: o
+						})
+					}, t => e(t))
+			} else if (this.isNode()) {
 				this.got = this.got ? this.got : require("got");
-				const
-					{
-						url: s,
-						...i
-					} = t;
-				this.instance = this.got.extend(
-					{
-						followRedirect: false
-					});
+				const {
+					url: s,
+					...i
+				} = t;
+				this.instance = this.got.extend({
+					followRedirect: false
+				});
 				this.instance[m](s, i)
 					.then(t => {
-						const
-							{
-								statusCode: i,
-								request: q,
-								headers: r,
-								body: o
-							} = t;
-						e(null, q,
-							{
-								statusCode: i,
-								headers: r,
-								body: o
-							})
+						const {
+							statusCode: i,
+							request: q,
+							headers: r,
+							body: o
+						} = t;
+						e(null, q, {
+							statusCode: i,
+							headers: r,
+							body: o
+						})
 					}, t => {
-						const
-							{
-								message: s,
-								response: i
-							} = t;
+						const {
+							message: s,
+							response: i
+						} = t;
 						e(s, i, i && i.body)
 					})
 			}
@@ -666,13 +740,13 @@ function Env(name, env) {
 					.getMilliseconds()
 			};
 			/(y+)/.test(t) && (t = t.replace(RegExp.$1, ((new Date)
-				.getFullYear() + "")
+					.getFullYear() + "")
 				.substr(4 - RegExp.$1.length)));
 			for (let s in e)
 				new RegExp("(" + s + ")")
-					.test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? e[s] : ("00" + e[s])
-						.substr(("" + e[s])
-							.length)));
+				.test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? e[s] : ("00" + e[s])
+					.substr(("" + e[s])
+						.length)));
 			return t
 		}
 		async showmsg() {
@@ -682,8 +756,7 @@ function Env(name, env) {
 				var notify = require('./sendNotify');
 				console.log('\n============== 推送 ==============')
 				await notify.sendNotify(this.name, notifyBody);
-			}
-			else {
+			} else {
 				this.msg(notifyBody);
 			}
 		}
@@ -697,15 +770,13 @@ function Env(name, env) {
 				if (!t)
 					return t;
 				if ("string" == typeof t)
-					return this.isLoon() ? t : this.isQuanX() ?
-						{
+					return this.isLoon() ? t : this.isQuanX() ? {
 							"open-url": t
 						} :
-						this.isSurge() ?
-							{
-								url: t
-							} :
-							void 0;
+						this.isSurge() ? {
+							url: t
+						} :
+						void 0;
 				if ("object" == typeof t) {
 					if (this.isLoon()) {
 						let e = t.openUrl || t.url || t["open-url"],
