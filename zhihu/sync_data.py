@@ -260,7 +260,24 @@ def query_pop_income_all():
     return "[pop总] GMV:" + str(int(total_gmv)) + " 订单数:" + str(total_order) + " 佣金:" + str(int(total_gmv * 0.08))
 
 
-# 查询京粉点击数
+# 查询今日订单详情
+def query_today_order():
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    today_orders = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
+
+    today_order = 0
+    today_order_detail = ''
+    for order in today_orders:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                today_order += 1
+                today_order_detail += str(today_order) + '、' + order['skuName'][0:15] + ', 金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%\n'
+
+    return "[今日订单]\n订单数:" + str(today_order) + "\n订单明细\n" + str(today_order_detail)
+
+
+# 查询品牌订单数据
 def query_brand_order(brand):
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     yestoday = (datetime.datetime.today() + datetime.timedelta(-1)).strftime('%Y-%m-%d')
