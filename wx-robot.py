@@ -175,17 +175,17 @@ def auto_reply(msg):
 
     if 'order' == msg.text:  
         ret = sync_data.query_today_order()
-        logger.info(ret)
+        # logger.info(ret)
         return ret
 
     if 'OPPO' == msg.text or 'oppo' == msg.text or 'Oppo' == msg.text:  
         ret = sync_data.query_brand_order('oppo')
-        logger.info(ret)
+        # logger.info(ret)
         return ret
 
     if 'VIVO' == msg.text or 'vivo' == msg.text or 'Vivo' == msg.text:  
         ret = sync_data.query_brand_order('vivo')
-        logger.info(ret)
+        # logger.info(ret)
         return ret
 
     if 'd' == msg.text:  # 查所有文字草稿
