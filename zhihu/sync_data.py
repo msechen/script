@@ -17,9 +17,9 @@ g_like2 = 0
 g_like3 = 0
 g_like4 = 0
 
-g_like1_yestoday = 43738
-g_like2_yestoday = 31992
-g_like3_yestoday = 24761
+g_like1_yestoday = 47697
+g_like2_yestoday = 32875
+g_like3_yestoday = 25405
 g_like4_yestoday = 0
 
 # 更新知乎问题的阅读量
