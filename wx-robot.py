@@ -188,14 +188,14 @@ def auto_reply(msg):
         # logger.info(ret)
         return ret
 
-    if 'd' == msg.text:  # 查所有文字草稿
+    if 'draft' == msg.text:  # 查所有文字草稿
         return '\n'.join(auto.query_article_draft())
 
     if msg.text.startswith('替换草稿模板'):
         pattern = re.compile("\d+")
         match_ret = re.findall(pattern, msg.text)
         if len(match_ret) == 0:
-            return '格式有误，没找到 id'
+            return '格式有误，没找到问题ID'
 
         return auto.replace_question_draft_template(match_ret[0])
 
@@ -254,7 +254,7 @@ def auto_reply(msg):
         msg.reply_image(image)
         return "请联系作者添加你想要的定制功能吧"
     elif 'help' == msg.text:
-        return "替换草稿模板、替换草稿模板发布"
+        return "可用命令：【1】\n【order】\n【draft】\n【jj】\n【hot】\n【替换草稿模板+问题ID】"
     else:
         return "不识别的命令"
 

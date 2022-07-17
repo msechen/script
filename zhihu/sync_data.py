@@ -274,7 +274,8 @@ def query_today_order():
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
                 today_order += 1
                 today_money += round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)
-                today_order_detail += str(today_order) + '、【' + order['skuName'][0:20] + '】\n预估佣金：' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + ', 金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%\n'
+                
+                today_order_detail += str(today_order) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
     return "[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
 

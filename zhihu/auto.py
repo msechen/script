@@ -62,6 +62,7 @@ def replace_question_draft_template(qid):
         template = template.replace('<p>', '')
         template = template.replace('</p>', '')
         words = template.split('_')
+        
 
         if len(words) != 2:
             return '模板格式有误，不处理，template：{}'.format(template)
