@@ -38,10 +38,10 @@ sessionId = ""
 #特步【小程序】
 #抓取 wxa-tp.ezrpro.com 域名的包 , ezr-vuid , ezr-st , ezr-ss , ezr-userid 是 headers 中的参数
 [[Tebu]]
-ezr-vuid = " "
-ezr-st = " "
-ezr-ss = " "
-ezr-userid = " "
+ezr-vuid = "  "
+ezr-st = "  "
+ezr-ss = "  "
+ezr-userid = "  "
 
 # 什么值得买
 # https://www.smzdm.com cookie
