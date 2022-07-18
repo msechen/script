@@ -3,7 +3,6 @@
 new Env('顺丰速递');
 """
 
-from wsgiref import headers
 import requests
 import time
 
@@ -40,7 +39,7 @@ class SFexpress:
             else:
                 countDay = res['obj']['countDay']
                 commodityName = res['obj']['integralTaskSignPackageVOList'][0]['commodityName']
-                msg= ("今日签到成功，连续签到{0}天，获得【{1}】".format(countDay,commodityName))
+                msg= ("今日签到成功，连续签到【{0}】天，获得【{1}】".format(countDay,commodityName))
         except Exception:
             msg = "签到失败，可能是Cookie过期"
         return msg
@@ -54,7 +53,7 @@ class SFexpress:
             success = res['success']
             if success == True:
                 giftName = res['obj']['giftList'][0]['giftName']
-                msg = "超值福利签到成功，获得【{0}】奖励".format(giftName)
+                msg = "超值福利签到成功，获得{0}奖励".format(giftName)
         except Exception as err:
             msg = "超值福利签到失败 " + str(err)
         return msg
