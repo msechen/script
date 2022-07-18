@@ -3,6 +3,7 @@
 new Env('顺丰速递');
 """
 
+from wsgiref import headers
 import requests
 import time
 
@@ -14,20 +15,23 @@ requests.packages.urllib3.disable_warnings()
 class SFexpress:
     def __init__(self,check_items):
         self.check_items = check_items
-
+    
     @staticmethod
-    def sign(sessionId):
+    def getheaders(sessionId):
+        hearders = {
+                "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
+                "cookie":f"{sessionId}",
+                "Accept-Encoding": "gzip, deflate, br",
+                "accept-language": "zh-CN,zh-Hans;q=0.9",
+                "accept": "application/json, text/plain, */*",
+                "Host": "mcs-mimp-web.sf-express.com",
+                "content-type": "application/json",
+            }
+        return hearders
+    @staticmethod
+    def sign(hearders):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignService/automaticSignFetchPackage'
         data = '{"comeFrom":"vioin","channelFrom":"SFAPP"}'
-        hearders = {
-            "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
-            "cookie":f"{sessionId}",
-            "Accept-Encoding": "gzip, deflate, br",
-            "accept-language": "zh-CN,zh-Hans;q=0.9",
-            "accept": "application/json, text/plain, */*",
-            "Host": "mcs-mimp-web.sf-express.com",
-            "content-type": "application/json",
-        }
         try:
             res = requests.post(url=url,headers=hearders,data=data,verify=False).json()
             hasFinishSign = res['obj']['hasFinishSign']
@@ -42,18 +46,9 @@ class SFexpress:
         return msg
 
     @staticmethod
-    def weal(sessionId):
+    def weal(hearders):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberActLengthy~redPacketActivityService~superWelfare~receiveRedPacket'
         data = '{"channel":"SignIn"}'
-        hearders = {
-            "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
-            "cookie": f"{sessionId}",
-            "Accept-Encoding": "gzip, deflate, br",
-            "accept-language": "zh-CN",
-            "accept": "*/*",
-            "Host": "mcs-mimp-web.sf-express.com",
-            "content-type": "application/json",
-        }
         try:
             res = requests.post(url=url, headers=hearders, data=data, verify=False).json()
             success = res['success']
@@ -65,18 +60,9 @@ class SFexpress:
         return msg
     
     @staticmethod
-    def task(sessionId):
+    def task(hearders):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~queryPointTaskAndSignFromES'
         data = '{"channelType":"1"}'
-        hearders = {
-            "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
-            "Cookie": f"{sessionId}",
-            "Accept-Encoding": "gzip, deflate, br",
-            "accept-language": "zh-cn",
-            "accept": "application/json, text/plain, */*",
-            "Host": "mcs-mimp-web.sf-express.com",
-            "content-type": "application/json;charset=utf-8",
-        }
         try:
             res = requests.post (url=url, headers=hearders,data=data,verify=False).json()
             list = res['obj']['taskTitleLevels']
@@ -93,15 +79,7 @@ class SFexpress:
                     # msg = dotask(sessionId,title,strategyId,taskId,taskCode)
                     ### 获取任务列表
                     url_getask = f'https://mcs-mimp-web.sf-express.com/mcs-mimp/task/finishTask?id={taskCode}'
-                    hearders_getask = {
-                        "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
-                        "Cookie":f"{sessionId}",
-                        "Accept-Encoding": "gzip, deflate, br",
-                        "accept-language": "zh-CN,zh-Hans;q=0.9",
-                        "accept": "*/*",
-                        "Host": "mcs-mimp-web.sf-express.com",
-                    }
-                    res = requests.get (url=url_getask, headers=hearders_getask, verify=False).json()
+                    res = requests.get (url=url_getask, headers=hearders, verify=False).json()
                     success = res['success']
                     if success == True:
                         time.sleep(20)
@@ -109,16 +87,7 @@ class SFexpress:
                     ### 做任务并领取
                     url_dotask = f'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~fetchIntegral'
                     data_dotask = '{"strategyId":' + f"{strategyId}" + ',"taskId":"' + f"{taskId}" + '","taskCode":"' + f"{taskCode}" + '"}'
-                    hearders_dotask = {
-                    "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
-                    "Cookie":f"{sessionId}",
-                    "Accept-Encoding": "gzip, deflate, br",
-                    "accept-language": "zh-cn",
-                    "accept": "application/json, text/plain, */*",
-                    "Host": "mcs-mimp-web.sf-express.com",
-                    "content-type": "application/json;charset=utf-8",
-                    }
-                    res = requests.post (url=url_dotask, headers=hearders_dotask, data=data_dotask, verify=False).json()
+                    res = requests.post (url=url_dotask, headers=hearders, data=data_dotask, verify=False).json()
                     success = res['success']
                     msg = ""
                     if success == True:
@@ -140,9 +109,10 @@ class SFexpress:
         msg_all = ""
         for check_item in self.check_items:
             sessionId="sessionId=" + str(check_item.get("sessionId"))
-            sign_msg = self.sign(sessionId)
-            weal_msg = self.weal(sessionId)
-            task_msg = self.task(sessionId)
+            hearders = self.getheaders(sessionId)
+            sign_msg = self.sign(hearders)
+            weal_msg = self.weal(hearders)
+            task_msg = self.task(hearders)
             msg = f"{sign_msg}\n{weal_msg}\n{task_msg}"
             msg_all += msg + "\n\n"
         return msg_all
