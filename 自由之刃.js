@@ -8,22 +8,13 @@ v2p 圈×变量  zycookie
 用 @  分割多账户
 例如
 青龙变量
-export zycookie= '手机号1#密码1@手机号2#密码2'
-
-
-多账户玩家
-
-下载游戏打开注册一个账号即可开幸运宝箱 
-
-每开一个幸运宝箱为上级增加0.2元到可提现余额
-
+export zycookie='手机号1#密码1@手机号2#密码2'
 */
 const jsname = '自由之刃'
 const $ = Env(jsname)
 let ck = ($.isNode() ? process.env.zycookie : $.getdata('zycookie')) || '';
 let ckArr = []
 let envSplitor = ['@']
-
 !(async () => {
 
     if (typeof $request !== "undefined") {
@@ -32,7 +23,7 @@ let envSplitor = ['@']
         if (!(await checkEnv())) return;
         let i = 0
         for (let account of ckArr) {
-            i+=1
+            i += 1
             console.log(`\n=============账号${i}=============\n`)
             let accounts = account.split('#')
             let sj = accounts[0]
@@ -46,16 +37,16 @@ let envSplitor = ['@']
     .finally(() => $.done())
 
 async function checkEnv() {
-    if(ck) {
-        for(let dt of ck.split('@')) {
-            if(dt) ckArr.push(dt)
+    if (ck) {
+        for (let dt of ck.split('@')) {
+            if (dt) ckArr.push(dt)
         }
     } else {
         console.log('未找到账号数据')
-        if (ckArr.length<1)return;
+        if (ckArr.length < 1) return;
     }
     console.log(`共找到${ckArr.length}个账号`)
-    
+
     return true;
 }
 
@@ -71,16 +62,56 @@ async function login(sj, pwd) {
             zyto = result.token
             zyid = result.data.id
             console.log(`${result.msg} 余额：${result.data.user_money} 自由豆 ${result.data.bean}`)
-for (let i=1;i<=2;i++){
-this.x=i
-if(this.x==1)this.m=`普通宝箱`
-if(this.x==2)this.m=`幸运宝箱`
-await openBlind();
-}
+            await check()
+            this.cashx=result.data.user_money
+                if (this.cashx > 0&& this.cashx <15) {
+                    this.num = 1
+                    this.o = "可提现一元"
+                    await tx()
+                }
+                if (this.cashx >= 15&& this.cashx <40) {
+                    this.num = 20
+                    this.o = "可提现二十元"
+                    await tx()
+                }
+                if (this.cashx >= 40&& this.cashx <100) {
+                    this.num = 50
+                    this.o = "可提现五十元"
+                    await tx()
+                }
+                
             
+            for (let i = 1; i <= 2; i++) {
+                this.x = i
+                if (this.x == 1) this.m = `普通宝箱`
+                if (this.x == 2) this.m = `幸运宝箱`
+                await openBlind();
+            }
+
+
         } else {
             console.log(`登录：${result.msg}`)
         }
+    } catch (e) {
+        console.log(e)
+    } finally {
+        return new Promise((resolve) => { resolve(1) });
+    }
+}
+
+async function check() {
+    try {
+        let url = `http://zyzr.xkrvlj.cn:91/home/user/getUserInfo?`
+        let body = ``
+        let zy = `${zyid}`
+        let to = `${zyto}`
+        let urlObject = mini(url, zy, to, body)
+        await httpRequest('get', urlObject)
+        let result = httpResult;
+        if (result.data.alipay_account==null) {
+            console.log(`\n检测到支付宝未绑定`)
+            await bd();
+        } else console.log(`\n检测到支付宝已绑定 绑定号码 `+result.data.alipay_account)
     } catch (e) {
         console.log(e)
     } finally {
@@ -99,8 +130,28 @@ async function openBlind() {
         let result = httpResult;
         if (result.code == 1) {
             console.log(`\n摇一摇 ${this.m} 得现金：${result.msg}`)
-        } else if (result.code=='-20'){
+        } else if (result.code == '-20') {
             console.log(`\n摇一摇 ${this.m} 得现金：今天已经摇过了`)
+        }
+    } catch (e) {
+        console.log(e)
+    } finally {
+        return new Promise((resolve) => { resolve(1) });
+    }
+}
+async function tx() {
+    try {
+        let url = `http://zyzr.xkrvlj.cn:91/home/user/cash?money=${this.num}`
+        let body = ``
+        let zy = `${zyid}`
+        let to = `${zyto}`
+        let urlObject = mini(url, zy, to, body)
+        await httpRequest('get', urlObject)
+        let result = httpResult;
+        if (result.code == 1) {
+            console.log(`\n开始提现 ${this.o}：${result.msg}`)
+        } else if (result.code !== 0) {
+            console.log(`\n开始提现 ${this.o}：${result.msg}`)
         }
     } catch (e) {
         console.log(e)
