@@ -51,9 +51,9 @@ cookie = "sess=xxxxxx;"
 # 微博【APP】
 # 微博 APP 抓取开头为 https://api.weibo.cn/2/users/show? 的整个 url 填入即可
 [[WEIBO]]
-url = "https://api.weibo.cn/2/users/show?wm=3333_2001&launchid=default&b=0&from=10C7193010&c=iphone&networktype=wifi&v_p=90&skin=default&v_f=1&lang=zh_CN&sflag=1&ua=iPhone11,8__weibo__12.7.1__iphone__os15.5&ft=11&aid=01A6z7vnMY53vV2RmackcweDOL1kb8mhhLa7I7hdu1C--f0_4.&get_teenager=1&has_extend=1&uid=3169400273&s=999F42A5&gsid=_2A25P1fm8DeRxGeVP7VsV8C7OzD-IHXVqwwp0rDV6PUJbkdAKLWrxkWpNTVMabHw674nbdbfkXdumUWcMhpdS7zA7&has_profile=1&ul_sid=9F853D1B-062D-453A-8F26-489B62D07E56&ul_hid=9F853D1B-062D-453A-8F26-489B62D07E56&ul_ctime=1657948768442"
+url = "https://api.weibo.cn/2/users/show?xxxxxxxxxxxxxx"
 
 # 吾爱破解【WEB】
 # https://www.52pojie.cn cookie
 [[POJIE]]
-cookie = "htVC_2132_connect_is_bind=0; htVC_2132_nofavfid=1; htVC_2132_saltkey=nn8ky0Wy; htVC_2132_lastvisit=1645667308; KF4=LbZAgY; htVC_2132_smile=1D1; htVC_2132_visitedfid=65D16D8D74; Hm_lvt_46d556462595ed05e05f009cdafff31a=1645800993,1646035002,1646053682,1646385987; htVC_2132_con_request_uri=https%3A%2F%2Fwww.52pojie.cn%2Fconnect.php%3Fmod%3Dlogin%26op%3Dcallback%26referer%3Dhttps%253A%252F%252Fwww.52pojie.cn%252F; htVC_2132_seccodecS=103531.217b0c23a95c279303; htVC_2132_seccodecSnIq=103532.ead423fa165988fe08; htVC_2132_auth=df49M41M%2FpXVv3QVt4Hc84siaGC5P1Gi6OphCmPLj6fQlS19mKyylKpdFNMyarR7vi0dGYOgZ82JKwctgYG%2BRWb7yM5b; htVC_2132_lip=58.213.140.66%2C1646385986; htVC_2132_sid=0; htVC_2132_noticonf=1475461D1D3_3_1; htVC_2132_ttask=1475461%7C20220304; htVC_2132_ulastactivity=1646470115%7C0; htVC_2132_lastact=1646470115%09home.php%09spacecp; htVC_2132_checkpm=1; htVC_2132_lastcheckfeed=1475461%7C1646470115; Hm_lpvt_46d556462595ed05e05f009cdafff31a=1646470132"
+cookie = "htVD_2132_client_token=xxxxxx; htVD_2132_connect_is_bind=xxxxxx; htVD_2132_connect_uin=xxxxxx; htVD_2132_nofavfid=xxxxxx; htVD_2132_smile=xxxxxx; Hm_lvt_46d556462595ed05e05f009cdafff31a=xxxxxx; htVD_2132_saltkey=xxxxxx; htVD_2132_lastvisit=xxxxxx; htVD_2132_client_created=xxxxxx; htVD_2132_auth=xxxxxx; htVD_2132_connect_login=xxxxxx; htVD_2132_home_diymode=xxxxxx; htVD_2132_visitedfid=xxxxxx; htVD_2132_viewid=xxxxxx; KF4=xxxxxx; htVD_2132_st_p=xxxxxx; htVD_2132_lastcheckfeed=xxxxxx; htVD_2132_sid=xxxxxx; htVD_2132_ulastactivity=xxxxxx; htVD_2132_noticeTitle=xxxxxx;"
