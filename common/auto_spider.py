@@ -1,3 +1,4 @@
+import re
 import requests, json
 from dao import zh_config_dao
 from wxpy import *
@@ -47,74 +48,75 @@ def get_article_draft_all(cookie):
 
 
 def get_article_draft_html(aid, cookie):
-    url = "https://zhuanlan.zhihu.com/api/articles/{}/draft".format(aid)
+    # content = '<h3>▎<b>OPPO K10</b></h3><p><b>亮点</b></p><ul><li><b>性能</b>：天玑 8000-MAX 处理器，性能足功耗低</li><li><b>屏幕：</b>LCD 屏幕、120Hz 刷新率、240Hz 触控采样率</li><li><b>续航</b>：5000mAH 电池+67W 快充，续航非常不错</li><li><b>其他</b>：双扬声器、X 轴马达、NFC、VC 液冷散热</li></ul><p><b>选购建议</b></p><p>OPPO K10 是一款比较全能的机型， 在 2000 元价位<b>兼顾性能、续航、护眼，</b>OPPO 的拍照算法表现在同价位也不错，LCD 屏幕虽然很多中高端机型都弃用了，但是对于屏闪敏感用户或者追求护眼的群体还是非常实用的</p><p>【100021537031】</p>'
 
     header = {
         "cookie": cookie,
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
     }
 
+    url = "https://zhuanlan.zhihu.com/api/articles/{}/draft".format(aid)
+
     try:
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException:
-        return "接口异常"
+        return "articles/draft 接口异常"
 
     if res.status_code != 200:
-        logger.info(res.text)
-        return "接口异常"
+        print(res.text)
+        return "articles/draft 接口异常"
 
     content = res.json()['content']
 
-    # var content = res.content
+    # reg = "/<p>(<b>)*【(<\/b>)*(<b>)*\d+?(<\/b>)*(<b>)*】(<\/b>)*<\/p>/g"
+    reg = "<p>【\d+?】</p>"
+    pattern = re.compile(reg)
+    match_result = re.findall(pattern, content)
 
-    # 替换京东卡片
-    # var re = /<p>(<b>)*【(<\/b>)*(<b>)*\d+?(<\/b>)*(<b>)*】(<\/b>)*<\/p>/g;
-    # var matchResult = content.match(re);  // 识别商品卡片
-    # if (matchResult == null) {
-    #     // console.log('当前 content 中没有商品可替换')
-    # } else {
-    #     console.log(matchResult)
+    if len(match_result) == 0:
+        print('没有识别到商品 ID')
 
-    #     // 自动生成商品卡片代码
-    #     for (let i in matchResult) {
-    #     console.log(matchResult[i])
-    #     var tmp = matchResult[i].replaceAll('<b>', '').replaceAll('</b>', '').replaceAll('<p>【', '').replaceAll('】</p>', '') // skuid
-    #     console.log('skuid:' + tmp)
+    for item in match_result:
+        sku_id = item.replace('<p>【', '')
+        sku_id = sku_id.replace('】</p>', '')
+        print(sku_id)
 
-    #     var card_html = ''
+        # search goods
+        url = "https://www.zhihu.com/api/v4/mcn/search?source=jingdong&keyword={}".format(sku_id)
 
-    #     // search goods
-    #     var url1 = 'https://www.zhihu.com/api/v4/mcn/search?source=jingdong&keyword=' + tmp
-    #     const res1 = await getUrl(url1)
-    #     console.log(res1)
+        try:
+            res = requests.get(url, headers=header)
+            res.encoding = 'utf-8'
+        except BaseException:
+            return "mcn/search 接口异常"
 
-    #     if (res1 === null) {
-    #         console.log('查询商品 detail 接口异常')
-    #     } else {
-    #         var goods = res1.data[0]
-    #         console.log(goods)
+        if res.status_code != 200:
+            print(res.text)
+            return "articles/draft 接口异常"
 
-    #         // linkcard
-    #         var url2 = 'https://www.zhihu.com/api/v4/mcn/linkcard'
-    #         const res2 = await postUrl(url2, goods)
-    #         console.log(res2)
+        goods = res.json()['data'][0]
+        print(goods)
 
-    #         if (res2 === null) {
-    #         console.log('linkcard 接口异常')
-    #         } else {
-    #         var card_id = res2.data.id
-    #         card_html = '<a data-draft-node=\"block\" data-draft-type=\"mcn-link-card\" data-mcn-id=\"' + card_id + '\"></a>'
-    #         }
-    #     }
+        # linkcard
+        url = 'https://www.zhihu.com/api/v4/mcn/linkcard'
 
-    #     // console.log('skuid:' + tmp + '，card_html:' + card_html)
-    #     content = content.replace(matchResult[i], card_html)
-    #     // console.log(content)
-    #     }
-    # }
+        try:
+            res = requests.post(url, data=json.dumps(goods), headers=header)
+            res.encoding = 'utf-8'
+        except BaseException:
+            return "linkcard 接口异常"
 
-    return res.json()
+        if res.status_code != 200:
+            print(res.text)
+            return "linkcard 接口异常"
+
+        card_id = res.json()['data']['id']
+        card_html = '<a data-draft-node=\"block\" data-draft-type=\"mcn-link-card\" data-mcn-id=\"' + card_id + '\"></a>'
+
+        content = content.replace(item, card_html)
+
+    return content
 
 
 def get_question_draft_html(qid, cookie):
@@ -171,4 +173,4 @@ def post_question_draft(qid, content, cookie):
 
 if __name__ == "__main__":
     cookie = zh_config_dao.query_config('dxck').value
-    print(get_article_draft_html(337273132, cookie))
+    print(get_article_draft_html(508568552, cookie))

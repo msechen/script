@@ -27,7 +27,7 @@ def query_article_draft_html(aid_list):
     result = ''
     for aid in aid_list:
         draft_content = auto_spider.get_article_draft_html(aid, cookie)
-        result += draft_content['content']
+        result += draft_content
 
     return result
 
