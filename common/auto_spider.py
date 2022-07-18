@@ -64,6 +64,56 @@ def get_article_draft_html(aid, cookie):
         logger.info(res.text)
         return "接口异常"
 
+    content = res.json()['content']
+
+    # var content = res.content
+
+    # 替换京东卡片
+    # var re = /<p>(<b>)*【(<\/b>)*(<b>)*\d+?(<\/b>)*(<b>)*】(<\/b>)*<\/p>/g;
+    # var matchResult = content.match(re);  // 识别商品卡片
+    # if (matchResult == null) {
+    #     // console.log('当前 content 中没有商品可替换')
+    # } else {
+    #     console.log(matchResult)
+
+    #     // 自动生成商品卡片代码
+    #     for (let i in matchResult) {
+    #     console.log(matchResult[i])
+    #     var tmp = matchResult[i].replaceAll('<b>', '').replaceAll('</b>', '').replaceAll('<p>【', '').replaceAll('】</p>', '') // skuid
+    #     console.log('skuid:' + tmp)
+
+    #     var card_html = ''
+
+    #     // search goods
+    #     var url1 = 'https://www.zhihu.com/api/v4/mcn/search?source=jingdong&keyword=' + tmp
+    #     const res1 = await getUrl(url1)
+    #     console.log(res1)
+
+    #     if (res1 === null) {
+    #         console.log('查询商品 detail 接口异常')
+    #     } else {
+    #         var goods = res1.data[0]
+    #         console.log(goods)
+
+    #         // linkcard
+    #         var url2 = 'https://www.zhihu.com/api/v4/mcn/linkcard'
+    #         const res2 = await postUrl(url2, goods)
+    #         console.log(res2)
+
+    #         if (res2 === null) {
+    #         console.log('linkcard 接口异常')
+    #         } else {
+    #         var card_id = res2.data.id
+    #         card_html = '<a data-draft-node=\"block\" data-draft-type=\"mcn-link-card\" data-mcn-id=\"' + card_id + '\"></a>'
+    #         }
+    #     }
+
+    #     // console.log('skuid:' + tmp + '，card_html:' + card_html)
+    #     content = content.replace(matchResult[i], card_html)
+    #     // console.log(content)
+    #     }
+    # }
+
     return res.json()
 
 
@@ -121,7 +171,4 @@ def post_question_draft(qid, content, cookie):
 
 if __name__ == "__main__":
     cookie = zh_config_dao.query_config('dxck').value
-    # for i in get_article_draft_all(cookie):
-    #     print(i['title'], '-', i['id'])
-    # print(get_article_draft_html(1651370266, cookie))
-    print(get_question_draft_html(50577677, cookie))
+    print(get_article_draft_html(337273132, cookie))
