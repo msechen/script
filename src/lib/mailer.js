@@ -37,9 +37,10 @@ function send(option) {
 }
 
 const search = promisify(_search);
-const searchSeen = options => search(options).then(result => result ? _.get(result, 'attrs.flags', []).includes('\\Seen') : false);
+const searchSeen = options => search({seen: true, ...options});
+const searchSeenAndDel = options => searchSeen({realDelFn: (message, isSeen) => isSeen, ...options});
 
-function _search({subject, since, realDel}, callback) {
+function _search({subject, since, seen, realDelFn = _.noop}, callback) {
   const imapOption = getImapOption();
   if (!imapOption) return;
   // 默认不开启debug模式
@@ -72,7 +73,9 @@ function _search({subject, since, realDel}, callback) {
     const messages = await promisify(fetchMessage)(searchResult.reverse());
     const message = messages.find(o => o.subject[0] === subject);
 
-    if (message && realDel) {
+    const isSeen = _.get(message, 'attrs.flags', []).includes('\\Seen');
+
+    if (message && realDelFn(message, isSeen)) {
       const {subject, attrs: {uid}} = message;
       await _call('addFlags', uid, ['\\Deleted']).then(() => {
         console.log(`邮件删除成功(uid: ${uid}, subject: ${subject[0]})`);
@@ -80,7 +83,7 @@ function _search({subject, since, realDel}, callback) {
     }
 
     imap.end();
-    callback(void 0, message);
+    callback(void 0, seen ? isSeen : message);
 
     /**
      *
@@ -149,4 +152,5 @@ module.exports = {
   send,
   search,
   searchSeen,
+  searchSeenAndDel,
 };
