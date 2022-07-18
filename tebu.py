@@ -3,7 +3,6 @@
 new Env('特步');
 """
 
-from urllib import response
 import requests
 import json
 
