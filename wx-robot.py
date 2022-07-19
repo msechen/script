@@ -124,6 +124,9 @@ def forward_to_kolly(msg):
             ret = sync_data.query_brand_order('vivo')
             logger.info(ret)
             return ret
+
+        if 'draft' == msg.text:  # 查所有文字草稿
+            return '\n'.join(auto.query_article_draft())
     elif msg.sender.name == '内测' or msg.sender.name == '「蓝猫」早起俱乐部':
         logger.info('收到群聊「{}」「{}」的消息：{}'.format(msg.sender.name, msg.member.name, msg.text))
         if '#早起打卡' in msg.text:

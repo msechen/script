@@ -13,7 +13,7 @@ def query_article_draft():
     result = []
     for i, item in enumerate(draft_all):
         if item['title'].startswith('Auto-'):
-            tmp = "{}_{}".format(item['title'], item['id'])
+            tmp = "【{}】{}_{}".format(i+1, item['title'], item['id'])
             result.append(tmp)
 
     result.sort()
