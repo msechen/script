@@ -9,11 +9,27 @@ v2p 圈×变量  zycookie
 例如
 青龙变量
 export zycookie='手机号1#密码1@手机号2#密码2'
+
+
+
+打开自由之刃app   
+抓网址
+http://zyzr.xkrvlj.cn:91/home/blind/openBlind?
+抓一个摇一摇的  请求体末尾  （默认自带一个我的   不能用  就替换成自己的）
+
+比如请求体是
+&type=2&phone_type=ios&eu-stamp=1658238834814&eu-sign=a0b1945da5c4eebece8b4b5534f8ce2a
+
+对应变量
+export zysigncookie='&eu-stamp=1658238834814&eu-sign=a0b1945da5c4eebece8b4b5534f8ce2a'
+
+
 */
 const jsname = '自由之刃'
 const $ = Env(jsname)
 let ck = ($.isNode() ? process.env.zycookie : $.getdata('zycookie')) || '';
 let ckArr = []
+let sign = ($.isNode() ? process.env.zysigncookie : $.getdata('zysigncookie')) || '&eu-stamp=1658238834814&eu-sign=a0b1945da5c4eebece8b4b5534f8ce2a';
 let envSplitor = ['@']
 !(async () => {
 
@@ -110,7 +126,6 @@ async function check() {
         let result = httpResult;
         if (result.data.alipay_account==null) {
             console.log(`\n检测到支付宝未绑定`)
-            await bd();
         } else console.log(`\n检测到支付宝已绑定 绑定号码 `+result.data.alipay_account)
     } catch (e) {
         console.log(e)
@@ -122,7 +137,7 @@ async function check() {
 async function openBlind() {
     try {
         let url = `http://zyzr.xkrvlj.cn:91/home/blind/openBlind?`
-        let body = `&type=${this.x}&phone_type=ios`
+        let body = `&type=${this.x}&phone_type=ios${sign}`
         let zy = `${zyid}`
         let to = `${zyto}`
         let urlObject = mini(url, zy, to, body)
