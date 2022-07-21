@@ -28,9 +28,9 @@ const len = cookiesArr.length;
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', { "open-url": "https://bean.m.jd.com/" });
         return;
     }
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < len; i++) {
         if (cookiesArr[0]) {
-            cookie = cookiesArr[0];
+            cookie = cookiesArr[i];
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
             $.index = i + 1;
             $.isLogin = true;
