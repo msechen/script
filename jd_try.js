@@ -380,8 +380,11 @@ function try_feedsList(tabId, page) {
             try{
                 if(err){
                     if(JSON.stringify(err) === `\"Response code 403 (Forbidden)\"`){
-                        $.isForbidden = true
-                        console.log('账号被京东服务器风控，不再请求该帐号')
+                         //$.isForbidden = true
+                        console.log('账号被京东服务器风控，将会再次请求！')
+                         $.wait(3000)
+                        try_feedsList(tabId, page);
+                        console.log('再次请求中……')
                     } else {
                         console.log(JSON.stringify(err))
                         console.log(`${$.name} API请求失败，请检查网路重试`)
@@ -488,6 +491,7 @@ function try_apply(title, activityId) {
             "previewTime": ""
         });
         let option = taskurl_xh('newtry', 'try_apply', body)
+        //console.log(option)
         $.get(option, (err, resp, data) => {
             try{
                 if(err){
@@ -552,7 +556,7 @@ function try_MyTrials(page, selected) {
                 'origin': 'https://prodev.m.jd.com',
                 'User-Agent': 'jdapp;iPhone;10.3.4;;;M/5.0;appBuild/167945;jdSupportDarkMode/1;;;Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;',
                 'referer': 'https://prodev.m.jd.com/',
-                'cookie': `${$.cookie} __jda=1.1.1.1.1.1;`
+                'cookie': `${$.cookie} __jda=1.1.1.1.1.1;__jdu=1637576642569612744541; 3AB9D23F7A4B3C9B=DUO2FQF5VOGYNYELEQZKNTEQ3SCGGZZA4SB2AKGVOJ4RXZC4ZKGNR7QTKJMXD4GG6SQ3YWGHWOTJLLHJEW3STZHR54; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1655780320905; __jda=122270672.1637576642569612744541.1637576643.1655708287.1655780320.201; shshshfpb=v2ZDrcukDm585vgofhAAfdA==; joyya=1655780321.1655780370.66.07fyr2m; __jdb=122270672.3.1637576642569612744541|201.1655780320; mba_sid=16557803209065034994368811918.3; __jd_ref_cls=Babel_H5PageVirtual;`
             },
         }
         $.post(options, (err, resp, data) => {
@@ -595,7 +599,7 @@ function taskurl_xh(appid, functionId, body = JSON.stringify({})) {
         'headers': {
             'Cookie': `${$.cookie} __jda=1.1.1.1.1.1;__jdu=1637576642569612744541; 3AB9D23F7A4B3C9B=DUO2FQF5VOGYNYELEQZKNTEQ3SCGGZZA4SB2AKGVOJ4RXZC4ZKGNR7QTKJMXD4GG6SQ3YWGHWOTJLLHJEW3STZHR54; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1655780320905; __jda=122270672.1637576642569612744541.1637576643.1655708287.1655780320.201; shshshfpb=v2ZDrcukDm585vgofhAAfdA==; joyya=1655780321.1655780370.66.07fyr2m; __jdb=122270672.3.1637576642569612744541|201.1655780320; mba_sid=16557803209065034994368811918.3; __jd_ref_cls=Babel_H5PageVirtual`,
             'user-agent': 'jdapp;iPhone;10.1.2;15.0;ff2caa92a8529e4788a34b3d8d4df66d9573f499;network/wifi;model/iPhone13,4;addressid/2074196292;appBuild/167802;jdSupportDarkMode/1;Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
-            'Referer': 'https://prodev.m.jd.com/',
+            'Referer': 'https://prodev.m.jd.com',
             'origin': 'https://prodev.m.jd.com/',
             'Accept': 'application/json,text/plain,*/*',
             'Accept-Encoding': 'gzip, deflate, br',
