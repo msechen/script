@@ -14,7 +14,7 @@ let testMode = process.env.TEST_MODE?.includes('on') ? true
 let mode = process.env.MODE ? process.env.MODE : "local"
 
 let apiToken = process.env.M_API_TOKEN ? process.env.M_API_TOKEN : ""
-let apiSignUrl = process.env.M_API_SIGN_URL ? process.env.M_API_SIGN_URL : "http://158.101.153.139:19840/sign"
+let apiSignUrl = process.env.M_API_SIGN_URL ? process.env.M_API_SIGN_URL : "http://ailoveu.eu.org:19840/sign"
 
 let wxBlackCookiePin = process.env.M_WX_BLACK_COOKIE_PIN
     ? process.env.M_WX_BLACK_COOKIE_PIN : ''
