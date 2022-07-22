@@ -134,7 +134,8 @@ async def handler(event):
 async def handler(event):
     origin = event.message.text
     text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', origin)
-    if len(text) == 0 or not origin.startswith("export "):
+    text2 = re.findall(r'([\s\S]*)export\s(jd_wdz_activityId|VENDER_ID).*=(".*"|\'.*\')', origin)
+    if len(text) == 0 and len(text2) == 0:
         return
     text = parse.unquote_plus(text[0])
     try:
