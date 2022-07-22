@@ -64,7 +64,28 @@ class UserInfo {
 	}
 
 
-
+async getid() {
+		try {
+			let url = `https://www.chongpar.cn/member/cp-member-integral-award-rule/index?startTime=2022-07-22%2000%3A00%3A00&endTime=2022-08-22%2000%3A00%3A00`
+			let body = ``
+			let token = `${this.ck}`
+			let urlObject = populateUrlObject(url, token, body)
+			await httpRequest('get', urlObject)
+			let result = httpResult;
+for (let i=0;i<3;i++){
+let z = JSON.stringify(result[i])
+               let x = JSON.parse(z)
+               let t = x.id
+			this.mini = t
+			await this.add()
+}
+			
+		} catch (e) {
+			console.log(e)
+		} finally {
+			return Promise.resolve(1);
+		}
+	}
 
 	async userinfo() {
 		try {
@@ -78,17 +99,11 @@ class UserInfo {
 			if (this.code == 400) {
 				console.log(`账号[${this.name}] ` + this.nickname + ` 已签到`)
 			} else console.log(`账号[${this.name}] ` + this.nickname + ` 签到成功`)
+               await this.getid()
 
+			
 
-			this.n = 9010
-			this.m = 9110
-
-			this.x = this.m - this.n
-			console.log(`开始扫任务ID ${this.n}--${this.m}  共 ` + this.x + ` 次`)
-			for (let i = 9010; i <= 9100; i++) {
-				this.mini = i
-				await this.add()
-			}
+			
 
 		} catch (e) {
 			console.log(e)
@@ -111,11 +126,10 @@ class UserInfo {
 				await this.confirm()
 			}
 			if (result.popUp == 1) {
-				console.log(`\n账号[${this.name}] 提现成功了吗 ` + this.brief)
-			} else if (result.popUp == 2) console.log(`\n账号[${this.name}] 扫到ID${this.mini} ` + this.brief)
-
-
-
+				console.log(`\n账号[${this.name}] ${this.mini} 提现结果查询 ` + this.brief)
+			} else if(result.todayStatus==1){
+console.log(`账号[${this.name}] ${this.mini} ${result.brief}`)
+}
 		} catch (e) {} finally {
 			return Promise.resolve(1);
 		}
