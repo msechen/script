@@ -1,179 +1,60 @@
 import asyncio
 import datetime
 import json
+import logging
 import os
 import re
-import urllib.parse
+from urllib import parse
 
 from cacheout import FIFOCache
-from pyrogram import Client, filters
+from telethon import TelegramClient, events
 
-cache = FIFOCache(maxsize=512)
+# pm2 start /jd/config/magic.py -x --interpreter python3
 
-platform = "v4"
-if os.path.exists("/jd/config/magic.json"):
-    with open("/jd/config/magic.json", 'r', encoding='utf-8') as f:
-        BOT = json.load(f)
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.INFO)
+# 创建
+logger = logging.getLogger("magic")
+logger.setLevel(logging.INFO)
 
-if os.path.exists("/ql/config/magic.json"):
-    platform = "ql"
-    with open("/ql/config/magic.json", 'r', encoding='utf-8') as f:
-        BOT = json.load(f)
+_ConfigSH = '/jd/config/config.sh'
+_ConfigCar = "/jd/config/magic.json"
+if 'magic' in os.getcwd():
+    _ConfigCar = '/home/magic/Work/wools/bot/plugins/magic.json'
+    _ConfigSH = '/home/magic/Work/wools/doc/config.sh'
 
-if os.path.exists("/ql/data/config/magic.json"):
-    platform = "ql2"
-    with open("/ql/data/config/magic.json", 'r', encoding='utf-8') as f:
-        BOT = json.load(f)
+with open(_ConfigCar, 'r', encoding='utf-8') as f:
+    magic_json = f.read()
+    properties = json.loads(magic_json)
 
-api_id = int(BOT['api_id'])
-api_hash = BOT['api_hash']
-my_id = int(BOT['user_id'])
-my_bot_id = int(BOT['bot_token'].split(":")[0])
-base_path = BOT['base_path']
+# 缓存
+cache = FIFOCache(maxsize=properties.get("monitor_cache_size"))
 
-if platform == "v4":
-    _ConfigSH = '/jd/config/config.sh'
-elif platform == 'ql':
-    _ConfigSH = '/ql/config/config.sh'
-else:
-    _ConfigSH = '/ql/data/config/config.sh'
+# Telegram相关
+api_id = properties.get("api_id")
+api_hash = properties.get("api_hash")
+bot_id = properties.get("bot_id")
+bot_token = properties.get("bot_token")
+user_id = properties.get("user_id")
+# 监控相关
+monitor_cars = properties.get("monitor_cars")
+logger.info(f"监控的频道或群组-->{monitor_cars}")
+monitor_scripts_path = properties.get("monitor_scripts_path")
+logger.info(f"监控的文件目录-->{monitor_scripts_path}")
+monitor_scripts = properties.get("monitor_scripts")
+monitor_auto_stops = properties.get("monitor_auto_stops")
+logger.info(f"监控的自动停车-->{monitor_auto_stops}")
 
-if BOT['proxy']:
+if properties.get("proxy"):
     proxy = {
-        'scheme': BOT['proxy_scheme'],
-        'hostname': BOT['proxy_add'],
-        'port': int(BOT['proxy_port']),
-        'username': BOT['proxy_username'],
-        'password': BOT['proxy_password']
+        'proxy_type': properties.get("proxy_type"),
+        'addr': properties.get("proxy_addr"),
+        'port': properties.get("proxy_port")
     }
-    app = Client('magic', api_id, api_hash, proxy=proxy)
+    client = TelegramClient("magic", api_id, api_hash, proxy=proxy, auto_reconnect=True, retry_delay=1, connection_retries=99999).start()
 else:
-    app = Client('magic', api_id, api_hash)
-
-# 监控的自动车
-car_group_id = int(BOT['car_group_id'])
-
-monitor_flag = 'https://i.walle.com/api?data='
-
-# 你的脚本配置
-car_config = [
-    {'name': 'M加购有礼', 'env': 'M_WX_ADD_CART_URL', 'js': 'm_jd_wx_addCart.js', 'cmd': 'now'},
-    {'name': 'M幸运抽奖', 'env': 'M_WX_LUCK_DRAW_URL', 'js': 'm_jd_wx_luckDraw.js', 'cmd': 'now'},
-    {'name': 'M集卡抽奖', 'env': 'M_WX_COLLECT_CARD_URL', 'js': 'm_jd_wx_collectCard.js', 'cmd': 'now'},
-    {'name': 'M关注有礼', 'env': 'M_FOLLOW_SHOP_ARGV', 'js': 'm_jd_follow_shop.js', 'cmd': 'now'},
-    {'name': 'M收藏有礼', 'env': 'M_FAV_SHOP_ARGV', 'js': 'm_jd_fav_shop_gift.js', 'cmd': 'now'},
-    {'name': 'M老虎机抽奖', 'env': 'M_WX_CENTER_DRAW_URL', 'js': 'm_jd_wx_centerDraw.js', 'cmd': 'now'}
-]
+    client = TelegramClient("magic", api_id, api_hash, auto_reconnect=True, retry_delay=1, connection_retries=99999).start()
 
 
-@app.on_message(filters.chat(my_bot_id) & filters.regex("在吗"))
-async def handler(client, message):
-    await message.reply("老板啥事！")
-
-
-@app.on_message(filters.chat(car_group_id) & filters.user(951306588) & filters.text)
-async def handler(client, message):
-    try:
-        if message.entities is None:
-            return
-        text = message.entities[0].url
-        if text is None:
-            return
-        if 'i.walle.com' not in text:
-            return
-        text = urllib.parse.unquote(text.replace(monitor_flag, ''))
-        zd = 1
-        if 'jd_zdjr_activityId' in text:
-            zd = re.search(f'jd_zdjr_activityId="(.*)"', text)[1]
-        if zd != 1:
-            if cache.get(zd) is not None:
-                await client.send_message(my_bot_id, f'跑过 {text}')
-                return
-            cache.set(zd, zd)
-        else:
-            if cache.get(text) is not None:
-                await client.send_message(my_bot_id, f'跑过 {text}')
-                return
-            cache.set(text, text)
-        name = ''
-        js = ''
-        command = ''
-        for v in car_config:
-            if v['env'] in text:
-                name = v['name']
-                js = v['js']
-                command = v['cmd']
-                break
-        if len(name) == 0:
-            await client.send_message(my_bot_id, f'未知变量`{text}`')
-            return
-        messages = text.split("\n")
-        change = ""
-        for message in messages:
-            if "export " not in message:
-                continue
-            kv = message.replace("export ", "")
-            key = kv.split("=")[0]
-            value = re.findall(r'"([^"]*)"', kv)[0]
-            configs = rwcon("str")
-            if kv in configs:
-                continue
-            if key in configs:
-                configs = re.sub(f'{key}=("|\').*("|\')', kv, configs)
-                change += f"【替换】 `{name}` 环境变量成功\n`{kv}\n`"
-            else:
-                if platform == 'v4':
-                    end_line = 0
-                    configs = rwcon("list")
-                    for config in configs:
-                        if "第五区域" in config and "↑" in config:
-                            end_line = configs.index(config) - 1
-                            break
-                    configs.insert(end_line, f'export {key}="{value}"\n')
-                else:
-                    configs = rwcon("str")
-                    configs += f'export {key}="{value}"\n'
-                change += f"【新增】 `{name}` 环境变量成功\n`{kv}\n`"
-                await client.send_message(my_bot_id, change)
-            rwcon(configs)
-        if len(change) == 0:
-            await client.send_message(my_bot_id, f'【取消】{name}环境变量无需改动')
-            return
-        if len(js) > 0:
-            await client.send_message(my_bot_id, f'开始运行 {js}')
-            if platform == 'v4':
-                await cmd(client, f'jtask {base_path}/{js} {command}')
-            else:
-                await cmd(client, f'task {base_path}/{js} {command}')
-        else:
-            await client.send_message(my_bot_id, f'无需执行')
-    except Exception as e:
-        await client.send_message(my_bot_id, f'{str(e)}')
-
-
-async def cmd(client, cmd_text):
-    '''定义执行cmd命令'''
-    try:
-        p = await asyncio.create_subprocess_shell(
-            cmd_text, stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE)
-        res_bytes, res_err = await p.communicate()
-        res = res_bytes.decode('utf-8')
-        if len(res) > 0:
-            if platform == "v4":
-                base = "/jd"
-            elif platform == "ql":
-                base = "/ql"
-            else:
-                base = "/ql/data"
-            tmp_log = f'{base}/log/bot/{cmd_text.split("/")[-1].split(".js")[0]}-{datetime.datetime.now().strftime("%H-%M-%S.%f")}.log'
-            with open(tmp_log, 'w+', encoding='utf-8') as f:
-                f.write(res)
-    except Exception as e:
-        await client.send_message(my_bot_id, f'日志目录有误,{str(e)}')
-
-
-# 读写config.sh
 def rwcon(arg):
     if arg == "str":
         with open(_ConfigSH, 'r', encoding='utf-8') as f1:
@@ -191,4 +72,223 @@ def rwcon(arg):
             f1.write("".join(arg))
 
 
-app.run()
+async def export(text):
+    messages = text.split("\n")
+    change = ""
+    key = ""
+    for message in messages:
+        if "export " not in message:
+            continue
+        kv = message.replace("export ", "")
+        key = kv.split("=")[0]
+        value = re.findall(r'"([^"]*)"', kv)[0]
+        configs = rwcon("str")
+        if kv in configs:
+            continue
+        if key in configs:
+            configs = re.sub(f'{key}=("|\').*("|\')', kv, configs)
+            change += f"【替换】环境变量成功\nexport {kv}"
+            await client.send_message(bot_id, change)
+        else:
+            end_line = 0
+            configs = rwcon("list")
+            for config in configs:
+                if "第二区域" in config and "↑" in config:
+                    end_line = configs.index(config) - 1
+                    break
+            configs.insert(end_line, f'export {key}="{value}"\n')
+            change += f"【新增】环境变量成功\nexport {kv}"
+            await client.send_message(bot_id, change)
+        rwcon(configs)
+    if len(change) == 0:
+        await client.send_message(bot_id, f'【取消】{key}环境变量无需改动')
+
+
+def init():
+    logger.info("初始化config.sh配置开始")
+    with open(_ConfigSH, "r") as f:  # 找到配置的wskey
+        for line in f.readlines():
+            if not line.startswith("export "):
+                continue
+            kv = line.replace("export ", "")
+            vvv = kv.split("=")
+            test = re.findall(r'"([^"]*)"', vvv[1])
+            if len(test) > 0:
+                os.environ[vvv[0]] = test[0]
+                continue
+            test = re.findall(r"'([^']*)'", vvv[1])
+            if len(test) > 0:
+                os.environ[vvv[0]] = test[0]
+                continue
+            os.environ[vvv[0]] = str(vvv[1])
+    logger.info("初始化config.sh配置结束")
+
+
+# 设置变量
+@client.on(events.NewMessage(chats=monitor_cars, pattern='^没水了$'))
+async def handler(event):
+    for auto_stop_file in monitor_auto_stops:
+        os.popen(f"ps -ef | grep {auto_stop_file}" + " | grep -v grep | awk '{print $1}' | xargs kill -9")
+    await client.send_message(bot_id, f'没水停车')
+
+
+# 设置变量
+@client.on(events.NewMessage(chats=monitor_cars, pattern='^刷新配置$'))
+async def handler(event):
+    init()
+    await client.send_message(bot_id, f'配置已刷新')
+
+
+# 设置变量
+@client.on(events.NewMessage(chats=monitor_cars, pattern='^清理缓存$'))
+async def handler(event):
+    b_size = cache.size()
+    logger.info(f"清理前缓存数量，{b_size}")
+    cache.clear()
+    a_size = cache.size()
+    logger.info(f"清理后缓存数量，{a_size}")
+    await client.send_message(bot_id, f'清理缓存结束 {b_size}-->{a_size}')
+
+
+# 监听事件
+@client.on(events.NewMessage(chats=monitor_cars))
+async def handler(event):
+    text = event.message.text
+    text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', text)
+    if len(text) == 0:
+        return
+    text = parse.unquote_plus(text[0])
+    try:
+        logger.info(f"原始数据 {text}")
+        # 微定制
+        if "WDZactivityId" in text:
+            activity_id = re.search(f'WDZactivityId="(.+?)"', text)[1]
+            if cache.get(activity_id) is not None:
+                await client.send_message(bot_id, f'跑过 {text}')
+                return
+            cache.set(activity_id, activity_id)
+            text = f'export jd_wdz_custom="{activity_id}"'
+        else:
+            urls = re.search('((http|https)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])', text)
+            if urls is not None:
+                url = urls[0]
+                domain = re.findall('https?://([^/]+)', url)[0]
+                params = parse.parse_qs(parse.urlparse(url).query)
+                activity_id = ''
+                if 'cjhy' in domain or 'lzkj' in domain or 'lzdz1' in domain:
+                    if 'pageDecorateView/previewPage' in url:
+                        activity_id = params["tplId"][0]
+                    elif 'wxPointShopView' in url:
+                        activity_id = params["giftId"][0]
+                    elif 'activityId' in url:
+                        activity_id = params["activityId"][0]
+                if len(activity_id) == 0:
+                    if cache.get(text) is not None:
+                        await client.send_message(bot_id, f'跑过 {text}')
+                        return
+                    cache.set(text, text)
+                elif cache.get(activity_id) is not None:
+                    await client.send_message(bot_id, f'跑过 {text}')
+                    return
+                cache.set(activity_id, activity_id)
+            else:
+                if cache.get(text) is not None:
+                    await client.send_message(bot_id, f'跑过 {text}')
+                    return
+                cache.set(text, text)
+        logger.info(f"最终变量 {text}")
+        kv = text.replace("export ", "")
+        key = kv.split("=")[0]
+        value = re.findall(r'"([^"]*)"', kv)[0]
+        action = monitor_scripts.get(key)
+        logger.info(f'ACTION {action}')
+        if action is None:  # 没有自动车
+            logger.info(f'设置环境变量export {text}')
+            await export(text)
+            return
+        queue = action.get("queue")
+        name = action.get("name")
+        if queue:
+            await queues[action.get("queue_name")].put({"text": text, "action": action})
+            await client.send_message(bot_id, f'入队执行 #{name}')
+            return
+        file = action.get("file", "")
+        # 没有匹配的动作 或没开启
+        if not action.get("enable"):
+            logger.info(f'设置环境变量export {action}')
+            await export(text)
+            return
+        await client.send_message(bot_id, f'开始执行 #{name}')
+        logger.info(f'JTASK命令 {file},{parse.quote_plus(value)}')
+        await cmd(f'cd {monitor_scripts_path} && jtask {file}')
+    except Exception as e:
+        logger.error(e)
+        await client.send_message(bot_id, f'{str(e)}')
+
+
+queues = {}
+
+
+async def task(task_name, task_key):
+    logger.info(f"队列监听--> {task_name} {task_key} 已启动，等待任务")
+    curr_queue = queues[task_key]
+    while True:
+        try:
+            param = await curr_queue.get()
+            logger.info(f"出队执行开始 {param}")
+            text = param.get("text")
+            kv = text.replace("export ", "")
+            key = kv.split("=")[0]
+            value = re.findall(r'"([^"]*)"', kv)[0]
+            logger.info(f'出队执行变量与值 {key},{value}')
+            action = param.get("action")
+            logger.info(f'ACTION {action}')
+            file = action.get("file", "")
+            logger.info(f'JTASK命令 {file},{parse.quote_plus(value)}')
+            logger.info(f'出队执行-->设置环境变量export {action}')
+            await export(text)
+            await cmd(f'cd {monitor_scripts_path} && jtask {file}')
+            if curr_queue.qsize() > 1:
+                await client.send_message(bot_id, f'{action["name"]}，队列长度{curr_queue.qsize()}，将等待{action["wait"]}秒...')
+                await asyncio.sleep(action['wait'])
+        except Exception as e:
+            logger.error(e)
+
+
+async def cmd(command):
+    try:
+        if 'node' in command:
+            name = re.findall(r'node (.*).js', command)[0]
+        else:
+            name = re.findall(r'jtask (.*).js', command)[0]
+        tmp_log = f'/jd/log/bot/{name}.{datetime.datetime.now().strftime("%H%M%S%f")}.log'
+        proc = await asyncio.create_subprocess_shell(
+            f"{command} >> {tmp_log} 2>&1",
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
+        )
+        await proc.communicate()
+        await client.send_file(user_id, tmp_log)
+        os.remove(tmp_log)
+    except Exception as e:
+        logger.error(e)
+        await client.send_message(bot_id, f'something wrong,I\'m sorry\n{str(e)}')
+
+
+if __name__ == "__main__":
+    try:
+        logger.info("开始运行")
+        init()
+        for key in monitor_scripts:
+            action = monitor_scripts[key]
+            name = action.get('name')
+            queue = action.get("queue")
+            if queue:
+                queues[action.get("queue_name")] = asyncio.Queue()
+                client.loop.create_task(task(name, key))
+            else:
+                logger.info(f"无需队列--> {name} {key}")
+        client.run_until_disconnected()
+    except Exception as e:
+        logger.error(e)
+        client.disconnect()
