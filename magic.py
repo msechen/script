@@ -103,6 +103,7 @@ async def export(text):
     if len(change) == 0:
         await client.send_message(bot_id, f'【取消】{key}环境变量无需改动')
 
+
 # 设置变量
 @client.on(events.NewMessage(chats=monitor_cars, pattern='^没水了$'))
 async def handler(event):
@@ -131,9 +132,9 @@ async def handler(event):
 # 监听事件
 @client.on(events.NewMessage(chats=monitor_cars))
 async def handler(event):
-    text = event.message.text
-    text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', text)
-    if len(text) == 0:
+    origin = event.message.text
+    text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', origin)
+    if len(text) == 0 or not origin.startswith("export "):
         return
     text = parse.unquote_plus(text[0])
     try:
