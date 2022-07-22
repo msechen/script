@@ -19,7 +19,7 @@ class Bilibili_txsk:
     
     @staticmethod
     def getheaders(cookie):
-        header = {
+        headers = {
                 "user-agent": " ",
                 "cookie":f"{cookie}",
                 "Accept-Encoding": "gzip, deflate",
@@ -28,15 +28,15 @@ class Bilibili_txsk:
                 "Host": " ",
                 "Connection": "keep-alive",
             }
-        return header
+        return headers
 
     @staticmethod
-    def getUserInfo(header):
-        header["Host"] = "api.bilibili.com"
-        header["user-agent"]= f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+    def getUserInfo(headers):
+        headers["Host"] = "api.bilibili.com"
+        headers["user-agent"]= f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
         url = "https://api.bilibili.com/x/web-interface/nav"
         try:
-            res = requests.get(url=url,headers=header).json()
+            res = requests.get(url=url,headers=headers).json()
             if res['code'] == 0:
                 msg = " 用户 "+ res['data']['uname'] + " 拥有 "+ str(res['data']['money']) + " 硬币!"
             else:
@@ -46,12 +46,12 @@ class Bilibili_txsk:
         return msg
 
     @staticmethod
-    def NeedRewardInfo(header):
-        header["Host"] = "api.live.bilibili.com"
-        header["user-agent"]= f"bili-universal/68100100 CFNetwork/1333.0.4 Darwin/21.5.0 os/ios model/iPhone XR mobi_app/iphone build/68100100 osVer/15.5 network/2 channel/AppStore"
+    def NeedRewardInfo(headers):
+        headers["Host"] = "api.live.bilibili.com"
+        headers["user-agent"]= f"bili-universal/68100100 CFNetwork/1333.0.4 Darwin/21.5.0 os/ios model/iPhone XR mobi_app/iphone build/68100100 osVer/15.5 network/2 channel/AppStore"
         url = 'https://api.live.bilibili.com/xlive/lottery-interface/v1/Anchor/AwardRecord?page=1'
         try:
-            res = requests.get(url=url, headers=header).json()
+            res = requests.get(url=url, headers=headers).json()
             totalGift = res['data']['total_count']
             if totalGift != 0:
                 msg = "共获得"+str(totalGift)+"个奖品"
@@ -62,12 +62,12 @@ class Bilibili_txsk:
         return msg
     
     @staticmethod
-    def getRewardInfo(header):
-        header["Host"] = "api.live.bilibili.com"
-        header["user-agent"]= f"bili-universal/68100100 CFNetwork/1333.0.4 Darwin/21.5.0 os/ios model/iPhone XR mobi_app/iphone build/68100100 osVer/15.5 network/2 channel/AppStore"
+    def getRewardInfo(headers):
+        headers["Host"] = "api.live.bilibili.com"
+        headers["user-agent"]= f"bili-universal/68100100 CFNetwork/1333.0.4 Darwin/21.5.0 os/ios model/iPhone XR mobi_app/iphone build/68100100 osVer/15.5 network/2 channel/AppStore"
         url = 'https://api.live.bilibili.com/xlive/lottery-interface/v1/Anchor/AwardRecord?page={}'.format(1)   #只列一页
         try:
-            res = requests.get(url=url,headers=header).json()
+            res = requests.get(url=url,headers=headers).json()
             msg = ""
             for i in len(res['data']['list']):
                 giftName  = res['data']['list'][i]['award_name']
@@ -83,11 +83,11 @@ class Bilibili_txsk:
         msg_all = ""
         for check_item in self.check_items:
             cookie = str(check_item.get("cookie"))
-            header = self.getheaders(cookie)
-            UserInfo = self.getUserInfo(header)
-            NeedRnfo = self.NeedRewardInfo(header)
+            headers = self.getheaders(cookie)
+            UserInfo = self.getUserInfo(headers)
+            NeedRnfo = self.NeedRewardInfo(headers)
             if any(chr.isdigit() for chr in NeedRnfo) == True:
-                getRInfo = self.getRewardInfo(header)
+                getRInfo = self.getRewardInfo(headers)
                 msg = f"{UserInfo}\n{NeedRnfo}\n{getRInfo}"
             else:
                 msg = f"{UserInfo}\n{NeedRnfo}"

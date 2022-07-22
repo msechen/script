@@ -17,7 +17,7 @@ class SFexpress:
     
     @staticmethod
     def getheaders(sessionId):
-        hearders = {
+        headers = {
                 "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
                 "cookie":f"{sessionId}",
                 "Accept-Encoding": "gzip, deflate, br",
@@ -26,13 +26,13 @@ class SFexpress:
                 "Host": "mcs-mimp-web.sf-express.com",
                 "content-type": "application/json",
             }
-        return hearders
+        return headers
     @staticmethod
-    def sign(hearders):
+    def sign(headers):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignService/automaticSignFetchPackage'
         data = '{"comeFrom":"vioin","channelFrom":"SFAPP"}'
         try:
-            res = requests.post(url=url,headers=hearders,data=data,verify=False).json()
+            res = requests.post(url=url,headers=headers,data=data,verify=False).json()
             hasFinishSign = res['obj']['hasFinishSign']
             if hasFinishSign == 1:
                 msg = "今日已签到，无需重复签到"
@@ -45,11 +45,11 @@ class SFexpress:
         return msg
 
     @staticmethod
-    def weal(hearders):
+    def weal(headers):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberActLengthy~redPacketActivityService~superWelfare~receiveRedPacket'
         data = '{"channel":"SignIn"}'
         try:
-            res = requests.post(url=url, headers=hearders, data=data, verify=False).json()
+            res = requests.post(url=url, headers=headers, data=data, verify=False).json()
             success = res['success']
             if success == True:
                 giftName = res['obj']['giftList'][0]['giftName']
@@ -59,11 +59,11 @@ class SFexpress:
         return msg
     
     @staticmethod
-    def task(hearders):
+    def task(headers):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~queryPointTaskAndSignFromES'
         data = '{"channelType":"1"}'
         try:
-            res = requests.post (url=url, headers=hearders,data=data,verify=False).json()
+            res = requests.post (url=url, headers=headers,data=data,verify=False).json()
             list = res['obj']['taskTitleLevels']
             msg_task=""
             for i in range(len(list)):
@@ -78,7 +78,7 @@ class SFexpress:
                     # msg = dotask(sessionId,title,strategyId,taskId,taskCode)
                     ### 获取任务列表
                     url_getask = f'https://mcs-mimp-web.sf-express.com/mcs-mimp/task/finishTask?id={taskCode}'
-                    res = requests.get (url=url_getask, headers=hearders, verify=False).json()
+                    res = requests.get (url=url_getask, headers=headers, verify=False).json()
                     success = res['success']
                     if success == True:
                         time.sleep(20)
@@ -86,7 +86,7 @@ class SFexpress:
                     ### 做任务并领取
                     url_dotask = f'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~fetchIntegral'
                     data_dotask = '{"strategyId":' + f"{strategyId}" + ',"taskId":"' + f"{taskId}" + '","taskCode":"' + f"{taskCode}" + '"}'
-                    res = requests.post (url=url_dotask, headers=hearders, data=data_dotask, verify=False).json()
+                    res = requests.post (url=url_dotask, headers=headers, data=data_dotask, verify=False).json()
                     success = res['success']
                     msg = ""
                     if success == True:
@@ -108,10 +108,10 @@ class SFexpress:
         msg_all = ""
         for check_item in self.check_items:
             sessionId="sessionId=" + str(check_item.get("sessionId"))
-            hearders = self.getheaders(sessionId)
-            sign_msg = self.sign(hearders)
-            weal_msg = self.weal(hearders)
-            task_msg = self.task(hearders)
+            headers = self.getheaders(sessionId)
+            sign_msg = self.sign(headers)
+            weal_msg = self.weal(headers)
+            task_msg = self.task(headers)
             msg = f"{sign_msg}\n{weal_msg}\n{task_msg}"
             msg_all += msg + "\n\n"
         return msg_all
