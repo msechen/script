@@ -7,6 +7,11 @@
 # 青龙随机定时
 QL_RANDOM_TIME = false
 
+# Bilibili【WEB】
+#天选时刻 奖品详情
+# https://www.bilibili.com cookie
+[[BILIBILI]]
+cookie = "_uuid=xxxxxx; rpdid=xxx'xxx; LIVE_BUVID=xxxxxx; PVID=xxxxxx; blackside_state=xxxxxx; CURRENT_FNVAL=xxxxxx; buvid3=xxxxxx; fingerprint3=xxxxxx; fingerprint=xxxxxx; buivd_fp=xxxxxx; buvid_fp_plain=xxxxxx; DedeUserID=xxxxxx; DedeUserID__ckMd5=xxxxxx; SESSDATA=xxxxxx; bili_jct=xxxxxx; bsource=xxxxxx; finger=xxxxxx; fingerprint_s=xxxxxx;"
 
 # CSDN【WEB】
 # https://www.csdn.net cookie
