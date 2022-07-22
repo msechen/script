@@ -135,9 +135,12 @@ async def handler(event):
     origin = event.message.text
     text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', origin)
     text2 = re.findall(r'([\s\S]*)export\s(jd_wdz_activityId|VENDER_ID).*=(".*"|\'.*\')', origin)
-    if len(text) == 0 and len(text2) == 0:
+    if len(text) > 0:
+        text = parse.unquote_plus(text[0])
+    elif len(text2) > 0:
+        text = text2
+    else:
         return
-    text = parse.unquote_plus(text[0])
     try:
         logger.info(f"原始数据 {text}")
         # 微定制
