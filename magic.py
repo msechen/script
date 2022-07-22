@@ -103,27 +103,6 @@ async def export(text):
     if len(change) == 0:
         await client.send_message(bot_id, f'【取消】{key}环境变量无需改动')
 
-
-def init():
-    logger.info("初始化config.sh配置开始")
-    with open(_ConfigSH, "r") as f:  # 找到配置的wskey
-        for line in f.readlines():
-            if not line.startswith("export "):
-                continue
-            kv = line.replace("export ", "")
-            vvv = kv.split("=")
-            test = re.findall(r'"([^"]*)"', vvv[1])
-            if len(test) > 0:
-                os.environ[vvv[0]] = test[0]
-                continue
-            test = re.findall(r"'([^']*)'", vvv[1])
-            if len(test) > 0:
-                os.environ[vvv[0]] = test[0]
-                continue
-            os.environ[vvv[0]] = str(vvv[1])
-    logger.info("初始化config.sh配置结束")
-
-
 # 设置变量
 @client.on(events.NewMessage(chats=monitor_cars, pattern='^没水了$'))
 async def handler(event):
@@ -133,10 +112,9 @@ async def handler(event):
 
 
 # 设置变量
-@client.on(events.NewMessage(chats=monitor_cars, pattern='^刷新配置$'))
+@client.on(events.NewMessage(chats=monitor_cars, pattern='^在吗$'))
 async def handler(event):
-    init()
-    await client.send_message(bot_id, f'配置已刷新')
+    await client.send_message(bot_id, f'老板啥事？')
 
 
 # 设置变量
@@ -278,7 +256,6 @@ async def cmd(command):
 if __name__ == "__main__":
     try:
         logger.info("开始运行")
-        init()
         for key in monitor_scripts:
             action = monitor_scripts[key]
             name = action.get('name')
