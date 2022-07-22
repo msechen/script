@@ -197,7 +197,7 @@ async def handler(event):
             await export(text)
             return
         await client.send_message(bot_id, f'开始执行 #{name}')
-        logger.info(f'JTASK命令 {file},{parse.quote_plus(value)}')
+        logger.info(f'JTASK命令 {file}')
         await cmd(f'cd {monitor_scripts_path} && jtask {file}')
     except Exception as e:
         logger.error(e)
