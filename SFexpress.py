@@ -29,7 +29,7 @@ class SFexpress:
         return headers
     @staticmethod
     def sign(headers):
-        url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignService/automaticSignFetchPackage'
+        url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignPlusService/automaticSignFetchPackage'
         data = '{"comeFrom":"vioin","channelFrom":"SFAPP"}'
         try:
             res = requests.post(url=url,headers=headers,data=data,verify=False).json()
