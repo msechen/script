@@ -317,7 +317,7 @@ def waterwheel_droplets(tubetoken, userid):
     response = requests.post(url=url, data=body, headers=headers).json()
     if response["status"] == 1:
         gain_amount =response['gain_amount']
-        print(f'水车水滴收取成功,一共收取{gain_amount/100}水滴')
+        print(f'水车水滴收取成功,一共收取{gain_amount/1000}水滴')
     else:
         print('无水车或者水车水滴不足')
 
