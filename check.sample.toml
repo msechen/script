@@ -35,6 +35,11 @@ uid = ""
 password = ""
 phone = ""
 
+#RIO鸡尾酒【小程序】
+#RIO鸡尾酒 小程序抓取 https://club.rioalc.com/api/miniprogram/user-info 查看headers中Authorization
+[[RIO]]
+Authorization = "Bearer xxxxxxx"
+
 # 顺丰速递【APP】
 # 顺丰速递 APP自行签到一次，抓取 https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignService/automaticSignFetchPackage 查看cookie中sessionId
 [[SFexpress]]
