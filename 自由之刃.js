@@ -80,11 +80,11 @@ async function login(sj, pwd) {
             console.log(`${result.msg} 余额：${result.data.user_money} 自由豆 ${result.data.bean}`)
             await check()
             this.cashx=result.data.user_money
-                if (this.cashx > 0&& this.cashx <15) {
-                    this.num = 1
-                    this.o = "可提现一元"
-                    await tx()
-                }
+//                 if (this.cashx > 0&& this.cashx <15) {
+//                     this.num = 1
+//                     this.o = "可提现一元"
+//                     await tx()
+//                 }
                 if (this.cashx >= 15&& this.cashx <40) {
                     this.num = 20
                     this.o = "可提现二十元"
