@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-new Env('特步');
+new Env('RIO');
 """
 
 import requests
