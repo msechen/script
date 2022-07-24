@@ -9,12 +9,12 @@ import pprint
 
 headers = {
     'referer': 'https://tmaservice.developer.toutiao.com/?appid=tte684903979bdf21a02&version=1.0.12',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Pixel 4 Build/QD1A.190821.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.61 Mobile Safari/537.3620.9.0 ToutiaoMicroApp/2.53.1.0 PluginVersion/209001',
+    'User-Agent': '',
     # 'content-type': 'application/json',
     # 'Accept-Encoding': 'br, gzip',
     'Host': 'minigame.zijieapi.com',
     # 'Connection': 'Keep-Alive',
-    'Cookie': 'odin_tt=e6fb199b84cfbea49c72884bbd44c2c6f6ac5ab649e0bfa160199f2d75cd582d8f3ad7acded72d4f984ed06bae624e2f65c262568e7069301cb5b07740aab6da; install_id=3980686141954494; ttreq=1$7bd75ef2bd643d38942207b07728aad96457cc5a; uid_tt=c0890449f72ccf9013b7b10430dfda2e; sid_guard=8dc94c878f4f038210854dddf3721bd4%7C1654399890%7C5139965%7CWed%2C+03-Aug-2022+15%3A17%3A35+GMT; sid_tt=8dc94c878f4f038210854dddf3721bd4; sessionid=8dc94c878f4f038210854dddf3721bd4',
+    'Cookie': '',
 
 }
 
@@ -51,7 +51,7 @@ def choose_box_reward():
             id = i["id"]
             reward_water = i["reward_water"]
             water_times = i["water_times"]
-            compare.append([id, reward_water,water_times])
+            compare.append([id, reward_water, water_times])
             # print(id, reward_water, water_times)
     # print(compare)
     if compare[0][1] > compare[1][1]:
@@ -72,7 +72,6 @@ def choose_box_reward():
         response = requests.get(url=url, headers=headers).json()
         if response["status_code"] == 0:
             print("挑战开始")
-
 
 
 ##挑战礼包奖励
@@ -162,7 +161,7 @@ def water_award():
 
 def watering(i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
-    if (i-1) / 10 in num:
+    if (i - 1) / 10 in num:
         water_award()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?version=11&os_version=10&version_code=200900&device_id=708526086828733&iid=3980686141954494&app_name=aweme&device_platform=android&device_type=Pixel%204&channel=sem_shenma_dy_ls146&aid=1128&ac=wifi&version_name=20.9.0&update_version_code=20909900"
     response = requests.get(url=url, headers=headers).json()
@@ -178,9 +177,10 @@ def watering(i=1):
             print('水瓶水不足停止浇水')
             return
 
+
 ##使用化肥
 def use_fertilizer():
-    url="https://minigame.zijieapi.com/ttgame/game_orchard_ecom/use/fertilizer?fertilizer_type=4"
+    url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/use/fertilizer?fertilizer_type=4"
     response = requests.get(url=url, headers=headers).json()
     # pprint.pprint(response)
     if response["status_code"] == 0:
@@ -190,12 +190,13 @@ def use_fertilizer():
 ##判断是否用化肥化肥
 def judy_fertilizer():
     # url="https://minigame.zijieapi.com/ttgame/game_orchard_ecom/use/fertilizer?fertilizer_type=4"
-    url="https://minigame.zijieapi.com/ttgame/game_orchard_ecom/polling_info"
+    url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/polling_info"
     response = requests.get(url=url, headers=headers).json()
     lite = response['data']['fertilizer']['lite']
     if int(lite) > 0:
         use_fertilizer()
         # pprint.pprint(response)
+
 
 ##完成度
 def target():
@@ -203,14 +204,13 @@ def target():
     response = requests.get(url=url, headers=headers).json()
     if response["status_code"] == 0:
         reward_water = response["data"]["info"]["progress"]
-        current_water=reward_water["current"]
+        current_water = reward_water["current"]
         target_water = reward_water["target"]
-        print(f'目前已浇水{current_water}目标为{target_water}还差{int(target_water)-current_water}水滴可以成功兑换水果')
-        return f'目前已浇水{current_water}目标为{target_water}还差{int(target_water)-current_water}水滴可以成功兑换水果'
+        print(f'目前已浇水{current_water}目标为{target_water}还差{int(target_water) - current_water}水滴可以成功兑换水果')
+        return f'目前已浇水{current_water}目标为{target_water}还差{int(target_water) - current_water}水滴可以成功兑换水果'
 
 
-
-def push_plus_bot(content,push_token):
+def push_plus_bot(content, push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -243,8 +243,10 @@ if __name__ == '__main__':
     cks = os.environ['dygyCookies'].split('@')
     push_token = os.environ['push_token']
     for ck in cks:
+        ck = ck.split('&')
         headers1 = {
-            'Cookie': ck,
+            'User-Agent': ck[0],
+            'Cookie': ck[1],
         }
         headers.update(headers1)
         print('抖音浇水任务开始,开始点击首页图标')
@@ -262,7 +264,7 @@ if __name__ == '__main__':
         elif start_time == '08':
             print('开始领取水滴日常任务奖励')
             day_water()
-            time.sleep(random.randint(1,4))
+            time.sleep(random.randint(1, 4))
             print('开始七天登录奖励')
             sign()
             time.sleep(random.randint(1, 4))
@@ -286,6 +288,7 @@ if __name__ == '__main__':
             time.sleep(random.randint(1, 4))
             print('开始推送信息')
             message = target()
+            push_plus_bot(message)
         elif start_time == '12':
             print('开始三餐领取任务')
             eat()
@@ -314,9 +317,7 @@ if __name__ == '__main__':
             watering()
             print('开始推送信息')
             message = target()
-            push_plus_bot(message,push_token)
-
-
+            push_plus_bot(message, push_token)
 
 """
 ff668ac51ae0c803&eyJleHAiOjE2NTQ5MTkwNjEsImtpZCI6MCwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiI4ODgyNTIwNiIsIm9wZW5pZCI6Im9ZYlZMeExnZThibWFINFhvSVQyMDdQWlJyV3ciLCJleHAiOjE2NTQ5MTkwNjF9.z7QV2gTs2U4tc9OyX02i6kCpw3H7qo7vfQWGe4Itx-g&eyJleHAiOjE2NjI2OTMyNjEsImFsZyI6IkhTMjU2In0.eyJ1aWQiOiI4ODgyNTIwNiIsIm9wZW5pZCI6Im9ZYlZMeExnZThibWFINFhvSVQyMDdQWlJyV3ciLCJleHAiOjE2NjI2OTMyNjF9.7CESzUCev6obxvP-vJWQw1elM2Jcj2jAlzoN6ORiy40
