@@ -317,7 +317,7 @@ def waterwheel_droplets(tubetoken, userid):
     response = requests.post(url=url, data=body, headers=headers).json()
     if response["status"] == 1:
         gain_amount =response['gain_amount']
-        print(f'水车水滴收取成功,一共收取{gain_amount/1000}水滴')
+        print(f'水车水滴收取成功,一共收取{gain_amount/100}水滴')
     else:
         print('无水车或者水车水滴不足')
 
@@ -356,7 +356,7 @@ def percent(AccessToken, userid):
     return f"在浇水{fruit}包邮到家"
 
 
-def push_plus_bot(content):
+def push_plus_bot(content,push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -368,7 +368,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": push_token,
         "title": '拼多多果园',
         "content": b,
         "channel": "wechat",
@@ -388,6 +388,7 @@ def push_plus_bot(content):
 if __name__ == '__main__':
     ck = os.environ['pddck']
     # ck = ''
+    push_token = os.environ['push_token']
     ck = ck.split('@')
     start_time = datetime.datetime.now().strftime('%H')
     for i in ck:
@@ -446,5 +447,4 @@ if __name__ == '__main__':
             print('开始浇水')
             watering(tubetoken, ck[0])
             message = percent(ck[1], ck[0])
-            push_plus_bot(message)
-
+            push_plus_bot(message, push_token)
