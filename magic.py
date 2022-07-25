@@ -16,11 +16,8 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 logger = logging.getLogger("magic")
 logger.setLevel(logging.INFO)
 
-_ConfigSH = '/jd/config/config.sh'
+# 只需要改这里 青龙请自行修改
 _ConfigCar = "/jd/config/magic.json"
-if 'magic' in os.getcwd():
-    _ConfigCar = '/home/magic/Work/wools/bot/plugins/magic.json'
-    _ConfigSH = '/home/magic/Work/wools/doc/config.sh'
 
 with open(_ConfigCar, 'r', encoding='utf-8') as f:
     magic_json = f.read()
@@ -37,6 +34,10 @@ bot_token = properties.get("bot_token")
 user_id = properties.get("user_id")
 # 监控相关
 monitor_cars = properties.get("monitor_cars")
+config_path = properties.get("config_path")
+command = properties.get("command")
+log_path = properties.get("log_path")
+log_send = properties.get("log_send")
 logger.info(f"监控的频道或群组-->{monitor_cars}")
 monitor_scripts_path = properties.get("monitor_scripts_path")
 logger.info(f"监控的文件目录-->{monitor_scripts_path}")
@@ -57,18 +58,18 @@ else:
 
 def rwcon(arg):
     if arg == "str":
-        with open(_ConfigSH, 'r', encoding='utf-8') as f1:
+        with open(config_path, 'r', encoding='utf-8') as f1:
             configs = f1.read()
         return configs
     elif arg == "list":
-        with open(_ConfigSH, 'r', encoding='utf-8') as f1:
+        with open(config_path, 'r', encoding='utf-8') as f1:
             configs = f1.readlines()
         return configs
     elif isinstance(arg, str):
-        with open(_ConfigSH, 'w', encoding='utf-8') as f1:
+        with open(config_path, 'w', encoding='utf-8') as f1:
             f1.write(arg)
     elif isinstance(arg, list):
-        with open(_ConfigSH, 'w', encoding='utf-8') as f1:
+        with open(config_path, 'w', encoding='utf-8') as f1:
             f1.write("".join(arg))
 
 
@@ -134,11 +135,8 @@ async def handler(event):
 async def handler(event):
     origin = event.message.text
     text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', origin)
-    text2 = re.findall(r'([\s\S]*)export\s(jd_wdz_activityId|VENDER_ID).*=(".*"|\'.*\')', origin)
     if len(text) > 0:
         text = parse.unquote_plus(text[0])
-    elif len(text2) > 0:
-        text = text2
     else:
         return
     try:
@@ -186,24 +184,26 @@ async def handler(event):
         action = monitor_scripts.get(key)
         logger.info(f'ACTION {action}')
         if action is None:  # 没有自动车
-            logger.info(f'设置环境变量export {text}')
-            await export(text)
+            await client.send_message(bot_id, f'没有自动车 #{text}')
             return
         queue = action.get("queue")
         name = action.get("name")
+        logger.info(f'queue {queue} name {name}')
         if queue:
             await queues[action.get("queue_name")].put({"text": text, "action": action})
             await client.send_message(bot_id, f'入队执行 #{name}')
             return
         file = action.get("file", "")
         # 没有匹配的动作 或没开启
-        if not action.get("enable"):
-            logger.info(f'设置环境变量export {action}')
-            await export(text)
+        enable = action.get("enable")
+        logger.info(f'name {name} enable {enable}')
+        if not enable:
+            await client.send_message(bot_id, f'未开启任务 #{name}')
             return
+        logger.info(f'设置环境变量export {action}')
+        await export(text)
         await client.send_message(bot_id, f'开始执行 #{name}')
-        logger.info(f'JTASK命令 {file}')
-        await cmd(f'cd {monitor_scripts_path} && jtask {file}')
+        await cmd(f'cd {monitor_scripts_path} && {command} {file}')
     except Exception as e:
         logger.error(e)
         await client.send_message(bot_id, f'{str(e)}')
@@ -230,7 +230,7 @@ async def task(task_name, task_key):
             logger.info(f'JTASK命令 {file},{parse.quote_plus(value)}')
             logger.info(f'出队执行-->设置环境变量export {action}')
             await export(text)
-            await cmd(f'cd {monitor_scripts_path} && jtask {file}')
+            await cmd(f'cd {monitor_scripts_path} && {command} {file}')
             if curr_queue.qsize() > 1:
                 await client.send_message(bot_id, f'{action["name"]}，队列长度{curr_queue.qsize()}，将等待{action["wait"]}秒...')
                 await asyncio.sleep(action['wait'])
@@ -238,21 +238,23 @@ async def task(task_name, task_key):
             logger.error(e)
 
 
-async def cmd(command):
+async def cmd(text):
     try:
-        if 'node' in command:
-            name = re.findall(r'node (.*).js', command)[0]
+        logger.info(f"执行命令{text}")
+        if 'node' in text:
+            name = re.findall(r'node (.*).js', text)[0]
         else:
-            name = re.findall(r'jtask (.*).js', command)[0]
-        tmp_log = f'/jd/log/bot/{name}.{datetime.datetime.now().strftime("%H%M%S%f")}.log'
+            name = re.findall(r'task (.*).js', text)[0]
+        tmp_log = f'{log_path}/{name}.{datetime.datetime.now().strftime("%H%M%S%f")}.log'
         proc = await asyncio.create_subprocess_shell(
-            f"{command} >> {tmp_log} 2>&1",
+            f"{text} >> {tmp_log} 2>&1",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )
         await proc.communicate()
-        await client.send_file(user_id, tmp_log)
-        os.remove(tmp_log)
+        if log_send:
+            await client.send_file(user_id, tmp_log)
+        # os.remove(tmp_log)
     except Exception as e:
         logger.error(e)
         await client.send_message(bot_id, f'something wrong,I\'m sorry\n{str(e)}')

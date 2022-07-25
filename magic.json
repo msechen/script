@@ -8,6 +8,10 @@
     "proxy_type": "socks5",
     "proxy_addr": "127.0.0.1",
     "proxy_port": 7890,
+    "command": "task",
+    "config_path": "/jd/config/config.sh",
+    "log_path": "/jd/log",
+    "log_send": true,
     "monitor_cache_size": 30,
     "monitor_cars": [
         -1001533334185,
