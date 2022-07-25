@@ -16,8 +16,15 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 logger = logging.getLogger("magic")
 logger.setLevel(logging.INFO)
 
-# 只需要改这里 青龙请自行修改
-_ConfigCar = "/jd/config/magic.json"
+_ConfigCar = ""
+if os.path.exists("/jd/config/magic.json"):
+    _ConfigCar = "/jd/config/magic.json"
+elif os.path.exists("/ql/config/magic.json"):
+    _ConfigCar = "/ql/config/magic.json"
+elif os.path.exists("/ql/data/config/magic.json"):
+    _ConfigCar = "/ql/data/config/magic.json"
+else:
+    logger.info("未找到magic.json")
 
 with open(_ConfigCar, 'r', encoding='utf-8') as f:
     magic_json = f.read()
