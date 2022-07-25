@@ -28,7 +28,7 @@ def withdraw(ck):
             'User-Agent': 'youdao_dict_android',
         }
         response = requests.get(url, headers=headers).json()
-        print(response)
+#         print(response)
         if response['msg']== 'OK':
             print(f"提现{response['data']['isWithdraw']}元成功还剩{response['data']['account']}元")
             break
