@@ -3,6 +3,7 @@ import urllib.parse
 import json
 import time
 #import sys
+import os
 
 #抓取login那个包   https://api-farm.game.mgtv.com/api/login
 
@@ -10,7 +11,7 @@ openid = os.environ['openid']
 ticket = os.environ['ticket']
 nickName = os.environ['nickName']
 did = os.environ['did']
-pbid = 'iso'
+# pbid = 'iso'
 
 
 # def printf(text):
