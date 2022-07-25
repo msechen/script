@@ -30,6 +30,11 @@ username = ""
 openid = ""
 uid = ""
 
+#金典有机奶【小程序】
+#金典有机奶 抓包jdshop.yili.com/api/中任意一个accesstoken
+[[SATINE]]
+accessToken = ""
+
 # 网易云音乐
 [[MUSIC163]]
 password = ""
