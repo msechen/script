@@ -9,6 +9,14 @@ from urllib import parse
 from cacheout import FIFOCache
 from telethon import TelegramClient, events
 
+# 0. 进入容器
+# 1. pip3 install -U cacheout
+# 2. 复制magic.py,magic.json到/ql/config/目录 并配置
+# 3. python3 /ql/config/magic.py 登录
+# 4. 给bot发送在吗 有反应即可
+# 5. pm2 start /ql/config/magic.py -x --interpreter python3
+# 6. 挂起bot到后台 查看状态 pm2 l
+# 7. 如果修改了magic.json,执行pm2 restart magic 即可重启
 # pm2 start /jd/config/magic.py -x --interpreter python3
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.INFO)
