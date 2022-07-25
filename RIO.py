@@ -29,24 +29,40 @@ class RIO:
             }
         return headers
 
+    # @staticmethod
+    # def getUsrInfo(headers):
+    #     url = "https://club.rioalc.com/api/miniprogram/user-info"
+    #     try:
+    #         res = requests.get(url=url, headers=headers).json()
+    #         nickname = res["data"]["nick_name"]
+    #     except Exception as err:
+    #         msg = str(err)
+    #     return nickname
+
     @staticmethod
     def getUsrInfoAndSign(headers):
-        url = "https://club.rioalc.com/api/miniprogram/user-sign-info"
+        url = "https://club.rioalc.com/api/miniprogram/user-info"
         try:
             res = requests.get(url=url, headers=headers).json()
-            if res['data']['sign_click'] == False:
-                url = 'https://club.rioalc.com/api/miniprogram/user-sign-click'
-                headers['Content-Length'] = '0'
-                try:
-                    res = requests.post(url=url, headers=headers).json()
-                    if res['code'] == 200:
-                        msg = '签到成功'
-                    else:
-                        msg = '签到未完成，请检查变量'
-                except Exception as err:
-                    msg = str(err)
-            else:
-                msg = "今日已签到"
+            nickname = res["data"]["nick_name"]
+            url = "https://club.rioalc.com/api/miniprogram/user-sign-info"
+            try:
+                res = requests.get(url=url, headers=headers).json()
+                if res['data']['sign_click'] == False:
+                    url = 'https://club.rioalc.com/api/miniprogram/user-sign-click'
+                    headers['Content-Length'] = '0'
+                    try:
+                        res = requests.post(url=url, headers=headers).json()
+                        if res['code'] == 200:
+                            msg = nickname + ' 签到成功'
+                        else:
+                            msg = ' 签到未完成，请检查变量'
+                    except Exception as err:
+                        msg = str(err)
+                else:
+                    msg = nickname + " 今日已签到"
+            except Exception as err:
+                msg = str(err)
         except Exception as err:
             msg = str(err)
         return msg
