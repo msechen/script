@@ -10,7 +10,7 @@ openid = os.environ['openid']
 ticket = os.environ['ticket']
 nickName = os.environ['nickName']
 did = os.environ['did']
-pbid = os.environ['pbid']
+pbid = 'iso'
 
 
 # def printf(text):
@@ -139,7 +139,7 @@ if __name__ == '__main__':
         'ticket' : ticket,
         'nickName' : nickName,
         'did' : did,
-        'pbid' : pbid
+        'pbid' : 'iso'
     }
     cr_headers = {
         'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 ImgoTV-iphone/7.1.2.2206302110'
