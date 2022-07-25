@@ -155,6 +155,8 @@ async def handler(event):
     text = re.findall(r'https://i.walle.com/api\?data=(.+)?\)', origin)
     if len(text) > 0:
         text = parse.unquote_plus(text[0])
+    elif origin.startswith("export "):
+        text = origin
     else:
         return
     try:
