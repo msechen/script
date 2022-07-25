@@ -25,14 +25,18 @@ logger = logging.getLogger("magic")
 logger.setLevel(logging.INFO)
 
 _ConfigCar = ""
+_ConfigSh = ""
 if os.path.exists("/jd/config/magic.json"):
     _ConfigCar = "/jd/config/magic.json"
+    _ConfigSh = "/jd/config/config.sh"
 elif os.path.exists("/ql/config/magic.json"):
     _ConfigCar = "/ql/config/magic.json"
+    _ConfigSh = "/ql/config/config.sh"
 elif os.path.exists("/ql/data/config/magic.json"):
     _ConfigCar = "/ql/data/config/magic.json"
+    _ConfigSh = "/ql/data/config/config.sh"
 else:
-    logger.info("未找到magic.json")
+    logger.info("未找到magic.json config.sh")
 
 with open(_ConfigCar, 'r', encoding='utf-8') as f:
     magic_json = f.read()
@@ -49,7 +53,6 @@ bot_token = properties.get("bot_token")
 user_id = properties.get("user_id")
 # 监控相关
 monitor_cars = properties.get("monitor_cars")
-config_path = properties.get("config_path")
 command = properties.get("command")
 log_path = properties.get("log_path")
 log_send = properties.get("log_send")
@@ -73,18 +76,18 @@ else:
 
 def rwcon(arg):
     if arg == "str":
-        with open(config_path, 'r', encoding='utf-8') as f1:
+        with open(_ConfigSh, 'r', encoding='utf-8') as f1:
             configs = f1.read()
         return configs
     elif arg == "list":
-        with open(config_path, 'r', encoding='utf-8') as f1:
+        with open(_ConfigSh, 'r', encoding='utf-8') as f1:
             configs = f1.readlines()
         return configs
     elif isinstance(arg, str):
-        with open(config_path, 'w', encoding='utf-8') as f1:
+        with open(_ConfigSh, 'w', encoding='utf-8') as f1:
             f1.write(arg)
     elif isinstance(arg, list):
-        with open(config_path, 'w', encoding='utf-8') as f1:
+        with open(_ConfigSh, 'w', encoding='utf-8') as f1:
             f1.write("".join(arg))
 
 
