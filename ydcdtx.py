@@ -30,7 +30,7 @@ def withdraw(ck):
         response = requests.get(url, headers=headers).json()
         print(response)
         if response['msg']== 'OK':
-            print(f"提现{response['data']['isWithdraw']}元成功还剩{response['data']['isWithdraw']}元")
+            print(f"提现{response['data']['isWithdraw']}元成功还剩{response['data']['account']}元")
             break
         elif response['msg'] == '提现金额超出账户余额':
             break
@@ -41,6 +41,7 @@ def withdraw(ck):
 
 
 if __name__ == '__main__':
+
     cks = os.environ['ydcd_data']
     cks = cks.split('&')
     for ck in cks:
