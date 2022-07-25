@@ -43,6 +43,6 @@ def withdraw(ck):
 if __name__ == '__main__':
 
     cks = os.environ['ydcd_data']
-    cks = cks.split('&')
+    cks = cks.split('@')
     for ck in cks:
         withdraw(ck)
