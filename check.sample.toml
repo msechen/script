@@ -64,9 +64,10 @@ ezr-userid = "  "
 cookie = "sess=xxxxxx;"
 
 # 微博【APP】
-# 微博 APP 抓取开头为 https://api.weibo.cn/2/users/show? 的整个 url 填入即可
+# 微博 APP 抓取开头为 https://api.weibo.cn/2/users/show? 的整个 url 填入即可,cookie抓网页和app均可 https://luck.sc.weibo.com/aj/jifen/info
 [[WEIBO]]
 url = "https://api.weibo.cn/2/users/show?xxxxxxxxxxxxxx"
+cookie = ""
 
 # 吾爱破解【WEB】
 # https://www.52pojie.cn cookie

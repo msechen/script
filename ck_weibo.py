@@ -29,7 +29,7 @@ class WeiBo:
         if res.get("status") == 10000:
             msg = f'连续签到: {res.get("data").get("continuous")}天\n本次收益: {res.get("data").get("desc")}'
         elif res.get("errno") == 30000:
-            msg = "每日签到: 已签到"
+            msg = "每日签到: 今日已签到"
         elif res.get("status") == 90005:
             msg = f'每日签到: {res.get("msg")}'
         else:
@@ -37,17 +37,32 @@ class WeiBo:
         return msg
 
     @staticmethod
-    def card(token):
-        headers = {"User-Agent": "Weibo/52588 (iPhone; iOS 14.5; Scale/3.00)"}
-        res = requests.get(
-            url=f"https://api.weibo.cn/2/!/ug/king_act_home?c=iphone&{token}",
+    def card(cookie):
+        headers = { "Host": "luck.sc.weibo.com",
+                    "Pragma": "no-cache",
+                    "Accept": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "If-Modified-Since": "0",
+                    "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Cache-Control": "no-cache",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Origin": "https://luck.sc.weibo.com",
+                    "User-Agent": F"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone11,8__weibo__12.7.2__iphone__os15.5)",
+                    "Referer": "https://luck.sc.weibo.com/union?ua=iPhone11%2C8__weibo__12.7.2__iphone__os15.5&from=10C7293010&portrait_only=1&source=ug&kxly=home&ug=1",
+                    "Content-Length": "0",
+                    "Connection": "keep-alive",
+                    "Cookie": f"{cookie}"
+}
+        res = requests.post(
+            url=f"https://luck.sc.weibo.com/aj/jifen/info",
             headers=headers,
         ).json()
-        if res.get("status") == 10000:
-            nickname = res.get("data").get("user").get("nickname")
+        if res["code"] == "100000":
+            # nickname = res.get("data").get("user").get("nickname")
             msg = (
-                f'用户昵称: {nickname}\n每日打卡: {res.get("data").get("signin").get("title").split("<")[0]}天\n'
-                f'积分总计: {res.get("data").get("user").get("energy")}'
+                # f'用户昵称: {nickname}\n每日打卡: {res.get("data").get("signin").get("title").split("<")[0]}天\n'
+                f'积分总计: {res["data"]["score"]} 积分'
             )
         else:
             msg = "每日打卡: 活动过期或失效"
@@ -62,35 +77,28 @@ class WeiBo:
             "Host": "pay.sc.weibo.com",
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone10,1__weibo__11.2.1__iphone__os14.5)",
         }
-        data = token + "&lang=zh_CN&wm=3333_2001"
-        response = requests.post(
-            url="https://pay.sc.weibo.com/aj/mobile/home/welfare/signin/do",
-            headers=headers,
-            data=data,
-        )
+        data = token + "&lang=zh_CN&wm=3333_2001&v_p=90&mode=h5d"
         try:
+            response = requests.post(
+                url="https://pay.sc.weibo.com/api/client/sdk/app/balance?",
+                headers=headers,
+                data=data,
+            )
             res = response.json()
-            if res.get("status") == 1:
-                msg = f'微博钱包: {res.get("score")} 积分'
-            elif res.get("status") == 2:
-                msg = "微博钱包: 已签到"
-                info_res = requests.post(
-                    url="https://pay.sc.weibo.com/api/client/sdk/app/balance",
-                    headers=headers,
-                    data=data,
-                ).json()
-                msg += f"\n当前现金: {info_res.get('data').get('balance')} 元"
+            if res["code"] == "100000":
+                msg = f'微博钱包余额:  {res["data"]["balance"]} 元'
             else:
                 msg = "微博钱包: Cookie失效"
             return msg
-        except Exception:
-            msg = "微博钱包: Cookie失效"
+        except Exception as err:
+            msg = "微博钱包，Cookie失效：" + str(err)
             return msg
 
     def main(self):
         msg_all = ""
         for check_item in self.check_items:
             url = check_item.get("url")
+            cookie = check_item.get("cookie")
             query_dict = dict(parse.parse_qsl(parse.urlsplit(url).query))
             token = "&".join(
                 [
@@ -100,9 +108,10 @@ class WeiBo:
                 ]
             )
             sign_msg = self.sign(token=token)
-            card_msg = self.card(token=token)
+            card_msg = self.card(cookie=cookie)
             pay_msg = self.pay(token=token)
             msg = f"{sign_msg}\n{card_msg}\n{pay_msg}"
+            # msg = f"{sign_msg}\n{pay_msg}"
             msg_all += msg + "\n\n"
         return msg_all
 
