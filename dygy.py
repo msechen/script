@@ -246,7 +246,7 @@ def push_plus_bot(content, push_token):
 
 
 if __name__ == '__main__':
-    cks = cks.split('@')
+#     cks = cks.split('@')
     cks = os.environ['dygyCookies'].split('@')
     push_token = os.environ['push_token']
     for ck in cks:
