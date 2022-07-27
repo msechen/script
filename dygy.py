@@ -246,10 +246,9 @@ def push_plus_bot(content, push_token):
 
 
 if __name__ == '__main__':
-    cks = 'Mozilla/5.0 (iPad; CPU OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 BytedanceWebview/d8a21c6 Aweme/21.6.0 Mobile ToutiaoMicroApp/2.58.1.2&msToken=N7fP8ds8RJmGLO-6qInielCWpSI6El-KDBVGHdV8TVVVz2NOXISrlZADCz3BoBKXHFc_xoRcZXr4NQ-VmQ==;d_ticket=f79011b7cc6195273c8539d928116881d7a7a;multi_sids=3729153863976576%3A497d8212f5303f555fb95ec3c8192c94;n_mh=QdKkAlx7T9xoYu9vVe2IYwI_GugWM3xcZn4OFZoMrlY;odin_tt=971054b44c8af4fa1239b2ea90eb30e506b0b493e0f61a77327d910541234cf3618c852f8c5ab1c4ed8af64ddaebd97a756d88fab73a43624c0c0c25ad919fbb6f549bc8efa869b16dfce93e15226ea1;sessionid=497d8212f5303f555fb95ec3c8192c94;sessionid_ss=497d8212f5303f555fb95ec3c8192c94;sid_guard=497d8212f5303f555fb95ec3c8192c94%7C1658741925%7C5184000%7CFri%2C+23-Sep-2022+09%3A38%3A45+GMT;sid_tt=497d8212f5303f555fb95ec3c8192c94;uid_tt=aa67e9b522a2bba2e0987724a4260e68;uid_tt_ss=aa67e9b522a2bba2e0987724a4260e68;passport_csrf_token=c6633b304c947d9e348777a7d881cca4;passport_csrf_token_default=c6633b304c947d9e348777a7d881cca4;install_id=550227824358583;ttreq=1$81e19109038ae526d0fbbd0d3ae77b281756c675;msToken=N7fP8ds8RJmGLO-6qInielCWpSI6El-KDBVGHdV8TVVVz2NOXISrlZADCz3BoBKXHFc_xoRcZXr4NQ-VmQ=='
     cks = cks.split('@')
-    # cks = os.environ['dygyCookies'].split('@')
-    # push_token = os.environ['push_token']
+    cks = os.environ['dygyCookies'].split('@')
+    push_token = os.environ['push_token']
     for ck in cks:
         ck = ck.split('&')
         headers1 = {
@@ -293,10 +292,6 @@ if __name__ == '__main__':
             time.sleep(random.randint(1, 4))
             print('开始每日领取宝箱奖励任务')
             judy_fertilizer()
-            time.sleep(random.randint(1, 4))
-            print('开始推送信息')
-            message = target()
-
         elif start_time == '12':
             print('开始三餐领取任务')
             eat()
