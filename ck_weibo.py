@@ -48,8 +48,8 @@ class WeiBo:
                     "Cache-Control": "no-cache",
                     "Content-Type": "application/x-www-form-urlencoded",
                     "Origin": "https://luck.sc.weibo.com",
-                    "User-Agent": F"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone11,8__weibo__12.7.2__iphone__os15.5)",
-                    "Referer": "https://luck.sc.weibo.com/union?ua=iPhone11%2C8__weibo__12.7.2__iphone__os15.5&from=10C7293010&portrait_only=1&source=ug&kxly=home&ug=1",
+                    "User-Agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
+                    "Referer": f"https://luck.sc.weibo.com/?ua=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F103.0.0.0+Safari%2F537.36&source=ugsx&kxly=home&wbtpuuid=123ebbdd5d28204adbcdbef11e91caaa2706",
                     "Content-Length": "0",
                     "Connection": "keep-alive",
                     "Cookie": f"{cookie}"
