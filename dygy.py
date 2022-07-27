@@ -287,7 +287,6 @@ if __name__ == '__main__':
             time.sleep(random.randint(1, 4))
             print('开始推送信息')
             message = target()
-            push_plus_bot(message)
         elif start_time == '12':
             print('开始三餐领取任务')
             eat()
