@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-new Env('RIO');
+new Env('金典SATINE');
 """
 
 import requests
@@ -39,8 +39,8 @@ class SATINE:
                 if res["code"] == 200:
                     score = res["data"]
                     msg = "签到成功，当前有机值共有 " + str(score)
-            elif res["data"] == None:
-                msg = "今日已签到！"
+            elif res["code"] == -99999:
+                msg = "未登陆或登陆超时"
             else:
                 msg = "签到失败，请检查 accesstoken 变量"        
         except Exception as err:
@@ -50,7 +50,7 @@ class SATINE:
     def main(self):
         msg_all = ""
         for check_item in self.check_items:
-            accesstoken = str(check_item.get("accesstoken"))
+            accesstoken = str(check_item.get("accessToken"))
             headers = self.getheaders(accesstoken)
             sign_msg = self.getUsrInfoAndSign(headers)
             msg = f"{sign_msg}\n"
