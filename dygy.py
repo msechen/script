@@ -258,7 +258,7 @@ if __name__ == '__main__':
         print('抖音浇水任务开始,开始点击首页图标')
         polling_info()
         start_time = datetime.datetime.now().strftime('%H')
-        if start_time == '06':
+        if start_time == '07':
             print('开始领取水滴日常任务奖励')
             day_water()
             time.sleep(random.randint(1, 4))
