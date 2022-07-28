@@ -246,7 +246,6 @@ def push_plus_bot(content, push_token):
 
 
 if __name__ == '__main__':
-#     cks = cks.split('@')
     cks = os.environ['dygyCookies'].split('@')
     push_token = os.environ['push_token']
     for ck in cks:
@@ -265,10 +264,9 @@ if __name__ == '__main__':
             time.sleep(random.randint(1, 4))
             print('开始水车任务')
             waterwheel()
-        elif start_time == '07':
+        elif start_time == '08':
             print('开始收集蓄水池任务')
             reward_bottle()
-        elif start_time == '19':
             print('开始领取水滴日常任务奖励')
             day_water()
             time.sleep(random.randint(1, 4))
@@ -292,6 +290,7 @@ if __name__ == '__main__':
             time.sleep(random.randint(1, 4))
             print('开始每日领取宝箱奖励任务')
             judy_fertilizer()
+            time.sleep(random.randint(1, 4))
         elif start_time == '12':
             print('开始三餐领取任务')
             eat()
@@ -308,7 +307,7 @@ if __name__ == '__main__':
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
             day_water()
-        elif start_time == '32':
+        elif start_time == '19':
             print('开始领取挑战宝箱奖励')
             recive_box_reward()
         elif start_time == '21':
@@ -320,8 +319,4 @@ if __name__ == '__main__':
             watering()
             print('开始推送信息')
             message = target()
-            # push_plus_bot(message, push_token)
-
-"""
-ff668ac51ae0c803&eyJleHAiOjE2NTQ5MTkwNjEsImtpZCI6MCwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiI4ODgyNTIwNiIsIm9wZW5pZCI6Im9ZYlZMeExnZThibWFINFhvSVQyMDdQWlJyV3ciLCJleHAiOjE2NTQ5MTkwNjF9.z7QV2gTs2U4tc9OyX02i6kCpw3H7qo7vfQWGe4Itx-g&eyJleHAiOjE2NjI2OTMyNjEsImFsZyI6IkhTMjU2In0.eyJ1aWQiOiI4ODgyNTIwNiIsIm9wZW5pZCI6Im9ZYlZMeExnZThibWFINFhvSVQyMDdQWlJyV3ciLCJleHAiOjE2NjI2OTMyNjF9.7CESzUCev6obxvP-vJWQw1elM2Jcj2jAlzoN6ORiy40
-"""
+            push_plus_bot(message, push_token)
