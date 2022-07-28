@@ -41,15 +41,14 @@ def kfx_getUserInfo1(number,push_token):
 
 
 def kfx_sign():
-    try:
-        url = 'https://fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/dailySign'
-        response = requests.post(url=url, headers=headers).json()
-        if response["error_code"] == 0:
-            print(response["msg"])
-        else:
-            print(response["msg"])
-    except:
-        
+    url = 'https://fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/dailySign'
+    response = requests.post(url=url, headers=headers).json()
+    if response["error_code"] == 0:
+        print(response["msg"])
+    else:
+        print(response["msg"])
+    
+
 
 
 def kfx_getUserInfo():
