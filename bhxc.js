@@ -15,7 +15,7 @@ let userList = []
 let userIdx = 0
 let userCount = 0
 
-let md5Salt = '2021hqhd08bhyh04'
+let md5Salt = '2022hqhd07bhyh05'
 let todayDay = (new Date()).getDay()
 todayDay = todayDay==0 ? 7 : todayDay
 ///////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ class UserInfo {
     
     async getUserInfo() {
         try {
-            let url = `https://api.yd.ihaoqu.com/?r=api2&apiAction=getUserInfo`
+            let url = `https://api.yd.ihaoqu.com/?r=api&apiAction=getUserInfo`
             let sign = MD5Encrypt(`getUserInfo${this.uid}${md5Salt}${this.token}`)
             let body = `uid=${this.uid}&token=${this.token}&signure=${sign}`
             let urlObject = populateUrlObject(url,body)
@@ -67,7 +67,7 @@ class UserInfo {
     
     async SignIn() {
         try {
-            let url = `https://api.yd.ihaoqu.com/?r=api2&apiAction=SignIn`
+            let url = `https://api.yd.ihaoqu.com/?r=api&apiAction=SignIn`
             let sign = MD5Encrypt(`${this.token}${md5Salt}${this.uid}SignIn`)
             let body = `uid=${this.uid}&token=${this.token}&signure=${sign}`
             let urlObject = populateUrlObject(url,body)
