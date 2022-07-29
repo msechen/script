@@ -28,7 +28,7 @@ def get_money_data(userid, ck2, push_token):
         if int(money) >= int(i[0]):
             exchange(ck2, name, i, push_token)
         else:
-            print(f'{name}目前金额为{int(money) / 100}提现金额不足,取消提现')
+            print(f'{name}目前金额为{int(money)-int(i[0]) / 100}提现金额不足,取消提现')
             return
 
 
@@ -142,5 +142,6 @@ if __name__ == '__main__':
         get_riddles_data(ck1[0])
         print(f"开始尝试提现".center(20, "*"))
         get_money_data(ck1[0], cks, push_token)
+        print('\n')
         time.sleep(5)
 
