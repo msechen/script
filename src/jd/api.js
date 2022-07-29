@@ -133,6 +133,9 @@ class Api {
 
   doGet(functionId, qs = {}, options) {
     functionId && _.assign(qs, {functionId});
+    if (functionId !== 'vvipclub_lotteryTask') {
+      // return;
+    }
     return this.do(_.merge({qs, method: 'GET'}, options));
   }
 

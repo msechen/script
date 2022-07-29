@@ -1,6 +1,8 @@
 const Base = require('./index');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, replaceObjectMethod} = require('../../lib/common');
+const EncryptH5st = require('../../lib/EncryptH5st');
+const {getMoment} = require('../../lib/moment');
 
 class Template extends Base {
   static scriptName = 'Template';
@@ -154,6 +156,49 @@ class Template extends Base {
         },
       }).then(_.property('token'));
     }
+  }
+
+  static injectEncryptH5st(api, {
+    defaultData = this.commonParamFn(),
+    config,
+    removeEncryptKeys = ['_stk', '_ste'],
+    replaceMethods = ['doFormBody', 'doGetBody'],
+    afterEncryptFn = _.noop,
+  }) {
+    const origin = _.get(api, 'options.headers.origin');
+
+    replaceMethods.forEach(method => {
+      replaceObjectMethod(api, method, async data => {
+        let [functionId, body, signData, options = {}] = data;
+        // TODO 优化这里的逻辑
+        if (method === 'doGet') {
+          options = signData || options;
+          options.qs = options.qs || {};
+          _.merge(options.qs, body);
+          body = void 0;
+        } else if (method === 'doGetBody') {
+          options = signData || options;
+        } else {
+          _.merge(options.form, signData);
+        }
+        const t = getMoment().valueOf();
+        let form = _.merge({}, defaultData, body && {body}, {t}, options.qs || options.form);
+        // TODO 整理成通用方法
+        if (functionId in config) {
+          let {encryptH5st, appId, fingerprint, algoData} = config[functionId];
+          !encryptH5st && (config[functionId] = encryptH5st = new EncryptH5st({appId, origin, fingerprint, algoData}));
+          form = await encryptH5st.sign({functionId, ...form});
+          removeEncryptKeys.forEach(key => {
+            delete form[key];
+          });
+        }
+        afterEncryptFn(form);
+        if (['doGetBody', 'doGet'].includes(method)) {
+          return [functionId, void 0, _.merge(options, {qs: form})];
+        }
+        return [functionId, void 0, void 0, _.merge(options, {form})];
+      });
+    });
   }
 }
 

@@ -1,7 +1,22 @@
 const CryptoJS = require('crypto-js');
 const _ = require('lodash');
 const {getMoment} = require('./moment');
-const rp = require('request-promise');
+const Api = require('../jd/api');
+const {readFileJSON, writeFileJSON} = require('./common');
+const storeFile = require('path').resolve(__dirname, './EncryptH5stStore.json');
+
+const getStore = () => readFileJSON(storeFile);
+const updateStore = data => {
+  writeFileJSON(_.assign(getStore(), data), storeFile);
+};
+
+function getAlgoData(appId) {
+  const data = getStore()[appId];
+  if (!data) return;
+  if (getMoment().isAfter(data.expireTime)) return;
+
+  return data.algoData;
+}
 
 class EncryptH5st {
   version = '3.0';
@@ -9,21 +24,21 @@ class EncryptH5st {
   origin = 'https://daily-redpacket.jd.com';
 
   constructor(props = {}) {
-    const {appId, origin} = props;
-    // TODO 确认这个 fingerprint 生成
-    this.fingerprint = '4309711658644612';
-    // this.fingerprint = this.getFingerPrint();
-    this.token = '';
-    // this.token = "tk02w6f291b8418n98h7+BOSvq484fRN0Nl2HTj/1n/cNXp4hTg2aEqtfpnmZyCy3ktRoqi/n1p+H3y7dLLxGAhdPyW3";
+    const {appId, origin, fingerprint, algoData, timestamp, disableAutoUpdate} = props;
+    this.fingerprint = fingerprint || this.getRandomFingerPrint();
     this.appId = appId || this.appId;
+    const storeAlgoData = getAlgoData(this.appId);
+    this.algoData = algoData || storeAlgoData;
+    this.needUpdate = !disableAutoUpdate && !algoData && !storeAlgoData;
+    this.timestamp = timestamp;
+    this.token = '';
     this.origin = origin || this.origin;
   }
 
   async genToken() {
-    return rp({
+    const api = new Api();
+    return (this.algoData ? Promise.resolve(this.algoData) : api.commonDo({
       uri: 'https://cactus.jd.com/request_algo',
-      method: 'POST',
-      json: true,
       body: {
         version: this.version,
         fp: this.fingerprint,
@@ -39,7 +54,15 @@ class EncryptH5st {
         referer: `${this.origin}/`,
         origin: this.origin,
       },
-    }).then(data => {
+    })).then(data => {
+      this.algoData = this.algoData || data;
+      this.needUpdate && updateStore({
+        [this.appId]: {
+          fingerprint: this.fingerprint,
+          algoData: this.algoData,
+          expireTime: getMoment().add(6, 'hour').format(),
+        },
+      });
       this.token = _.property('data.result.tk')(data);
       const vm = require('vm');
       const ctx = {};
@@ -53,6 +76,16 @@ class EncryptH5st {
     });
   }
 
+  getRandomFingerPrint() {
+    const data = Object.values(getStore());
+    const index = _.random(0, data.length - 1);
+    return _.get(data[index], 'fingerprint', '5021033254897033');
+  }
+
+  /**
+   * @description TODO 需确认生成是否正确
+   * @deprecated
+   */
   getFingerPrint() {
     return formatFingerPrint(getRandomIDPro({size: 13}) + `${getMoment().valueOf()}`);
 
@@ -87,7 +120,7 @@ class EncryptH5st {
     const {body} = object;
     object.body = CryptoJS.SHA256(decodeURIComponent(JSON.stringify(body))).toString();
     const params = this.__checkParams(object);
-    const nowMoment = getMoment();
+    const nowMoment = getMoment(this.timestamp);
     this.timestamp = nowMoment.valueOf();
     this.stFull = nowMoment.format('YYYYMMDDHHmmssSSS');
     !this.token && await this.genToken();

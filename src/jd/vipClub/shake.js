@@ -1,8 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, replaceObjectMethod} = require('../../lib/common');
-const EncryptH5st = require('../../lib/EncryptH5st');
-const {getMoment} = require('../../lib/moment');
+const {sleep, writeFileJSON} = require('../../lib/common');
 
 const appid = 'sharkBean';
 
@@ -36,28 +34,17 @@ class VipClubShake extends Template {
   static async beforeRequest(api) {
     const self = this;
 
-    const encryptH5stConfig = {
-      vvipclub_shaking_lottery: {
-        appId: 'ae692',
+    this.injectEncryptH5st(api, {
+      defaultData: {},
+      config: {
+        vvipclub_shaking_lottery: {
+          appId: 'ae692',
+        },
+        pg_channel_page_data: {
+          appId: '28cc6',
+        },
       },
-      pg_channel_page_data: {
-        appId: '28cc6',
-      },
-    };
-    replaceObjectMethod(api, 'doGet', async ([functionId, qs, options = {}]) => {
-      if (functionId in encryptH5stConfig) {
-        const t = getMoment().valueOf();
-        qs = _.merge({}, api.options.qs, qs, {t}, options.qs);
-        let {encryptH5st, appId} = encryptH5stConfig[functionId];
-        !encryptH5st && (encryptH5st = new EncryptH5st({appId}));
-        qs = await encryptH5st.sign({functionId, ...qs});
-        ['_stk', '_ste'].forEach(key => {
-          delete qs[key];
-        });
-        options.qs = qs;
-        return [functionId, void 0, options];
-      }
-      return [functionId, qs, options];
+      replaceMethods: ['doGet'],
     });
   }
 
@@ -125,17 +112,17 @@ class VipClubShake extends Template {
         paramFn: body => ({body}),
       },
       // 新版
-      doRedeem: {
-        name: 'vvipclub_shaking_lottery',
-        paramFn: () => ({appid}),
-        async successFn(data, api) {
-          if (!self.isSuccess(data)) return false;
-          const rewardBeanAmount = _.property('data.rewardBeanAmount')(data);
-          rewardBeanAmount && api.log(`[新版]获取到豆豆: ${rewardBeanAmount}`);
-          if (!_.property('data.remainLotteryTimes')(data)) return false;
-        },
-        repeat: true,
-      },
+      // doRedeem: {
+      //   name: 'vvipclub_shaking_lottery',
+      //   paramFn: () => ({appid}),
+      //   async successFn(data, api) {
+      //     if (!self.isSuccess(data)) return false;
+      //     const rewardBeanAmount = _.property('data.rewardBeanAmount')(data);
+      //     rewardBeanAmount && api.log(`[新版]获取到豆豆: ${rewardBeanAmount}`);
+      //     if (!_.property('data.remainLotteryTimes')(data)) return false;
+      //   },
+      //   repeat: true,
+      // },
     };
   };
 }

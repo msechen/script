@@ -1,9 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
-const {getMoment} = require('../../lib/moment');
-const EncryptH5st = require('../../lib/EncryptH5st');
 
 const linkId = '9WA12jYGulArzWS7vcrwhw';
 const origin = 'https://daily-redpacket.jd.com';
@@ -12,7 +10,12 @@ class LiteCashSign extends Template {
   static scriptName = 'LiteCashSign';
   static scriptNameDesc = '极速版签到提现';
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({});
+  static commonParamFn = () => ({
+    body: {linkId, 'serviceName': 'dayDaySignGetRedEnvelopeSignService', 'business': 1},
+    appid: 'activities_platform',
+    client: 'H5',
+    clientVersion: '1.0.0',
+  });
   static needInSpeedApp = true;
   static times = 1;
 
@@ -29,24 +32,12 @@ class LiteCashSign extends Template {
   static async beforeRequest(api) {
     const self = this;
 
-    const encryptH5st = new EncryptH5st();
-    const defaultForm = {
-      body: {linkId, 'serviceName': 'dayDaySignGetRedEnvelopeSignService', 'business': 1},
-      appid: 'activities_platform',
-      client: 'H5',
-      clientVersion: '1.0.0',
-    };
-
-    replaceObjectMethod(api, 'doFormBody', async ([functionId, body, signData, options = {}]) => {
-      const t = getMoment().valueOf();
-      let form = _.merge({t, body}, signData, defaultForm, options.form);
-      if (['apSignIn_day'].includes(functionId)) {
-        form = await encryptH5st.sign({functionId, ...form});
-        ['_stk', '_ste'].forEach(key => {
-          delete form[key];
-        });
-      }
-      return [functionId, void 0, form, options];
+    this.injectEncryptH5st(api, {
+      config: {
+        apSignIn_day: {
+          appId: '15097',
+        },
+      },
     });
   }
 

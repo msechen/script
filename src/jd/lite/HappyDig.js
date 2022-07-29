@@ -1,9 +1,7 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
-const EncryptH5st = require('../../lib/EncryptH5st');
-const {getMoment} = require('../../lib/moment');
 
 const appid = 'activities_platform';
 const linkId = 'pTTvJeSTrpthgk9ASBVGsw';
@@ -14,7 +12,12 @@ class LiteHappyDig extends Template {
   static scriptNameDesc = '发财挖宝';
   static dirname = __dirname;
   static shareCodeTaskList = [];
-  static commonParamFn = () => ({});
+  static commonParamFn = () => ({
+    body: {linkId},
+    appid,
+    client: 'H5',
+    clientVersion: '1.0.0',
+  });
   static needInSpeedApp = true;
   static shareCodeUniqIteratee = o => o['inviter'];
   static doneShareTask = this.getNowHour() < 22;
@@ -32,44 +35,16 @@ class LiteHappyDig extends Template {
   static async beforeRequest(api) {
     const self = this;
 
-    const defaultData = {
-      body: {linkId},
-      appid,
-      client: 'H5',
-      clientVersion: '1.0.0',
-    };
-    const encryptH5stConfig = {
-      happyDigHome: {
-        appId: 'ce6c2',
+    this.injectEncryptH5st(api, {
+      config: {
+        happyDigHome: {
+          appId: 'ce6c2',
+          fingerprint: '5021033254897033',
+        },
+        happyDigHelp: {
+          appId: '8dd95',
+        },
       },
-      happyDigHelp: {
-        appId: '8dd95',
-      },
-    };
-
-    ['doFormBody', 'doGetBody'].forEach(method => {
-      replaceObjectMethod(api, method, async data => {
-        let [functionId, body, signData, options = {}] = data;
-        if (method === 'doGetBody') {
-          options = signData || options;
-        } else {
-          _.merge(options.form, signData);
-        }
-        const t = getMoment().valueOf();
-        let form = _.merge({}, defaultData, {body}, {t}, options.qs || options.form);
-        if (functionId in encryptH5stConfig) {
-          let {encryptH5st, appId} = encryptH5stConfig[functionId];
-          !encryptH5st && (encryptH5st = new EncryptH5st({appId}));
-          form = await encryptH5st.sign({functionId, ...form});
-          ['_stk', '_ste'].forEach(key => {
-            delete form[key];
-          });
-        }
-        if (method === 'doGetBody') {
-          return [functionId, void 0, _.merge(options, {qs: form})];
-        }
-        return [functionId, void 0, void 0, _.merge(options, {form})];
-      });
     });
   }
 
