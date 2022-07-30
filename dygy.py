@@ -307,14 +307,15 @@ if __name__ == '__main__':
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
             day_water()
-        elif start_time == '19':
-            print('开始领取挑战宝箱奖励')
-            recive_box_reward()
         elif start_time == '21':
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
             day_water()
             time.sleep(random.randint(1, 4))
+            print('继续浇完剩余水量')
+            watering()
+            print('开始领取挑战宝箱奖励')
+            recive_box_reward()
             print('继续浇完剩余水量')
             watering()
             print('开始推送信息')
