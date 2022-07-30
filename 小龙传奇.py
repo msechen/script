@@ -1,4 +1,5 @@
 import requests
+import os
 '''
 注册地址
 https://s1.328888.xyz/2022/07/29/Dd5kC.jpg
