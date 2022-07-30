@@ -1,22 +1,3 @@
- /*
-app---百工驿---xf_app_bgy.js
-
-
-介绍：
-会完成 分享、评论、点赞
-
-变量：
-xfbgyCk：必填，捉包把 authentication 填进去，多格式@隔开。
-
-# 每天9点以后执行一次
-0 0 09 * * ?
-
-
-[中间人]
-主机名 = baigongyi.com
-
-*/
-
 // 是否开启通知， true 开始， false 不开启.
 let notices = false;
 
