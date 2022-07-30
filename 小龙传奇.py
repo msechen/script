@@ -9,10 +9,10 @@ xlcq = os.environ['xlcqacount'].split('@')
 
 def main():
     print(f"--------共找到{len(xlcq)}个账号--------")
-    for i in xlcq.split('----'):
+    for i in xlcq:
         print(f"------------正在执行第{xlcq.index(i) + 1}个账号------------")
-        phone = i[0]
-        pwd = i[1]
+        phone = i.split('----')[0]
+        pwd = i.split('----')[1]
         dl(phone, pwd)
 
 def dl(phone, pwd):
