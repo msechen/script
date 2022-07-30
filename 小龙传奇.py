@@ -5,11 +5,11 @@ import os
 https://s1.328888.xyz/2022/07/29/Dd5kC.jpg
 '''
 money = '1'       # 提现金额
-xlcq = os.environ['xlcqacount'].split('----')
+xlcq = os.environ['xlcqacount'].split('@')
 
 def main():
     print(f"--------共找到{len(xlcq)}个账号--------")
-    for i in xlcq:
+    for i in xlcq.split('----'):
         print(f"------------正在执行第{xlcq.index(i) + 1}个账号------------")
         phone = i[0]
         pwd = i[1]
