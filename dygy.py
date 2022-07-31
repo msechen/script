@@ -72,9 +72,11 @@ def choose_box_reward():
         response = requests.get(url=url, headers=headers).json()
         if response["status_code"] == 0:
             print("挑战开始")
+        return reward_water
+
+    ##挑战礼包奖励
 
 
-##挑战礼包奖励
 def recive_box_reward():
     url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/challenge/reward?"
     response = requests.get(url=url, headers=headers).json()
@@ -164,11 +166,11 @@ def browse_reward():
     print(response)
 
 
-def watering(i=1):
+def watering(reward_water1, i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     if (i - 1) / 10 in num:
         water_award()
-    if i == 10:
+    if i == reward_water1:
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?"
@@ -275,9 +277,6 @@ if __name__ == '__main__':
             print('开始七天登录奖励')
             sign()
             time.sleep(random.randint(1, 4))
-            print('选择宝箱奖励任务')
-            choose_box_reward()
-            time.sleep(random.randint(1, 4))
             print('开始领点击水车任务')
             waterwheel()
             time.sleep(random.randint(1, 4))
@@ -297,6 +296,7 @@ if __name__ == '__main__':
             print('开始三餐领取任务')
             eat()
             time.sleep(random.randint(1, 4))
+            print('开始水车找水滴')
             waterwheel()
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
@@ -305,17 +305,20 @@ if __name__ == '__main__':
             print('开始三餐领取任务')
             eat()
             time.sleep(random.randint(1, 4))
+            print('开始水车找水滴')
             waterwheel()
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
             day_water()
         elif start_time == '21':
+            print('选择宝箱奖励任务')
+            reward_water = choose_box_reward()
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
             day_water()
             time.sleep(random.randint(1, 4))
             print('继续浇完剩余水量')
-            watering()
+            watering(reward_water)
             print('开始推送信息')
             message = target()
             push_plus_bot(message, push_token)
