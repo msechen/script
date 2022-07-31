@@ -168,6 +168,9 @@ def watering(i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     if (i - 1) / 10 in num:
         water_award()
+    if i == 10:
+        print('开始领取挑战宝箱奖励')
+        recive_box_reward()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?"
     response = requests.get(url=url, headers=headers).json()
     # pprint.pprint(response)
@@ -311,10 +314,6 @@ if __name__ == '__main__':
             print('开始领取水滴日常任务奖励')
             day_water()
             time.sleep(random.randint(1, 4))
-            print('继续浇完剩余水量')
-            watering()
-            print('开始领取挑战宝箱奖励')
-            recive_box_reward()
             print('继续浇完剩余水量')
             watering()
             print('开始推送信息')
