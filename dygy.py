@@ -90,7 +90,6 @@ def recive_box_reward():
 def reward_bottle():
     url = "https://minigame.zijieapi.com/ttgame/game_orchard_ecom/water_bottle/reward?"
     response = requests.get(url=url, headers=headers).json()
-    pprint.pprint(response)
     if response["status_code"] == 0:
         reward_water = response['data']['reward_item']["num"]
         print(f'获得储水瓶{reward_water}水滴成功')
