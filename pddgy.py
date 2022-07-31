@@ -352,7 +352,7 @@ def watering(tubetoken, userid):
         print(f'浇10滴水,水瓶目前还剩{response["now_water_amount"]}水滴')
         if int(response["now_water_amount"]) >= 10:
             watering(tubetoken, userid)
-            time.sleep(random.randint(1, 3))
+            time.sleep(random.randint(3, 5))
         else:
             print('浇水完成')
     else:
