@@ -50,6 +50,22 @@ def log_reward(tubetoken, userid):
         print('登录宝箱已领完')
 
 
+def six_day_drop(tubetoken):
+    try:
+        url = 'https://mobile.yangkeduo.com/proxy/api/api/manor/common/apply/activity?pdduid=4559229104999'
+        body = {"type": 18,
+                "tubetoken": tubetoken,
+                "fun_pl": 7}
+        body = json.dumps(body).encode(encoding='utf-8')
+        # headers = {'Content-Type': 'application/json'}
+        response = requests.post(url=url, data=body, headers=headers).json()
+        if response['success']:
+            finished_count = response['continuous_check_in_to_collect_water_vo']['finished_count']
+            print(f'6天打卡已打卡{finished_count}天')
+    except Exception as e:
+        print(e)
+
+
 # 领水滴
 def collar_drop(tubetoken, userid):
     try:
@@ -222,7 +238,7 @@ def second_open_collar_fertilizer(tubetoken, userid):
     {"mission_type":36069,"gain_time":1,"no_reward":false,"tubetoken":"Ff5sBc8KFQhkLPzy5aSiZ4Gd7tCm8x7AJe33NU6qGZnTLAgeSJeXJoQjAnzjyettLahz3Ao9mmAm%0ATu1GWZo1JljTdYHJAIvltlfCEkhy6NxGBghMM1NoA79NKjzjhMu%2FJTLnhpwlHUYMsVYBwuJO0xV1%0Ayu%2FRCmpokx2U5hh04dGtqGXUuXjpEuBw6hQPeUrKPRRuAJAa4wFy1nfkdVVbKhjCtUk89oTjhh8X%0A5tL9RMX1%2FNvMcCJP6xi46Y9D6%2FZA","fun_pl":7}
     """
     url = f'https://mobile.yangkeduo.com/proxy/api/api/manor/mission/complete/gain?ts={int(time.time() * 1000)}&pdduid={userid}'
-    print(url)
+
     body = {"mission_type": 36069,
             "tubetoken": tubetoken,
             "fun_pl": 7}
@@ -316,8 +332,8 @@ def waterwheel_droplets(tubetoken, userid):
     body = json.dumps(body).encode(encoding='utf-8')
     response = requests.post(url=url, data=body, headers=headers).json()
     if response["status"] == 1:
-        gain_amount =response['gain_amount']
-        print(f'水车水滴收取成功,一共收取{gain_amount/1000}水滴')
+        gain_amount = response['gain_amount']
+        print(f'水车水滴收取成功,一共收取{gain_amount / 1000}水滴')
     else:
         print('无水车或者水车水滴不足')
 
@@ -336,7 +352,7 @@ def watering(tubetoken, userid):
         print(f'浇10滴水,水瓶目前还剩{response["now_water_amount"]}水滴')
         if int(response["now_water_amount"]) >= 10:
             watering(tubetoken, userid)
-            time.sleep(random.randint(3, 6))
+            time.sleep(random.randint(1, 3))
         else:
             print('浇水完成')
     else:
@@ -356,7 +372,7 @@ def percent(AccessToken, userid):
     return f"在浇水{fruit}包邮到家"
 
 
-def push_plus_bot(content,push_token):
+def push_plus_bot(content, push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -387,7 +403,7 @@ def push_plus_bot(content,push_token):
 
 if __name__ == '__main__':
     ck = os.environ['pddck']
-    # ck = ''
+    # ck = ""
     push_token = os.environ['push_token']
     ck = ck.split('@')
     start_time = datetime.datetime.now().strftime('%H')
@@ -398,7 +414,6 @@ if __name__ == '__main__':
                    'cookie': cookie}
         headers.update(header1)
         tubetoken = ck[1]
-        # percent(ck[1])
         if start_time == '07':
             print('开始领早餐水滴')
             receive_three_meal(tubetoken, ck[0])
@@ -409,22 +424,16 @@ if __name__ == '__main__':
             print('开始领搜索领水滴任务')
             search(tubetoken, ck[0])
             time.sleep(random.randint(3, 5))
-            # print('开始集水滴任务')
-            # water_droplets(tubetoken, ck[0])
-            # time.sleep(random.randint(3, 5))
+            print('开始6天打卡集水滴任务')
+            six_day_drop(tubetoken)
+            time.sleep(random.randint(3, 5))
             print('开始领水平水滴任务')
             bottle(tubetoken, ck[0])
-            time.sleep(random.randint(3, 5))
-            print('收水车水滴')
-            waterwheel_droplets(tubetoken, ck[0])
             time.sleep(random.randint(3, 5))
         elif start_time == '12':
             print('开始领午餐水滴')
             receive_three_meal(tubetoken, ck[0])
             time.sleep(7)
-            time.sleep(random.randint(3, 5))
-            print('收水车水滴')
-            waterwheel_droplets(tubetoken, ck[0])
             time.sleep(random.randint(3, 5))
             # print('开始偷好友水滴')
             # steal_water(tubetoken,ck[0])
@@ -437,9 +446,6 @@ if __name__ == '__main__':
             box(tubetoken, ck[0])
             print('开始查询果树营养')
             tree_nutrients(tubetoken, ck[0])
-            time.sleep(random.randint(3, 5))
-            print('收水车水滴')
-            waterwheel_droplets(tubetoken, ck[0])
             time.sleep(random.randint(3, 5))
             print('判断是否施肥')
             # print('开始偷好友水滴')
