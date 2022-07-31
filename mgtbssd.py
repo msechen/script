@@ -17,12 +17,6 @@ did = os.environ['did']
 
 
 
-
-
-
-
-
-
 #url 访问 返回响应体
 def wangye_fangwen(fangfa,cr_url,cr_data,cr_headers):
     tijiao_url = cr_url
@@ -57,11 +51,11 @@ if __name__ == '__main__':
     #登入
     cr_url = 'https://api-farm.game.mgtv.com/api/login'
     cr_data = {
-        'openid' : 'ec26b177ed2d45d982720b33f39b9e68',
-        'ticket' : 'DA103475D3B73BC3AF7879CD6596D954',
-        'nickName' : 'mg483291oFpA42',
-        'did' : '48d386df2e35a12cc04191c39b0b1bbc88e84033',
-        'pbid' : 'ios'
+        'openid' : openid,
+        'ticket' : ticket,
+        'nickName' : nickName,
+        'did' : did,
+        'pbid' : 'android'
     }
     cr_headers = {
         'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 ImgoTV-iphone/7.1.2.2206302110'
@@ -116,3 +110,4 @@ if __name__ == '__main__':
     else:
         print('↓↓↓↓↓水桶其他情况↓↓↓↓↓')
         print(stjg)
+
