@@ -5,7 +5,7 @@ const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
-const sources = ['main', 'secondfloor', 'card', 'pk'];
+const sources = ['badge', 'main', 'secondfloor', 'card', 'pk'];
 let source;
 
 class SuperBrandProduct extends Template {
