@@ -34,7 +34,7 @@ def withdraw(ck):
             return
         else:
             print(response['msg'])
-            return
+            
     time.sleep(3)
 
 
