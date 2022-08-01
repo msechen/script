@@ -8,6 +8,8 @@ const {doPolling} = require('../../lib/cron');
 const shopGiftUrlPath = path.resolve(__dirname, 'shopGift.url');
 const {getMoment} = require('../../lib/moment');
 
+const origin = 'https://shop.m.jd.com';
+
 class ShopGift extends Template {
   static scriptName = 'ShopGift';
   static scriptNameDesc = '店铺(web)-收藏有礼';
@@ -16,7 +18,8 @@ class ShopGift extends Template {
   static customApiOptions = {
     uri: 'https://wq.jd.com/fav_snsgift',
     headers: {
-      referer: 'https://shop.m.jd.com/',
+      origin,
+      referer: `${origin}/`,
     },
     qs: {
       sceneval: 2,
@@ -123,18 +126,22 @@ class ShopGift extends Template {
       if (!shopId) return;
       return api.commonDo({
         method: 'GET',
-        uri: 'https://shop.m.jd.com',
-        qs: {shopId},
-        ignorePrintLog: true,
+        uri: 'https://api.m.jd.com/client.action',
+        qs: {
+          functionId: 'whx_getMShopOutlineInfo',
+          body: {shopId, 'source': 'm-shop'},
+          t: getMoment().valueOf(),
+          appid: 'shop_view',
+          clientVersion: '11.0.0',
+          client: 'wh5',
+          uuid: '1659319868595288096840',
+        },
         headers: {
+          origin,
+          referer: `${origin}/`,
           'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
         },
-      }).then(data => {
-        if (!_.isString(data)) return;
-        const match = data.match(/venderId\s*:\s*['"]\w*['"]/);
-        if (!match) return;
-        return match[0].replace(/venderId\s*:\s*['"]/, '').replace(/['"]/, '');
-      });
+      }).then(_.property('data.shopInfo.venderId'));
     }
   }
 
