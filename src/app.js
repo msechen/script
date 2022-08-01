@@ -81,7 +81,7 @@ const Moxigame = require('./jd/moxigame');
 const LiteSpringReward = TemporarilyOffline || require('./jd/lite/SpringReward');
 const LiteEarnCoins = require('./jd/lite/EarnCoins');
 const LiteCashSign = require('./jd/lite/CashSign');
-const LiteHappyDig = require('./jd/lite/HappyDig');
+const LiteHappyDig = TemporarilyOffline || require('./jd/lite/HappyDig');
 const LiteJoyPark = require('./jd/lite/JoyPark');
 
 /* 本地执行 */
