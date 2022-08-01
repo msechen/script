@@ -182,7 +182,7 @@ def watering(reward_water1, i=1):
 
             print(f"进行第{i}次浇水,水瓶还剩{water}滴水")
             time.sleep(random.randint(3, 5))
-            watering(i=i + 1)
+            watering(reward_water1,i=i + 1)
         else:
             print('水瓶水不足停止浇水')
             return
