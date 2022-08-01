@@ -310,10 +310,11 @@ if __name__ == '__main__':
             time.sleep(random.randint(2, 6))
             print('开始领取水滴日常任务奖励')
             day_water()
-        elif start_time == '21':
             print('选择宝箱奖励任务')
             reward_water = choose_box_reward()
             time.sleep(random.randint(2, 6))
+        elif start_time == '21':
+
             print('开始领取水滴日常任务奖励')
             day_water()
             time.sleep(random.randint(1, 4))
