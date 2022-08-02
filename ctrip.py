@@ -31,6 +31,7 @@ class Ctrip:
         AID = re.findall(r'&AID=(.*?)&',CK)[0]
         SID = re.findall(r'&SID=(.*?)&',CK)[0]
         SourceID = re.findall(r'&SourceID=(.*?)&',CK)[0]
+        DUID = re.findall(r'DUID=(.*?);',CK)[0]
         maindic={
             'openid': openid,
             'appid': appid,
@@ -43,6 +44,7 @@ class Ctrip:
             'AID': AID,
             'SID': SID,
             'SourceID': SourceID,
+            'DUID': DUID,
             'readerId': readerId
         }
         #构造查询参数query
@@ -58,7 +60,7 @@ class Ctrip:
         exmktID = str(exmktID).replace("'",'\\"')
         _cwxobj={
             "cid":f"{maindic['GUID']}",
-            "appid":"wx0e6ed4f51db9d078",
+            "appid":f"{maindic['appid']}",
             "mpopenid":f"{maindic['openid']}",
             "mpunionid":f"{maindic['unionid']}",
             "allianceid":f"{maindic['AID']}",
@@ -104,9 +106,7 @@ class Ctrip:
             # print(res)
             if(res['sign']) == False:
                 url = "https://m.ctrip.com/restapi/soa2/22769/signToday?_fxpcqlniredt=" + str(mainCK['GUID'])
-                #构建body
                 rmsToken = "fp=sqkm95-1poj0zf-1uks0cc" + "&vid=" + str(mainCK["vid"]) +"&r=" + str(mainCK["RGUID"]) +"&ip=" + str(mainCK["ip"]) + "&ua=" + urllib.parse.quote(str(headers["User-Agent"])) + "&pageId=10650004935&rg=fin&screen=414x896&tz=+8&blang=zh-CN&oslang=zh-CN&v=m17&bl=false&clientid="
-                # print(rmsToken)
                 body= {
                     "platform":"miniProgram",
                     "openId": str(mainCK['openid']),
@@ -137,7 +137,7 @@ class Ctrip:
     #             "pushcode":"miniprogram\"",
     #             "innersid":"",
     #             "innerouid":"",
-    #             "channelCode":"2H3294O46M",
+    #             "channelCode":channelCode,
     #             "oAuthHead":{},
     #             "platform":"miniProgram",
     #             "rmsToken":"",
@@ -186,7 +186,23 @@ class Ctrip:
 
     @staticmethod
     def doCash(mainCK):
-        headers={"GUID": f'{mainCK["GUID"]}'}
+        cashmsg=" "
+        headers={
+            "Host": "m.ctrip.com",
+            "Connection": "keep-alive",
+            "GUID": f'{mainCK["GUID"]}',
+            "content-type": "application/json",
+            "x-ctx-personal-recommend": "1",
+            "x-ctx-group": "ctrip",
+            "x-ctx-locale": "zh-CN",
+            "duid":f'{mainCK["DUID"]}',
+            "x-ctx-currency": "CNY",
+            "x-wx-openid": f'{mainCK["openid"]}',
+            "x-ctx-region": "CN",
+            "Accept-Encoding": "gzip,compress,br,deflate",
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.26(0x18001a29) NetType/WIFI Language/zh_CN",
+            "Referer": "https://servicewechat.com/wx0e6ed4f51db9d078/617/page-frame.html"
+        }
         extension = [{"name":"appId","value":"wx0e6ed4f51db9d078"},{"name":"scene","value":"1089"}]
         head={
             "cid": f"{mainCK['GUID']}",
@@ -223,12 +239,18 @@ class Ctrip:
         "ext":{"cver":"9999.000","extra":"null"},
         "head": head
         }
-        res = requests.post(url = flowurl, headers = headers, data=json.dumps(flowbody)).json()
-        items = res['data']['items']
-        cashmsg=" "
+        flow = requests.post(url = flowurl, headers = headers, data=json.dumps(flowbody)).json()
+        items = flow['data']['items']
+        loadurl = "https://m.ctrip.com/restapi/soa2/13458/loadTemplate?_fxpcqlniredt=" + mainCK['GUID']
+        loadbody={
+            "templateCode":"317sqhb","version":"3","platform":"miniprogramOrigin","head":head
+        }
+        load = requests.post(url = loadurl, headers = headers, data=json.dumps(loadbody)).json()
+        temp = load["components"][1]["property"]
+        channelCode = re.findall(r'"channelCode":"(.*?)",',temp)[0]
         try:
             taskbody = {
-                "channelCode":"JR442JH832",
+                "channelCode":channelCode,
                 "taskId":891,
                 "status":0,
                 "done":0,
@@ -248,9 +270,7 @@ class Ctrip:
             res = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
             n=0
             if(res["code"] == 200):
-                n=n+1
                 for item in items:
-                    # print(type(item))
                     item = json.loads(item)
                     id = item["id"]
                     title = item["title"]
@@ -266,6 +286,15 @@ class Ctrip:
                     try:
                         tripurl = "https://m.ctrip.com/restapi/soa2/14045/json/tripShoot?" + mainCK['GUID']
                         requests.post(url = tripurl, headers = headers, data=json.dumps(tripbody))
+                        listurl = "https://m.ctrip.com/restapi/soa2/16189/json/moduleListSearch?_fxpcqlniredt=" + mainCK['GUID']
+                        listbody = {
+                            "lat":0,
+                            "lon":0,
+                            "locationDistrictId":0,
+                            "pageCode":"task_wx_article",
+                            "head":head
+                        }
+                        requests.post(url = listurl, headers = headers, data = json.dumps(listbody))
                         ruleurl = "https://m.ctrip.com/restapi/soa2/14045/json/ruleSortCommentList?" + mainCK['GUID']
                         rulebody={
                             "articleId":id,
@@ -281,8 +310,22 @@ class Ctrip:
                         rule = requests.post(url = ruleurl, headers = headers, data=json.dumps(rulebody)).json()
                         if(len(rule["comments"]) == 0): continue
                         clientAuth = rule["comments"][0]["author"]["clientAuth"]
-                        Mkturl = "https://m.ctrip.com/restapi/soa2/20725/json/reportMktProductClick?" + mainCK['GUID']
-                        Mktbody = {
+                        rtRdurl = "https://m.ctrip.com/restapi/soa2/14045/json/relatedRecommend?_fxpcqlniredt=" + mainCK['GUID']
+                        rtRdbody = {
+                            "articleId":id,
+                            "head": head
+                        }
+                        shimurl = "https://m.ctrip.com/restapi/soa2/15416/json/getShareImage?_fxpcqlniredt="+ mainCK['GUID']
+                        shimbody = {
+                            "businessId":id,
+                            "imageType":"tripShootShareImg",
+                            "sourceType":0,
+                            "head":head
+                        }
+                        requests.post(url = rtRdurl, headers = headers, data = json.dumps(rtRdbody))
+                        requests.post(url = shimurl, headers = headers, data = json.dumps(shimbody))
+                        rMkturl = "https://m.ctrip.com/restapi/soa2/20725/json/reportMktProductClick?" + mainCK['GUID']
+                        rMktbody = {
                             "clientAuth":clientAuth,
                             "pageid":"10650013077",
                             "page_type":"article_detail",
@@ -292,7 +335,7 @@ class Ctrip:
                             "note":"{sourceFrom:undefined}",
                             "head":head
                             }
-                        Mkt = requests.post(url = Mkturl, headers = headers, data=json.dumps(Mktbody)).json()
+                        Mkt = requests.post(url = rMkturl, headers = headers, data=json.dumps(rMktbody)).json()
                         if(Mkt["result"]["result"] == True):
                             taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseCheck?" + mainCK['GUID']
                             taskbody= {
@@ -303,20 +346,29 @@ class Ctrip:
                             check = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
                             if (check["code"]==200):
                                 taskCount = check["taskBrowseCheckData"]["_mktTaskCountTimes"]
-                                time.sleep(18)
-                                taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseDone? " + mainCK['GUID']
-                                done = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
-                                if(done["code"] == 200): 
-                                    cashmsg = cashmsg + "完成浏览 {0} 任务\n".format(title)
-                                    print(cashmsg)
+                                if(n == taskCount): break
+                                time.sleep(2)
+                                riskurl = "https://m.ctrip.com/restapi/soa2/20725/json/getRiskInfo?" + mainCK['GUID']
+                                riskbody={"head":head}
+                                risk = requests.post(url = riskurl, headers = headers, data=json.dumps(riskbody)).json()
+                                if(risk["riskResult"]["riskMessage"] == "PASS"):
+                                    time.sleep(13)
+                                    taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseDone? " + mainCK['GUID']
+                                    done = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
+                                    if(done["code"] == 200): 
+                                        cashmsg = cashmsg + "完成浏览 {0} 任务\n".format(title)
+                                        print("完成浏览 {0} 任务\n".format(title))
+                                    else:
+                                        cashmsg = done['message']
+                                        break
                                 else:
-                                    cashmsg = done['message']
-                                    break
+                                    print("请检查riskinfo信息！")
                         else:
-                            print("请检查Mkt请求body")        
+                            print("请检查Mkt请求body！")   
+                        n = n + 1       
                     except Exception as e:
                         print("天天领现金任务中失败：" + str(e))
-                    if(n == taskCount): break
+                  
             #查询现金
             queryurl = "https://m.ctrip.com/restapi/soa2/16225/json/getContentFissionCashIndex?_fxpcqlniredt=" + mainCK['GUID']
             body = {
