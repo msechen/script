@@ -8,7 +8,7 @@ import requests
 import pprint
 
 headers = {
-    'referer': 'https://tmaservice.developer.toutiao.com/?appid=tte684903979bdf21a02&version=1.0.12',
+    'referer': 'https://tmaservice.developer.toutiao.com/',
     'User-Agent': '',
     # 'content-type': 'application/json',
     # 'Accept-Encoding': 'br, gzip',
