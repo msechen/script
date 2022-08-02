@@ -65,7 +65,7 @@ StevenBlack规则：https://cdn.jsdelivr.net/gh/yaof2/koolproxy@main/rules/steve
 
 
 
-#### 规则地址四（有缓存）
+#### 规则地址四（有缓存）已经不可用了
 
 静态规则：https://raw.githubusercontents.com/yaof22/koolproxy/main/rules/koolproxy.txt
 
