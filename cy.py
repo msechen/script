@@ -54,12 +54,13 @@ def count():
 
 if __name__ == '__main__':
     accesstoken = os.environ['cy100hd'].split('@')
-    headers1 = {
-        'accesstoken': accesstoken,
-     }
-    headers.update(headers1)
-    name1 = getUser()
-    data = sigin()
-    data1 = sign_status()
-    data2 = count()
-    print(f"账号{name1},此次{data},{data1},{data2}")
+    for i in accesstoken
+        headers1 = {
+            'accesstoken': i,
+         }
+        headers.update(headers1)
+        name1 = getUser()
+        data = sigin()
+        data1 = sign_status()
+        data2 = count()
+        print(f"账号{name1},此次{data},{data1},{data2}")
