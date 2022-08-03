@@ -249,136 +249,163 @@ class Ctrip:
         temp = load["components"][1]["property"]
         channelCode = re.findall(r'"channelCode":"(.*?)",',temp)[0]
         try:
-            taskbody = {
-                "channelCode":channelCode,
-                "taskId":891,
-                "status":0,
-                "done":0,
+            batchurl = "https://m.ctrip.com/restapi/soa2/22598/batchReceiveProjectTask?" + mainCK['GUID']
+            channelCodeList = [str(channelCode)]
+            batchbody= {
+                "channelCodeList":channelCodeList,
                 "allianceid": mainCK['AID'],
                 "sid": mainCK['SID'],
                 "ouid":"",
-                "sourceid": mainCK['SourceID'],
+                "sourceid":mainCK['SourceID'],
                 "pushcode":"",
                 "innersid":"260",
                 "innerouid":"task",
                 "version":"3",
                 "platform":"miniprogramOrigin",
                 "osType":"ios",
-                "head": head
+                "head":head
             }
-            taskurl = "https://m.ctrip.com/restapi/soa2/22598/todoTask?_fxpcqlniredt=" + mainCK['GUID']
-            res = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
-            n=0
-            if(res["code"] == 200):
-                for item in items:
-                    item = json.loads(item)
-                    id = item["id"]
-                    title = item["title"]
-                    tripbody = {
-                        "action":"get",
-                        "articleId":id,
-                        "sharer": {"clientAuth":"","token":""},
-                        "reader": {"readerId":mainCK["readerId"],"platform":"wechat"},
-                        "needPoiTag":"true",
-                        "needCtagTypes":"[2,4]",
-                        "head": head
-                    }
-                    try:
-                        tripurl = "https://m.ctrip.com/restapi/soa2/14045/json/tripShoot?" + mainCK['GUID']
-                        requests.post(url = tripurl, headers = headers, data=json.dumps(tripbody))
-                        listurl = "https://m.ctrip.com/restapi/soa2/16189/json/moduleListSearch?_fxpcqlniredt=" + mainCK['GUID']
-                        listbody = {
-                            "lat":0,
-                            "lon":0,
-                            "locationDistrictId":0,
-                            "pageCode":"task_wx_article",
-                            "head":head
-                        }
-                        requests.post(url = listurl, headers = headers, data = json.dumps(listbody))
-                        ruleurl = "https://m.ctrip.com/restapi/soa2/14045/json/ruleSortCommentList?" + mainCK['GUID']
-                        rulebody={
+            batch = requests.post(url = batchurl, headers = headers, data=json.dumps(batchbody)).json()
+            if(batch["code"]==200):
+                taskurl = "https://m.ctrip.com/restapi/soa2/22598/todoTask?_fxpcqlniredt=" + mainCK['GUID']
+                taskbody = {
+                    "channelCode":channelCode,
+                    "taskId":891,
+                    "status":0,
+                    "done":0,
+                    "allianceid": mainCK['AID'],
+                    "sid": mainCK['SID'],
+                    "ouid":"",
+                    "sourceid": mainCK['SourceID'],
+                    "pushcode":"",
+                    "innersid":"260",
+                    "innerouid":"task",
+                    "version":"3",
+                    "platform":"miniprogramOrigin",
+                    "osType":"ios",
+                    "head": head
+                }
+                res = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
+                n=0
+                if(res["code"] == 200):
+                    for item in items:
+                        item = json.loads(item)
+                        id = item["id"]
+                        title = item["title"]
+                        tripbody = {
+                            "action":"get",
                             "articleId":id,
-                            "para":{"pageIndex":1,"pageSize":2,"sortType":0},
-                            "isContentEncode":"false",
-                            "displayType":2,
-                            "showCommentCount":"true",
-                            "sortDirection":0,
-                            "excludeCommentIds":[],
-                            "levels":[0],
+                            "sharer": {"clientAuth":"","token":""},
+                            "reader": {"readerId":mainCK["readerId"],"platform":"wechat"},
+                            "needPoiTag":"true",
+                            "needCtagTypes":"[2,4]",
                             "head": head
                         }
-                        rule = requests.post(url = ruleurl, headers = headers, data=json.dumps(rulebody)).json()
-                        if(len(rule["comments"]) == 0): continue
-                        clientAuth = rule["comments"][0]["author"]["clientAuth"]
-                        rtRdurl = "https://m.ctrip.com/restapi/soa2/14045/json/relatedRecommend?_fxpcqlniredt=" + mainCK['GUID']
-                        rtRdbody = {
-                            "articleId":id,
-                            "head": head
-                        }
-                        shimurl = "https://m.ctrip.com/restapi/soa2/15416/json/getShareImage?_fxpcqlniredt="+ mainCK['GUID']
-                        shimbody = {
-                            "businessId":id,
-                            "imageType":"tripShootShareImg",
-                            "sourceType":0,
-                            "head":head
-                        }
-                        requests.post(url = rtRdurl, headers = headers, data = json.dumps(rtRdbody))
-                        requests.post(url = shimurl, headers = headers, data = json.dumps(shimbody))
-                        rMkturl = "https://m.ctrip.com/restapi/soa2/20725/json/reportMktProductClick?" + mainCK['GUID']
-                        rMktbody = {
-                            "clientAuth":clientAuth,
-                            "pageid":"10650013077",
-                            "page_type":"article_detail",
-                            "materialid":id,
-                            "product_infos":"[null]",
-                            "click_type":"expo_product",
-                            "note":"{sourceFrom:undefined}",
-                            "head":head
+                        try:
+                            tripurl = "https://m.ctrip.com/restapi/soa2/14045/json/tripShoot?" + mainCK['GUID']
+                            requests.post(url = tripurl, headers = headers, data=json.dumps(tripbody))
+                            listurl = "https://m.ctrip.com/restapi/soa2/16189/json/moduleListSearch?_fxpcqlniredt=" + mainCK['GUID']
+                            listbody = {
+                                "lat":0,
+                                "lon":0,
+                                "locationDistrictId":0,
+                                "pageCode":"task_wx_article",
+                                "head":head
                             }
-                        Mkt = requests.post(url = rMkturl, headers = headers, data=json.dumps(rMktbody)).json()
-                        if(Mkt["result"]["result"] == True):
-                            taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseCheck?" + mainCK['GUID']
-                            taskbody= {
-                                "_taskDetailId":"pages/you/lvpai/detail/detail?_mktTaskActivityId=317sqhb&wxpopup=201&inpopup=true&articleId={0}".format(id),
-                                "_mktTaskActivityId":"317sqhb",
+                            requests.post(url = listurl, headers = headers, data = json.dumps(listbody))
+                            ruleurl = "https://m.ctrip.com/restapi/soa2/14045/json/ruleSortCommentList?" + mainCK['GUID']
+                            rulebody={
+                                "articleId":id,
+                                "para":{"pageIndex":1,"pageSize":2,"sortType":0},
+                                "isContentEncode":"false",
+                                "displayType":2,
+                                "showCommentCount":"true",
+                                "sortDirection":0,
+                                "excludeCommentIds":[],
+                                "levels":[0],
                                 "head": head
                             }
-                            check = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
-                            if (check["code"]==200):
-                                taskCount = check["taskBrowseCheckData"]["_mktTaskCountTimes"]
-                                if(n == taskCount): break
-                                time.sleep(2)
-                                riskurl = "https://m.ctrip.com/restapi/soa2/20725/json/getRiskInfo?" + mainCK['GUID']
-                                riskbody={"head":head}
-                                risk = requests.post(url = riskurl, headers = headers, data=json.dumps(riskbody)).json()
-                                if(risk["riskResult"]["riskMessage"] == "PASS"):
-                                    time.sleep(13)
-                                    taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseDone? " + mainCK['GUID']
-                                    done = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
-                                    if(done["code"] == 200): 
-                                        cashmsg = cashmsg + "完成浏览 {0} 任务\n".format(title)
-                                        print("完成浏览 {0} 任务\n".format(title))
+                            rule = requests.post(url = ruleurl, headers = headers, data=json.dumps(rulebody)).json()
+                            if(len(rule["comments"]) == 0): continue
+                            clientAuth = rule["comments"][0]["author"]["clientAuth"]
+                            rtRdurl = "https://m.ctrip.com/restapi/soa2/14045/json/relatedRecommend?_fxpcqlniredt=" + mainCK['GUID']
+                            rtRdbody = {
+                                "articleId":id,
+                                "head": head
+                            }
+                            shimurl = "https://m.ctrip.com/restapi/soa2/15416/json/getShareImage?_fxpcqlniredt="+ mainCK['GUID']
+                            shimbody = {
+                                "businessId":id,
+                                "imageType":"tripShootShareImg",
+                                "sourceType":0,
+                                "head":head
+                            }
+                            requests.post(url = rtRdurl, headers = headers, data = json.dumps(rtRdbody))
+                            requests.post(url = shimurl, headers = headers, data = json.dumps(shimbody))
+                            rMkturl = "https://m.ctrip.com/restapi/soa2/20725/json/reportMktProductClick?" + mainCK['GUID']
+                            rMktbody = {
+                                "clientAuth":clientAuth,
+                                "pageid":"10650013077",
+                                "page_type":"article_detail",
+                                "materialid":id,
+                                "product_infos":"[null]",
+                                "click_type":"expo_product",
+                                "note":"{sourceFrom:undefined}",
+                                "head":head
+                                }
+                            Mkt = requests.post(url = rMkturl, headers = headers, data=json.dumps(rMktbody)).json()
+                            if(Mkt["result"]["result"] == True):
+                                taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseCheck?" + mainCK['GUID']
+                                taskbody= {
+                                    "_taskDetailId":"pages/you/lvpai/detail/detail?_mktTaskActivityId=317sqhb&wxpopup=201&inpopup=true&articleId={0}".format(id),
+                                    "_mktTaskActivityId":"317sqhb",
+                                    "head": head
+                                }
+                                check = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
+                                if (check["code"]==200):
+                                    taskCount = check["taskBrowseCheckData"]["_mktTaskCountTimes"]
+                                    if(n == taskCount): break
+                                    time.sleep(2)
+                                    riskurl = "https://m.ctrip.com/restapi/soa2/20725/json/getRiskInfo?" + mainCK['GUID']
+                                    riskbody={"head":head}
+                                    risk = requests.post(url = riskurl, headers = headers, data=json.dumps(riskbody)).json()
+                                    if(risk["riskResult"]["riskMessage"] == "PASS"):
+                                        time.sleep(13)
+                                        taskurl = "https://m.ctrip.com/restapi/soa2/22598/taskBrowseDone? " + mainCK['GUID']
+                                        done = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
+                                        if(done["code"] == 200): 
+                                            cashmsg = cashmsg + "完成浏览 {0} 任务\n".format(title)
+                                            print("完成浏览 {0} 任务\n".format(title))
+                                        else:
+                                            cashmsg = done['message']
+                                            break
                                     else:
-                                        cashmsg = done['message']
-                                        break
-                                else:
-                                    print("请检查riskinfo信息！")
-                        else:
-                            print("请检查Mkt请求body！")   
-                        n = n + 1       
-                    except Exception as e:
-                        print("天天领现金任务中失败：" + str(e))
+                                        print("请检查riskinfo信息！")
+                            else:
+                                print("请检查Mkt请求body！")   
+                            n = n + 1 
+                            queryurl = "https://m.ctrip.com/restapi/soa2/16225/json/getContentFissionCashIndex?_fxpcqlniredt=" + mainCK['GUID']
+                            querybody = {
+                                "env":1,
+                                "serverFrom":"miniProgram",
+                                "taskId":"",
+                                "head": head
+                            } 
+                            requests.post(url = queryurl, headers = headers, data=json.dumps(querybody)).json()
+                            time.sleep(8)     
+                        except Exception as e:
+                            print("天天领现金任务中失败：" + str(e))
                   
             #查询现金
-            queryurl = "https://m.ctrip.com/restapi/soa2/16225/json/getContentFissionCashIndex?_fxpcqlniredt=" + mainCK['GUID']
-            body = {
-                "env":1,
-                "serverFrom":"miniProgram",
-                "taskId":"",
-                "head": head
-            }
+            # queryurl = "https://m.ctrip.com/restapi/soa2/16225/json/getContentFissionCashIndex?_fxpcqlniredt=" + mainCK['GUID']
+            # body = {
+            #     "env":1,
+            #     "serverFrom":"miniProgram",
+            #     "taskId":"",
+            #     "head": head
+            # }
             try:
-                res = requests.post(url = queryurl, headers = headers, data=json.dumps(body)).json()
+                res = requests.post(url = queryurl, headers = headers, data=json.dumps(querybody)).json()
                 cashBalance = res["cashBalance"]
                 msg = cashmsg + "\n天天领现金任务已完成，共有现金：" + str(cashBalance)
             except Exception as e:
