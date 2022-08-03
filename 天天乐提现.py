@@ -28,6 +28,7 @@ def get_money_data(userid, ck2, push_token):
         if int(money) >= int(i[0]):
             exchange(ck2, name, i, push_token)
             print(f'{name}目前金额为{(int(money)-int(i[0]))/ 100}提现金额不足,取消提现')
+            return
         else:
             print(f'{name}目前金额为{int(money) / 100}提现金额不足,取消提现')
             return
