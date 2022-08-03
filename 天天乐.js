@@ -52,6 +52,7 @@ let cash = 0, nickName = []
         let udarr = ud.split(`&`)
         ud = udarr[0]
         openid = [1]
+        openidid =  udarr[1]
 
         h = userIdx + 1
         await bcc2()
@@ -83,9 +84,11 @@ let cash = 0, nickName = []
         await bcc1()
         await bcc3()
         await acc1()
+        await acc_dou()
         await acc2()
         await acc3()
         await bcc8()
+        await $.wait(1000*5)
         for (let j = 0; j < tokenArr.length; j++) {
             ud = tokenArr[userIdx]
             f = j + 1
@@ -93,6 +96,7 @@ let cash = 0, nickName = []
             await acc4()
 
         }
+       
 
     }
     if (tokenArr.length < 5) {
@@ -297,12 +301,23 @@ async function star2() {
 //post
 async function acc1() {
     let url = 'https://miniapi.tianwensk.com/miniapp/user/signin/save'
-    let body = `userId=${ud}`
+    let body = `userId=${ud}&openid=${openidid}&timestramp=${Date.now()}`
     let urlObject = populateUrlObject(url, body)
     await httpRequest('post', urlObject)
     let result = JSON.parse(httpResult.body);
     console.log(`【账号${h}】签到 ${result.message}`)
 }
+
+//get
+async function acc_dou() {
+    let url = `https://miniapi.tianwensk.com/miniapp/user/adtimecache?module=integral&userId=${ud}`
+    let body = ``
+    let urlObject = populateUrlObject(url, body)
+    await httpRequest('get', urlObject)
+    let result = JSON.parse(httpResult.body);
+    console.log(`\n点击翻倍视频 ${result.message}`)
+}
+
 
 //post
 async function acc2() {
@@ -327,8 +342,6 @@ async function acc3() {
 
 async function acc4() {
     let url = 'https://miniapi.tianwensk.com/miniapp/user/plus/saveHelpRate'
-
-
     let body = `userId=${ud}&shareUserId=${id}`
     let urlObject = populateUrlObject(url, body)
     await httpRequest('post', urlObject)
@@ -411,8 +424,6 @@ async function bcc4() {
 
 async function bcc5() {
     let url = 'https://miniapi.tianwensk.com/miniapp/user/plus/saveHelpRate'
-
-
     let body = `userId=${mx}&shareUserId=${uid}`
     let urlObject = populateUrlObject(url, body)
     await httpRequest('post', urlObject)
