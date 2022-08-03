@@ -25,7 +25,7 @@ class StatisticsRedEnvelope extends Template {
       },
     }).then(_.property('data'));
 
-    let redList = _.get(await getRedInfo(), 'useRedInfo.redList', []);
+    let redList = _.get(await getRedInfo(), 'useRedInfo.redList') || [];
     const redSorted = {
       jd: {
         limitName: '京东商城',
