@@ -66,19 +66,28 @@ class ShopGift extends Template {
 
     async function handleFormat() {
       const urls = getUrlDataFromFile(shopGiftUrlPath);
-      const getShopId = async (url, needGetReal = false) => {
-        let shopId;
+      const getShopInfoFromUrl = async (url, needGetReal = false) => {
+        const result = {};
         let realUrl;
         try {
           needGetReal && (realUrl = await getRealUrl(url));
-          shopId = new URL(realUrl || url).searchParams.get('shopId');
+          const searchParams = new URL(realUrl || url).searchParams;
+          for (const [name, value] of searchParams) {
+            if (['shopId', 'venderId', 'venderid'].includes(name)) {
+              const key = name === 'venderid' ? 'venderId' : name;
+              _.assign(result, {[key]: value});
+            }
+          }
         } catch (e) {}
-        return shopId || (needGetReal ? shopId : getShopId(url, true));
+        return _.isEmpty(result) ? (needGetReal ? result : getShopInfoFromUrl(url, true)) : result;
       };
       for (const url of urls) {
-        const shopId = await getShopId(url);
-        const venderId = await getVenderId(shopId);
-        shopId && venderId && self.shopData.push({shopId, venderId});
+        let shopInfo = await getShopInfoFromUrl(url);
+        shopInfo = await getShopInfo(shopInfo);
+        if (_.isEmpty(shopInfo)) {
+          continue;
+        }
+        self.shopData.push(_.pick(shopInfo, ['shopId', 'venderId']));
       }
       self.shopUrlFormatted = true;
     }
@@ -122,14 +131,14 @@ class ShopGift extends Template {
       });
     }
 
-    async function getVenderId(shopId) {
-      if (!shopId) return;
+    async function getShopInfo({shopId, venderId}) {
+      if (!shopId && !venderId) return;
       return api.commonDo({
         method: 'GET',
         uri: 'https://api.m.jd.com/client.action',
         qs: {
           functionId: 'whx_getMShopOutlineInfo',
-          body: {shopId, 'source': 'm-shop'},
+          body: {shopId, venderId, 'source': 'm-shop'},
           t: getMoment().valueOf(),
           appid: 'shop_view',
           clientVersion: '11.0.0',
@@ -141,7 +150,7 @@ class ShopGift extends Template {
           referer: `${origin}/`,
           'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
         },
-      }).then(_.property('data.shopInfo.venderId'));
+      }).then(_.property('data.shopInfo'));
     }
   }
 
