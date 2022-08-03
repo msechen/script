@@ -53,7 +53,7 @@ def count():
 
 
 if __name__ == '__main__':
-    accesstoken = os.environ['cy100hd']
+    accesstoken = os.environ['cy100hd'].split('@')
     headers1 = {
         'accesstoken': accesstoken,
      }
