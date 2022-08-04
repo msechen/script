@@ -35,6 +35,10 @@ uid = ""
 [[SATINE]]
 accessToken = ""
 
+#卡夫亨氏【小程序】
+[[KraftHeinz]]
+Token = ""
+
 # 网易云音乐
 [[MUSIC163]]
 password = ""

@@ -3,6 +3,7 @@
 new Env('携程旅行');
 """
 
+from random import random
 import requests  #,grequests
 import urllib
 import re,json
@@ -186,7 +187,7 @@ class Ctrip:
 
     @staticmethod
     def doCash(mainCK):
-        cashmsg=" "
+        cashmsg=""
         headers={
             "Host": "m.ctrip.com",
             "Connection": "keep-alive",
@@ -375,7 +376,7 @@ class Ctrip:
                                         done = requests.post(url = taskurl, headers = headers, data=json.dumps(taskbody)).json()
                                         if(done["code"] == 200): 
                                             cashmsg = cashmsg + "完成浏览 {0} 任务\n".format(title)
-                                            print("完成浏览 {0} 任务\n".format(title))
+                                            print(f"完成浏览 {0} 任务\n".format(title))
                                         else:
                                             cashmsg = done['message']
                                             break
@@ -392,7 +393,7 @@ class Ctrip:
                                 "head": head
                             } 
                             requests.post(url = queryurl, headers = headers, data=json.dumps(querybody)).json()
-                            time.sleep(8)     
+                            time.sleep(random(5,10))     
                         except Exception as e:
                             print("天天领现金任务中失败：" + str(e))
                   
