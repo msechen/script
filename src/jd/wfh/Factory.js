@@ -28,8 +28,7 @@ class Factory extends HarmonyTemplate {
     doRedeem: '',
     afterGetTaskList: 'jdfactory_getHomeData',
   };
-
-  // static activityEndTime = '2022-04-30';
+  static activityEndTime = '2022-08-01';
 
   static async beforeRequest(api) {
     return this.autoAddEnergy(api);
