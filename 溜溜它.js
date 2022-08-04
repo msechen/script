@@ -21,7 +21,7 @@ let userList = []
 let userIdx = 0
 let userCount = 0
 
-let phone = ($.isNode() ? process.env.llphonecookie : $.getdata('llphonecookie')) || '';
+let phone = ($.isNode() ? process.env.llphonecookie : $.getdata('llphonecookie')) || ''
 
 
 let name = "" //姓名
@@ -66,7 +66,13 @@ class UserInfo {
 
 async getid() {
 		try {
-			let url = `https://www.chongpar.cn/member/cp-member-integral-award-rule/index?startTime=2022-07-22%2000%3A00%3A00&endTime=2022-08-22%2000%3A00%3A00`
+let p=new Date().getDate()
+let m=new Date().getMonth()+1
+let l=new Date().getMonth()+2
+let n=new Date().getFullYear()
+let time=n+'-'+m+'-'+p
+let time2=n+'-'+l+'-'+p
+			let url = `https://www.chongpar.cn/member/cp-member-integral-award-rule/index?startTime=${time}%2000%3A00%3A00&endTime=${time2}%2000%3A00%3A00`
 			let body = ``
 			let token = `${this.ck}`
 			let urlObject = populateUrlObject(url, token, body)
