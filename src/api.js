@@ -67,8 +67,9 @@ async function sendNotify({sendYesterdayLog = false, subjects = [], forceExit = 
 
   const sortLogByName = content => getSortLogContent('name', content);
   const contents = [];
+  const yDay = getMoment().subtract(1, 'd').format('YYYY-MM-DD');
   if (sendYesterdayLog) {
-    const yesterdayLog = getLogFile('app', getMoment().subtract(1, 'd').format('YYYY-MM-DD'));
+    const yesterdayLog = getLogFile('app', yDay);
     contents.push(sortLogByName(getFileContent(yesterdayLog)));
     contents.push(`\n--------------------------${getNowDate()}-start--------------------------\n`);
   }
@@ -81,6 +82,9 @@ async function sendNotify({sendYesterdayLog = false, subjects = [], forceExit = 
   const getSubject = (str = mainSubject) => [str].concat(otherSubject).join('_');
 
   if (!_.isEmpty(errorOutput)) {
+    errorOutput.push('\n\nrequest.log\n');
+    sendYesterdayLog && errorOutput.push(getFileContent(getLogFile('request', yDay)));
+    errorOutput.push(getFileContent(getLogFile('request')));
     mailer.send({
       subject: getSubject(`${mainSubject}_error`),
       text: errorOutput.join('\n'),
