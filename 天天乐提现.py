@@ -25,6 +25,7 @@ def get_money_data(userid, ck2, push_token):
             id = i['id']
             money_all.append([amount, id])
     for i in money_all:
+        print(f'目前平台可提现金额最小为{i[0]}')
         if int(money) >= int(i[0]):
             exchange(ck2, name, i, push_token)
             print(f'{name}目前金额为{(int(money)-int(i[0]))/ 100}提现金额不足,取消提现')
