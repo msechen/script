@@ -85,10 +85,11 @@ let cash = 0, nickName = []
         await bcc3()
         await acc1()
         await acc_dou()
+        await $.wait(1000*25)
         await acc2()
         await acc3()
         await bcc8()
-        await $.wait(1000*5)
+        await $.wait(1000*15)
         for (let j = 0; j < tokenArr.length; j++) {
             ud = tokenArr[userIdx]
             f = j + 1
@@ -315,7 +316,7 @@ async function acc_dou() {
     let urlObject = populateUrlObject(url, body)
     await httpRequest('get', urlObject)
     let result = JSON.parse(httpResult.body);
-    console.log(`\n点击翻倍视频 ${result.message}`)
+    console.log(`【账号${h}】点击翻倍视频 ${result.message}`)
 }
 
 
