@@ -7,7 +7,7 @@
 转换AdGuard规则、StevenBlack规则、AntiAd规则、Yhost规则、坂本手机规则优化成koolproxy规则。（ABP和fanboy规则已经剔除）
 
 
-#### 规则地址一（腾讯coding，实时）
+#### 规则地址一（腾讯coding，实时。coding开启了登录验证，已经不可用了）
 
 静态规则：https://yaof.coding.net/p/ikoolproxy/d/rules/git/raw/master/rules/koolproxy.txt
 
@@ -65,11 +65,11 @@ StevenBlack规则：https://cdn.jsdelivr.net/gh/yaof2/koolproxy@main/rules/steve
 
 
 
-#### 规则地址四（有缓存）已经不可用了
+#### 规则地址四（有缓存）
 
-静态规则：https://raw.githubusercontents.com/yaof22/koolproxy/main/rules/koolproxy.txt
+静态规则：https://raw.githubusercontents.com/yaof2/koolproxy/main/rules/koolproxy.txt
 
-每日规则：https://raw.githubusercontents.com/yaof22/koolproxy/main/rules/daily.txt
+每日规则：https://raw.githubusercontents.com/yaof2/koolproxy/main/rules/daily.txt
 
 视频规则：https://raw.githubusercontents.com/yaof2/koolproxy/main/rules/kp.dat
 
