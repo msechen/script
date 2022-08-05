@@ -347,6 +347,7 @@ class Base {
           console.log('转换成功并成功写入文件');
         } else {
           console.log('转换失败, 请查看报错');
+          console.log(response);
         }
       });
     }
