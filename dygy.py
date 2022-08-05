@@ -8,7 +8,7 @@ import requests
 import pprint
 
 headers = {
-    'referer': 'https://tmaservice.developer.toutiao.com/',
+    'referer': 'https://tmaservice.developer.toutiao.com/?appid=tte684903979bdf21a02&version=1.0.12',
     'User-Agent': '',
     # 'content-type': 'application/json',
     # 'Accept-Encoding': 'br, gzip',
@@ -72,7 +72,7 @@ def choose_box_reward():
         response = requests.get(url=url, headers=headers).json()
         if response["status_code"] == 0:
             print("挑战开始")
-        return reward_water
+        return num
 
     ##挑战礼包奖励
 
@@ -170,7 +170,7 @@ def watering(reward_water1, i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     if (i - 1) / 10 in num:
         water_award()
-    if i == reward_water1 + 1:
+    if i == reward_water1:
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?"
@@ -182,7 +182,7 @@ def watering(reward_water1, i=1):
 
             print(f"进行第{i}次浇水,水瓶还剩{water}滴水")
             time.sleep(random.randint(3, 5))
-            watering(reward_water1,i=i + 1)
+            watering(i=i + 1)
         else:
             print('水瓶水不足停止浇水')
             return
@@ -318,7 +318,7 @@ if __name__ == '__main__':
             day_water()
             time.sleep(random.randint(1, 4))
             print('继续浇完剩余水量')
-            watering(reward_water)
+            watering(reward_water, i=1)
             print('开始推送信息')
             message = target()
             push_plus_bot(message, push_token)
