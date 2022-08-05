@@ -36,6 +36,7 @@ class LiteCashSign extends Template {
       config: {
         apSignIn_day: {
           appId: '15097',
+          fingerprint: '4485631018202493',
         },
       },
     });
@@ -44,6 +45,8 @@ class LiteCashSign extends Template {
   static async doMain(api) {
     const self = this;
     await self.beforeRequest(api);
+
+    await api.doGetBody('getStaticResource');
 
     await api.doFormBody('apSignIn_day').then(data => {
       const {retCode, retMessage} = data.data || {};
