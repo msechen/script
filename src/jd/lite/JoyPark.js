@@ -15,7 +15,6 @@ class LiteJoyPark extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({body: {linkId}, appid});
   static needInSpeedApp = true;
-  static activityEndTime = '2022-07-31';
   static defaultShareCodes = [
     'K7pyOTYxSNiwa4HaR33Otw',
     '5oL9ukD9X8J883hdXpWl7Q',
@@ -24,6 +23,9 @@ class LiteJoyPark extends Template {
   ];
   static shareTaskId = '610';
   static doneShareTask = getNowHour() < 22;
+  static getLoopMinute = () => _.random(0, 59);
+  static loopHours = [...new Array(24 / 3)].map((v, i) => i * 3 + 1);
+  static loopOnTime = false;
 
   static apiOptions = {
     options: {
@@ -82,11 +84,11 @@ class LiteJoyPark extends Template {
     await api.doGetBody('getStaticResource');
     await api.doGetBody('checkUserIndulge');
 
-    const {invitePin, guideStep, fastBuyCoin, joyCoin, level} = await joyBaseInfo();
+    let currentLevel = 0;
+    const {invitePin, guideStep, fastBuyCoin, joyCoin} = await joyBaseInfo();
     await handleDoGuide();
 
-    api.log(`当前等级${level}`);
-    if (level >= 30) {
+    if (currentLevel >= 30) {
       api.log('已经满级, 请在app中进行兑换奖励');
       return;
     }
@@ -95,6 +97,8 @@ class LiteJoyPark extends Template {
 
     await handleDoTask();
     await handleDoShare();
+
+    api.log(`当前等级${currentLevel}`);
 
     async function handleDoTask() {
       const taskList = await api.doFormBody('apTaskList').then(getData);
@@ -286,7 +290,8 @@ class LiteJoyPark extends Template {
         'inviterPin': '',
         ...body,
       }).then(getData).then(data => {
-        const {leaveJoyCoin} = data;
+        const {leaveJoyCoin, level} = data;
+        currentLevel = level;
         if (leaveJoyCoin) {
           api.log(`离线汪币收益: ${leaveJoyCoin}`);
         }
@@ -300,6 +305,24 @@ class LiteJoyPark extends Template {
   }
 }
 
-singleRun(LiteJoyPark).then();
+singleRun(LiteJoyPark, ['start', 'loop'], async (method, getCookieData) => {
+  const start = () => {
+    let result;
+    try {
+      result = LiteJoyPark.start(getCookieData());
+    } catch (e) {
+      console.log(e);
+    }
+    return result;
+  };
+  switch (method) {
+  case 'start':
+    await start();
+    break;
+  case 'loop':
+    await LiteJoyPark.loopRun(start);
+    break;
+  }
+});
 
 module.exports = LiteJoyPark;

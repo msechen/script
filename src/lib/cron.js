@@ -1,4 +1,4 @@
-const {getMoment, getNowDate} = require('./moment');
+const {getMoment, getNowDate, isMoment} = require('./moment');
 const {sleep} = require('./common');
 const _ = require('lodash');
 
@@ -49,12 +49,12 @@ function timeToDate(time) {
 
 /**
  * @description 比较时间
- * @param time 时间
+ * @param target 时间
  * @return 毫秒 {number}
  */
-function diffFromNow(time) {
+function diffFromNow(target) {
   const nowMoment = getMoment();
-  const targetMoment = getMoment(timeToDate(time));
+  const targetMoment = isMoment(target) ? target : getMoment(target);
   if (nowMoment.isAfter(targetMoment)) return 0;
   return targetMoment.diff(nowMoment, 'millisecond');
 }

@@ -1,8 +1,10 @@
 /**
  * @description 时间/时区相关操作
  */
+
 const FORMAT_FULL_DATE = 'YYYY-MM-DD HH:mm:ss';
 
+const _ = require('lodash');
 const moment = require('moment-timezone');
 
 // 定义默认format
@@ -26,18 +28,23 @@ const fillInTwo = number => number < 10 ? `0${number}` : `${number}`;
 const parseHour = str => str ? +/(\d*)/.exec(str)[0] : str;
 
 function getNextHour(hours, targetMinute = 0, loop = true) {
+  loop && (hours = hours.concat(hours.map(h => h + 24)));
   const joinTime = (...arg) => arg.map(fillInTwo).join(':');
   const nowMinute = getMoment().minute();
-  hours.includes(0) && hours.push(24);
   const nowHour = getNowHour();
   const nowTime = joinTime(nowHour, nowMinute);
   const timeArray = _.uniq([nowTime, ...hours.map(hour => joinTime(hour, targetMinute))]).sort();
   const index = timeArray.findIndex(v => v === nowTime);
-  return parseHour(timeArray[index + 1] || (loop ? timeArray[0] : void 0));
+  return parseHour(timeArray[index + 1]);
+}
+
+function isMoment(target) {
+  return target.isMoment ? target.isMoment() : false;
 }
 
 module.exports = {
   getMoment,
+  isMoment,
   getOnlyHourMoment,
   getNowDate,
   getNowHour,

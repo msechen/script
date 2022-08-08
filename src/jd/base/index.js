@@ -5,7 +5,7 @@ const UserAgent = require('./UserAgent');
 const Cookie = require('../../lib/cookie');
 const {sleep, printLog, parallelRun, addMosaic} = require('../../lib/common');
 const {getMoment, getNextHour, getNowHour} = require('../../lib/moment');
-const {sleepTime} = require('../../lib/cron');
+const {sleepDate} = require('../../lib/cron');
 const {processInAC, getProductEnv, updateProductEnv, uploadProductEnvToAction, getEnv} = require('../../lib/env');
 
 // 本地运行无需主动更新
@@ -371,13 +371,19 @@ class Base {
   }
 
   static loopHours = [];
+  static loopOnTime = true;
+  static getLoopMinute = () => 55;
 
   static async loopRun(nextFn) {
     const self = this;
-    const targetMinute = 55;
-    const targetHour = getNextHour(self.loopHours, targetMinute);
-    console.log(`[${self.getName()}] 定时${targetHour}点执行`);
-    await sleepTime([targetHour, targetMinute]);
+    const targetHour = getNextHour(self.loopHours, self.loopOnTime ? 55 : 0);
+    const targetMinute = self.getLoopMinute();
+    const nextMoment = getMoment();
+    nextMoment.set('h', targetHour).set('m', targetMinute);
+    const splitStr = `---------------------`;
+    console.log(splitStr);
+    console.log(`${getMoment().format()} [${self.getName()}] 定时执行(${nextMoment.format()})`);
+    await sleepDate(nextMoment);
     await nextFn();
     return self.loopRun(nextFn);
   }
