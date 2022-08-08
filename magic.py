@@ -206,19 +206,19 @@ async def handler(event):
         if action is None:  # 没有自动车
             await client.send_message(bot_id, f'没有自动车 #{text}')
             return
-        queue = action.get("queue")
-        name = action.get("name")
-        logger.info(f'queue {queue} name {name}')
-        if queue:
-            await queues[action.get("queue_name")].put({"text": text, "action": action})
-            await client.send_message(bot_id, f'入队执行 #{name}')
-            return
         file = action.get("file", "")
         # 没有匹配的动作 或没开启
+        name = action.get("name")
         enable = action.get("enable")
         logger.info(f'name {name} enable {enable}')
         if not enable:
             await client.send_message(bot_id, f'未开启任务 #{name}')
+            return
+        queue = action.get("queue")
+        logger.info(f'queue {queue} name {name}')
+        if queue:
+            await queues[action.get("queue_name")].put({"text": text, "action": action})
+            await client.send_message(bot_id, f'入队执行 #{name}')
             return
         logger.info(f'设置环境变量export {action}')
         await export(text)
@@ -273,7 +273,7 @@ async def cmd(text):
         )
         await proc.communicate()
         if log_send:
-            await client.send_file(user_id, tmp_log)
+            await client.send_file(bot_id, tmp_log)
         # os.remove(tmp_log)
     except Exception as e:
         logger.error(e)
