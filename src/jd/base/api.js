@@ -3,8 +3,6 @@
  *
  */
 
-const Cookie = require('../../lib/cookie');
-
 /**
  * @description 获取随机的uuid
  * @return {string}
@@ -30,8 +28,7 @@ async function getJoyToken(api, appId, updateCookie = true) {
   });
   if (!updateCookie) return joyToken;
 
-  const newCookie = `joyytoken=${appId}${joyToken}`;
-  api.cookie = new Cookie([api.cookie, newCookie].join('; ')).toString();
+  api.cookieInstance.set('joyytoken', `${appId}${joyToken}`);
   return joyToken;
 }
 

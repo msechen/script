@@ -53,11 +53,25 @@ const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
 };
 
 class Api {
+  /**
+   *
+   * @type {Cookie}
+   */
+  cookieInstance;
+
   constructor(cookie, signData, options, formatData) {
     this.cookie = cookie;
     this.signData = signData || {};
     this.options = options || {};
     this.formatData = formatData;
+  }
+
+  set cookie(v) {
+    this.cookieInstance = new Cookie(v || {});
+  }
+
+  get cookie() {
+    return this.cookieInstance.toString();
   }
 
   getPin(key = 'pt_pin') {

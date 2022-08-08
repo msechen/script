@@ -261,7 +261,7 @@ class Base {
     const cPtPin = 'pt_pin';
     const cPtKey = 'pt_key';
     const cWskey = 'wskey';
-    const currentPin = api._originCookie[cPtPin];
+    const currentPin = api.cookieInstance.get(cPtPin);
     const cookieOption = findCurrentCookieOption(getEnv('JD_COOKIE_OPTION'));
     const originCookie = new Cookie(cookieOption.cookies);
 
@@ -337,7 +337,6 @@ class Base {
           });
           if (oldPtKey !== newPtKey) {
             api.cookie = cookie.toString([cPtPin, cPtKey]);
-            api._originCookie = cookieOption.cookies;
             log(`${cPtKey}发生了变化, ${JSON.stringify([oldPtKey, newPtKey])}`);
           }
           const jsonData = getProductEnv();
@@ -445,11 +444,6 @@ class Base {
 
     async function init(cookie, shareCodes, isCron = false) {
       const api = self.initApi(new Cookie(cookie).toString(self.cookieKeys));
-      /**
-       * @type {Object}
-       * @private
-       */
-      api._originCookie = cookie;
       // TODO 并发的情况下 api 的赋值不可用
       self.api = api;
       api.currentCookieTimes = currentCookieTimes++;

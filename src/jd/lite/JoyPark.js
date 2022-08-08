@@ -40,6 +40,8 @@ class LiteJoyPark extends Template {
   };
 
   static async beforeRequest(api) {
+    api.cookieInstance.set('pwdt_id', api.cookieInstance.get('pt_pin'));
+    api.cookieInstance.set('sid', '99bdf390a14d0bcb017ba110c99a400w');
     const config = {
       joyBaseInfo: {
         appId: '4abce',
@@ -80,8 +82,14 @@ class LiteJoyPark extends Template {
     await api.doGetBody('getStaticResource');
     await api.doGetBody('checkUserIndulge');
 
-    const {invitePin, guideStep, fastBuyCoin, joyCoin} = await joyBaseInfo();
+    const {invitePin, guideStep, fastBuyCoin, joyCoin, level} = await joyBaseInfo();
     await handleDoGuide();
+
+    api.log(`当前等级${level}`);
+    if (level >= 30) {
+      api.log('已经满级, 请在app中进行兑换奖励');
+      return;
+    }
 
     await handleManageJoy();
 

@@ -33,9 +33,7 @@ class WqBase extends Template {
       const setCookie = response.headers['set-cookie'];
       const loginSuccess = !!setCookie;
       if (loginSuccess) {
-        const cookie = new Cookie(api.cookie);
-        cookie.add(setCookie);
-        api.cookie = cookie.toString();
+        api.cookieInstance.add(setCookie);
       } else {
         api.log('用户未登录');
       }
