@@ -5,7 +5,7 @@ const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
-const sources = ['badge', 'main', 'secondfloor', 'card', 'pk'];
+const sources = [/*'badge', 'main', 'secondfloor', 'card', 'pk'*/];
 let source;
 
 class SuperBrandProduct extends Template {
@@ -44,6 +44,7 @@ class SuperBrandProduct extends Template {
 
   static async beforeRequest(api) {
     if (source) return _update();
+    if (_.isEmpty(sources) || this.currentCookieTimes || this.isLastLoop()) return true;
     let stop;
     for (const _source of sources) {
       stop = await _update(source = _source);
