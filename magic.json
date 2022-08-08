@@ -13,6 +13,7 @@
     "log_send": true,
     "monitor_cache_size": 30,
     "monitor_cars": [
+        -1001718319262,
         -1001533334185,
         1657544667
     ],
