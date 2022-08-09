@@ -456,3 +456,13 @@
 
 # 汪汪乐园-跑步+组队
 30 4,16 * * * node /scripts/logs/other_scripts/allJDScripts/jd_joy_joy_run.ts >> /scripts/logs/other_logs/allJDScripts/jd_joy_joy_run.log 2>&1
+
+# 特务集勋章
+8 10,18,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_SuperBrandJXZ.js >> /scripts/logs/other_logs/allJDScripts/jd_SuperBrandJXZ.log 2>&1
+
+# 积分换话费
+8 10,18,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_dwapp.js >> /scripts/logs/other_logs/allJDScripts/jd_dwapp.log 2>&1
+
+
+
+
