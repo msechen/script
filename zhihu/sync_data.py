@@ -284,7 +284,7 @@ def query_today_order():
                     today_order_gt2 += 1
                     today_order_detail_gt2 += str(today_order_gt2) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
-    return "[GT2订单]\n订单数:" + str(today_order_gt2) + "\n订单明细\n" + str(today_order_detail) + "\n\n[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
+    return "[GT2订单]\n订单数:" + str(today_order_gt2) + "\n订单明细\n" + str(today_order_detail_gt2) + "\n\n[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
 
 
 # 查询品牌订单数据
