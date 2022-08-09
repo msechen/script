@@ -463,6 +463,8 @@
 # 积分换话费
 8 10,18,20 * * * node /scripts/logs/other_scripts/allJDScripts/jd_dwapp.js >> /scripts/logs/other_logs/allJDScripts/jd_dwapp.log 2>&1
 
+# 京东金融-双签
+10 19 * * * node /scripts/logs/other_scripts/allJDScripts/jd_jrsign.js >> /scripts/logs/other_logs/allJDScripts/jd_jrsign.log 2>&1
 
 
 
