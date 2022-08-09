@@ -267,8 +267,11 @@ def query_today_order():
     today_orders = zhihu_spider.get_jd_order(today, today, zh_config_dao.query_config('jfck2').value)
 
     today_order = 0
+    today_order_gt2 = 0
     today_money = 0
+    today_money_gt2 = 0
     today_order_detail = ''
+    today_order_detail_gt2 = ''
     for order in today_orders:
         if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
             if 'skuShopName' in order and order['estimateCosPrice'] > 500:
@@ -277,7 +280,11 @@ def query_today_order():
                 
                 today_order_detail += str(today_order) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
-    return "[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
+                if 'GT2' in order['skuName']:
+                    today_order_gt2 += 1
+                    today_order_detail_gt2 += str(today_order_gt2) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
+
+    return "[GT2订单]\n订单数:" + str(today_order_gt2) + "\n订单明细\n" + str(today_order_detail) + "\n\n[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
 
 
 # 查询品牌订单数据
