@@ -376,6 +376,7 @@ function try_feedsList(tabId, page) {
             "previewTime": ""
         });
         let option = taskurl_xh('newtry', 'try_feedsList', body)
+        //console.log(option)
         $.post(option, (err, resp, data) => {
             try{
                 if(err){
@@ -491,7 +492,6 @@ function try_apply(title, activityId) {
             "previewTime": ""
         });
         let option = taskurl_xh('newtry', 'try_apply', body)
-        //console.log(option)
         $.get(option, (err, resp, data) => {
             try{
                 if(err){
@@ -597,10 +597,10 @@ function taskurl_xh(appid, functionId, body = JSON.stringify({})) {
     return {
         "url": `${URL}?appid=${appid}&functionId=${functionId}&clientVersion=10.3.4&client=wh5&body=${encodeURIComponent(body)}`,
         'headers': {
-            'Cookie': `${$.cookie} __jda=1.1.1.1.1.1;__jdu=1637576642569612744541; 3AB9D23F7A4B3C9B=DUO2FQF5VOGYNYELEQZKNTEQ3SCGGZZA4SB2AKGVOJ4RXZC4ZKGNR7QTKJMXD4GG6SQ3YWGHWOTJLLHJEW3STZHR54; __jdv=122270672%7Cbaidu%7C-%7Corganic%7Cnot%20set%7C1655780320905; __jda=122270672.1637576642569612744541.1637576643.1655708287.1655780320.201; shshshfpb=v2ZDrcukDm585vgofhAAfdA==; joyya=1655780321.1655780370.66.07fyr2m; __jdb=122270672.3.1637576642569612744541|201.1655780320; mba_sid=16557803209065034994368811918.3; __jd_ref_cls=Babel_H5PageVirtual`,
+            'Cookie': `${$.cookie}shshshfpa=e1fa7a6f-b1fd-2d8c-ae78-34e211a1edbf-1656485502; __jdc=122270672; shshshfpb=nglVNdoeaI6BJ4mcuQ_QGRA; __jdu=1656485503051506670047; TrackID=a_QKalWmY8yapRRQXi6nH85_vcIu1Uc-c_TuosBaKzboKy9RyauAZIW2r0ssnKYj3mg6j6nA--jvyN85x86TI3sfGiFi-6ppA7rM-7KSx-kYYSU_rc22t14ZjGkFuqhDhestsw__DIZ5vZwup6gdQg; buy_uin=4522380707;  mcossmd=a760e3b408ddf1965c068bb6f3ed26ea;    pinStatus=4;  wq_uin=4522380707; wq_unionid=UID_0B118DBC06353F43996F9C2C9B5ECE07; mba_muid=1656485503051506670047; qd_uid=L5232XHK-NR9WIDN6BJBAVA3PSA24; qd_fs=1656657465599; _gia_s_local_fingerprint=3ed7122d34e22764a6d4ed1e242f7e0c; jcap_dvzw_fp=iiyV4FRfZY3nAIVp3AmN8sC_olVCWxWKd738YF6C5wFjR1CoZCsJ1YGh_gQmX-IHTEikxg==; TrackerID=Y8bLZ7qpCg4MrtsCFT7r_dw0Mp90SwNvaPZOyDC2xP4neC4YcER3x8tb2ojFv_i7UG7aNe1Kl2fVF98P5NUWZN-D3StW8E5AA2lvh5aWfss;  whwswswws=; _gia_s_e_joint={"eid":"6VQEIRXPGZUPCGDXZM6JR4XMTBWQEM4EIMLCWA4C6CBJHCUPAVJTIDLIHKEX6XGFIY5XJZQCH64XCKDG5V2ARWFII4","ma":"","im":"","os":"Windows 10","ip":"210.13.111.26","ia":"","uu":"","at":"5"}; retina=0; cid=10; appCode=msc588d6d5; webp=1; visitkey=7324063485498291; sc_width=1366; 3AB9D23F7A4B3C9B=6VQEIRXPGZUPCGDXZM6JR4XMTBWQEM4EIMLCWA4C6CBJHCUPAVJTIDLIHKEX6XGFIY5XJZQCH64XCKDG5V2ARWFII4; share_open_id=; share_gpin=; share_cpin=; erp=; source_module=; shareChannel=; openid1=EABE483D41C1CF8E2CE810A62D6700577690E5D49BC677EE4DEE624CFE2F9D3CBDBC07DF2884D539A04196DE99C14A27; sfstoken=tk01wb6731ba5a8sMisxKzErM1c1Unev5MeP5%2Br6ixcLVdyBy450MWoYpLq2eSA3fv%2BB6ZiAY3mt6K3gc5MDBUMBwuR%2F; wq_skey=zq03A86E54EEB209641B53810B7155838604A825DAA07688ABCF7C3F6DC7E9070F570C87A80E36B22A39FE138FC05C7B8897A743FA8C56BF6D1D4BD09A042F24F3425A6997BE5ABEF33148B8759BAC266A; __wga=1658732982995.1658732961163.1658468923613.1658108714440.3.4; shshshfp=97e1efbfbb272e635b91db0ddb4d38e9; CCC_SE=ADC_3ekn9KsAjhTN4y88%2bGwd2Pt7iFruhmdf7oM6TTAcbneO0pSALnodCOu4Zc9YP5Eao%2f8liWxaIpwxiRVw1lryWMysDFcEGMFoMAa8wUJmlDYOPJZos2fcfA9qGChTWYtvGAPaNM5HgRgVXJ%2fFLhevySQEZpQBghcbOroaAKD%2fEKp80MJW4pnPmX7K4oQHjIch0irdY%2ba7KroYsqxW9ZXrNbfv2EqmfWg2BjlR17Be3k757IBcXtnjWHpadAzemTgJohTcrnLVo3QpTZtIPbDIIvbPMaoWRipm3g3yZDLVRR%2fQ39x%2bSnKH9%2bwYWStvNYLUgASlXXZ%2bA02O90%2fRLYV9%2bEedXhghDSxriFmnezVOoJWvq1Wjjo%2f6H%2b%2f8LCnahkC558K3oWOSrMki26EAN72UfvOwQTvtfq%2bEN8xGrFwCajjfsWQfYWokFusGXQp%2fediSEp3JHaw4clsEdQ89XBNnysjeIr%2bfNAHfIAYgD2HD%2f27IJTK4%2f1ZG2%2bkU6krDfUQ%2b; unpl=JF8EAKNnNSttW0xXUkxSHBNCGF1WW15cSh9QaW5WAFRaGwAGGFcdFkd7XlVdXhRKHh9uYxRUWVNLUQ4bACsSEHtdVV9eCU0WBG1lNWRdWUpVBR8FGRUWe15Ublw4SxAHaGIMUFlZSVUBGwYaFRdNXFVbWzh7FwtoVzVkXGhKZAcaAxkbEk1fVlptQyUWTm9gAVNYUU9QBBkDHxIUSlpTWFwJThEzblcG; b_dh=625; b_avif=1; b_webp=1; __jdv=122270672%7Ckong%7Ct_1002070633_%7Cjingfen%7C262ffa60cb1342e09b78be83ae22d75f%7C1659683655729; qd_ls=1658127897338; qd_ts=1659683657878; qd_sq=4; wq_auth_token=6C7DFD234AB9F6AFD50C5FCB378522A471ADA91941D81AC423517FD172043698; __jda=122270672.1656485503051506670047.1656485503.1659953885.1660009825.36; b_dw=1349; joyya=1660009909.1660010711.64.10bst85; __jdb=122270672.7.1656485503051506670047|36.1660009825; mba_sid=16600098074308346884276382303.7; __jd_ref_cls=Babel_H5PageVirtual`,
             'user-agent': 'jdapp;iPhone;10.1.2;15.0;ff2caa92a8529e4788a34b3d8d4df66d9573f499;network/wifi;model/iPhone13,4;addressid/2074196292;appBuild/167802;jdSupportDarkMode/1;Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
-            'Referer': 'https://prodev.m.jd.com',
-            'origin': 'https://prodev.m.jd.com/',
+            'Referer': 'https://prodev.m.jd.com/mall/active/2Y2YgUu1Xbbv8AfN7TAHhNqfQrAV/index.html',
+            'origin': 'https://prodev.m.jd.com/mall/active/2Y2YgUu1Xbbv8AfN7TAHhNqfQrAV/index.html',
             'Accept': 'application/json,text/plain,*/*',
             'Accept-Encoding': 'gzip, deflate, br',
             'Accept-Language': 'zh-cn',
