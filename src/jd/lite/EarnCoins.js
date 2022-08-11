@@ -37,7 +37,7 @@ class LiteEarnCoins extends Template {
     async function handleDoTask() {
       const taskList = await doForm('newTaskCenterPage').then(data => data.data || []);
       for (const {taskName, taskType: activeType, taskInfo: {status}} of taskList) {
-        if (status === 1 || ['邀好友赚金币'].includes(taskName)) continue;
+        if (status === 1/* || ['邀好友赚金币'].includes(taskName)*/) continue;
         if ([1, 2, 3].includes(activeType)) {
           await doTask(activeType);
         } else {
@@ -54,21 +54,46 @@ class LiteEarnCoins extends Template {
         }
         const commonData = {activeId, activeType};
         // await doForm('checkTaskResource', commonData);
-        const {
-          uuid,
-          taskInfo,
-        } = await doFromWithClientTime('enterAndLeave', _.assign({messageType: '1'}, commonData)).then(data => _.property('data')(data));
+        let {
+          code,
+          data: {
+            uuid,
+            taskInfo,
+          },
+          message,
+        } = await doFromWithClientTime('enterAndLeave', _.assign({messageType: '1'}, commonData));
+        if (code !== 0) {
+          if (message === '无此进入uuid信息') {
+            commonData.activeId += '&__in_task_view__=jdLiteiOS';
+          } else if (message === '当前任务已完成') {
+            commonData.activeType = `${activeType}`;
+          }
+          uuid = await doFromWithClientTime('enterAndLeave', _.assign({messageType: '1'}, commonData)).then(_.property('data.uuid'));
+        }
         const videoTimeLength = taskInfo['videoBrowsing'] || '';
         await sleep(videoTimeLength || 10);
         const nextData = _.assign({messageType: '2', uuid, videoTimeLength}, commonData);
-        await doFromWithClientTime('enterAndLeave', nextData);
-        await doFromWithClientTime('rewardPayment', nextData).then(data => {
-          if (!self.isSuccess(data)) return;
-          api.log(`获得金币 ${data.data.reward}`);
-          const {isTaskLimit, taskCompletionLimit, taskCompletionProgress} = _.property('data.taskInfo')(data);
-          if (isTaskLimit === 1 || !taskCompletionLimit) return;
-          if (taskCompletionProgress < taskCompletionLimit) return doTask(activeType);
+        await doFromWithClientTime('enterAndLeave', nextData).then(data => {
+          if (data.message === '当前任务已完成') {
+            nextData.activeType = `${activeType}`;
+          }
+          return doFromWithClientTime('enterAndLeave', nextData);
         });
+        let rewardPaymentData = await doFromWithClientTime('rewardPayment', nextData);
+        if ([901/*当前任务已完成*/, 906/*奖励非法*/].includes(rewardPaymentData.code) && uuid) {
+          await sleep();
+          rewardPaymentData = await doFromWithClientTime('rewardPayment', nextData);
+        } else if (!self.isSuccess(rewardPaymentData)) {
+          return;
+        }
+        api.log(`获得金币 ${rewardPaymentData.data.reward}`);
+        const {
+          isTaskLimit,
+          taskCompletionLimit,
+          taskCompletionProgress,
+        } = _.property('data.taskInfo')(rewardPaymentData);
+        if (isTaskLimit === 1 || !taskCompletionLimit) return;
+        if (taskCompletionProgress < taskCompletionLimit) return doTask(activeType);
       }
     }
 
