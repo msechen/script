@@ -247,8 +247,11 @@ class LiteJoyPark extends Template {
         for (const joy of sortedList) {
           const level = joy.level;
           if (level < fastBuyLevel - 2) {
-            await joyRecovery(joy.id);
-            startAgain = true;
+            // 快满才需要回收
+            if (maxJoyNumber - joyNumber <= 2) {
+              await joyRecovery(joy.id);
+              startAgain = true;
+            }
           } else if (level < fastBuyLevel) {
             await _wait();
             const isSuccess = await joyBuy(level);
@@ -261,7 +264,9 @@ class LiteJoyPark extends Template {
 
       async function handleBuyFastJoy() {
         const number = activityJoyList.filter(o => o.id === fastBuyLevel).length;
-        let enableBuyJoyNumber = _.min([Math.floor(joyCoin / fastBuyCoin), maxJoyNumber - joyNumber, number === 0 ? 2 : 1]);
+        // 购买后会 fastBuyCoin 会成比例增加
+        const maxCoinNumber = joyCoin / fastBuyCoin < 1 ? 0 : joyCoin / fastBuyCoin >= 2.5 ? 2 : 1;
+        let enableBuyJoyNumber = _.min([maxJoyNumber - joyNumber, maxCoinNumber, number === 0 ? 2 : 1]);
         for (let i = 0; i < enableBuyJoyNumber; i++) {
           startAgain = true;
           await _wait();
@@ -318,18 +323,15 @@ class LiteJoyPark extends Template {
       if (guideStep !== 0) return;
       // TODO 新人助力
       for (const inviterPin of self.defaultShareCodes) {
-        const {helpType, helpState} = await joyBaseInfo({taskId: '', inviteType: '2', inviterPin: inviterPin});
+        const {helpType, helpState} = await joyBaseInfo({taskId: '', inviteType: '2', inviterPin});
         if (helpType === 2 && helpState === 1) {
           break;
         }
       }
       const {activityJoyList} = await joyList();
       if (_.isEmpty(activityJoyList)) return;
-      await api.doFormBody('joyGuide', {
-        'guideStep': 11,
-        'joyOneId': activityJoyList[0].id,
-        'joyTwoId': activityJoyList[1].id,
-      });
+      const [joyOneId, joyTwoId] = _.map(activityJoyList, 'id');
+      await api.doFormBody('joyGuide', {'guideStep': 11, joyOneId, joyTwoId});
       await sleep(5);
       await joyList();
     }
