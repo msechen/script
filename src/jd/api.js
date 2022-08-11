@@ -28,7 +28,11 @@ const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
   }
 
   const ignorePrintLog = options['ignorePrintLog'] || false;
+  let errorTryTimes = 0;
+  // 默认错误后需要再重试一下
+  const errorTryMaxTimes = _.isNil(options['errorTryMaxTimes']) ? 1 : options['errorTryMaxTimes'];
   delete options['ignorePrintLog'];
+  delete options['errorTryMaxTimes'];
 
   const rpOptions = _.assign({
     ...DEFAULT_OPTION,
@@ -41,15 +45,22 @@ const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
 
   const {followRedirect} = rpOptions;
 
-  return rp(rpOptions).then(result => {
+  const _do = rpOptions => rp(rpOptions).then(result => {
     !ignorePrintLog && _printLog(result, 'success');
     return result;
   }).catch(err => {
-    if (followRedirect === false && _.get(err, 'response.statusCode') === 302) {
+    const statusCode = _.get(err, 'response.statusCode');
+    if (followRedirect === false && statusCode === 302) {
       return err;
     }
     _printLog(err, 'error');
+    if (errorTryTimes < errorTryMaxTimes && [503, 504].includes(statusCode)) {
+      errorTryTimes++;
+      return _do(rpOptions);
+    }
   });
+
+  return _do(rpOptions);
 };
 
 class Api {
