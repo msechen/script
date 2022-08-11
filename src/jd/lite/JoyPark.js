@@ -22,7 +22,8 @@ class LiteJoyPark extends Template {
     'CIte3i3FPeZIe5MtXuFEGw',
   ];
   static shareTaskId = '610';
-  static doneShareTask = getNowHour() < 22;
+  static times = this.lastTimeInTheDay() ? 2 : 1;
+  static doneShareTask = !this.lastTimeInTheDay();
   static getLoopMinute = () => _.random(0, 59);
   static loopHours = [...new Array(24 / 3)].map((v, i) => i * 3 + 1);
   static loopOnTime = false;
@@ -93,12 +94,16 @@ class LiteJoyPark extends Template {
       return;
     }
 
-    await handleManageJoy();
+    joyCoin > fastBuyCoin && await handleManageJoy();
 
     await handleDoTask();
     await handleDoShare();
 
-    api.log(`当前等级${currentLevel}`);
+    if (self.isLastLoop()) {
+      self.lastTimeInTheDay() && await handleGetMyPrice();
+
+      api.log(`当前等级${currentLevel}`);
+    }
 
     async function handleDoTask() {
       const taskList = await api.doFormBody('apTaskList').then(getData);
@@ -115,7 +120,7 @@ class LiteJoyPark extends Template {
         const apTaskDrawAward = () => api.doFormBody('apTaskDrawAward', {taskType, taskId}).then(getData).then(data => {
           data.forEach(o => {
             const {awardName, awardGivenNumber} = o;
-            api.log(`获得${awardName}: ${awardGivenNumber}`);
+            api.log(`做任务获得${awardName}: ${awardGivenNumber}`);
           });
           return data;
         });
@@ -164,6 +169,27 @@ class LiteJoyPark extends Template {
       }
     }
 
+    async function handleGetMyPrice() {
+      const {gameBigPrizeVO, gamePrizeItemVos} = await api.doFormBody('gameMyPrize').then(getData);
+      for (const {status, prizeName, prizeType, prizeTypeVO} of gamePrizeItemVos) {
+        if (status === 0) continue;
+        if (prizeType === 4/*现金*/) {
+          if (prizeTypeVO['prizeUsed'] !== 0) continue;
+          const {data: {message}} = await api.doFormBody('apCashWithDraw', {
+            'businessSource': 'JOY_PARK',
+            'base': {
+              'business': 'joyPark',
+              ..._.pick(prizeTypeVO, ['id', 'poolBaseId', 'prizeGroupId', 'prizeBaseId']),
+              prizeType,
+            },
+            'linkId': 'LsQNxL7iWDlXUs6cFl-AAg',
+          });
+          api.log(`${prizeName}: ${message}`);
+          await sleep(5);
+        }
+      }
+    }
+
     async function handleManageJoy(maxTimes = 2) {
       const _wait = () => sleep(5);
       const maxJoyNumber = 10;
@@ -172,11 +198,11 @@ class LiteJoyPark extends Template {
       await _wait();
       let {activityJoyList, workJoyInfoList, joyNumber} = await joyList();
 
-      if (maxTimes <= 0 || fastBuyCoin > joyCoin) {
+      if (maxTimes <= 0) {
         const notActiveWorkJoyList = _.filter(workJoyInfoList, o => o.unlock && !o['joyDTO']);
-        const joyList = _.sortBy(activityJoyList, 'level');
+        const sortedList = _.sortBy(activityJoyList, 'level');
         for (const {location} of notActiveWorkJoyList) {
-          const currentMaxJoy = joyList.pop();
+          const currentMaxJoy = sortedList.pop();
           if (currentMaxJoy) {
             await sleep(2);
             await joyMove(currentMaxJoy.id, location);
@@ -186,9 +212,8 @@ class LiteJoyPark extends Template {
       }
 
       const activeWorkJoyList = _.filter(workJoyInfoList, o => o.unlock && o['joyDTO']);
-      startAgain = !_.isEmpty(activeWorkJoyList);
       // 先清空工号上的 Joy
-      if (startAgain) {
+      if ((startAgain = !_.isEmpty(activeWorkJoyList))) {
         for (const item of activeWorkJoyList) {
           await _wait();
           await joyMove(_.get(item, 'joyDTO.id'));
@@ -199,7 +224,6 @@ class LiteJoyPark extends Template {
 
       // 先合并相同的
       for (const joyList of _.values(_.groupBy(activityJoyList, 'level'))) {
-        await _wait();
         await handleMergeJoy(joyList);
       }
 
@@ -207,12 +231,35 @@ class LiteJoyPark extends Template {
         return handleManageJoy();
       }
 
-      await handleBuyJoy();
+      const {fastBuyLevel, fastBuyCoin, joyCoin} = await joyBaseInfo();
+      await handleMangeLowLevelJoys();
+
+      if (startAgain) {
+        return handleManageJoy();
+      }
+
+      await handleBuyFastJoy();
 
       return handleManageJoy(startAgain ? --maxTimes : 0);
 
-      async function handleBuyJoy() {
-        const {fastBuyLevel, fastBuyCoin, joyCoin} = await joyBaseInfo();
+      async function handleMangeLowLevelJoys() {
+        const sortedList = _.sortBy(activityJoyList, 'level');
+        for (const joy of sortedList) {
+          const level = joy.level;
+          if (level < fastBuyLevel - 2) {
+            await joyRecovery(joy.id);
+            startAgain = true;
+          } else if (level < fastBuyLevel) {
+            await _wait();
+            const isSuccess = await joyBuy(level);
+            if (!isSuccess) break;
+            startAgain = true;
+            break;
+          }
+        }
+      }
+
+      async function handleBuyFastJoy() {
         const number = activityJoyList.filter(o => o.id === fastBuyLevel).length;
         let enableBuyJoyNumber = _.min([Math.floor(joyCoin / fastBuyCoin), maxJoyNumber - joyNumber, number === 0 ? 2 : 1]);
         for (let i = 0; i < enableBuyJoyNumber; i++) {
@@ -228,14 +275,18 @@ class LiteJoyPark extends Template {
         if (targets.length !== 2) {
           return;
         }
-        await joyMergeGet(..._.map(targets, 'id'));
         await _wait();
+        await joyMergeGet(..._.map(targets, 'id'));
         return handleMergeJoy(joyList);
       }
 
       // 商店信息, 暂时不需要
       function gameShopList() {
         return api.doFormBody('gameShopList').then(getData);
+      }
+
+      function joyRecovery(joyId) {
+        return api.doFormBody('joyRecovery', {joyId}).then(getData);
       }
 
       function joyBuy(level) {
@@ -246,12 +297,12 @@ class LiteJoyPark extends Template {
         return api.doGetBody('joyMergeGet', {joyOneId, joyTwoId}).then(getData).then(data => {
           const {joyVO, joyPrizeVO} = data;
           if (joyVO) {
-            api.log(`获得Joy: ${joyVO.name}(${joyVO.level})`);
+            api.log(`合成获得Joy: ${joyVO.name}(${joyVO.level})`);
             startAgain = true;
           }
           if (joyPrizeVO && joyPrizeVO.prizeName) {
             const {prizeType, prizeName} = joyPrizeVO;
-            api.log(`获得额外奖励: ${prizeName}(${prizeType})`);
+            api.log(`合成获得额外奖励: ${prizeName}(${prizeType})`);
           }
           return data;
         });
