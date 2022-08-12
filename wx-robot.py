@@ -124,7 +124,10 @@ def forward_to_kolly(msg):
             ret = sync_data.query_brand_order('vivo')
             logger.info(ret)
             return ret
-
+        elif 'GT' == msg.text or 'gt' == msg.text:  
+            ret = sync_data.query_phone_order('GT2大师')
+            # logger.info(ret)
+            return ret
         if 'draft' == msg.text:  # 查所有文字草稿
             return '\n'.join(auto.query_article_draft())
     elif msg.sender.name == '内测' or msg.sender.name == '「蓝猫」早起俱乐部':
