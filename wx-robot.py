@@ -191,6 +191,12 @@ def auto_reply(msg):
         # logger.info(ret)
         return ret
 
+    if 'GT' == msg.text or 'gt' == msg.text:  
+        ret = sync_data.query_phone_order('GT2大师')
+        # logger.info(ret)
+        return ret
+    
+
     if 'draft' == msg.text:  # 查所有文字草稿
         return '\n'.join(auto.query_article_draft())
 

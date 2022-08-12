@@ -280,7 +280,7 @@ def query_today_order():
                 
                 today_order_detail += str(today_order) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
-                if 'GT2' in order['skuName']:
+                if 'GT2' in order['skuName'] and '大师' in order['skuName']:
                     today_order_gt2 += 1
                     today_order_detail_gt2 += str(today_order_gt2) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
@@ -351,6 +351,27 @@ def query_brand_order2(brand, days):
 
     return "[近" + str(days) + "日数据]\nGMV:" + str(int(today_gmv)) + "\n订单数:" + str(today_order) + "\n订单明细\n" + str(today_order_detail)
 
+
+# 查询品牌订单数据
+def query_phone_order(phoneName):
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    begin = '2022-08-10'
+
+    today_orders = zhihu_spider.get_jd_order(begin, today, zh_config_dao.query_config('jfck2').value)
+
+    total_gmv = 0
+    total_order = 0
+    total_order_detail = ''
+    for order in today_orders:
+        if order['validCodeMsg'] == '已付款' or order['validCodeMsg'] == '已完成' or order['validCodeMsg'] == '已付定金':
+            if 'skuShopName' in order and order['estimateCosPrice'] > 500:
+                if phoneName in order['skuName']:
+                    total_gmv += order['estimateCosPrice']
+                    total_order += 1
+                    total_order_detail += str(total_order) + '、' + order['skuName'] + '\n'
+
+
+    return "[汇总数据]\nGMV:" + str(int(total_gmv)) + "\n订单数:" + str(total_order) + "\n订单明细\n" + str(total_order_detail)
 
 # 查询红包发放数
 def query_jingfen_redpacket():
