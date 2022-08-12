@@ -309,7 +309,7 @@ def query_brand_order(brand):
                 if order['skuShopName'] == brandName:
                     today_gmv += order['estimateCosPrice']
                     today_order += 1
-                    today_order_detail += str(today_order) + '、' + order['skuName'] + '\n'
+                    today_order_detail += str(today_order) + '、[' + order['orderTime'] + ']' + order['skuName'] + '\n'
 
     yestoday_orders = zhihu_spider.get_jd_order(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
     yestoday_gmv = 0
@@ -368,7 +368,7 @@ def query_phone_order(phoneName):
                 if phoneName in order['skuName']:
                     total_gmv += order['estimateCosPrice']
                     total_order += 1
-                    total_order_detail += str(total_order) + '、' + order['skuName'] + '\n'
+                    total_order_detail += str(total_order) + '、[' + order['orderTime'] + '][' + order['estimateCosPrice'] + '][' + order['skuName'] + '\n'
 
 
     return "[汇总数据]\nGMV:" + str(int(total_gmv)) + "\n订单数:" + str(total_order) + "\n订单明细\n" + str(total_order_detail)
