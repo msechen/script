@@ -400,7 +400,7 @@ class BeautyMakeup extends Template {
     // 浏览会场
     async function meetingPlace() {
       for (let i = checkUpData['meetingplace_view']; i < checkUpData['mettingplace_count']; i++) {
-        await sendMessage(wsMsg.meetingplace_view);
+        // await sendMessage(wsMsg.meetingplace_view);
       }
     }
 
