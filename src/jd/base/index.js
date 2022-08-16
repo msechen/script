@@ -1,3 +1,6 @@
+// 自动执行的脚本
+require('../../shell/updateDayLogPath');
+
 const _ = require('lodash');
 
 const Api = require('../api');
