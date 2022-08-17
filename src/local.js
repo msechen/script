@@ -60,7 +60,7 @@ async function main() {
     await doRun(Fruit);
     await sleepTime([23, 55]);
     doRun(require('./jd/beautyMakeup'));
-    // await sleepTime(24);
-    // doRun(require('./jd/earn/AdvertPlugin'));
+    await sleepTime(24);
+    doRun(require('./jd/earn/AdvertPlugin'));
   }
 }
