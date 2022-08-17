@@ -60,7 +60,8 @@ function patchCookieOption() {
 
 // 判断是否可以配置代理
 function updateProxyConf(result) {
-  if (!('JUDGE_ENABLE_PROXY' in result)) return result;
+  const proxyKey = ['http_proxy', 'https_proxy'];
+  if (!Object.keys(result).some(key => proxyKey.includes(key))) return result;
   if (['darwin', 'win32'].includes(process.platform)) {
     const isWin = process.platform === 'win32';
     const proxyApps = ['Charles'];
@@ -70,7 +71,7 @@ function updateProxyConf(result) {
       return execSync(`ps -ef | ${grepStr}`).toString().trim().split('\n').find(str => !str.match(grepStr));
     });
     if (!enableProxy) {
-      ['http_proxy', 'https_proxy'].forEach(key => {
+      proxyKey.forEach(key => {
         delete result[key];
       });
     }
