@@ -34,9 +34,11 @@ const printLog = (scriptName = '', fileName = 'app', output, type = 'info', maxL
     writeStream.write(`${getNowTime()} [${scriptName}] [${type}] ${chunk}\n`);
   };
   [].concat(output).forEach(_log);
+  process.emit('printLog');
 };
 const cleanLog = (fileName) => {
   fs.writeFileSync(getLogFile(fileName), '');
+  process.emit('printLog');
 };
 const extractLogToObject = str => {
   if (!str) return;
@@ -257,6 +259,25 @@ function addMosaic(str, options) {
   const {prefix = 1, suffix = 1, mosaicL = 3, mosaic = '*'} = options || {};
   return str.substring(0, prefix) + Array(mosaicL).fill(mosaic).join('') + str.substring(str.length - suffix);
 }
+
+(function initProcessExit() {
+  process.on('exit', function () {
+    process.emit('beforeExit');
+  });
+
+  // catch ctrl+c event and exit normally
+  process.on('SIGINT', function () {
+    console.log('Ctrl-C...');
+    process.exit(2);
+  });
+
+  //catch uncaught exceptions, trace, then exit normally
+  process.on('uncaughtException', function (e) {
+    console.log('Uncaught Exception...');
+    console.log(e.stack);
+    process.exit(99);
+  });
+})();
 
 module.exports = {
   sleep,

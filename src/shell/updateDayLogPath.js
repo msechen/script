@@ -6,11 +6,23 @@ const {execSync} = require('child_process');
 const {getNowDate} = require('../lib/moment');
 const {getLogFile} = require('../lib/common');
 
-['request', 'app'].forEach(name => {
-  const logFile = getLogFile(name);
-  execSync(`touch ${logFile}`);
-  const fileName = logFile.replace(`.${getNowDate()}`, '');
-  // 先删除再更新软链
-  execSync(`rm -rf ${fileName}`);
-  execSync(`ln -snf ${logFile} ${fileName}`);
-});
+function main() {
+  const isWin = process.platform === 'win32';
+  const _do = () => {
+    for (const name of ['request', 'app']) {
+      const logFile = getLogFile(name);
+      execSync(`touch ${logFile}`);
+      const fileName = logFile.replace(`.${getNowDate()}`, '');
+      execSync(`ln -snf ${logFile} ${fileName}`);
+    }
+  };
+
+  _do();
+  // windows 下需要实时更新
+  if (isWin) {
+    process.on('printLog', _do);
+    process.on('beforeExit', _do);
+  }
+}
+
+main();
