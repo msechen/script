@@ -86,7 +86,8 @@ class LiteEarnCoins extends Template {
         } else if (!self.isSuccess(rewardPaymentData)) {
           return;
         }
-        api.log(`获得金币 ${rewardPaymentData.data.reward}`);
+        const reward = _.get(rewardPaymentData, 'data.reward');
+        reward && api.log(`获得金币 ${reward}`);
         const {
           isTaskLimit,
           taskCompletionLimit,
