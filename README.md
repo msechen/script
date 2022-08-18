@@ -2,6 +2,10 @@
 
 ## 使用
 
+首先你需要拥有一个bot:
+
+通过 https://t.me/BotFather 即可创建.
+
 clone此仓库:
 
 ```
