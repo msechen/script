@@ -34,7 +34,9 @@ python3 get.py
 
 * 如果你只想接受微信消息,只运行`get.py`即可;
 
-* 同理,发送消息运行`send.py`.
+* 同理,发送消息运行`send.py`,格式是`/send [消息内容] [ID]`.
+
+> 这个ID是如下图所示很复杂的那串,有机会研究一下通过昵称回复.
 
 ![效果](https://raw.githubusercontent.com/wzk0/photo/main/20228181.jpg)
 
