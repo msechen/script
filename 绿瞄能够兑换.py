@@ -1,6 +1,6 @@
 import json
 import time
-import os
+
 import requests
 import pprint
 import re
@@ -38,7 +38,7 @@ def kkz():
     data_content = []
     for i in data:
         print(i)
-        if '原生竹浆抽纸巾（4包）' in i and len(i[2]) < 6:
+        if '毛毡手包' in i and len(i[2]) < 6:
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
         elif '回收塑料啫喱笔' in i and len(i[2]) < 6:
@@ -47,11 +47,16 @@ def kkz():
         elif '晨光食物残渣中性笔' in i and len(i[2]) < 6:
             content = f"{i[0]}有货赶紧去兑换"
             data_content.append(content)
-
+        elif '折叠大容量环保袋' in i and len(i[2]) < 6:
+            content = f"{i[0]}有货赶紧去兑换"
+            data_content.append(content)
+        elif '植物纤维净肤棉柔巾' in i and len(i[2]) < 6:
+            content = f"{i[0]}有货赶紧去兑换"
+            data_content.append(content)
     data_content = '\n'.join(data_content)
 
 
-def push_plus_bot(content,push_token):
+def push_plus_bot(content):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -63,7 +68,7 @@ def push_plus_bot(content,push_token):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
+        "token": 'f41e605cf752414d9cc832b6c144c302',
         "title": '绿瞄换物品',
         "content": b,
         "channel": "wechat",
@@ -81,7 +86,6 @@ def push_plus_bot(content,push_token):
 
 
 if __name__ == '__main__':
-    push_token = os.environ['push_token']
     kkz()
     if data_content != '':
-        push_plus_bot(data_content,push_token)
+        push_plus_bot(data_content)
