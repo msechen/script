@@ -1,7 +1,7 @@
 import json
 import os
 import time
-
+import concurrent.futures
 import requests
 import pprint
 
@@ -53,8 +53,8 @@ def push_plus_bot(content,push_token):
         print('推送失败！')
 
 
-if __name__ == '__main__':
+with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
     push_token = os.environ['push_token']
-    cks = os.environ['kfxtoken'].split('@')
+    cks = os.environ['push_token'].split('@')
     for ck in cks:
         exchange(ck,push_token)
