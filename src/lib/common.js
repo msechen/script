@@ -13,7 +13,7 @@ const _sleep = require('util').promisify(setTimeout);
 const sleep = (seconds = 1) => _sleep(seconds * 1000);
 
 const logPath = path.resolve(__dirname, '../../logs');
-const getLogFile = (fileName, date = getNowDate()) => `${logPath}/${fileName}.log.${date}`;
+const getLogFile = (fileName, date = getNowDate()) => `${logPath}/${fileName}${date ? '.' : ''}${date || ''}.log`;
 const cacheWriteStream = {};
 const printLog = (scriptName = '', fileName = 'app', output, type = 'info', maxLength) => {
   const filePath = path.extname(fileName) ? fileName : getLogFile(fileName);

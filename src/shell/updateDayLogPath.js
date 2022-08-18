@@ -12,7 +12,10 @@ function main() {
     for (const name of ['request', 'app']) {
       const logFile = getLogFile(name);
       execSync(`touch ${logFile}`);
-      const fileName = logFile.replace(`.${getNowDate()}`, '');
+      const fileName = getLogFile(name, '');
+      if (isWin) {
+        execSync(`rm -rf ${fileName}`);
+      }
       execSync(`ln -snf ${logFile} ${fileName}`);
     }
   };
@@ -20,7 +23,19 @@ function main() {
   _do();
   // windows 下需要实时更新
   if (isWin) {
-    process.on('printLog', _do);
+    let timer;
+    let times = 0;
+    const maxTimes = 10;
+    process.on('printLog', () => {
+      times++;
+      if (times < maxTimes) {
+        timer && clearTimeout(timer);
+        timer = setTimeout(_do, 3000);
+        return;
+      }
+      _do();
+      times = 0;
+    });
     process.on('beforeExit', _do);
   }
 }
