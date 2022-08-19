@@ -15,7 +15,7 @@ git clone https://github.com/wzk0/tg-wc.git && cd tg-wc
 随后安装所需依赖:
 
 ```
-pip3 -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 接着运行`set.py`配置信息(个人ID,机器人token):
