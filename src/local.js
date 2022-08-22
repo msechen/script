@@ -52,6 +52,10 @@ async function main() {
     serialRun(Joy, doCron);
   }
 
+  if ([10, 15, 21].includes(nowHour)) {
+    doRun(require('./jd/lite/EarnCoins'));
+  }
+
   if ([3, 7, 12, 19].includes(nowHour)) {
     doRun(require('./jd/beautyMakeup'));
   }
