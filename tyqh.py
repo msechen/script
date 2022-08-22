@@ -296,7 +296,7 @@ def harvest(plantid):
 
 if __name__ == '__main__':
     cks = os.environ['tybody']
-    cks = cks.split('&')
+    cks = cks.split('@')
     for ck in cks:
         start_time = datetime.datetime.now().strftime('%H')
         ua = random.choice(User_Agents)
