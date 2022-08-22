@@ -74,6 +74,7 @@ def get_signature(nonce):
 
 
 def login(ua, ck):
+    print(ck)
     url = "http://api.xiaoyisz.com/qiehuang/ga/public/api/login"
     headers = {
         "Host": "api.xiaoyisz.com",
@@ -83,6 +84,7 @@ def login(ua, ck):
     body = ck
     body = json.dumps(body).encode(encoding='utf-8')
     response = requests.post(url, headers=headers, data=body).json()
+    pprint.pprint(response)
     if response['code'] == 0:
         authorization = response['data']
         # print(authorization)
@@ -298,10 +300,11 @@ if __name__ == '__main__':
     cks = os.environ['tybody']
     cks = cks.split('@')
     for ck in cks:
+        ck = json.loads(ck)
         start_time = datetime.datetime.now().strftime('%H')
         ua = random.choice(User_Agents)
         authorization = login(ua, ck)
-        
+
         headers1 = {
             'authorization': authorization,
         }
