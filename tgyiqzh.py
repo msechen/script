@@ -74,7 +74,7 @@ def get_signature(nonce):
 
 
 def login(ua, ck):
-    print(ck)
+    # print(ck)
     url = "http://api.xiaoyisz.com/qiehuang/ga/public/api/login"
     headers = {
         "Host": "api.xiaoyisz.com",
@@ -275,14 +275,21 @@ def give_sunshine(plantid):
     response = requests.get(url=url, headers=headers).json()
     # pprint.pprint(response)
     if response['code'] == 0:
-        give_sunshine(plantid)
-        time.sleep(2)
-    elif response['message'] == '阳光不足':
-        print('阳光不足退出洒阳光')
-        return
+        currentSunshineNum = response['data']['currentSunshineNum']
+        needSunshineNum = response['data']['needSunshineNum']
+        if currentSunshineNum == needSunshineNum and response['data']['stage'] != 3:
+            updata(plantid)
+        elif currentSunshineNum != needSunshineNum:
+            time.sleep(3)
+            give_sunshine(plantid)
+
     else:
-        print(f"{response['message']},开始收获番茄")
-        harvest(plantid)
+        if response['message'] == '已达到收获阶段':
+            print(f"{response['message']},开始收获番茄")
+            harvest(plantid)
+        elif response['message'] == '阳光不足':
+            print('阳光不足退出洒阳光')
+            return
 
 
 def harvest(plantid):
@@ -290,6 +297,17 @@ def harvest(plantid):
     nonce = get_nonce()
     timestamp, nonce, sign2 = get_signature(nonce)
     url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/harvest?plantId={plantid}&timestamp={timestamp}&nonce={nonce}&signature={sign2}'
+    response = requests.get(url=url, headers=headers).json()
+    # pprint.pprint(response)
+    if response['code'] == 0:
+        print(f'获得{response["data"]["infos"][0]["num"]}番茄')
+
+
+def updata(plantid):
+    print('升级番茄任务')
+    nonce = get_nonce()
+    timestamp, nonce, sign2 = get_signature(nonce)
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/upgrade?plantId={plantid}&timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
     pprint.pprint(response)
     if response['code'] == 0:
@@ -313,10 +331,10 @@ if __name__ == '__main__':
         if start_time == '20':
             adventureId = Inquire_adventure()
             receive_adventure(adventureId)
-        get_tasklist()
-        get_sunshine()
-        start_challenge(gaNum)
-        start_adventure()
+        # get_tasklist()
+        # get_sunshine()
+        # start_challenge(gaNum)
+        # start_adventure()
         plantid = get_plant_info()
         give_sunshine(plantid)
         get_info()
