@@ -84,7 +84,6 @@ def login(ua, ck):
     body = ck
     body = json.dumps(body).encode(encoding='utf-8')
     response = requests.post(url, headers=headers, data=body).json()
-    pprint.pprint(response)
     if response['code'] == 0:
         authorization = response['data']
         # print(authorization)
@@ -214,7 +213,7 @@ def start_adventure():
 
 
 def Inquire_adventure():
-    print('开始进行冒险任务')
+    print('开始查询冒险任务')
     nonce = get_nonce()
     timestamp, nonce, sign2 = get_signature(nonce)
     url = f'http://api.xiaoyisz.com/qiehuang/ga/user/adventure/info?timestamp={timestamp}&nonce={nonce}&signature={sign2}&userId=-1&type=1'
@@ -222,20 +221,48 @@ def Inquire_adventure():
     if response['code'] == 0:
         adventureId = response["data"]["adventureId"]
         print('查询冒险id成功')
+        print(adventureId)
+        return adventureId
+
+
+def Inquire_help_adventure():
+    print('开始查询冒险任务')
+    nonce = get_nonce()
+    timestamp, nonce, sign2 = get_signature(nonce)
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/user/adventure/info?timestamp={timestamp}&nonce={nonce}&signature={sign2}&userId=-1&type=2'
+    response = requests.get(url=url, headers=headers).json()
+    # pprint.pprint(response)
+    if response['code'] == 0:
+        adventureId = response["data"]["adventureId"]
+        print('查询冒险id成功')
+        print(adventureId)
         return adventureId
 
 
 def receive_adventure(adventureId):
-    print('开始进行冒险任务')
+    print('开始完成冒险任务')
     nonce = get_nonce()
     timestamp, nonce, sign2 = get_signature(nonce)
     url = f'http://api.xiaoyisz.com/qiehuang/ga/user/adventure/drawPrize?adventureId={adventureId}&timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
+    # pprint.pprint(response)
+    if response['code'] == 0:
+        num = response['data']['gaGiftPackageVo']['infos'][0]['num']
+        print(f'此次冒险获得{num}阳光')
+    else:
+        print(response['message'])
+
+
+def help_adventure(help):
+    print('开始伙伴助力任务')
+    nonce = get_nonce()
+    timestamp, nonce, sign2 = get_signature(nonce)
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/user/adventure/help?adventureId={help}&timestamp={timestamp}&nonce={nonce}&signature={sign2}'
+    print(url)
+    response = requests.get(url=url, headers=headers).json()
     pprint.pprint(response)
-    # if response['code'] == 0:
-    #     adventureId = response["data"]["adventureId"]
-    #     print('开始冒险成功,需要8小时')
-    #     return adventureId
+    if response['code'] == 0:
+        print(f"{response['data'][0]['nickName']}助力成功")
 
 
 def get_plant_info():
@@ -260,7 +287,7 @@ def plant():
     print('开始种植植物')
     nonce = get_nonce()
     timestamp, nonce, sign2 = get_signature(nonce)
-    url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/start?plantId={plantid}&timestamp={timestamp}&nonce={nonce}&signature={sign2}'
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/start?timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
     # pprint.pprint(response)
     if response['data']['stage'] == 0:
@@ -279,6 +306,7 @@ def give_sunshine(plantid):
         needSunshineNum = response['data']['needSunshineNum']
         if currentSunshineNum == needSunshineNum and response['data']['stage'] != 3:
             updata(plantid)
+            give_sunshine(plantid)
         elif currentSunshineNum != needSunshineNum:
             time.sleep(3)
             give_sunshine(plantid)
@@ -287,6 +315,8 @@ def give_sunshine(plantid):
         if response['message'] == '已达到收获阶段':
             print(f"{response['message']},开始收获番茄")
             harvest(plantid)
+            time.sleep(2)
+            give_sunshine(plantid)
         elif response['message'] == '阳光不足':
             print('阳光不足退出洒阳光')
             return
@@ -309,33 +339,101 @@ def updata(plantid):
     timestamp, nonce, sign2 = get_signature(nonce)
     url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/upgrade?plantId={plantid}&timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
-    pprint.pprint(response)
+    # pprint.pprint(response)
     if response['code'] == 0:
-        print(f'获得{response["data"]["infos"][0]["num"]}番茄')
+        print(f'目前植物升为{response["data"]["stage"]}级')
+
+
+def friend():
+    print('开始查看朋友列表')
+    nonce = get_nonce()
+    timestamp, nonce, sign2 = get_signature(nonce)
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/user/friend/list?timestamp={timestamp}&nonce={nonce}&signature={sign2}&page=1&size=50'
+    response = requests.get(url=url, headers=headers).json()
+    # pprint.pprint(response)
+    if response['code'] == 0:
+        for i in response['data']["content"]:
+            userId = i["userId"]
+            name = i["nickName"]
+            print(userId, name)
+            return userId, name
+
+
+def steal_friend(name, friendUserId):
+    print('开始偷取朋友阳光')
+    nonce = get_nonce()
+    timestamp, nonce, sign2 = get_signature(nonce)
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/user/daily/steal?timestamp={timestamp}&nonce={nonce}&signature={sign2}&friendUserId={friendUserId}'
+    response = requests.get(url=url, headers=headers).json()
+    # pprint.pprint(response)
+    if response['code'] == 0:
+        num = response["data"]
+        print(f'偷取{name}{num}阳光')
+    else:
+        print(response['message'])
+
+
+def help_friend(plantid_list):
+    print('开始帮助朋友')
+    for plantid in plantid_list:
+        nonce = get_nonce()
+        timestamp, nonce, sign2 = get_signature(nonce)
+        url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/giveSunshine?timestamp={timestamp}&nonce={nonce}&signature={sign2}&plantId={plantid}'
+        response = requests.get(url=url, headers=headers).json()
+        # pprint.pprint(response)
+        if response['code'] == 0:
+            if response['data']['helpNum'] == 1:
+                print("帮助朋友成功")
+        else:
+            print(response['message'])
+        time.sleep(5)
+
+
+def help_friend_info(userId):
+    # print('开始查询朋友植物状态')
+    friend_list = []
+    nonce = get_nonce()
+    timestamp, nonce, sign2 = get_signature(nonce)
+    url = f'https://api.xiaoyisz.com/qiehuang/ga/plant/info?timestamp={timestamp}&nonce={nonce}&signature={sign2}&userId={userId}'
+    response = requests.get(url=url, headers=headers).json()
+    # pprint.pprint(response)
+    if response["code"] == 0:
+        friend_plantld = response['data']['plantId']
+        friend_list.append(friend_plantld)
+        return friend_list
 
 
 if __name__ == '__main__':
     cks = os.environ['tybody']
     cks = cks.split('@')
-    for ck in cks:
-        ck = json.loads(ck)
+    help = []
+    for ck in range(len(cks)):
+        ck1 = json.loads(cks[ck])
         start_time = datetime.datetime.now().strftime('%H')
         ua = random.choice(User_Agents)
-        authorization = login(ua, ck)
+        authorization = login(ua, ck1)
 
         headers1 = {
             'authorization': authorization,
         }
         headers.update(headers1)
         gaNum = get_info()
-        if start_time == '20':
+        if start_time == '13' or start_time == '21' or start_time == '05':
             adventureId = Inquire_adventure()
             receive_adventure(adventureId)
-        # get_tasklist()
-        # get_sunshine()
-        # start_challenge(gaNum)
-        # start_adventure()
-        plantid = get_plant_info()
-        give_sunshine(plantid)
-        get_info()
+            start_adventure()
+        else:
+            get_tasklist()
+            get_sunshine()
+            userId, name = friend()
+            if ck == 0:
+                steal_friend(name, userId)
+
+            plantid_list = help_friend_info(userId)
+            help_friend(plantid_list)
+            start_challenge(gaNum)
+
+            plantid = get_plant_info()
+            give_sunshine(plantid)
+            get_info()
         print('\n\n')
