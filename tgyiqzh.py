@@ -207,6 +207,7 @@ def start_adventure():
     timestamp, nonce, sign2 = get_signature(nonce)
     url = f'https://api.xiaoyisz.com/qiehuang/ga/user/adventure/start?timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
+    print(response)
     if response['code'] == 0:
         print('开始冒险成功,需要8小时')
         # return adventureId
@@ -421,6 +422,7 @@ if __name__ == '__main__':
         if start_time == '13' or start_time == '21' or start_time == '05':
             adventureId = Inquire_adventure()
             receive_adventure(adventureId)
+            time.sleep(10)
             start_adventure()
         else:
             get_tasklist()
@@ -428,11 +430,9 @@ if __name__ == '__main__':
             userId, name = friend()
             if ck == 0:
                 steal_friend(name, userId)
-
             plantid_list = help_friend_info(userId)
             help_friend(plantid_list)
             start_challenge(gaNum)
-
             plantid = get_plant_info()
             give_sunshine(plantid)
             get_info()
