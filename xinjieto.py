@@ -260,12 +260,12 @@ if __name__ == '__main__':
             # 'time': time1
         }
         headers.update(headers1)
-        # get_chkAuth(token)
-        # get_configs()
-        # get_home()
-        # get_redirectTrack(token)
-        # get_code2session()
-        # get_srstoken(token)
+        get_chkAuth(token)
+        get_configs()
+        get_home()
+        get_redirectTrack(token)
+        get_code2session()
+        get_srstoken(token)
         get_exchange(token)
         get_signin()
         page_list = get_page()
