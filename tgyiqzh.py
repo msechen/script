@@ -207,7 +207,7 @@ def start_adventure():
     timestamp, nonce, sign2 = get_signature(nonce)
     url = f'https://api.xiaoyisz.com/qiehuang/ga/user/adventure/start?timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
-    print(response)
+    # print(response)
     if response['code'] == 0:
         print('开始冒险成功,需要8小时')
         # return adventureId
