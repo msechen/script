@@ -44,6 +44,8 @@ async function main() {
     return;
   }
 
+  await require('./lib/mailer').updateEnvFromMail();
+
   if ([10, 16, 22].includes(nowHour)) {
     serialRun(Joy);
   }

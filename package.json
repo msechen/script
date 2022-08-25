@@ -15,9 +15,11 @@
     "moment-timezone": "^0.5.31",
     "nodemailer": "^6.4.17",
     "png-js": "^1.0.0",
+    "quoted-printable": "^1.0.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "tweetsodium": "0.0.5",
+    "utf8": "^2.1.0",
     "uuid": "^8.3.2",
     "ws": "^7.4.3"
   },

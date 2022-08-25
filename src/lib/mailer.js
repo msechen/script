@@ -4,9 +4,12 @@
 
 const _ = require('lodash');
 const nodemailer = require('nodemailer');
-const {getEnv} = require('./env');
+const {getEnv, updateProductEnv} = require('./env');
 const {getMoment} = require('./moment');
+const {readFileJSON, writeFileJSON} = require('./common');
 const Imap = require('imap');
+const utf8 = require('utf8');
+const quotedPrintable = require('quoted-printable');
 const {inspect, promisify} = require('util');
 
 const getTransportOption = () => getEnv('MAILER_TRANSPORTER_OPTION');
@@ -71,19 +74,22 @@ function _search({subject, since, seen, realDelFn = _.noop}, callback) {
       throw new Error('node imap search failed');
     }
     const messages = await promisify(fetchMessage)(searchResult.reverse());
-    const message = messages.find(o => o.subject[0] === subject);
+    const messageList = messages.filter(o => o.subject[0] === subject);
+    let isSeen;
+    for (const message of messageList) {
+      isSeen = _.get(message, 'attrs.flags', []).includes('\\Seen');
 
-    const isSeen = _.get(message, 'attrs.flags', []).includes('\\Seen');
-
-    if (message && realDelFn(message, isSeen)) {
-      const {subject, attrs: {uid}} = message;
-      await _call('addFlags', uid, ['\\Deleted']).then(() => {
-        console.log(`邮件删除成功(uid: ${uid}, subject: ${subject[0]})`);
-      });
+      if (realDelFn(message, isSeen)) {
+        const {subject, attrs: {uid}} = message;
+        await _call('addFlags', uid, ['\\Deleted']).then(() => {
+          console.log(`邮件删除成功(uid: ${uid}, subject: ${subject[0]})`);
+        });
+      }
     }
 
+
     imap.end();
-    callback(void 0, seen ? isSeen : message);
+    callback(void 0, seen ? isSeen : messageList);
 
     /**
      *
@@ -94,7 +100,7 @@ function _search({subject, since, seen, realDelFn = _.noop}, callback) {
     function fetchMessage(msgIds, callback) {
       const result = [];
       const f = imap.fetch(msgIds, {
-        bodies: 'HEADER.FIELDS (FROM TO SUBJECT)',
+        bodies: ['HEADER.FIELDS (FROM TO SUBJECT)', 'TEXT'],
         struct: true,
       });
       f.on('message', function (msg, seqNo) {
@@ -109,9 +115,18 @@ function _search({subject, since, seen, realDelFn = _.noop}, callback) {
             buffer += chunk.toString();
           });
           stream.once('end', function () {
-            const parseHeader = Imap.parseHeader(buffer);
-            _.assign(msgInfo, parseHeader);
-            debug && console.log(prefix + 'Parsed header: %s', inspect(parseHeader));
+            if (info.which === 'TEXT') {
+              const data = buffer.toString();
+              _.assign(msgInfo, {text: data});
+              if (debug) {
+                console.log(prefix + 'Body [%s] Finished', inspect(info.which));
+                console.log('\n\n\n\n' + data + '\n\n\n\n\n\n');
+              }
+            } else {
+              const parseHeader = Imap.parseHeader(buffer);
+              _.assign(msgInfo, parseHeader);
+              debug && console.log(prefix + 'Parsed header: %s', inspect(parseHeader));
+            }
           });
         });
         msg.once('attributes', function (attrs) {
@@ -145,11 +160,66 @@ function _search({subject, since, seen, realDelFn = _.noop}, callback) {
   imap.connect();
 }
 
+const newEnvSubject = 'lazy_script_new_env';
+
+/**
+ * @description 将新的 env 发送到邮件, 本地更新采用 merge 模式, 所以需要保证数据源完整性(Array不需要更改的数据也要留好位置)
+ * @example {"JD_COOKIE_OPTION":[{},{},{},{"cookies":{"wq_skey":"test"}}]}
+ */
+function sendNewEnv() {
+  const newEnvPath = require('path').resolve(__dirname, '../../.env.new.json');
+  const content = readFileJSON(newEnvPath);
+  if (_.isEmpty(content)) return console.log('无需更新内容');
+  send({
+    subject: `${newEnvSubject}_${getMoment().format('YYYY-MM-DD')}`,
+    text: JSON.stringify(content),
+  }).then(() => {
+    writeFileJSON({}, newEnvPath);
+  });
+}
+
+function decodeMailText(text) {
+  try {
+    text = utf8.decode(quotedPrintable.decode(text));
+  } catch (e) {}
+  return text;
+}
+
+/**
+ * @description 获取邮件信息更新本地 env
+ */
+async function updateEnvFromMail(day = 2) {
+  const nowMoment = getMoment();
+  const getNewEnvs = () => search({
+    subject: `${newEnvSubject}_${nowMoment.format('YYYY-MM-DD')}`,
+  }).then(messages => messages.map(o => {
+    let text;
+    try {
+      text = JSON.parse(decodeMailText(o.text.trim()));
+    } catch (e) {}
+    return text;
+  }));
+  const allNewEnvs = [];
+  for (let i = 0; i < day; i++) {
+    const newEnvs = await getNewEnvs();
+    allNewEnvs.unshift(...newEnvs);
+    nowMoment.subtract(1, 'day');
+  }
+  if (_.isEmpty(allNewEnvs)) return;
+  allNewEnvs.unshift({});
+  const newEnv = _.merge(...allNewEnvs);
+  console.log(`开始从邮件内容中更新 new env`);
+  console.log(JSON.stringify(newEnv));
+  updateProductEnv(newEnv, false, true);
+}
+
 
 module.exports = {
   disabledSend,
   disabledImap: () => !getImapOption(),
   send,
+  sendNewEnv,
+  updateEnvFromMail,
   search,
   searchSeen,
   searchSeenAndDel,
