@@ -434,8 +434,6 @@ if __name__ == '__main__':
         if start_time == '08':
             adventureId = Inquire_adventure()
             receive_adventure(adventureId)
-            time.sleep(30)
-            start_adventure()
             get_tasklist()
             get_sunshine()
             friend_list = friend()
@@ -450,6 +448,6 @@ if __name__ == '__main__':
         elif start_time == '24' or start_time == '16':
             adventureId = Inquire_adventure()
             receive_adventure(adventureId)
-            time.sleep(30)
+        elif start_time == '9' or start_time == '17' or start_time == '01':
             start_adventure()
         print('\n\n')
