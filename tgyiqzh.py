@@ -431,7 +431,7 @@ if __name__ == '__main__':
         }
         headers.update(headers1)
         gaNum = get_info()
-        if start_time == '17':
+        if start_time == '08':
             adventureId = Inquire_adventure()
             receive_adventure(adventureId)
             time.sleep(30)
