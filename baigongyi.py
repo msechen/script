@@ -55,7 +55,7 @@ def get_token(body, uid):
         accountId = response['data']['accountId']
         token = response['data']['token']
         print(f'欢迎账号{mobile}开始百工译任务'.center(50, '*'))
-        return accountId, token
+        return accountId, token, mobile
     else:
         print(response['message'])
 
@@ -169,14 +169,60 @@ def get_commentrecord(total):
     # if response['code'] == 1:
 
 
+def get_totalbean(accountId, mobile):
+    url = f'https://mapi.baigongyi.com/homePage/userInfo/{accountId}'
+    # response = requests.post(url=url, headers=headers).json()
+    # body1 = {"comment": random.choice(comment), "objId": total[i][0], "objType": 3}
+
+    # print(body1)
+    # body1 = json.dumps(body1).encode(encoding='utf-8')
+    response = requests.post(url=url, headers=headers).json()
+    if response['code'] == 200:
+        total_bean = response['data']['totalBean']
+        print(f"目前账号{mobile}共{total_bean}个天工豆")
+        return "目前账号{mobile}共{total_bean}个天工豆"
+
+
+def push_plus_bot(content, push_token):
+    b = content
+    headers = {
+        "Host": "www.pushplus.plus",
+        "Origin": "http://www.pushplus.plus",
+        "Referer": "http://www.pushplus.plus/push1.html",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
+        "X-Requested-With": "XMLHttpRequest",
+
+    }
+    url = 'http://www.pushplus.plus/api/send'
+    data = {
+        "token": push_token,
+        "title": '百工译任务',
+        "content": b,
+        "channel": "wechat",
+        "template": "html",
+        'webhook': ""
+    }
+    body = json.dumps(data).encode(encoding='utf-8')
+    # headers = {'Content-Type': 'application/json'}
+    response = requests.post(url=url, data=body, headers=headers).json()
+    print(response)
+    if response['code'] == 200:
+        print('推送成功！')
+    else:
+        print('推送失败！')
+    # except Exception as e:
+    #     print(e)
+
+
 if __name__ == '__main__':
     cks = os.environ['xfbgyCk']
+    push_token = os.environ['push_token']
     cks = cks.split('@')
     for ck in cks:
         ck = ck.split('&')
         uid = ck[1]
         body = json.loads(ck[0])
-        accountId, token = get_token(body, uid)
+        accountId, token, mobile = get_token(body, uid)
         headers1 = {
             'Authentication': token,
             'uid': ck[1]
@@ -185,15 +231,5 @@ if __name__ == '__main__':
         get_signin()
         get_tasklist(accountId)
         get_page()
-    time.sleep(10)
-"""
-{"password": "xxht1234", "loginName": "13693126841",
-            "loginDeviceNo": "94604055415C90E2B40773EE92BB088E9E4449F1"}
-            
-            
-            
-            https://mapi.baigongyi.com/like/add
-            
-            
-{"accountId":"c1adfe7751a147639bdc6efde409dde3","likedFlag":true,"objId":"804e39baca5349f5b5ff88148c6907ce","objType":10}
-"""
+        message = get_totalbean(accountId, mobile)
+        push_plus_bot(message, push_token)
