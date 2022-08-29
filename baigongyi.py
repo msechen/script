@@ -180,7 +180,7 @@ def get_totalbean(accountId, mobile):
     if response['code'] == 200:
         total_bean = response['data']['totalBean']
         print(f"目前账号{mobile}共{total_bean}个天工豆")
-        return "目前账号{mobile}共{total_bean}个天工豆"
+        return f"目前账号{mobile}共{total_bean}个天工豆"
 
 
 def push_plus_bot(content, push_token):
