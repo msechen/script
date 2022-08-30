@@ -219,7 +219,6 @@ if __name__ == '__main__':
     push_token = os.environ['push_token']
     cks = cks.split('@')
     time_random = time.sleep(random.randint(0, 7200))
-    print(f"目前延时{time_random}")
     for ck in cks:
         ck = ck.split('&')
         uid = ck[1]
