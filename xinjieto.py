@@ -251,7 +251,7 @@ def get_exchange(token):
 
 if __name__ == '__main__':
     tokens = os.environ["xjtoken"]
-    tokens = token.split('@')
+    tokens = tokens.split('@')
     for token in tokens:
         headers1 = {
             # 'User-Agent': ua1,
