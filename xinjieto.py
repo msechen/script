@@ -250,7 +250,6 @@ def get_exchange(token):
 
 
 if __name__ == '__main__':
-    token = 'c409004a20e648123a4ae889e2faf321'
     tokens = os.environ["xjtoken"]
     tokens = token.split('@')
     for token in tokens:
