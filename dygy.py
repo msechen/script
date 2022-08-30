@@ -170,7 +170,7 @@ def watering(reward_water1, i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     if (i - 1) / 10 in num:
         water_award()
-    if i == reward_water1:
+    if i == reward_water1+1:
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?"
