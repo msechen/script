@@ -41,6 +41,7 @@
     "start:FruitDoShare": "node src/jd/fruit/doShare.js start",
     "start:StatisticsRedEnvelope": "node src/jd/statistics/RedEnvelope.js start",
     "start:EarnAdvertPlugin": "node src/jd/earn/AdvertPlugin.js start",
+    "start:EarnJoinGroup": "node src/jd/local/EarnJoinGroup start",
     "start:LookTreasure": "node src/jd/wq/LookTreasure.js start",
     "loop:JoyRedeem": "node src/jd/joy/redeem.js loop",
     "test": "mocha --recursive"
