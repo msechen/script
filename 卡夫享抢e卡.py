@@ -6,7 +6,7 @@ import requests
 import pprint
 
 
-def exchange(ck,push_token):
+def exchange(ck, push_token):
     url = 'https://fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/exchangeIntegralNew?value=%E4%BA%AC%E4%B8%9CE%E5%8D%A12%E5%85%83&phone=&type=%E8%A7%86%E9%A2%91%E5%8D%A1'
     headers = {
         'Host': 'fscrm.kraftheinz.net.cn',
@@ -17,14 +17,14 @@ def exchange(ck,push_token):
 
     }
     response = requests.post(url=url, headers=headers).json()
-    if response['msg'] == '代理商当日超过上限' or response['msg'] == '积分不足':
+    if response['msg'] == '代理商当日超过上限' or response['msg'] == '积分不足' or response['msg'] == '仍有兑换在队列中' or response['msg'] == 'Token UID获取失败':
         print(response['msg'])
     else:
         print(response['msg'])
-        push_plus_bot(response['msg'],push_token)
+        push_plus_bot(response['msg'], push_token)
 
 
-def push_plus_bot(content,push_token):
+def push_plus_bot(content, push_token):
     b = content
     headers = {
         "Host": "www.pushplus.plus",
@@ -55,6 +55,6 @@ def push_plus_bot(content,push_token):
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
     push_token = os.environ['push_token']
-    cks = os.environ['kfxtoken'].split('@')
+    cks = os.environ['push_token'].split('@')
     for ck in cks:
-        exchange(ck,push_token)
+        exchange(ck, push_token)
