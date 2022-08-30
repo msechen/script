@@ -10,7 +10,7 @@ class ExplorePlanet extends Template {
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static activityEndTime = '2022-08-01';
+  // static activityEndTime = '2022-08-01';
   static needOriginH5 = true;
   static maxTaskDoneTimes = Infinity;
   static doneShareTask = !this.firstTimeInTheDay();
@@ -24,9 +24,6 @@ class ExplorePlanet extends Template {
           client: 'wh5',
           t: getMoment().valueOf(),
         },
-        form: {
-          body: {'activityId': 3},
-        },
       },
     };
   };
@@ -34,6 +31,14 @@ class ExplorePlanet extends Template {
   static apiExtends = {
     requestFnName: 'doFormBody',
   };
+
+  static async beforeRequest(api) {
+    const activityId = await api.doFormBody('explorePlanet_homePage', {'channel': '1'}).then(_.property('data.result.activityId'));
+    _.merge(api.options, {
+      form: {body: {activityId}},
+    });
+    if (!activityId) return true;
+  }
 
   static isSuccess(data) {
     return _.property('data.biz_code')(data) === 0;
