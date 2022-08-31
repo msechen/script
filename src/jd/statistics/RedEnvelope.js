@@ -27,6 +27,10 @@ class StatisticsRedEnvelope extends Template {
 
     let redList = _.get(await getRedInfo(), 'useRedInfo.redList') || [];
     const redSorted = {
+      jdApplet: {
+        limitName: /[京东购物小程序|京东商城]/,
+        label: '京东购物小程序',
+      },
       jd: {
         limitName: '京东商城',
       },
@@ -77,9 +81,9 @@ class StatisticsRedEnvelope extends Template {
       const {noLimit: {number: noLimitNumber, expire: noLimitExpire}} = redSorted;
 
       for (const [key, object] of Object.entries(redSorted)) {
-        const {limitName, number, expire, msgs} = object;
+        const {limitName, number, expire, msgs, label} = object;
         if (['jx', 'lite', 'noLimit'].includes(key)) continue;
-        const name = limitName ? `${limitName}(仅限)` : '无限制';
+        const name = limitName ? `${label || limitName}(仅限)` : '无限制';
         const needSum = key !== 'noLimit';
         if (_.isEmpty(msgs)) {
           msgs.push(`${name}: ${format(number, noLimitNumber, needSum)}`);
