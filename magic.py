@@ -261,7 +261,7 @@ async def task(task_name, task_key):
 async def cmd(text):
     try:
         logger.info(f"执行命令{text}")
-        name = re.findall(r'/(.*).js', text)[0]
+        name = re.findall(r'[^/:*?"<>|]+$', text)[0]
         tmp_log = f'{log_path}/{name}.{datetime.datetime.now().strftime("%H%M%S%f")}.log'
         proc = await asyncio.create_subprocess_shell(
             f"{text} >> {tmp_log} 2>&1",
