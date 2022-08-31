@@ -12,6 +12,7 @@
     "log_path": "/jd/log",
     "log_send": true,
     "monitor_cache_size": 30,
+    "monitor_cars是你要监控的对象，需要填上自己bot的id和线报频道或群组id": 1,
     "monitor_cars": [
         -1001718319262,
         -1001533334185,
@@ -20,6 +21,7 @@
     "monitor_auto_stops": [
         "jd_AutoOpenCard"
     ],
+    "monitor_scripts_path 填写与面板上一样的路径": 1,
     "monitor_scripts_path": "/jd/scripts",
     "monitor_scripts": {
         "M_WX_BUILD_DRAW_URL": {

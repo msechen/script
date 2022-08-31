@@ -12,7 +12,7 @@ from telethon import TelegramClient, events
 # 0. 进入容器
 # 1. pip3 install -U cacheout
 # 2. 复制magic.py,magic.json到/ql/config/目录 并配置
-# 3. python3 /ql/config/magic.py 登录
+# 3. python3 /ql/config/magic.py 用手机号登录
 # 4. 给bot发送在吗 有反应即可
 # 5. pm2 start /ql/config/magic.py -x --interpreter python3
 # 6. 挂起bot到后台 查看状态 pm2 l
