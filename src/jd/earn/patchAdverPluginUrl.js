@@ -18,7 +18,10 @@ let urlData = _.uniqBy(urlList.map(url => {
   return result;
 }), mainKey);
 urlData = _.filter(urlData, mainKey);
-console.log('url个数: ' + _.uniq(urlList).length);
-console.log('data个数: ' + _.uniq(urlData).length);
+const debug = false;
+if (debug) {
+  console.log('url个数: ' + _.uniq(urlList).length);
+  console.log('data个数: ' + _.uniq(urlData).length);
+}
 
 module.exports = urlData;
