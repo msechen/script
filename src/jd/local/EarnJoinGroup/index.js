@@ -2,9 +2,15 @@ const Template = require('../../base/template');
 
 
 const {sleep, writeFileJSON, singleRun} = require('../../../lib/common');
+const {getEnv} = require('../../../lib/env');
 const {formatRequest} = require('../../../../charles/websocket/api');
-const originData = require('./originData.json');
+const fs = require('fs');
 const _ = require('lodash');
+
+// 获取数据并清空
+const originRequestPath = require('path').resolve(__dirname, './originRequest.txt');
+const originRequest = fs.readFileSync(originRequestPath).toString();
+fs.writeFileSync(originRequestPath, '');
 
 class EarnJoinGroup extends Template {
   static scriptName = 'EarnJoinGroup';
@@ -36,11 +42,14 @@ class EarnJoinGroup extends Template {
   static async doMain(api, shareCodes) {
     const self = this;
 
+    const shareCookieIndex = getEnv('JD_EARNJOINGROUP_SHARE_COOKIE_INDEX', 0, -1);
+
+    if (shareCookieIndex < 0) return console.log('请手动指定 cookie index');
     // TODO 获取当前是否是开团人
-    if (api.currentCookieTimes === 0) return;
+    if (shareCookieIndex === api.currentCookieIndex) return;
 
     // 获取 active_id 和 group_id
-    const result = formatRequest(originData.request, originData.response/*一般不需要*/);
+    const result = formatRequest(originRequest);
     const getUrl = o => _.get(o, 'request.URI');
     const homePageData = result.find(o => getUrl(o).match('SuperFissionHomepage'));
     if (!homePageData) return console.log('活动不存在');

@@ -103,12 +103,12 @@ function getCookieData(name, shareCode, getShareCodeFn) {
 }
 
 // 从 process.env 获取值
-function getEnv(key, index = 0) {
+function getEnv(key, index = 0, defaultVal) {
   let value = process.env[getKeyByIndex(key, index)];
   try {
     value = JSON.parse(value);
   } catch (e) {}
-  return value;
+  return _.isUndefined(value) ? defaultVal : value;
 }
 
 function getEnvList(key, limit = 5) {
