@@ -104,13 +104,10 @@ function getCookieData(name, shareCode, getShareCodeFn) {
 
 // 从 process.env 获取值
 function getEnv(key, index = 0) {
-  // TODO process.env 调整成内部变量
-  let value = process.env[getKeyByIndex(key, index)] || '';
-  if (value.startsWith('{') || value.startsWith('[')) {
-    try {
-      value = JSON.parse(value);
-    } catch (e) {}
-  }
+  let value = process.env[getKeyByIndex(key, index)];
+  try {
+    value = JSON.parse(value);
+  } catch (e) {}
   return value;
 }
 
