@@ -352,7 +352,7 @@ def watering(tubetoken, userid):
         print(f'浇10滴水,水瓶目前还剩{response["now_water_amount"]}水滴')
         if int(response["now_water_amount"]) >= 10:
             watering(tubetoken, userid)
-            time.sleep(random.randint(4, 8))
+            time.sleep(random.randint(1, 3))
         else:
             print('浇水完成')
     else:
@@ -369,42 +369,34 @@ def percent(AccessToken, userid):
     response = requests.get(url=url, headers=headers).text
     fruit = re.findall('class="cartoon-taro-text">(.*?)</span>', response)[0].replace('<!-- -->', '')
     print(fruit)
-    return f"在浇水{fruit}包邮到家"
+    return f"拼多多果园任务:\n在浇水{fruit}包邮到家"
 
 
-def push_plus_bot(content, push_token):
-    b = content
+def webhook(message,webhook_token):
+    url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
-        "Host": "www.pushplus.plus",
-        "Origin": "http://www.pushplus.plus",
-        "Referer": "http://www.pushplus.plus/push1.html",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
-        "X-Requested-With": "XMLHttpRequest",
+        'Content-Type': 'application/json'
 
     }
-    url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
-        "title": '拼多多果园',
-        "content": b,
-        "channel": "wechat",
-        "template": "html",
-        'webhook': ""
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
     }
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    print(response)
-    if response['code'] == 200:
-        print('推送成功！')
+    if response["errmsg"] == 'ok':
+        print("企业微信推送成功")
     else:
-        print('推送失败！')
+        print("推送失败")
 
 
 if __name__ == '__main__':
     ck = os.environ['pddck']
     # ck = ""
-    push_token = os.environ['push_token']
+    webhook_token = os.environ['QYWX_KEY']
     ck = ck.split('@')
     start_time = datetime.datetime.now().strftime('%H')
     for i in ck:
@@ -453,6 +445,4 @@ if __name__ == '__main__':
             print('开始浇水')
             watering(tubetoken, ck[0])
             message = percent(ck[1], ck[0])
-            push_plus_bot(message, push_token)
-
-
+            webhook(message,webhook_token)
