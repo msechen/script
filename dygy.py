@@ -170,7 +170,7 @@ def watering(reward_water1, i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     if (i - 1) / 10 in num:
         water_award()
-    if i == reward_water1+1:
+    if i == reward_water1:
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?"
@@ -182,7 +182,7 @@ def watering(reward_water1, i=1):
 
             print(f"进行第{i}次浇水,水瓶还剩{water}滴水")
             time.sleep(random.randint(3, 5))
-            watering(reward_water1, i=i + 1)
+            watering(i=i + 1)
         else:
             print('水瓶水不足停止浇水')
             return
@@ -216,42 +216,34 @@ def target():
         reward_water = response["data"]["info"]["progress"]
         current_water = reward_water["current"]
         target_water = reward_water["target"]
-        print(f'目前已浇水{current_water}目标为{target_water}还差{int(target_water) - current_water}水滴可以成功兑换水果')
+        print(f'抖音果园任务:\n目前已浇水{current_water}目标为{target_water}还差{int(target_water) - current_water}水滴可以成功兑换水果')
         return f'目前已浇水{current_water}目标为{target_water}还差{int(target_water) - current_water}水滴可以成功兑换水果'
 
 
-def push_plus_bot(content, push_token):
-    b = content
+def webhook(message,webhook_token):
+    url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
-        "Host": "www.pushplus.plus",
-        "Origin": "http://www.pushplus.plus",
-        "Referer": "http://www.pushplus.plus/push1.html",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
-        "X-Requested-With": "XMLHttpRequest",
+        'Content-Type': 'application/json'
 
     }
-    url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
-        "title": '抖音果园任务',
-        "content": b,
-        "channel": "wechat",
-        "template": "html",
-        'webhook': ""
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
     }
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    # print(response)
-    if response['code'] == 200:
-        print('推送成功！')
+    if response["errmsg"] == 'ok':
+        print("企业微信推送成功")
     else:
-        print('推送失败！')
+        print("推送失败")
 
 
 if __name__ == '__main__':
     cks = os.environ['dygyCookies'].split('@')
-    push_token = os.environ['push_token']
+    webhook_token = os.environ['QYWX_KEY']
     for ck in cks:
         ck = ck.split('&')
         headers1 = {
@@ -321,4 +313,4 @@ if __name__ == '__main__':
             watering(reward_water, i=1)
             print('开始推送信息')
             message = target()
-            push_plus_bot(message, push_token)
+            webhook(message, webhook_token)
