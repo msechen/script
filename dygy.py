@@ -170,7 +170,7 @@ def watering(reward_water1, i=1):
     num = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     if (i - 1) / 10 in num:
         water_award()
-    if i == reward_water1:
+    if i == reward_water1 + 1:
         print('开始领取挑战宝箱奖励')
         recive_box_reward()
     url = f"https://minigame.zijieapi.com/ttgame/game_orchard_ecom/tree/water?"
@@ -182,7 +182,7 @@ def watering(reward_water1, i=1):
 
             print(f"进行第{i}次浇水,水瓶还剩{water}滴水")
             time.sleep(random.randint(3, 5))
-            watering(i=i + 1)
+            watering(reward_water1,i=i + 1)
         else:
             print('水瓶水不足停止浇水')
             return
@@ -220,7 +220,7 @@ def target():
         return f'目前已浇水{current_water}目标为{target_water}还差{int(target_water) - current_water}水滴可以成功兑换水果'
 
 
-def webhook(message,webhook_token):
+def webhook(message, webhook_token):
     url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
         'Content-Type': 'application/json'
