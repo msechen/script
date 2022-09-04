@@ -24,7 +24,7 @@ headers = {
 }
 
 
-def kfx_getUserInfo1(number,push_token):
+def kfx_getUserInfo1(number, webhook_token):
     try:
         url = 'https://fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/getUserInfo'
         response = requests.get(url=url, headers=headers).json()
@@ -37,7 +37,7 @@ def kfx_getUserInfo1(number,push_token):
     except:
         print(f"账号{number}失效需要重新登录")
         content = f"账号{number}失效需要重新登录"
-        push_plus_bot(content, push_token)
+        webhook(content,webhook_token)
 
 
 def kfx_sign():
@@ -47,8 +47,6 @@ def kfx_sign():
         print(response["msg"])
     else:
         print(response["msg"])
-    
-
 
 
 def kfx_getUserInfo():
@@ -62,47 +60,37 @@ def kfx_getUserInfo():
         print(response["msg"])
 
 
-def push_plus_bot(content, push_token):
-    b = content
+def webhook(message,webhook_token):
+    url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
-        "Host": "www.pushplus.plus",
-        "Origin": "http://www.pushplus.plus",
-        "Referer": "http://www.pushplus.plus/push1.html",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
-        "X-Requested-With": "XMLHttpRequest",
+        'Content-Type': 'application/json'
 
     }
-    url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
-        "title": '卡夫享抢号过期',
-        "content": b,
-        "channel": "wechat",
-        "template": "html",
-        'webhook': ""
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
     }
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    print(response)
-    if response['code'] == 200:
-        print('推送成功！')
+    if response["errmsg"] == 'ok':
+        print("企业微信推送成功")
     else:
-        print('推送失败！')
-    # except Exception as e:
-    #     print(e)
+        print("推送失败")
 
 
 if __name__ == '__main__':
     kfxtoken = os.environ['kfxtoken']
     kfxtoken = kfxtoken.split('@')
-    push_token = os.environ['push_token']
+    webhook_token = os.environ['QYWX_KEY']
     for ck in range(len(kfxtoken)):
         number = ck + 1
         headers1 = {
             'token': kfxtoken[ck]
         }
         headers.update(headers1)
-        kfx_getUserInfo1(number, push_token)
+        kfx_getUserInfo1(number, webhook_token)
         kfx_sign()
         kfx_getUserInfo()
