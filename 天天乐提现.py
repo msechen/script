@@ -13,7 +13,7 @@ headers = {
 
 
 # 得到取钱信息
-def get_money_data(userid, ck2, push_token):
+def get_money_data(userid, ck2, webhook_token):
     money_all = []
     url = f'https://miniapi.tianwensk.com/miniapp/user/wallet/getWithdrawConfig?{userid}'
     response = requests.get(url=url, headers=headers).json()
@@ -25,9 +25,9 @@ def get_money_data(userid, ck2, push_token):
             id = i['id']
             money_all.append([amount, id])
     for i in money_all:
-        print(f'目前平台可提现金额最小为{i[0] / 100}元')
+        print(f'目前平台可提现金额最小为{i[0]}')
         if int(money) >= int(i[0]):
-            exchange(ck2, name, i, push_token)
+            exchange(ck2, name, i, webhook_token)
             print(f'{name}目前金额为{(int(money)-int(i[0]))/ 100}提现金额不足,取消提现')
             return
         else:
@@ -35,46 +35,38 @@ def get_money_data(userid, ck2, push_token):
             return
 
 
-def exchange(ck, name, data, push_token):
+def exchange(ck, name, data, webhook_token):
     url = f'https://miniapi.tianwensk.com/miniapp/user/wallet/apply?{ck}&withdrawConfigId={data[1]}'
     response = requests.post(url=url, headers=headers).json()
 
     if response['state'] == 1:
         print(f'{name}提现{str(int(int(data[0] / 100)))}成功')
-        push_plus_bot(f'{name}提现{str(int(int(data[0] / 100)))}成功', push_token)
+        webhook(f'{name}提现{str(int(int(data[0] / 100)))}成功', webhook_token)
         return f'{name}提现{str(int(int(data[0] / 100)))}成功'
     else:
         print(response['message'])
         return "提现不成功"
 
 
-def push_plus_bot(content, push_token):
-    b = content
+def webhook(message,webhook_token):
+    url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
-        "Host": "www.pushplus.plus",
-        "Origin": "http://www.pushplus.plus",
-        "Referer": "http://www.pushplus.plus/push1.html",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
-        "X-Requested-With": "XMLHttpRequest",
+        'Content-Type': 'application/json'
 
     }
-    url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
-        "title": '天天乐提现',
-        "content": b,
-        "channel": "wechat",
-        "template": "html",
-        'webhook': ""
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
     }
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    print(response)
-    if response['code'] == 200:
-        print('推送成功！')
+    if response["errmsg"] == 'ok':
+        print("企业微信推送成功")
     else:
-        print('推送失败！')
+        print("推送失败")
 
 
 # 得到谜语信息
@@ -138,13 +130,13 @@ def answer_part(idiomid, answer,userId):
 if __name__ == '__main__':
     ck = os.environ['ttlcookiepy']
     ck = ck.split('@')
-    push_token = os.environ['push_token']
+    webhook_token = os.environ['QYWX_KEY']
     for cks in ck:
         ck1 = cks.split('&')
         print(f"开始答题环节".center(20, "*"))
         get_riddles_data(ck1[0])
         print(f"开始尝试提现".center(20, "*"))
-        get_money_data(ck1[0], cks, push_token)
+        get_money_data(ck1[0], cks, webhook_token)
         print('\n')
         time.sleep(5)
 
