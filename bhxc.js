@@ -87,7 +87,7 @@ class UserInfo {
     
     async Recharge() {
         try {
-            let url = `https://api.yd.ihaoqu.com/?r=api2&apiAction=Recharge`
+            let url = `https://api.yd.ihaoqu.com/?r=api&apiAction=Recharge`
             let sign = MD5Encrypt(`Recharge${this.uid}${md5Salt}2${this.token}1`)
             let body = `uid=${this.uid}&token=${this.token}&Type=1&Category=2&signure=${sign}`
             let urlObject = populateUrlObject(url,body)
