@@ -192,33 +192,25 @@ def with_draw(sign2,time2):
     return response['msg']
 
 
-def push_plus_bot(content, push_token):
-    b = content
+def webhook(message,webhook_token):
+    url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
-        "Host": "www.pushplus.plus",
-        "Origin": "http://www.pushplus.plus",
-        "Referer": "http://www.pushplus.plus/push1.html",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
-        "X-Requested-With": "XMLHttpRequest",
+        'Content-Type': 'application/json'
 
     }
-    url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token":  push_token,
-        "title": '睡觉宝获得金币',
-        "content": b,
-        "channel": "wechat",
-        "template": "html",
-        'webhook': ""
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
     }
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    print(response)
-    if response['code'] == 200:
-        print('推送成功！')
+    if response["errmsg"] == 'ok':
+        print("企业微信推送成功")
     else:
-        print('推送失败！')
+        print("推送失败")
     # except Exception as e:
     #     print(e)
 
@@ -226,11 +218,11 @@ def push_plus_bot(content, push_token):
 if __name__ == '__main__':
     print('----------开始睡觉宝任务-----------------')
     start_time = datetime.datetime.now().strftime('%H')
-    push_token =  os.environ['push_token']
+    webhook_token = os.environ['QYWX_KEY']
     account = os.environ['sjbck'].split('@')
     for ua in range(len(account)):
         headers1 = {
-            'ua': account[ua].strip(),
+            'ua': account[ua],
         }
         headers.update(headers1)
         accessToken1, name_id, name = accessToken()
@@ -268,8 +260,8 @@ if __name__ == '__main__':
             data = sancan2 + reward_all1
         finish_task = int(total_money())
         last_coin = finish_task - begin_task
-        message = f'{data},总金币{finish_task}'
-        push_plus_bot(message,push_token)
+        message = f'睡觉宝任务:\n{data},总金币{finish_task}'
+        webhook(message,webhook_token)
         print(f'此次任务共获得{last_coin},总金币{finish_task}')
         if finish_task >= 10000:
             time2 = timeStamp()
@@ -277,6 +269,6 @@ if __name__ == '__main__':
             data = with_draw(sign2,time2)
             print(data)
             message = f'{data}'
-            push_plus_bot(message,push_token)
+            webhook(message,webhook_token)
 
     print('-----------睡觉宝任务结束-------------')
