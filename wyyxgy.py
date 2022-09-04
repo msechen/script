@@ -1,9 +1,10 @@
 import datetime
 import json
+import os
 import pprint
 import random
 import time
-import os
+
 import requests
 
 headers = {
@@ -95,38 +96,30 @@ def jsjd():
     return response['result']['levelDesc']
 
 
-def push_plus_bot(content,push_token):
-    b = content
+def webhook(message,webhook_token):
+    url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={webhook_token}'
     headers = {
-        "Host": "www.pushplus.plus",
-        "Origin": "http://www.pushplus.plus",
-        "Referer": "http://www.pushplus.plus/push1.html",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44",
-        "X-Requested-With": "XMLHttpRequest",
+        'Content-Type': 'application/json'
 
     }
-    url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": push_token,
-        "title": '网易严选果园任务',
-        "content": b,
-        "channel": "wechat",
-        "template": "html",
-        'webhook': ""
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
     }
     body = json.dumps(data).encode(encoding='utf-8')
     # headers = {'Content-Type': 'application/json'}
     response = requests.post(url=url, data=body, headers=headers).json()
-    # print(response)
-    if response['code'] == 200:
-        print('推送成功！')
+    if response["errmsg"] == 'ok':
+        print("企业微信推送成功")
     else:
-        print('推送失败！')
+        print("推送失败")
 
 
 if __name__ == '__main__':
     start_time = datetime.datetime.now().strftime('%H')
-    push_token = os.environ["push_token"]
+    webhook_token = os.environ['QYWX_KEY']
     if start_time == '01':
         print('开始领取签到奖励')
         sign()
@@ -167,4 +160,5 @@ if __name__ == '__main__':
         time.sleep(random.randint(1, 4))
         print('开始推送信息')
         message=jsjd()
-        push_plus_bot(f"5斤六鳌蜜薯{message}",push_token)
+        webhook(f"网易已选:\n5斤六鳌蜜薯{message}",webhook_token)
+
