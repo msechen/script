@@ -92,7 +92,7 @@ class LiteEarnCoins extends Template {
           isTaskLimit,
           taskCompletionLimit,
           taskCompletionProgress,
-        } = _.property('data.taskInfo')(rewardPaymentData);
+        } = _.get(rewardPaymentData, 'data.taskInfo', {});
         if (isTaskLimit === 1 || !taskCompletionLimit) return;
         if (taskCompletionProgress < taskCompletionLimit) return doTask(activeType);
       }
