@@ -2,7 +2,7 @@ let mode = __dirname.includes('magic')
 const {Env, notify} = mode ? require('./magic') : require('./magic')
 const $ = new Env('M微定制');
 //支持id和url两种
-let activityId = decodeURIComponent(process.argv.splice(2)?.[0] || '') || process.env.WDZactivityId || '';
+let activityId = decodeURIComponent(process.argv.splice(2)?.[0] || '') || process.env.M_WX_WDZ_ID || '';
 if (mode) {
     activityId = '90d69af91c4d46f881e7bec083821c56'
 }
