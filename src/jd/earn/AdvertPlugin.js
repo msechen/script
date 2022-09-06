@@ -37,8 +37,10 @@ class EarnAdvertPlugin extends Earn {
 
     const targetCookieTimes = getEnv('JD_EARNADVERTPLUGIN_TARGET_INVITEID_INDEX');
     if (_.isNil(targetCookieTimes)) return api.log('未配置 JD_EARNADVERTPLUGIN_TARGET_INVITEID_INDEX');
-    if (targetCookieTimes === api.currentCookieTimes) return;
-    const inviteId = getEnv('JD_EARNADVERTPLUGIN_INVITEID', targetCookieTimes);
+    let inviteId = getEnv('JD_EARNADVERTPLUGIN_INVITEID', targetCookieTimes);
+    if (targetCookieTimes === api.currentCookieTimes) {
+      inviteId = getEnv('JD_EARNADVERTPLUGIN_OTHER_INVITEID');
+    }
     if (!inviteId) return api.log('获取不到指定的 JD_EARNADVERTPLUGIN_INVITEID');
 
     await self.beforeRequest(api);
