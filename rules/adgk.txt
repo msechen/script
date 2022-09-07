@@ -1,50 +1,62 @@
-! Version: 20220731002932
+! Version: 20220902085332
 ! Title: adgk手机去广告规则
 ! Homepage: https://github.com/banbendalao/ADgk
 ! by: 坂本dalao
-.gif$domain=787ck.cc
-||acoossu.top
-||mm2ah.com
-||ak-d.tripcdn.com
-||19273817.com
-||u0065.com
-||787ck.cc/static/js/home.js
-||kveww.com
-||kveii.com
-||19719197.com
+m.douyu.com##a.DownloadBtn
+||hapying.com
+||ilkwork.com
+||sensors.ibreader.com
+||jianshu.com/asimov/pdd_ads
+||udiab2.jianshu.com
+||tbsone.imtt.qq.com
+||qzonestyle.gtimg.cn/qzone/space_item/material/PolymorphicPraise
+||hd30.jiarui666.cn/api/ad
+||uty.micocc.com/api/ad
+||https://hapying.com
+||https://ilkwork.com
+||https://sensors.ibreader.com
+||https://jianshu.com/asimov/pdd_ads
+||https://udiab2.jianshu.com
+||https://tbsone.imtt.qq.com
+||https://qzonestyle.gtimg.cn/qzone/space_item/material/PolymorphicPraise
+||https://hd30.jiarui666.cn/api/ad
+||https://uty.micocc.com/api/ad
+||https://tsearch.snssdk.com
+||https://cis.sohu.com
+||https://fpb0.sohu.com
+||https://gsp0.baidu.com
+||https://profile.csdnimg.cn
+||https://blog.csdn.net//phoenix/web/v2/skill-tree-info?
+||https://biquger.net/donlod
+||https://metheny.cn
+||https://paradisemall.net
+||https://fzchpos.com
+||https://vjksa.com
+||https://huoxingtan66.com
+||https://eclmy.vip/static/js/fc.js
+||https://eclmy.vip/static/js/xf.js
+||https://ymdxl.com
 ||https://acoossu.top
-||https://mm2ah.com
 ||https://ak-d.tripcdn.com
-||https://19273817.com
-||https://u0065.com
 ||https://787ck.cc/static/js/home.js
-||https://kveww.com
-||https://kveii.com
-||https://19719197.com
-||https://u0067.com
 ||https://kvhrrr.top
 ||https://apissl.xinweiyun.com/weixin/index.php/books/check_shop_closed_AD
 ||https://api.lewen123.net/new/app.js
 ||https://lwxs99.cc
-||https://h45pmx1.cn
 ||https://gayide.com
 ||https://zongzuhulian.com
 ||https://api.league.kaomeile.net:9002/api/v1/league/ad
 ||https://www.tz659.com/js/cdn.js
-||https://gdt.qq.com
 ||https://m2.yqxs.cc/js
 ||https://r.m.duyidu.net
 ||https://banzhu111.xyz/js/51.js
 ||https://banzhu111.xyz/js/cdn.js
-||https://3qz8c.site
 ||https://21gebd.store
 ||https://j05ot.online
 ||https://tslomhfys.com
 ||https://2cnjuh34jbpoint.com
 ||https://dlfvgndsdfsn.com
-||https://ssjy.shop
 ||https://tj.banzhu111.xyz
-||https://chaochaogege.net
 ||https://www.baidu.com/splg/s.gif?
 ||https://qhres2.com
 ||https://bluematrixs.com
@@ -65,7 +77,6 @@
 ||https://pinduoduo.com/ad
 ||https://kb-render.alicdn.com
 ||https://523332.com/Uploads/dip
-||https://812633.com
 ||https://r-log.dable.io
 ||https://pixanalytics.com
 ||https://pixanalytics.pixnet.net
@@ -164,7 +175,6 @@
 ||https://yijiafangzhi.cn
 ||https://uni69.top
 ||https://static-img.threatbook.cn
-||https://sanme2.lanzoui.com
 ||https://glores2.lanzoui.com
 ||https://zhihuiduijian.com
 ||https://coolapk.com/v6/feed/detail?$replace=/include_goods//
@@ -186,7 +196,6 @@
 ||https://sdlmhb.com
 ||https://97bike.com
 ||https://daxiu01.oss-accelerate.aliyuncs.com
-||https://hylmkele.com
 ||https://vmonitor.ws.netease.com
 ||https://3g.163.com/wap/special/flow-advertize-new
 ||https://kowqd9.top
@@ -426,7 +435,6 @@
 ||https://kebi1.top
 ||https://jsyunmi.com
 ||https://tjmzzk.com
-||https://fuoo1.top
 ||https://bangrongjinfu.com
 ||https://po18.in
 ||https://nuaaad.cn
@@ -456,7 +464,6 @@
 ||https://pangolin-sdk-toutiao-b.com
 ||https://gtimg.cn/*_ad
 ||https://log.kaayun.com
-||https://xlgtblj.cn
 ||https://log.m.sm.cn
 ||https://log-api.pangolin-sdk-toutiao.com
 ||https://newlog.reader.qq.com
@@ -551,7 +558,6 @@
 ||https://10010.com/mobileService/customer/getTenxuAdvConfig.htm
 ||https://m.client.10010.com/small_video/myLiveList
 ||https://m.client.10010.com/finderInterface
-||https://bde4.cc/js/aes.js
 ||https://rijutv.com/statics/skin/hjtv-wap/js/plus.js?
 ||https://rijutv.com/statics/ajs/alltj.js
 ||https://c.mse.360.cn
@@ -882,7 +888,6 @@
 ||https://155game.com
 ||https://1588aa.com 
 ||https://158aq.com
-||https://168.it168.com $script
 ||https://168ad.cc
 ||https://170mv.com/tool/code/$script
 ||https://17173cdn.com/a/lib/vda/seed.
@@ -951,7 +956,6 @@
 ||https://33tui.com 
 ||https://34nh.com/go.js
 ||https://34nh.com/pv.js
-||https://360366.net 
 ||https://360che.com/article2014/AjaxAD.ashx?
 ||https://360kaixin.com
 ||https://360shuoshuo.com/templets/js/shuo.js
@@ -981,7 +985,6 @@
 ||https://4399.com/js/rice/m.js
 ||https://4466.com/4466/
 ||https://44hd.cc/js/$script
-||https://44pv.com 
 ||https://46pj.com/go.js
 ||https://46pj.com/nr.js
 ||https://504pk.com
@@ -1034,8 +1037,6 @@
 ||https://66wen.com
 ||https://66ys.cc/d/$script,document
 ||https://6788787.com
-||https://6789.net 
-||https://67lm.com 
 ||https://685wo.com
 ||https://69shi.cn/p.php?id=
 ||https://69shu.org/cnm.js
@@ -1044,11 +1045,9 @@
 ||https://70e.com  ,~script
 ||https://70yst.com
 ||https://7116966.com
-||https://7540.com 
 ||https://7759.com
 ||https://777g.me/cs$script
 ||https://778669.com
-||https://7794.com 
 ||https://77kp.com/jquery/banners-
 ||https://77kpw.cc/pc/?wz=
 ||https://77u.com
@@ -1070,7 +1069,6 @@
 ||https://86fm.com
 ||https://8794.cn/js/mx
 ||https://88210212.com
-||https://8881919.cc
 ||https://88cpc.com
 ||https://88ng.com
 ||https://8989u.com 
@@ -1096,7 +1094,6 @@
 ||https://937785.com
 ||https://937791.com
 ||https://9377ne.com
-||https://941adu.com 
 ||https://9519.net
 ||https://963fc.com
 ||https://9669.cn/js/jquery.flash.min.js
@@ -1134,17 +1131,13 @@
 ||https://adman.henghost.com/data/forum-
 ||https://admapp.com 
 ||https://admarket.mobi
-||https://admin6.com 
 ||https://admin60.com
 ||https://adnetworkperformance.com
 ||https://adnium.com
-||https://adnow.cc 
 ||https://adnxs.com
-||https://adpro.cn 
 ||https://ads80.com
 ||https://adsage.com
 ||https://adsame.com
-||https://adsbang.top
 ||https://adsclick.qq.com
 ||https://adse.ximalaya.com
 ||https://adsfactor.net
@@ -1158,18 +1151,14 @@
 ||https://adsymptotic.com
 ||https://adszui.com
 ||https://adultfriendfinder.com
-||https://adunite.com 
 ||https://adview.cn
 ||https://adwo.com
 ||https://adxiaozi.com
 ||https://adxiny.com
 ||https://adxpansion.com
-||https://adyun.com 
 ||https://adzerk.net
-||https://agrantsem.com 
 ||https://aidaicn.com
 ||https://aidata.me 
-||https://aimato.com 
 ||https://aimg.shangdu.com/$script,image
 ||https://aipai.com/rsd/
 ||https://aishang.bid
@@ -1230,7 +1219,6 @@
 ||https://bjtrld.com
 ||https://blkxszh.com/zj/
 ||https://blogad.com.tw 
-||https://bloggerads.net 
 ||https://bmw100.cn
 ||https://bnet.com
 ||https://bnuni.com
@@ -1272,11 +1260,8 @@
 ||https://cdgjxt.com
 ||https://cdn.zampdsp.com/static/scripts/
 ||https://cdnads.com
-||https://cdnjsp.wang
-||https://chanet.com.cn 
 ||https://chatango.com/js/gz/emb.js
 ||https://cheer.cjoy.com.cn
-||https://chengruide.com 
 ||https://chinaih.com
 ||https://chinanews.com.cn/ad201$object
 ||https://chinauma.net
@@ -1330,7 +1315,6 @@
 ||https://csbew.com 
 ||https://cshlgg.com
 ||https://ctfile.com/mydisplay.php?
-||https://ctrhfd.top
 ||https://cupid.iqiyi.com/mixer?a*=qc_100001_100
 ||https://cupid.ptqy.gitv.tv/mixer?ap=
 ||https://cy123.cc
@@ -1354,7 +1338,6 @@
 ||https://dazhantai.com
 ||https://dbncp.com 
 ||https://dbys.tv/Runtime/js/sj_$script
-||https://dcxmy.com 
 ||https://de.pandora.xiaomi.com
 ||https://delivery.impressionmonster.com/sync.php
 ||https://deployads.com
@@ -1365,7 +1348,6 @@
 ||https://dhtdig.xyz/static/js/dht_default.js
 ||https://dian500.com
 ||https://dian5000.com
-||https://dianxin.com 
 ||https://dianyilm.com
 ||https://diediao123.com/js/db.js
 ||https://dilidili.wang/images/shouye/h5game_a.js
@@ -1400,7 +1382,6 @@
 ||https://dvb.pandora.xiaomi.com
 ||https://dxwhyp.com
 ||https://dy2018.com/e/public/ViewClick/?classid=
-||https://dyhs52.com 
 ||https://dyscb.cn 
 ||https://dytt8.net/js$script
 ||https://dzz8.com/public/ptcms/s_wap_novelsearch_chapter_read.js
@@ -1429,10 +1410,8 @@
 ||https://fd173.cn/fzent/*ad$script
 ||https://feesee.com
 ||https://feidalu.com 
-||https://feitian001.com 
 ||https://feng.com/adg.js
 ||https://fenghuaju.cc/3744tj
-||https://fengxiangstore.com 
 ||https://fengyx.com
 ||https://fhoa365.com
 ||https://finead.cn
@@ -1440,7 +1419,6 @@
 ||https://fjxyo.com
 ||https://flunion.cn
 ||https://flzyw.com/js/foot.js
-||https://food5.net 
 ||https://fotao9.com $script
 ||https://fqceyqo.com
 ||https://free-rc.com
@@ -1452,8 +1430,6 @@
 ||https://g-ec4.images-amazon.com 
 ||https://g.haofan005.com
 ||https://g3.letv.com
-||https://g35.cc 
-||https://g3user.com 
 ||https://gallery.pandora.xiaomi.com
 ||https://game.65pk.net $script
 ||https://game2.cn 
@@ -1468,7 +1444,6 @@
 ||https://gaoqingyy.net/hengfutupian/$script
 ||https://gbwzrcymfmvym.bid
 ||https://gdmm.com/public/config/couplet/index$script
-||https://gdsqwy.org
 ||https://gedawang.com
 ||https://gege.la/template/skin1/images/g_js/
 ||https://genieessp.com
@@ -1481,7 +1456,6 @@
 ||https://glb.clouddn.com/dianyingbar
 ||https://gma1.com
 ||https://gmbuluo.com/js/
-||https://gnmbd.top
 ||https://goods.tudou.com
 ||https://googletagservices.com/dcm/dcmads.js
 ||https://googletagservices.com/tag/js/gpt.js$script
@@ -1501,7 +1475,6 @@
 ||https://haha.9ku.com/public/home/js/baidu
 ||https://hailiao520.com
 ||https://hainei.org/union/
-||https://haiyunx.com 
 ||https://haizhangs.com
 ||https://hanaa.cn
 ||https://hanzify.org/Main/Template/Images/ak47/$image
@@ -1598,7 +1571,6 @@
 ||https://jb51.net/skin/office/js/botad.js
 ||https://jebe.renren.com
 ||https://jebe.xnimg.cn
-||https://jeepyy.com 
 ||https://jellyfish.pandora.xiaomi.com
 ||https://jfy-stone.cn
 ||https://jfzx.tv/js/sb/
@@ -1615,17 +1587,11 @@
 ||https://jisiedu.com $script
 ||https://jisucn.com
 ||https://jiudianhudong.com
-||https://jiuku.cc
-||https://jiuzhilan.com 
 ||https://jiuzhouav.com/top.js
-||https://jixing8.com 
-||https://jixing8.net 
 ||https://jjxsw.com/js/common.js
 ||https://jjyx.com
-||https://jkjjkj.top
 ||https://jkzlzx.com
 ||https://jlrfx.com $script
-||https://jntmedia.cn 
 ||https://jnyngg.cn 
 ||https://jp88.cc
 ||https://jpav.date $script
@@ -1639,7 +1605,6 @@
 ||https://ju33.com
 ||https://jufenglc.com
 ||https://jugao.com
-||https://juhepen.com 
 ||https://juhepen.com/getadvcode.php?id=
 ||https://juhuisuan.com 
 ||https://junshidao.com/diannao.js
@@ -1661,7 +1626,6 @@
 ||https://kawa11.space
 ||https://kcxmsb.com
 ||https://kcxsyz.com
-||https://kefeng56.com 
 ||https://kejet.net
 ||https://kekenet.com/Images/2013/$image
 ||https://kewaishu.info/js/yuedu$script
@@ -1673,7 +1637,6 @@
 ||https://kjcenter.com 
 ||https://knet.cn 
 ||https://kongbao858.com
-||https://koopei.com 
 ||https://koowo.com
 ||https://kouclo.com
 ||https://krpano.org
@@ -1703,7 +1666,6 @@
 ||https://linzhangxian.com
 ||https://liveadexchanger.com
 ||https://liveadvert.com
-||https://llqss.top
 ||https://lndjj.com
 ||https://lnfund.org.cn
 ||https://lnymd.com
@@ -1721,7 +1683,6 @@
 ||https://lwdown.com/user08/index_top
 ||https://lwtxt.net/gaogao/
 ||https://lz13.cn/THEMES/shouji/TEMPLATE/js/ms.js
-||https://lzwla.top
 ||https://m.1200ksw.com/00ksw/script/wap2.js
 ||https://m.733dm.net/skin/all_m.js
 ||https://m.733dm.net/skin/new-f.js
@@ -1746,7 +1707,6 @@
 ||https://manyou.com
 ||https://masdsmt.com
 ||https://maxreturn.cn
-||https://mbai.cn 
 ||https://media.news18a.com/js/ ,script
 ||https://media8.cn
 ||https://mediav.com 
@@ -1767,9 +1727,7 @@
 ||https://moe.la/images/banner/$image
 ||https://moogos.com $script
 ||https://mosa86.com
-||https://mp4.res.hunantv.com
 ||https://msypr.com
-||https://mtburn.com 
 ||https://mtmob.com 
 ||https://mtxsk.com
 ||https://music.163.com/eapi/ad
@@ -1798,7 +1756,6 @@
 ||https://niuza.com/kd/
 ||https://nkeo.top
 ||https://nmbtedu.com
-||https://nord-raum.com 
 ||https://notice.game.xiaomi.com
 ||https://nuffnang.com.cn 
 ||https://nvwlm.com 
@@ -1942,7 +1899,6 @@
 ||https://shouliang.52lvgucci.com
 ||https://shouyoutan.com/Runtime/js/$script
 ||https://show.qx15.com
-||https://shuihulu.com 
 ||https://shumilou.co/style/head.js
 ||https://siluke.tw/js/count.js
 ||https://sina.com.cn/iframe/76/$document
@@ -2077,7 +2033,6 @@
 ||https://uid.mdbchina.com
 ||https://uil.cbs.baidu.com 
 ||https://ujian.cc
-||https://unimhk.com 
 ||https://union001.com
 ||https://union009.com
 ||https://union178.com
@@ -2088,7 +2043,6 @@
 ||https://unionsky.cn
 ||https://unionsky2.cn
 ||https://up.qingdaonews.com
-||https://usingde.com 
 ||https://uucm.cn
 ||https://uvcourse.net
 ||https://uyunad.com
@@ -2113,7 +2067,6 @@
 ||https://wap.2f.com
 ||https://warting.com/plus/hezuo.php?aid=
 ||https://wbapp.mobile.sina.cn
-||https://wcnmd.top
 ||https://weareqy.com
 ||https://web.kuaiwan.com
 ||https://weddingeeos.com
@@ -2170,7 +2123,6 @@
 ||https://xayjr.cn
 ||https://xbiquge.net/3744tj
 ||https://xcycm.com
-||https://xdwan.com 
 ||https://xe2c.com
 ||https://xfvcd.com/js/dd/$script
 ||https://xhbqczl.com 
@@ -2230,11 +2182,8 @@
 ||https://yaonilugg.com
 ||https://ycmedia.cn 
 ||https://ydbbs.us/js/
-||https://ydcpc.com 
-||https://ye3.com 
 ||https://yengo.com
 ||https://yeyoubbs.com/fang/ad
-||https://yezilm.com 
 ||https://yfi8.com
 ||https://ygdy8.com/js$script
 ||https://yhzm.cc 
@@ -2274,7 +2223,6 @@
 ||https://yu0123456.com
 ||https://yunluge.com
 ||https://yupan.cc/asd/731.gif$image
-||https://yuu360.com 
 ||https://yuunion.com
 ||https://yuyueyang.cn
 ||https://yx-w.com/1122in/$script
@@ -2306,7 +2254,6 @@
 ||https://zjbdt.com
 ||https://zjzj11.com/js/$script
 ||https://zkvivi.com/skin/wxc.js
-||https://ztdsp.com 
 ||https://zuanke123.com
 ||https://zuche321.com
 ||https://zx98.com/mm/$script
@@ -2341,7 +2288,6 @@
 ||https://static.m.sjzhushou.com $app=com.xunlei.downloadprovider
 ||https://acd.op.hicloud.com $app=com.huawei.hwvplayer.youku
 ||https://sdkserver.op.hicloud.com/sdkserver $app=com.huawei.hwvplayer.youku
-||https://b.qchannel03.cn/n $app=com.huawei.hwvplayer.youku
 ||https://data.hicloud.com:8089 $app=com.huawei.hwvplayer.youku
 ||https://videoservice.hicloud.com/videohome/v3 $app=com.huawei.hwvplayer.youku
 ||https://v.irs01.com/hvt-cfg $app=com.huawei.hwvplayer.youku
@@ -2351,8 +2297,6 @@
 ||https://openapi.youku.com/router $app=com.huawei.hwvplayer.youku
 ||https://openapi-mobile.youku.com/statis $app=com.huawei.hwvplayer.youku
 ||https://videoservice.hicloud.com/videohome $app=com.huawei.hwvplayer.youku
-||https://pmptrack-youku.gentags.net/youku $app=com.huawei.hwvplayer.youku
-||https://pyk.imrworldwide.com/cgi-bin $app=com.huawei.hwvplayer.youku
 ||https://cpull.360.cn/is_need_ad
 ||https://yb6.me/img/VY9F
 ||https://wx4.sinaimg.cn/mw690 $app=com.xxx.svideo
@@ -2415,7 +2359,6 @@
 ||https://i.l.inmobicdn.cn/adtools
 ||https://appwk.baidu.com/naapi/api/updatesetting$app=com.baidu.yuedu
 ||https://techain.baidu.com/plugin/v1 $app=com.baidu.yuedu
-||https://fms.ipinyou.com $app=com.baidu.yuedu
 ||https://wen.miaoceshi.com/img/*.gif
 ||https://mx.adrtb.net/backstage 
 ||https://www.lanzous.com/includes/js 
@@ -2632,7 +2575,6 @@
 ||https://pic0.iqiyipic.com/common/*/*.jpg
 ||https://api.weibo.cn/2/push 
 ||https://m.cr173.com/img
-||https://t2.612.com
 ||https://m.cr173.com/impor/dui.txt
 ||https://m.cr173.com/skin/?f=count.js&p=js
 ||https://upload.jianshu.io/admin/splash_screen_images
@@ -2716,7 +2658,6 @@
 ||https://ads-
 ||https://quanliyouxi.cn
 ||https://xxguan.cn
-||https://ipinyou.com
 ||https://mct01.com
 ||https://rdtuijian.com
 ||https://tatagou.com.cn
@@ -3014,7 +2955,6 @@
 ||https://exp.bdstatic.com/static/common-jquery
 ||https://norma-external-collect.meizu.com $app=com.xunlei.downloadprovider
 ||https://wap.kanmaoxian.com/js/xx.js
-||https://wtradv.market.xiaomi.com
 ||https://e.vjuei.com
 ||https://m.micaitu.com/js
 ||https://live.simcitybuildit.com
@@ -3025,7 +2965,7 @@
 ||https://msite.baidu.com/sdk
 ||https://lg.nvlangre.com/js/db
 ||https://vp.html5.qq.com
-||https://.weixingshexiangji.net
+||https://weixingshexiangji.net
 ||https://mp.weixin.qq.com/tp
 ||https://sngapm.qq.com
 ||https://badjs.weixinbridge.com
@@ -3602,7 +3542,6 @@
 ||https://yoyue.net
 ||https://zcnnn.com
 ||https://zhiad.com
-||https://zhlala.com
 ||https://zhushicm.com
 ||https://zzm.cn
 ||https://shence.hupu.com
@@ -4735,6 +4674,7 @@
 ||https://bkcommdata.v.qq.com
 ||https://irs03.com
 ||https://quancee.top
+||https://adimg.163.com
 ||https://analytics.163.com
 ||https://u.oppomobile.com
 ||https://xmaterial.tu.qq.com
@@ -5049,6 +4989,7 @@
 @@||sohu.com/cityjson
 @@||browser.cloud.ucweb.com
 @@||feed.mix.sina.com.cn
+||https://m.douyu.com##a.DownloadBtn
 ||https://m.qidian.com##.read-author-say.jsAuthorSay
 ||https://m.qidian.com##div[id*="chapterEndModule_"]
 ||https://m.qidian.com###readTopTip
@@ -5828,7 +5769,6 @@
 ||https://douban.com###dale_movie_subject_middle_right,#dale_movie_subject_top_right,#dale_movie_subject_bottom_super_banner,#dale_movie_home_top_right,#dale_movie_homepage_bottom
 ||https://doubean.com##.ad-block-960
 ||https://doupapa.com,dpp2019.com##.ad-body,.couplet_9cb0d,.dibu_9cb0d
-||https://douyu.com##[class$="-sign-cont"],[class*="-ad"]
 ||https://douyutv.com,douyu.com,douyutv.wasu.cn##div.dy_bottom_gg,div.chat-right-ad,div#chat-top-ad,a.ad_shadow,div.lol_ad,div.lol-ad,div.offi_ad,div.other_ad,div.dy_top_gg,[class$=" sign_posid"],div.lyzm-prevent,div.bglink,#downwrapper,[class ="room-ad-"],.no-login,.chat-top-ad,.tab-content.promote,.vcode9-sign,[class="row row-3"],[class="super-rmd-bg tggcontrol"],[class ="hot-sign-"],[class ="theatre-"],[data-type="dyrec"],[data-dysign-adid]
 ||https://down.admin5.com##div#a22
 ||https://down12.com###btm-union,.fst,[class ="adr-ist-"],.adr-rt
@@ -8004,7 +7944,6 @@
 ||https://aliyun.com##banner-wrap
 ||https://xiaojianjian.net##div.a0d-m.a0d-site
 ||https://bing.com###BottomAppPro
-||https://5pys6KeE5YiZ5Li66YW35a6JQOWdguacrGRhbGFvIOaJgOacie+8jOemgeatouacque7j+aOiOadg+eahOi9rOi9ve+8jOS6jOaUuQ==
 ||https://loufeng01.com###fuchang
 ||https://m.qu.la###chaptercontent > p
 ||https://m.qu.la##dfn.MjAxNQ
