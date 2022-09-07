@@ -260,6 +260,29 @@ function addMosaic(str, options) {
   return str.substring(0, prefix) + Array(mosaicL).fill(mosaic).join('') + str.substring(str.length - suffix);
 }
 
+/**
+ * @description 格式化完整路径
+ * @param config {Object}
+ * @param action {String}
+ * @return {String}
+ */
+function formatFullPath(config, action) {
+  /**
+   * @description 扁平化 path object
+   * @param config {Object}
+   * @param prefixPaths {Array}
+   * @return {FlatArray<Array|String>}
+   */
+  const flattenPath = (config, prefixPaths = []) =>
+    _.flattenDeep(_.map(config, (actions, resource) =>
+      _.map(actions, action =>
+        _.isString(action)
+          ? _.concat(prefixPaths, resource, action).join('/')
+          : flattenPath(action, _.concat(prefixPaths, resource)))));
+
+  return flattenPath(config).find(str => str.endsWith(action)) || action;
+}
+
 (function initProcessExit() {
   process.on('exit', function () {
     process.emit('beforeExit');
@@ -310,4 +333,6 @@ module.exports = {
   downloadFile,
 
   addMosaic,
+
+  formatFullPath,
 };

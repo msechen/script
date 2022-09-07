@@ -76,6 +76,7 @@ const Factory = TemporarilyOffline || require('./jd/wfh/Factory');
 const SuperBox = TemporarilyOffline || require('./jd/superBox');
 const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
 const Moxigame = require('./jd/moxigame');
+const PointsGasStation = require('./jd/dwapp/PointsGasStation');
 
 /* 极速版 */
 const LiteSpringReward = TemporarilyOffline || require('./jd/lite/SpringReward');
@@ -134,6 +135,7 @@ async function main() {
     Earn,
     GoldCreator,
     Factory,
+    PointsGasStation,
   ];
   // 极速版
   const lites = [
