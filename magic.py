@@ -64,11 +64,20 @@ monitor_auto_stops = properties.get("monitor_auto_stops")
 logger.info(f"监控的自动停车-->{monitor_auto_stops}")
 
 if properties.get("proxy"):
-    proxy = {
-        'proxy_type': properties.get("proxy_type"),
-        'addr': properties.get("proxy_addr"),
-        'port': properties.get("proxy_port")
-    }
+    if properties.get("proxy_type") == "MTProxy":
+        proxy = {
+            'addr': properties.get("proxy_addr"),
+            'port': properties.get("proxy_port"),
+            'proxy_secret': properties.get('proxy_secret', "")
+        }
+    else:
+        proxy = {
+            'proxy_type': properties.get("proxy_type"),
+            'addr': properties.get("proxy_addr"),
+            'port': properties.get("proxy_port"),
+            'username': properties.get('proxy_username', ""),
+            'password': properties.get('proxy_password', "")
+        }
     client = TelegramClient("magic", api_id, api_hash, proxy=proxy, auto_reconnect=True, retry_delay=1, connection_retries=99999).start()
 else:
     client = TelegramClient("magic", api_id, api_hash, auto_reconnect=True, retry_delay=1, connection_retries=99999).start()
