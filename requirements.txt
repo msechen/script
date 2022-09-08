@@ -1,0 +1,13 @@
+beautifulsoup4==4.11.1
+certifi @ file:///C:/Windows/TEMP/abs_e9b7158a-aa56-4a5b-87b6-c00d295b01fanefpc8_o/croots/recipe/certifi_1655968940823/work/certifi
+charset-normalizer==2.1.1
+idna==3.3
+lxml==4.9.1
+ntchat==0.1.11
+pyee==9.0.4
+requests==2.28.1
+soupsieve==2.3.2.post1
+typing_extensions==4.3.0
+urllib3==1.26.12
+wincertstore==0.2
+xcgui==0.1.5
