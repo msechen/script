@@ -11,7 +11,7 @@
     "proxy_username": "",
     "proxy_password": "",
     "proxy_secret": "如果proxy_type是MTProxy,则该值必填",
-    "log_path": "/jd/log",
+    "log_path": "/ql/log",
     "log_send": true,
     "log_send_id 你日志要发给谁就填谁id": 1,
     "log_send_id": -1657544,
@@ -54,7 +54,7 @@
         "M_WX_TEAM_URL": {
             "name": "M组队瓜分京豆",
             "task 就是你面板上的那个任务，想怎么写就怎么写 或者 你手动怎么执行就怎么写": 1,
-            "task": "jtask /jd/scripts/m_jd_wx_team.js now",
+            "task": "task /ql/scripts/m_jd_wx_team.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_TEAM_URL",
@@ -62,7 +62,7 @@
         },
         "M_WX_TEAM_JF_URL": {
             "name": "M组队瓜分积分",
-            "task": "jtask /jd/scripts/m_jd_wx_team.js now",
+            "task": "task /ql/scripts/m_jd_wx_team.js now",
             "wait": 0,
             "queue": true,
             "queue_name": "M_WX_TEAM_JF_URL",
@@ -70,7 +70,7 @@
         },
         "M_WX_LEVEL_BIRTH_URL": {
             "name": "M等级生日礼包",
-            "task": "jtask /jd/scripts/m_jd_wx_levelBirth.js now",
+            "task": "task /ql/scripts/m_jd_wx_levelBirth.js now",
             "wait": 5,
             "queue": true,
             "queue_name": "M_WX_LEVEL_BIRTH_URL",
@@ -78,7 +78,7 @@
         },
         "M_JOY_INVITE_URL": {
             "name": "M邀请有礼JOY",
-            "task": "jtask /jd/scripts/m_jd_joy_invite.js now",
+            "task": "task /ql/scripts/m_jd_joy_invite.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_JOY_INVITE_URL",
@@ -86,7 +86,7 @@
         },
         "M_WX_KNOWLEDGE_URL": {
             "name": "知识超人",
-            "task": "jtask /jd/scripts/m_jd_wx_knowledge.js now",
+            "task": "task /ql/scripts/m_jd_wx_knowledge.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_KNOWLEDGE_URL",
@@ -94,7 +94,7 @@
         },
         "M_LOREAL_INVITE_URL": {
             "name": "M邀请有礼LOREAL",
-            "task": "jtask /jd/scripts/m_jd_loreal_invite.js now",
+            "task": "task /ql/scripts/m_jd_loreal_invite.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_LOREAL_INVITE_URL",
@@ -102,7 +102,7 @@
         },
         "M_WX_ADD_CART_URL": {
             "name": "M加购有礼",
-            "task": "jtask /jd/scripts/m_jd_wx_addCart.js now",
+            "task": "task /ql/scripts/m_jd_wx_addCart.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_ADD_CART_URL",
@@ -110,7 +110,7 @@
         },
         "M_GYG_SHOP_ARGV": {
             "name": "M店铺刮奖",
-            "task": "jtask /jd/scripts/m_jd_shop_gyg.js now",
+            "task": "task /ql/scripts/m_jd_shop_gyg.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_GYG_SHOP_ARGV",
@@ -118,7 +118,7 @@
         },
         "M_SHOP_POINT_EXCHANGE_ARGV": {
             "name": "M店铺积分兑换",
-            "task": "jtask /jd/scripts/m_jd_shop_pointExchange.js now",
+            "task": "task /ql/scripts/m_jd_shop_pointExchange.js now",
             "wait": 0,
             "queue": true,
             "queue_name": "M_SHOP_POINT_EXCHANGE_ARGV",
@@ -126,7 +126,7 @@
         },
         "M_WX_LUCK_DRAW_URL": {
             "name": "M幸运抽奖",
-            "task": "jtask /jd/scripts/m_jd_wx_luckDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_luckDraw.js now",
             "wait": 10,
             "queue": true,
             "queue_name": "M_WX_LUCK_DRAW_URL",
@@ -134,7 +134,7 @@
         },
         "M_WX_COMPLETE_DRAW_URL": {
             "name": "M完善有礼",
-            "task": "jtask /jd/scripts/m_jd_wx_completeDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_completeDraw.js now",
             "wait": 30,
             "queue": true,
             "queue_name": "M_WX_COMPLETE_DRAW_URL",
@@ -142,7 +142,7 @@
         },
         "M_WX_CENTER_DRAW_URL": {
             "name": "M老虎机抽奖",
-            "task": "jtask /jd/scripts/m_jd_wx_centerDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_centerDraw.js now",
             "wait": 30,
             "queue": true,
             "queue_name": "M_WX_CENTER_DRAW_URL",
@@ -150,7 +150,7 @@
         },
         "M_WX_GAME_URL": {
             "name": "M无线游戏",
-            "task": "jtask /jd/scripts/m_jd_wx_game.js now",
+            "task": "task /ql/scripts/m_jd_wx_game.js now",
             "wait": 0,
             "queue": true,
             "queue_name": "M_WX_GAME_URL",
@@ -158,7 +158,7 @@
         },
         "M_WX_SHOP_GIFT_URL": {
             "name": "M关注有礼无线",
-            "task": "jtask /jd/scripts/m_jd_wx_shopGift.js now",
+            "task": "task /ql/scripts/m_jd_wx_shopGift.js now",
             "wait": 30,
             "queue": true,
             "queue_name": "M_WX_SHOP_GIFT_URL",
@@ -166,7 +166,7 @@
         },
         "M_WX_UNPACK_DRAW_URL": {
             "name": "M分享福袋",
-            "task": "jtask /jd/scripts/m_jd_wx_unPackDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_unPackDraw.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_UNPACK_DRAW_URL",
@@ -174,7 +174,7 @@
         },
         "M_WX_DAILY_GIFT_URL": {
             "name": "M每日领奖",
-            "task": "jtask /jd/scripts/m_jd_wx_dailyGift.js now",
+            "task": "task /ql/scripts/m_jd_wx_dailyGift.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_DAILY_GIFT_URL",
@@ -182,7 +182,7 @@
         },
         "M_WX_SHOP_SIGN_URL": {
             "name": "M签到有礼",
-            "task": "jtask /jd/scripts/m_jd_wx_shopSign.js now",
+            "task": "task /ql/scripts/m_jd_wx_shopSign.js now",
             "wait": 10,
             "queue": true,
             "queue_name": "M_WX_SHOP_SIGN_URL",
@@ -190,7 +190,7 @@
         },
         "M_WX_POINT_DRAW_URL": {
             "name": "M积分兑换",
-            "task": "jtask /jd/scripts/m_jd_wx_pointDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_pointDraw.js now",
             "wait": 0,
             "queue": true,
             "queue_name": "M_WX_POINT_DRAW_URL",
@@ -198,7 +198,7 @@
         },
         "M_WX_BUILD_DRAW_URL": {
             "name": "M盖楼领奖",
-            "task": "jtask /jd/scripts/m_jd_wx_buildDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_buildDraw.js now",
             "wait": 30,
             "queue": true,
             "queue_name": "DEFAULT_WX_QUEUE",
@@ -206,7 +206,7 @@
         },
         "M_WX_CARTKOI_URL": {
             "name": "M购物车锦鲤",
-            "task": "jtask /jd/scripts/m_jd_wx_cartKoi.js now",
+            "task": "task /ql/scripts/m_jd_wx_cartKoi.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_CARTKOI_URL",
@@ -214,7 +214,7 @@
         },
         "M_WX_SECOND_DRAW_URL": {
             "name": "M读秒手速",
-            "task": "jtask /jd/scripts/m_jd_wx_secondDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_secondDraw.js now",
             "wait": 10,
             "queue": true,
             "queue_name": "DEFAULT_WX_QUEUE",
@@ -222,7 +222,7 @@
         },
         "M_WX_FANS_DRAW_URL": {
             "name": "M粉丝互动",
-            "task": "jtask /jd/scripts/m_jd_wx_fansDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_fansDraw.js now",
             "wait": 30,
             "queue": true,
             "queue_name": "DEFAULT_WX_QUEUE",
@@ -230,7 +230,7 @@
         },
         "M_FAV_SHOP_ARGV": {
             "name": "M收藏有礼",
-            "task": "jtask /jd/scripts/m_jd_fav_shop_gift.js now",
+            "task": "task /ql/scripts/m_jd_fav_shop_gift.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_FAV_SHOP_ARGV",
@@ -238,7 +238,7 @@
         },
         "M_WX_FOLLOW_DRAW_URL": {
             "name": "M关注抽奖",
-            "task": "jtask /jd/scripts/m_jd_wx_followDraw.js now",
+            "task": "task /ql/scripts/m_jd_wx_followDraw.js now",
             "wait": 10,
             "queue": true,
             "queue_name": "M_WX_FOLLOW_DRAW_URL",
@@ -246,7 +246,7 @@
         },
         "M_FOLLOW_SHOP_ARGV": {
             "name": "M关注有礼",
-            "task": "jtask /jd/scripts/m_jd_follow_shop.js now",
+            "task": "task /ql/scripts/m_jd_follow_shop.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_FOLLOW_SHOP_ARGV",
@@ -254,7 +254,7 @@
         },
         "M_OPEN_CARD_ARGV": {
             "name": "M入会有礼",
-            "task": "jtask /jd/scripts/m_jd_open_card.js now",
+            "task": "task /ql/scripts/m_jd_open_card.js now",
             "wait": 0,
             "queue": true,
             "queue_name": "M_OPEN_CARD_ARGV",
@@ -262,7 +262,7 @@
         },
         "M_OPEN_CARD_FORCE_ARGV": {
             "name": "M强制入会",
-            "task": "jtask /jd/scripts/m_jd_open_card_force.js now",
+            "task": "task /ql/scripts/m_jd_open_card_force.js now",
             "wait": 0,
             "queue": true,
             "queue_name": "M_OPEN_CARD_FORCE_ARGV",
@@ -270,7 +270,7 @@
         },
         "M_WX_SHARE_URL": {
             "name": "M分享有礼",
-            "task": "jtask /jd/scripts/m_jd_wx_share.js now",
+            "task": "task /ql/scripts/m_jd_wx_share.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_SHARE_URL",
@@ -278,7 +278,7 @@
         },
         "M_WX_DADOUDOU_URL": {
             "name": "M打豆豆",
-            "task": "jtask /jd/scripts/m_jd_wx_dadoudou.js now",
+            "task": "task /ql/scripts/m_jd_wx_dadoudou.js now",
             "wait": 0,
             "queue": false,
             "queue_name": "M_WX_DADOUDOU_URL",
