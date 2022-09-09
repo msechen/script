@@ -45,8 +45,6 @@ class EarnJoinGroup extends Template {
     const shareCookieIndex = getEnv('JD_EARNJOINGROUP_SHARE_COOKIE_INDEX', 0, -1);
 
     if (shareCookieIndex < 0) return console.log('请手动指定 cookie index');
-    // TODO 获取当前是否是开团人
-    if (shareCookieIndex === api.currentCookieIndex) return;
 
     // 获取 active_id 和 group_id
     const result = formatRequest(originRequest);
@@ -94,6 +92,7 @@ class EarnJoinGroup extends Template {
         can_create_group_userlabel,
         can_join_group,
         can_join_group_userlabel,
+        no_join_group_reason,
       },
     } = await api.doGetPath('SuperFissionHomepage').then(_.property('data'));
 
@@ -102,7 +101,10 @@ class EarnJoinGroup extends Template {
     if (group_status === 3) {
       return log(`已成功`);
     }
-    if (can_join_group < can_join_group_userlabel || can_join_group === 0) {
+    if (no_join_group_reason === 10003) {
+      return log(`不可参加自己开的团`);
+    }
+    if (no_join_group_reason === 10004 || can_join_group < can_join_group_userlabel || can_join_group === 0) {
       return log(`已没次数参加`);
     }
     if (!prize_remain || !prize_enough) {
@@ -114,8 +116,14 @@ class EarnJoinGroup extends Template {
     if (!doTaskSucceed) return log('doTask 失败');
     await sleep(browse_task_duration + 2);
     // 参团
-    const joinGroupSucceed = await api.doGetPath('SuperFissionJoinGroup').then(self.isSuccess);
-    log(joinGroupSucceed ? '参团成功' : '参团失败');
+    await api.doGetPath('SuperFissionJoinGroup').then(data => {
+      if (self.isSuccess(data)) {
+        log('参团成功');
+      } else {
+        log(`参团失败(retcode: ${data.retcode}, msg: ${data.msg})`);
+      }
+    });
+
   }
 }
 
