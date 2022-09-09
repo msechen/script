@@ -1,9 +1,9 @@
 {
     "api_id": 3741859,
     "api_hash": "f81a30b542215b3d578",
-    "bot_id": 1657544667,
+    "bot_id": 1657667,
     "bot_token": "1657544667:AAGO7sit_k_0u_C1w7U",
-    "user_id": 951306588,
+    "user_id": 9513088,
     "proxy": true,
     "proxy_type": "socks5",
     "proxy_addr": "127.0.0.1",
@@ -14,7 +14,7 @@
     "log_path": "/jd/log",
     "log_send": true,
     "log_send_id 你日志要发给谁就填谁id": 1,
-    "log_send_id": 1657544667,
+    "log_send_id": -1657544,
     "monitor_cache_size": 100,
     "monitor_cars 是你要监控的对象，需要填上自己bot的id和线报频道或群组id": 1,
     "monitor_cars": [
