@@ -58,8 +58,6 @@ log_send = properties.get("log_send", True)
 log_send_id = properties.get("log_send_id")
 monitor_cars = properties.get("monitor_cars")
 logger.info(f"监控的频道或群组-->{monitor_cars}")
-monitor_scripts_path = properties.get("monitor_scripts_path")
-logger.info(f"监控的文件目录-->{monitor_scripts_path}")
 monitor_converters = properties.get("monitor_converters")
 logger.info(f"监控转换器-->{monitor_converters}")
 monitor_converters_whitelist_keywords = properties.get("monitor_converters_whitelist_keywords")
@@ -271,7 +269,7 @@ async def converter_handler(text):
         result = re.search(c_w_key, text)
         if result is not None:
             logger.info(f"无需转换 {text}")
-            return
+            return text
     logger.info(f"转换前数据 {text}")
     try:
         tmp_text = text
