@@ -28,6 +28,10 @@
     "monitor_black_keywords": [
         "(ShopToken)"
     ],
+    "monitor_converters_whitelist_keywords 不转换关键词基于正则表达式实现": 1,
+    "monitor_converters_whitelist_keywords": [
+        "(M_WX_)"
+    ],
     "monitor_converters 转换关键词基于正则表达式实现": 1,
     "monitor_converters": {
         "^(?=(.|\\n)*jd_zdjr_activityId)(?=(.|\\n)*cjhy)(.|\\n)*$": {
