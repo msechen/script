@@ -28,7 +28,7 @@ class StatisticsRedEnvelope extends Template {
     let redList = _.get(await getRedInfo(), 'useRedInfo.redList') || [];
     const redSorted = {
       jdApplet: {
-        limitName: /[京东购物小程序|京东商城]/,
+        limitName: /京东购物小程序|京东商城/,
         label: '京东购物小程序',
       },
       jd: {
@@ -46,11 +46,7 @@ class StatisticsRedEnvelope extends Template {
     };
     const getExpireTime = (day = 1) => {
       const nowMoment = getMoment();
-      if (day > 0) {
-        nowMoment.add(day, 'day');
-      } else {
-        nowMoment.subtract(day, 'day');
-      }
+      nowMoment.add(day, 'day');
       return nowMoment.set({
         h: 0,
         m: 0,
@@ -72,7 +68,7 @@ class StatisticsRedEnvelope extends Template {
     async function calculate(day) {
       Object.values(redSorted).forEach(o => {
         const {limitName, msgs = []} = o;
-        const targetReds = redList.filter(({orgLimitStr}) => limitName ? orgLimitStr.match(limitName) : !orgLimitStr).filter(({beginTime}) => beginTime < getExpireTime(-2));
+        const targetReds = redList.filter(({beginTime}) => beginTime < getMoment().valueOf() / 1000).filter(({orgLimitStr}) => limitName ? orgLimitStr.match(limitName) : !orgLimitStr);
         const number = sumRedList(targetReds);
         const expireReds = targetReds.filter(o => o['endTime'] < getExpireTime(day));
         const expire = sumRedList(expireReds);
