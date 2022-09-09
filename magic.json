@@ -53,7 +53,7 @@
     "monitor_scripts": {
         "M_WX_TEAM_URL": {
             "name": "M组队瓜分京豆",
-            "task 就是你面板上的那个任务，想怎么写就怎么写": 1,
+            "task 就是你面板上的那个任务，想怎么写就怎么写 或者 你手动怎么执行就怎么写": 1,
             "task": "jtask /jd/scripts/m_jd_wx_team.js now",
             "wait": 0,
             "queue": false,
