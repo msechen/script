@@ -1,5 +1,7 @@
 # 基于ntchat实现的简单微信机器人demo
 
+### [B站教程地址](https://www.bilibili.com/video/BV1E14y1e74D/)
+
 ### 功能
 - 查询天气
 - 解析抖音
