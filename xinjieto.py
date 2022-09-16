@@ -222,31 +222,6 @@ def get_info(token):
     # if response['code'] == 1:
 
 
-def get_exchange(token):
-    get_sign(token)
-    url = 'https://wechatsupport.seagate.cn/sg/api.member/exchange'
-    # response = requests.post(url=url, headers=headers).json()
-    time1 = str(int(time.time()))
-    v = '1.52'
-    sign = f'{v}{time1}{token}id%3D%3D42v%3D%3D1.52eb0a191797624dd3a48fa681d3061212'
-    md5 = hashlib.md5()
-    md5.update(sign.encode())
-    sign2 = md5.hexdigest()[0:32]
-    headers1 = {
-        # 'User-Agent': ua1,
-        'sign': sign2,
-        'time': time1
-    }
-    headers.update(headers1)
-    body = {
-        'id': '42',
-
-        'v': '1.52'
-    }
-
-    body = urlencode(body)
-    response = request_post(url, body).json()
-    pprint(response)
 
 
 if __name__ == '__main__':
@@ -259,8 +234,6 @@ if __name__ == '__main__':
             # 'time': time1
         }
         headers.update(headers1)
-
-        get_exchange(token)
         get_signin()
         page_list = get_page()
         get_watch_point(page_list)
