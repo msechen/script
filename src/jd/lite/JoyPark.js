@@ -89,20 +89,20 @@ class LiteJoyPark extends Template {
     const {invitePin, guideStep, fastBuyCoin, joyCoin} = await joyBaseInfo();
     await handleDoGuide();
 
-    if (currentLevel >= 30) {
-      api.log('已经满级, 请在app中进行兑换奖励');
-      return;
-    }
-
-    joyCoin > fastBuyCoin && await handleManageJoy();
+    currentLevel < 30 && joyCoin > fastBuyCoin && await handleManageJoy();
 
     await handleDoTask();
     await handleDoShare();
 
     if (self.isLastLoop()) {
-      self.lastTimeInTheDay() && await handleGetMyPrice();
+      await handleGetMyPrice();
 
       api.log(`当前等级${currentLevel}`);
+
+      if (currentLevel >= 30) {
+        // TODO 重新开始
+        // await api.doFormBody('joyRestart');
+      }
     }
 
     async function handleDoTask() {
