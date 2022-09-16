@@ -15,7 +15,7 @@ class CashApplet extends Template {
   static commonParamFn = () => ({});
   static activityEndTime = '';
   static doneShareTask = shareCookieIndex < 0;
-  static times = this.doneShareTask ? 1 : 2;
+  static times = this.doneShareTask ? 1 : 3;
   static cookieKeys = ['wq_uin', 'wq_skey'];
 
   static apiOptions = {
@@ -87,7 +87,7 @@ class CashApplet extends Template {
             }
           }
 
-          if (shareBodyData.inviteCode && self.isLastLoop() && shareBodyData.inviteCode !== inviteCode) {
+          if (shareBodyData.inviteCode && (self.currentTimes === 2) && shareBodyData.inviteCode !== inviteCode) {
             await api.doFormBody('redpack_limited_assist', shareBodyData).then(data => {
               api.log(`${shareBodyData.inviteCode}[${shareCookieIndex}] ${_.get(data, 'data.result.limitTimeAssist.tips')}`);
             });
