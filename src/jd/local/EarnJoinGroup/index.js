@@ -84,6 +84,7 @@ class EarnJoinGroup extends Template {
       },
       basic_group_info: {
         group_status,
+        is_member,
       },
       prize_enough,
       prize_remain,
@@ -100,6 +101,9 @@ class EarnJoinGroup extends Template {
 
     if (group_status === 3) {
       return log(`已成功`);
+    }
+    if (is_member === 1) {
+      return log(`已在团中, 无需重复参加`);
     }
     if (no_join_group_reason === 10003) {
       return log(`不可参加自己开的团`);
