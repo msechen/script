@@ -4,6 +4,8 @@ const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const {getMoment, getNowHour} = require('../../lib/moment');
 const _ = require('lodash');
 
+let maxGroupId = 0;
+
 class ExplorePlanet extends Template {
   static scriptName = 'ExplorePlanet';
   static scriptNameDesc = '卷民空间站';
@@ -33,7 +35,12 @@ class ExplorePlanet extends Template {
   };
 
   static async beforeRequest(api) {
-    const activityId = await api.doFormBody('explorePlanet_homePage', {'channel': '1'}).then(_.property('data.result.activityId'));
+    const activityId = await api.doFormBody('explorePlanet_homePage', {'channel': '1'}).then(data => {
+      const {activityId, startTime, endTime, exploreEndTime} = _.get(data, 'data.result', {});
+      if (!startTime || !activityId) return;
+      if (getMoment().isBefore(startTime) || getMoment().isAfter(endTime)) return;
+      return activityId;
+    });
     _.merge(api.options, {
       form: {body: {activityId}},
     });
@@ -76,6 +83,7 @@ class ExplorePlanet extends Template {
 
           const taskList = [].concat(componentTaskInfo, specialComponentTaskInfo);
           for (let {
+            taskDesc,
             taskStatus: status,
             taskId,
             maxTimes,
@@ -85,7 +93,7 @@ class ExplorePlanet extends Template {
             encryptProjectId,
             itemId,
           } of taskList) {
-            if (status === 3 || [].includes(taskId)) continue;
+            if (status === 3 || [].includes(taskId) || /会员/.test(taskDesc)) continue;
 
             let list = [{encryptTaskId, encryptProjectId, itemId}];
 
@@ -98,8 +106,10 @@ class ExplorePlanet extends Template {
                 groupId = _.get(data, 'data.result.groupId');
               });
             }
-            groupId && self.updateShareCodeFn(groupId);
+            self.updateShareCodeFn(groupId || api.currentCookieIndex);
+            maxGroupId = _.max([maxGroupId, api.currentCookieIndex]);
             for (const groupId of self.getShareCodeFn()) {
+              if (groupId <= maxGroupId) continue;
               await api.doFormBody('explorePlanet_assist', {groupId}).then(data => {
                 api.log(self.isSuccess(data) ? '助力成功' : _.get(data, 'data.biz_msg'));
               });
