@@ -82,9 +82,11 @@ class EarnJoinGroup extends Template {
           task_status,
         },
       },
+      group_info: {
+        is_member,
+      },
       basic_group_info: {
         group_status,
-        is_member,
       },
       prize_enough,
       prize_remain,
