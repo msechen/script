@@ -170,7 +170,8 @@ class LiteJoyPark extends Template {
     }
 
     async function handleGetMyPrice() {
-      const {gameBigPrizeVO, gamePrizeItemVos} = await api.doFormBody('gameMyPrize').then(getData);
+      const {gameBigPrizeVO, gamePrizeItemVos} = await api.doFormBody('gameMyPrize').then(getData) || {};
+      if (!gameBigPrizeVO) return;
       enableRestart = _.get(gameBigPrizeVO, 'prizeTypeVO.prizeUsed') === 3;
       gameBigPrizeVO['prizeName'] = gameBigPrizeVO['bigPrizeName'];
       gameBigPrizeVO['status'] = gameBigPrizeVO['topLevelStatus'];
