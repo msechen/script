@@ -8,11 +8,11 @@ let maxGroupId = 0;
 
 class ExplorePlanet extends Template {
   static scriptName = 'ExplorePlanet';
-  static scriptNameDesc = '卷民空间站';
+  static scriptNameDesc = '券民空间站';
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  // static activityEndTime = '2022-08-01';
+  static activityEndTime = '2022-09-19';
   static needOriginH5 = true;
   static maxTaskDoneTimes = Infinity;
   static doneShareTask = !this.firstTimeInTheDay();
