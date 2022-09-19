@@ -75,6 +75,7 @@ class LiteJoyPark extends Template {
 
   static async doMain(api, shareCodes) {
     const self = this;
+    let enableRestart = false;
 
     await self.beforeRequest(api);
 
@@ -99,9 +100,8 @@ class LiteJoyPark extends Template {
 
       api.log(`当前等级${currentLevel}`);
 
-      if (currentLevel >= 30) {
-        // TODO 重新开始
-        // await api.doFormBody('joyRestart');
+      if (currentLevel >= 30 && enableRestart) {
+        await api.doFormBody('joyRestart');
       }
     }
 
@@ -171,7 +171,12 @@ class LiteJoyPark extends Template {
 
     async function handleGetMyPrice() {
       const {gameBigPrizeVO, gamePrizeItemVos} = await api.doFormBody('gameMyPrize').then(getData);
-      for (const {status, prizeName, prizeType, prizeTypeVO} of gamePrizeItemVos) {
+      enableRestart = _.get(gameBigPrizeVO, 'prizeTypeVO.prizeUsed') === 3;
+      gameBigPrizeVO['prizeName'] = gameBigPrizeVO['bigPrizeName'];
+      gameBigPrizeVO['status'] = gameBigPrizeVO['topLevelStatus'];
+      gameBigPrizeVO['prizeLevel'] = gameBigPrizeVO['level'];
+      gamePrizeItemVos.push(gameBigPrizeVO);
+      for (const {status, prizeName, prizeType, prizeTypeVO, prizeLevel} of gamePrizeItemVos) {
         if (status === 0) continue;
         if (prizeType === 4/*现金*/) {
           if (prizeTypeVO['prizeUsed'] !== 0) continue;
@@ -186,6 +191,12 @@ class LiteJoyPark extends Template {
           });
           api.log(`${prizeName}: ${message}`);
           await sleep(5);
+          if (prizeLevel === 30) {
+            await sleep(30);
+            await api.doFormBody('gameMyPrize').then(data => {
+              enableRestart = _.get(data, 'data.gameBigPrizeVO.prizeTypeVO.prizeUsed') === 3;
+            });
+          }
         }
       }
     }
