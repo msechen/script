@@ -24,7 +24,7 @@ class EncryptH5st {
   origin = 'https://daily-redpacket.jd.com';
 
   constructor(props = {}) {
-    const {appId, origin, fingerprint, algoData, timestamp, disableAutoUpdate} = props;
+    const {appId, origin, fingerprint, algoData, timestamp, disableAutoUpdate, platform} = props;
     this.fingerprint = fingerprint || this.getRandomFingerPrint();
     this.appId = appId || this.appId;
     const storeAlgoData = getAlgoData(this.appId);
@@ -33,6 +33,7 @@ class EncryptH5st {
     this.timestamp = timestamp;
     this.token = '';
     this.origin = origin || this.origin;
+    this.platform = platform || 'web';
   }
 
   async genToken() {
@@ -44,7 +45,7 @@ class EncryptH5st {
         fp: this.fingerprint,
         appId: this.appId,
         'timestamp': getMoment().valueOf(),
-        'platform': 'web',
+        'platform': this.platform,
         'expandParams': '',
       },
       qs: {

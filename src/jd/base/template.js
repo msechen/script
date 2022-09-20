@@ -138,10 +138,14 @@ class Template extends Base {
   }
 
   // 更新 wq_auth_token
-  static async updateWqAuthToken(api, updateCookie = true) {
+  static async updateWqAuthToken(api, updateCookie = true, keepOrigin = false) {
     const authToken = await getAuthToken();
     if (authToken && updateCookie) {
-      api.cookie = `wq_auth_token=${authToken}`;
+      api.cookieInstance.set('wq_auth_token', authToken);
+      if (!keepOrigin) {
+        api.cookieInstance.remove('wq_uin');
+        api.cookieInstance.remove('wq_skey');
+      }
     }
     return authToken;
 
@@ -185,8 +189,15 @@ class Template extends Base {
         let form = _.merge({}, defaultData, body && {body}, {t}, options.qs || options.form);
         // TODO 整理成通用方法
         if (functionId in config) {
-          let {encryptH5st, appId, fingerprint, algoData} = config[functionId];
-          !encryptH5st && (config[functionId] = encryptH5st = new EncryptH5st({appId, origin, fingerprint, algoData}));
+          let {encryptH5st, appId, fingerprint, algoData, platform, disableAutoUpdate} = config[functionId];
+          !encryptH5st && (config[functionId] = encryptH5st = new EncryptH5st({
+            appId,
+            origin,
+            fingerprint,
+            algoData,
+            platform,
+            disableAutoUpdate,
+          }));
           form = await encryptH5st.sign({functionId, ...form});
           removeEncryptKeys.forEach(key => {
             delete form[key];
