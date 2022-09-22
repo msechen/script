@@ -77,6 +77,8 @@ class LiteJoyPark extends Template {
     const self = this;
     let enableRestart = false;
 
+    self.initShareCodeTaskList(shareCodes || []);
+
     await self.beforeRequest(api);
 
     function getData(data) {
@@ -102,6 +104,11 @@ class LiteJoyPark extends Template {
 
       if (currentLevel >= 30 && enableRestart) {
         await api.doFormBody('joyRestart');
+        await sleep(30);
+        const oldVal = self.doneShareTask;
+        self.doneShareTask = false;
+        await handleDoShare();
+        self.doneShareTask = oldVal;
       }
     }
 
@@ -334,7 +341,7 @@ class LiteJoyPark extends Template {
     async function handleDoGuide() {
       if (guideStep !== 0) return;
       // TODO 新人助力
-      for (const inviterPin of self.defaultShareCodes) {
+      for (const inviterPin of self.shareCodeTaskList) {
         const {helpType, helpState} = await joyBaseInfo({taskId: '', inviteType: '2', inviterPin});
         if (helpType === 2 && helpState === 1) {
           break;
