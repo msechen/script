@@ -298,6 +298,7 @@ class Base {
       // 	"url": "https://un.m.jd.com/cgi-bin/app/appjmp"
       // }
       return api.doForm('genToken', targetForm, {
+        ignoreDefault: true,
         headers: {
           // j-e-c, j-e-h 需自行抓包
           ..._.pick(_.get(cookieOption, 'loginConfig.headers'), ['j-e-c', 'j-e-h']),
@@ -309,6 +310,7 @@ class Base {
 
     async function updateCookieOptions(tokenKey, url) {
       await api.doGetUrl(url, {
+        ignoreDefault: true,
         resolveWithFullResponse: true,
         followRedirect: false,
         qs: {
