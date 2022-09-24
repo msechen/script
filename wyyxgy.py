@@ -7,25 +7,28 @@ import time
 
 import requests
 
+
 headers = {
     'Host': 'miniapp.you.163.com',
     # 'Connection': 'keep-alive',
     # 'charset': 'utf-8',
-    'x-wx-3rd-session': '63fe07bd75d99224fbc70cae152f2795',
+    'x-wx-3rd-session': '084b2c481cec4f36244383bc4b9c443b',
     'ntes-traceid': '1#yanxuan-miniapp#1654845878132#wz82dg3e',
     'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Pixel 4 Build/QD1A.190821.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4207 MMWEBSDK/20220303 Mobile Safari/537.36 MMWEBID/3585 MicroMessenger/8.0.21.2120(0x28001557) Process/appbrand0 WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
     'yx-s-tid': 'tid_web_11a21d829a5442778885e0722a0b4578_8c225a7b6_1',
-    'wx-pin-session': '63fe07bd75d99224fbc70cae152f2795',
+    'wx-pin-session': '084b2c481cec4f36244383bc4b9c443b',
     # 'Accept-Encoding': 'gzip,compress,br,deflate',
     # 'wx-pin-channel': '',
-    'yx-aui': '6jzAbPYQRVatekzhz6ggwN1NcVMzJ2V8',
+    'yx-aui': '2ncFaS4ac1TdRuKfhCWZg4BNU8iQMFKJ',
     # 'version': 'v20.2.6',
     # 'x-wx-common-3rd-session': '',
     # 'content-type': 'application/json',
     # 'yx-bargain-channel': '',
-    'ntes-spanid': '45861189',
+    'ntes-spanid': '24854051',
     'Referer': 'https://servicewechat.com/wx5b768b801d27f022/454/page-frame.html',
 }
+
+
 
 
 def sign():
