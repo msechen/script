@@ -18,7 +18,7 @@ def get_data() -> dict:
 
     :return: 签到配置文件对象
     """
-    print_ver()
+    # print_ver()
     global DATA
     if DATA:
         return DATA
