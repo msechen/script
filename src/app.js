@@ -63,7 +63,7 @@ const LuckyToHitTheGoldenEgg = require('./jd/family/LuckyToHitTheGoldenEgg');
 const Live = TemporarilyOffline || require('./jd/live');
 const LiveRedEnvelopeRain = TemporarilyOffline || require('./jd/live/RedEnvelopeRain');
 const SignBeanHome = require('./jd/sign/beanHome');
-const Singjd = require('./jd/wq/singjd');
+const BeanSignApplet = require('./jd/wq/BeanSignApplet');
 const Carnivalcity = require('./jd/shoppingFestival/carnivalcity');
 const BeanSmallBean = require('./jd/sign/beanSmallBean');
 const GoldCreator = TemporarilyOffline || require('./jd/goldCreator');
@@ -137,6 +137,7 @@ async function main() {
     GoldCreator,
     Factory,
     PointsGasStation,
+    BeanSignApplet,
     ExplorePlanet,
   ];
   // 极速版
