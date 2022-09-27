@@ -5,12 +5,14 @@ const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
-const sources = [/*'badge', 'main', 'secondfloor', 'card', 'pk'*/];
+const sources = [
+  {source: 'star_gift', label: '超级品牌抽奖'},
+];
 let source;
 
 class SuperBrandProduct extends Template {
   static scriptName = 'SuperBrandProduct';
-  static scriptNameDesc = '特物Z';
+  static scriptNameDesc = '特物';
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
@@ -46,9 +48,12 @@ class SuperBrandProduct extends Template {
     if (source) return _update();
     if (_.isEmpty(sources) || this.currentCookieTimes || this.isLastLoop()) return true;
     let stop;
-    for (const _source of sources) {
-      stop = await _update(source = _source);
-      if (!stop) break;
+    for (const {source: s, label} of sources) {
+      stop = await _update(source = s);
+      if (!stop) {
+        this.scriptNameDesc = `特物-${label}`;
+        break;
+      }
     }
     return stop;
 
@@ -95,12 +100,12 @@ class SuperBrandProduct extends Template {
             assignmentDesc,
             assignmentTimesLimit: maxTimes,
             completionCnt: times,
-            waitDuration,
             ext = {},
             completionFlag,
           } of taskList) {
             if ([].includes(assignmentType)) continue;
             if (/会员|开卡/.test(assignmentName) && !self.firstTimeInTheDay()) continue;
+            const {waitDuration = 0} = ext;
 
             let list = [];
 
@@ -127,7 +132,7 @@ class SuperBrandProduct extends Template {
                 encryptProjectId: api.encryptProjectId,
                 encryptAssignmentId,
                 assignmentType,
-                actionType: 0,
+                actionType: waitDuration ? 1 : 0,
                 itemId,
                 dropDownChannel,
               }, !itemId ? {completionFlag: 1} : {});
@@ -170,6 +175,10 @@ class SuperBrandProduct extends Template {
         name: 'superBrandDoTask',
         paramFn: o => o,
       },
+      doWaitTask: {
+        name: 'superBrandDoTask',
+        paramFn: o => _.assign(o, {actionType: 0}),
+      },
     };
 
     if (source === 'card') {
@@ -191,7 +200,7 @@ class SuperBrandProduct extends Template {
           },
         },
       });
-    } else if (source === 'secondfloor' && self.lastTimeInTheDay()) {
+    } else if (['secondfloor', 'star_gift'].includes(source) && self.lastTimeInTheDay()) {
       _.assign(result, {
         doRedeem: {
           name: 'superBrandTaskLottery',
