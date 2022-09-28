@@ -90,6 +90,9 @@ class LiteJoyPark extends Template {
 
     let currentLevel = 0;
     const {invitePin, guideStep, fastBuyCoin, joyCoin} = await joyBaseInfo();
+
+    if (!_.isNumber(currentLevel)) return api.log('活动太火爆了, 请稍后再试');
+
     await handleDoGuide();
 
     currentLevel < 30 && joyCoin > fastBuyCoin && await handleManageJoy();
