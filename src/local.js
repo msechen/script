@@ -27,8 +27,9 @@ const _send = _.noop || sendNotify.bind(0, {
 });
 // 超时需自动退出
 const autoExit = async () => {
-  await sleep(60 * 60 * 2);
+  await sleep(60 * 60);
   _send();
+  process.exit();
 };
 
 if (processInAC()) {
@@ -36,7 +37,10 @@ if (processInAC()) {
 }
 
 !getEnv('DISABLE_AUTO_EXIT') && autoExit();
-main().then(_send);
+main().then(_send).then(async () => {
+  await sleep(10);
+  process.exit();
+});
 
 async function main() {
   if (process.env.NOT_RUN) {

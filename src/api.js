@@ -62,7 +62,7 @@ async function doCron1(target, index = 0) {
   await doCron(target, getCookieData()[index]);
 }
 
-async function sendNotify({sendYesterdayLog = false, subjects = [], forceExit = true}) {
+async function sendNotify({sendYesterdayLog = false, subjects = []}) {
   if (mailer.disabledSend() && serverChan.disabled) return;
 
   const sortLogByName = content => getSortLogContent('name', content);
@@ -98,9 +98,6 @@ async function sendNotify({sendYesterdayLog = false, subjects = [], forceExit = 
     subject: title, text: content,
   });
   await serverChan.send(title, content);
-  if (!forceExit) return;
-  await sleep(60);
-  process.exit();
 }
 
 module.exports = {
