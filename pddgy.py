@@ -367,7 +367,7 @@ def percent(AccessToken, userid):
 
     }
     response = requests.get(url=url, headers=headers).text
-    fruit = re.findall('class="cartoon-taro-text">(.*?)</span>', response)[0].replace('<!-- -->', '')
+    fruit = re.findall('class="cartoon-taro-text">再浇水<!-- -->(.*?)<!-- -->%<!-- -->', response)[0].replace('<!-- -->', '')
     print(fruit)
     return f"拼多多果园任务:\n在浇水{fruit}包邮到家"
 
