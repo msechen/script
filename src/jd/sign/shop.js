@@ -37,15 +37,12 @@ class SignShop extends Template {
     let signSucceedTokens = [];
     // token, venderId, id
     let shopInfos = [
-      '9AFD9215DBFD0D632F2CBEB380935ADB',
-      '3569C202FFF8EED2A875BC2E23DEC7F4',
-      '449D3A289A681A1D2D6B98A5ADF629B5',
-      '6F3309E6CBD50C8C4A03369FC85D58B7',
-      '27C011E2C9A038B076B765121BA7EF1B',
-      'DA3EFAF78FFD9E75FF25B7C10A1CAAEB',
-      'AA68FFC96F930C04BB7E93B87F5EEFB6',
       // 脚本新增插入位置
     ];
+
+    if (_.isEmpty(shopInfos)) {
+      return api.log('当前没可用的shop info');
+    }
 
     const nowHour = self.getNowHour();
     if (nowHour !== 23) {
