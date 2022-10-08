@@ -18,6 +18,7 @@ class Joy extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 2;
+  static activityEndTime = '2022-10-01';
 
   static apiOptions() {
     return {
