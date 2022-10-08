@@ -52,13 +52,19 @@ class StatisticsBean extends Template {
     const prevDate = getMoment().subtract(1, 'days').format('YYYY-MM-DD');
     const preMount = _.map(detailList.filter(o => o['createdate'].replace(/\//g, '-').match(prevDate)), 'amount')
     .reduce(accumulateFn);
-    api.log(`总数: ${total}, ${prevDate}(昨天)的收益: ${preMount}`);
+    api.log(`总数: ${total}, 昨天(${prevDate.substring(5)})的收益: ${preMount}`);
     // 获取即将过期列表
     const expireList = await api.doGetPath('activep3/singjd/queryexpirejingdou').then(_.property('expirejingdou')) || [];
     if (_.isEmpty(expireList)) return;
     const sevenDayExpire = _.map(expireList, 'expireamount').reduce(accumulateFn);
     const formatExpire = expireList.map(o => `${getMoment(o['time'] * 1000).format('MM-DD')}(${o['expireamount']})`);
-    api.log(`最近7天过期统计: ${sevenDayExpire}, 具体: ${formatExpire.join(', ')}`);
+    const expireMsg = [
+      `最近7天过期统计: ${sevenDayExpire}`,
+    ];
+    if (sevenDayExpire > 0) {
+      expireMsg.push(`具体: ${formatExpire.join(', ')}`);
+    }
+    api.log(expireMsg.join(', '));
   }
 }
 
