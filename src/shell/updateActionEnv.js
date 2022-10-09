@@ -10,14 +10,12 @@ async function main() {
   updateProcessEnv();
 
   const config = [
-    {
-      owner: 'jinboyigu',
-      repo: 'lazy_script',
-    },
-    {
+    getEnv('github_api_default_config'),
+    /* 暂时不需要 */
+    /*{
       owner: 'jinboyigu',
       repo: 'run_lazy_script',
-    },
+    },*/
   ];
 
   const actionName = 'ACTION_ENV';
