@@ -39,7 +39,7 @@ class SignShop extends Template {
     let shopInfos = [
       'B7DDBE459A33DB0A23EE77C74CDBDFE5',
       '7CCD607BD833AE1F6F556107985B2C7B',
-      'F67DD656CC6B91C172B574DBF19E8303',
+      '765B34F6716D172C4007FF37F4582D3F',
       // 脚本新增插入位置
     ];
 
