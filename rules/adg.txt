@@ -1,7 +1,7 @@
 !
 ! Title: AdGuard DNS filter
 ! Description: Filter composed of several other filters (AdGuard Base filter, Social media filter, Tracking Protection filter, Mobile ads filter, EasyList, EasyPrivacy, etc) and simplified specifically to be better compatible with DNS-level ad blocking.
-! Last modified: 2022-10-10T12:01:37.025Z
+! Last modified: 2022-10-11T12:01:34.099Z
 !
 ! Compiled by @adguard/hostlist-compiler v1.0.12
 !
@@ -19,6 +19,10 @@
 !
 !
 !
+||https://chemitug.net
+||https://vpbceulnfbx.com
+||https://qsdsejarkznkqa.com
+||https://universal.wgplayer.com
 ||https://sternlythese.com
 ||https://aswaystumbly.com
 ||https://snobdomobeyeo.com
@@ -807,7 +811,9 @@
 ||https://trupir-asia.info
 ||https://sinsoftu.com
 ||https://badsbads.com
-||https://aiservice.vn
+||https://boxpr.aiservice.vn
+||https://rec.aiservice.vn
+||https://js.aiservice.vn
 ||https://targetpush.co.kr
 ||https://a.bestcontenttool.top
 ||https://sdsttt.com
@@ -902,7 +908,6 @@
 ||https://pandanetwork.club
 ||https://aj1603.online
 ||https://newhigee.net
-||https://agxclick.com
 ||https://uptopop.com
 ||https://adslop.com
 ||https://holexknw.loan
@@ -1465,7 +1470,6 @@
 !
 ! Another miners
 ! sample url for one of the miners: silimbompom.com/142711235a1c137.2.n.2.1.js
-!                                   http://dzizsih.ru/0492012435a3a223.2.n.2.1.js
 !                                   http://nddmcconmqsy.ru/7492512165a41313.3.n.2.1.l60.js
 !                                   http://jwduahujge.ru/0741703015aacf2.3.1.1.1.l80.js
 .n.2.1.js
@@ -1511,12 +1515,10 @@
 ||https://zminer.zaloapp.com
 vkcdnservice.appspot.com
 ||https://vkcdnservice.com
-||https://dexim.space
 ||https://directprimal.com
 ||https://acbp0020171456.page.tl
 ||https://vuryua.ru
 ||https://minexmr.stream
-||https://gitgrub.pro
 ||https://d8acddffe978b5dfcae6.date
 ||https://staticsfs.host
 ||https://crypta.js
@@ -1531,12 +1533,8 @@ vkcdnservice.appspot.com
 ||https://pon.ewtuyytdf45.com
 ||https://appelamule.com
 ||https://hhb123.tk
-||https://bhzejltg.info
-||https://pzoifaum.info
-||https://dzizsih.ru
 ||https://silimbompom.com
 ||https://gasolina.ml
-||https://8jd2lfsq.me
 ||https://adless.io
 ||https://afflow.18-plus.net
 ||https://afminer.com
@@ -1546,11 +1544,7 @@ vkcdnservice.appspot.com
 ||https://bablace.com
 ||https://becanium.com
 ||https://brominer.com
-||https://butcalve.com
-||https://cdn-analytics.pl
 ||https://cdn.jquery-uim.download
-||https://cdn.static-cnt.bid
-||https://cloudcdn.gdn
 ||https://coin-have.com
 ||https://coin-service.com
 ||https://coinblind.com
@@ -1566,7 +1560,6 @@ vkcdnservice.appspot.com
 ||https://go.bestmobiworld.com
 ||https://goldoffer.online
 ||https://gridiogrid.com
-||https://hallaert.online
 ||https://hashing.win
 ||https://hemnes.win
 ||https://host.d-ns.ga
@@ -1584,7 +1577,6 @@ vkcdnservice.appspot.com
 ||https://miner.pr0gramm.com
 ||https://minero.pw
 ||https://minescripts.info
-||https://minr.pw
 ||https://monero-miner.com
 ||https://nametraff.com
 ||https://noblock.pro
@@ -1594,26 +1586,20 @@ vkcdnservice.appspot.com
 ||https://papoto.com
 ||https://party-vqgdyvoycc.now.sh
 ||https://pertholin.com
-||https://playerassets.info
 ||https://ppoi.org
 ||https://premiumstats.xyz
 ||https://projectpoi.com
 ||https://questionfly.com
-||https://rintinwa.com
 ||https://rocks.io
-||https://salamaleyum.com
 ||https://serie-vostfr.com
 ||https://smartoffer.site
-||https://terethat.ru
 ||https://thewhizproducts.com
 ||https://thewise.com
 ||https://traffic.tc-clicks.com
 ||https://tulip18.com
-||https://vcfs6ip5h6.bid
 ||https://web.dle-news.pw
 ||https://webmine.cz
 ||https://webmining.co
-||https://wp-monero-miner.de
 ||https://wtm.monitoringservice.co
 ||https://xbasfbno.info
 ||https://xy.nullrefexcep.com
@@ -3476,6 +3462,7 @@ vkcdnservice.appspot.com
 ||https://antiquitytissuepod.com
 ||https://antiterroristqueenjolly.com
 ||https://antrumsregrind.com
+||https://antyoubelike.buzz
 ||https://anxdwq.com
 ||https://anxioushatedconservation.com
 ||https://anxioushomelessastray.com
@@ -4613,6 +4600,7 @@ vkcdnservice.appspot.com
 ||https://blenkbenched.casa
 ||https://bleokerrie.com
 ||https://bleopi.com
+||https://blewtheleledm.one
 ||https://blinkadr.com
 ||https://blinkjork.com
 ||https://blinnowther.com
@@ -8615,6 +8603,7 @@ vkcdnservice.appspot.com
 ||https://ftv-publicite.fr
 ||https://ftxabddarlo.xyz
 ||https://fubsoucm.com
+||https://fuelcompatibleblaspheme.com
 ||https://fuffyauth.com
 ||https://fugles.net
 ||https://fugrohaphu.com
@@ -10079,6 +10068,7 @@ vkcdnservice.appspot.com
 ||https://iicsxxkdcy.com
 ||https://iiueuenutuhaf.com
 ||https://iixecczxqzy.com
+||https://ijmoitvbtffqff.top
 ||https://ijqgefuq.com
 ||https://ijspro-code.com
 ||https://ijsprocode.com
@@ -10253,6 +10243,7 @@ vkcdnservice.appspot.com
 ||https://inheritedfinnishdysfunctional.com
 ||https://inheritedgeneralrailroad.com
 ||https://inheritwalter.com
+||https://inhile.com
 ||https://inhonedgean.com
 ||https://ininanceen.co
 ||https://ininmacerad.pro
@@ -10295,6 +10286,7 @@ vkcdnservice.appspot.com
 ||https://inspikon.com
 ||https://inspirebunwatchful.com
 ||https://inspiringaccurate.com
+||https://insqpqmocdsb.com
 ||https://insta-cash.net
 ||https://installerleading.com
 ||https://instancetonsil.com
@@ -11016,6 +11008,7 @@ vkcdnservice.appspot.com
 ||https://kfqlhhaowyj.com
 ||https://kfrmomspnrlr.com
 ||https://kftefhbheq.com
+||https://kgaovwylbkhjbn.com
 ||https://kgbtjgqpdrrcjra.com
 ||https://kgdvs9ov3l2aasw4nuts.com
 ||https://kgftlnvgql.com
@@ -11265,6 +11258,7 @@ vkcdnservice.appspot.com
 ||https://kylxsbsljvya.xyz
 ||https://kymagachu.pro
 ||https://kymirasite.pro
+||https://kyriod.com
 ||https://kythodoby.pro
 ||https://kyyydxpptcl.com
 ||https://kz2oq0xm6ie7gn5dkswlpv6mfgci8yoe3xlqp12gjotp5fdjxs5ckztb8rzn.codes
@@ -22798,6 +22792,7 @@ vkcdnservice.appspot.com
 ||https://d3t16rotvvsanj.cloudfront.net
 ||https://d3t3lxfqz2g5hs.cloudfront.net
 ||https://d3t3z4teexdk2r.cloudfront.net
+||https://d3tfz9q9zlwk84.cloudfront.net
 ||https://d3tozt7si7bmf7.cloudfront.net
 ||https://d3ujids68p6xmq.cloudfront.net
 ||https://d3uqm14ppr8tkw.cloudfront.net
@@ -23685,6 +23680,7 @@ vkcdnservice.appspot.com
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||https://tracking.shaadi.com
 ||https://tdbc.redgalaxy.com
 ||https://t.c-rtb.com
 ||https://testingmetriksbre.ru
@@ -31724,6 +31720,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://minero.cc
 ||https://mining.best
 ||https://mininghub.club
+||https://minr.pw
 ||https://mmpool.org
 ||https://mollnia.com
 ||https://monerise.com
@@ -31782,6 +31779,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://webmine.pro
 ||https://webxmr.com
 ||https://wordc.ga
+||https://wp-monero-miner.de
 ||https://wtmtrack.com
 ||https://xfast.host
 ||https://xmrpool.net
@@ -37385,6 +37383,7 @@ charlestownwyllie.oaklawnnonantum.com
 ! Bad: ||adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
 !
 !
+||https://diken.xyz
 ||https://likevertising.com
 ||https://banlamaartikoce.ml
 ||https://betstadyum.com
@@ -39150,6 +39149,7 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://novaon.vn
 ||https://novaonads.com
 ||https://novaonx.com
+||https://nspapi.aiservice.vn
 ||https://nv-ad.24hstatic.com
 ||https://ohchat.net
 ||https://oncustomer.asia
@@ -42387,6 +42387,21 @@ charlestownwyllie.oaklawnnonantum.com
 ||https://qiej445.top
 ||https://q7tl.icu
 ||https://beryl3.cc
+||https://olsynmlk.fun
+||https://yywvruv.cn
+||https://vcwcrd.cn
+||https://hmcpub.xyz
+||https://vk9f.top
+||https://ifsdg.xyz
+||https://xn--gov-x68dy61b.club
+||https://waycloud.info
+||https://uvymccn.cn
+||https://wutian01.cc
+||https://ftfnewu.cn
+||https://mncr.xyz
+||https://puaabvs.cn
+||https://niik9494.top
+||https://rxuwtiv.cn
 ||https://000123456789.online
 ||https://000123456789.site
 ||https://000123456789.space

@@ -1,7 +1,7 @@
 ﻿!x  -----------------------------------------------------------------------------------------------------------------
 !x  -----[KoolProxy 3.8.5]
-!x  -----update[rules]: 2022-06-02 22:00
-!x  -----update[video]: 2022-06-19 17:06
+!x  -----update[rules]: 2022-09-26 03:00
+!x  -----update[video]: 2022-08-19 17:06
 !x  -----Thanks: From lvba Rule Group
 !x  -----Thanks for help: <yiclear> <adbyby> <adm> <adblock> <adguard>
 !x  -----------------------------------------------------------------------------------------------------------------
@@ -29,6 +29,19 @@
 !x------------------------------------------------------------------------------------------------------------------>
 !x  -----------------------------------------------------------------------------------------------------------------
 !x  --------------------------------------------- white rules -------------------------------------------------------
+|http://p*-ad-sign.byteimg.com
+!|http://msg.qy.net/v5/ypt
+|http://data*.video.iqiyi.com/videos
+!|http://v*-*.fqnovelvod.com
+!|http://v*.toutiaovod.com
+|http://v*-default.ixigua.com
+!|http://v*-gray.toutiaovod.com
+|http://v*-default.365yg.com
+|http://v*-be-pack.pglstatp-toutiao.com
+|http://p*-be-pack-sign.pglstatp-toutiao.com
+|http://sf*-be-pack.pglstatp-toutiao.com
+!|http://pgdt.gtimg.cn
+!|http://api-access.pangolin-sdk-toutiao.com/api/ad
 @@|http://*/softdl.360tpcdn.com/
 @@|http://*.com/images/banner$domain=cncrypt.com|exp.qq.com
 @@|http://*.com/index0data/*.css
