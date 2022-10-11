@@ -16,7 +16,7 @@ class Fruit extends Template {
         appid: 'wh5',
       },
       form: {
-        body: {'version': 14, 'channel': 1, 'babelChannel': '120'},
+        body: {'version': 18, 'channel': 3, 'babelChannel': '10'},
       },
       headers: {
         referer: indexUrl,
@@ -68,10 +68,16 @@ class Fruit extends Template {
     if (needHarvest) return logFarmInfo(true);
 
     const {
-      farmUserPro: {shareCode: currentShareCode, treeState},
+      farmUserPro,
       funCollectionHasLimit,
       canGotNewUserToday,
     } = await handleInitForFarm();
+
+    if (!farmUserPro) {
+      return api.log('farm 请求出错');
+    }
+
+    const {shareCode: currentShareCode, treeState} = farmUserPro;
 
     // TODO 获取浇水阶段性奖励
     false && await api.doFormBody('gotStageAwardForFarm', {type: 1});
@@ -188,9 +194,14 @@ class Fruit extends Template {
         if (limit === hadFinishedTimes) continue;
         await handleBrowse(advertId, time || 6);
       }
-      const wxForm = {channel:2, babelChannel: 0};
+      const wxForm = {channel: 2, babelChannel: 0};
       const wxTaskData = await api.doFormBody('taskInitForFarm', wxForm);
-      for (const {advertId, time, limit, hadFinishedTimes} of _.get(wxTaskData, 'gotBrowseTaskAdInit.userBrowseTaskAds', [])) {
+      for (const {
+        advertId,
+        time,
+        limit,
+        hadFinishedTimes
+      } of _.get(wxTaskData, 'gotBrowseTaskAdInit.userBrowseTaskAds', [])) {
         if (limit === hadFinishedTimes) continue;
         await handleBrowse(advertId, time || 6, wxForm);
       }
@@ -351,8 +362,14 @@ class Fruit extends Template {
       successTimes && api.log(`成功浇水 ${successTimes} 次`);
     }
 
-    async function handleInitForFarm(shareCode) {
+    async function handleInitForFarm(shareCode, loopTimes = 3) {
+      if (loopTimes <= 0) {
+        return {};
+      }
       const farmData = await self.doApiInitForFarm(api, shareCode);
+      if (!self.isSuccess(farmData)) {
+        return handleInitForFarm(shareCode, --loopTimes);
+      }
       if (_.get(farmData, 'todayGotWaterGoalTask.canPop')) {
         // 被水滴砸中
         await api.doFormBody('gotWaterGoalTaskForFarm', {type: 3});
