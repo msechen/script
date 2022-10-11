@@ -16,7 +16,7 @@ const {
 } = require('./api');
 
 const Fruit = require('./jd/fruit');
-let Joy = require('./jd/joy');
+let Joy = TemporarilyOffline || require('./jd/joy');
 
 const nowDate = getNowDate();
 const nowHour = getNowHour();
@@ -37,10 +37,7 @@ if (processInAC()) {
 }
 
 !getEnv('DISABLE_AUTO_EXIT') && autoExit();
-main().then(_send).then(async () => {
-  await sleep(10);
-  process.exit();
-});
+main().then(_send);
 
 async function main() {
   if (process.env.NOT_RUN) {
@@ -66,8 +63,11 @@ async function main() {
     doRun(require('./jd/beautyMakeup'));
   }
 
+  if ([0, 7, 12, 18, 22, 23].includes(nowHour)) {
+    doRun(Fruit);
+  }
+
   if (nowHour === 23) {
-    await doRun(Fruit);
     await sleepTime([23, 55]);
     doRun(require('./jd/beautyMakeup'));
     await sleepTime(24);
