@@ -1,10 +1,10 @@
-const Template = require('../base/template');
+const Template = require('../../base/template');
 
-const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
-const {getMoment} = require('../../lib/moment');
+const {sleep, writeFileJSON, singleRun} = require('../../../lib/common');
+const {getMoment} = require('../../../lib/moment');
 const _ = require('lodash');
 const CryptoJS = require('crypto-js');
-const {common} = require('../../../charles/api');
+const {common} = require('../../../../charles/api');
 
 const indexUrl = 'https://xinrui-isv.isvjcloud.com/year/';
 

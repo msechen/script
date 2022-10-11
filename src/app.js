@@ -71,11 +71,7 @@ const Joy20210805 = require('./jd/joy/20210805');
 const SuperBrandDay = require('./jd/superBrand/day');
 const SuperBrandProduct = require('./jd/superBrand/Product');
 const RubikSCube = TemporarilyOffline || require('./jd/rubikSCube');
-const EarnBean = TemporarilyOffline || require('./jd/ifanli/EarnBean');
 const Factory = TemporarilyOffline || require('./jd/wfh/Factory');
-const SuperBox = TemporarilyOffline || require('./jd/superBox');
-const XinruiYear = TemporarilyOffline || require('./jd/xinrui/year');
-const Moxigame = require('./jd/moxigame');
 const PointsGasStation = require('./jd/dwapp/PointsGasStation');
 const ExplorePlanet = require('./jd/explorePlanet');
 
@@ -152,9 +148,6 @@ async function main() {
   const shortTermActivity = [
     RubikSCube,
     SuperBrandProduct,
-    SuperBox,
-    XinruiYear,
-    Moxigame,
   ];
   const scheduleOptions = [
     {
@@ -169,7 +162,6 @@ async function main() {
           KoiRedPacket,
           // 23点后的活动补充
           IsvShopSign,
-          EarnBean,
           SignShop,
 
           ...statistics,
@@ -220,7 +212,6 @@ async function main() {
       valid: 10,
       run: async () => {
         await doRun(SuperBrandProduct);
-        await doRun(Moxigame);
       },
     },
     {
@@ -237,7 +228,6 @@ async function main() {
       valid: 14,
       run: async () => {
         await serialRun([
-          EarnBean,
         ]);
       },
     },
@@ -317,7 +307,6 @@ async function main() {
         await sleepTime(24);
         await multipleRun([
           [Health, void 0, 'cron'],
-          EarnBean,
           // JoySign,
           SignTurnTable,
           Sign1,

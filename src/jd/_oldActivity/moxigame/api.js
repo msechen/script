@@ -1,5 +1,5 @@
 const CryptoJS = require('crypto-js');
-const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../../lib/common');
 const _ = require('lodash');
 
 class Api {

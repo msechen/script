@@ -1,7 +1,7 @@
-const Template = require('../base/template');
+const Template = require('../../base/template');
 
-const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../lib/common');
-const {getMoment} = require('../../lib/moment');
+const {sleep, writeFileJSON, singleRun, replaceObjectMethod} = require('../../../lib/common');
+const {getMoment} = require('../../../lib/moment');
 const _ = require('lodash');
 
 class SuperBox extends Template {

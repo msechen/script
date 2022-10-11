@@ -1,8 +1,8 @@
 const _ = require('lodash');
 
-const Api = require('../api');
-const {sleep} = require('../../lib/common');
-const {printLog} = require('../../lib/common');
+const Api = require('../../api');
+const {sleep} = require('../../../lib/common');
+const {printLog} = require('../../../lib/common');
 const scriptName = '赚30元';
 const _printLog = printLog.bind(0, scriptName, void 0);
 

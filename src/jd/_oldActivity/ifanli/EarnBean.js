@@ -1,6 +1,6 @@
-const Template = require('../base/template');
+const Template = require('../../base/template');
 
-const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../../lib/common');
 const _ = require('lodash');
 
 class EarnBean extends Template {

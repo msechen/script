@@ -1,6 +1,6 @@
-const Template = require('../base/template');
+const Template = require('../../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON} = require('../../../lib/common');
 
 class Car extends Template {
   static scriptName = 'Car';

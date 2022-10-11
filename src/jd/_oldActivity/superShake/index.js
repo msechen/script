@@ -1,6 +1,6 @@
-const Template = require('../base/template');
+const Template = require('../../base/template');
 
-const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun, matchMiddle} = require('../../../lib/common');
 const _ = require('lodash');
 
 const indexUrl = 'https://h5.m.jd.com/babelDiy/Zeus/4B4qLZkL4AbgjBWbznCv1oPmPwJ6/index.html';
