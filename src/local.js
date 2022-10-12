@@ -47,30 +47,16 @@ async function main() {
 
   await require('./lib/mailer').updateEnvFromMail();
 
-  if ([10, 16, 22].includes(nowHour)) {
-    serialRun(Joy);
-  }
-
-  if (nowHour % 5 === 0) {
-    serialRun(Joy, doCron);
-  }
-
   if ([10, 15, 21].includes(nowHour)) {
-    doRun(require('./jd/lite/EarnCoins'));
-  }
-
-  if ([3, 7, 12, 19].includes(nowHour)) {
-    doRun(require('./jd/beautyMakeup'));
+    await doRun(require('./jd/lite/EarnCoins'));
   }
 
   if ([0, 7, 12, 18, 22, 23].includes(nowHour)) {
-    doRun(Fruit);
+    await doRun(Fruit);
   }
 
   if (nowHour === 23) {
-    await sleepTime([23, 55]);
-    doRun(require('./jd/beautyMakeup'));
     await sleepTime(24);
-    doRun(require('./jd/earn/AdvertPlugin'));
+    await doRun(require('./jd/earn/AdvertPlugin'));
   }
 }
