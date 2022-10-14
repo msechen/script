@@ -50,9 +50,9 @@ phone = ""
 Authorization = "Bearer xxxxxxx"
 
 # 顺丰速递【APP】
-# 顺丰速递 APP自行签到一次，抓取 https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignService/automaticSignFetchPackage 查看cookie中sessionId
+# 顺丰速递 链接 https://mcs-mimp-web.sf-express.com/mcs-mimp/share/app/shareRedirect?sign=xxx&source=SFAPP&...此链接内的sign即为所需的值 只保留示例中xxx的部分
 [[SFexpress]]
-sessionId = ""
+sign = " "
 
 #特步【小程序】
 #抓取 wxa-tp.ezrpro.com 域名的包 , ezr-vuid , ezr-st , ezr-ss , ezr-userid 是 headers 中的参数
