@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 new Env('顺丰速递');
+顺丰app进行了大改动，请求头多了很多参数，为保持与自己环境一致，对limoruirui的代码进行了修改
+修改自作者limoruirui(https://github.com/limoruirui)的代码
 """
 
 import requests
-import time
-
+import time,json,sys
+from hashlib import md5 
 from notify_mtr import send
 from utils import get_data
 
@@ -14,106 +16,160 @@ requests.packages.urllib3.disable_warnings()
 class SFexpress:
     def __init__(self,check_items):
         self.check_items = check_items
+        # self.sign = check_items[0]['sign']
+        self.session = requests.Session()
     
-    @staticmethod
-    def getheaders(sessionId):
-        headers = {
-                "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
-                "cookie":f"{sessionId}",
-                "Accept-Encoding": "gzip, deflate, br",
-                "accept-language": "zh-CN,zh-Hans;q=0.9",
-                "accept": "application/json, text/plain, */*",
-                "Host": "mcs-mimp-web.sf-express.com",
-                "content-type": "application/json",
-            }
+    def refreshCookie(self,sign):
+        loginUrl = f"https://mcs-mimp-web.sf-express.com/mcs-mimp/share/app/shareRedirect?sign={sign}&source=SFAPP&bizCode=619"
+        loginHeaders = {
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            "accept-encoding": "gzip, deflate, br",
+            "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7",
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "none",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML"
+        }
+        res = self.session.get(url = loginUrl, headers = loginHeaders)
+        referURL=res.url
+        return referURL,loginHeaders
+
+    def getTaskHeaders(self,referURL):
+        headers={
+            "Host": "mcs-mimp-web.sf-express.com",
+            "Accept": "application/json, text/plain, */*",
+            "sysCode": "MCS-MIMP-CORE ",
+            "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Content-Type": "application/json;charset=utf-8",
+            "Origin": "https://mcs-mimp-web.sf-express.com",
+            "User-Agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 mediaCode=SFEXPRESSAPP-iOS-ML",
+            "Referer": referURL,
+            "Connection": "keep-alive ",
+            "Content-Length": "",
+            "timestamp": "",
+            "signature": ""
+        }
         return headers
+
     @staticmethod
-    def sign(headers):
-        url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignPlusService/automaticSignFetchPackage'
-        data = '{"comeFrom":"vioin","channelFrom":"SFAPP"}'
+    def get_sign_md5(timestr):
+        md5str="token=wwesldfs29aniversaryvdld29&timestamp={0}&sysCode=MCS-MIMP-CORE".format(timestr)
+        if isinstance(md5str, str):
+            md5str = md5str.encode("utf8")
+        md5str = md5(md5str)
+        return md5str.hexdigest()
+
+    def checkin(self,commHeaders):
+        url = "https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignPlusService/automaticSignFetchPackage"
+        body = {"comeFrom":"vioin","channelFrom":"SFAPP"}
+        timestr=int(round(time.time()*1000))
+        commHeaders["timestamp"]=str(timestr)
+        commHeaders["signature"]=SFexpress.get_sign_md5(timestr)
+        commHeaders["Content-Length"]=str(len(json.dumps(body).replace(" ", "")))
         try:
-            res = requests.post(url=url,headers=headers,data=data,verify=False).json()
+            res = self.session.post(url=url,headers=commHeaders,json=body).json()
             hasFinishSign = res['obj']['hasFinishSign']
             if hasFinishSign == 1:
-                msg = "今日已签到，无需重复签到"
+                msg = "今日已签到，无需重复签到！\n"
+                # scoremsg = self.queryScore(commHeaders)
+                # msg = msg + scoremsg
+                # print(msg)
+                # sys.exit()
             else:
                 countDay = res['obj']['countDay']
-                commodityName = res['obj']['integralTaskSignPackageVOList'][0]['commodityName']
-                msg= ("今日签到成功，连续签到【{0}】天，获得【{1}】".format(countDay,commodityName))
+                msg= ("今日签到成功，连续签到【{0}】天！".format(countDay))
         except Exception:
-            msg = "签到失败，可能是Cookie过期"
-        return msg
-
-    @staticmethod
-    def weal(headers):
-        url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberActLengthy~redPacketActivityService~superWelfare~receiveRedPacket'
-        data = '{"channel":"SignIn"}'
-        try:
-            res = requests.post(url=url, headers=headers, data=data, verify=False).json()
-            success = res['success']
-            if success == True:
-                giftName = res['obj']['giftList'][0]['giftName']
-                msg = "超值福利签到成功，获得{0}奖励".format(giftName)
-        except Exception as err:
-            msg = "超值福利签到失败 " + str(err)
+            msg = "签到失败，可能是Sign已经失效！"
         return msg
     
-    @staticmethod
-    def task(headers):
+    def doTask(self,commHeaders, referHeaders):
         url = 'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~queryPointTaskAndSignFromES'
-        data = '{"channelType":"1"}'
-        try:
-            res = requests.post (url=url, headers=headers,data=data,verify=False).json()
-            list = res['obj']['taskTitleLevels']
-            msg_task=""
-            for i in range(len(list)):
-                taskId = list[i]['taskId']
-                strategyId = list[i]['strategyId']
-                taskCode = list[i]['taskCode']
-                title = list[i]['description']
-                if "邀请" in title:
-                    pass
-                else:
-                    # getask(sessionId,taskCode)
-                    # msg = dotask(sessionId,title,strategyId,taskId,taskCode)
-                    ### 获取任务列表
-                    url_getask = f'https://mcs-mimp-web.sf-express.com/mcs-mimp/task/finishTask?id={taskCode}'
-                    res = requests.get (url=url_getask, headers=headers, verify=False).json()
-                    success = res['success']
-                    if success == True:
-                        time.sleep(20)
+        timestr=int(round(time.time()*1000))
+        commHeaders["timestamp"]=str(timestr)
+        commHeaders["signature"]=SFexpress.get_sign_md5(timestr)
+        commHeaders["Content-Length"]= "22"
+        msgList=[]
+        for i in range(1, 3):
+            body = {"channelType": f"{i}"}
+            res = self.session.post(url, headers=commHeaders, json=body).json()
+            for task_msg in res["obj"]["taskTitleLevels"]:
+                task_title = task_msg["title"]
+                task_status = task_msg["status"]
+                task_strategyId = task_msg["strategyId"]
+                task_code = task_msg["taskCode"]
+                task_id = task_msg["taskId"]
+                print(task_title)
+                msg = task_title + "："
+                if task_status == 2:
+                    self.finishTask(referHeaders, task_code)
+                    mtask = self.exchangeTask(commHeaders, task_strategyId, task_id, task_code)
+                    msg = msg + mtask
+                elif task_status == 1:
+                    mtask = self.exchangeTask(commHeaders,task_strategyId, task_id, task_code)
+                    msg = msg + mtask
+                elif task_status == 3:
+                    msg = msg +"任务已完成\n"
+                    print("当前任务已完成")
+                msgList.append(msg)
+        msgList=list(set(msgList))
+        msg = "".join(msgList)
+        return msg
 
-                    ### 做任务并领取
-                    url_dotask = f'https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~fetchIntegral'
-                    data_dotask = '{"strategyId":' + f"{strategyId}" + ',"taskId":"' + f"{taskId}" + '","taskCode":"' + f"{taskCode}" + '"}'
-                    res = requests.post (url=url_dotask, headers=headers, data=data_dotask, verify=False).json()
-                    success = res['success']
-                    msg = ""
-                    if success == True:
-                        point = res['obj']['point']
-                        msg = "完成 {0} 任务成功，领取{1}积分".format(title,point)
-                    else:
-                        errorMessage = res['errorMessage']
-                        if "已领取" in errorMessage:
-                            msg = "{0} 任务已完成".format(title) 
-                        if '未完成' in errorMessage:
-                            msg = "{0} 任务未完成".format(title)              
-                    msg_task = msg_task + msg +"\n"
-            return msg_task
-        except Exception as err:
-            msg_task = "获取任务列表失败:"+ str(err)
-            return msg_task
+    def finishTask(self,referHeaders,task_code):
+        url = f"https://mcs-mimp-web.sf-express.com/mcs-mimp/task/finishTask?id={task_code}"
+        res = self.session.get(url, headers=referHeaders).json()
+        print(res)
+
+    def exchangeTask(self,commHeaders, strategyId, task_id, task_code):
+        url = "https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskStrategyService~fetchIntegral"
+        body = {"strategyId": strategyId, "taskId": task_id, "taskCode": task_code}
+        timestr=int(round(time.time()*1000))
+        commHeaders["timestamp"]=str(timestr)
+        commHeaders["signature"]=SFexpress.get_sign_md5(timestr)
+        commHeaders["Content-Length"]="22"
+        res = self.session.post(url, headers=commHeaders, json=body).json()
+        print(res)
+        msg=''
+        if(res["success"]==True):
+            msg = "完成时间：{0}\n".format(res['date'])
+        else:
+            msg = "任务未完成\n"
+        return msg
+        
+    def queryScore(self,commHeaders):
+        url = "https://mcs-mimp-web.sf-express.com/mcs-mimp/member/points/balance"
+        body = {}
+        timestr=int(round(time.time()*1000))
+        commHeaders["timestamp"]=str(timestr)
+        commHeaders["signature"]=SFexpress.get_sign_md5(timestr)
+        commHeaders["Content-Length"]=str(len(json.dumps(body).replace(" ", "")))
+        data = self.session.post(url, headers=commHeaders, json=body).json()
+        total_score = data["obj"]["availablePoints"]
+        msg = f"您当前共有积分：{total_score}"
+        return msg
 
     def main(self):
         msg_all = ""
         for check_item in self.check_items:
-            sessionId="sessionId=" + str(check_item.get("sessionId"))
-            headers = self.getheaders(sessionId)
-            sign_msg = self.sign(headers)
-            weal_msg = self.weal(headers)
-            task_msg = self.task(headers)
-            msg = f"{sign_msg}\n{weal_msg}\n{task_msg}"
-            msg_all += msg + "\n\n"
+            sign = str(check_item.get("sign"))
+            referUrl, referHeaders = self.refreshCookie(sign)
+            commHeaders=self.getTaskHeaders(referUrl)
+            sign_msg = self.checkin(commHeaders)
+            if "失败" in sign_msg:
+                msg_all = f"{sign_msg}\n"
+            else:
+                task_msg = self.doTask(commHeaders,referHeaders)
+                scoremsg = self.queryScore(commHeaders)
+                msg = f"{sign_msg}\n{task_msg}\n\n{scoremsg}"
+                msg_all += msg + "\n\n"
         return msg_all
 
 
