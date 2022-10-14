@@ -1,5 +1,6 @@
 // noinspection JSCheckFunctionSignatures
 
+//监控变量 M_FANS_RED_PACKET_URL
 let mode = __dirname.includes('magic')
 const {Env} = mode ? require('./magic') : require('./magic')
 const got = require("got");
