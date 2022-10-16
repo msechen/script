@@ -92,11 +92,11 @@ def webhook(message, webhook_token):
         print("推送失败")
 
 
-with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     webhook_token = os.environ['QYWX_KEY']
     kfxtoken = os.environ['kfxtoken']
     kfxtoken = kfxtoken.split('@')
-    for i in range(1):
+    for i in range(4):
         for ck in kfxtoken:
             msg = exchange(ck)
             if msg == "当日已经兑换1次" or msg == "京东E卡2元兑换成功":
