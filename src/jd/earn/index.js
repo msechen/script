@@ -1,6 +1,6 @@
 const Template = require('../base/template');
 
-const {sleep, writeFileJSON} = require('../../lib/common');
+const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 
 const biz = 'interact';
 
@@ -107,5 +107,7 @@ class Earn extends Template {
     }
   }
 }
+
+singleRun(Earn).then();
 
 module.exports = Earn;
