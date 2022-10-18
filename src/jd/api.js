@@ -101,6 +101,7 @@ class Api {
     if (this.notLogin(data)) {
       await require('./base').changeCK(this, true);
       await sleep(2);
+      await uploadProductEnvToAction(true);
       // 重新请求一次
       data = await _request(this.cookie, options);
     }
