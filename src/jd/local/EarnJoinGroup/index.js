@@ -70,6 +70,11 @@ class EarnJoinGroup extends Template {
       headers: {referer},
     });
 
+    const homeResult = await api.doGetPath('SuperFissionHomepage');
+    if (!self.isSuccess(homeResult)) {
+      return api.log(`SuperFissionHomepage 获取失败: ${homeResult['msg']}`);
+    }
+
     const {
       active_info: {
         share_info: {
@@ -97,7 +102,7 @@ class EarnJoinGroup extends Template {
         can_join_group_userlabel,
         no_join_group_reason,
       },
-    } = await api.doGetPath('SuperFissionHomepage').then(_.property('data'));
+    } = _.get(homeResult, 'data');
 
     const log = str => api.log(`[${share_title}-${groupId}] ${str}`);
 
