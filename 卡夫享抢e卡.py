@@ -99,6 +99,6 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     for i in range(4):
         for ck in kfxtoken:
             msg = exchange(ck)
-            if msg == "当日已经兑换1次" or msg == "京东E卡2元兑换成功":
+            if msg == "当日已经兑换1次" or msg == "京东E卡2元兑换成功！":
                 get_E_ka(ck, webhook_token)
 
