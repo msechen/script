@@ -250,6 +250,13 @@ class Api {
       //   'retcode': 13,
       //   'retmsg': 'no login',
       // },
+      // https://api.m.jd.com/api?functionId=distributeBeanActivityInfo
+      {
+        'message': '未登录',
+        'resultCode': '101',
+        'resultTips': '未登录',
+        'success': false,
+      },
     ];
     return config.some(o => _.isEqual(o, _.pick(data, _.keys(o))));
   }
