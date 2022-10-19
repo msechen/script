@@ -206,6 +206,7 @@ async function main() {
       valid: 9,
       run: async () => {
         await serialRun(Joy);
+        await doRun(Earn);
       },
     },
     {
