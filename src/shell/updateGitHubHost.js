@@ -32,10 +32,9 @@ async function main() {
   if (!matched) return;
   const [, oldIp] = matched;
   const newData = originData.replace(oldIp, githubHost[0]);
-  // TODO 确认如何更改文件
+  // 需要调整 hosts 文件的权限为任何人可读写
   fs.writeFileSync(hostPath, newData);
-  console.log('替换后的host文件如下:');
-  console.log(newData);
+  console.log('新的 github host 替换成功!');
 }
 
 main();
