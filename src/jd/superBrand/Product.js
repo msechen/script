@@ -6,7 +6,8 @@ const {replaceObjectMethod} = require('../../lib/common');
 const {getMoment} = require('../../lib/moment');
 
 const sources = [
-  {source: 'star_gift', label: '超级品牌抽奖'},
+  // {source: 'star_gift', label: '超级品牌抽奖'},
+  {source: 'sign', label: '签到抽奖'},
 ];
 let source;
 
