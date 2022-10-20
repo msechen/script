@@ -12,7 +12,7 @@ class ExplorePlanet extends Template {
   static dirname = __dirname;
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
-  static activityEndTime = '2022-09-19';
+  static activityEndTime = '2022-10-23';
   static needOriginH5 = true;
   static maxTaskDoneTimes = Infinity;
   static doneShareTask = !this.firstTimeInTheDay();
@@ -81,7 +81,7 @@ class ExplorePlanet extends Template {
             o['encryptProjectId'] = specialComponentTaskPid;
           });
 
-          const taskList = [].concat(componentTaskInfo, specialComponentTaskInfo);
+          const taskList = [].concat(componentTaskInfo, specialComponentTaskInfo.filter(o => !o.waitDuration));
           for (let {
             taskDesc,
             taskStatus: status,
