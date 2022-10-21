@@ -124,15 +124,15 @@ def forward_to_kolly(msg):
             ret = sync_data.query_brand_order('vivo')
             logger.info(ret)
             return ret
-        elif 'q5' == msg.text:
+        elif 'q5' in msg.text:
             ret = sync_data.query_phone_order('真我Q5 6nm骁龙')
             logger.info(ret)
             return ret
-        elif 'neo3' == msg.text:
+        elif 'neo3' in msg.text:
             ret = sync_data.query_phone_order('GT Neo3')
             logger.info(ret)
             return ret
-        elif 'test' == msg.text:
+        elif 'test' in msg.text:
             return "test ok"
         if 'draft' == msg.text:  # 查所有文字草稿
             return '\n'.join(auto.query_article_draft())
