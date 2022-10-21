@@ -176,9 +176,9 @@ def query_zhihu_earnings_2():
 def query_jingfen_earnings():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    top = "[京粉]\n"
+    top = "\n[京粉]\n"
     mid = "订单量："
-    end = "\nGMV："
+    end = "\n今日GMV："
 
     count, fee, gmv = zhihu_spider.get_jingfen_earnings(today, today, zh_config_dao.query_config('jfck2').value)
 
@@ -195,7 +195,7 @@ def query_1111_gmv():
 
     gmv = zhihu_spider.get_1111_gmv(zh_config_dao.query_config('jfck2').value)
 
-    return "[双十一总GMV]" + str(gmv)
+    return "总GMV:" + str(int(gmv))
 
 
 # 查询京粉点击数
