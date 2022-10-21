@@ -217,8 +217,7 @@ def get_jingfen_earnings(start, end, cookie):
 
     json = res.json()
 
-    return json['result']['spreadReportInfoChatList'][0]['orderNum'], json['result']['spreadReportInfoChatList'][0][
-        'cosFee']
+    return json['result']['spreadReportInfoChatList'][0]['orderNum'], json['result']['spreadReportInfoChatList'][0]['cosFee'], json['result']['spreadReportInfoChatList'][0]['cosPrice']
 
 
 
