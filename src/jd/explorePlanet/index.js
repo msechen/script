@@ -131,8 +131,20 @@ class ExplorePlanet extends Template {
             const {
               collectedCardsNum,
               totalCardsNum,
+              lotteryTime,
+              drawCardStatus,
             } = await api.doFormBody('explorePlanet_homePage', {'channel': '1'}).then(_.property('data.result'));
             api.log(`收集进度 ${collectedCardsNum}/${totalCardsNum}`);
+            if (getMoment().isBefore(lotteryTime)) {
+              return false;
+            }
+            if ((collectedCardsNum === totalCardsNum) && (drawCardStatus === 5)) {
+              await api.doFormBody('explorePlanet_compositeCard');
+              await sleep(2);
+              await api.doFormBody('explorePlanet_divideReward').then(data => {
+                api.log(`获得红包 ${data.data.result.discount}`);
+              });
+            }
             return false;
           }
           const {remainExploreNum, couponInfo, cardIdInfo} = data.data.result;
