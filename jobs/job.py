@@ -96,12 +96,12 @@ def init_scheduler(bot_var):
     #                   hour='*', minute='45', second='30')
 
     # JD订单轮训
-    scheduler.add_job(get_jd_order, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='0/5', second='30')
+    # scheduler.add_job(get_jd_order, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*', minute='0/5', second='30')
 
     # 蓝猫日志告警
-    scheduler.add_job(get_lanmao_log, 'cron', year='*', month='*', day='*', day_of_week='*',
-                      hour='*', minute='0/10', second='30')
+    # scheduler.add_job(get_lanmao_log, 'cron', year='*', month='*', day='*', day_of_week='*',
+    #                   hour='*', minute='0/10', second='30')
 
     scheduler.start()
 

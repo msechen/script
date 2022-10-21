@@ -124,8 +124,12 @@ def forward_to_kolly(msg):
             ret = sync_data.query_brand_order('vivo')
             logger.info(ret)
             return ret
-        elif 'GT' == msg.text or 'gt' == msg.text:  
-            ret = sync_data.query_phone_order('GT2大师')
+        elif 'q5' == msg.text:
+            ret = sync_data.query_phone_order('【预售版】realme真我Q5 6nm骁龙')
+            # logger.info(ret)
+            return ret
+        elif 'neo3' == msg.text:
+            ret = sync_data.query_phone_order('GT Neo3')
             # logger.info(ret)
             return ret
         if 'draft' == msg.text:  # 查所有文字草稿

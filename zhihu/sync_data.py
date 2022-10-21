@@ -355,7 +355,7 @@ def query_brand_order2(brand, days):
 # 查询品牌订单数据
 def query_phone_order(phoneName):
     today = datetime.datetime.now().strftime('%Y-%m-%d')
-    begin = '2022-08-10'
+    begin = '2022-10-11'
 
     today_orders = zhihu_spider.get_jd_order(begin, today, zh_config_dao.query_config('jfck2').value)
 
