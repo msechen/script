@@ -137,14 +137,14 @@ def query_article_rank(user_id):
 def query_zhihu_earnings():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    top1 = "[知乎-1] "
+    top1 = "[知乎]\n"
     mid1 = "订单量："
-    end1 = " 佣金："
-    end11 = " 比例："
+    end1 = "\n佣金："
+    end11 = "\n比例："
 
     count1, sum1, gmv1 = zhihu_spider.get_zhihu_earnings(today, today, zh_config_dao.query_config('dxck').value)
 
-    top2 = "[知乎-2] "
+    top2 = "[知乎2] "
     mid2 = "订单量："
     end2 = " 佣金："
 
@@ -176,13 +176,26 @@ def query_zhihu_earnings_2():
 def query_jingfen_earnings():
     today = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    top = "[京粉] "
+    top = "[京粉]\n"
     mid = "订单量："
-    end = " GMV："
+    end = "\nGMV："
 
     count, fee, gmv = zhihu_spider.get_jingfen_earnings(today, today, zh_config_dao.query_config('jfck2').value)
 
     return top + mid + str(count) + end + str(gmv), fee, gmv
+
+
+# 查询双十一GMV
+def query_1111_gmv():
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    top = "[京粉]\n"
+    mid = "订单量："
+    end = "\nGMV："
+
+    gmv = zhihu_spider.get_1111_gmv(zh_config_dao.query_config('jfck2').value)
+
+    return "[双十一总GMV]" + str(gmv)
 
 
 # 查询京粉点击数
@@ -404,6 +417,7 @@ def query_zhijia_pay_2():
 def query_today_earnings():
     zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
     jingfen_earnings, fee, gmv = query_jingfen_earnings()
+    totalGmv = query_1111_gmv()
     # redpacket = query_jingfen_redpacket()
     # zhijia_pay, num5 = query_zhijia_pay()
 
@@ -411,7 +425,7 @@ def query_today_earnings():
 
     # return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + zhijia_pay
     return '佣金总计：' + str(
-        total) + "\n\n" + zhihu_earnings1 + "\n" + jingfen_earnings
+        total) + "\n\n" + zhihu_earnings1 + "\n" + jingfen_earnings + "\n" + totalGmv
 
 # 查询今日总收入
 def query_today_earnings_2():

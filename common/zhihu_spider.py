@@ -220,6 +220,28 @@ def get_jingfen_earnings(start, end, cookie):
     return json['result']['spreadReportInfoChatList'][0]['orderNum'], json['result']['spreadReportInfoChatList'][0]['cosFee'], json['result']['spreadReportInfoChatList'][0]['cosPrice']
 
 
+def get_1111_gmv(cookie):
+    url = '''
+        https://api.m.jd.com/api?functionId=union_data_bi_screen&appid=unionpc&_=1666360227362&loginType=3&body=%7B%22funName%22%3A%22gmv%22%2C%22param%22%3A%7B%22startDate%22%3A%222022-10-20%22%2C%22endDate%22%3A%222022-11-13%22%2C%22roleType%22%3A1%7D%7D
+    '''
+    header = {
+        'cookie': cookie,
+        'referer': 'https://union.jd.com/report',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        return "接口异常"
+
+    if 'login' in res.text:
+        return -10, 0
+
+    json = res.json()
+
+    return json['result']['amount']
 
 # 调京粉 api 查询点击数
 def get_jingfen_click(start, end, cookie):
