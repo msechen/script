@@ -125,13 +125,15 @@ def forward_to_kolly(msg):
             logger.info(ret)
             return ret
         elif 'q5' == msg.text:
-            ret = sync_data.query_phone_order('【预售版】realme真我Q5 6nm骁龙')
+            ret = sync_data.query_phone_order('真我Q5 6nm骁龙')
             logger.info(ret)
             return ret
         elif 'neo3' == msg.text:
             ret = sync_data.query_phone_order('GT Neo3')
             logger.info(ret)
             return ret
+        elif 'test' == msg.text:
+            return "test ok"
         if 'draft' == msg.text:  # 查所有文字草稿
             return '\n'.join(auto.query_article_draft())
     elif msg.sender.name == '内测' or msg.sender.name == '「蓝猫」早起俱乐部':
@@ -204,7 +206,7 @@ def auto_reply(msg):
         return ret
     
     if 'q5' == msg.text:
-        ret = sync_data.query_phone_order('【预售版】realme真我Q5 6nm骁龙')
+        ret = sync_data.query_phone_order('真我Q5 6nm骁龙')
         # logger.info(ret)
         return ret
 

@@ -368,7 +368,7 @@ def query_phone_order(phoneName):
                 if phoneName in order['skuName']:
                     total_gmv += order['estimateCosPrice']
                     total_order += 1
-                    total_order_detail += str(total_order) + '、[' + order['orderTime'] + '][' + str(order['estimateCosPrice']) + '][' + order['skuName'] + '\n'
+                    total_order_detail += str(total_order) + '、[' + order['validCodeMsg'] + '][' + order['orderTime'] + '][' + str(order['estimateCosPrice']) + ']' + order['skuName'] + '\n'
 
 
     return "[汇总数据]\nGMV:" + str(int(total_gmv)) + "\n订单数:" + str(total_order) + "\n订单明细\n" + str(total_order_detail)
