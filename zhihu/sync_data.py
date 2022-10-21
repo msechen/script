@@ -411,22 +411,21 @@ def query_today_earnings():
     zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
     jingfen_earnings1, num3, jingfen_earnings2, num4 = query_jingfen_earnings()
     # redpacket = query_jingfen_redpacket()
-    zhijia_pay, num5 = query_zhijia_pay()
+    # zhijia_pay, num5 = query_zhijia_pay()
 
-    total = int(num1 + num2 + num3 + num4 - num5)
+    total = int(num1 + num2 + num3 + num4)
 
     # return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + zhijia_pay
     return '佣金总计：' + str(
-        total) + "\n\n" + zhihu_earnings1 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2 + "\n" + zhijia_pay
+        total) + "\n\n" + zhihu_earnings1 + "\n" + jingfen_earnings1 + "\n" + jingfen_earnings2
 
 # 查询今日总收入
 def query_today_earnings_2():
     zhihu_earnings1, num1 = query_zhihu_earnings_2()
-    zhijia_pay, num4 = query_zhijia_pay_2()
 
-    total = int(num1 - num4)
+    total = int(num1)
 
-    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhijia_pay    
+    return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1    
 
 # 查询今日阅读和点赞
 def query_today_data():
