@@ -155,8 +155,10 @@ def query_zhihu_earnings():
     if gmv1 > 0:
         rate = str(round(sum1 / gmv1 * 100, 2))
 
-    return top1 + mid1 + str(count1) + end1 + str(sum1 / 100) + end11 + rate, sum1 / 100, top2 + mid2 + str(
-        count2) + end2 + str(sum2 / 100), sum2 / 100
+    # return top1 + mid1 + str(count1) + end1 + str(sum1 / 100) + end11 + rate, sum1 / 100, top2 + mid2 + str(
+    #     count2) + end2 + str(sum2 / 100), sum2 / 100
+
+    return top1 + mid1 + str(count1) + end1 + str(sum1 / 100) + end11 + rate, sum1 / 100
 
 
 # 查询知乎今日佣金
@@ -182,7 +184,7 @@ def query_jingfen_earnings():
 
     count, fee, gmv = zhihu_spider.get_jingfen_earnings(today, today, zh_config_dao.query_config('jfck2').value)
 
-    return top + mid + str(count) + end + str(gmv), fee, gmv
+    return top + mid + str(count) + end + str(gmv), fee
 
 
 # 查询双十一GMV
@@ -415,13 +417,13 @@ def query_zhijia_pay_2():
 
 # 查询今日总收入
 def query_today_earnings():
-    zhihu_earnings1, num1, zhihu_earnings2, num2 = query_zhihu_earnings()
-    jingfen_earnings, fee, gmv = query_jingfen_earnings()
+    zhihu_earnings1, num1 = query_zhihu_earnings()
+    jingfen_earnings, fee = query_jingfen_earnings()
     totalGmv = query_1111_gmv()
     # redpacket = query_jingfen_redpacket()
     # zhijia_pay, num5 = query_zhijia_pay()
 
-    total = int(num1 + num2 + fee)
+    total = int(num1 + fee)
 
     # return '佣金总计：' + str(total) + "\n\n" + zhihu_earnings1 + "\n" + zhihu_earnings2 + "\n" + zhijia_pay
     return '佣金总计：' + str(

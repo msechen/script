@@ -213,7 +213,7 @@ def get_jingfen_earnings(start, end, cookie):
         return "接口异常"
 
     if 'login' in res.text:
-        return -10, 0
+        return -1, 0, 0
 
     json = res.json()
 
@@ -237,7 +237,7 @@ def get_1111_gmv(cookie):
         return "接口异常"
 
     if 'login' in res.text:
-        return -10, 0
+        return 0
 
     json = res.json()
 
