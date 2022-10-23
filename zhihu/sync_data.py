@@ -195,9 +195,9 @@ def query_1111_gmv():
     mid = "订单量："
     end = "\nGMV："
 
-    gmv = zhihu_spider.get_1111_gmv(zh_config_dao.query_config('jfck2').value)
+    gmv, rank = zhihu_spider.get_1111_rank(zh_config_dao.query_config('jfck2').value)
 
-    return "总GMV:" + str(int(gmv))
+    return "总GMV:" + str(int(gmv)) + " 排名:" + str(rank)
 
 
 # 查询京粉点击数

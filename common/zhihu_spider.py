@@ -243,6 +243,30 @@ def get_1111_gmv(cookie):
 
     return json['result']['amount']
 
+
+def get_1111_rank(cookie):
+    url = '''
+        https://api.m.jd.com/api?functionId=union_bonus_api_channel&appid=unionpc&_=1666507893693&loginType=3&body=%7B%22funName%22%3A%22queryActivityBonus%22%2C%22param%22%3A%7B%22activityId%22%3A%226346%22%2C%22sourceType%22%3A1%7D%7D
+    '''
+    header = {
+        'cookie': cookie,
+        'referer': 'https://union.jd.com/report',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    }
+
+    try:
+        res = requests.get(url, headers=header)
+        res.encoding = 'utf-8'
+    except BaseException as e:
+        return "接口异常"
+
+    if 'login' in res.text:
+        return 0, 0
+
+    json = res.json()
+
+    return json['result'][0]['gmv'], json['result'][0]['ranking']
+
 # 调京粉 api 查询点击数
 def get_jingfen_click(start, end, cookie):
     # 知乎 API
