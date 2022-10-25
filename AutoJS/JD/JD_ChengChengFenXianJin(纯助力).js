@@ -9,6 +9,7 @@
   修改活动弹窗判断逻辑
   20220521 V1.3
   读取脚本所在文件夹中的账号明细文件执行任务，具体见文件说明
+  https://t.me/LingFeng0918
 */
 var TaskName = "城城分现金"
 Start(TaskName);
