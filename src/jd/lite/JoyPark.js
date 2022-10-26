@@ -127,17 +127,19 @@ class LiteJoyPark extends Template {
         taskFinished,
         canDrawAwardNum
       } of taskList) {
-        const apTaskDrawAward = () => api.doFormBody('apTaskDrawAward', {taskType, taskId}).then(getData).then(data => {
-          data && data.forEach(o => {
+        const apTaskDrawAward = () => api.doFormBody('apTaskDrawAward', {taskType, taskId}).then(data => {
+          if (!self.isSuccess(data)) {
+            return;
+          }
+          _.get(data, 'data', []).forEach(o => {
             const {awardName, awardGivenNumber} = o;
             api.log(`做任务获得${awardName}: ${awardGivenNumber}`);
           });
-          return data;
         });
         const doTask = async itemId => {
           itemId = itemId || void 0;
           await api.doFormBody('apDoTask', {taskType, taskId, itemId});
-          await sleep(2);
+          await sleep(5);
           await apTaskDrawAward();
         };
         if (/下单/.test(taskTitle)) continue;
