@@ -292,7 +292,6 @@ async function main() {
           PlantBean,
           [PlantBean, void 0, 'cron'],
           SuperBrandProduct,
-          EarnBean,
           Joy,
           Fruit, Pet,
           Factory,
