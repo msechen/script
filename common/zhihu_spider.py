@@ -206,8 +206,6 @@ def get_jingfen_earnings(start, end, cookie):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
     }
 
-    logger.info(url)
-
     try:
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
@@ -236,6 +234,7 @@ def get_1111_gmv(cookie):
     try:
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
+        logger.info(res.text)
     except BaseException as e:
         return -1
 
@@ -260,6 +259,7 @@ def get_1111_rank(cookie):
     try:
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
+        logger.info(res.text)
     except BaseException as e:
         return -1, -1
 
@@ -285,6 +285,7 @@ def get_jingfen_click(start, end, cookie):
     try:
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
+        logger.info(res.text)
     except BaseException as e:
         return -1
 
