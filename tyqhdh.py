@@ -75,9 +75,9 @@ def get_signature(nonce):
 
 def login(ua, ck):
     # print(ck)
-    url = "http://api.xiaoyisz.com/qiehuang/ga/public/api/login"
+    url = "https://apig.xiaoyisz.com/qiehuang/ga/public/api/login"
     headers = {
-        "Host": "api.xiaoyisz.com",
+        "Host": "apig.xiaoyisz.com",
         "user-agent": ua,
         "Content-Type": "application/json",
     }
@@ -95,9 +95,9 @@ def get_info(webhook_token):
     total_exchang = []
     nonce = get_nonce()
     timestamp, nonce, sign2 = get_signature(nonce)
-    url = f'https://api.xiaoyisz.com/qiehuang/ga/user/gift/list?timestamp={timestamp}&nonce={nonce}&signature={sign2}'
+    url = f'https://apig.xiaoyisz.com/qiehuang/ga/user/gift/list?timestamp={timestamp}&nonce={nonce}&signature={sign2}'
     response = requests.get(url=url, headers=headers).json()
-    # pprint.pprint(response)
+    pprint.pprint(response)
     # print('开始查询账号信息')
     if response['code'] == 0:
         for i in response['data']:
@@ -137,7 +137,7 @@ def webhook(message, webhook_token):
 if __name__ == '__main__':
     cks = os.environ['tybody']
     cks = cks.split('@')
-    webhook_token = os.environ['QYWX_KEY']
+    webhook_token = "os.environ['QYWX_KEY']"
     ck = random.choice(cks)
     ck1 = json.loads(ck)
     ua = random.choice(User_Agents)
