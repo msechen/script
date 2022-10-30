@@ -183,11 +183,11 @@ def get_zhihu_earnings(start, end, cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException:
-        return -10, 0
+        return -1, -1
 
     if res.status_code != 200:
         logger.info(res.text)
-        return -10, 0
+        return 0, 0
 
     json = res.json()
 
@@ -213,7 +213,7 @@ def get_jingfen_earnings(start, end, cookie):
         res.encoding = 'utf-8'
         logger.info(res.text)
     except BaseException as e:
-        return -1,-1,-1
+        return -1, -1, -1
 
     if 'login' in res.text:
         return 0, 0, 0
