@@ -472,7 +472,7 @@ def get_zhihu_like(total):
         zh_config_dao.update_config('dz-like', like4)
         zh_config_dao.update_config('liang-like', like5)
 
-    return txt1 + "(" + str(inc1_today) + ")\n" + txt2 + "(" + str(inc2_today) + ")\n" + txt3 + "(" + str(inc3_today) + ")\n"+ txt4 + "(" + str(inc4_today) + ")\n" + txt5 + "(" + str(inc5_today)
+    return txt1 + "(" + str(inc1_today) + ")\n" + txt2 + "(" + str(inc2_today) + ")\n" + txt3 + "(" + str(inc3_today) + ")\n"+ txt4 + "(" + str(inc4_today) + ")\n" + txt5 + "(" + str(inc5_today) + ")"
 
 
 # 查询文章点赞数
