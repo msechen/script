@@ -180,12 +180,6 @@ def query_jingfen_earnings():
 
 # 查询双十一GMV
 def query_1111_gmv():
-    today = datetime.datetime.now().strftime('%Y-%m-%d')
-
-    top = "[京粉]\n"
-    mid = "订单量："
-    end = "\nGMV："
-
     gmv, rank = zhihu_spider.get_1111_rank(zh_config_dao.query_config('jfck2').value)
 
     return "总GMV:" + str(int(gmv)) + " 排名:" + str(rank)

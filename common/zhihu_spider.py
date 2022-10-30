@@ -206,9 +206,12 @@ def get_jingfen_earnings(start, end, cookie):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
     }
 
+    logger.info(url)
+
     try:
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
+        logger.info(res.text)
     except BaseException as e:
         return -1,-1,-1
 
@@ -320,7 +323,7 @@ def get_jd_order_by_page(start, end, cookie, pageNo, pageSize):
         https://api.m.jd.com/api?functionId=listOrderSku&appid=u&_=1651160904745&loginType=3&body=%7B%22funName%22%3A%22listOrderSku%22%2C%22page%22%3A%7B%22pageNo%22%3A{}%2C%22pageSize%22%3A{}%7D%2C%22param%22%3A%7B%22unionRole%22%3A1%2C%22endTime%22%3A%22{}%2023%3A59%3A59%22%2C%22orderStatus%22%3A0%2C%22unionTags%22%3A%5B%220%22%5D%2C%22startTime%22%3A%22{}%2000%3A00%3A00%22%2C%22optType%22%3A1%2C%22spId%22%3A%22%22%7D%7D
     '''.format(pageNo, pageSize, end, start)
 
-    logger.info(url)
+    # logger.info(url)
 
     header = {
         'cookie': cookie,
