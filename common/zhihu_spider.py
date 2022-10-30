@@ -213,7 +213,7 @@ def get_jingfen_earnings(start, end, cookie):
     except BaseException as e:
         return -1, -1, -1
 
-    if 'login' in res.text:
+    if 'no login' in res.text or '未登陆' in res.text:
         return 0, 0, 0
 
     json = res.json()
@@ -238,7 +238,7 @@ def get_1111_gmv(cookie):
     except BaseException as e:
         return -1
 
-    if 'login' in res.text:
+    if 'no login' in res.text or '未登陆' in res.text:
         return 0
 
     json = res.json()
@@ -263,7 +263,7 @@ def get_1111_rank(cookie):
     except BaseException as e:
         return -1, -1
 
-    if 'login' in res.text:
+    if 'no login' in res.text or '未登陆' in res.text:
         return 0, 0
 
     json = res.json()
@@ -289,7 +289,7 @@ def get_jingfen_click(start, end, cookie):
     except BaseException as e:
         return -1
 
-    if 'login' in res.text:
+    if 'no login' in res.text or '未登陆' in res.text:
         return 0
 
     json = res.json()
@@ -338,7 +338,7 @@ def get_jd_order_by_page(start, end, cookie, pageNo, pageSize):
     except BaseException as e:
         return "接口异常"
 
-    if 'login' in res.text:
+    if 'no login' in res.text or '未登陆' in res.text:
         return -10
 
     return res
@@ -364,10 +364,10 @@ def get_jingfen_redpacket(start, end, cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException as e:
-        return "接口异常"
+        return -1, -1
 
-    if 'login' in res.text:
-        return 0, -10
+    if 'no login' in res.text or '未登陆' in res.text:
+        return 0, 0
 
     json = res.json()
 
