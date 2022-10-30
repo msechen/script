@@ -12,15 +12,6 @@ from wxpy import *
 logger = logging.getLogger('wx')
 
 new_day_hour = "00"
-g_like1 = 0
-g_like2 = 0
-g_like3 = 0
-g_like4 = 0
-
-g_like1_yestoday = 53198
-g_like2_yestoday = 34066
-g_like3_yestoday = 25872
-g_like4_yestoday = 0
 
 # 更新知乎问题的阅读量
 def update_zhihu_question():
@@ -209,7 +200,7 @@ def query_jingfen_click():
 
     yestoday_click = zhihu_spider.get_jingfen_click(yestoday, yestoday, zh_config_dao.query_config('jfck2').value)
 
-    return "[京粉点击数]" + str(today_click) + "/(" + str(yestoday_click) + ")"
+    return "[点击]" + str(today_click) + "/(" + str(yestoday_click) + ")"
 
 
 # 查询京粉点击数
@@ -289,11 +280,12 @@ def query_today_order():
                 
                 today_order_detail += str(today_order) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
-                if 'GT2' in order['skuName'] and '大师' in order['skuName']:
-                    today_order_gt2 += 1
-                    today_order_detail_gt2 += str(today_order_gt2) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
+                # if 'GT2' in order['skuName'] and '大师' in order['skuName']:
+                #     today_order_gt2 += 1
+                #     today_order_detail_gt2 += str(today_order_gt2) + '、【' + str(round(order['estimateCosPrice'] * order['commissionRate'] * 0.007, 1)) + '】\n金额：' + str(order['estimateCosPrice'])+ ', 比例：' + str(order['commissionRate']) + '%，[' + order['skuName'][0:20] + ']\n'
 
-    return "[GT2订单]\n订单数:" + str(today_order_gt2) + "\n订单明细\n" + str(today_order_detail_gt2) + "\n\n[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
+    # return "[GT2订单]\n订单数:" + str(today_order_gt2) + "\n订单明细\n" + str(today_order_detail_gt2) + "\n\n[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
+    return "订单明细\n" + str(today_order_detail_gt2) + "\n\n[今日订单]\n订单数:" + str(today_order) + " 预估佣金:" + str(today_money)+ "\n订单明细\n" + str(today_order_detail)
 
 
 # 查询品牌订单数据
@@ -447,31 +439,40 @@ def query_today_data_2():
 
 # 查询文章点赞数
 def get_zhihu_like(total):
-    global g_like1, g_like2, g_like3, g_like4, g_like1_yestoday, g_like2_yestoday, g_like3_yestoday, g_like4_yestoday
+    dx_like_yestoday = int(zh_config_dao.query_config('dx-like').value)
+    ct_like_yestoday = int(zh_config_dao.query_config('ct-like').value)
+    hby_like_yestoday = int(zh_config_dao.query_config('hby-like').value)
+    dz_like_yestoday = int(zh_config_dao.query_config('dz-like').value)
+    liang_like_yestoday = int(zh_config_dao.query_config('liang-like').value)
+
     txt1 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/354168117').replace(" 人赞同了该文章","")
     like1 = int(txt1.replace(",", ""))
-    inc1 = like1 - g_like1
-    inc1_today = like1 - g_like1_yestoday
-    g_like1 = like1
+    inc1_today = like1 - dx_like_yestoday
 
     txt2 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/340848190').replace(" 人赞同了该文章","")
     like2 = int(txt2.replace(",", ""))
-    inc2 = like2 - g_like2
-    inc2_today = like2 - g_like2_yestoday
-    g_like2 = like2
+    inc2_today = like2 - ct_like_yestoday
 
     txt3 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/367100764').replace(" 人赞同了该文章","")
     like3 = int(txt3.replace(",", ""))
-    inc3 = like3 - g_like3
-    inc3_today = like3 - g_like3_yestoday
-    g_like3 = like3
+    inc3_today = like3 - hby_like_yestoday
+
+    txt4 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/181591457').replace(" 人赞同了该文章","")
+    like4 = int(txt4.replace(",", ""))
+    inc4_today = like4 - dz_like_yestoday
+
+    txt5 = web_spider.get_zhihu_like('https://zhuanlan.zhihu.com/p/213819607').replace(" 人赞同了该文章","")
+    like5 = int(txt5.replace(",", ""))
+    inc5_today = like5 - liang_like_yestoday
 
     if total:
-        g_like1_yestoday = like1
-        g_like2_yestoday = like2
-        g_like3_yestoday = like3
+        zh_config_dao.update_config('dx-like', like1)
+        zh_config_dao.update_config('ct-like', like2)
+        zh_config_dao.update_config('hby-like', like3)
+        zh_config_dao.update_config('dz-like', like4)
+        zh_config_dao.update_config('liang-like', like5)
 
-    return txt1 + "(+" + str(inc1) + ")"  + "(+" + str(inc1_today) + ")" + '\n' + txt2 + "(+" + str(inc2) + ")"  + "(+" + str(inc2_today) + ")" + '\n' + txt3 + "(+" + str(inc3) + ")"  + "(+" + str(inc3_today) + ")"
+    return txt1 + "(" + str(inc1_today) + ")\n" + txt2 + "(" + str(inc2_today) + ")\n" + txt3 + "(" + str(inc3_today) + ")\n"+ txt4 + "(" + str(inc4_today) + ")\n" + txt5 + "(" + str(inc5_today)
 
 
 # 查询文章点赞数

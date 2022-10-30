@@ -210,10 +210,10 @@ def get_jingfen_earnings(start, end, cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException as e:
-        return "接口异常"
+        return -1,-1,-1
 
     if 'login' in res.text:
-        return -1, 0, 0
+        return 0, 0, 0
 
     json = res.json()
 
@@ -234,7 +234,7 @@ def get_1111_gmv(cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException as e:
-        return "接口异常"
+        return -1
 
     if 'login' in res.text:
         return 0
@@ -258,7 +258,7 @@ def get_1111_rank(cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException as e:
-        return "接口异常"
+        return -1, -1
 
     if 'login' in res.text:
         return 0, 0
@@ -283,10 +283,10 @@ def get_jingfen_click(start, end, cookie):
         res = requests.get(url, headers=header)
         res.encoding = 'utf-8'
     except BaseException as e:
-        return "接口异常"
+        return -1
 
     if 'login' in res.text:
-        return -10
+        return 0
 
     json = res.json()
 
