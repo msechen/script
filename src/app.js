@@ -228,8 +228,7 @@ async function main() {
     {
       valid: 14,
       run: async () => {
-        await serialRun([
-        ]);
+        await doRun(SuperBrandProduct);
       },
     },
     {

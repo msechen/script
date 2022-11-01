@@ -3,11 +3,12 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
 const {replaceObjectMethod} = require('../../lib/common');
-const {getMoment} = require('../../lib/moment');
+const {getMoment, getNowHour} = require('../../lib/moment');
 
 const sources = [
   // {source: 'star_gift', label: '超级品牌抽奖'},
   {source: 'sign', label: '签到抽奖'},
+  {source: 'card', label: '合成徽章瓜分'},
 ];
 let source;
 
@@ -65,6 +66,8 @@ class SuperBrandProduct extends Template {
         activityId,
       } = await api.doGetBodyMP('superBrandSecondFloorMainPage').then(_.property('data.result.activityBaseInfo')) || {};
       if (!encryptProjectId) return true;
+      /* 仅 14点 执行 sign */
+      if (source === 'sign' && getNowHour() !== 14) return true;
       _.assign(api.options.qs.body, {activityId});
       api.encryptProjectId = encryptProjectId;
     }
@@ -192,7 +195,7 @@ class SuperBrandProduct extends Template {
             const {cardPackList, divideTimeStr} = activityCardInfo;
             const enableDivide = cardPackList.every(({num}) => num > 0);
             const cardLog = '已收集卡片数: ' + cardPackList.map(({num, cardType}) => `${num}张卡片${cardType}`).join(', ');
-            api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
+            api.log((enableDivide ? `卡片已凑齐, ${divideTimeStr || '可以'}开始瓜分` : '卡片未凑齐, 请继续努力') + `  ${cardLog}`);
             if (enableDivide && self.getNowHour() >= 20) {
               await api.doGetBodyMP('superBrandTaskLottery', {
                 tag: 'divide',
