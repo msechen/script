@@ -35,6 +35,8 @@ class DoShareCoupon extends Template {
   static async doMain(api) {
     const self = this;
 
+    // shareUrl https://u.jd.com/kMh6fJl?s=unionShareId
+
     const showCouponBody = {};
     const getCouponsBody = {
       'platform': 1,
