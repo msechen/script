@@ -3,6 +3,7 @@ const Template = require('../base/template');
 const {sleep, writeFileJSON} = require('../../lib/common');
 const _ = require('lodash');
 const Cookie = require('../../lib/cookie');
+const vm = require('vm');
 
 class WqBase extends Template {
   static scriptName = 'WqBase';
@@ -52,6 +53,13 @@ class WqBase extends Template {
           try {
             result = JSON.parse(data.replace(/\w*\(/, '').replace(/\)[;]$/, ''));
           } catch (e) {
+            const ctx = {
+              [this.options.qs.callback]: data => {
+                result = data;
+              },
+            }
+            vm.createContext(ctx);
+            vm.runInContext(data, ctx);
           }
         }
         return result;

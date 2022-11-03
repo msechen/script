@@ -183,8 +183,13 @@ class Api {
   }
 
   doGetPath(functionId, qs = {}, options = {}) {
+    let prefix = this.options.uri;
+    if (functionId.startsWith('/')) {
+      prefix = new URL(this.options.uri).origin;
+      functionId = functionId.replace(/^\//, '');
+    }
     return this.do(_.merge({
-      uri: `${this.options.uri}/${functionId}`,
+      uri: `${prefix}/${functionId}`,
       qs,
       method: 'GET',
     }, options));
