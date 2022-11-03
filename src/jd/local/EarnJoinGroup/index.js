@@ -1,16 +1,14 @@
 const Template = require('../../base/template');
 
 
-const {sleep, writeFileJSON, singleRun} = require('../../../lib/common');
+const {sleep, writeFileJSON, readFileJSON, singleRun, replaceObjectMethod} = require('../../../lib/common');
 const {getEnv} = require('../../../lib/env');
-const {formatRequest} = require('../../../../charles/websocket/api');
-const fs = require('fs');
 const _ = require('lodash');
 
 // 获取数据并清空
-const originRequestPath = require('path').resolve(__dirname, './originRequest.txt');
-const originRequest = fs.readFileSync(originRequestPath).toString();
-fs.writeFileSync(originRequestPath, '');
+const originBodyPath = require('path').resolve(__dirname, './originBody.json');
+const originBody = readFileJSON(originBodyPath);
+writeFileJSON({}, originBodyPath);
 
 class EarnJoinGroup extends Template {
   static scriptName = 'EarnJoinGroup';
@@ -23,10 +21,14 @@ class EarnJoinGroup extends Template {
 
   static apiOptions = {
     options: {
-      uri: 'https://wq.jd.com/mjgj_active/super_fission',
+      uri: 'https://api.m.jd.com/superFission',
       qs: {
         g_ty: 'ls',
         g_tk: '1844967756',
+      },
+      form: {
+        appid: 'hot_channel',
+        loginType: 11,
       },
       headers: {
         // TODO user-agent 应该是不用的, 先用着
@@ -36,7 +38,16 @@ class EarnJoinGroup extends Template {
   };
 
   static isSuccess(data) {
-    return _.property('retcode')(data) === 0;
+    return _.property('subCode')(data) === 0;
+  }
+
+  static async beforeRequest(api) {
+    const self = this;
+    replaceObjectMethod(api, 'doPath', ([functionId, form]) => {
+      form = form || {};
+      form['functionId'] = `superFission_${functionId}`;
+      return [functionId, form];
+    });
   }
 
   static async doMain(api, shareCodes) {
@@ -46,95 +57,83 @@ class EarnJoinGroup extends Template {
 
     if (shareCookieIndex < 0) return console.log('请手动指定 cookie index');
 
-    // 获取 active_id 和 group_id
-    const result = formatRequest(originRequest);
-    const getUrl = o => _.get(o, 'request.URI');
-    const homePageData = result.find(o => getUrl(o).match('SuperFissionHomepage'));
-    if (!homePageData) return console.log('活动不存在');
-    const searchParams = new URL(`http:/${getUrl(homePageData)}`).searchParams;
-    // 活动 id, 每个活动的值是固定的
-    const activeId = searchParams.get('active_id');
-    // 团 id , 每个人都不一样的
-    const groupId = searchParams.get('group_id');
-    const referer = _.get(homePageData, 'request.HEADER.referer');
+    const {activeId, groupId} = originBody;
+
+    // /openGroup 开团接口
 
     if (!activeId || !groupId) {
       return api.log('活动不存在');
     }
 
+    await self.beforeRequest(api);
+
     _.merge(api.options, {
-      qs: {
-        active_id: activeId,
-        group_id: groupId,
+      form: {
+        body: {activeId, groupId},
       },
-      headers: {referer},
+      headers: {referer: 'https://servicewechat.com/wx91d27dbf599dff74/665/page-frame.html'},
     });
 
-    const homeResult = await api.doGetPath('SuperFissionHomepage');
-    if (!self.isSuccess(homeResult)) {
-      return api.log(`SuperFissionHomepage 获取失败: ${homeResult['msg']}`);
+    const mainPageResult = await api.doPath('mainPage');
+    if (!self.isSuccess(mainPageResult)) {
+      return api.log(`mainPage 获取失败: ${mainPageResult['msg']}`);
     }
 
     const {
-      active_info: {
-        share_info: {
-          share_title,
+      activityInfo: {
+        shareInfo: {
+          shareTitle,
         },
-        show_content: {
-          task_id,
-          browse_create_task_duration,
-          browse_task_duration,
-          task_status,
+        showContent: {
+          browseCreateTaskDuration,
+          browseTaskDuration,
+          taskStatus,
         },
       },
-      group_info: {
-        is_member,
+      groupInfo = {},
+      basicGroupInfo: {
+        groupStatus,
       },
-      basic_group_info: {
-        group_status,
+      prizeEnough,
+      prizeRemain,
+      userInfo: {
+        canJoinGroup,
+        canJoinGroupUserLabel,
+        noJoinGroupReason,
       },
-      prize_enough,
-      prize_remain,
-      user_info: {
-        can_create_group,
-        can_create_group_userlabel,
-        can_join_group,
-        can_join_group_userlabel,
-        no_join_group_reason,
-      },
-    } = _.get(homeResult, 'data');
+    } = _.get(mainPageResult, 'data');
 
-    const log = str => api.log(`[${share_title}-${groupId}] ${str}`);
+    const log = str => api.log(`[${shareTitle}-${groupId}] ${str}`);
 
-    if (group_status === 3) {
+    if (groupStatus === 3) {
       return log(`已成功`);
     }
-    if (is_member === 1) {
+    const {groupType} = groupInfo;
+    if ([1/*团长*/, 2/*团员*/].includes(groupType)) {
       return log(`已在团中, 无需重复参加`);
     }
-    if (no_join_group_reason === 10003) {
+    if (noJoinGroupReason === '1024') {
       return log(`不可参加自己开的团`);
     }
-    if (no_join_group_reason === 10004 || can_join_group < can_join_group_userlabel || can_join_group === 0) {
+    if (noJoinGroupReason === '1024' || canJoinGroup < canJoinGroupUserLabel || canJoinGroup === 0) {
       return log(`已没次数参加`);
     }
-    if (!prize_remain || !prize_enough) {
+    if (!prizeRemain || !prizeEnough) {
       return log(`已结束`);
     }
     // 参团
-    await sleep(browse_create_task_duration || 2);
-    const doTaskSucceed = await api.doGetPath('SuperFissionDoTask', {task_id}).then(self.isSuccess);
-    if (!doTaskSucceed) return log('doTask 失败');
-    await sleep(browse_task_duration + 2);
+    // await sleep(browseCreateTaskDuration || 2);
+    // const doTaskSucceed = await api.doPath('doTask').then(self.isSuccess);
+    // if (!doTaskSucceed) return log('doTask 失败');
+    await sleep(browseTaskDuration + 2);
     // 参团
-    await api.doGetPath('SuperFissionJoinGroup').then(data => {
+    await api.doPath('joinGroup').then(data => {
       if (self.isSuccess(data)) {
         log('参团成功');
       } else {
-        log(`参团失败(retcode: ${data.retcode}, msg: ${data.msg})`);
+        log(`参团失败(subCode: ${data.subCode}, message: ${data.message})`);
       }
     });
-
   }
 }
 
