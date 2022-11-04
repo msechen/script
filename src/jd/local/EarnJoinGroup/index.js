@@ -8,7 +8,7 @@ const _ = require('lodash');
 // 获取数据并清空
 const originBodyPath = require('path').resolve(__dirname, './originBody.json');
 const originBody = readFileJSON(originBodyPath);
-writeFileJSON({}, originBodyPath);
+require('fs').writeFileSync(originBodyPath, '');
 
 class EarnJoinGroup extends Template {
   static scriptName = 'EarnJoinGroup';
