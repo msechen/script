@@ -2,7 +2,8 @@ const Template = require('./index');
 
 const {sleep, writeFileJSON, singleRun} = require('../../lib/common');
 const _ = require('lodash');
-const {getMoment} = require('../../lib/moment');
+const {getMoment, getNowHour} = require('../../lib/moment');
+const {sleepTime} = require('../../lib/cron');
 
 const activeId = '63526d8f5fe613a6adb48f03';
 
@@ -14,6 +15,7 @@ class MakeMoneyShop extends Template {
   static commonParamFn = () => ({});
   static times = 1;
   static needInPhone = false;
+  static concurrent = getNowHour() === 23;
 
   static customApiOptions = {
     uri: 'https://wq.jd.com/newtasksys/newtasksys_front',
@@ -36,8 +38,11 @@ class MakeMoneyShop extends Template {
 
     // TODO 助力
 
+    const notCron = await handleCronExChange();
+    if (!notCron) return;
+
     await handleDoTask();
-    await handleExchange();
+    await handleAutoExchange();
 
     // 主要获取打卡奖励和输出结果
     async function handleDoTask() {
@@ -56,6 +61,9 @@ class MakeMoneyShop extends Template {
         taskId,
         taskName
       } of userTaskStatusList) {
+        if (taskName.match('打卡')) {
+          api.log(`打卡进度(${realCompletedTimes}/${configTargetTimes})`);
+        }
         // TODO 确认任务是否未做
         if (gettaskStatus === 2 && taskName.match(/逛一逛省钱节会场|逛超值购物金会场/) && (!dateTypeExtra || updateTime === 0)) {
           await sleep(5);
@@ -75,15 +83,12 @@ class MakeMoneyShop extends Template {
             await sleep(2);
           }
         }
-        if (taskName.match('打卡')) {
-          api.log(`打卡进度(${realCompletedTimes}/${configTargetTimes})`);
-        }
       }
     }
 
 
     // 自动提现
-    async function handleExchange() {
+    async function handleAutoExchange() {
       const result = await api.doGetPath('/makemoneyshop/exchangequery', {activeId});
       const {code, msg} = result;
       if (code !== 0) {
@@ -105,19 +110,32 @@ class MakeMoneyShop extends Template {
       if (stockPersonDayUsed > stockPersonDayLimit) {
         return api.log('今天提现次数已达上限');
       }
-      const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && o['exchangeStatus'] === 1 && +o['consumeScore'] > 0.3);
+      const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && o['exchangeStatus'] === 1/* && +o['consumeScore'] > 0.3*/);
 
       if (!cash) {
         return api.log(`没有可用的提现项`);
       }
 
-      await api.doGetPath('/prmt_exchange/client/exchange', {ruleId: cash.id}).then(data => {
+      await handleExChange(cash);
+    }
+
+    async function handleExChange(cash, options) {
+      await api.doGetPath('/prmt_exchange/client/exchange', {ruleId: cash.id}, options).then(data => {
         const {ret, msg} = data;
         if (ret !== 0) {
           return api.log(`提现失败, 原因(${ret}): ${msg}`);
         }
         api.log(`${cash.name} 提现中`);
       });
+    }
+
+    async function handleCronExChange() {
+      if (getNowHour() !== 23) return true;
+      if (api.currentCookieIndex === 0) {
+        console.log('准备0点定时提现');
+      }
+      await sleepTime(24);
+      await handleExChange({name: '8元现金', id: 'da3fc8218d2d1386d3b25242e563acb8'}, {needDelay: false});
     }
   }
 }
