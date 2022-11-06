@@ -46,6 +46,9 @@ class MakeMoneyShop extends Template {
         encryptPin,
       } = await api.doGetPath('GetUserTaskStatusList', {__t: getMoment().valueOf()}).then(data => data.data || {});
       for (let {
+        gettaskStatus,
+        dateTypeExtra,
+        updateTime,
         awardStatus,
         targetTimes,
         configTargetTimes,
@@ -53,7 +56,12 @@ class MakeMoneyShop extends Template {
         taskId,
         taskName
       } of userTaskStatusList) {
-        if (taskName.match('打卡')) {
+        // TODO 确认任务是否未做
+        if (gettaskStatus === 2 && taskName.match(/逛一逛省钱节会场|逛超值购物金会场/) && (!dateTypeExtra || updateTime === 0)) {
+          await sleep(5);
+          await api.doGetPath('DoTask', {taskId, isSecurity: true, configExtra: ''});
+        }
+        if (taskName.match(/打卡|打扫|逛一逛省钱节会场|逛超值购物金会场/)) {
           for (; targetTimes <= realCompletedTimes; targetTimes++) {
             if (awardStatus === 1) continue;
             await api.doGetPath('Award', {taskId}).then(data => {
@@ -66,6 +74,8 @@ class MakeMoneyShop extends Template {
             });
             await sleep(2);
           }
+        }
+        if (taskName.match('打卡')) {
           api.log(`打卡进度(${realCompletedTimes}/${configTargetTimes})`);
         }
       }
