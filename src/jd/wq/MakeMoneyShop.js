@@ -107,7 +107,7 @@ class MakeMoneyShop extends Template {
       if (exchangeRecordList) {
         return api.log('当前已有提现中的任务');
       }
-      if (stockPersonDayUsed > stockPersonDayLimit) {
+      if (stockPersonDayUsed >= stockPersonDayLimit) {
         return api.log('今天提现次数已达上限');
       }
       const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && o['exchangeStatus'] === 1/* && +o['consumeScore'] > 0.3*/);
