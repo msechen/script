@@ -170,7 +170,7 @@ def webhook(message, webhook_token):
 
 
 if __name__ == '__main__':
-    webhook_token = os.environ["webhook_token"]
+    webhook_token = os.environ["QYWX_KEY"]
     # 登入
     cr_url = 'https://api-farm.game.mgtv.com/api/login'
     cr_data = {
