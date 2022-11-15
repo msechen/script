@@ -135,6 +135,7 @@ class MakeMoneyShop extends Template {
         console.log('准备0点定时提现');
       }
       await sleepTime(24);
+      await handleExChange({name: '20元现金', id: '7ea791839f7fe3168150396e51e30917'}, {needDelay: false});
       await handleExChange({name: '8元现金', id: 'da3fc8218d2d1386d3b25242e563acb8'}, {needDelay: false});
     }
   }
