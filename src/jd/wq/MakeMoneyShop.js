@@ -65,11 +65,11 @@ class MakeMoneyShop extends Template {
           api.log(`打卡进度(${realCompletedTimes}/${configTargetTimes})`);
         }
         // TODO 确认任务是否未做
-        if (gettaskStatus === 2 && taskName.match(/逛一逛省钱节会场|逛超值购物金会场/) && (!dateTypeExtra || updateTime === 0)) {
+        if (gettaskStatus === 2 && taskName.match(/逛一逛省钱节会场|逛超值购物金会场|逛逛|实在返场/) && (!dateTypeExtra || updateTime === 0)) {
           await sleep(5);
           await api.doGetPath('DoTask', {taskId, isSecurity: true, configExtra: ''});
         }
-        if (taskName.match(/打卡|打扫|逛一逛省钱节会场|逛超值购物金会场/)) {
+        if (taskName.match(/打卡|打扫|逛一逛省钱节会场|逛超值购物金会场|逛逛|实在返场/)) {
           for (; targetTimes <= realCompletedTimes; targetTimes++) {
             if (awardStatus === 1) continue;
             await api.doGetPath('Award', {taskId}).then(data => {
