@@ -38,9 +38,6 @@ class MakeMoneyShop extends Template {
 
     // TODO 助力
 
-    const notCron = await handleCronExChange();
-    if (!notCron) return;
-
     await handleDoTask();
     await handleAutoExchange();
 
@@ -104,13 +101,20 @@ class MakeMoneyShop extends Template {
         },
       } = result;
       api.log(`当前金额: ${canUseCoinAmount}`);
+      const isCron = getNowHour() === 23;
+      const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && (o['exchangeStatus'] === 1 || isCron)/* && +o['consumeScore'] > 0.3*/);
+      if (isCron && cash) {
+        await sleepTime(24);
+        await handleExChange(cash || {name: '8元现金', id: 'da3fc8218d2d1386d3b25242e563acb8'}, {needDelay: false});
+        return;
+      }
+
       if (exchangeRecordList) {
         return api.log('当前已有提现中的任务');
       }
       if (stockPersonDayUsed >= stockPersonDayLimit) {
         return api.log('今天提现次数已达上限');
       }
-      const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && o['exchangeStatus'] === 1/* && +o['consumeScore'] > 0.3*/);
 
       if (!cash) {
         return api.log(`没有可用的提现项`);
