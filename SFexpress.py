@@ -68,7 +68,7 @@ class SFexpress:
         return md5str.hexdigest()
 
     def checkin(self,commHeaders):
-        url = "https://mcs-mimp-web.sf-express.com/mcs-mimp/integralTaskSignPlusService/automaticSignFetchPackage"
+        url = "https://mcs-mimp-web.sf-express.com/mcs-mimp/commonPost/~memberNonactivity~integralTaskSignPlusService~automaticSignFetchPackage"
         body = {"comeFrom":"vioin","channelFrom":"SFAPP"}
         timestr=int(round(time.time()*1000))
         commHeaders["timestamp"]=str(timestr)
