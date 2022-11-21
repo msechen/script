@@ -34,6 +34,24 @@
     ],
     "monitor_converters 转换关键词基于正则表达式实现": 1,
     "monitor_converters": {
+        "((?=.*jd_task_lzzd_custom)(?=.*https)^.*$)": {
+            "env": "export M_WX_TEAM_URL=\"%s\""
+        },
+        "(jd_lzkj_activityId|jd_task_lzzd_custom)": {
+            "env": "export M_WX_TEAM_URL=\"https://lzkjdz-isv.isvjcloud.com/wxTeam/activity2/875406?activityId=%s\""
+        },
+        "((?=.*jd_task_cjzd_custom)(?=.*https)^.*$)": {
+            "env": "export M_WX_TEAM_URL=\"%s\""
+        },
+        "(jd_task_cjzd_custom|jd_cjhy_activityId)": {
+            "env": "export M_WX_TEAM_URL=\"https://cjhydz-isv.isvjcloud.com/wxTeam/activity?activityId=%s\""
+        },
+        "^(?=(.|\\n)*jd_zdjr_activityId)(?=(.|\\n)*cjhy)(.|\\n)(?=(.|\\n)*积分)(.|\\n)*$": {
+            "env": "export M_WX_TEAM_JF_URL=\"https://cjhydz-isv.isvjcloud.com/wxTeam/activity?activityId=%s\""
+        },
+        "^(?=(.|\\n)*jd_zdjr_activityId)(?=(.|\\n)*lzkj)(.|\\n)(?=(.|\\n)*积分)(.|\\n)*$": {
+            "env": "export M_WX_TEAM_JF_URL=\"https://lzkjdz-isv.isvjcloud.com/wxTeam/activity2/875406?activityId=%s\""
+        },
         "^(?=(.|\\n)*jd_zdjr_activityId)(?=(.|\\n)*cjhy)(.|\\n)*$": {
             "env": "export M_WX_TEAM_URL=\"https://cjhydz-isv.isvjcloud.com/wxTeam/activity?activityId=%s\""
         },
