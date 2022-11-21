@@ -9,8 +9,7 @@ if (mode) {
 }
 
 //前n个号有机会成为队长
-let leaderNum = $.activityUrl.includes("cjhy") ? parseInt(process.env.M_WX_TEAM_CJ_LEADER_NUM || 7) : parseInt(
-    process.env.M_WX_TEAM_LZ_LEADER_NUM || 2)
+let leaderNum =  parseInt(process.env.M_WX_SHARE_LEADER_NUM || 2)
 
 //超过这个人数奖品不要了
 let needMaxNum = parseInt(process.env.M_WX_SHARE_MAX_NEED_NUM || 200)
