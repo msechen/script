@@ -1,7 +1,7 @@
 // noinspection DuplicatedCode
 
 let mode = __dirname.includes('magic')
-const {Env} = mode ? require('../magic') : require('./magic')
+const {Env} = mode ? require('./magic') : require('./magic')
 const $ = new Env('M组队瓜分');
 $.activityUrl = decodeURIComponent(process.argv.splice(2)?.[0] || process.env.M_WX_TEAM_URL);
 if (mode) {

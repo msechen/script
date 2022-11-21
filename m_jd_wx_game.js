@@ -1,5 +1,5 @@
 let mode = __dirname.includes('magic')
-const {Env, CryptoJS} = mode ? require('../magic') : require('./magic')
+const {Env, CryptoJS} = mode ? require('./magic') : require('./magic')
 const $ = new Env('M无线游戏');
 $.activityUrl = decodeURIComponent(process.argv.splice(2)?.[0] || process.env.M_WX_GAME_URL)
 if (mode) {

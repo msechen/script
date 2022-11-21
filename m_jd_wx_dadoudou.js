@@ -1,5 +1,6 @@
 let mode = __dirname.includes('magic')
-const {Env} = mode ? require('../magic') : require('./magic')
+const {Env} = mode ? require('./magic') : require('./magic')
+
 const $ = new Env('M打豆豆');
 $.activityUrl = decodeURIComponent(process.argv.splice(2)?.[0] || process.env.M_WX_DADOUDOU_URL);
 if (mode) {
