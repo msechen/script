@@ -53,10 +53,7 @@ $.logic = async function () {
         {"type": "1", "version": 11, "channel": 3, "babelChannel": 0});
 };
 
-$.run({
-    wait: [20000, 30000], whitelist: ['1-15']
-}).catch(
-    reason => $.log(reason));
+$.run({wait: [2000, 3000]}).catch(reason => $.log(reason));
 
 // noinspection DuplicatedCode
 async function api(fn, body) {

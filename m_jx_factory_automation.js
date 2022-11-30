@@ -64,10 +64,7 @@ $.logic = async function () {
     }
 };
 
-$.run({
-    wait: [2000, 3000]
-}).catch(
-    reason => $.log(reason));
+$.run({wait: [2000, 3000]}).catch(reason => $.log(reason));
 
 async function InvestElectric(productionId) {
     let url = `https://m.jingxi.com/dreamfactory/userinfo/InvestElectric?zone=dream_factory&productionId=${productionId}&_time=1637743936757&_ts=1637743936757&_=1637743936758&sceneval=2&g_login_type=1&callback=jsonpCBKR&g_ty=ls`;
