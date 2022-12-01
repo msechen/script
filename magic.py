@@ -161,6 +161,34 @@ async def handler(event):
     await client.send_message(bot_id, f'老板啥事？')
 
 
+# 提取多行转换
+async def converter_lines(text):
+    before_eps = text.split("\n")
+    after_eps = [elem for elem in before_eps if elem.startswith("export")]
+    return await converter_handler("\n".join(after_eps))
+
+
+# 设置变量
+@client.on(events.NewMessage(from_users=[user_id], pattern='^(run|Run)$'))
+async def handler(event):
+    try:
+        reply = await event.get_reply_message()
+        if event.is_reply is False:
+            return
+        # 提取变量
+        text = await converter_lines(reply.text)
+        text = re.findall(r'(export.*)', text)[0]
+        await export(text)
+        kv = text.replace("export ", "")
+        logger.info(kv)
+        key = kv.split("=")[0]
+        action = monitor_scripts.get(key)
+        command = action.get("task", "")
+        await cmd(command)
+    except Exception as e:
+        logger.error(e)
+
+
 # 设置变量
 @client.on(events.NewMessage(chats=[bot_id], pattern='^清理缓存$'))
 async def handler(event):
