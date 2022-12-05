@@ -13,6 +13,7 @@ class SuperBrandDay extends Template {
   static shareCodeTaskList = [];
   static commonParamFn = () => ({});
   static times = 1;
+  static activityEndTime = '2022-11-30';
 
   static apiOptions = {
     options: {
