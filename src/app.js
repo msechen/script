@@ -170,7 +170,7 @@ async function main() {
           ...shortTermActivity,
         ]);
         await multipleRun([
-          Harmony1,
+          // Harmony1,
           // Harmony2,
           // Harmony3,
           // Harmony4,
