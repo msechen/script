@@ -20,6 +20,7 @@ class SuperBrandProduct extends Template {
   static commonParamFn = () => ({});
   static times = 2;
   static needInAppComplete = true;
+  static activityEndTime = '2022-11-30';
 
   static apiOptions() {
     return {
