@@ -18,7 +18,8 @@
     "monitor_cache_size": 100,
     "monitor_cars 是你要监控的对象，需要填上自己bot的id和线报频道或群组id": 1,
     "monitor_cars": [
-        -1001718319262
+        -1001718319262,
+        -1001718319261
     ],
 
     "monitor_auto_stops": [
