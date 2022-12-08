@@ -194,14 +194,12 @@ class Jd_fruit extends JDHelloWorld {
         }
       }
 
-      if (!res.waterRainInit.f) {
-        if (!res.waterRainInit.lastTime || Date.now() > getTime(addHours(res.lastTime, 4))) {
-          this.h5stTool = new H5ST('9983a', this.user.UserAgent, this.fp)
-          await this.h5stTool.__genAlgo()
-          data = await this.api('waterRainForFarm', {"type": 1, "hongBaoTimes": 99, "version": 14, "channel": 1})
-          data.code === '0' && console.log('红包雨💧', data.addEnergy)
-          await this.wait(1000)
-        }
+      if (!res.waterRainInit.f && Date.now() > getTime(addHours(res.lastTime || 1669906397000, 4))) {
+        this.h5stTool = new H5ST('9983a', this.user.UserAgent, this.fp)
+        await this.h5stTool.__genAlgo()
+        data = await this.api('waterRainForFarm', {"type": 1, "hongBaoTimes": 99, "version": 14, "channel": 1})
+        data.code === '0' ? console.log('红包雨💧', data.addEnergy) : this.o2s(data, '红包雨error')
+        await this.wait(1000)
       }
 
       if (!res.waterFriendTaskInit.f) {
