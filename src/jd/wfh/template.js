@@ -25,7 +25,7 @@ class HarmonyTemplate extends Template {
   static shareCodeUniqIteratee = 'taskToken';
 
   static getApiNames() {
-    return this._.assign({}, defaultApiNames, this.apiNames);
+    return _.assign({}, defaultApiNames, this.apiNames);
   };
 
   static async beforeGetTaskList(api, data) {}
@@ -89,7 +89,7 @@ class HarmonyTemplate extends Template {
               waitDuration,
             } = task;
             if (self.redeemWithTaskId && status === 3/*待抽奖*/) {
-              await api.doFormBody(self.getApiNames().doRedeem, {taskId, ...self.commonParamFn()}).then(data => self.logAfterRedeem(api, data));
+              self.getApiNames().doRedeem && await api.doFormBody(self.getApiNames().doRedeem, {taskId, ...self.commonParamFn()}).then(data => self.logAfterRedeem(api, data));
               continue;
             }
 
@@ -167,7 +167,7 @@ class HarmonyTemplate extends Template {
     };
 
     Object.keys(result).forEach(key => {
-      if (!self.apiNames[key]) delete result[key];
+      if (!self.getApiNames()[key]) delete result[key];
     });
 
     return result;

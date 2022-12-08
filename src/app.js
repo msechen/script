@@ -148,6 +148,7 @@ async function main() {
   const shortTermActivity = [
     RubikSCube,
     SuperBrandProduct,
+    SplitHongbao,
   ];
   const scheduleOptions = [
     {
@@ -276,6 +277,7 @@ async function main() {
           LiteHappyDig,
           SuperBrandDay,
           SecondKillRedPacket,
+          SplitHongbao,
         ]);
       },
     },
