@@ -259,6 +259,11 @@ class Jd_fruit extends JDHelloWorld {
         console.log('已签到')
       }
 
+      if (res.totalSigned === 7 && !res.gotClockInGift) {
+        data = await this.api('clockInForFarm', {"type": 2, "version": 19, "channel": 1, "babelChannel": "10", "lat": "0", "lng": "0"})
+        console.log('签到7天奖励', data.amount)
+      }
+
       // 删除好友
       this.h5stTool = new H5ST('eaf91', this.user.UserAgent, this.fp)
       await this.h5stTool.__genAlgo()
