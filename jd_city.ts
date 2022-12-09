@@ -52,8 +52,11 @@ class Jd_cash_signin extends JDHelloWorld {
         }
         for (let code of shareCode) {
           res = await this.api('city_getHomeDatav1', {"lbsCity": "", "realLbsCity": "", "inviteId": code, "headImg": "", "userName": "", "taskChannel": "1", "location": "", "safeStr": "{\"log\":\"\",\"sceneid\":\"CHFhPageh5\",\"random\":\"\"}"})
-          console.log(res.data.result.toasts)
           await this.wait(3000)
+          if (res.data.result.toasts) {
+            console.log(res.data.result.toasts[0])
+            if (res.data.result.toasts[0].status === '3') break
+          }
         }
       } catch (e) {
         console.log(e.message)
