@@ -34,7 +34,7 @@ class SignBeanHome extends Template {
           const result = [];
 
           const taskList = _.property('data.floorList')(data) || [];
-          const {awardStatus} = data.data;
+          const awardStatus = _.get(data, 'data.awardStatus');
           for (let {
             type,
             maxTimes,
