@@ -112,15 +112,12 @@ class EarnJoinGroup extends Template {
     if ([1/*团长*/, 2/*团员*/].includes(groupType)) {
       return log(`已在团中, 无需重复参加`);
     }
-    if (noJoinGroupReason === '1024') {
-      return log(`不可参加自己开的团`);
-    }
     if (noJoinGroupReason === '1024' || canJoinGroup < canJoinGroupUserLabel || canJoinGroup === 0) {
       return log(`已没次数参加`);
     }
-    if (!prizeRemain || !prizeEnough) {
-      return log(`已结束`);
-    }
+    // if (!prizeRemain || !prizeEnough) {
+    //   return log(`已结束`);
+    // }
     // 参团
     // await sleep(browseCreateTaskDuration || 2);
     // const doTaskSucceed = await api.doPath('doTask').then(self.isSuccess);
