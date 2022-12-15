@@ -201,7 +201,7 @@ function matchMiddle(target, {reg, prefix, suffix, match = '\w'}) {
  */
 async function singleRun(target, method = 'start', runFn = null) {
   const {updateProcessEnv, getCookieData} = require('./env');
-  const [nodePath, filePath, command1] = process.argv;
+  const [nodePath, filePath, command1/*method*/, command2/*cookie index*/] = process.argv;
   const fileName = path.basename(filePath);
   let scriptName1 = fileName.replace(/\.js$/, '');
   const fileParentDirName = path.basename(path.dirname(filePath));
@@ -214,7 +214,8 @@ async function singleRun(target, method = 'start', runFn = null) {
   for (const m of _.concat(method)) {
     if (command1 === m && isCurrentFile) {
       updateProcessEnv();
-      promise = await (runFn ? runFn(m, getCookieData) : target[m](getCookieData(void 0)));
+      const _getCookie = _.wrap(getCookieData(), data => _.isNil(command2) ? data : _.pullAt(data, command2));
+      promise = await (runFn ? runFn(m, _getCookie) : target[m](_getCookie()));
     }
   }
 
