@@ -164,32 +164,32 @@ class Sign extends Template {
       // jrSign,
       beanSign,
       expressSign,
-      {
-        name: '京东汽车领券签到',
-        url: 'https://cgame-stadium.jd.com/api/v1/sign',
-        options: {
-          headers: {
-            origin: 'https://pro.m.jd.com',
-            referer: 'https://pro.m.jd.com/mall/active/dj6us2JJRLMMBb4iDaSK4wxvBMt/index.html',
-            activityid: 'a54e9a0a1b6044189753e7eba51aab19', // TODO 从页面中获取
-          },
-        },
-        isSuccessFn: data => data.status,
-      },
+      // {
+      //   name: '京东汽车领券签到',
+      //   url: 'https://cgame-stadium.jd.com/api/v1/sign',
+      //   options: {
+      //     headers: {
+      //       origin: 'https://pro.m.jd.com',
+      //       referer: 'https://pro.m.jd.com/mall/active/dj6us2JJRLMMBb4iDaSK4wxvBMt/index.html',
+      //       activityid: 'a54e9a0a1b6044189753e7eba51aab19', // TODO 从页面中获取
+      //     },
+      //   },
+      //   isSuccessFn: data => data.status,
+      // },
       // TODO 待更新
       // jinTieSign,
       // jinTieDraw,
-      {
-        name: '金榜签到',
-        url: `https://api.m.jd.com/client.action?functionId=goldCenterDoTask&body=%7B%22type%22%3A1%7D&appid=content_ecology&clientVersion=10.1.6&client=wh5&ext=%7B%22prstate%22%3A%220%22%7D&uuid=${self.getUUid()}`,
-        options: {
-          headers: {
-            referer: 'https://h5.m.jd.com/babelDiy/Zeus/32xRoXWmepbBVHfDMoHMw2kGfHdF/index.html',
-          },
-        },
-        isSuccessFn: data => _.get(data, 'result.taskCode') === '0',
-        rewardOutputFn: _.property('result.lotteryScore'),
-      },
+      // {
+      //   name: '金榜签到',
+      //   url: `https://api.m.jd.com/client.action?functionId=goldCenterDoTask&body=%7B%22type%22%3A1%7D&appid=content_ecology&clientVersion=10.1.6&client=wh5&ext=%7B%22prstate%22%3A%220%22%7D&uuid=${self.getUUid()}`,
+      //   options: {
+      //     headers: {
+      //       referer: 'https://h5.m.jd.com/babelDiy/Zeus/32xRoXWmepbBVHfDMoHMw2kGfHdF/index.html',
+      //     },
+      //   },
+      //   isSuccessFn: data => _.get(data, 'result.taskCode') === '0',
+      //   rewardOutputFn: _.property('result.lotteryScore'),
+      // },
     ];
 
     const cashSign = [
