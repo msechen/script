@@ -33,16 +33,22 @@ class Sign extends Template {
       url: 'https://api.m.jd.com/client.action',
       options: {
         qs: {
-          functionId: 'signBeanIndex',
-        },
-        form: {
+          functionId: 'signBeanAct',
+          body: {"fp":"-1","shshshfp":"-1","shshshfpa":"-1","referUrl":"-1","userAgent":"-1","jda":"-1","rnVersion":"3.9"},
           appid: 'ld',
+          client: 'apple',
+          clientVersion: '11.3.6',
+          networkType: 'wifi',
+          osVersion: '16.1.2',
+          uuid: 'c6993893af46e44aa14818543914768cf2509fbf',
+          openudid: 'c6993893af46e44aa14818543914768cf2509fbf',
+          // jsonp: 'jsonp_1671169374621_49843',
         },
       },
-      isSuccessFn: data => _.get(data, 'data.status') === '1',
+      isSuccessFn: data => _.get(data, 'code') === '0',
       rewardOutputFn: data => {
         const {dailyAward, continuityAward} = data.data;
-        return `${_.get(dailyAward || continuityAward, 'beanAward.beanCount', 0)} 豆豆`;
+        return `${_.get(dailyAward || continuityAward, 'beanAward.beanCount', 0)} 豆豆(${dailyAward.title})`;
       },
     };
 
@@ -253,7 +259,7 @@ class Sign extends Template {
       taskOptions.push(cashSign[0]);
     }
 
-    for (const options of taskOptions) {
+    for (const options of [taskOptions[0]]) {
       const {times = 1} = options;
       for (let i = 0; i < times; i++) {
         await doTask(options);
