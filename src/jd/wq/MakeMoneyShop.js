@@ -88,7 +88,29 @@ class MakeMoneyShop extends Template {
 
     // 自动提现
     async function handleAutoExchange() {
-      const result = await api.doGetPath('/makemoneyshop/exchangequery', {activeId});
+      const result = await api.doUrl('https://api.m.jd.com/api', {
+        qs: {
+          'functionId': 'makemoneyshop_exchangequery',
+          'appid': 'jdlt_h5',
+          'channel': 'jxh5',
+          'cv': '1.2.5',
+          'clientVersion': '1.2.5',
+          'client': 'jxh5',
+          'uuid': '275736022347120',
+          'cthr': '1',
+          'body': {
+            activeId,
+            'sceneval': 2,
+            'buid': 325,
+            'appCode': 'msc588d6d5',
+            'time': 1671174062625,
+            'signStr': 'f059fb599a27f2283cb9c271d6d32e0a',
+          },
+          't': getMoment().valueOf(),
+          'loginType': '2',
+        },
+      });
+      // const result = await api.doGetPath('/makemoneyshop/exchangequery', {activeId});
       const {code, msg} = result;
       if (code !== 0) {
         return api.log(msg);
