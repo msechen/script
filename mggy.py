@@ -198,10 +198,10 @@ if __name__ == '__main__':
         print('******URL登陆失败******')
         token = '访问失败'
         # 获取信息
-    sg_sfcs = fanhuizhi_josn['data']['userdata']['hasSeed']  # 是否成熟
+    sg_sfcs = fanhuizhi_josn['data']['userdata']['canharvest']  # 是否成熟
     sg_level = fanhuizhi_josn['data']['userdata']['level']  # 等级
     name = fanhuizhi_josn['data']['userdata']['nickName']  # 等级
-    if sg_level:
+    if sg_sfcs:
         message = f"芒果果园:\n{name}的果树已经成熟,快去收取"
         webhook(message, webhook_token)
 
