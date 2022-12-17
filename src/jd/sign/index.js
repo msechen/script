@@ -48,7 +48,7 @@ class Sign extends Template {
       isSuccessFn: data => _.get(data, 'code') === '0',
       rewardOutputFn: data => {
         const {dailyAward, continuityAward} = data.data;
-        return `${_.get(dailyAward || continuityAward, 'beanAward.beanCount', 0)} 豆豆(${dailyAward.title})`;
+        return `${_.get(dailyAward || continuityAward, 'beanAward.beanCount', 0)} 豆豆(${dailyAward ? dailyAward.title : ''})`;
       },
     };
 
