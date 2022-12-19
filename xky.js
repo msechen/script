@@ -6,6 +6,7 @@
 变量名:kyretk
 账号登录后进入任务中心的时候抓包:https://api.kaixinyf.cn/passport/get_token请求体的body全部内容，只有安卓可以用
 举例:refresh_token=XXXXX&platform=Android&client_v=5.20.64&app_v=5.21.21&t=XXXXXX&s=XXXXXX
+const $ = new Env("快音");
 定时:
 cron "1 8 * * *" jd_cxxb_team.js, tag:快速升级，跑一次即可
 */
