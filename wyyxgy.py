@@ -7,28 +7,25 @@ import time
 
 import requests
 
-
 headers = {
     'Host': 'miniapp.you.163.com',
-    # 'Connection': 'keep-alive',
-    # 'charset': 'utf-8',
-    'x-wx-3rd-session': '084b2c481cec4f36244383bc4b9c443b',
-    'ntes-traceid': '1#yanxuan-miniapp#1654845878132#wz82dg3e',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Pixel 4 Build/QD1A.190821.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4207 MMWEBSDK/20220303 Mobile Safari/537.36 MMWEBID/3585 MicroMessenger/8.0.21.2120(0x28001557) Process/appbrand0 WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
-    'yx-s-tid': 'tid_web_11a21d829a5442778885e0722a0b4578_8c225a7b6_1',
-    'wx-pin-session': '084b2c481cec4f36244383bc4b9c443b',
-    # 'Accept-Encoding': 'gzip,compress,br,deflate',
-    # 'wx-pin-channel': '',
-    'yx-aui': '2ncFaS4ac1TdRuKfhCWZg4BNU8iQMFKJ',
-    # 'version': 'v20.2.6',
-    # 'x-wx-common-3rd-session': '',
-    # 'content-type': 'application/json',
-    # 'yx-bargain-channel': '',
-    'ntes-spanid': '24854051',
-    'Referer': 'https://servicewechat.com/wx5b768b801d27f022/454/page-frame.html',
+    'Connection': 'keep-alive',
+    'charset': 'utf-8',
+    'x-wx-3rd-session': '0b5e3b26fdc6369f8561a6091e4f3f3e',
+    'ntes-traceid': '1#yanxuan-miniapp#1671713720984#53k2U3sy',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Pixel 4 Build/QD1A.190821.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4374 MMWEBSDK/20220505 Mobile Safari/537.36 MMWEBID/5067 MicroMessenger/8.0.23.2160(0x28001736) WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+    'yx-s-tid': 'tid_web_2be2fc491071494e8d2e63d5ed9ee221_7b9f86688_1',
+    'wx-pin-session': '0b5e3b26fdc6369f8561a6091e4f3f3e',
+    'Accept-Encoding': 'gzip,compress,br,deflate',
+    'wx-pin-channel': '',
+    'yx-aui': 'KgszWEdmPqW2b88fjsqXK2UGAoiFkU8A',
+    'version': 'v20.5.4',
+    'x-wx-common-3rd-session': '',
+    'content-type': 'application/json',
+    'yx-bargain-channel': '',
+    'ntes-spanid': '13614746',
+    'Referer': 'https://servicewechat.com/wx5b768b801d27f022/476/page-frame.html',
 }
-
-
 
 
 def sign():
@@ -62,6 +59,7 @@ def mfsd():
 def scsd():
     url = "https://miniapp.you.163.com/orchard/task/water/get.json?taskId=GET_EVERYDAY_RANDOM&taskRecordId=&subTaskId="
     response = requests.get(url=url, headers=headers).json()
+    print(response)
     if response['result']['result'] == 1:
         print(f'💧收取{response["result"]["water"]}滴水💧')
     elif response['result']['result'] == 2:
@@ -163,5 +161,5 @@ if __name__ == '__main__':
         time.sleep(random.randint(1, 4))
         print('开始推送信息')
         message=jsjd()
-        webhook(f"网易已选:\n5斤六鳌蜜薯{message}",webhook_token)
+        webhook(f"5斤六鳌蜜薯{message}",webhook_token)
 
