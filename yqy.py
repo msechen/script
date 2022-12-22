@@ -106,7 +106,7 @@ def add_comment(informationId):
 
 
 if __name__ == '__main__':
-    token = os.environ["token"]
+    token = os.environ["yqytoken"]
     headers1 = {
         'token': token,
     }
