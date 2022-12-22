@@ -263,6 +263,10 @@ class Api {
         'resultTips': '未登录',
         'success': false,
       },
+      // functionId=taskInit
+      {'code': '0', 'resultCode': '2001', 'message': 'not login'},
+      // functionId=beanTaskList
+      {'code': '3', 'errorMessage': '用户未登录'},
     ];
     return config.some(o => _.isEqual(o, _.pick(data, _.keys(o))));
   }
