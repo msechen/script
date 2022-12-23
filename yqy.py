@@ -7,7 +7,6 @@ import os
 import random
 import time
 
-
 import requests
 
 headers = {
@@ -40,8 +39,8 @@ def info():
     if res["message"] == "成功":
         userId = res["data"]["userId"]
         integralNum = res["data"]["integralNum"]
-        print(f"任务前积分{integralNum}")
-        return userId,integralNum
+       
+        return userId, integralNum
 
 
 def sign_in(usserid):
@@ -105,15 +104,26 @@ def add_comment(informationId):
         print(f"评论成功")
 
 
+def cumulative_use():
+    url = f"https://api.yqypt.com/v2/count/cumulative_use"
+
+    res = requests.get(url=url, headers=headers).json()
+    # pprint(res)
+    if res["message"] == "成功":
+        print(f"累计使用5分钟")
+
+
 if __name__ == '__main__':
-    token = os.environ["yqytoken"]
+    token = os.environ["token"]
     headers1 = {
         'token': token,
     }
     headers.update(headers1)
-    userid,integralNum = info()
+    userid, integralNum = info()
+    print(f"任务前积分{integralNum}")
     sign_in(userid)
     share()
     read_list()
     userid, integralNum1 = info()
+    cumulative_use()
     print(f"任务后积分{integralNum1}")
