@@ -245,9 +245,9 @@ class Api {
     }
     const config = [
       // https://api.m.jd.com/client.action?functionId=initForFarm&appid=wh5
-      {code: '3'/*, msg: 'not login'*/},
+      {code: '3', msg: 'not login'},
       // Health
-      {'code': -30001/*, 'msg': '登陆失败'*/},
+      {'code': -30001, 'msg': '登陆失败'},
       // https://api.m.jd.com/api?functionId=interact_center_shopSign_signCollectGift
       {'msg': 'errCode:407000007, errMessage:签到用户未登录', 'code': 407000007},
       // JoyPark
