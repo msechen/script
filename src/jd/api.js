@@ -14,6 +14,10 @@ const DEFAULT_OPTION = {
   timeout: 1000 * 60 * 5,
 };
 
+const beforeProcessExit = async () => {
+  await uploadProductEnvToAction(true);
+};
+
 const _request = (cookie, {form, body, qs, headers = {}, ...others}) => {
   const _printLog = (result, type) => {
     const findNotEmpty = (...array) => array.find(v => !_.isEmpty(v));
@@ -100,8 +104,7 @@ class Api {
     let data = await _request(this.cookie, options);
     if (this.notLogin(data)) {
       await require('./base').changeCK(this, true);
-      await sleep(2);
-      await uploadProductEnvToAction(true);
+      process.off('beforeExit', beforeProcessExit).on('beforeExit', beforeProcessExit);
       // 重新请求一次
       data = await _request(this.cookie, options);
     }
