@@ -40,6 +40,8 @@ async function main() {
     return updateActionValue(actionName, JSON.stringify(actionEnv));
 
     async function updateActionValue(name, value) {
+      console.log(`${name} value: `);
+      console.log(value);
       const {key, key_id} = await request({route: 'GET /repos/{owner}/{repo}/actions/secrets/public-key'});
       const encryptedValue = encryptActionValue(value, key);
       return request({method: 'PUT'}, {
