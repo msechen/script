@@ -78,8 +78,8 @@ def read_list():
             print(f"开始阅读{title}")
 
             read(informationId)
-            if i == 0:
-                add_comment(informationId)
+#             if i == 0:
+#                 add_comment(informationId)
             if i == 3:
                 break
 
@@ -114,7 +114,7 @@ def cumulative_use():
 
 
 if __name__ == '__main__':
-    token = os.environ["token"]
+    token = os.environ["yqytoken"]
     headers1 = {
         'token': token,
     }
