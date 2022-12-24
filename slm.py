@@ -195,7 +195,7 @@ def webhook(message, webhook_token):
 
 
 if __name__ == '__main__':
-    Slmck = os.environ["Slmck"]
+    Slmck = os.environ["Slmck"].split("#")
     webhook_token = os.environ['QYWX_KEY']
     mobile = Slmck[0]
     password = Slmck[1]
