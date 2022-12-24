@@ -2,7 +2,6 @@
 cron: 0 7 * * *
 new Env('商联盟');
 """
-
 import json
 import os
 import time
@@ -149,6 +148,19 @@ def jifen():
         return score
 
 
+def jifen_conversion_contribution():
+    url = "http://slm.slm6.cn/api/turn_center/jifen_conversion"
+    body = {"number":"500","pwd":"123456"}
+    body = json.dumps(body).encode(encoding='utf-8')
+    # headers = {'Content-Type': 'application/json'}
+    res = requests.post(url=url, data=body, headers=headers).json()
+    print(res)
+    # if res["code"] == 1:
+    #     money = res['data']["money"]
+    #     print(f"目前现金为{money}")
+    #     return money
+
+
 def scoreExchangeMoney(score, pwd):
     url = "http://slm.slm6.cn/api/turn_center/scoreExchangeMoney"
     body = {"number": score, "pwd": pwd}
@@ -195,6 +207,7 @@ def webhook(message, webhook_token):
 
 
 if __name__ == '__main__':
+    
     Slmck = os.environ["Slmck"].split("#")
     webhook_token = os.environ['QYWX_KEY']
     mobile = Slmck[0]
@@ -206,11 +219,12 @@ if __name__ == '__main__':
     login(mobile, password)
     getadA(adA)
     getadB(adB)
-    print("开始看视频")
+    # print("开始看视频")
     for i in range(100):
         secrets = getVideoSecret()
         getVideoScore(VideoSecret, secrets)
         time.sleep(3)
+    jifen_conversion_contribution()
     score = jifen()
     score = scoreExchangeMoney(score, exchange_pwd)
     money = billing_details()
