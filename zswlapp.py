@@ -1,3 +1,9 @@
+"""
+cron: 39 6 * * *
+new Env('掌上温岭');
+
+"""
+
 import hashlib
 import json
 import os
@@ -51,6 +57,7 @@ def task_list(X_SESSION_ID, X_REQUEST_ID):
         'Host': 'vapp.tmuyun.com'
     }
     response = requests.get(url=url, headers=headers).json()
+    # print(response)
     if response['code'] == 0:
         for i in response['data']['rst']['user_task_list']:
 
@@ -76,8 +83,8 @@ def task_list(X_SESSION_ID, X_REQUEST_ID):
                 elif task_name == '分享资讯给好友':
                     print(f'开始做{task_name}任务')
                     read_list(task_name, X_SESSION_ID, X_REQUEST_ID, member_task_type)
-                elif task_name == '邀请好友':
-                    pass
+                # elif task_name == '邀请好友':
+                #     pass
 
 
             else:
@@ -121,7 +128,8 @@ def do_task(X_SESSION_ID, X_REQUEST_ID, task_type):
         'X-SIGNATURE': sign,
         'X-TENANT-ID': '3',
         'Cache-Control': 'no-cache',
-        'Host': 'vapp.tmuyun.com'
+        'Host': 'vapp.tmuyun.com',
+        'User - Agent': '5.1.6;00000000-6641-8422-ffff-ffffcc0d98b0;Google Pixel 4;Android;10;Release'
     }
     response = requests.post(url=url, headers=headers).json()
     if response['code'] == 0:
@@ -142,8 +150,11 @@ def read_list(task_name, X_SESSION_ID, X_REQUEST_ID, task_type):
         'X-TIMESTAMP': ts,
         'X-SIGNATURE': sign,
         'X-TENANT-ID': '3',
+        'User-Agent': '5.1.6;00000000-6641-8422-ffff-ffffcc0d98b0;Google Pixel 4;Android;10;Release',
         'Cache-Control': 'no-cache',
-        'Host': 'vapp.tmuyun.com'
+        'Host': 'vapp.tmuyun.com',
+        'Connection': 'Keep-Alive',
+        'Accept-Encoding': 'gzip',
     }
     response = requests.get(url=url, headers=headers).json()
     if response['code'] == 0:
@@ -182,8 +193,12 @@ def read(X_SESSION_ID, X_REQUEST_ID, doc_title, article_id, i):
         'X-TIMESTAMP': ts,
         'X-SIGNATURE': sign,
         'X-TENANT-ID': '3',
-        'Cache-Control': 'no-cache',
-        'Host': 'vapp.tmuyun.com'
+        'User-Agent': '5.1.6;00000000-6641-8422-ffff-ffffcc0d98b0;Google Pixel 4;Android;10;Release',
+        # 'Cache-Control': 'no-cache',
+        'Host': 'vapp.tmuyun.com',
+        'Connection': 'Keep-Alive',
+        # 'Accept-Encoding': 'gzip',
+
     }
     response = requests.get(url=url, headers=headers).json()
     if response['code'] == 0:
@@ -205,8 +220,11 @@ def recomment(X_SESSION_ID, X_REQUEST_ID, doc_title, article_id, i):
         'X-TIMESTAMP': ts,
         'X-SIGNATURE': sign,
         'X-TENANT-ID': '3',
+        'User-Agent': '5.1.6;00000000-6641-8422-ffff-ffffcc0d98b0;Google Pixel 4;Android;10;Release',
         'Cache-Control': 'no-cache',
-        'Host': 'vapp.tmuyun.com'
+        'Host': 'vapp.tmuyun.com',
+        'Connection': 'Keep-Alive',
+        'Accept-Encoding': 'gzip',
     }
     response = requests.post(url=url, headers=headers).json()
     if response['code'] == 0:
@@ -226,8 +244,11 @@ def like(X_SESSION_ID, X_REQUEST_ID, doc_title, article_id, i):
         'X-TIMESTAMP': ts,
         'X-SIGNATURE': sign,
         'X-TENANT-ID': '3',
+        'User-Agent': '5.1.6;00000000-6641-8422-ffff-ffffcc0d98b0;Google Pixel 4;Android;10;Release',
         'Cache-Control': 'no-cache',
-        'Host': 'vapp.tmuyun.com'
+        'Host': 'vapp.tmuyun.com',
+        'Connection': 'Keep-Alive',
+        'Accept-Encoding': 'gzip',
     }
     response = requests.post(url=url, headers=headers).json()
     if response['code'] == 0:
@@ -247,8 +268,11 @@ def share(X_SESSION_ID, X_REQUEST_ID, doc_title, article_id, i, task_type):
         'X-TIMESTAMP': ts,
         'X-SIGNATURE': sign,
         'X-TENANT-ID': '3',
+        'User-Agent': '5.1.6;00000000-6641-8422-ffff-ffffcc0d98b0;Google Pixel 4;Android;10;Release',
         'Cache-Control': 'no-cache',
-        'Host': 'vapp.tmuyun.com'
+        'Host': 'vapp.tmuyun.com',
+        'Connection': 'Keep-Alive',
+        'Accept-Encoding': 'gzip',
     }
     response = requests.post(url=url, headers=headers).json()
     if response['code'] == 0:
@@ -257,6 +281,7 @@ def share(X_SESSION_ID, X_REQUEST_ID, doc_title, article_id, i, task_type):
 
 if __name__ == '__main__':
     cks = os.environ['zhwl_data']
+    # cks = "62e23fb1b77d2e52636d30fa&0fb35efa-2a3b-4247-95b9-d318368f4aa8"
     cks = cks.split('@')
     for i in cks:
         ck = i.split('&')
