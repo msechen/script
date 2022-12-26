@@ -34,11 +34,17 @@ class SignShop extends Template {
     // 签到页面url
     // https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=
 
+    // 默认 tokens
+    const defaultShopInfos = [
+      '3B2D1DD3FFBB709A7104BB146CD0E9FA',
+    ];
+
     let signSucceedTokens = [];
+
     // token, venderId, id
     let shopInfos = [
       // 脚本新增插入位置
-    ];
+    ].concat(defaultShopInfos);
 
     if (_.isEmpty(shopInfos)) {
       return api.log('当前没可用的shop info');
@@ -107,8 +113,8 @@ class SignShop extends Template {
             return `${days ? days : '每'}天${Math.floor(discount)}${prizeTypes[type]}`;
           })).join();
         }).filter(str => str);
-        const notPrize = _.isEmpty(prizeRules);
-        const prizeRuleMsg = notPrize ? '' : `奖品: ${prizeRules.join(', ')}`;
+        const notPrize = defaultShopInfos.includes(token) ? false : _.isEmpty(prizeRules);
+        const prizeRuleMsg = notPrize ? '' : `奖品: ${prizeRules.join(', ') || '积分/其他必需值'}`;
         const logMsg = _.filter([`${token} 已签到${currentSignDays}天`, prizeRuleMsg]).join(', ');
         logShopSignInfo(logMsg);
         return notPrize;
