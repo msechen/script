@@ -185,7 +185,7 @@ async function sendNotify(text, desp, params = {}, author = `\n\n京享紅包，
 
 
  */
-async function sendNotify(text, desp, params = {}, author = `\n\n京东秒杀\n秒杀爆品 限时抢购\n抢购链接: https://u.jd.com/2Crsz9x\n——————————————\n更多好物推荐：https://u.jd.com/2dDA7AF\n${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}`) {
+async function sendNotify(text, desp, params = {}, author = `\n——————————————\n${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}`) {
   //提供6种通知
   let remarks = '';
   try {
