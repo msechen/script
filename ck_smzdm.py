@@ -24,9 +24,12 @@ class Smzdm:
             ).json()
             if current["checkin"]["has_checkin"]:
                 msg = (
-                    f"用户信息: {current.get('nickname', '')}\n目前积分: {current.get('point', '')}\n"
-                    f"经验值: {current.get('exp', '')}\n金币: {current.get('gold', '')}\n"
-                    f"碎银子: {current.get('silver', '')}\n威望: {current.get('prestige', '')}\n"
+                    f"用户信息: {current.get('nickname', '')}\n"
+                    f"目前积分: {current.get('point', '')}\n"
+                    f"经验值: {current.get('exp', '')}\n"
+                    f"金币: {current.get('gold', '')}\n"
+                    f"碎银子: {current.get('silver', '')}\n"
+                    f"威望: {current.get('prestige', '')}\n"
                     f"等级: {current.get('level', '')}\n"
                     f"已经签到: {current.get('checkin', {}).get('daily_checkin_num', '')} 天"
                 )
@@ -39,9 +42,12 @@ class Smzdm:
                     .get("data", {})
                 )
                 msg = (
-                    f"用户信息: {current.get('nickname', '')}\n目前积分: {data.get('point', '')}\n"
-                    f"增加积分: {data.get('add_point', '')}\n经验值: {data.get('exp', '')}\n"
-                    f"金币: {data.get('gold', '')}\n威望: {data.get('prestige', '')}\n"
+                    f"用户信息: {current.get('nickname', '')}\n"
+                    f"目前积分: {data.get('point', '')}\n"
+                    f"增加积分: {data.get('add_point', '')}\n"
+                    f"经验值: {data.get('exp', '')}\n"
+                    f"金币: {data.get('gold', '')}\n"
+                    f"威望: {data.get('prestige', '')}\n"
                     f"等级: {data.get('rank', '')}\n"
                     f"已经签到: {data.get('checkin_num', {})} 天"
                 )
@@ -59,8 +65,7 @@ class Smzdm:
                 if item.split("=")[0] == "sess"
             }
             session = requests.session()
-            requests.utils.add_dict_to_cookiejar(session.cookies, cookie)
-
+            session.cookies.update(cookie)
             session.headers.update(
                 {
                     "Accept": "*/*",
@@ -72,17 +77,17 @@ class Smzdm:
                     "Sec-Fetch-Dest": "script",
                     "Sec-Fetch-Mode": "no-cors",
                     "Sec-Fetch-Site": "same-site",
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36",
                 }
             )
-            sign_msg = self.sign(session=session)
-            msg = f"{sign_msg}"
+            msg = self.sign(session)
             msg_all += msg + "\n\n"
         return msg_all
 
 
 if __name__ == "__main__":
-    data = get_data()
-    _check_items = data.get("SMZDM", [])
-    res = Smzdm(check_items=_check_items).main()
-    send("什么值得买", res)
+    _data = get_data()
+    _check_items = _data.get("SMZDM", [])
+    result = Smzdm(check_items=_check_items).main()
+    send("什么值得买", result)
