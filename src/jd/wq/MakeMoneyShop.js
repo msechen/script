@@ -15,7 +15,8 @@ class MakeMoneyShop extends Template {
   static commonParamFn = () => ({});
   static times = 1;
   static needInPhone = false;
-  static concurrent = getNowHour() === 23;
+  static concurrent = [23, 0].includes(getNowHour());
+  static concurrentOnceDelay = 0;
 
   static customApiOptions = {
     uri: 'https://wq.jd.com/newtasksys/newtasksys_front',
@@ -38,7 +39,7 @@ class MakeMoneyShop extends Template {
 
     // TODO 助力
 
-    await handleDoTask();
+    (getNowHour() !== 0) && await handleDoTask();
     await handleAutoExchange();
 
     // 主要获取打卡奖励和输出结果
@@ -129,7 +130,10 @@ class MakeMoneyShop extends Template {
       const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && (o['exchangeStatus'] === 1 || isCron)/* && +o['consumeScore'] > 0.3*/);
       if (isCron && cash) {
         await sleepTime(24);
-        await handleExChange(cash || {name: '8元现金', id: 'da3fc8218d2d1386d3b25242e563acb8'}, {needDelay: false});
+        for (const c of cashExchangeRuleList.reverse().filter(o => +o['consumeScore'] <= +canUseCoinAmount && +o['consumeScore'] >= 3)) {
+          const exchanged = await handleExChange(c, {needDelay: false});
+          if (exchanged) break;
+        }
         return;
       }
 
@@ -150,10 +154,13 @@ class MakeMoneyShop extends Template {
     async function handleExChange(cash, options) {
       await api.doGetPath('/prmt_exchange/client/exchange', {ruleId: cash.id}, options).then(data => {
         const {ret, msg} = data;
-        if (ret !== 0) {
-          return api.log(`提现失败, 原因(${ret}): ${msg}`);
+        const exchanged = ret === 0;
+        if (exchanged) {
+          api.log(`${cash.name} 提现中`);
+        } else {
+          api.log(`提现失败, 原因(${ret}): ${msg}`);
         }
-        api.log(`${cash.name} 提现中`);
+        return exchanged;
       });
     }
 
