@@ -127,10 +127,11 @@ class MakeMoneyShop extends Template {
       } = result;
       api.log(`当前金额: ${canUseCoinAmount}`);
       const isCron = getNowHour() === 23;
-      const cash = cashExchangeRuleList.reverse().find(o => +o['consumeScore'] <= +canUseCoinAmount && (o['exchangeStatus'] === 1 || isCron)/* && +o['consumeScore'] > 0.3*/);
+      cashExchangeRuleList.reverse();
+      const cash = cashExchangeRuleList.find(o => +o['consumeScore'] <= +canUseCoinAmount && (o['exchangeStatus'] === 1 || isCron)/* && +o['consumeScore'] > 0.3*/);
       if (isCron && cash) {
         await sleepTime(24);
-        for (const c of cashExchangeRuleList.reverse().filter(o => +o['consumeScore'] <= +canUseCoinAmount && +o['consumeScore'] >= 3)) {
+        for (const c of cashExchangeRuleList.filter(o => +o['consumeScore'] <= +canUseCoinAmount && +o['consumeScore'] >= 3)) {
           const exchanged = await handleExChange(c, {needDelay: false});
           if (exchanged) break;
         }
