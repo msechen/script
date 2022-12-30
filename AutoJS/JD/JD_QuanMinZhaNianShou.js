@@ -2,8 +2,10 @@
   京东<全民炸年兽>任务
   脚本执行时间过长，请调低手机屏幕亮度，减少电量消耗和发热
 https://t.me/LingFeng0918
-  20221229 V1.3
-  修改任务列表入口按钮
+
+  20221230 V1.4
+  修改品牌墙任务
+  新增组队关键字
 */
 var TaskName = "全民炸年兽"
 Start(TaskName);
@@ -632,7 +634,7 @@ function Run(LauchAPPName, IsSeparation, IsInvite, IsJoinMember) {
             IsJoinMember = 0
             console.log("已连续" + IsNotJoinMemberTimes + "次为新店铺，跳过入会任务");
         }
-        let taskButtons = textMatches(/.*浏览.*s.*|.*浏览.*秒.*|.*首页二屏.*|.*去手Q频道.*|.*去下游参加游戏.*|.*累计浏览.*|.*浏览加购.*|.*预约并浏览.*|.*浏览可获得.*|.*浏览即可得.*|.*浏览并关注.*|.*逛会场可得.*|.*浏览可得.*|.*预约并了解.*|.*成功入会.*|.*小程序.*|.*去组队可得.*|.*打卡可得.*|.*去APP.*|.*参与城城点击.*|.*品牌墙店铺.*|.*玩AR游戏可得.*爆竹.*/).find()
+        let taskButtons = textMatches(/.*浏览.*s.*|.*浏览.*秒.*|.*首页二屏.*|.*去手Q频道.*|.*去下游参加游戏.*|.*累计浏览.*|.*浏览加购.*|.*预约并浏览.*|.*浏览可获得.*|.*浏览即可得.*|.*浏览并关注.*|.*逛会场可得.*|.*浏览可得.*|.*预约并了解.*|.*成功入会.*|.*小程序.*|.*今日邀请.*|.*去组队可得.*|.*打卡可得.*|.*去APP.*|.*参与城城点击.*|.*品牌墙店铺.*|.*玩AR游戏可得.*爆竹.*/).find()
         if (taskButtons.empty()) {
             console.log("未找到合适的任务，退出");
             sleep(3000);
@@ -655,7 +657,7 @@ function Run(LauchAPPName, IsSeparation, IsInvite, IsJoinMember) {
                 //跳过任务
                 //if (taskText.match(/首页二屏/)) continue
                 //if (taskText.match(/成功入会/)) continue
-                //if (taskText.match(/品牌墙店铺/)) continue
+                //if (taskTitle.match(/品牌墙/)) continue
                 //if (taskText.match(/参与城城点击/)) continue
                 //if (taskText.match(/去组队/)) continue
                 //if (taskText.match(/小程序/)) continue
@@ -853,6 +855,7 @@ function Run(LauchAPPName, IsSeparation, IsInvite, IsJoinMember) {
                 if (taskTitle.match(/品牌墙/)) {
                     if (!text("累计任务奖励").exists() && (textContains("消耗").exists())) {
                         console.log("未识别到任务列表，尝试自动打开");
+                        let taskListButton = textContains("消耗").findOne(10000)
                         taskListButton.parent().parent().child(5).child(1).click();
                         sleep(1000);
                     }
@@ -1533,7 +1536,7 @@ function Run(LauchAPPName, IsSeparation, IsInvite, IsJoinMember) {
                 console.log("任务完成");
                 IsNotJoinMemberTimes = 0;
             }
-        } else if (taskText.match(/预约并了解|玩AR游戏可得|打卡可得/)) {
+        } else if (taskText.match(/预约并了解|玩AR游戏可得|打卡可得|今日邀请/)) {
             console.log(taskText);
             taskButton.click();
             sleep(2000);
@@ -1657,6 +1660,11 @@ function Run(LauchAPPName, IsSeparation, IsInvite, IsJoinMember) {
                     return;
                 }
                 taskListButton.parent().parent().child(5).child(1).click();
+                sleep(1000);
+            }
+            if (textContains("恭喜，获得限时红包").exists()) {
+                console.log("关闭弹窗");
+                textContains("恭喜，获得限时红包").parent().parent().child(0).click();
                 sleep(1000);
             }
             if (i == 10) {
