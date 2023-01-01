@@ -38,7 +38,7 @@ class tebu:
             elif not res["Result"]["VipSignInDtl"]["IsSigInToday"]:
                 url = "https://wxa-tp.ezrpro.com/myvip/Vip/SignIn/SignIn"
                 data = json.dumps({
-                    "ActId": 793,
+                    "ActId": 797,
                     "ActRemindStatus": True
                 })
                 try:

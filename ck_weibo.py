@@ -38,22 +38,39 @@ class WeiBo:
 
     @staticmethod
     def card(cookie):
-        headers = { "Host": "luck.sc.weibo.com",
-                    "Pragma": "no-cache",
-                    "Accept": "application/json",
-                    "X-Requested-With": "XMLHttpRequest",
-                    "If-Modified-Since": "0",
-                    "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-                    "Accept-Encoding": "gzip, deflate, br",
-                    "Cache-Control": "no-cache",
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "Origin": "https://luck.sc.weibo.com",
-                    "User-Agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
-                    "Referer": f"https://luck.sc.weibo.com/?ua=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F103.0.0.0+Safari%2F537.36&source=ugsx&kxly=home&wbtpuuid=123ebbdd5d28204adbcdbef11e91caaa2706",
-                    "Content-Length": "0",
-                    "Connection": "keep-alive",
-                    "Cookie": f"{cookie}"
-}
+#         headers = { "Host": "luck.sc.weibo.com",
+#                     "Pragma": "no-cache",
+#                     "Accept": "application/json",
+#                     "X-Requested-With": "XMLHttpRequest",
+#                     "If-Modified-Since": "0",
+#                     "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+#                     "Accept-Encoding": "gzip, deflate, br",
+#                     "Cache-Control": "no-cache",
+#                     "Content-Type": "application/x-www-form-urlencoded",
+#                     "Origin": "https://luck.sc.weibo.com",
+#                     "User-Agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
+#                     "Referer": f"https://luck.sc.weibo.com/?ua=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F103.0.0.0+Safari%2F537.36&source=ugsx&kxly=home&wbtpuuid=123ebbdd5d28204adbcdbef11e91caaa2706",
+#                     "Content-Length": "0",
+#                     "Connection": "keep-alive",
+#                     "Cookie": f"{cookie}"
+# }
+        # getres = requests.get(url=f"https://luck.sc.weibo.com/?ua=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F108.0.0.0+Safari%2F537.36&source=ugsx&kxly=home&wbtpuuid=e77779baaf38de335caaad2930988cd59427")
+        headers = { "accept": "application/json",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9",
+                    "cache-control": "no-cache",
+                    "content-length": "0",
+                    "content-type": "application/x-www-form-urlencoded",
+                    "cookie": f"{cookie}",
+                    "if-modified-since": "0",
+                    "origin": f"https://luck.sc.weibo.com",
+                    "referer": f"https://luck.sc.weibo.com/?ua=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F108.0.0.0+Safari%2F537.36&source=ugsx&kxly=home&wbtpuuid=e77779baaf38de335caaad2930988cd59427",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "user-agent": f"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
+                    "x-requested-with": "XMLHttpRequest"
+        }
         res = requests.post(
             url=f"https://luck.sc.weibo.com/aj/jifen/info",
             headers=headers,
@@ -65,7 +82,7 @@ class WeiBo:
                 f'积分总计: {res["data"]["score"]} 积分'
             )
         else:
-            msg = "每日打卡: 活动过期或失效"
+            msg = "积分获取失败"
         return msg
 
     @staticmethod
