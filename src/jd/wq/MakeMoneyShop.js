@@ -132,6 +132,7 @@ class MakeMoneyShop extends Template {
       if (isCron && cash) {
         await sleepTime(24);
         for (const c of cashExchangeRuleList.filter(o => +o['consumeScore'] <= +canUseCoinAmount && +o['consumeScore'] >= 3)) {
+          api.log(`准备兑换 ${JSON.stringify(c)}`);
           const exchanged = await handleExChange(c, {needDelay: false});
           if (exchanged) break;
         }
