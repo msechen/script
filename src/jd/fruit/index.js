@@ -58,8 +58,8 @@ class Fruit extends Template {
   static async doMain(api, shareCodes) {
     const self = this;
     const needHarvest = false;
-    // 快速浇水默认不开启
-    const enableFastWater = false;
+    // 快速浇水默认开启
+    const enableFastWater = true;
     const waterTimes = 0;
 
     // 指定浇水次数
