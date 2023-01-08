@@ -6,6 +6,8 @@
 export nmviphd ='XXXXXXXXX'
 多号@隔开或换行
 内置互助 多加一个依赖  uglify-js
+cron: 0 7 * * *
+new Env('蒙牛超级会员')
 */
 const $ = new Env('猛牛VIP');
 const axios = require('axios');
