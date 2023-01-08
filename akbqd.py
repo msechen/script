@@ -42,7 +42,7 @@ def getUserDetails(token):
         userName = response['result']["userName"]
         totalPoints = response['result']["totalPoints"]
         print(f"欢迎{userName},目前{totalPoints}积分".center(50, "*"))
-        return f'{userName},目前{totalPoints}积分'
+        return f'{userName},目前艾克帮积分{totalPoints}积分'
 
 
 def getsign(token):
