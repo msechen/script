@@ -25,7 +25,6 @@ const SignTurnTable = TemporarilyOffline || require('./jd/sign/TurnTable');
 const PlantBean = require('./jd/plantBean');
 const SuperMarket = TemporarilyOffline || require('./jd/superMarket');
 const SuperMarketRedeem = require('./jd/superMarket/redeem');
-const Pet = require('./jd/pet');
 const Fruit = require('./jd/fruit');
 const FruitDoShare = require('./jd/fruit/doShare');
 const TurnTableFarm = require('./jd/fruit/turnTableFarm');
@@ -122,7 +121,7 @@ async function main() {
   // 常驻活动
   const longTermActivity = [
     SignBeanHome, Sign,
-    Fruit, Pet, TurnTableFarm,
+    Fruit, TurnTableFarm,
     FruitFarmPark, FruitCollect,
     Cash,
     CashApplet,
@@ -197,7 +196,7 @@ async function main() {
       valid: 7,
       run: async () => {
         await serialRun([
-          Fruit, Pet,
+          Fruit,
           LiteEarnCoins,
           Family,
         ]);
@@ -220,7 +219,7 @@ async function main() {
       valid: 12,
       run: async () => {
         await serialRun([
-          Fruit, Pet,
+          Fruit,
           Factory,
           PlantBean,
         ]);
@@ -246,7 +245,7 @@ async function main() {
       valid: 18,
       run: async () => {
         await serialRun([
-          Fruit, Pet,
+          Fruit,
           PlantBean,
           SuperBrandProduct,
         ]);
@@ -270,7 +269,7 @@ async function main() {
       valid: 22,
       run: async () => {
         await serialRun([
-          Fruit, Pet,
+          Fruit,
           LiteEarnCoins,
           SuperMarket,
           ...statistics,
@@ -294,7 +293,7 @@ async function main() {
           [PlantBean, void 0, 'cron'],
           SuperBrandProduct,
           Joy,
-          Fruit, Pet,
+          Fruit,
           Factory,
         ]);
 
