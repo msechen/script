@@ -168,6 +168,7 @@ class Template extends Base {
     removeEncryptKeys = ['_stk', '_ste'],
     replaceMethods = ['doFormBody', 'doGetBody'],
     afterEncryptFn = _.noop,
+    signKeys = [],
   }) {
     const origin = _.get(api, 'options.headers.origin');
 
@@ -189,19 +190,26 @@ class Template extends Base {
         let form = _.merge({}, defaultData, body && {body}, {t}, options.qs || options.form);
         // TODO 整理成通用方法
         if (functionId in config) {
-          let {encryptH5st, appId, fingerprint, algoData, platform, disableAutoUpdate} = config[functionId];
+          let {encryptH5st, appId, fingerprint, algoData, platform, disableAutoUpdate, version} = config[functionId];
           !encryptH5st && (config[functionId] = encryptH5st = new EncryptH5st({
             appId,
             origin,
             fingerprint,
             algoData,
             platform,
+            version,
             disableAutoUpdate,
           }));
+          let notSignForm = {};
+          if (!_.isEmpty(signKeys)) {
+            notSignForm = _.omit(form, signKeys);
+            form = _.pick(form, signKeys);
+          }
           form = await encryptH5st.sign({functionId, ...form});
           removeEncryptKeys.forEach(key => {
             delete form[key];
           });
+          _.merge(form, notSignForm);
         }
         afterEncryptFn(form);
         if (['doGetBody', 'doGet'].includes(method)) {

@@ -101,6 +101,9 @@ class Api {
         options[key] = _.assign({[priorityProperty]: options[key][priorityProperty]}, options[key]);
       }
     });
+    if (options['blockRequest']) {
+      return Promise.resolve({});
+    }
     let data = await _request(this.cookie, options);
     if (this.notLogin(data)) {
       await require('./base').changeCK(this, true);
