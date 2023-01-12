@@ -25,4 +25,4 @@ jobs:
           source_repo: "https://github.com/DovFork/AutoSync.git"
           source_branch: "main"
           destination_branch: "AutoSync"
-          github_token: ${{ secrets.PAT }}
+          github_token: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11,需要repo和workflow权限
