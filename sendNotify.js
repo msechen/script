@@ -181,11 +181,8 @@ if (process.env.appToken) {
  * @param params 某些推送通知方式点击弹窗可跳转, 例：{ url: 'https://abc.com' }
  * @param author 作者仓库等信息  例：`本脚本免费使用 By：xxxx`
  * @returns {Promise<unknown>}
-async function sendNotify(text, desp, params = {}, author = `\n\n京享紅包，尽享年货\n每天可玩3次，最高9999元任你抢\n抢购链接: https://u.jd.com/SCiimTt\n——————————————\n更多好物推荐：https://u.jd.com/2dDA7AF\n${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}`) {
-
-
  */
-async function sendNotify(text, desp, params = {}, author = `\n——————————————\n${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}`) {
+async function sendNotify(text, desp, params = {}, author = `\n=====================\n${format(Date.now(), "yyyy-MM-dd HH:mm:ss")}`) {
   //提供6种通知
   let remarks = '';
   try {
@@ -396,6 +393,7 @@ function tgBotNotify(text, desp) {
             chat_id: `${TG_USER_ID}`,
             text: `${text}\n\n${desp}`,
             disable_web_page_preview:true,
+            parse_mode:"html",
           },
         headers: {
           'Content-Type': 'application/json',
