@@ -317,11 +317,7 @@
             "name": "M等级生日礼包",
             "env": "export M_WX_LEVEL_BIRTH_URL=\"%s\""
         },
-        "(/wxCollectionActivity/|^(?=.*lorealjdcampaign)(?=.*activityType=10024).*$)": {
-            "name": "M加购有礼",
-            "env": "export M_WX_ADD_CART_URL=\"%s\""
-        },
-        "(^(?=.*lorealjdcampaign)(?=.*activityType=10024).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10024).*$)": {
+        "(/wxCollectionActivity/|interact(saas)?/(index)?\\?activityType=(10024))": {
             "name": "M加购有礼",
             "env": "export M_WX_ADD_CART_URL=\"%s\""
         },
@@ -341,31 +337,19 @@
             "name": "微定制开卡",
             "env": "#微定制\nexport WDZactivityId=\"%s\""
         },
-        "^(?=.*lorealjdcampaign)(?=.*activityType=10006).*$": {
-            "name": "M邀请有礼LOREAL",
-            "env": "export M_LOREAL_INVITE_URL=\"%s\""
-        },
-        "^(?=.*prod/cc/interactsaas)(?=.*activityType=10006).*$": {
+        "(interact(saas)?/(index)?\\?activityType=(10006|10070))": {
             "name": "M邀请有礼INTERACT",
             "env": "export M_INTERACT_INVITE_URL=\"%s\""
         },
-        "^(?=.*prod/cc/interactsaas)(?=.*activityType=10070).*$": {
-            "name": "M邀请有礼INTERACT",
-            "env": "export M_INTERACT_INVITE_URL=\"%s\""
-        },
-        "(/lzclient/|/wxDrawActivity/|^(?=.*gzsl-isv)(?=.*game).*$)": {
+        "(showDrawOne|/lzclient/|/wxDrawActivity/|^(?=.*gzsl-isv)(?=.*game).*$)": {
             "name": "M幸运抽奖",
             "env": "export M_WX_LUCK_DRAW_URL=\"%s\""
         },
-        "(^(?=.*prod/cc/interactsaas)(?=.*activityType=10020).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10021).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10026).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10031).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10063).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10080).*$)": {
+        "(interact(saas)?/(index)?\\?activityType=(10020|10021|10026|10031|10046|10063|10073|10080))": {
             "name": "M幸运抽奖",
             "env": "export M_WX_LUCK_DRAW_URL=\"%s\""
         },
-        "/completeInfoActivity/": {
-            "name": "M完善有礼",
-            "env": "export M_WX_COMPLETE_DRAW_URL=\"%s\""
-        },
-        "^(?=.*prod/cc/interactsaas)(?=.*activityType=10049).*$": {
+        "(/completeInfoActivity/|interact(saas)?/(index)?\\?activityType=(10049))": {
             "name": "M完善有礼",
             "env": "export M_WX_COMPLETE_DRAW_URL=\"%s\""
         },
@@ -381,7 +365,7 @@
             "name": "M关注特效",
             "env": "export M_WX_SHOP_GIFT_URL=\"%s\""
         },
-        "^(?=.*prod/cc/interactsaas)(?=.*activityType=10058).*$": {
+        "(interact(saas)?/(index)?\\?activityType=(10058))": {
             "name": "M无线关注",
             "env": "export M_WX_SHOP_GIFT_URL=\"%s\""
         },
@@ -393,11 +377,7 @@
             "name": "M每日领奖",
             "env": "export M_WX_DAILY_GIFT_URL=\"%s\""
         },
-        "/signActivity?": {
-            "name": "M签到有礼",
-            "env": "export M_WX_SHOP_SIGN_URL=\"%s\""
-        },
-        "(^(?=.*prod/cc/interactsaas)(?=.*activityType=10023).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10040).*$)": {
+        "(/showSign|/signActivity|interact(saas)?/(index)?\\?activityType=(10023|10040))": {
             "name": "M签到有礼",
             "env": "export M_WX_SHOP_SIGN_URL=\"%s\""
         },
@@ -409,11 +389,7 @@
             "name": "M盖楼领奖",
             "env": "export M_WX_BUILD_DRAW_URL=\"%s\""
         },
-        "/wxCartKoi/": {
-            "name": "M购物车锦鲤",
-            "env": "export M_WX_CARTKOI_URL=\"%s\""
-        },
-        "^(?=.*prod/cc/interactsaas)(?=.*activityType=10036).*$": {
+        "(/wxCartKoi/|interact(saas)?/(index)?\\?activityType=(10036))": {
             "name": "M购物车锦鲤",
             "env": "export M_WX_CARTKOI_URL=\"%s\""
         },
@@ -429,7 +405,7 @@
             "name": "M关注抽奖",
             "env": "export M_WX_FOLLOW_DRAW_URL=\"%s\""
         },
-        "(^(?=.*prod/cc/interactsaas)(?=.*activityType=10053).*$|^(?=.*prod/cc/interactsaas)(?=.*activityType=10069).*$)": {
+        "(interact(saas)?/(index)?\\?activityType=(10053|10069))": {
             "name": "M无线关注",
             "env": "export M_WX_FOLLOW_DRAW_URL=\"%s\""
         },
