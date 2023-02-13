@@ -175,11 +175,13 @@ async def converter_lines(text):
 async def handler(event):
     try:
         reply = await event.get_reply_message()
+        reply_text = reply.text
         if event.is_reply is False:
             return
-        if "export" in reply.text:
+        await event.delete()
+        if "export" in reply_text:
             # 提取变量
-            text = await converter_lines(reply.text)
+            text = await converter_lines(reply_text)
             text = re.findall(r'(export.*)', text)[0]
             await export(text)
             kv = text.replace("export ", "")
@@ -190,7 +192,7 @@ async def handler(event):
             await cmd(command)
         else:
             # 提取变量
-            activity_id, url = await get_activity_info(reply.text)
+            activity_id, url = await get_activity_info(reply_text)
             if activity_id is None:
                 logger.info(f"未找到id [%s],退出", url)
                 return
