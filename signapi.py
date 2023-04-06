@@ -10,7 +10,7 @@ server = flask.Flask(__name__)
 
 # 食用方法
 # 0. 进入ql容器
-# 1. 下载 https://t.me/Wall_E_Channel/2129文件,放到signapi.py同录下
+# 1. 下载 https://t.me/Wall_E_Group/2356文件,放到signapi.py同录下
 # 2. pm2 start signapi.py -x --interpreter python3
 # 3. export M_API_SCAN_SIGN_URL="http://ip:17840/sign"
 @server.route('/sign', methods=['post'])
